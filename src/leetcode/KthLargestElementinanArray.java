@@ -88,4 +88,15 @@ public class KthLargestElementinanArray {
         }
         return minHeap.poll();
     }
+    
+    //brute-force
+    public int findKthLargest3(int[] nums, int k) {
+        //edge case
+        if (nums == null || nums.length < 1 || nums.length < k || k <= 0) {
+            return -1;
+        }
+        
+        Arrays.sort(nums);
+        return nums[nums.length - k];
+    }
 }

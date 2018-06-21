@@ -1,5 +1,6 @@
 package leetcode;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.PriorityQueue;
@@ -82,6 +83,43 @@ public class ThirdMaximumNumber {
         }
         if (priorityQueue.size() == 2) priorityQueue.poll();
         return priorityQueue.peek();
+    }
+    
+    public int thirdMax3(int[] nums) {
+        //edge case
+        if (nums == null || nums.length < 1) {
+            return 0;
+        }
+        
+        
+        int len = nums.length - 1;
+        if (len <= 1) {
+            Arrays.sort(nums);
+            return nums[len];
+        }
+        // Integer used to assigned value or not
+        Integer max3 = null, max2 = null, max1 = null;
+        for(Integer num : nums) {
+            if (nums.equals(max3) || nums.equals(max2) || nums.equals(max1)) {
+                continue;
+            }
+            
+            if (max3 == null || (num > max3)) {
+                max1 = max2;
+                max2 = max3;
+                max3 = num;
+            } else if (max2 == null || (num > max2)) {
+                max1 = max2;
+                max2 = num;
+            } else if (max1 == null || (num > max1)) {
+                max1 = num;
+            } else {
+                continue;
+            }
+        }
+        
+        return max1 == null ? max3 : max1;
+        
     }
 
 }
