@@ -68,7 +68,7 @@ public class KthLargestElementinanArray {
     }
 
     /**
-     * time : O(nlogk)
+     * time : O(nlogk) because it only contains k elements
      * space : O(n)
      *
      * @param nums
@@ -76,7 +76,7 @@ public class KthLargestElementinanArray {
      * @return
      */
 
-
+    
     public int findKthLargest2(int[] nums, int k) {
         if (nums == null || nums.length == 0) return 0;
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();

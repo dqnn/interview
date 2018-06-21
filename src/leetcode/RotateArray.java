@@ -20,7 +20,7 @@ public class RotateArray {
      * @param nums
      * @param k
      */
-    //time : O(n)  space : O(n)
+    //time : O(n)  space : O(n), this use extra space to store the array
     public void rotate(int[] nums, int k) {
         int[] temp = new int[nums.length];
         for (int i = 0; i < nums.length; i++) {
@@ -55,5 +55,24 @@ public class RotateArray {
             start++;
             end--;
         }
+    }
+    
+    // time exceeded
+    public void rotate4(int[] nums, int k) {
+        //edge case
+        if (nums == null || nums.length < 1) {
+            return;
+        }
+        
+        int len = nums.length;
+        int p = k;
+        while (p > 0) {
+            int temp = nums[len - 1];
+            for(int i = len - 1; i >= 1; i--) {
+                nums[i] = nums[i - 1];
+            }
+            nums[0] = temp;
+            p--;
+        };
     }
 }
