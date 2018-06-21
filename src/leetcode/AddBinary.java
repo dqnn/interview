@@ -30,6 +30,8 @@ public class AddBinary {
             if (j >= 0) sum += b.charAt(j) - '0';
             sb.append(sum % 2);
             remainder = sum / 2;
+            j--;
+            i--;
         }
         if (remainder != 0) {
             sb.append(remainder);
