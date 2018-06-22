@@ -1,6 +1,11 @@
 package leetcode;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class ArrayNesting {
@@ -32,7 +37,7 @@ Each element of A is an integer within the range [0, N-1].
     */
     
     
-    public int arrayNesting(int[] nums) {
+    public int arrayNesting2(int[] nums) {
         //edge case
         if (nums == null || nums.length < 1) {
             return 0;
@@ -49,6 +54,41 @@ Each element of A is an integer within the range [0, N-1].
             }
             max = Math.max(max, set.size());
             set.clear();;
+        }
+        
+        return max;
+    }
+    
+    // accepted solution, we have
+    //Map : to store nums[i] <--> Set, 5 <--> 5, 6, 2, 0
+    // list is to find the index of the duplicate elements
+    public int arrayNesting(int[] nums) {
+        //edge case
+        if (nums == null || nums.length < 1) {
+            return 0;
+        }
+        
+        int len = nums.length - 1;
+        int max = Integer.MIN_VALUE;
+        Map<Integer, Set<Integer>> map = new HashMap<>();
+        
+        for(int i = 0; i <= len; i++) {
+            int start = nums[i];
+            int temp = start;
+            Set<Integer> set = new LinkedHashSet<>();
+            while (!set.contains(temp) && !map.containsKey(temp)) {
+                set.add(temp);
+                temp = nums[temp];
+            }
+            
+            // 5 6 0 2 and 0 5 6 0 2, we will stop at 0 so we have to delete 2 in 0 array
+            if (map.containsKey(temp)) {
+                List<Integer> list = new ArrayList<>(set);
+                max = Math.max(max, set.size() + list.indexOf(start) + 1);
+            } else {
+                max = Math.max(max, set.size());
+            }
+            map.put(start, set);
         }
         
         return max;
