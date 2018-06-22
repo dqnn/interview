@@ -32,4 +32,28 @@ public class ProductofArrayExceptSelf {
         }
         return res;
     }
+    
+ // this is pretty brilliant solution that two visits solve this problem
+    public int[] productExceptSelf2(int[] nums) {
+        //edge case
+        if (nums == null || nums.length < 1) {
+            return null;
+        }
+        
+        int len = nums.length - 1;
+        int[] res = new int[len + 1];
+        for (int i = 0, temp = 1; i <= len; i++) {
+            res[i] = temp;
+            temp = temp * nums[i];
+        }
+        
+        for (int i = len, temp = 1; i >= 0; i--) {
+            res[i] = res[i] * temp;
+            temp = temp * nums[i];
+        }
+        
+        return res;
+    }
+    
+    //how about DP? 
 }
