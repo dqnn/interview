@@ -44,6 +44,7 @@ public class CombinationSum {
         return res;
     }
 
+    // this is templates for writing permutation
     public void helper(List<List<Integer>> res, List<Integer> list, int[] candidates, int target, int start) {
         if (target < 0) return;
         if (target == 0) {
