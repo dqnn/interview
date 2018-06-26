@@ -18,7 +18,7 @@ public class BestTimetoBuyandSellStockII {
      * @param prices
      * @return
      */
-    public static int maxProfit(int[] prices) {
+    public static int maxProfit2(int[] prices) {
         if (prices == null || prices.length < 2) {
             return 0;
         }
@@ -29,5 +29,24 @@ public class BestTimetoBuyandSellStockII {
             }
         }
         return profit;
+    }
+    
+    // using DP dp store the max value for {1,2,3...n -1}
+    public int maxProfit(int[] prices) {
+        //edge case
+        if (prices == null || prices.length == 0 || prices.length == 1) {
+            return 0;
+        }
+        
+        //dp[n] to describe  the n integers max--profit, dp[0] = 0, dp[1] = Math.max(nums[1] - nums[0], 0); dp[n] 
+        
+        int len = prices.length - 1;
+        int[] dp = new int[len + 1];
+        dp[0] = 0;
+        for(int i = 1; i <= len; i++) {
+            dp[i] = dp[i-1] + Math.max(prices[i] - prices[i-1], 0);
+        }
+        
+        return dp[len];
     }
 }

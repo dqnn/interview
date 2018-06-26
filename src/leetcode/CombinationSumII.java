@@ -57,7 +57,7 @@ public class CombinationSumII {
             return;
         }
         for (int i = start; i < candidates.length; i++) {
-            if (i != start && candidates[i] == candidates[i - 1]) continue;
+            if (i != start && candidates[i] == candidates[i - 1]) continue;//duplicate situations
             list.add(candidates[i]);
             helper(res, list, candidates, target - candidates[i], i + 1);
             list.remove(list.size() - 1);

@@ -31,12 +31,9 @@ arr[i] will be a permutation of [0, 1, ..., arr.length - 1].
     */
     
     /*
-    original: 0, 2, 1, 4, 3, 5, 7, 6
-    max:      0, 2, 2, 4, 4, 5, 7, 7
-    sorted:   0, 1, 2, 3, 4, 5, 6, 7
-    index:    0, 1, 2, 3, 4, 5, 6, 7
+   
+    so the array is [0, 1,2.... n], we want to know whether 0---k-1 the maxium is k, if it is, then this should be a chunk
     
-    compared to the final sorted array, which means these value in the position is the boundary of each partition
     */
     public int maxChunksToSorted(int[] nums) {
         //edge case
