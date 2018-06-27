@@ -50,10 +50,27 @@ public class BestTimetoBuyandSellStockIII {
         int sell1 = 0, sell2 = 0;
         for (int price : prices) {
             sell2 = Math.max(sell2, buy2 + price);
-            buy2 = Math.max(buy2, sell1 - price);
+            buy2 = Math.max(buy2, sell1 - price); // buy second time
             sell1 = Math.max(sell1, buy1 + price);
             buy1 = Math.max(buy1, -price);
         }
         return sell2;
+    }
+    
+ // T[i][k][0] = max{T[i - 1][k][0], T[i - 1][k][1] + nums[i] - fee};
+    // T[i][k][1] = max{T[i - 1][k][1], T[i - 1][k][0] - nums [i]} 
+    public int maxProfit2(int[] prices) {
+        //edge case
+        int T_i10 = 0, T_i11 = Integer.MIN_VALUE, T_i20 = 0, T_i21 = Integer.MIN_VALUE;
+        
+    for (int price : prices) {
+        T_i20 = Math.max(T_i20, T_i21 + price);
+        T_i21 = Math.max(T_i21, T_i10 - price);// this is because  no stock left we want to buy for second time, connect two transactions
+        T_i10 = Math.max(T_i10, T_i11 + price); // sell the stock for first time
+        T_i11 = Math.max(T_i11, -price); // first buysing
+    }
+        
+    return T_i20;
+        
     }
 }
