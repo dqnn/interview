@@ -71,7 +71,7 @@
 | 280 | Wiggle Sort |  |
 | 324 | Wiggle Sort II |
 
-##String
+## String
 | 基础 |  |  |
 | --- | --- | --- |
 | 28 | Implement strStr() |  |
