@@ -72,7 +72,6 @@
 | 324 | Wiggle Sort II |
 
 ##String
-
 | 基础 |  |  |
 | --- | --- | --- |
 | 28 | Implement strStr() |  |
@@ -145,7 +144,7 @@
 | 115 | Distinct Subsequences |  |
 | 187 | Repeated DNA Sequences | 很少考 |
 
-##Math
+## Math
 | 基础 |  |  |
 | --- | --- | --- |
 | 7 | Reverse Integer |  |
@@ -310,6 +309,7 @@
 | 91 | Decode Ways |  |
 | 10 | Regular Expression Matching |  |
 | 44 | Wildcard Matching |
+
 ##LinkedList
 | 基础 |  |
 | --- | --- |
@@ -478,6 +478,7 @@
 | 211 | Add and Search Word - Data structure design |
 | 208 | Implement Trie (Prefix Tree) |
 | 212 | Word Search II |
+
 ## Design
 | 基础 |  |  |
 | --- | --- | --- |
