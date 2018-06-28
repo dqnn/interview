@@ -2,7 +2,10 @@ package leetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by duqiang on 28/07/2017.
@@ -50,5 +53,27 @@ public class SubsetsII {
             helper(res, list, nums, i + 1);
             list.remove(list.size() - 1);
         }
+    }
+    
+    // try to use Math way to add it, see explain in SubSets.java
+    public List<List<Integer>> subsetsWithDup2(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        res.add(new ArrayList<>());
+        if (nums == null || nums.length < 1) {
+            return res;
+        }
+        
+        for (int i = 0; i <= nums.length - 1; i++) {
+            int size = res.size();
+            for (int j = 0; j <= size - 1; j ++) {
+                List<Integer> subset = new ArrayList<>(res.get(j));
+                subset.add(nums[i]);
+                Collections.sort(subset);
+                res.add(subset);
+            }
+        }
+        Set<List<Integer>> temp = new HashSet<>(res);
+        return new ArrayList<>(temp);
+        
     }
 }
