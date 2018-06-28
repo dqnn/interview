@@ -12,6 +12,8 @@ import java.util.Queue;
  * Creator : duqiang
  * Date : Aug, 2017
  * Description : 637. Average of Levels in Binary Tree
+ * Given a non-empty binary tree, return the average value of the nodes on each level 
+ * in the form of an array.
  */
 public class AverageofLevelsinBinaryTree {
 

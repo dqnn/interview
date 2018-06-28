@@ -9,6 +9,10 @@ import java.util.Stack;
  * Creator : duqiang
  * Date : Sep, 2017
  * Description : 227. Basic Calculator II
+ * Implement a basic calculator to evaluate a simple expression string.
+
+The expression string contains only non-negative integers, +, -, *, / operators and empty spaces . 
+The integer division should truncate toward zero.
  */
 public class BasicCalculatorII {
     /**
