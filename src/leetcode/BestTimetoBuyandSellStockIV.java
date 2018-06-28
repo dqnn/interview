@@ -56,7 +56,7 @@ public class BestTimetoBuyandSellStockIV {
     }
     
     //another solution. k >= len/2 means you can sell/buy every day since "at most", this 
-    // become the infinete use case
+    // become the infinite use case
     public int maxProfit2(int k, int[] prices) {
         if (k >= prices.length >>> 1) {
             int T_ik0 = 0, T_ik1 = Integer.MIN_VALUE;
