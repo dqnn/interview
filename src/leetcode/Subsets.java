@@ -59,10 +59,10 @@ public class Subsets {
     
     //this is too elegant
     public static void helper(List<List<Integer>> res, List<Integer> list, int[] nums, int index) {
-    		// need to understand why we add these conditions answers will be wrong
-    	   // if (nums == null || index < 0 || index >= nums.length) {
-         //   return;
-        //}
+    		// we rely on next visit to add the list into the res, so index > index > nums.length, no =
+    	    if (nums == null || index < 0 || index > nums.length) {
+            return;
+        }
     	
     	    res.add(new ArrayList<>(list));
         for (int i = index; i < nums.length; i++) {
