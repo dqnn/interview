@@ -69,7 +69,7 @@ public class AlienDictionary {
 
         if (words == null || words.length == 0) return "";
 
-        StringBuilder res = new StringBuilder();
+        
         HashMap<Character, Set<Character>> map = new HashMap<>();
         int[] degree = new int[26];
         int count = 0;
@@ -107,6 +107,7 @@ public class AlienDictionary {
             }
         }
 
+        StringBuilder res = new StringBuilder();
         while (!queue.isEmpty()) {
             char c = queue.poll();
             res.append(c);
