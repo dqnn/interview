@@ -1,11 +1,14 @@
 package leetcode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : BalancedBinaryTree
  * Creator : duqiang
- * Date : Aug, 2017
+ * Date : Aug, 2018
  * Description : TODO
  */
 public class BalancedBinaryTree {
@@ -26,6 +29,7 @@ public class BalancedBinaryTree {
         / \
        2   3  2 --> 3  3 --> 1
       / \
+       * 
      4   5  -- 2
           \
           9  -- 1
@@ -49,5 +53,37 @@ public class BalancedBinaryTree {
             return -1;
         }
         return Math.max(l, r) + 1;
+    }
+    
+    // this is using stack and recursive to compute the results
+    public boolean isBalanced2(TreeNode root) {
+        //edge case
+        if (null == root) {
+            return true;
+        }
+        
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            if (Math.abs(getH(node.left) - getH(node.right)) > 1) {
+                return false;
+            }
+            if (null != node.left) {
+                queue.offer(node.left);
+            }
+            if (null != node.right) {
+                queue.offer(node.right);
+            }
+        }
+        
+        return true;
+    }
+    
+    private int getH(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+        return Math.max(getH(node.left), getH(node.right)) + 1;
     }
 }
