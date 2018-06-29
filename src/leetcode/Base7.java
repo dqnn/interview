@@ -52,4 +52,18 @@ public class Base7 {
         }
         return convertToBase72(num / 7) + num % 7;
     }
+    
+    public String convertToBase73(int num) {
+        boolean flag = num < 0 ? true :false;
+        num = Math.abs(num);
+        StringBuilder sb = new StringBuilder();
+        while(num / 7 != 0) {
+            int remainer = num % 7; 
+            sb.append(remainer);
+            num  = num / 7;
+        }
+        sb.append(num);
+        String res = sb.reverse().toString();
+        return flag ? "-" + res : res;
+    }
 }
