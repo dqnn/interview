@@ -43,20 +43,61 @@ public class AssignCookies {
      space : O(1)
 
      */
-    public int findContentChildren(int[] g, int[] s) {
-        int res = 0;
-        Arrays.sort(g);
-        Arrays.sort(s);
-        int i = 0, j = 0;
-        while (i < g.length && j < s.length) {
-            if (g[i] <= s[j]) {
-                res++;
-                i++;
-                j++;
-            } else if (g[i] > s[j]) {
-                j++;
-            }
-        }
-        return res;
-    }
+    
+    /*
+    time: O(ngln)
+    space O(1)
+   */
+	// this is more diffciluty than orignial question, since we consider we can split the cookie
+   public int findContentChildren2(int[] g, int[] s) {
+       //edge case
+       if (g == null || s == null || g.length < 1 || s.length < 1) {
+           return 0;
+       }
+       
+       Arrays.sort(g);
+       Arrays.sort(s);
+       int cnt = 0, left = 0;
+       int i = 0, j = 0;
+       while(i < s.length && j < g.length) {
+           if (left + s[i] >= g[j]) {
+               cnt ++;
+               left += s[i] - g[j];
+               i++;
+               j++;
+           } else {
+               left += s[i];
+               i++;
+           }
+       }
+       
+       return cnt;
+   }
+   
+   /*
+    time: O(ngln)
+    space O(1)
+   */
+   public int findContentChildren3(int[] g, int[] s) {
+       //edge case
+       if (g == null || s == null || g.length < 1 || s.length < 1) {
+           return 0;
+       }
+       
+       Arrays.sort(g);
+       Arrays.sort(s);
+       int cnt = 0;
+       int i = 0, j = 0;
+       while(i < s.length && j < g.length) {
+           if (s[i] >= g[j]) {
+               cnt ++;
+               i++;
+               j++;
+           } else {
+               i++;
+           }
+       }
+       
+       return cnt;
+   }
 }
