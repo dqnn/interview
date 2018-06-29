@@ -37,6 +37,8 @@ public class AverageofLevelsinBinaryTree {
      * @param root
      * @return
      */
+	
+	// this is templates for broad visit for tree, using linkedList as travel way
     public List<Double> averageOfLevels(TreeNode root) {
         List<Double> res = new ArrayList<>();
         if (root == null) return res;
