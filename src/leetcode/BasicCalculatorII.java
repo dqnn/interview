@@ -13,6 +13,9 @@ import java.util.Stack;
 
 The expression string contains only non-negative integers, +, -, *, / operators and empty spaces . 
 The integer division should truncate toward zero.
+
+
+ follow up: how could we extend to + - * / and () and empty spaces: 
  */
 public class BasicCalculatorII {
     /**
@@ -27,31 +30,44 @@ public class BasicCalculatorII {
      * @return
      */
     //time : O(n)  space : O(n)
-    public int calculate(String s) {
-        if (s == null || s.length() == 0) return 0;
+	public int calculate(String s) {
+        if (s == null || s.length() < 1) {
+            return 0;
+        }
+        
+        int res = 0, num = 0;
+        Character sign = '+';
         Stack<Integer> stack = new Stack<>();
-        int res = 0;
-        char sign = '+';
-        int num = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (Character.isDigit(s.charAt(i))) {
-                num = s.charAt(i) - '0';
-                while (i + 1 < s.length() && Character.isDigit(s.charAt(i + 1))) {
+        for (int i = 0; i < s.length(); i ++) {
+            Character ch = s.charAt(i);
+            if (Character.isDigit(ch)) { // convert the number into integer
+                num = ch - '0';
+                while ((i + 1 < s.length()) && Character.isDigit(s.charAt(i + 1))) {
                     num = num * 10 + s.charAt(i + 1) - '0';
                     i++;
                 }
-            }
-            if (!Character.isDigit(s.charAt(i)) && s.charAt(i) != ' ' || i == s.length() - 1) {
-                if (sign == '+') stack.push(num);
-                if (sign == '-') stack.push(-num);
-                if (sign == '*') stack.push(stack.pop() * num);
-                if (sign == '/') stack.push(stack.pop() / num);
+            } 
+            // skip empty space
+            if (!Character.isDigit(ch) && ch != ' ' || i == s.length() - 1) {
+                if (sign == '+')  {
+                    stack.push(num);
+                } 
+                if (sign == '-')  {
+                    stack.push(0 - num);
+                }
+                if (sign == '*') {
+                    stack.push(stack.pop() * num);
+                }    
+                if (sign == '/') {
+                    stack.push(stack.pop() / num);
+                } 
                 sign = s.charAt(i);
                 num = 0;
+            
             }
         }
-        for (int i : stack) {
-            res += i;
+        for(Integer t : stack) {
+            res += t;
         }
         return res;
     }
