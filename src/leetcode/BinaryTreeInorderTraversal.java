@@ -55,7 +55,8 @@ Follow up: Recursive solution is trivial, could you do it iteratively?
             }
             cur = stack.pop();
             res.add(cur.val);
-            cur = cur.right;
+            cur = cur.right; // because cur is considered as rootnode, so its right child
+            // will be the next smallest one.
         }
         return res;
     }
