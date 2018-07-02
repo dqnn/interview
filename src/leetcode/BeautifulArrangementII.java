@@ -95,11 +95,12 @@ class BeautifulArrangementII {
         int idx = 0;
         int[] res = new int[n];
         for (int i = 1; i <= n - k - 1; i++) {
-            res[idx++] = i;
+            res[idx++] = i; // // we need the diff is only 1 for n - k - 1 个数值，然后 对于后面的k + 1 个数值 我们有k - 1
+                            // 个diff
         }
         
-        for (int i = 0; i <= k; i++) {
-            res[idx++] = (i%2 == 0) ? (n-k + i/2) : (n - i/2);
+        for (int i = 0; i <= k; i++) { // k + 1个数，
+            res[idx++] = (i % 2 == 0) ? (n - k + i / 2) : (n - i / 2);// 这里产生k 个diff， 最后一个是1， 和前面一样
         }
         
         return res;

@@ -33,7 +33,74 @@ public class BattleshipsinaBoard {
      * @param board
      * @return
      */
-    public int countBattleships(char[][] board) {
+    
+    
+    
+     //由于board中的战舰之间确保有'.'隔开，因此遍历board，若某单元格为'X'，
+    // 只需判断其左边和上边的相邻单元格是否也是'X'。
+//如果左邻居或者上邻居单元格是'X'，则说明当前单元格是左边或者上边战舰的一部分；
+    public int countBattleships(char[][] nums) {
+        // edge case
+        if (null == nums || nums.length < 1) {
+            return 0;
+        }
+
+        int r = nums.length, c = nums[0].length;
+        int cnt = 0;
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                if (nums[i][j] == 'X') {
+                    if (i > 0 && (nums[i - 1][j] == 'X')) {
+                        continue;
+                    }
+                    if (j > 0 && (nums[i][j - 1] == 'X')) {
+                        continue;
+                    }
+                    cnt++;
+                }
+            }
+        }
+        return cnt;
+    }
+
+    // DFS
+    public void dfs(int i, int j, int[][] visited, char[][] nums) {
+        if (i < 0 || j < 0 || i >= nums.length || j >= nums[0].length || visited[i][j] == 1) {
+            return;
+        }
+
+        if (nums[i][j] == 'X') {
+            visited[i][j] = 1;
+            dfs(i - 1, j, visited, nums);
+            dfs(i + 1, j, visited, nums);
+            dfs(i, j - 1, visited, nums);
+            dfs(i, j + 1, visited, nums);
+        }
+    }
+
+    // DFS, 其实就是标记上下左右， 访问过了就算一个，因为隔开的不算
+    public int countBattleships3(char[][] nums) {
+        // edge case
+        if (null == nums || nums.length < 1) {
+            return 0;
+        }
+
+        int r = nums.length, c = nums[0].length;
+        int cnt = 0;
+
+        int[][] visited = new int[r][c];
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                if (visited[i][j] != 1 && nums[i][j] == 'X') {
+                    cnt++;
+                    dfs(i, j, visited, nums);
+                }
+            }
+        }
+        return cnt;
+    }
+
+    public int countBattleships2(char[][] board) {
         int res = 0;
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {

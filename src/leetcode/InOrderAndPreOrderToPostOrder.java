@@ -45,7 +45,10 @@ public class InOrderAndPreOrderToPostOrder {
 
     public static TreeNode setUpBTree(String in, int inIdx, int inEnd, String pre, int preIdx, int preEnd) {
         // this is the key, when to exit
-        //
+        // we cannot use '=' because we use length() -1 in the function, we need next
+        // recursive
+        // stack to return.
+        // thinking about binary search exit conditions: low <= high.
         if (in == null || pre == null || inIdx > in.length() - 1 || preIdx > pre.length() - 1 || inIdx > inEnd
                 || preIdx > preEnd) {
             return null;
@@ -66,7 +69,8 @@ public class InOrderAndPreOrderToPostOrder {
         // pre + rootIdx - inIdx + 1,
         // for right child, node, In : is start right after G, end is the whole string
         // of In
-        // for Pre,
+        // for Pre, starting is preIdx + rootIdx - inIdx + 1, thinking about the model
+        // binary search
         node.left = setUpBTree(in, inIdx, rootIdx - 1, pre, preIdx + 1, preIdx + rootIdx - inIdx);
         node.right = setUpBTree(in, rootIdx + 1, inEnd, pre, preIdx + rootIdx - inIdx + 1, preEnd);
         return node;
