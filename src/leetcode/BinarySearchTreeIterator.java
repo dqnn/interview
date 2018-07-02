@@ -40,6 +40,9 @@ public class BinarySearchTreeIterator {
     }
 
     /** @return the next smallest number */
+    // we use Stack to store all left nodes and we use current to store the current
+    // node
+    //
     public int next() {
         while (cur != null) {
             stack.push(cur);
@@ -47,7 +50,7 @@ public class BinarySearchTreeIterator {
         }
         cur = stack.pop();
         int val = cur.val;
-        cur = cur.right;
+        cur = cur.right; // set to right because
         return val;
     }
 }

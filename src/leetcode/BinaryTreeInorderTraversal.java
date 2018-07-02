@@ -42,6 +42,7 @@ Follow up: Recursive solution is trivial, could you do it iteratively?
         helper(res, root.right);
     }
 
+    // using stack to do inOrder visit
     public static List<Integer> inorderTraversal2(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         if (root == null) return res;
@@ -57,5 +58,25 @@ Follow up: Recursive solution is trivial, could you do it iteratively?
             cur = cur.right;
         }
         return res;
+    }
+
+    // another solution, recursive
+    public List<Integer> inorderTraversal3(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (null == root) {
+            return res;
+        }
+
+        visit(root, res);
+        return res;
+    }
+
+    public void visit(TreeNode node, List<Integer> list) {
+        if (node == null) {
+            return;
+        }
+        visit(node.left, list);
+        list.add(node.val);
+        visit(node.right, list);
     }
 }
