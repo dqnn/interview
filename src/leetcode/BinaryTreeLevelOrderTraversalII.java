@@ -1,6 +1,7 @@
 package leetcode;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -66,7 +67,10 @@ public class BinaryTreeLevelOrderTraversalII {
                 if (cur.right != null) queue.offer(cur.right);
                 list.add(cur.val);
             }
-            res.add(0, list);
+            // Inserts the specified element at the specified position in this list.
+            // Shifts the element currently at that position (if any) and any subsequent
+            // elements to the right (adds one to their indices).
+            res.add(0, list); // like offer()
         }
         return res;
     }
@@ -78,6 +82,7 @@ public class BinaryTreeLevelOrderTraversalII {
         return res;
     }
 
+    // this also one way to visit the tree
     public static void helper(List<List<Integer>> res, TreeNode root, int level) {
         if (root == null) return;
         if (level >= res.size()) {
@@ -87,6 +92,34 @@ public class BinaryTreeLevelOrderTraversalII {
         helper(res, root.left, level + 1);
         helper(res, root.right, level + 1);
 
+    }
+
+    // reverse the result
+    public List<List<Integer>> levelOrderBottom3(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (null == root) {
+            return res;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            List<Integer> list = new ArrayList<>();
+            int len = queue.size();
+            for (int i = 0; i < len; i++) {
+                TreeNode node = queue.poll();
+                list.add(node.val);
+                if (null != node.left) {
+                    queue.offer(node.left);
+                }
+                if (null != node.right) {
+                    queue.offer(node.right);
+                }
+            }
+            res.add(list);
+        }
+        Collections.reverse(res);
+        return res;
     }
 
 }
