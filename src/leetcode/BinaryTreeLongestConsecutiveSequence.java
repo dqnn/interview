@@ -59,4 +59,49 @@ public class BinaryTreeLongestConsecutiveSequence {
         helper(root.right, max, root.val + 1);
     }
 
+    // this is wrong way to write recursive, because
+    // the value we want max will be lost when executing leaf node which is not
+    // successive number of its parent
+    public int longestConsecutive2(TreeNode root) {
+        // edge case :
+        if (null == root) {
+            return 0;
+        }
+        return helper2(root, root.val, 0);
+    }
+
+    public int helper2(TreeNode node, int value, int max) {
+
+        if (null == node)
+            return max; // it will be lost, suppose
+        /*
+         * 1 2 3 4 5, when we pass from 2-->4, 4 will return 1, but actually we have 2
+         * already from 1--> 2--> 4
+         */
+        // System.out.println(String.format("node.val:%s---value:%s", node != null ?
+        // node.val //: "", max));
+        int temp = node.val == value ? ++max : 1;
+        return Math.max(helper2(node.left, node.val + 1, temp), helper2(node.right, node.val + 1, temp));
+    }
+
+    // this is correct way how to preserve the max value when in recursive
+    public int longestConsecutive3(TreeNode root) {
+        // edge case :
+        if (null == root) {
+            return 0;
+        }
+        return helper3(root, root.val, 0, 0);
+    }
+
+    public int helper3(TreeNode node, int value, int max, int curMax) {
+
+        if (null == node)
+            return max;
+        // System.out.println(String.format("node.val:%s---value:%s", node != null ?
+        // node.val //: "", max));
+        int temp = node.val == value ? ++curMax : 1;
+        max = Math.max(max, curMax);
+        return Math.max(helper3(node.left, node.val + 1, max, temp), helper3(node.right, node.val + 1, max, temp));
+    }
+
 }
