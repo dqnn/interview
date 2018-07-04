@@ -44,8 +44,19 @@ public class BinaryTreeMaximumPathSum {
         helper(root);
         return res;
     }
+
+    // we need PostOrder to visit the tree. model the programe in this way.
+    // it has 4 use cases
+    // 1 Node only, 2 L child, 3 R child 4 L + root Node,
+    // 5 R + root Node, 6 L + R + RootNode
+
     public int helper(TreeNode root) {
         if (root == null) return 0;
+        // thinking about this way:
+        // we postOrder visit the tree is like visiting array from index 0,
+        // so when in left bottom, the leaf node, the left = 0, right = 0, given this
+        // node
+        // the max SUm = root.val, so we have to use root value at this point.
         int left = Math.max(0, helper(root.left));
         int right = Math.max(0, helper(root.right));
         res = Math.max(res, left + right + root.val);
