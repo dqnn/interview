@@ -43,6 +43,7 @@ public class BinaryTreePreorderTraversal {
         helper(res, root.right);
     }
 
+    // also this way should be remmebered
     public static List<Integer> preorderTraversal2(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         if (root == null) return res;

@@ -6,12 +6,9 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : BinaryTreeRightSideView
- * Creator : duqiang
- * Date : Aug, 2017
- * Description : TODO
+ * Project Name : Leetcode Package Name : leetcode File Name :
+ * BinaryTreeRightSideView Creator : duqiang Date : July, 2018 Description :
+ * TODO
  */
 public class BinaryTreeRightSideView {
 
@@ -48,13 +45,14 @@ public class BinaryTreeRightSideView {
 
     private void helper(List<Integer> res, TreeNode root, int level) {
         if (root == null) return;
-        if (res.size() == level) {
+        if (res.size() == level) {// this is too hard to get this point
             res.add(root.val);
         }
         helper(res, root.right, level + 1);
         helper(res, root.left, level + 1);
     }
 
+    // this should be remembered, because
     public List<Integer> rightSideView2(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         if (root == null) return res;
@@ -64,10 +62,43 @@ public class BinaryTreeRightSideView {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 TreeNode cur = queue.poll();
-                if (i == 0) res.add(cur.val);
+                if (i == 0) {
+                    res.add(cur.val); // because we visit from right first.
+                }
                 if (cur.right != null) queue.offer(cur.right);
                 if (cur.left != null) queue.offer(cur.left);
             }
+        }
+        return res;
+    }
+
+    // here is to get level scanning last elements
+    public List<Integer> rightSideView4(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        List<List<Integer>> list = new ArrayList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            List<Integer> tempL = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                tempL.add(node.val);
+                if (null != node.left) {
+                    queue.offer(node.left);
+                }
+                if (null != node.right) {
+                    queue.offer(node.right);
+                }
+            }
+            list.add(tempL);
+        }
+        for (List<Integer> tempList : list) {
+            res.add(tempList.get(tempList.size() - 1));
         }
         return res;
     }
