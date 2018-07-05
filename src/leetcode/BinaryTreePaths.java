@@ -41,6 +41,8 @@ public class BinaryTreePaths {
         helper(res, root, "");
         return res;
     }
+
+    // just remember how to PreVisit the tree and know how to know the leaf nodes
     public static void helper(List<String> res, TreeNode root, String path) {
         if (root.left == null && root.right == null) {
             res.add(path + root.val);
