@@ -62,4 +62,29 @@ public class BinaryTreeMaximumPathSum {
         res = Math.max(res, left + right + root.val);
         return Math.max(left, right) + root.val;
     }
+
+    // we use an array to store the returned results
+    public int maxPathSum2(TreeNode root) {
+        if (root == null)
+            return 0;
+        int[] result = new int[1];
+        result[0] = Integer.MIN_VALUE;
+        helper2(root, result);
+        return result[0];
+    }
+
+    // 1 Node only, 2 L child, 3 R child 4 L + root Node,
+    // 5 R + root Node, 6 L + R + RootNode
+    public int helper2(TreeNode root, int[] result) {
+        if (root == null)
+            return 0;
+
+        int left = Math.max(0, helper2(root.left, result)); // only left branch
+        int right = Math.max(0, helper2(root.right, result)); // only right branch
+        int subtreeMax = left + right + root.val; // include the root node
+
+        result[0] = Math.max(result[0], subtreeMax);
+        return Math.max(left, right) + root.val;
+    }
+
 }
