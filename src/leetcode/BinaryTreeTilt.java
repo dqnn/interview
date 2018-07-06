@@ -53,6 +53,6 @@ public class BinaryTreeTilt {
         int left = helper(root.left);
         int right = helper(root.right);
         res += Math.abs(left - right);
-        return left + right + root.val;
+        return left + right + root.val;// use case: Tilt of node 1 : |2+4+5-3-6-7| = 5
     }
 }

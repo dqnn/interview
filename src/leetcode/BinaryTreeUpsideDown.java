@@ -41,6 +41,8 @@ public class BinaryTreeUpsideDown {
      * @param root
      * @return
      */
+    // this is the operation to the original tree to make it clock wise rotate.
+    // the left--> new Root, right--> left node, root--> right node.
     public TreeNode upsideDownBinaryTree(TreeNode root) {
         if (root == null || root.left == null && root.right == null) {
             return root;
@@ -52,6 +54,53 @@ public class BinaryTreeUpsideDown {
         root.left = null;
         root.right = null;
         return newRoot;
+    }
+
+    // non-recursive solution, did not try.
+    public TreeNode upsideDownBinaryTree2(TreeNode root) {
+        TreeNode node = root, parent = null, right = null;
+        while (node != null) {
+            TreeNode left = node.left;
+            node.left = right;
+            right = node.right;
+            node.right = parent;
+            parent = node;
+            node = left;
+        }
+        return parent;
+    }
+
+    // the third solutions, not tried
+    private TreeNode out = null;
+
+    public TreeNode upsideDownBinaryTree3(TreeNode root) {
+        TreeNode dummy = new TreeNode(0);
+        dummy.left = new TreeNode(0);
+        out = dummy;
+
+        postorder(root);
+        return dummy.right;
+    }
+
+    private void postorder(TreeNode root) {
+        if (root == null)
+            return;
+
+        postorder(root.left);
+        postorder(root.right);
+
+        if (out.left == null) {
+            out.left = root;
+            out.left.left = null;
+            out.left.right = null;
+        } else if (out.right == null) {
+            out.right = root;
+            out.right.left = null;
+            out.right.right = null;
+        }
+
+        if (out.left != null && out.right != null)
+            out = out.right;
     }
 
 }
