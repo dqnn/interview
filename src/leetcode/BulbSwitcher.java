@@ -33,7 +33,36 @@ public class BulbSwitcher {
      * @param n
      * @return
      */
+    // so thinking about this way 10= 1x10 or 2x5, 1 will be ignored, so there are 3
+    // times
+    // toggle, so we want to know the even time of toggle, only sqrt number
+    // how many sqrt numbers are there in n
     public int bulbSwitch(int n) {
         return (int)Math.sqrt(n);
+    }
+
+    // bruth-force , this will time-out
+    public int bulbSwitch2(int n) {
+        // edge case
+        if (n < 0) {
+            return 0;
+        }
+
+        int[] nums = new int[n];
+        for (int i = 2; i < n / 2 + 1; i++) {
+            for (int j = 0; j <= n / 2; j++) {
+                if ((j + 1) % i == 0) {
+                    nums[j] = nums[j] == 0 ? 1 : 0;
+                }
+            }
+
+        }
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] == 0)
+                res++;
+        }
+
+        return res;
     }
 }

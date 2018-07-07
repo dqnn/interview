@@ -66,6 +66,8 @@ public class BurstBalloons {
         if (i > j) return 0;
         if (dp[i][j] > 0) return dp[i][j];
         for (int x = i; x <= j; x++) {
+            // for writing recursive, we need to understand how many data you need to touch
+            // especially when we divide
             dp[i][j] = Math.max(dp[i][j], helper(i, x - 1, nums, dp)
                                 + nums[i - 1] * nums[x] * nums[j + 1]
                                 + helper(x + 1, j, nums, dp));
