@@ -49,6 +49,7 @@ public class BinaryWatch {
         int[] nums2 = new int[] {
                 32, 16, 8, 4, 2, 1 }; // minutes
         for (int i = 0; i <= num; i++) {
+            // 这样这两个list 总是和是 num
             List<Integer> list1 = generateDigit(nums1, i);
             List<Integer> list2 = generateDigit(nums2, num - i);
             for (int num1 : list1) {
@@ -68,6 +69,16 @@ public class BinaryWatch {
         return res;
     }
 
+    // this method is mainly used to get list of all elements sum in res
+    // res= {1,2,3,4}, count = 1
+    // ---> {1, 2, 3, 4};
+    // res= {1,2,3,4}, count = 2
+    // --->{1+2, 1+3, 1+4, 2+3, 2+4, 3+4}
+
+    // this is a templates for permuation, like {1,2,3,4} how many are there for 2
+    // combinations
+    // helper(List<> res, int[] nums, count)
+    // res is result, num is candiate list, count is how many numbers are needed
     private void helper(List<Integer> res, int[] nums, int count, int start, int sum) {
         if (count == 0) {
             res.add(sum);
