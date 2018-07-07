@@ -79,7 +79,8 @@ public class BinaryTreeVerticalOrderTraversal {
 
         Queue<TreeNode> queue = new LinkedList<>();
         Queue<Integer> index = new LinkedList<>();
-        index.offer(-min);
+        index.offer(-min);// since it highly negative and MAX{min} = 0 and list index starts from 0; which
+                          // means root index = - minus
         queue.offer(root);
         while (!queue.isEmpty()) {
             TreeNode cur = queue.poll();

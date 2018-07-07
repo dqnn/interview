@@ -41,8 +41,13 @@ public class BinaryWatch {
 
     public List<String> readBinaryWatch(int num) {
         List<String> res = new ArrayList<>();
-        int[] nums1 = new int[]{8, 4, 2, 1};
-        int[] nums2 = new int[]{32, 16, 8, 4, 2, 1};
+        if (num < 0 || num > 10) {
+            return res;
+        }
+        int[] nums1 = new int[] {
+                8, 4, 2, 1 }; // hours max hour is 12 because we cannot show 23
+        int[] nums2 = new int[] {
+                32, 16, 8, 4, 2, 1 }; // minutes
         for (int i = 0; i <= num; i++) {
             List<Integer> list1 = generateDigit(nums1, i);
             List<Integer> list2 = generateDigit(nums2, num - i);
@@ -72,5 +77,4 @@ public class BinaryWatch {
             helper(res, nums, count - 1, i + 1, sum + nums[i]);
         }
     }
-
 }
