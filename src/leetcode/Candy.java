@@ -41,7 +41,7 @@ public class Candy {
     // correct
     // value is decided by far more numbers. so since for neighbours, we need to
     // scan from left, then scan from right.
-    //
+    // so two scan can make sure the rules are correct executed
     public int candy(int[] r) {
         // edge case
         if (r == null || r.length < 1) {
@@ -62,6 +62,10 @@ public class Candy {
             }
         }
 
+        // this combine two loops,
+        // second we scan from right to left
+        // so any updates to candy should be c[i] = c[i + 1] + 1
+        // third loop is res += max(l2r[i], r2l[i])-->
         for (int i = c.length - 2; i >= 0; i--) {
             if (r[i] > r[i + 1]) {
                 // like 5,4,3,2,1
