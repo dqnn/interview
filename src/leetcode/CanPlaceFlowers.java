@@ -1,12 +1,8 @@
 package leetcode;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : CanPlaceFlowers
- * Creator : duqiang
- * Date : Aug, 2017
- * Description : TODO
+ * Project Name : Leetcode Package Name : leetcode File Name : CanPlaceFlowers
+ * Creator : duqiang Date : Aug, 2018 Description : TODO
  */
 public class CanPlaceFlowers {
     /**
@@ -31,6 +27,7 @@ public class CanPlaceFlowers {
      */
     public static boolean canPlaceFlowers(int[] flowerbed, int n) {
         int count = 0;
+        // this templates needed to be remmebered
         for (int i = 0; i < flowerbed.length; i++) {
             if (flowerbed[i] == 0) {
                 if (i == 0 || flowerbed[i - 1] == 0) {
