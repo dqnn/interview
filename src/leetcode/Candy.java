@@ -36,24 +36,45 @@ public class Candy {
      * @param ratings
      * @return
      */
-    public int candy(int[] ratings) {
-        int[] candies = new int[ratings.length];
-        Arrays.fill(candies, 1);
+    // this problem is trick, for example:
+    // 5,4,3,2,1 you cannot only compare 2 or 3 adjacent numbers, because the
+    // correct
+    // value is decided by far more numbers. so since for neighbours, we need to
+    // scan from left, then scan from right.
+    //
+    public int candy(int[] r) {
+        // edge case
+        if (r == null || r.length < 1) {
+            return 0;
+        }
 
-        for (int i = 1; i < candies.length; i++) {
-            if (ratings[i] > ratings[i - 1]) {
-                candies[i] = candies[i - 1] + 1;
+        int len = r.length;
+        if (len < 2) {
+            return 1;
+        }
+
+        int[] c = new int[len];
+        Arrays.fill(c, 1);
+
+        for (int i = 1; i < len; i++) {
+            if (r[i] > r[i - 1]) {
+                c[i] = c[i - 1] + 1;
             }
         }
-        for (int i = candies.length - 2; i >= 0; i --) {
-            if (ratings[i] > ratings[i - 1]) {
-                candies[i] = Math.max(candies[i], candies[i + 1] + 1);
+
+        for (int i = c.length - 2; i >= 0; i--) {
+            if (r[i] > r[i + 1]) {
+                // like 5,4,3,2,1
+                // 1,1,1,1,1
+                // last one element since only have 1 neigbour,
+                // so we can only consider from c.length - 2.
+                c[i] = Math.max(c[i], c[i + 1] + 1);
             }
         }
 
         int res = 0;
-        for (int candy : candies) {
-            res += candy;
+        for (int t : c) {
+            res += t;
         }
         return res;
     }
