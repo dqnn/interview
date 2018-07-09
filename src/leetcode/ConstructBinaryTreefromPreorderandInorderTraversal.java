@@ -26,23 +26,35 @@ public class ConstructBinaryTreefromPreorderandInorderTraversal {
      * @param inorder
      * @return
      */
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
-        return helper(0, 0, inorder.length - 1, preorder, inorder);
-    }
-
-    public TreeNode helper(int preStart, int inStart, int inEnd, int[] preorder, int[] inorder) {
-        if (preStart > preorder.length - 1 || inStart > inEnd) {
+    public TreeNode buildTree(int[] pre, int[] in) {
+        // edge case
+        if (pre == null || in == null || pre.length != in.length || in.length < 1) {
             return null;
         }
-        TreeNode root = new TreeNode(preorder[preStart]);
-        int inIndex = 0;
-        for (int i = inStart; i <= inEnd; i++) {
-            if (inorder[i] == root.val) {
-                inIndex = i;
+
+        TreeNode root = helper(pre, 0, in, 0, in.length - 1);
+        return root;
+    }
+
+    public TreeNode helper(int[] pre, int pres, int[] in, int ins, int ine) {
+        if (pres > pre.length - 1 || ins > ine) {
+            return null;
+        }
+
+        int index = -1;
+        for (int i = ins; i <= ine; i++) {
+            if (in[i] == pre[pres]) {
+                index = i;
+                break;
             }
         }
-        root.left = helper(preStart + 1, inStart, inIndex - 1, preorder, inorder);
-        root.right = helper(preStart + inIndex - inStart + 1, inIndex + 1, inEnd, preorder, inorder);
+        if (index == -1)
+            return null;
+
+        TreeNode root = new TreeNode(pre[pres]);
+        // pre, start from index 1, end 0 + index
+        root.left = helper(pre, pres + 1, in, ins, index - 1);
+        root.right = helper(pre, pres + index - ins + 1, in, index + 1, ine);
         return root;
     }
 
