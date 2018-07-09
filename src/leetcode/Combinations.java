@@ -44,6 +44,7 @@ public class Combinations {
         return res;
     }
 
+    // this is a templates for permuations
     public void helper(List<List<Integer>> res, List<Integer> list, int n, int k, int start) {
         if (k == 0) {
             res.add(new ArrayList<>(list));
@@ -51,7 +52,7 @@ public class Combinations {
         }
         for (int i = start; i <= n; i++) {
             list.add(i);
-            helper(res, list, n, k - 1, i + 1);
+            helper(res, list, n, k - 1, i + 1);// i + 1 means no duplications
             list.remove(list.size() - 1);
         }
     }

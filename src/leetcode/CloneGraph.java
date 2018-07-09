@@ -1,6 +1,11 @@
 package leetcode;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 /**
  * Project Name : Leetcode
@@ -55,9 +60,12 @@ public class CloneGraph {
         return dup;
     }
 
+
     public UndirectedGraphNode cloneGraph2(UndirectedGraphNode node) {
         if (node == null) return node;
         List<UndirectedGraphNode> nodes = getNodes(node);
+        // Map is mainly used to store all new nodes and to avoid re-copying all nodes
+        // also one template to remember
         HashMap<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<>();
 
         for (UndirectedGraphNode cur : nodes) {

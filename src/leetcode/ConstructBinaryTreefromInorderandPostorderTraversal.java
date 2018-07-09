@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.HashMap;
+
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
@@ -46,23 +48,62 @@ public class ConstructBinaryTreefromInorderandPostorderTraversal {
     int pPostorder;
 
     public TreeNode buildTree(int[] inorder, int[] postorder) {
+        // edge case
+        if (null == inorder || postorder == null || inorder.length < 1 || postorder.length < 1
+                || postorder.length != inorder.length) {
+            return null;
+        }
         pInorder = inorder.length - 1;
         pPostorder = postorder.length - 1;
         return helper(inorder, postorder, null);
     }
 
+    // last element is the parent node
     public TreeNode helper(int[] inorder, int[] postorder, TreeNode end) {
         if (pPostorder < 0) {
             return null;
         }
+        // root node is the last character
         TreeNode root = new TreeNode(postorder[pPostorder--]);
+        // which means it has right child because if it does not have r child, inOrder
+        // visit last element is the root element
         if (inorder[pInorder] != root.val) {
             root.right = helper(inorder, postorder, root);
         }
-        pInorder--;
+        pInorder--; // not last one, so it must be root
+        // end equals null which means root
+        // still cannot understand
         if ((end == null) || (inorder[pInorder] != end.val)) {
             root.left = helper(inorder, postorder, end);
         }
+        return root;
+    }
+
+    // The the basic idea is to take the last element in postorder array as the
+    // root,
+    // find the position of the root in the inorder array; then locate the range for
+    // left sub-tree and right sub-tree and do recursion. Use a HashMap to record
+    // the index of root in the inorder array.
+
+    public TreeNode buildTreePostIn2(int[] inorder, int[] postorder) {
+        if (inorder == null || postorder == null || inorder.length != postorder.length)
+            return null;
+        HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
+        for (int i = 0; i < inorder.length; ++i)
+            hm.put(inorder[i], i);
+        return buildTreePostIn(inorder, 0, inorder.length - 1, postorder, 0, postorder.length - 1, hm);
+    }
+
+    private TreeNode buildTreePostIn(int[] inorder, int is, int ie, int[] postorder, int ps, int pe,
+            HashMap<Integer, Integer> hm) {
+        if (ps > pe || is > ie)
+            return null;
+        TreeNode root = new TreeNode(postorder[pe]);
+        int ri = hm.get(postorder[pe]);
+        TreeNode leftchild = buildTreePostIn(inorder, is, ri - 1, postorder, ps, ps + ri - is - 1, hm);
+        TreeNode rightchild = buildTreePostIn(inorder, ri + 1, ie, postorder, ps + ri - is, pe - 1, hm);
+        root.left = leftchild;
+        root.right = rightchild;
         return root;
     }
 }

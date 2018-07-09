@@ -3,12 +3,8 @@ package leetcode;
 import java.util.HashMap;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : CombinationSumIV
- * Creator : duqiang
- * Date : Jan, 2018
- * Description : 377. Combination Sum IV
+ * Project Name : Leetcode Package Name : leetcode File Name : CombinationSumIV
+ * Creator : duqiang Date : Aug, 2018 Description : 377. Combination Sum IV
  */
 public class CombinationSumIV {
     /**

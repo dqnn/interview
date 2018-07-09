@@ -25,6 +25,7 @@ public class ClosestBinarSearchTreeValue {
             if (Math.abs(target - root.val) < Math.abs(target - res)) {
                 res = root.val;
             }
+            // so we need to find nearest node to target
             root = root.val > target ? root.left : root.right;
         }
         return res;
@@ -41,6 +42,8 @@ public class ClosestBinarSearchTreeValue {
             if (Math.abs(root.val - target) < Math.abs(val - target)) {
                 val = root.val;
             }
+        // BST tree so right will be bigger than root and left
+        // left < root< right
             if (root.val < target) {
                 val = helper(root.right, target, val);
             } else if (root.val > target) {

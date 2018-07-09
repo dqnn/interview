@@ -4,12 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : CombinationSum
- * Creator : duqiang
- * Date : Aug, 2017
- * Description : TODO
+ * Project Name : Leetcode Package Name : leetcode File Name : CombinationSum
+ * Creator : duqiang Date : Aug, 2018 Description : TODO
  */
 public class CombinationSum {
 

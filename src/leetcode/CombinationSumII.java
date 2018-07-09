@@ -5,12 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : CombinationSumII
- * Creator : duqiang
- * Date : Aug, 2017
- * Description : TODO
+ * Project Name : Leetcode Package Name : leetcode File Name : CombinationSumII
+ * Creator : duqiang Date : Aug, 2018 Description : TODO
  */
 public class CombinationSumII {
 
@@ -45,13 +41,17 @@ public class CombinationSumII {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         List<List<Integer>> res = new ArrayList<>();
         if (candidates == null || candidates.length == 0) return res;
-        Arrays.sort(candidates);
+        Arrays.sort(candidates);// why we sort
         helper(res, new ArrayList<>(), candidates, target, 0);
         return res;
     }
 
     public void helper(List<List<Integer>> res, List<Integer> list, int[] candidates, int target, int start) {
-        if (target < 0) return;
+        if (start > candidates.length) {
+            return;
+        }
+        if (target < 0)
+            return; // we have to have this because we may have extra computation
         if (target == 0) {
             res.add(new ArrayList<>(list));
             return;
@@ -59,7 +59,8 @@ public class CombinationSumII {
         for (int i = start; i < candidates.length; i++) {
             if (i != start && candidates[i] == candidates[i - 1]) continue;//duplicate situations
             list.add(candidates[i]);
-            helper(res, list, candidates, target - candidates[i], i + 1);
+            helper(res, list, candidates, target - candidates[i], i + 1); // so the index would be i if allows duplicate
+                                                                          // ones
             list.remove(list.size() - 1);
         }
     }

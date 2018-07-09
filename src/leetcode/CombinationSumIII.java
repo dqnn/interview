@@ -4,39 +4,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : CombinationSumIII
- * Creator : duqiang
- * Date : Aug, 2017
- * Description : TODO
+ * Project Name : Leetcode Package Name : leetcode File Name : CombinationSumIII
+ * Creator : duqiang Date : Aug, 2018 Description : TODO
  */
 public class CombinationSumIII {
 
     /**
      * 216. Combination Sum III
-     * Find all possible combinations of k numbers that add up to a number n,
-     * given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers.
-
-
-     Example 1:
-
-     Input: k = 3, n = 7
-
-     Output:
-
-     [[1,2,4]]
-
-     Example 2:
-
-     Input: k = 3, n = 9
-
-     Output:
-
-     [[1,2,6], [1,3,5], [2,3,4]]
-
-     time : O(2^n)
-     space : O(n);
+     * 
+     * Find all possible combinations of k numbers that add up to a number n, given
+     * that only numbers from 1 to 9 can be used and each combination should be a
+     * unique set of numbers.
+     * 
+     * 
+     * Example 1:
+     * 
+     * Input: k = 3, n = 7
+     * 
+     * Output:
+     * 
+     * [[1,2,4]]
+     * 
+     * Example 2:
+     * 
+     * Input: k = 3, n = 9
+     * 
+     * Output:
+     * 
+     * [[1,2,6], [1,3,5], [2,3,4]]
+     * 
+     * time : O(2^n) space : O(n);
+     * 
      * @param k
      * @param n
      * @return
@@ -49,7 +47,12 @@ public class CombinationSumIII {
     }
 
     public void helper(List<List<Integer>> res, List<Integer> list, int k, int n, int start) {
-        if (k == 0 && n == 0) {
+        if (n < 0 || k < 0) {
+            return;
+        }
+
+        if (k == 0 && n == 0) { // this has to be there since requirement is n is the target
+                                // previous problem has no requirement on number count
             res.add(new ArrayList<>(list));
             return;
         }

@@ -46,11 +46,14 @@ public class ClosestBinarySearchTreeValueII {
 
     // time : O(n) space : O(n)
     public List<Integer> closestKValues(TreeNode root, double target, int k) {
-        LinkedList<Integer> res = new LinkedList<>();
+        LinkedList<Integer> res = new LinkedList<>();// this will be asc order queue
         helper(res, root, target, k);
         return res;
     }
 
+    // InOrder visit the tree, because we aleways need to visit the inOrder sine
+    // from
+    // small to big numbers.
     private void helper(LinkedList<Integer> res, TreeNode root, double target, int k) {
         if (root == null) return;
         helper(res, root.left, target, k);
