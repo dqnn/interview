@@ -1,7 +1,6 @@
 package leetcode;
 
 import java.util.HashMap;
-import java.util.Random;
 
 /**
  * Project Name : Leetcode
@@ -32,6 +31,8 @@ public class CopyListwithRandomPointer {
     public RandomListNode copyRandomList(RandomListNode head) {
         HashMap<RandomListNode, RandomListNode> map = new HashMap<>();
         RandomListNode cur = head;
+        // so for linkedlist, we need to visit from head, the condition is node != null,
+        // this can be applied for every node
         while (cur != null) {
             map.put(cur, new RandomListNode(cur.label));
             cur = cur.next;
