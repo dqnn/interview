@@ -21,6 +21,10 @@ public class FactorialTrailingZeroes {
      * @param n
      * @return
      */
+    // there was always 2 or 4 so definitely we can get 0 and it was decided by
+    // how many 5 factors in the last
+    // 1x2x3x4x5x...x20 = M
+    // M = 5x 3X 5(15) x 4x5(20),so we can get more 5 factors finally
     public int trailingZeroes(int n) {
         return n == 0 ? 0 : n / 5 + trailingZeroes(n / 5);
     }

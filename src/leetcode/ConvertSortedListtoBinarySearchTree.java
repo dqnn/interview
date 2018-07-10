@@ -43,12 +43,20 @@ public class ConvertSortedListtoBinarySearchTree {
         if (head == tail) return null;
         ListNode slow = head;
         ListNode fast = head;
+        // this is one way to find the middle node since fast = 2 * slow speed
+        // this is not high accuracy way to find the middle way but it should be like
+        // s + (e - s) / 2, the same
+        // fast != null maybe len % 2 =0, so fast and fast.next will be getting null
+        // depends the length of the list, if it is odd, then fast will be null or
+        // fast.next will be tail first.
         while (fast != tail && fast.next != tail) {
             fast = fast.next.next;
             slow = slow.next;
         }
         TreeNode root = new TreeNode(slow.val);
         root.left = toBST(head, slow);
+        // why we always specify tail is the last elements instead of fast?
+        // fast here may not be correct since it may be tail--> fast
         root.right = toBST(slow.next, tail);
         return root;
     }

@@ -23,8 +23,15 @@ public class ContainerWithMostWater {
      * @param height
      * @return
      */
-
+    // two pointers
+    // so r - l is already max, so we need to find bigger one in Y axis, so we use
+    // two pointers to move
     public int maxArea(int[] height) {
+        // edge case
+        if (height == null || height.length < 2) {
+            return 0;
+        }
+
         int res = 0;
         int l = 0, r = height.length - 1;
         while (l < r) {

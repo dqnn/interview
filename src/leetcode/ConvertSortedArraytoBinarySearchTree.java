@@ -43,6 +43,7 @@ following height balanced BST:
         return helper(nums, 0, nums.length - 1);
     }
 
+    // preOrder visit the tree
     public TreeNode helper(int[] nums, int left, int right) {  // space : O(logn);
         if (left > right) return null;
         int mid = (right - left) / 2 + left;

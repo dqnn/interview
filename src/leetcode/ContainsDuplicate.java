@@ -2,6 +2,7 @@ package leetcode;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Project Name : Leetcode
@@ -34,6 +35,7 @@ public class ContainsDuplicate {
     public boolean containsDuplicate(int[] nums) {
         HashSet<Integer> set = new HashSet<>();
         for (int i = 0; i < nums.length; i++) {
+            // set.add return false if previous exists
             if (!set.add(nums[i])) return true;
         }
         return false;
@@ -46,5 +48,20 @@ public class ContainsDuplicate {
             if (nums[i] == nums[i - 1]) return true;
         }
         return false;
+    }
+
+    public boolean containsDuplicate3(int[] nums) {
+        // edge case
+        if (nums == null || nums.length <= 1) {
+            return false;
+        }
+
+        int len = nums.length - 1;
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i <= len; i++) {
+            set.add(nums[i]);
+        }
+
+        return len != (set.size() - 1);
     }
 }
