@@ -71,7 +71,8 @@ public class CountofRangeSum {
         // PrefixSum sums[k]进这个BST之前，先寻找一下（rangeSize）
         // 该BST内已经有多少个PrefixSum（叫它sums[t]吧）满足lower<=sums[k]-sums[t]<=upper,
         // 即寻找有多少个sums[t]满足：
-        // sums[k]-upper<=sums[t]<=sums[k]-lower
+        // sums[k]-upper<=sums[t]<=sums[k]-lower --> 等于
+        // lower<=sums[k]-sums[t]<=upper
         for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
             // here is not easy, so we using sum - upper to get the from
@@ -80,6 +81,9 @@ public class CountofRangeSum {
             // subMap(K fromKey, boolean fromInclusive, K toKey, boolean toInclusive)
             // Returns a view of the portion of this map whose keys range from fromKey to
             // toKey.
+
+            // if it has duplicated number, then we consider them different
+            //
             Map<Long, Long> sub = treeMap.subMap(from, true, to, true);
             for (Long value : sub.values()) {
                 count += value;
@@ -123,7 +127,7 @@ public class CountofRangeSum {
         if (low >= high) {
             return 0;
         }
-
+        // here needs more understanding
         int mid = (high + 1 - low) / 2 + low;
         int count = helper(sum, helper, low, mid - 1, lower, upper)
                 + helper(sum, helper, mid, high, lower, upper);
@@ -224,4 +228,7 @@ public class CountofRangeSum {
         System.arraycopy(cache, 0, sums, start, t - start);
         return count;
     }
+
+    // Binary Index Tree
+
 }
