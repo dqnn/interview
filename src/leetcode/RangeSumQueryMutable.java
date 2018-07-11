@@ -118,7 +118,7 @@ public class RangeSumQueryMutable {
      * e[7]=a[7]
      * 
      * 
-     * 
+     * see: https://github.com/myzizi/interview/blob/master/resouces/bit-example.jpg
      * 
      * 计算2^k的两个方法
      * 
