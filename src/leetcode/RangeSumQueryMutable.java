@@ -122,12 +122,15 @@ public class RangeSumQueryMutable {
      * 核心思想: 树状数组中的每个元素是原数组中一个或者多个连续元素的和。
      * 在进行连续求和操作a[1]+…+a[n]时，只需要将树状数组中某几个元素的和即可。时间复杂度为O(lgn) 下面是一个示意图
      * 
-     * 示意图 see: ![](resouces/bit-example.jpg?raw=true)
+     * 示意图
      * 
-     * anothe good example:
+     * <a src=
+     * "https://github.com/myzizi/interview/blob/master/resouces/bit-example.jpg">
+     * eg1</a> anothe good example:
      * 
-     * https://github.com/myzizi/interview/blob/master/resouces/bit-eg2.jpg
-     * ![](resouces/bit-eg2?raw=true)
+     * <a
+     * src="https://github.com/myzizi/interview/blob/master/resouces/bit-eg2.jpg">
+     * eg2</a>
      * 
      * 
      * a[]: 保存原始数据的数组
