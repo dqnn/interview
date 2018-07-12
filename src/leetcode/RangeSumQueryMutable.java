@@ -7,6 +7,23 @@ import java.util.Arrays;
  * RangeSumQueryMutable Creator : duqiang Date : Jan, 2018 Description : 307.
  * Range Sum Query - Mutable
  * 
+ * 
+ * 
+ * Given an integer array nums, find the sum of the elements between indices i
+ * and j (i ≤ j), inclusive.
+ * 
+ * The update(i, val) function modifies nums by updating the element at index i
+ * to val.
+ * 
+ * Example:
+ * 
+ * Given nums = [1, 3, 5]
+ * 
+ * sumRange(0, 2) -> 9 update(1, 2) sumRange(0, 2) -> 8 Note:
+ * 
+ * The array is only modifiable by the update function.
+ * 
+ * 
  */
 public class RangeSumQueryMutable {
 
@@ -105,20 +122,37 @@ public class RangeSumQueryMutable {
      * 核心思想: 树状数组中的每个元素是原数组中一个或者多个连续元素的和。
      * 在进行连续求和操作a[1]+…+a[n]时，只需要将树状数组中某几个元素的和即可。时间复杂度为O(lgn) 下面是一个示意图
      * 
-     * 示意图
+     * 示意图 see:
+     * https://github.com/myzizi/interview/blob/master/resouces/bit-example.jpg
      * 
-     * a[]: 保存原始数据的数组 e[]: 树状数组，其中的任意一个元素e[i]可能是一个或者多个a数组中元素的和。如e[2]=a[1]+a[2];
-     * e[3]=a[3]，e[4]=a[1]+a[2]+a[3]+a[4]。 e[i]中的元素：如果数字 i
-     * 的二进制表示中末尾有k个连续的0，则e[i]是a数组中2^k个元素的和，则e[i]=a[i-2^k+1]+a[i-2^k+2]+…+a[i-1]+a[i]
+     * 
+     * a[]: 保存原始数据的数组
+     * 
+     * e[]: 树状数组，其中的任意一个元素e[i]可能是一个或者多个a数组中元素的和。
+     * 
+     * 如 e[2]=a[1]+a[2];
+     * 
+     * e[3]=a[3]，
+     * 
+     * e[4]=a[1]+a[2]+a[3]+a[4]。
+     * 
+     * e[i]中的元素：如果数字 i 的二进制表示中末尾有k个连续的0，则e[i]是a数组中2^k个元素的和，
+     * 则e[i]=a[i-2^k+1]+a[i-2^k+2]+…+a[i-1]+a[i]
      * 。也就是说，e[i]中每一个元素管理着a[]中若干个元素的和，并且各个元素管理的区间没有重叠。
      * 
      * 
      * 
-     * 如：4=100(2) e[4]=a[1]+a[2]+a[3]+a[4]; 6=110(2) e[6]=a[5]+a[6] 7=111(2)
+     * 如： 4=100(2)
+     * 
+     * e[4]=a[1]+a[2]+a[3]+a[4];
+     * 
+     * 6=110(2) e[6]=a[5]+a[6]
+     * 
+     * 7=111(2)
+     * 
      * e[7]=a[7]
      * 
      * 
-     * see: https://github.com/myzizi/interview/blob/master/resouces/bit-example.jpg
      * 
      * 计算2^k的两个方法
      * 
@@ -133,6 +167,14 @@ public class RangeSumQueryMutable {
      * 
      * 计算方法 lowbit(i) = ( (i-1) ^ i) & i ; //或者(i & (-i)) 节点e[i]的子节点为 e[ i +
      * lowbit(i) ]
+     * 
+     * when to use BIT, f(f(a,b), c) = f(a, f(b,c))
+     * 
+     * space O(n), Time O(lgn) the reason why Time is O(lgn) because we have a lg
+     * decrease the number we have to add 其实index tree 目的就是对于和来分段 比如 对于 2的 n的次数
+     * 马上可以得出结论 对于 其他的数那么最后也会转化为 2的n次方 一下子就得到结果
+     * 
+     * 这个index 在建立的过程中并没有很efficient， 在第二层的for 里面重复计算
      */
 
     int[] tree2 = null;
@@ -148,6 +190,7 @@ public class RangeSumQueryMutable {
         for(int i = 1; i< tree.length; i++) {
             int sum = 0;
             int lowbit = i &(-i); // or i & ((i - 1) ^ i);
+            //
             for(int j = i; j > i - lowbit; j--) {
                 sum += nums[j - 1]; // tree index starting from 1 not 0; 
             }
@@ -168,7 +211,7 @@ public class RangeSumQueryMutable {
 
     // last solutions
     public int sumRange3(int i, int j) {
-        return getSum3(j) - getSum3(i - 1); // why previously all use j+1
+        return getSum3(j) - getSum3(i - 1); // a[i]+... + a[j] so ew need to include a[i]
     }
     /*
      * lowbit(i) = ( (i-1) ^ i) & i ; //或者(i & (-i)) 节点e[i]的子节点为 e[ i + lowbit(i) ]

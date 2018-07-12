@@ -229,6 +229,8 @@ public class CountofRangeSum {
         return count;
     }
 
-    // Binary Index Tree
+    // Binary Index Tree solution
+    // [1,2,3,4,5,6,7,8], lower and upper
+    // t[] visit the t[] find how many are in lower and upper.
 
 }

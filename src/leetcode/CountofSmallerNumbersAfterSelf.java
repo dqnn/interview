@@ -3,6 +3,8 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Project Name : Leetcode
@@ -35,6 +37,10 @@ public class CountofSmallerNumbersAfterSelf {
      time : O(n^2)
      space : O(n)
      */
+
+    // we maintain array list,
+    // and we loop from array end, and added to list
+    //
     public List<Integer> countSmaller(int[] nums) {
         Integer[] res = new Integer[nums.length];
         List<Integer> list = new ArrayList<>();
@@ -46,21 +52,49 @@ public class CountofSmallerNumbersAfterSelf {
         return Arrays.asList(res);
     }
 
+    // insert sort and find the correct position, it returns the
+    // position that target should be, it is asc
+    // and so end is the number how many numbers are there smaller than target
+    //
     private int findIndex(List<Integer> list, int target) {
         if (list.size() == 0) return 0;
         int start = 0;
         int end = list.size() - 1;
         if (list.get(end) < target) return end + 1;
         if (list.get(start) >= target) return 0;
+        // why start < end - 1???
         while (start + 1 < end) {
             int mid = (end - start) / 2 + start;
             if (list.get(mid) < target) {
                 start = mid + 1;
-            } else {
+            } else {// need to understand why we use >= while if there is no equals
                 end = mid;
             }
         }
         if (list.get(start) >= target) return start;
         return end;
+    }
+
+    // TreeMap time exceed, do not understand
+    public List<Integer> countSmaller2(int[] nums) {
+        List<Integer> res = new ArrayList<>();
+        // edge case
+        if (nums == null || nums.length < 1) {
+            return res;
+        }
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        int min = Integer.MIN_VALUE;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            min = Math.min(min, nums[i]);
+            // use treeMap to get subset
+            Map<Integer, Integer> tempMap = map.subMap(min, true, nums[i], false);
+            int count = 0;
+            for (Integer e : tempMap.values()) {
+                count += e;
+            }
+            res.add(0, count);
+            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+        }
+        return res;
     }
 }
