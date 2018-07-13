@@ -15,6 +15,7 @@ public class DeleteNodeInALinkedList {
      * @param node
      */
 
+    // so we just adjust the node pointers
     public static void deleteNode(ListNode node) {
         if (node == null) return;
         node.val = node.next.val;

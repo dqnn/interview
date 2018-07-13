@@ -58,13 +58,19 @@ public class CourseScheduleII {
      * @param prerequisites
      * @return
      */
-    public int[] findres(int numCourses, int[][] prerequisites) {
-        int[] indegree = new int[numCourses];
-        int[] res = new int[numCourses];
-        int k = 0;
-        for (int[] pair : prerequisites) {
-            indegree[pair[0]]++;
+    public int[] findOrder(int num, int[][] prereq) {
+        // edge case
+        if (num < 0 || prereq == null) {
+            return null;
         }
+
+        int[] res = new int[num];
+        int[] indegree = new int[num];
+        int k = 0; // array index move pointer
+        for (int[] pair : prereq) {
+            indegree[pair[0]] += 1;
+        }
+
         Queue<Integer> queue = new LinkedList<>();
         for (int i = 0; i < indegree.length; i++) {
             if (indegree[i] == 0) {
@@ -72,11 +78,12 @@ public class CourseScheduleII {
                 res[k++] = i;
             }
         }
+
         while (!queue.isEmpty()) {
             int pre = queue.poll();
-            for (int[] pair : prerequisites) {
+            for (int[] pair : prereq) {
                 if (pair[1] == pre) {
-                    indegree[pair[0]]--;
+                    indegree[pair[0]] -= 1;
                     if (indegree[pair[0]] == 0) {
                         queue.offer(pair[0]);
                         res[k++] = pair[0];
@@ -84,6 +91,7 @@ public class CourseScheduleII {
                 }
             }
         }
-        return (k == numCourses) ? res : new int[0];
+        // here just handle the exception case when prereq = []
+        return k == num ? res : new int[0];
     }
 }

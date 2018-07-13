@@ -44,10 +44,13 @@ public class CountUnivalueSubtrees {
     public boolean helper(TreeNode root) {
         if (root == null) return true;
 
+        // post order visit the tree
         boolean left = helper(root.left);
         boolean right = helper(root.right);
 
         if (left && right) {
+            // if left or right is null then we only need to consider other child
+            // or if only one node is good enough here
             if (root.left != null && root.val != root.left.val) {
                 return false;
             }

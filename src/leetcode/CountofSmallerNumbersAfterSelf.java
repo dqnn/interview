@@ -55,7 +55,7 @@ public class CountofSmallerNumbersAfterSelf {
     // insert sort and find the correct position, it returns the
     // position that target should be, it is asc
     // and so end is the number how many numbers are there smaller than target
-    //
+    // bianry insert sort
     private int findIndex(List<Integer> list, int target) {
         if (list.size() == 0) return 0;
         int start = 0;

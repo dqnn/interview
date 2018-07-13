@@ -1,8 +1,6 @@
 package leetcode;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 /**
@@ -58,32 +56,52 @@ public class CourseSchedule {
      */
 
     // BFS
-    public boolean canFinish(int numCourses, int[][] prerequisites) {
-        int[] indegree = new int[numCourses];
-        int res = numCourses;
-        for (int[] pair : prerequisites) {
+    public boolean canFinish(int num, int[][] prereq) {
+        // edge case
+        if (num < 1) {
+            return false;
+        }
+
+        int[] indegree = new int[num];
+        // courses number
+        int res = num;
+
+        for (int[] pair : prereq) {
+            // here the end of each pair degree+, if
+            // one node has more "end", which means this node has several depenencies.
+            // indegree here
+            // means the dependency number
             indegree[pair[0]]++;
         }
 
+        // so we here add any node which has no dependency, which means there is no
+        // requirements to
+        // start this class
         Queue<Integer> queue = new LinkedList<>();
         for (int i = 0; i < indegree.length; i++) {
             if (indegree[i] == 0) {
-                queue.offer(i);
+                queue.offer(i);// i here means course number, i = pair[0]
             }
         }
 
         while (!queue.isEmpty()) {
             int pre = queue.poll();
             res--;
-            for (int[] pair : prerequisites) {
-                if (pair[1] == pre) {
+            for (int[] pair : prereq) {
+                // here means these pairs are good to ignore, [2,[1,0]]-->[2,1]
+                if (pair[1] == pre) {// this means the one who has dependency
+                    // degree decrease because we have done this operation on 1 [2,[1,0]]-->[2,1]
+                    // but there also
+                    // [1,5], so 1 still have 1 dependency, here like 1 degree --
                     indegree[pair[0]]--;
+                    // this one means course 1 has no dependency, and 1 has passed test
                     if (indegree[pair[0]] == 0) {
                         queue.offer(pair[0]);
                     }
                 }
             }
         }
-        return res == 0;
+        return res == 0 ? true : false;
+
     }
 }
