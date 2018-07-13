@@ -1,12 +1,8 @@
 package leetcode;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : DiameterofBinaryTree
- * Creator : duqiang
- * Date : Sep, 2017
- * Description : TODO
+ * Project Name : Leetcode Package Name : leetcode File Name :
+ * DiameterofBinaryTree Creator : duqiang Date : July, 2018 Description : TODO
  */
 public class DiameterofBinaryTree {
     /**
