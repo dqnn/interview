@@ -27,18 +27,26 @@ public class DiameterofBinaryTree {
      * @return
      */
 
-    private int res = 0;
-
+    public int res = Integer.MIN_VALUE;
     public int diameterOfBinaryTree(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
         helper(root);
         return res;
     }
 
-    public int helper(TreeNode root) {
-        if (root == null) return 0;
-        int left = helper(root.left);
-        int right = helper(root.right);
+    // the problem it has return value and recursive
+    public int helper(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+
+        int left = helper(node.left);
+        int right = helper(node.right);
+        // whole max should be accessed by this
         res = Math.max(res, left + right);
+        // we alrways return left or right plus 1.
         return Math.max(left, right) + 1;
     }
 }
