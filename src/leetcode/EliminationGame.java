@@ -63,11 +63,15 @@ Output:
         int remaining = n;
         int step = 1;
         int res = 1; // head
+        //when remaining = 1 exit
         while (remaining > 1) {
             if (left || remaining % 2 == 1) {
                 res = res + step;
             }
+            // this will be always the same no matter it is even or odd
             remaining = remaining / 2;
+            // this is tricky part, so if we can scan from left to right, 
+            // the next position is 2 then from right to left, 
             step = step * 2;
             left = !left;
         }
