@@ -1,7 +1,9 @@
 package leetcode;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Project Name : Leetcode
@@ -65,5 +67,51 @@ public class FindAllAnagramsinaString {
             if (count == 0) res.add(start);
         }
         return res;
+    }
+    
+    
+    
+    //another TLE solution
+    public List<Integer> findAnagrams2(String s, String p) {
+        List<Integer> res = new ArrayList<>();
+        if (s == null || p == null || s.length() < 1 || p.length() < 1 || p.length() > s.length()) {
+            return res;
+        }
+        int idx = 0;
+        Set<Integer> set = new HashSet<>();
+        for(int i = 0; i < p.length(); i++) {
+            char ch = p.charAt(i);
+            idx = s.indexOf(ch, idx);
+            
+            while(idx > -1) {
+                if (isSame(s, p, idx)) {
+                    set.add(idx);
+                }
+                idx = s.indexOf(ch, idx + 1);
+            }
+        }
+        res.addAll(set);
+        return res;
+    }
+    
+    private boolean isSame(String s, String t, int start) {
+        if (start + t.length() > s.length()) {
+            return false;
+        }
+ 
+        List<String> list = new ArrayList<>();
+        for(int i =0; i < t.length(); i++) {
+            list.add(String.valueOf(t.charAt(i)));
+        }
+        
+        for(int i = start; i < start + t.length(); i++) {
+            String x = s.substring(i, i+1);
+            if (list.indexOf(x) == -1) {
+                return false;
+            } else {
+                list.remove(x);
+            }
+        }
+        return true;
     }
 }
