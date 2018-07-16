@@ -36,7 +36,7 @@ public class ExpressionAddOperators {
      * @return
      */
 
-  // https://github.com/myzizi/interview/blob/master/resouces/expressions-and-operators.jpg
+    //[this pic demonstrate the process](https://github.com/myzizi/interview/blob/master/resouces/expressions-and-operators.jpg)
     public List<String> addOperators(String num, int target) {
         List<String> res = new ArrayList<>();
         if (num == null || num.length() < 1) {
