@@ -27,7 +27,12 @@ public class ExpressionAddOperators {
 
      4 represents  how many operators we can place in this position, + - * and space, space means we can 
      combine them together
-     time : O(n * 4 ^(n-1)) 
+     T(n) = 3 * T(n-1) + 3 * T(n-2) + 3 * T(n-3) + ... + 3 *T(1);
+     T(n-1) = 3 * T(n-2) + 3 * T(n-3) + ... 3 * T(1);    
+     T(n) = 3 * 4( T(n-2) + T(n-3)+... T(0)) = 3*4^2(T(n-3) +...+T(0))
+          = 3 * 4^(n-1) T(0)
+     
+     time : O(n * 4 ^ n) 
      space : O(n)
 
      
@@ -36,13 +41,13 @@ public class ExpressionAddOperators {
      * @return
      */
 
-    //[this pic demonstrate the process](https://github.com/myzizi/interview/blob/master/resouces/expressions-and-operators.jpg)
+    // pic to demonstrate how code process: 
     public List<String> addOperators(String num, int target) {
         List<String> res = new ArrayList<>();
         if (num == null || num.length() < 1) {
             return res;
         }
-        
+        // DFS to find all possibilities
         helper(res, "", num, target, 0, 0, 0);
         return res;
     }
@@ -62,7 +67,7 @@ public class ExpressionAddOperators {
         // this is permutation templates, for loop visit each position which we can 
         // use for + - * or space to form integer or binary expressions
         for(int i = pos; i < num.length(); i++) {
-            // if pos starts as 0 which means 
+            // if pos starts as 0 which means we don't need to process this position 0
             if (i != pos && num.charAt(pos) == '0') break;
             // note the starting is pos, so 123 will be calculated by here
             long cur = Long.valueOf(num.substring(pos, i+1));
