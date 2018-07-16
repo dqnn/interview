@@ -28,4 +28,19 @@ public class FactorialTrailingZeroes {
     public int trailingZeroes(int n) {
         return n == 0 ? 0 : n / 5 + trailingZeroes(n / 5);
     }
+    
+    public int trailingZeroes2(int n) {
+        //edge case
+        if (n <=4) {
+            return 0;
+        }
+        
+        int m = n;
+        int res = 0;
+        while (m != 0) {
+            m = m / 5;
+            res += m;
+        }
+        return res;
+    }
 }

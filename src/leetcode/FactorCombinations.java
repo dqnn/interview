@@ -8,7 +8,7 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : FactorCombinations
  * Creator : duqiang
- * Date : Aug, 2017
+ * Date : July, 2018
  * Description : TODO
  */
 public class FactorCombinations {
@@ -58,6 +58,8 @@ public class FactorCombinations {
         helper(res, new ArrayList<>(), n, 2);
         return res;
     }
+    
+    // recursive templates, like to pick from some list
     public void helper(List<List<Integer>> res, List<Integer> list, int n, int start) {
         if (n == 1) {
             if (list.size() > 1) {
