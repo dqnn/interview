@@ -36,21 +36,23 @@ public class ExpressionAddOperators {
      * @return
      */
 
+  // https://github.com/myzizi/interview/blob/master/resouces/expressions-and-operators.jpg
     public List<String> addOperators(String num, int target) {
         List<String> res = new ArrayList<>();
-        if (num == null || num.length() == 0) return res;
+        if (num == null || num.length() < 1) {
+            return res;
+        }
+        
         helper(res, "", num, target, 0, 0, 0);
         return res;
     }
-
-    // path: str needed to be in reset set
+     // path: str needed to be in reset set
     // num is the original number, string
     // target is the target value
     //pos is current index when recursive functionality happens, 
-    //val 
+    //val is curent total expressions 
+    // pre is previous integer number, not eval number, must be with signed
     private void helper(List<String> res, String path, String num, int target, int pos, long val, long pre) {
-        // if we reached the end of num
-        // and we find val changed to be the same as target chich means we reached the target
         if (pos == num.length()) {
             if (target == val) {
                 res.add(path);
@@ -59,16 +61,25 @@ public class ExpressionAddOperators {
         }
         // this is permutation templates, for loop visit each position which we can 
         // use for + - * or space to form integer or binary expressions
-        for (int i = pos; i < num.length(); i++) {
+        for(int i = pos; i < num.length(); i++) {
+            // if pos starts as 0 which means 
             if (i != pos && num.charAt(pos) == '0') break;
-            long cur = Long.parseLong(num.substring(pos, i + 1));
+            // note the starting is pos, so 123 will be calculated by here
+            long cur = Long.valueOf(num.substring(pos, i+1));
             if (pos == 0) {
-                helper(res, path + cur, num, target, i + 1, cur, cur);
+                // here cur changed to pre-evaluation results
+                helper(res, path + cur, num, target, i+1, cur, cur);
             } else {
+                // 
                 helper(res, path + "+" + cur, num, target, i + 1, val + cur, cur);
+                // 1+2-3,   so we need to take with sign to be pre value here. 
                 helper(res, path + "-" + cur, num, target, i + 1, val - cur, -cur);
+                // for example 1+2*3
+                // we have added 2 in val, but * priveledge is higher than +, so we need to get pre 2 out of val
+                // and then add true result: pre * cur
                 helper(res, path + "*" + cur, num, target, i + 1, val - pre + pre * cur, pre * cur);
             }
+            
         }
     }
 }
