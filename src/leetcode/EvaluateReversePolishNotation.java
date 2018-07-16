@@ -24,6 +24,8 @@ public class EvaluateReversePolishNotation {
      * @param tokens
      * @return
      */
+    
+    // this is standard Post order visit operation and is the same as calculator
     public int evalRPN(String[] tokens) {
         Stack<Integer> stack = new Stack<>();
         for (String s : tokens) {

@@ -49,9 +49,20 @@ public class ExcelSheetColumnTitle {
      * @param n
      * @return
      */
+    /*
+     * As per the requirement, 1 -> A, 2 -> B... But here in Ascii reminder is added
+     * to build the output, 0+65 = A, 1+65 = B, etc. Results will be saved using
+     * reminder. So to reduce that 1 char gap, (n-1) was used.
+     * 
+     * Let's say for 52. It gives reminder, (n-1)%26 => (51%26) = 25 and in next
+     * interation it gives 0, which makes AZ. But just keeping n to n, (n)%26 =>
+     * (52%26) reminder would be 0 and 2 in next iteration which gives undesirable
+     * results in the end (CA)
+     */
     public String convertToTitle(int n) {
         StringBuilder sb = new StringBuilder();
         while (n > 0) {
+            // here is the tricky
             n--;
             sb.append((char)('A' + n % 26));
             n /= 26;

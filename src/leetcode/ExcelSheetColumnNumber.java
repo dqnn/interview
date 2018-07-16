@@ -42,10 +42,16 @@ public class ExcelSheetColumnNumber {
      * @param s
      * @return
      */
+    // 26 进制
     public int titleToNumber(String s) {
+        if (s == null || s.length() < 1) {
+            return 0;
+        }
         int res = 0;
-        for (int i = 0; i < s.length(); i++) {
-            res = res * 26 + (s.charAt(i) - 'A' + 1);
+        for(int i = 0; i < s.length(); i++) {
+            // so we have to + 1 because A is 1 not 0;
+            res = res * 26 + s.charAt(i) - 'A' + 1;
+            
         }
         return res;
     }
