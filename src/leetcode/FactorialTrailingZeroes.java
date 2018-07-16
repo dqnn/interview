@@ -25,6 +25,17 @@ public class FactorialTrailingZeroes {
     // how many 5 factors in the last
     // 1x2x3x4x5x...x20 = M
     // M = 5x 3X 5(15) x 4x5(20),so we can get more 5 factors finally
+    // if we diveded by 5, we are missing 25, 
+    
+    /*
+     * 25, 24, 23, 22, 21 ----- 25/5 = 5
+       20, 19, 18, 17, 16 ----- 20/5 = 4
+       15, 14, 13, 12, 11------ 15/5 = 3
+       10, 9, 8, 7, 6 ----------- 10/5 = 2
+       5, 4, 3, 2, 1 -------------- 5/5 = 1
+        which gives anther loop: 5, 4, 3, 2, 1 ('2' is always enough for '5' to multiply)
+        So: 25/5 + 5/5 = 6
+     */
     public int trailingZeroes(int n) {
         return n == 0 ? 0 : n / 5 + trailingZeroes(n / 5);
     }
