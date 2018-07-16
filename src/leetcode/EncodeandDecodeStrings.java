@@ -51,6 +51,7 @@ public class EncodeandDecodeStrings {
      */
 
     // Encodes a list of strings to a single string.
+    // we use 3/a->aaa this way to encode
     public String encode(List<String> strs) {
         StringBuilder sb = new StringBuilder();
         for (String str : strs) {
@@ -64,7 +65,7 @@ public class EncodeandDecodeStrings {
         List<String> res = new ArrayList<>();
         int i = 0;
         while (i < s.length()) {
-            int slash = s.indexOf('/', i);
+            int slash = s.indexOf('/', i);// i is the starting position to search
             int size = Integer.valueOf(s.substring(i, slash));
             res.add(s.substring(slash + 1, slash + size + 1));
             i = slash + size + 1;
