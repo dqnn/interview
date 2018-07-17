@@ -48,27 +48,52 @@ public class FindAllAnagramsinaString {
      * @return
      */
 
-    public static List<Integer> findAnagrams(String s, String p) {
-        List<Integer> res = new ArrayList<>();
-        if (s == null || p == null || s.length() < p.length()) return res;
-        //visited maps
-        int[] chars = new int[26];
-        for (char c : p.toCharArray()) {
-            chars[c - 'a']++;
-        }
-        int start = 0, end = 0;
-        int count = p.length();
-        while (end < s.length()) {
-            // end is from 0 same as start
-            if (end - start == p.length() && chars[s.charAt(start++) - 'a'] >= 0) {
-                count++;
+    class Solution {
+        
+        // we change change to templates which use two while and get the answer, but here is more elegant version
+        public List<Integer> findAnagrams(String s, String p) {
+            List<Integer> res = new ArrayList<>();
+            //edge case
+            if (s == null || p == null || s.length() < 1 || p.length() < 1 || s.length() < p.length()) {
+                return res;
             }
-            if (--chars[s.charAt(end++) - 'a'] >= 0) {
-                count--;
+            
+            int[] visited = new int[26];
+            for(char ch : p.toCharArray()) {
+                visited[ch - 'a'] ++;
             }
-            if (count == 0) res.add(start);
+            
+            
+            int start = 0, end = 0;
+            int count = p.length();
+            while(end < s.length()) {
+                // end here means idx = p.length() + 1 position,  
+                // s: "cbaebabacd" p: "abc",
+                // 0-3, end -> e but we need to move the window to right, 
+                // so start->a, this element must be removed from the window, the count here means how many elements are not the same,
+                // so count has been count++, because we find this element in p and will be removed from the window.  
+                
+                if (end - start == p.length()) {
+                    if (visited[s.charAt(start) - 'a'] >= 0) {
+                        count++;
+                    }
+                    //we need remove the side effect from removing start-> a in the moving window. 
+                    //visited array need to ++1 no matter p contains it or not because we have done to start->a, so visited needs to be reset for this index
+                    visited[s.charAt(start) - 'a']++;
+                    //last start needs ++, becasue  start move to next element
+                    start++;   
+                }
+                // count -- because we find the element in P, and so diff has to decrease 1
+                if (visited[s.charAt(end++) - 'a']-- >= 1) {//if (--visited[s.charAt(end++) - 'a']-- >= 0) also works
+                    count--;
+                }
+                if (count == 0) {
+                    res.add(start);
+                }
+            }
+        
+            return res;
         }
-        return res;
     }
     
     //another TLE solution
