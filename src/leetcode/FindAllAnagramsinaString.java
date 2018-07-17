@@ -51,6 +51,7 @@ public class FindAllAnagramsinaString {
     public static List<Integer> findAnagrams(String s, String p) {
         List<Integer> res = new ArrayList<>();
         if (s == null || p == null || s.length() < p.length()) return res;
+        //visited maps
         int[] chars = new int[26];
         for (char c : p.toCharArray()) {
             chars[c - 'a']++;
@@ -58,6 +59,7 @@ public class FindAllAnagramsinaString {
         int start = 0, end = 0;
         int count = p.length();
         while (end < s.length()) {
+            // end is from 0 same as start
             if (end - start == p.length() && chars[s.charAt(start++) - 'a'] >= 0) {
                 count++;
             }
@@ -68,8 +70,6 @@ public class FindAllAnagramsinaString {
         }
         return res;
     }
-    
-    
     
     //another TLE solution
     public List<Integer> findAnagrams2(String s, String p) {
