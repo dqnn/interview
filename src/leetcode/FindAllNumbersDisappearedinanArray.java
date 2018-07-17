@@ -42,6 +42,8 @@ public class FindAllNumbersDisappearedinanArray {
                 nums[index] = -nums[index];
             }
         }
+        //[4,3,2,7,8,2,3,1] -->[-4, -3, -2, -7, 8, 2, -3, -1]
+        // so the disappeared num is the index + 1 we did not set the value
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] > 0) {
                 res.add(i + 1);

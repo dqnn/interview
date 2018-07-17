@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * Project Name : Leetcode
+
  * Package Name : leetcode
  * File Name : FindAllDuplicatesinanArray
  * Creator : duqiang
@@ -32,6 +33,8 @@ Output:
  *  O(n), O(1)
  */
 class FindAllDuplicatesinArray {
+    // so should be sensitive about the index,if it is within context of n, then we should consider 
+    // take advantage of the value to be index. 
     public List<Integer> findDuplicates(int[] nums) {
         //edge case
         List<Integer> res = new ArrayList<>();
@@ -40,6 +43,8 @@ class FindAllDuplicatesinArray {
         }
         
         int len = nums.length;
+        // try to use starting from 0 always and use the i+1. which is better than 1 since you
+        // will ignore some elements
         for(int i = 0; i <= len - 1; i++) {
             int index = Math.abs(nums[i]) - 1;
             if (nums[index] > 0) {

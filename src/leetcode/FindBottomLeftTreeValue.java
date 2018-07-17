@@ -8,7 +8,7 @@ import java.util.Queue;
  * Package Name : leetcode
  * File Name : FindBottomLeftTreeValue
  * Creator : duqiang
- * Date : Aug, 2017
+ * Date : July, 2018
  * Description : TODO
  */
 public class FindBottomLeftTreeValue {
@@ -66,7 +66,7 @@ public class FindBottomLeftTreeValue {
     }
 
 
-
+    // this is just keeping the last element res, 
     public int findBottomLeftValue2(TreeNode root) {
         if (root == null) return -1;
         int res = 0;
@@ -79,6 +79,32 @@ public class FindBottomLeftTreeValue {
             if (cur.left != null) queue.offer(cur.left);
         }
         return res;
+    }
+    
+    
+    // the same as previous one, but we use post order visit the tree
+    int level = 0;
+    int value = -1;
+    public int findBottomLeftValue3(TreeNode root) {
+        //edge case
+        if (null == root) {
+            return 0;
+        }
+        
+        helper2(root, 0);
+        return value;
+    }
+    
+    public void helper2(TreeNode node, int l) {
+        if (node == null) {
+            return;
+        }
+        helper(node.left, l + 1);
+        helper(node.right, l + 1);
+        if (l + 1 > level) {
+            value = node.val;
+            level = l + 1;
+        }
     }
 
 }
