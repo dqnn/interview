@@ -48,6 +48,10 @@ public class FindLeavesofBinaryTree {
      * @param root
      * @return
      */
+    // we use level as list index to visit the tree,compare to the queue way, this is more elegant but 
+    // not easy to understand
+    
+    //
     public List<List<Integer>> findLeaves(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         helper(res, root);
