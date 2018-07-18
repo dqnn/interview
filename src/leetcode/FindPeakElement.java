@@ -47,4 +47,36 @@ public class FindPeakElement {
         if (nums[start] > nums[end]) return start;
         return end;
     }
+    
+    //bruth-force way to solve the problem
+    public int findPeakElement2(int[] nums) {
+        if (nums == null || nums.length < 1) {
+            return -1;
+        }
+        
+        if (nums.length == 1) {
+            return 0;
+        }
+        
+        if (nums.length == 2) {
+            return nums[0] < nums[1] ? 1: 0;
+        }
+        
+        // sovle the left and right issues
+        if (nums[0] > nums[1]) {
+            return 0;
+        }
+        
+        if (nums[nums.length - 1] > nums[nums.length - 2]) {
+            return nums.length - 1;
+        }
+        
+
+        for(int i = 1; i < nums.length - 1; i++) {
+            if (nums[i] > nums[i - 1] && nums[i] > nums[i + 1]) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
