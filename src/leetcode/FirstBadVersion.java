@@ -29,17 +29,34 @@ public class FirstBadVersion {
      * @return
      */
     public int firstBadVersion(int n) {
-        int start = 1;
-        int end = n;
-        while (start + 1 < end) {
-            int mid = (end - start) / 2 + start;
-            if (isBadVersion(mid)) {
-                end = mid;
-            } else start = mid;
+        if (n < 1) {
+            return -1;
         }
+        //The (left<=right) takes care of the scenarios in which your pivot is essentially left = right. 
+        //In that case, if you don't check, you will miss on one element. It is easy to verify it by doing a binary 
+        //search in an array of small size such as 1,2 or 1,2,3 etc. About your second issue, 
+        //this problem is actually tricker as there is no default condition when you know you have found it. I
+        
+        //1,2,3,4,5,6,7,8,9   5 is the first version to be broken.
+        // round 1: start = 1 end = 9, mid = 5
+        //round 2: start = 4, end = 9, mid = 6
+        // round 3: start = 4 end = 5, mid = 4
+        // round 4: start = 5, end = 5, mid = 5
+        //round 6: start = 5, end = 4, so we exit the loop
+        int start = 1, end = n;
+        while(start <= end) {
+            int mid = start + (end - start) / 2;
+            if (isBadVersion(mid)) {
+                end = mid - 1;
+            } else {
+                start = mid + 1;
+            }
+        }
+        
         if (isBadVersion(start)) {
             return start;
         }
+        
         return end;
     }
 

@@ -48,4 +48,25 @@ public class FindtheDifference {
         }
         return c;
     }
+    
+    // we can use the sum to get the best solutions
+    public char findTheDifference2(String s, String t) {
+        if (s == null || t == null || s.length() >= t.length()) {
+            return '$';
+        }
+        int sum = t.charAt(t.length() - 1);
+        for(int i = 0; i < s.length(); i++) {
+            sum += t.charAt(i);
+            sum -= s.charAt(i);
+        }
+
+        return (char)sum;
+    }
+    
+    public char findTheDifference3(String s, String t) {
+        //the reduce method expects two arguments: an identity element, and a lambda expression
+        // here just 0 + c ^ d. 
+        //String.chars() will open a stream
+        return (char) (s + t).chars().reduce(0, (c, d) -> c ^ d);
+    }
 }

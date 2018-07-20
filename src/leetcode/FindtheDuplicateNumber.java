@@ -1,5 +1,8 @@
 package leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
@@ -31,13 +34,16 @@ public class FindtheDuplicateNumber {
         while (min <= max) {
             int mid = (max - min) / 2 + min;
             int count = 0;
+            // here count how many numbers are small than mid, 
             for (int i = 0; i < nums.length; i++) {
                 if (nums[i] <= mid) {
                     count++;
                 }
             }
+            // here means the duplicate number is on the left side
             if (count > mid) {
                 max = mid - 1;
+            // here means on the right side
             } else {
                 min = mid + 1;
             }
@@ -47,17 +53,43 @@ public class FindtheDuplicateNumber {
 
     // time : O(n) space : O(1)
     public int findDuplicate2(int[] nums) {
+        //edge case
+        if (nums == null || nums.length < 1) {
+            return - 1;
+        }
+        
         int slow = nums[0];
         int fast = nums[nums[0]];
-        while (slow != fast) {
+        // 1,3,2,4,5,2 so 2,4,5,2 will be a circle, and if they are circle so fast will finally meet slow. 
+        // 
+        while(slow != fast) {
             slow = nums[slow];
             fast = nums[nums[fast]];
         }
         fast = 0;
+        // so fast have same pace with slow, then slow continue the another half of the circle, they will meet at the circl start again. 
         while (slow != fast) {
             slow = nums[slow];
             fast = nums[fast];
         }
         return slow;
+    }
+    
+    // O(n), O(n)
+    public int findDuplicate3(int[] nums) {
+        //edge case
+        if (nums == null || nums.length < 1) {
+            return - 1;
+        }
+        
+        Map<Integer, Integer> map = new HashMap<>();
+        for(Integer n: nums) {
+            if (map.containsKey(n)) {
+                return n;
+            } else {
+                map.put(n, 1);
+            }
+        }
+        return -1;
     }
 }
