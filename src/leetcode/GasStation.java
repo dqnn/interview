@@ -47,14 +47,20 @@ public class GasStation {
         if (gas.length == 0 || cost.length == 0 || gas.length != cost.length) return -1;
         int total = 0, sum = 0, start = 0;
         for (int i = 0; i < gas.length; i++) {
+            // total here is the sum of all gas-cost
             total += (gas[i] - cost[i]);
+            // if like first station or some station that we cannot go to next one.
             if (sum < 0) {
-                sum = (gas[i] - cost[i]);
+                // sum restarted, means previous as start cannot make it
+                sum = gas[i] - cost[i];
                 start = i;
             } else {
+                // so sum also have to add them together, 
                 sum += (gas[i] - cost[i]);
             }
         }
+        // no matter from which index, so if total is smaller than 0 which means we have no way to achieve the goal
+        // or else we could always find a starting to go
         return total < 0 ? -1 : start;
     }
 }

@@ -41,6 +41,7 @@ public class FractiontoRecurringDecimal {
             return "0";
         }
         StringBuilder res = new StringBuilder();
+        // "+" or "-"， XOR, means both are positive or negative, they will be false. 
         res.append(((numerator > 0) ^ (denominator > 0) ? "-" : ""));
         long num = Math.abs((long)numerator);
         long den = Math.abs((long)denominator);
@@ -54,7 +55,9 @@ public class FractiontoRecurringDecimal {
         res.append(".");
         HashMap<Long, Integer> map = new HashMap<>();
         map.put(num, res.length());
-
+        // we used a map to store the / result so if we found the same in the map which means we 
+        // it will repeat again. here use technical that we insert the ( at the length of the Stringbuilder
+        //
         while (num != 0) {
             num *= 10;
             res.append(num / den);
