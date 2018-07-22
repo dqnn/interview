@@ -8,11 +8,15 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : FlipGame
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : July, 2018
  * Description : 293. Flip Game
  */
 public class FlipGame {
     /**
+     * You are playing the following Flip Game with your friend: Given a string that contains only 
+     * these two characters: + and -, you and your friend take turns to flip two consecutive "++" into "--". 
+     * The game ends when a person can no longer make a move and therefore the other person will be the winner.
+Write a function to compute all possible states of the string after one valid move.
      * For example, given s = "++++", after one move, it may become one of the following states:
 
      [
@@ -29,6 +33,7 @@ public class FlipGame {
      * @param s
      * @return
      */
+    // such simple solution, we use substring to get it
     public List<String> generatePossibleNextMoves(String s) {
         List<String> res = new ArrayList<>();
         for (int i = 1; i < s.length(); i++) {

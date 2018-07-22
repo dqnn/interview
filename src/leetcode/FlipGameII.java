@@ -39,18 +39,22 @@ public class FlipGameII {
         HashMap<String, Boolean> map = new HashMap<>();
         return helper(s, map);
     }
-
+    //how we play games, using recursive, map is to store results
     private boolean helper(String s, HashMap<String, Boolean> map) {
         if (map.containsKey(s)) return map.get(s);
+        // for loop here make sure to visit all possible starting status
         for (int i = 0; i < s.length() - 1; i++) {
             if (s.charAt(i) == '+' && s.charAt(i + 1) == '+') {
+                // opponent fail
                 String opponent = s.substring(0, i) + "--" + s.substring(i + 2);
+                // opponent fail then means we win
                 if (!helper(opponent, map)) {
                     map.put(s, true);
                     return true;
                 }
             }
         }
+        // until here means we fail
         map.put(s, false);
         return false;
     }

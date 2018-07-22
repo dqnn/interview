@@ -31,9 +31,25 @@ public class FlattenNestedListIterator {
      space : O(n)
 
      */
-
+    
+    /* public interface NestedInteger {
+        *
+        *     // @return true if this NestedInteger holds a single integer, rather than a nested list.
+        *     public boolean isInteger();
+        *
+        *     // @return the single integer that this NestedInteger holds, if it holds a single integer
+        *     // Return null if this NestedInteger holds a nested list
+        *     public Integer getInteger();
+        *
+        *     // @return the nested list that this NestedInteger holds, if it holds a nested list
+        *     // Return null if this NestedInteger holds a single integer
+        *     public List<NestedInteger> getList();
+        * }
+*/
     Stack<NestedInteger> stack;
 
+    // so similiar question like this requires to understand the problem correctly, like this 
+    // the nestedInteger
     public FlattenNestedListIterator(List<NestedInteger> nestedList) {
         stack = new Stack<>();
         for (int i = nestedList.size() - 1; i >= 0; i--) {

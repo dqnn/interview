@@ -1,6 +1,7 @@
 package leetcode;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Project Name : Leetcode
@@ -45,20 +46,27 @@ public class FourSumII {
      * @return
      */
     public int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
-        HashMap<Integer, Integer> map = new HashMap<>();
+        if (A == null || B == null || C == null || D == null) {
+            return 0;
+        }
+        // store first two factors sum
+        Map<Integer, Integer> map = new HashMap<>();
         int res = 0;
-        for (int a : A) {
-            for (int b : B) {
+        for(int a : A) {
+            for(int b : B) {
                 int sum = a + b;
                 map.put(sum, map.getOrDefault(sum, 0) + 1);
             }
         }
-        for (int c : C) {
-            for (int d : D) {
-                int sum = -c - d;
+        
+        for(int c : C) {
+            for(int d :D) {
+                int sum = - c -d;
                 res += map.getOrDefault(sum, 0);
             }
         }
+        
         return res;
+        
     }
 }

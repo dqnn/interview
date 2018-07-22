@@ -43,10 +43,14 @@ public class FlattenBinaryTreetoLinkedList {
     // reverse of preOrder visit
     public void flatten(TreeNode root) {
         if (root == null) return;
+        //first visit right child
         flatten(root.right);
+        // left child
         flatten(root.left);
+        // vsit root node, so most right here should be null
         root.right = prev;
         root.left = null;
+        // here we use this way to store the previous root of right child
         prev = root;
     }
     
