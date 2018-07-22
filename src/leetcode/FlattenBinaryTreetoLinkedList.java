@@ -40,7 +40,7 @@ public class FlattenBinaryTreetoLinkedList {
      * @param root
      */
     private TreeNode prev = null;
-
+    // reverse of preOrder visit
     public void flatten(TreeNode root) {
         if (root == null) return;
         flatten(root.right);
@@ -49,18 +49,32 @@ public class FlattenBinaryTreetoLinkedList {
         root.left = null;
         prev = root;
     }
+    
     public void flatten2(TreeNode root) {
-        if (root == null) return;
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.isEmpty()) {
-            TreeNode cur = stack.pop();
-            if (cur.right != null) stack.push(cur.right);
-            if (cur.left != null) stack.push(cur.left);
-            if (!stack.isEmpty()) {
-                cur.right = stack.peek();
+        if (root == null) {
+            return;
+        }
+        Stack<TreeNode> s = new Stack<>();
+        s.push(root);
+        while(!s.isEmpty()) {
+            TreeNode node = s.pop();
+            // so we push right first into the stack, it will be at bottom of the stack
+            // and then we push left, and if cut down its original right connection but right 
+            //already in stack, so no worries
+            // and then we peek the stack top which is left child into right and when next iteration,
+            // we will pick left child and process its child as previous doing.
+            if (null != node.right) {
+                s.push(node.right);
             }
-            cur.left = null;
+            if (null != node.left) {
+                s.push(node.left);
+            }
+            // here is to indicate maybe already its leaf node
+            if (!s.isEmpty()) {
+                node.right = s.peek();
+            }
+            // cut the left child
+            node.left = null;
         }
     }
 }

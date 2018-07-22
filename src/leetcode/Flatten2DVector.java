@@ -21,6 +21,10 @@ public class Flatten2DVector {
      ]
      By calling next repeatedly until hasNext returns false,
      the order of elements returned by next should be: [1,2,3,4,5,6].
+     
+     so it requires to implement two functions
+     E next()
+     boolean hasNext()
 
      time : O(n)
      space : O(1)
@@ -45,10 +49,13 @@ public class Flatten2DVector {
 
     //@Override
     public boolean hasNext() {
+        // so we need a cunt down to get whether we have next element
+        // while here helps to iterate to next list 
         while (indexList < list.size()) {
             if (indexElement < list.get(indexList).size()) {
                 return true;
             } else {
+                // so indexElement means index in each sub list
                 indexList++;
                 indexElement = 0;
             }
