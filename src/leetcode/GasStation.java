@@ -47,20 +47,48 @@ public class GasStation {
         if (gas.length == 0 || cost.length == 0 || gas.length != cost.length) return -1;
         int total = 0, sum = 0, start = 0;
         for (int i = 0; i < gas.length; i++) {
+            int delta = gas[i] - cost[i];
             // total here is the sum of all gas-cost
-            total += (gas[i] - cost[i]);
+            total += delta;
             // if like first station or some station that we cannot go to next one.
             if (sum < 0) {
                 // sum restarted, means previous as start cannot make it
-                sum = gas[i] - cost[i];
+                sum = delta;
                 start = i;
             } else {
                 // so sum also have to add them together, 
-                sum += (gas[i] - cost[i]);
+                sum += delta;
             }
         }
         // no matter from which index, so if total is smaller than 0 which means we have no way to achieve the goal
         // or else we could always find a starting to go
-        return total < 0 ? -1 : start;
+        return total >= 0 ?  start : -1;
+    }
+    
+    // another solutions
+    public int canCompleteCircuit2(int[] gas, int[] cost) {
+        for (int i = 0; i < gas.length; i++) {
+            gas[i] -= cost[i];
+        }
+        int sum = 0;
+        int result = 0;
+        int n = gas.length;
+        //We have to check every node (station) to see if it meets the criteria and we can't stop at n - 1 
+        //cause there's possibility that no station is satisfied. So when we come to the n - 1 node, 
+        //we have to go another round.
+        //Simulate a cycle by an array, such as:
+        //0,1,2...n-1,0,1,2....n-2
+        //total 2n-1 elements.
+        for (int i = 0; i < n * 2 - 1; i++) {
+            sum += gas[i % n];
+            if (sum < 0) {
+                result = i + 1;
+                if (result >= n) {
+                    return -1;
+                }
+                sum = 0;
+            }
+        }
+        return result;
     }
 }

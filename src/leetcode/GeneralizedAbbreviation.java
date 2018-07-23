@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class GeneralizedAbbreviation {
     /**
+     * Write a function to generate the generalized abbreviations of a word.
      * Example:
      Given word = "word", return the following list (order does not matter):
      ["word", "1ord", "w1rd", "wo1d", "wor1", "2rd", "w2d", "wo2", "1o1d", "1or1", "w1r1", "1o2", "2r1", "3d", "w3", "4"]
@@ -21,7 +22,7 @@ public class GeneralizedAbbreviation {
 
      time : O(2^n)
      space : O(n) (不确定)
-
+这道题让我们对一个单词进行部分简写，简写的规则是若干个字母可以用数字来表示，但是不能有两个相邻的数字
      * @param word
      * @return
      */
@@ -36,7 +37,10 @@ public class GeneralizedAbbreviation {
             if (count > 0) cur += count;
             res.add(cur);
         } else {
+            // so we have two choices, one is place number another one is place character, 
+            // here is place number
             helper(res, word, pos + 1, cur, count + 1);
+            //here we want to place character
             helper(res, word, pos + 1, cur + (count > 0 ? count : "") + word.charAt(pos), 0);
         }
 

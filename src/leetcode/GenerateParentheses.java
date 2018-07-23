@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by duqiang on 27/07/2017.
+ * Created by duqiang on 21/07/2018.
  */
 public class GenerateParentheses {
     /**
@@ -31,25 +31,50 @@ public class GenerateParentheses {
      * @return
      */
 
-    public static List<String> generateParenthesis(int n) {
+    public List<String> generateParenthesis(int n) {
         List<String> res = new ArrayList<>();
-        if (n == 0) return res;
+        if (n < 1) {
+            return res;
+        }
+        
         helper(res, "", n, n);
         return res;
     }
-    public static void helper(List<String> res, String s, int left, int right) {
-        if (left > right) {
-            return;
-        }
+    // left means num of ( while right means num of )
+    public void helper(List<String> res, String pre, int left, int right) {
+        // this is to avoid that ) is more than (  which is the wrong answer
+        if (left > right) return;
+        
         if (left == 0 && right == 0) {
-            res.add(s);
+            res.add(pre);
             return;
         }
+        
         if (left > 0) {
-            helper(res, s + "(", left - 1, right);
+            helper(res, pre + "(", left - 1, right);
         }
+        
         if (right > 0) {
-            helper(res, s + ")", left, right - 1);
+            helper(res, pre + ")", left, right - 1);
         }
+    }
+    
+    public List<String> generateParenthesis2(int n) {
+        List<String> list = new ArrayList<String>();
+        backtrack(list, "", 0, 0, n);
+        return list;
+    }
+    
+    public void backtrack(List<String> list, String str, int open, int close, int max){
+        
+        if(str.length() == max*2){
+            list.add(str);
+            return;
+        }
+        
+        if(open < max)
+            backtrack(list, str+"(", open+1, close, max);
+        if(close < open)
+            backtrack(list, str+")", open, close+1, max);
     }
 }
