@@ -53,5 +53,6 @@ https://github.com/checkcheckzz/system-design-interview#intro
 明年才要面你現在就開始準備的話 基本上你是個非常自律的人 你就定時follow各公司engineer寫的文章就可以了 別忘了面之前一個月再回來看我這篇
 https://github.com/checkcheckzz/system-design-interview#blog
 
+https://github.com/connor11528/coding-interviews
 
 其實有工作經驗的都知道 你很常需要去design一個新的project 而釐清use case這些事情是基本 連use case都沒問那面試官根本不會覺得你是個好的工程師 主要考察的是communication and problem solving, 給你一個開放性問題 你怎麼分析step by step, 你如何跟別人討論你的idea, 如何optimize你的system 往這個方向想就覺得其實system design真的沒什麼好怕的 這篇寫了快五個小時 請各位地友不吝賞個大米吧  這篇就不設權限了 希望造福大家 如果大米超過100我再稍微寫一下怎麼design twitter吧

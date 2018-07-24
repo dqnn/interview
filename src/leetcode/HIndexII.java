@@ -32,4 +32,17 @@ public class HIndexII {
         }
         return len - start;
     }
+    // O(n)  O(1)
+    public int hIndex2(int[] c) {
+        if (c == null || c.length < 1) {
+            return 0;
+        }
+        
+        int res = 0;
+        while ((res < c.length) && c[c.length - 1 - res] > res) {
+            res += 1;
+        }
+        
+        return res;
+    }
 }
