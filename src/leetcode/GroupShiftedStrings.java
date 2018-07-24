@@ -40,9 +40,16 @@ public class GroupShiftedStrings {
      * @return
      */
 
+    // clarification questions to ask
+    //1 . the answer should be sorted?
+    //2  input is null, the output is object with null contents or just null
+    //
     public List<List<String>> groupStrings(String[] strings) {
         List<List<String>> res = new ArrayList<>();
         HashMap<String, List<String>> map = new HashMap<>();
+        // here we store the delta to each starting key as baseline as
+        // abc --> 'a' -'a' + 'b' - 'a' + 'c' - 'a' so no matter 
+        //how shift and starting character, we should be alaways to get rhe correct index
         for (String str : strings) {
             int offset = str.charAt(0) - 'a';
             String key = "";

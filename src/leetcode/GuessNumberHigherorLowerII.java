@@ -40,7 +40,7 @@ public class GuessNumberHigherorLowerII {
 
      5 : 10 11
 
-
+     有一种理解方式就是猜一个数字 两个数字 以及N个数字 需要花的最少的钱
      1,for
      2,dfs + memo
 
@@ -58,7 +58,13 @@ public class GuessNumberHigherorLowerII {
         dp = new int[n + 1][n + 1];
         return helper(1, n);
     }
-
+/*
+ * dp[i][j] is the minimal cost to guess from range(i...j).
+When you choose an x where i <= x <= j, you may find the target number from left i...x-1, 
+or you may find the target number from the x+1...j, because you don't know which way should go, 
+so to guarantee you have enough money to find the target, you need to prepare the more, which is
+ max(dp[i][x-1], dp[x+1][j]).
+ */
     private int helper(int i, int j) {
         if (i > j) return 0;
         if (dp[i][j] != 0) return dp[i][j];
@@ -83,6 +89,10 @@ public class GuessNumberHigherorLowerII {
             for (int j = i + 1; j <= n; j++) {
                 dp[i][j] = Integer.MAX_VALUE;
                 for (int x = i; x < j; x++) {
+                 // the max means whenever you choose a number, the feedback is always 
+                    //bad and therefore leads you to a worse branch.
+                   // this min makes sure that you are minimizing your cost.
+                    // k+DP( start, k-1 ) + DP(k+1, end ),
                     dp[i][j] = Math.min(dp[i][j], x + Math.max(dp[i][x - 1], dp[x + 1][j]));
                 }
             }

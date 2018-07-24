@@ -52,4 +52,24 @@ public class GuessNumberHigherorLower {
     public int guess(int num) {
         return 0;
     }
+    
+    public int guessNumber2(int n) {
+        if (n < 1) {
+            return -1;
+        }
+        int start = 1, end = n;
+        while (start < end) {
+            int mid = start + (end -start) / 2;
+            int g = guess(mid);
+            if (g == 1) {
+                start = mid + 1;
+            } else if (g == -1) {
+                end = mid - 1;
+            }  else {
+                return mid;
+            }
+        }
+        if (guess(start) == 0) return start;
+        return end;
+    }
 }
