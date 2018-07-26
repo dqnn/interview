@@ -37,6 +37,7 @@ public class IncreasingSubsequences {
 
     // templates for back tracking
     public void helper(HashSet<List<Integer>> res, List<Integer> list, int[] nums, int start) {
+        // if more than 2 then add it into the result set
         if (list.size() >= 2) {
             res.add(new ArrayList<>(list));
         }
