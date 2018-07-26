@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.HashMap;
+
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
@@ -52,4 +54,63 @@ Determine the maximum amount of money the thief can rob tonight without alerting
         }
         return Math.max(val + root.val, rob(root.left) + rob(root.right));
     }
+    
+    
+    // we store the node computation as result in map, this is improvement
+    public int rob2(TreeNode root) {
+        return helper(root, new HashMap<>());
+    }
+    
+    public int helper(TreeNode node, HashMap<TreeNode, Integer> map) {
+        if (node == null) return 0;
+        if (map.containsKey(node)) return map.get(node);
+        
+        int val = node.val;
+        if (node.left != null) {
+            val += helper(node.left.left, map) + helper(node.left.right, map);
+        }
+        
+        if (node.right != null) {
+            val += helper(node.right.left, map) + helper(node.right.right, map);
+        }
+        // not understand why we also return val
+        val = Math.max(val, helper(node.left, map) + helper(node.right, map));
+        map.put(node, val);
+        return val;
+    }
+    
+    /*why it has overlapped sub problems?
+     *  
+     * If you trace all the way back to the beginning, you'll find the answer 
+     * lies in the way how we have defined rob(root). As I mentioned, for each tree root, 
+     * there are two scenarios: it is robbed or is not. rob(root) does not distinguish between 
+     * these two cases, so "information is lost as the recursion goes deeper and deeper", which results 
+     * in repeated subproblems.
+     * 
+     * so we use res[2] res[0] not robbed, res[1] robbed
+     */
+    
+    
+    // this is the same as first version, 
+    public int rob3(TreeNode root) {
+        int[] res = robSub(root);
+        return Math.max(res[0], res[1]);
+    }
+    
+    public int[] robSub(TreeNode node) {
+        if (node == null) {
+            return new int[2];
+        }
+        
+        int[] l = robSub(node.left);
+        int[] r = robSub(node.right);
+        
+        int[] res = new int[2];
+        // node is not robbed, so child is may be robbed or not.
+        res[0] = Math.max(l[0], l[1]) + Math.max(r[0], r[1]);
+        // node is robbed, so left child and right child not be robbed
+        res[1] = node.val + l[0] + r[0];
+        return res;
+    }
+    
 }

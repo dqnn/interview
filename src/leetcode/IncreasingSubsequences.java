@@ -9,7 +9,7 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : IncreasingSubsequences
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : July, 2018
  * Description : TODO
  */
 public class IncreasingSubsequences {
@@ -32,10 +32,10 @@ public class IncreasingSubsequences {
         HashSet<List<Integer>> res = new HashSet<>();
         if (nums == null || nums.length == 0) return new ArrayList<>();
         helper(res, new ArrayList<>(), nums, 0);
-        List ret = new ArrayList(res);
-        return ret;
+        return new ArrayList(res);
     }
 
+    // templates for back tracking
     public void helper(HashSet<List<Integer>> res, List<Integer> list, int[] nums, int start) {
         if (list.size() >= 2) {
             res.add(new ArrayList<>(list));
