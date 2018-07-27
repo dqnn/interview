@@ -9,7 +9,7 @@ import java.util.Random;
  * Package Name : leetcode
  * File Name : InsertDeleteGetRandom
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : July, 2018
  * Description : TODO
  */
 public class InsertDeleteGetRandom {

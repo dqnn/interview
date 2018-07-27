@@ -5,7 +5,7 @@ package leetcode;
 public class InOrderAndPreOrderToPostOrder {
 
     /*
-     * 
+     * not in leetcode
      * PreOrder: GDAFEMHZ InOrder: ADEFGHMZ PostOrder: AEFDHZMG
      * 现在，假设仅仅知道前序和中序遍历，如何求后序遍历呢？比如，
      * 已知一棵树的前序遍历是”GDAFEMHZ”，而中序遍历是”ADEFGHMZ”应该如何求后续遍历? PreOrder: GDAFEMHZ InOrder:

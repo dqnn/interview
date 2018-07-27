@@ -21,10 +21,11 @@ public class InorderSuccessorinBST {
      * @param p
      * @return
      */
-
+    // inOrder 
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
         TreeNode res = null;
         while (root != null) {
+            //means they are 
             if (root.val <= p.val) {
                 root = root.right;
             } else {
