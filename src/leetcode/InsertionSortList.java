@@ -36,7 +36,7 @@ Output: -1->0->3->4->5
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         ListNode cur = head;
-        ListNode temp = null, prev = null;
+        ListNode insertNode = null, prev = null;
         while (cur != null && cur.next != null) {
             
             if (cur.val <= cur.next.val) {
@@ -46,23 +46,24 @@ Output: -1->0->3->4->5
              // cur point to next also
                 // dummy->head->-1->0->3->2-5->7
                 //        cur
-                // temp--> 3, cur->0
-                temp = cur.next;
-                // dummy->head->-1->0->2->5->7
-                cur.next = temp.next;
+                // insertNode--> 2, cur->3
+                insertNode = cur.next;
+                // dummy->head->-1->0->3->5->7
+                cur.next = insertNode.next;
                 // dummy->head->2->5->7
                 // prev
                 prev = dummy;
-                // if prev next is lower than 3 which means we find the elment which is bigger then temp.
-                //finally pre will point to 2
-                // pre-->2
-                while (prev.next.val <= temp.val) {
+                // if prev next is lower than 3 which means we find the element which is bigger then insertNode.
+                //finally pre will point to 0
+                // pre-->0
+                while (prev.next.val <= insertNode.val) {
                     prev = prev.next;
                 }
-                // temp is 3, so 3-> 5->7
-                temp.next = prev.next;
-                // pre is 2, so 2->3->5->7
-                prev.next = temp;
+                // insertNode is 2, so 2->3->5->7
+                // also     dummy->-1->0->3->5->7
+                insertNode.next = prev.next;
+                // make pre-->0 point to 2, dummy->-1->0->2->3->5->7
+                prev.next = insertNode;
             }
         }
         return dummy.next;
