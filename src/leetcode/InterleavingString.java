@@ -45,12 +45,28 @@ public class InterleavingString {
      * @param s3
      * @return
      */
+    
+    // we keep 2D dp array to keep track that for:
+    //dp[i][j] means string in s1[0, i], s2[0, j] equals or not s3[0, i+j+2]
+    //s1 --> x axis, s2--> y axis
+    /*
+     *       a  a  b  c  c   S1
+(dp[0][0])T  T  T  F  F  F
+       d  F  
+       b  F
+       b  F
+       c  F
+       a  F
+       S2
+           S3:  aadbbcbcac"
+     */
     public static boolean isInterleave(String s1, String s2, String s3) {
         if ((s1.length() + s2.length()) != s3.length()) return false;
 
+       
         boolean[][] dp = new boolean[s2.length() + 1][s1.length() + 1];
         dp[0][0] = true;
-
+        // initialize first column, we compare y axis with s3, compare each character is same as s3
         for (int i = 1; i < dp.length; i++) {
             dp[i][0] = dp[i - 1][0] && (s2.charAt(i - 1) == s3.charAt(i - 1));
         }
