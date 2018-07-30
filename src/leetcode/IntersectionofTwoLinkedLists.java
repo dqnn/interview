@@ -1,5 +1,8 @@
 package leetcode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
@@ -81,10 +84,40 @@ public class IntersectionofTwoLinkedLists {
         if (headA == null || headB == null) return null;
         ListNode a = headA;
         ListNode b = headB;
+        /*
+         * //
+        // If one of them reaches the end earlier then reuse it 
+        // by moving it to the beginning of other list.
+        // Once both of them go through reassigning, 
+        // they will be equidistant from the collision point.
+        //
+         */
         while (a != b) {
             a = a == null ? headB : a.next;
             b = b == null ? headA : b.next;
         }
         return a;
+    }
+    
+    //using set to detect first node
+    public ListNode getIntersectionNode3(ListNode a, ListNode b) {
+        if (a == null || b == null) {
+            return null;
+        }
+        
+        Set<ListNode> set = new HashSet<>();
+        while(a != null) {
+            set.add(a);
+            a = a.next;
+        }
+        
+        while(b != null) {
+            if (set.contains(b)) {
+                return b;
+            }
+            b = b.next;
+        }
+        
+        return null;
     }
 }

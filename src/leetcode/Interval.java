@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : Interval
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : July, 2018
  * Description : TODO
  */
 public class Interval {

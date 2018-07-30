@@ -66,6 +66,7 @@ public class IntersectionofTwoArrays {
     }
 
     // Arrays.sort time : O(nlogn) space : O(n);
+    // note this is two pointers simple templates
     public static int[] intersection2(int[] nums1, int[] nums2) {
         if (nums1 == null || nums1.length == 0 || nums2 == null || nums2.length == 0) {
             return new int[]{};
@@ -94,26 +95,23 @@ public class IntersectionofTwoArrays {
         return res;
     }
 
-    // time : O(n) space : O(n);
-    public static int[] intersection3(int[] nums1, int[] nums2) {
-        if (nums1 == null || nums1.length == 0 || nums2 == null || nums2.length == 0) {
-            return new int[]{};
+    // time : O(n) space : O(n + m);
+    public int[] intersection3(int[] nums1, int[] nums2) {
+        if (nums1 == null || nums2 == null || nums1.length < 1 || nums2.length < 1)  {
+            return new int[] {};
         }
-        HashSet<Integer> set = new HashSet<>();
-        HashSet<Integer> ret = new HashSet<>();
-        for (Integer num : nums1) {
-            set.add(num);
+        
+        Set<Integer> set = new HashSet<>();
+        Set<Integer> ret = new HashSet<>();
+        for(int i = 0; i < nums1.length; i++) {
+            set.add(nums1[i]);
         }
-        for (Integer num : nums2) {
-            if (set.contains(num)) {
-                ret.add(num);
+        
+        for (int j = 0; j < nums2.length; j++) {
+                if (set.contains(nums2[j])) {
+                    ret.add(nums2[j]);
+                }
             }
-        }
-        int k = 0;
-        int[] res = new int[ret.size()];
-        for (Integer num : ret) {
-            res[k++] = num;
-        }
-        return res;
+        return ret.stream().mapToInt(i->i).toArray();
     }
 }

@@ -8,7 +8,7 @@ import java.util.Queue;
  * Package Name : leetcode
  * File Name : InvertBinaryTree
  * Creator : duqiang
- * Date : Aug, 2017
+ * Date : July, 2018
  * Description : TODO
  */
 public class InvertBinaryTree {
@@ -57,5 +57,23 @@ public class InvertBinaryTree {
             if (cur.right != null) queue.offer(cur.right);
         }
         return root;
+    }
+    
+    //using recursive
+    public TreeNode invertTree3(TreeNode root) {
+        return helper(root);
+    }
+    
+    public TreeNode helper(TreeNode node) {
+        if (node == null) return null;
+        
+        helper(node.left);
+        helper(node.right);
+        
+        TreeNode temp = node.left;
+        node.left = node.right;
+        node.right = temp;
+        
+        return node;
     }
 }

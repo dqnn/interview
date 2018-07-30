@@ -23,7 +23,7 @@ public class IntersectionofTwoArraysII {
      */
 
     // HashMap, time : O(n), space : O(n);
-    public static int[] intersect(int[] nums1, int[] nums2) {
+    public  int[] intersect(int[] nums1, int[] nums2) {
         HashMap<Integer, Integer> map = new HashMap<>();
         List<Integer> ret = new ArrayList<>();
         for (int i = 0; i < nums1.length; i++) {
@@ -41,38 +41,32 @@ public class IntersectionofTwoArraysII {
                 }
             }
         }
-        int[] res = new int[ret.size()];
-        int k = 0;
-        for (Integer num : ret) {
-            res[k++] = num;
-        }
-        return res;
+        
+        return ret.stream().mapToInt(k->k).toArray();
     }
 
     // Arrays.sort time : O(nlogn) space : O(n);
-    public static int[] intersect2(int[] nums1, int[] nums2) {
+    public int[] intersect2(int[] nums1, int[] nums2) {
+        if (nums1 == null || nums2 == null || nums1.length < 1 || nums2.length < 1) {
+            return new int[]{};
+        }
+        List<Integer> res = new ArrayList<>();
         Arrays.sort(nums1);
         Arrays.sort(nums2);
-        List<Integer> ret = new ArrayList<>();
-        int i = 0;
-        int j = 0;
+        int i = 0, j = 0;
         while (i < nums1.length && j < nums2.length) {
-            if (nums1[i] < nums2[j]) {
-                i++;
-            } else if (nums1[i] > nums2[j]) {
+            if (nums1[i] > nums2[j]) {
                 j++;
+            } else if (nums1[i] < nums2[j]) {
+                i++;
             } else {
-                ret.add(nums1[i]);
+                res.add(nums2[j]);
                 i++;
                 j++;
             }
         }
-        int[] res = new int[ret.size()];
-        int k = 0;
-        for (Integer num : ret) {
-            res[k++] = num;
-        }
-        return res;
+        
+        return res.stream().mapToInt(k->k).toArray();
     }
 }
 
