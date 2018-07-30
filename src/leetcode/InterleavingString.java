@@ -13,7 +13,7 @@ import java.util.Queue;
  * Description : 97. Interleaving String
  */
 public class InterleavingString {
-    /**
+    /** LCS type
      * Given s1, s2, s3, find whether s3 is formed by the interleaving of s1 and s2.
 
      For example,
@@ -195,7 +195,7 @@ Therefore it's faster than regular DP than average.
         return false;
     }
 
-    /*
+    /* DFS
      * To solve this problem, let's look at if s1[0 ~ i] s2[0 ~ j] can be interleaved to s3[0 ~ k].
 
 Start from indices0, 0, 0 and compare s1[i] == s3[k] or s2[j] == s3[k]
