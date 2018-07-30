@@ -269,6 +269,7 @@
 | 31 | Next Permutation | String |
 | 60 | Permutation Sequence | String |
 | 291 | Word Pattern II |  |
+| 97 | Interveaing String | this is typical LCS problems |
 |  |  |  |
 | Enumeration |  |  |
 | 17 | Letter Combinations of a Phone Number |  |
