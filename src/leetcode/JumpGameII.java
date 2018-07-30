@@ -22,6 +22,14 @@ public class JumpGameII {
      */
 
     //time : O(n) space : O(1)
+    //The maximum index obtainable from indices 0 to i is maintained, denoted as maxNext in  code.
+    //curMaxArea maintains the maximum possible index reachable by taking res steps, i.e. 
+    //you can go 0 to j where j <= curMaxArea in res steps (for valid positions, the end index is always a valid position)
+    //when i reaches curMaxArea, we know we need to take another step, and if we do, we know that we can do res + 1 
+    // steps in order to get to indices up to maxNext.
+    //Obviously, this is assuming that we can always reach the end of the array, 
+    //which is stated in the problem that we can. So therefore curMaxArea and maxNext will always be >= A.size() - 1 
+    //in the end, and therefore res will give us our answer.
     public int jump(int[] nums) {
         if (nums == null || nums.length < 2) return 0;
         int res = 0;
