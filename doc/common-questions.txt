@@ -1,0 +1,8 @@
+BackTracking vs DFS
+
+Usually, a depth-first-search is a way of iterating through an actual graph/tree structure looking for a value, 
+whereas backtracking is iterating through a problem space looking for a solution. 
+Backtracking is a more general algorithm that doesn't necessarily even relate to trees.
+
+Cracking technical interview Notes:
+
