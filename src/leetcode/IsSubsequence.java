@@ -52,6 +52,10 @@ If there are lots of incoming S, say S1, S2, ... , Sk where k >= 1B, and you wan
      * @param t
      * @return
      */
+    // so for the follow up, how can we prepare: if t is pretty huge string
+    //to improve the whole problem efficiency, need to do work on t
+    // need to ask interviewer that whether we can process S strings first, because 
+    // 
     public boolean isSubsequence(String s, String t) {
         if (s == null || s.length() == 0) return true;
         int i = 0;
@@ -74,8 +78,14 @@ If there are lots of incoming S, say S1, S2, ... , Sk where k >= 1B, and you wan
     //  i=0 ('a'): prev=1
     //  i=1 ('b'): prev=6
     //  i=2 ('c'): prev=? (return false)
+    
+    // so how about setup BST or TreeMap instead of array of list
     public boolean isSubsequence2(String s, String t) {
-        List<Integer>[] idx = new List[256]; // Just for clarity
+        // so we set up a list
+        // a--1,3,5,6,7
+        // b--0,4,8,9,
+        // a is character in t, the list contains the index in t
+        List<Integer>[] idx = new List[256]; // Just for clarity, List<Integer>[] idx = new ArrayList[256]; also work
         for (int i = 0; i < t.length(); i++) {
             if (idx[t.charAt(i)] == null)
                 idx[t.charAt(i)] = new ArrayList<>();

@@ -37,24 +37,24 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum
     
     public boolean canJump(int[] A) {
         if (A == null || A.length <= 1) {
-           return true;
-       }
-    //  [0 , 3 , 1 , 1 , 4 ]  exclude this use case
-       if (A[0] == 0) {
-           return false;
-       }
-       int max = 0;
-       for (int i=0; i<=max && i<A.length; i++) {
-           max = Math.max(A[i] + i, max);
-       }
-       return max >= A.length - 1;
-   }
+            return true;
+        }
+        // [0 , 3 , 1 , 1 , 4 ] exclude this use case
+        if (A[0] == 0) {
+            return false;
+        }
+        int max = 0;
+        for (int i = 0; i <= max && i < A.length; i++) {
+            max = Math.max(A[i] + i, max);
+        }
+        return max >= A.length - 1;
+    }
     // we from last to begining
     public boolean canJump2(int[] A) {
         int last = A.length - 1, i;
-        for(i = A.length - 2;i >= 0; i--){
-            if(i+A[i]>=last) {
-                last=i;
+        for (i = A.length - 2; i >= 0; i--) {
+            if (i + A[i] >= last) {
+                last = i;
             }
         }
         return last <= 0;
