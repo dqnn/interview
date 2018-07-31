@@ -15,7 +15,7 @@ import java.util.Random;
 
 public class KthLargestElementinanArray {
 
-    // time : O(n) space : O(1)
+    // time : O(n) worst O(n^2) space : O(1)
 
     public int findKthLargest(int[] nums, int k) {
         if (nums == null || nums.length == 0) return 0;
@@ -66,6 +66,35 @@ public class KthLargestElementinanArray {
         nums[i] = nums[j];
         nums[j] = temp;
     }
+    
+    //so we shuffle the input to guarantee the O(n)
+    public int findKthLargest5(int[] nums, int k) {
+
+        shuffle(nums);
+        k = nums.length - k;
+        int lo = 0;
+        int hi = nums.length - 1;
+        while (lo < hi) {
+            final int j = partition(nums, lo, hi);
+            if(j < k) {
+                lo = j + 1;
+            } else if (j > k) {
+                hi = j - 1;
+            } else {
+                break;
+            }
+        }
+        return nums[k];
+    }
+
+private void shuffle(int a[]) {
+
+        final Random random = new Random();
+        for(int ind = 1; ind < a.length; ind++) {
+            final int r = random.nextInt(ind + 1);
+            swap(a, ind, r);
+        }
+    }
 
     /**
      * time : O(nlogk) because it only contains k elements
@@ -86,8 +115,11 @@ public class KthLargestElementinanArray {
                 minHeap.poll();
             }
         }
-        return minHeap.poll();
+        return minHeap.poll(); //minHeap.peek() also work
     }
+    
+    
+    
     
     //brute-force
     public int findKthLargest3(int[] nums, int k) {
@@ -99,4 +131,7 @@ public class KthLargestElementinanArray {
         Arrays.sort(nums);
         return nums[nums.length - k];
     }
+    
+    
+    
 }
