@@ -41,13 +41,17 @@ Explanation: The minimum number of jumps to reach the last index is 2.
     //Obviously, this is assuming that we can always reach the end of the array, 
     //which is stated in the problem that we can. So therefore curMaxArea and maxNext will always be >= A.size() - 1 
     //in the end, and therefore res will give us our answer.
+
     public int jump(int[] nums) {
         if (nums == null || nums.length < 2) return 0;
         int res = 0;
         int curMaxArea = 0;
         int maxNext = 0;
         for (int i = 0; i < nums.length - 1; i++) {
+            // we don't have the i < max here because we assume we can reach the end
             maxNext = Math.max(maxNext, i + nums[i]);
+            // from the model in previous, i catches the curMaxArea after i - 0, and curMaxArea should 
+            // catch the latest maxNext then.
             if (i == curMaxArea) {
                 res++;
                 curMaxArea = maxNext;
@@ -68,12 +72,20 @@ Explanation: The minimum number of jumps to reach the last index is 2.
      * @return
      */
     // time : O(n)  space : O(1)
+    // the problem assume we can always reaches to the end of the array, so there is no [0,3] situations
     public int jump2(int[] nums) {
         if (nums == null || nums.length < 2) return 0;
         int level = 0;
         int curMaxArea = 0;
         int maxNext = 0;
         int i = 0;
+        // curMaxArea is the pointer  means from position i, how far it could be
+        // so the internal for loop calculate from [i, curMaxArea], how far the i can go
+        // then curMaxArea was following there. 
+        // thinking about the model we have built, it is more about loop in [i, nums[i] + i], these numbers,
+        // te max value, max{num[i] + i}
+        
+        //from the internal loop, i could be curMaxArea + 1, this is just keeping the loop working
         while (curMaxArea - i + 1 > 0) {
             level++;
             for (; i <= curMaxArea; i++) {
@@ -85,5 +97,25 @@ Explanation: The minimum number of jumps to reach the last index is 2.
             curMaxArea = maxNext;
         }
         return 0;
+    }
+    public int jump3(int[] A) {
+        if (A == null || A.length < 2) return 0;
+        int step = 0;
+        int low = 0;
+        int high = 0;
+        // high can only reached to A.length - 2, not last one
+        while(high < A.length-1){
+            int preLow = low;
+            int preHigh = high;
+            // we use [preLow, preHigh] to calculate the possible max  by this loop, 
+            //which means how far we can go in this range
+            for(int t = preLow;t <= preHigh;t++)
+                high = Math.max(t+A[t], high);
+            // next loop, our band start position increments 1
+            low = preHigh+1;
+            // get the result,so our step increased 1
+            step++;
+        }
+        return step;
     }
 }
