@@ -33,4 +33,28 @@ public class KthSmallestElementinaBST {
         }
         helper(root.right);
     }
+    
+    // so we count left tree nodes and decide where to go
+    public int kthSmallest2(TreeNode root, int k) {
+        if (root == null || k < 1) {
+            return -1;
+        }
+        return helper(root, k);
+    }
+    
+    public int helper(TreeNode node, int k) {
+        int leftCount = countNodes(node.left);
+        if (k <= leftCount) {
+            return helper(node.left, k);
+        } else if (k > leftCount + 1){
+            return helper(node.right, k - 1 - leftCount);
+        } else {
+            return node.val;
+        }
+    }
+    
+    public int countNodes(TreeNode node) {
+        if (node == null) return 0;
+        return 1 + countNodes(node.left) + countNodes(node.right);
+    }
 }
