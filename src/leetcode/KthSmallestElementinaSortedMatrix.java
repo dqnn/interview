@@ -89,6 +89,31 @@ return 13.
         }
         return res;
     }
+    
+    public int kthSmallest3(int[][] matrix, int k) {
+        int n = matrix.length;
+        int lo = matrix[0][0], hi = matrix[n - 1][n - 1];
+        while (lo <= hi) {
+            int mid = lo + (hi - lo) / 2;
+            int count = getLessEqual(matrix, mid);
+            if (count < k) lo = mid + 1;
+            else hi = mid - 1;
+        }
+        return lo;
+    }
+    
+    private int getLessEqual(int[][] matrix, int val) {
+        int res = 0;
+        int n = matrix.length, i = n - 1, j = 0;
+        while (i >= 0 && j < n) {
+            if (matrix[i][j] > val) i--;
+            else {
+                res += i + 1;
+                j++;
+            }
+        }
+        return res;
+    }
     /*
      * It's O(n) where n is the number of rows (and columns), not the number of elements. So it's very efficient. 
      * The algorithm is from the paper Selection in X + Y and matrices with sorted rows and columns, 
@@ -118,4 +143,5 @@ Application: I believe it can be used to easily solve the Find K Pairs with Smal
 problem in time O(k) instead of O(k log n), which I think is the best posted so far. I might try that later 
 if nobody beats me to it (if you do, let me know :-). Update: I did that now.
      */
+    
 }
