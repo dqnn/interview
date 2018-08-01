@@ -40,11 +40,21 @@ return 13.
      */
 
     // time : (nlogn) space : O(n)
+    // the scan is: first rwo, then from each element we scan column by column until we find the element
     public int kthSmallest(int[][] matrix, int k) {
+        if (matrix == null || matrix.length < 1 || k < 1) {
+            return -1;
+        }
+        //using lambda to as comparator, first parameter is the length, this is optimization
         PriorityQueue<Tuple> pq = new PriorityQueue<>(matrix.length, (a, b) -> (a.val - b.val));
+        // we add first row first and sorted， this is nxn, so he used m.length to replace m[0].length
         for (int i = 0; i < matrix.length; i++) {
             pq.offer(new Tuple(0, i, matrix[0][i]));
         }
+        // why we use k - 1, max of i is k - 2, 
+        // we want to have kth smallest number in matrix, we want to make change to k - 1 elements，so no 
+        // matter how many we put previously, we will process k - 1 elments in this loop and make k
+        // at the front of the queue
         for (int i = 0; i < k - 1; i++) {
             Tuple tuple = pq.poll();
             if (tuple.x == matrix.length - 1) continue;
@@ -63,10 +73,21 @@ return 13.
     }
 
     // time : O(n * log(max - min)) space : O(1)
+    // The key point for any binary search is to figure out the "Search Space". For me, I think there are two kind of "Search Space" -- index and range(the range from the smallest number to the biggest number). Most usually, when the array is sorted in one direction, we can use index as "search space", when the array is unsorted and we are going to find a specific number, we can use "range".
+
+//Let me give you two examples of these two "search space"
+
+//index -- A bunch of examples -- https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/ 
+    //( the array is sorted)
+//range -- https://leetcode.com/problems/find-the-duplicate-number/ (Unsorted Array)
+// The reason why we did not use index as "search space" for this problem is the matrix is sorted in two directions,
+    //we can not find a linear way to map the number and its index.
     public int kthSmallest2(int[][] matrix, int k) {
         int n = matrix.length;
         int left = matrix[0][0];
+        // asc by row and column, so we can conclude that m[0][0] is min m[r][c] is max
         int right = matrix[n - 1][n - 1];
+        // left + 1 ? 
         while (left + 1 < right) {
             int mid = (right - left) / 2 + left;
             int num = count(matrix, mid);
@@ -76,16 +97,20 @@ return 13.
         if (count(matrix, right) <= k - 1) return right;
         return left;
     }
-
+    // count how many elements smaller than target
+    //we can scan row by row but that would be slower then column
     private int count(int[][] matrix, int target) {
         int n = matrix.length;
         int res = 0;
         int i = n - 1, j = 0;
         while (i >= 0 && j < n) {
+            // we scan the matrix from bottom to up, from n-1 --> 0
+            // for column
             if (matrix[i][j] < target) {
-                res += i + 1;
-                j++;
-            } else i--;
+                res += i + 1; // i + 1 means how many elments each column, this will decide where i is
+                //scan horizon
+                j++; // we move to right on same row
+            } else i--; // which means we jump to row above
         }
         return res;
     }
@@ -113,6 +138,37 @@ return 13.
             }
         }
         return res;
+    }
+    
+    
+    // another binary search solutions, embeded while in for loop to find how many numbers before mid
+    public int kthSmallest4(int[][] matrix, int k) {
+        // num of rows and cols in matrix
+        int rows = matrix.length, cols = matrix[0].length;
+        // get the lowest and highest possible num, will shrink search space according to the two nums
+        // [lo, hi] is our initial search range
+        int lo = matrix[0][0], hi = matrix[rows - 1][cols - 1] ;
+        while(lo <= hi) {
+            int mid = lo + (hi - lo) / 2;
+            int count = 0,  maxNum = lo;
+            // for each row, we r going to find # of nums < mid in that row
+            for (int r = 0, c = cols - 1; r < rows; r++) {
+                while (c >= 0 && matrix[r][c] > mid) c--;   // this row's c has to be smaller than the c found in last row due to the sorted property of the matrix 
+                if (c >= 0) {
+                    count += (c + 1); // count of nums <= mid in matrix
+                    maxNum = Math.max(maxNum, matrix[r][c]); // mid might be value not in matrix, we need to record the actually max num;
+                }
+            }
+            // adjust search range
+            if (count == k) return maxNum;
+            else if (count < k) lo = mid + 1;
+            else hi = mid - 1;
+        }
+        // 1) Q: Why we return lo at the end:
+        //    A: Here lo=hi+1, for hi, we found <k elems, for lo, we found >=k elem, lo must have duplicates in matrix, return lo
+        // 2) Q: Why lo exist in the matrix
+        //    A: for lo which is only 1 more than hi, we could find some extra nums in matrix so that there r >=k elems, so lo it self must exist in the matrix to meet the requirement
+        return lo;
     }
     /*
      * It's O(n) where n is the number of rows (and columns), not the number of elements. So it's very efficient. 

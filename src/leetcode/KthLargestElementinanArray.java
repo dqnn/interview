@@ -128,7 +128,26 @@ private void shuffle(int a[]) {
      * @param k
      * @return
      */
-
+/*
+ * A heap is a specific tree based data structure in which all the nodes of tree are in a specific order. 
+ * Let’s say if X is a parent node of Y, then the value of X follows some specific order with respect to 
+ * value of Y and the same order will be followed across the tree.
+ * 
+ * binary heap
+ *     5 (index = i)
+      / \
+(2Xi+1)3   4 (2x1 + 1)
+    / \
+   2   1 (2x2 + 1)
+  /
+ -3(2x3)
+ Arr[5,3,4,2,1,-3]
+ so child is smaller than parent, we can use array to store the tree, 
+  If we are storing one element at index i in array Ar, then its parent will be stored at index 
+  i/2 (unless its a root, as root has no parent) and can be access by Ar[ i ], 
+  and its left child can be accessed by Ar[ 2 * i  + 1] and its right child can be accessed by Ar[ 2 * i +2 ]. 
+ *
+ */
     
     public int findKthLargest2(int[] nums, int k) {
         if (nums == null || nums.length == 0) return 0;
@@ -136,6 +155,9 @@ private void shuffle(int a[]) {
         for (int num : nums) {
             minHeap.offer(num);
             if (minHeap.size() > k) {
+                // priorityQueue provide O(lgn) for poll, offer, remove(), add()
+                // O(n) for contains() and remove(object)
+                // internally it use priorityHeap
                 minHeap.poll();
             }
         }
