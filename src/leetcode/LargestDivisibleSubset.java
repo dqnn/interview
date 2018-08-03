@@ -54,35 +54,84 @@ public class LargestDivisibleSubset {
      * @param nums
      * @return
      */
-    public List<Integer> largestDivisibleSubset(int[] nums) {
-        if (nums == null || nums.length == 0) return new ArrayList<>();
+ // Si % Sj = 0 or Sj % Si = 0. so if si < sj, which means we never 
+    // can get 0, so we could only let si > sj, what's why we have to sort first
+    // suppose [1,2,3,4,5,6,8]
+/*
+ * input = [1, 2, 3, 4, 5, 6, 8]
+i = 0
+[1, 0, 0, 0, 0, 0, 0]
+[-1, 0, 0, 0, 0, 0, 0]
+i = 1
+[1, 2, 0, 0, 0, 0, 0]
+[-1, 0, 0, 0, 0, 0, 0]
+i = 2
+[1, 2, 2, 0, 0, 0, 0]
+[-1, 0, 0, 0, 0, 0, 0]
+i = 3
+[1, 2, 2, 3, 0, 0, 0]
+[-1, 0, 0, 1, 0, 0, 0]
+i = 4
+[1, 2, 2, 3, 2, 0, 0]
+[-1, 0, 0, 1, 0, 0, 0]
+i = 5
+[1, 2, 2, 3, 2, 3, 0]
+[-1, 0, 0, 1, 0, 2, 0]
+i = 6
+[1, 2, 2, 3, 2, 3, 4]
+[-1, 0, 0, 1, 0, 2, 3]
+[8, 4, 2, 1]
+ */
+    public static List<Integer> largestDivisibleSubset(int[] nums) {
+        List<Integer> res = new ArrayList<>();
+        if (nums == null || nums.length < 1) {
+            return res;
+        }
 
         Arrays.sort(nums);
+        //To store count of divisors of all elements
         int[] count = new int[nums.length];
+        //To store previous divisor index in result
         int[] pre = new int[nums.length];
+        // To store index of largest element in maximum
+        // size subset
         int max = 0, index = -1;
-
+        // i from 0 to len - 1
         for (int i = 0; i < nums.length; i++) {
             count[i] = 1;
+            // why -1? 
             pre[i] = -1;
+            // j is from i to 0 since we sort
+            
             for (int j = i - 1; j >= 0; j--) {
+                // nums[i] > nums[j]
                 if (nums[i] % nums[j] == 0) {
+                    //you want the "largest" subset, so the count should be increasing
                     if (1 + count[j] > count[i]) {
                         count[i] = count[j] + 1;
                         pre[i] = j;
                     }
                 }
-                if (count[i] > max) {
-                    max = count[i];
-                    index = i;
-                }
             }
+            if (count[i] > max) {
+                max = count[i];
+                index = i; // point to the value which is max's index
+            }
+            System.out.println("i = " + i);
+            System.out.println(Arrays.toString(count));
+            System.out.println(Arrays.toString(pre));
         }
-        List<Integer> res = new ArrayList<>();
         while (index != -1) {
             res.add(nums[index]);
             index = pre[index];
         }
         return res;
+    }
+    
+    public static void main(String[] args) {
+        int[] input = new int[] {1,2,3,4,5,6,8};
+        System.out.println("input = " + Arrays.toString(input));
+        List<Integer> res = LargestDivisibleSubset.largestDivisibleSubset(input);
+        System.out.println(res);
     }
 }
