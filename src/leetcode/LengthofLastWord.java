@@ -20,7 +20,37 @@ public class LengthofLastWord {
      * @param s
      * @return
      */
-    public int lengthOfLastWord(String s) {
+    public int lengthOfLastWord2(String s) {
         return s.trim().length() - s.trim().lastIndexOf(" ") - 1;
+    }
+    
+    // interview friendly one
+    public int lengthOfLastWord(String s) {
+        if (s == null || s.length() < 1) {
+            return 0;
+        }
+        
+        char[] chs = s.toCharArray();
+        int i = chs.length - 1;
+        //scan from right to find first non " " character, this is exclude non spaces in the end
+        while (i >= 0 && chs[i] ==' ') {
+            i--;
+        }
+        // we continue to find another space so we can visit whole last word
+        int j = i;
+        while (j >= 0 && chs[j] !=' ') {
+            j--;
+        }
+        
+        return i - j;
+    }
+    
+    public int lengthOfLastWord3(String s) {
+        if (s == null || s.length() < 1) {
+            return 0;
+        }
+        
+        String[] strs = s.trim().split(" ");
+        return strs[strs.length - 1].length();
     }
 }

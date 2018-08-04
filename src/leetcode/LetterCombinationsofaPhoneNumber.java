@@ -19,28 +19,31 @@ public class LetterCombinationsofaPhoneNumber {
      * space : O(n)
      */
 
-    private String[] mapping = new String[] {"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    String[] map = new String[] {
+            "0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
 
     public List<String> letterCombinations(String digits) {
         List<String> res = new ArrayList<>();
-        if (digits == null || digits.length() == 0) {
+        if (digits == null || digits.length() < 1) {
             return res;
         }
+
         helper(res, digits, "", 0);
         return res;
     }
 
-    public void helper(List<String> res, String digits, String s, int index) {
-        if (index == digits.length()) {
-            res.add(s);
+    public void helper(List<String> res, String digits, String pre, int idx) {
+        if (idx == digits.length()) {
+            res.add(pre);
             return;
         }
-        String letters = mapping[s.charAt(index) - '0'];
+        String letters = map[digits.charAt(idx) - '0'];
+        // back tracking
         for (int i = 0; i < letters.length(); i++) {
-            helper(res, digits, s + letters.charAt(i), index + 1);
+            helper(res, digits, pre + letters.charAt(i), idx + 1);
         }
     }
-
+    // non recursive way 
     public List<String> letterCombinations2(String digits) {
         LinkedList<String> res = new LinkedList<>();
         if (digits == null || digits.length() == 0) {
