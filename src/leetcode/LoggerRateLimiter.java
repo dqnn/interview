@@ -7,12 +7,19 @@ import java.util.HashMap;
  * Package Name : leetcode
  * File Name : LoggerRateLimiter
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Aug, 2018
  * Description : 359. Logger Rate Limiter
  */
 public class LoggerRateLimiter {
     /**
-     * Example:
+     * Design a logger system that receive stream of messages along with its timestamps, 
+     * each message should be printed if and only if it is not printed in the last 10 seconds.
+
+Given a message and a timestamp (in seconds granularity), return true if the message should be printed in the 
+given timestamp, otherwise returns false.
+
+It is possible that several messages arrive roughly at the same time.
+Examples:
 
      Logger logger = new Logger();
 
