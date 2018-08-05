@@ -38,6 +38,8 @@ Choose 1, 2, 3, ..., k first and put them into the reservoir.
 For k+1, pick it with a probability of k/(k+1), and randomly replace a number in the reservoir.
 For k+i, pick it with a probability of k/(k+i), and randomly replace a number in the reservoir.
 Repeat until k+i reaches n
+
+
 Proof:
 For k+i, the probability that it is selected and will replace a number in the reservoir is k/(k+i)
 For a number in the reservoir before (let's say X), the probability that it keeps staying in the reservoir is
@@ -46,6 +48,8 @@ P(X was in the reservoir last time) × P(X is not replaced by k+i)
 = k/(k+i-1) × （1 - k/(k+i) × 1/k）
 = k/(k+i)
 When k+i reaches n, the probability of each number staying in the reservoir is k/n
+
+
 Example
 Choose 3 numbers from [111, 222, 333, 444]. Make sure each number is selected with a probability of 3/4
 First, choose [111, 222, 333] as the initial reservior
@@ -59,8 +63,8 @@ Now all the numbers have the probability of 3/4 to be picked
 This Problem
 This problem is the sp case where k=1
 
-Reservoir Sampling:
-https://www.youtube.com/watch?v=A1iwzSew5QY 
+Reservoir Sampling: 
+http://blog.jobbole.com/42550/
  */
     private ListNode head;
     private Random rmd;
@@ -75,6 +79,8 @@ https://www.youtube.com/watch?v=A1iwzSew5QY
         ListNode temp = head;
         int res = temp.val;
         int i = 1;
+        // suppose this is stream data, actually we know it is not, but if it streaming data, 
+        // ++i is the it will return number between 0 and i,  so we can stop anywhere
         while (temp.next != null) {
             temp = temp.next;
             if (rmd.nextInt(++i) == 0) {
