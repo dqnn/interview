@@ -3,7 +3,7 @@ package leetcode;
 import java.util.List;
 
 /**
- * Created by duqiang on 25/07/2017.
+ * Created by duqiang on 25/07/2018.
  */
 public class LinkedListCycle {
 

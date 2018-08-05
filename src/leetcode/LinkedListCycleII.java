@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : LinkedListCycleII
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Aug, 2018
  * Description : 142. Linked List Cycle II
  */
 public class LinkedListCycleII {
