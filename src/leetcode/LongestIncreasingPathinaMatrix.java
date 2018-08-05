@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : LongestIncreasingPathinaMatrix
  * Creator : duqiang
- * Date : Jan, 2018
+ * Date : Aug, 2018
  * Description : 329. Longest Increasing Path in a Matrix
  */
 public class LongestIncreasingPathinaMatrix {
@@ -39,35 +39,39 @@ public class LongestIncreasingPathinaMatrix {
      space : O(m * n)
 
      */
-
-    public int longestIncreasingPath(int[][] matrix) {
-        if (matrix == null || matrix.length == 0) return 0;
-        int res = 0;
-        int m = matrix.length, n = matrix[0].length;
-        int[][] cache = new int[m][n];
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                int max = dfs(matrix, Integer.MIN_VALUE, i, j, m, n, cache);
-                res = Math.max(res, max);
-            }
-        }
-        return res;
-    }
-
-    private int dfs(int[][] matrix, int min, int i, int j, int m, int n, int[][] cache) {
-        if (i < 0 || j < 0 || i >= m || j >= n || matrix[i][j] <= min) {
+    // typical backtracing and dfs
+    public int longestIncreasingPath(int[][] m) {
+        if (m == null || m.length < 1) {
             return 0;
         }
-        if (cache[i][j] != 0) {
-            return cache[i][j];
+        
+        int r = m.length, c = m[0].length, max = 0;
+        int[][] visited = new int[r][c];
+        for(int i = 0; i < r; i++) {
+            for(int j = 0; j < c; j++) {
+                max = Math.max(max, dfs(m, i, j, visited, Integer.MIN_VALUE));
+            }
         }
-        min = matrix[i][j];
-        int a = dfs(matrix, min, i - 1, j, n, m, cache) + 1;
-        int b = dfs(matrix, min, i + 1, j, n, m, cache) + 1;
-        int c = dfs(matrix, min, i, j - 1, n, m, cache) + 1;
-        int d = dfs(matrix, min, i, j + 1, n, m, cache) + 1;
-        int max = Math.max(a, Math.max(b, Math.max(c, d)));
-        cache[i][j] = max;
+        
         return max;
+    }
+    
+    public int dfs(int[][] m, int i, int j, int[][] visited, int min) {
+        if (i < 0 || j < 0 || i >= m.length || j >= m[0].length || m[i][j] <= min) {
+            return 0;
+        }
+        
+        if (visited[i][j] != 0) {
+            return visited[i][j];
+        }
+        // we replace min because it is increasing path
+        min = m[i][j];
+        int up = dfs(m, i - 1, j, visited, min) + 1;
+        int down = dfs(m, i + 1, j, visited, min) + 1;
+        int left = dfs(m, i, j - 1, visited, min) + 1;
+        int right = dfs(m, i, j + 1, visited, min) + 1;
+        visited[i][j] = Math.max(up, Math.max(down, Math.max(left, right)));
+        
+        return visited[i][j];
     }
 }

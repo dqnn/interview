@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : LongestIncreasingSubsequence
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Aug, 2018
  * Description : 300. Longest Increasing Subsequence
  */
 public class LongestIncreasingSubsequence {
