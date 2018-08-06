@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.Arrays;
+
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
@@ -40,22 +42,60 @@ public class LongestIncreasingSubsequence {
      * @param nums
      * @return
      */
+    
+    //// the idea  is to maintain a list, and for each element in n, we want to find a position in 
+    // tail to insert, it is more like insert sort, 
+    // the way to identify the element which should be longest increasing sequence is the position for 
+    //res is the variabe to maintain the insert position for each element
     public int lengthOfLIS(int[] nums) {
+        if (nums == null || nums.length < 1) {
+            return 0;
+        }
         int[] tails = new int[nums.length];
         int res = 0;
         for (int num : nums) {
             int i = 0, j = res;
+            // binary search here can help to find which position for num
             while (i != j) {
                 int mid = (i + j) / 2;
                 if (tails[mid] < num) {
                     i = mid + 1;
-                } else {
+                } else {// please not here should be >=
                     j = mid;
                 }
-            }
+            }// while end so we find the position to be insert
+            // we insert the elements in position i maybe replace
             tails[i] = num;
+            // so if i == res, which means num is a correct in last longest sequence
             if (i == res) ++res;
         }
         return res;
+    }
+    
+    // this is interview friendly, and follow up: 
+    public int lengthOfLIS2(int[] n) {
+        if (n == null || n.length < 1) {
+            return 0;
+        }
+        int len = n.length;
+        
+        // dp[i] means if nums[i] as the last elements, the longest increasing sequence length
+        int[] dp = new int[len];
+        // at least 1 number
+        Arrays.fill(dp, 1);
+        
+        // set max = 1, edge case like [2, 2] it will not go through the two loops,
+        //also for [0] cases, we also need max to be 1 or else we have add if (len == 1) return 1;
+        int max = 1;
+        for(int i = 0; i < len; i++) {
+            for(int j = 0; j < i; j++) {
+                if (n[j] < n[i]) {
+                    // means nums[i] could be nums[j] next element, that's why we need compare to n[j]
+                    dp[i] = Math.max(dp[j] + 1, dp[i]);
+                    max = Math.max(dp[i], max);
+                }
+            }
+        }
+        return max;
     }
 }
