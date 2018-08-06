@@ -7,7 +7,7 @@ import java.util.HashSet;
  * Package Name : leetcode
  * File Name : LongestPalindrome
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Aug, 2018
  * Description : TODO
  */
 public class LongestPalindrome {
