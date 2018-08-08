@@ -13,11 +13,23 @@ import java.util.HashSet;
 public class LongestPalindrome {
     /**
      * 409. Longest Palindrome
-     * Input:
-     "abccccdd"
+     Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
 
-     Output:
-     7
+This is case sensitive, for example "Aa" is not considered a palindrome here.
+
+Note:
+Assume the length of given string will not exceed 1,010.
+
+Example:
+
+Input:
+"abccccdd"
+
+Output:
+7
+
+Explanation:
+One longest palindrome that can be built is "dccaccd", whose length is 7.
 
      Explanation:
      One longest palindrome that can be built is "dccaccd", whose length is 7.
@@ -61,5 +73,28 @@ public class LongestPalindrome {
         }
         if (bool) return res * 2 + 1;
         return res * 2;
+    }
+    //O(n) O(1)
+    public int longestPalindrome3(String s) {
+        if (s == null || s.length() < 1) {
+            return 0;
+        }
+        
+        int[] chs = new int[256];
+        for(int i = 0; i < s.length(); i++) {
+            chs[s.charAt(i)]++;
+        }
+        int res = 0;
+        for(int i = 0; i < 236; i++) {
+            if (chs[i] > 0) {
+                res += chs[i] % 2 == 0 ? chs[i] : chs[i] - 1;
+            }
+        }
+        
+        if (s.length() - res >= 1) {
+            res++;
+        }
+        
+        return res;
     }
 }
