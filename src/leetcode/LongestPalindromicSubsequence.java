@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : LongestPalindromicSubsequence
  * Creator : duqiang
- * Date : Aug, 2017
+ * Date : Aug, 2018
  * Description : TODO
  */
 public class LongestPalindromicSubsequence {
@@ -13,7 +13,7 @@ public class LongestPalindromicSubsequence {
      * 516. Longest Palindromic Subsequence
      * Given a string s, find the longest palindromic subsequence's length in s. You may assume that the maximum length of s is 1000.
 
-     Example 1:
+     Example 1:githu
      Input:
 
      "bbbab"
