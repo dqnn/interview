@@ -34,21 +34,25 @@ public class LongestPalindromicSubstring {
 
     // time : O(n^2) space : O(n^2);
     public String longestPalindrome(String s) {
-        if (s == null || s.length() == 0) return s;
-        String res = "";
+        if (s == null || s.length() < 1) {
+            return "";
+        }
         boolean[][] dp = new boolean[s.length()][s.length()];
-        int max = 0;
-        for (int j = 0; j < s.length(); j++) {
-            for (int i = 0; i <= j; i++) {
-                dp[i][j] = s.charAt(i) == s.charAt(j) && ((j - i <= 2) || dp[i + 1][j - 1]);
-                if (dp[i][j]) {
-                    if (j - i + 1 > max) {
-                        max = j - i + 1;
-                        res = s.substring(i, j + 1);
-                    }
-                }
+        String res = "";
+        for(int j = 0; j < s.length(); j++) {
+            for(int i = 0; i <= j; i++) {
+                // we need j - i because when s.charAt(i) == s.charAt(j), 
+                // we want to know i+1 and j - 1 whther it is palindrome, so it has two cases
+                // if there are only "aa", "a", "aba" these 3 cases, if more than that, we need to look for the value in 
+                // dp[i+1][j-1]
+                dp[i][j] = s.charAt(i) == s.charAt(j) && ((j - i <=2) || dp[i+1][j-1]);
+                if (dp[i][j] && (j - i + 1 > res.length())) {
+                    res = s.substring(i, j+1);
+                } 
             }
         }
+        
+        
         return res;
     }
 
@@ -71,5 +75,41 @@ public class LongestPalindromicSubstring {
         if (cur.length() > res.length()) {
             res = cur;
         }
+    }
+    
+    
+    //bruth-force solution and TLE, just for reference
+    public String longestPalindrome3(String s) {
+        if (s == null || s.length() < 1) {
+            return "";
+        }
+        String res = "";
+        for(int i = 0; i < s.length(); i++) {
+            for(int j = i + 1; j <= s.length(); j++) {
+                String temp = s.substring(i, j);
+                if (isPalindrome(temp) && temp.length() > res.length()) {
+                    res  = temp;
+                }
+            }
+        }
+        
+        return res;
+    }
+    
+    public boolean isPalindrome(String in) {
+        if (in == null || in.length() < 1) {
+            return true;
+        }
+        int i = 0, j = in.length() - 1;
+        while(i <= j && in.charAt(i) == in.charAt(j)) {
+            i ++;
+            j --;
+        }
+        if (i <= j) {
+            return false;
+        } else {
+            return true;
+        }
+        
     }
 }
