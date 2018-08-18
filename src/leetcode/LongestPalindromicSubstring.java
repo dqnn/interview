@@ -61,7 +61,9 @@ public class LongestPalindromicSubstring {
     public String longestPalindrome2(String s) {
         if (s == null || s.length() == 0) return s;
         for (int i = 0; i < s.length(); i++) {
+            //so it is odd length of string
             helper(s, i, i);
+            // so it is even laenght of string
             helper(s, i, i + 1);
         }
         return res;
@@ -76,9 +78,9 @@ public class LongestPalindromicSubstring {
             res = cur;
         }
     }
+
     
-    
-    //bruth-force solution and TLE, just for reference
+    //Brute-force solution and TLE, just for reference
     public String longestPalindrome3(String s) {
         if (s == null || s.length() < 1) {
             return "";
