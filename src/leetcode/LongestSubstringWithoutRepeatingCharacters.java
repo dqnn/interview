@@ -8,7 +8,7 @@ import java.util.HashSet;
  * Package Name : leetcode
  * File Name : LongestSubstringWithoutRepeatingCharacters
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Aug, 2018
  * Description : TODO
  */
 public class LongestSubstringWithoutRepeatingCharacters {
@@ -29,6 +29,10 @@ public class LongestSubstringWithoutRepeatingCharacters {
      * @param s
      * @return
      */
+    // we use a map to store char-> idx, so we use two pointers i and j.
+    // when we scan from left to right, 
+    // if find the char in the map, then we know the left pointer position max(j, map.get(ch) + 1
+    // and we update new char since left pointer move one more step
     public int lengthOfLongestSubstring(String s) {
         if (s == null || s.length() == 0) return 0;
         HashMap<Character, Integer> map = new HashMap<>();
