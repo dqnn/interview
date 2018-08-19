@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : LongestSubstringwithAtMostKDistinctCharacters
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Aug, 2018
  * Description : 340. Longest Substring with At Most K Distinct Characters
  */
 public class LongestSubstringwithAtMostKDistinctCharacters {
