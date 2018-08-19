@@ -27,6 +27,11 @@ public class LongestSubstringwithAtMostKDistinctCharacters {
      * @return
      */
     //two pointers to find the longest
+    // we scan the string s from 0 to s.length() - 1, 
+    // we will increment num by having unique char until bigger than k, 
+    // if it bigger, then we need another pointer j from beginning to scan to reduce num
+    // and we try tested again. 
+    // this will be biggest
     public int lengthOfLongestSubstringKDistinct(String s, int k) {
         int[] count = new int[256];
         int res = 0, num = 0, j = 0;
