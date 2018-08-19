@@ -26,7 +26,7 @@ public class LongestSubstringwithAtMostKDistinctCharacters {
      * @param k
      * @return
      */
-
+    //two pointers to find the longest
     public int lengthOfLongestSubstringKDistinct(String s, int k) {
         int[] count = new int[256];
         int res = 0, num = 0, j = 0;
