@@ -20,8 +20,12 @@ public class LowestCommonAncestorofaBinaryTree {
      * @return
      */
     public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null || root == p || root == q) return root;
-
+       // please note here root ==p and root == q
+        if (root == null || root == p || root == q) {
+            return root;
+        }
+        
+        // recursive to find the elements
         TreeNode left = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
 
