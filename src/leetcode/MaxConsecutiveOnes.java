@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : MaxConsecutiveOnes
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Aug, 2018
  * Description : 485. Max Consecutive Ones
  */
 public class MaxConsecutiveOnes {
@@ -35,5 +35,27 @@ public class MaxConsecutiveOnes {
             } else count = 0;
         }
         return res;
+    }
+    
+    public int findMaxConsecutiveOnes2(int[] nums) {
+        //edge case
+        if (nums == null) {
+            return 0;
+        }
+        
+        int len = nums.length - 1;
+        int cnt = 0, max = 0;
+        for(int i = 0; i <= len; i++) {
+            if (nums[i] == 1) {
+                cnt++;
+            } else {
+                if (cnt > 0) {
+                    max = Math.max(max, cnt);
+                    cnt = 0;
+                }
+            }
+        }
+        
+        return Math.max(cnt, max);
     }
 }
