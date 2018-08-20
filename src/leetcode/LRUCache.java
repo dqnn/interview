@@ -1,13 +1,15 @@
 package leetcode;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : LRUCache
  * Creator : duqiang
- * Date : Dec, 2017
+ * Date : Aug, 2018
  * Description : 146. LRU Cache
  */
 public class LRUCache {
@@ -127,4 +129,36 @@ public class LRUCache {
             capacity--;
         }
     }
+    
+    /*
+     * In the constructor, the third boolean parameter specifies the ordering mode. 
+     * If we set it to true, it will be in access order. 
+     * (https://docs.oracle.com/javase/8/docs/api/java/util/LinkedHashMap.html#LinkedHashMap-int-float-boolean-)
+By overriding removeEldestEntry in this way, we do not need to take care of it ourselves. 
+It will automatically remove the least recent one when the size of map exceeds the specified
+ capacity.(https://docs.oracle.com/javase/8/docs/api/java/util/LinkedHashMap.html#removeEldestEntry-java.util.Map.Entry-)
+     */
+    class LRUCacheLazy {
+        private Map<Integer, Integer> map;
+        private int capacity;
+
+        public LRUCacheLazy(int capacity) {
+            this.capacity = capacity;
+            this.map = new LinkedHashMap(capacity, 0.75f, true) {
+                protected boolean removeEldestEntry(Map.Entry eldest) {
+                        return size() > capacity;
+                    }
+            };
+        }
+        
+        public int get(int key) {
+            return map.getOrDefault(key, -1);
+        }
+        
+        public void put(int key, int value) {
+            map.put(key, value);
+        }
+    }
+
+  
 }
