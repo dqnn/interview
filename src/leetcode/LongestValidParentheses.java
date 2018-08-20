@@ -12,12 +12,19 @@ import java.util.Stack;
  */
 public class LongestValidParentheses {
     /**
-     * Given a string containing just the characters '(' and ')',
-     * find the length of the longest valid (well-formed) parentheses substring.
+     Given a string containing just the characters '(' and ')', find the length of the longest valid (well-formed) parentheses substring.
 
-     For "(()", the longest valid parentheses substring is "()", which has length = 2.
+Example 1:
 
-     Another example is ")()())", where the longest valid parentheses substring is "()()", which has length = 4.
+Input: "(()"
+Output: 2
+Explanation: The longest valid parentheses substring is "()"
+Example 2:
+
+Input: ")()())"
+Output: 4
+Explanation: The longest valid parentheses substring is "()()"
+
 
      0 1 2 3 4 5
      ( ( ) )

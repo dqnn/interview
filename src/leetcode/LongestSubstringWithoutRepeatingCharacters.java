@@ -1,5 +1,6 @@
 package leetcode;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -32,7 +33,8 @@ public class LongestSubstringWithoutRepeatingCharacters {
     // we use a map to store char-> idx, so we use two pointers i and j.
     // when we scan from left to right, 
     // if find the char in the map, then we know the left pointer position max(j, map.get(ch) + 1
-    // and we update new char since left pointer move one more step
+    // and we update new char since left pointer move one more step， the length of the string is i -j +1
+    // the key of the problem is to understand how we move the left and right pointers
     public int lengthOfLongestSubstring(String s) {
         if (s == null || s.length() == 0) return 0;
         HashMap<Character, Integer> map = new HashMap<>();
@@ -46,18 +48,26 @@ public class LongestSubstringWithoutRepeatingCharacters {
         }
         return res;
     }
-
+   
+    // we use array as map to store the char in the string, count[ch] = idx,
+    // so basical principal is the same as previous one.
+    //very important is we compare to start using equals and count initialized as -1 not 0.
+    //because array starts from 0 and 
     public int lengthOfLongestSubstring2(String s) {
-        if (s == null || s.length() == 0) return 0;
-        HashSet<Character> set = new HashSet<>();
-        int res = 0;
-        for (int i = 0, j = 0; i < s.length(); i++) {
-            if (set.contains(s.charAt(i))) {
-                set.remove(s.charAt(j++));
-            } else {
-                set.add(s.charAt(i));
-                res = Math.max(res, set.size());
+        if (s == null || s.length() < 1) {
+            return 0;
+        }
+        
+        int[] count = new int[256];
+        Arrays.fill(count, -1);
+        int start = 0, res = 0;
+        for(int i = 0; i < s.length(); i++) {
+            if (count[s.charAt(i)] >= start) {
+                start = count[s.charAt(i)] + 1 ;
             }
+            
+            count[s.charAt(i)] = i ;
+            res = Math.max(res, i - start + 1);
         }
         return res;
     }
