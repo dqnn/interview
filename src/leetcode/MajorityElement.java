@@ -2,13 +2,14 @@ package leetcode;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : MajorityElement
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Aug, 2018
  * Description : 169. Majority Element
  */
 public class MajorityElement {
@@ -63,6 +64,27 @@ public class MajorityElement {
             } else count++;
         }
         return res;
+    }
+    
+    // using maps to store the num->count
+    public int majorityElement4(int[] nums) {
+        //edge case
+        if (nums == null || nums.length < 1) {
+            return -1;
+        }
+        
+        // how to use N/2, how about DP?
+        Map<Integer, Integer> map = new HashMap<>();
+        int len = nums.length - 1, maxV = nums[0], cnt = 0;
+        for(int i = 0; i <= len; i++) {
+            int newCnt = map.getOrDefault(nums[i], 0) + 1;
+            if (newCnt > nums.length / 2) {
+                return nums[i];
+            }
+            map.put(nums[i], newCnt);             
+        }
+        
+        return -1;
     }
 
 }
