@@ -54,7 +54,15 @@ public class MaximalRectangle {
      * @param matrix
      * @return
      */
+    /*
+     * left(i,j) = max(left(i-1,j), cur_left), cur_left can be determined from the current row
 
+right(i,j) = min(right(i-1,j), cur_right), cur_right can be determined from the current row
+
+height(i,j) = height(i-1,j) + 1, if matrix[i][j]=='1';
+
+height(i,j) = 0, if matrix[i][j]=='0'
+     */
     public int maximalRectangle(char[][] m) {
         if (m == null || m.length < 1 || m[0].length < 1)  {
             return 0;

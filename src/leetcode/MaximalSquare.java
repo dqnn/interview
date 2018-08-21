@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : MaximalSquare
  * Creator : duqiang
- * Date : Dec, 2017
+ * Date : Aug, 2018
  * Description : 221. Maximal Square
  */
 public class MaximalSquare {
