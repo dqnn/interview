@@ -27,7 +27,7 @@ public class MaxConsecutiveOnes {
     public int findMaxConsecutiveOnes(int[] nums) {
         int res = 0;
         int count = 0;
-
+        // just count when it is 1, and replace everytime
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == 1) {
                 count++;
