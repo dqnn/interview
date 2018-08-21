@@ -8,7 +8,7 @@ import java.util.Stack;
  * Package Name : leetcode
  * File Name : MaximalRectangle
  * Creator : duqiang
- * Date : Dec, 2017
+ * Date : Aug, 2018
  * Description : 85. Maximal Rectangle
  */
 public class MaximalRectangle {
@@ -55,43 +55,53 @@ public class MaximalRectangle {
      * @return
      */
 
-    public int maximalRectangle(char[][] matrix) {
-        int m = matrix.length;
-        if (matrix == null || m == 0) return 0;
-        int n = matrix[0].length;
+    public int maximalRectangle(char[][] m) {
+        if (m == null || m.length < 1 || m[0].length < 1)  {
+            return 0;
+        }
+        int r =m.length, c = m[0].length;
         int res = 0;
-        int[] height = new int[n];
-        int[] left = new int[n];
-        int[] right = new int[n];
-        Arrays.fill(right, n);
-
-        for (int i = 0; i < m; i++) {
-            int curLeft = 0, curRight = n;
-            for (int j = 0; j < n; j++) {
-                if (matrix[i][j] == '1') height[j]++;
-                else height[j] = 0;
-            }
-            for (int j = 0; j < n; j++) {
-                if (matrix[i][j] == '1') {
+        int[] height = new int[c];
+        int[] left = new int[c];
+        int[] right = new int[c];
+        Arrays.fill(right, c);
+        
+        for(int i = 0; i < r; i++) {
+            int curLeft = 0, curRight = c;
+            for(int j = 0; j < c; j++) {
+                if (m[i][j] == '1') {
+                    height[j] ++;
+                    // left[j] means "1" string start position idx, so suppose we have 1 1 0 1 1 1, so 
+                    // curLeft will be stay the same since we want first, left[j] initialized as 0 so 
+                    // only if m[0][0] = 0 will be used.
                     left[j] = Math.max(curLeft, left[j]);
                 } else {
+                    height[j] = 0;
+                    // for left, if it is not 1 then we mark it is 0
                     left[j] = 0;
+                    // this means next 1 position, 
                     curLeft = j + 1;
                 }
             }
-            for (int j = n - 1; j >= 0; j--) {
-                if (matrix[i][j] == '1') {
+            
+            for(int j = c - 1; j>= 0; j--) {
+                if (m[i][j] == '1') {
+                    // so we scan from right to left, right is inialized as c, so if 1 1 0 1 1 1
+                    // first we need to mark the end position is 1, and right[j] should stay last idx
+                    // if it is not 1, then curRight will be c, and right will be j(because next is j--)
                     right[j] = Math.min(curRight, right[j]);
                 } else {
-                    right[j] = n;
+                    right[j] = c;
                     curRight = j;
                 }
             }
-            for (int j = 0; j < n; j++) {
+            for(int j = 0; j < c; j++) {
                 res = Math.max(res, (right[j] - left[j]) * height[j]);
             }
+            
         }
         return res;
+        
     }
 
     /**
