@@ -45,10 +45,40 @@ arr[i] will be a permutation of [0, 1, ..., arr.length - 1].
         int max = Integer.MIN_VALUE, partitions = 0;
         for(int i = 0; i <= len - 1; i++) {
             max = Math.max(nums[i], max);
+            // if the array sorted, it should be at the position with the idx = value, 
+            // fist should be 1 no matter asc or desc, partitions has to be 1
             if (max == i) {
                 partitions += 1;
             }
         }
         return partitions;
+    }
+    /*
+    Algorithm: Iterate through the array, each time all elements to the left are smaller (or equal) to all elements to the right, there is a new chunck.
+Use two arrays to store the left max and right min to achieve O(n) time complexity. Space complexity is O(n) too.
+This algorithm can be used to solve ver2 too.
+
+    */
+    public int maxChunksToSorted2(int[] arr) {
+        int n = arr.length;
+        int[] maxOfLeft = new int[n];
+        int[] minOfRight = new int[n];
+
+        maxOfLeft[0] = arr[0];
+        for (int i = 1; i < n; i++) {
+            maxOfLeft[i] = Math.max(maxOfLeft[i-1], arr[i]);
+        }
+
+        minOfRight[n - 1] = arr[n - 1];
+        for (int i = n - 2; i >= 0; i--) {
+            minOfRight[i] = Math.min(minOfRight[i + 1], arr[i]);
+        }
+
+        int res = 0;
+        for (int i = 0; i < n - 1; i++) {
+            if (maxOfLeft[i] <= minOfRight[i + 1]) res++;
+        }
+
+        return res + 1;
     }
 }
