@@ -49,7 +49,7 @@ Explanation: The array contains less than 2 elements, therefore return 0.
             max = Math.max(max, nums[i]);
             min = Math.min(min, nums[i]);
         }
-
+        // this is the way how we calc the bucket gap or bucket capacity
         int gap = (int)Math.ceil((double)(max - min) / (len - 1));
         int[] bucketsMin = new int[len - 1];
         int[] bucketsMax = new int[len - 1];
@@ -69,6 +69,8 @@ Explanation: The array contains less than 2 elements, therefore return 0.
             if (bucketsMin[i] == Integer.MAX_VALUE && bucketsMax[i] == Integer.MIN_VALUE) {
                 continue;
             }
+            //suppose q = bucketMax, p = bucketMin, we use q.min - p.max since they are adjacent in the array after 
+            //sort
             res = Math.max(res, bucketsMin[i] - pre);
             pre = bucketsMax[i];
         }
