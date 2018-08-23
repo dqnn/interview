@@ -35,6 +35,10 @@ Explanation: The array contains less than 2 elements, therefore return 0.
      * @param nums
      * @return
      */
+    // this is bucket sort, so
+    //1. bucket sort is mainly to categories data into several cages, each cage has some characters
+    //2. 1 3 5 7， 4 numbers, so we need to have 3 buckets, 1-3  4-6  7-9  so first have 1 and 3, second 
+    // we have 5, third we have 7
     public static int maximumGap(int[] nums) {
         if (nums == null || nums.length < 2) return 0;
 
@@ -53,6 +57,7 @@ Explanation: The array contains less than 2 elements, therefore return 0.
         Arrays.fill(bucketsMin, Integer.MAX_VALUE);
         for (int num : nums) {
             if (num == min || num == max) continue;
+            // this is how we calc the bucket idx
             int bucket = (num - min) / gap;
             bucketsMin[bucket] = Math.min(num, bucketsMin[bucket]);
             bucketsMax[bucket] = Math.max(num, bucketsMax[bucket]);
