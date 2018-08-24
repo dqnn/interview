@@ -7,7 +7,7 @@ import java.util.HashMap;
  * Package Name : leetcode
  * File Name : MaxPointsonaLine
  * Creator : duqiang
- * Date : Aug, 2017
+ * Date : Aug, 2018
  * Description : 149. Max Points on a Line
  */
 public class MaxPointsonaLine {
