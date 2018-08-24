@@ -65,6 +65,7 @@ Explanation: The array contains less than 2 elements, therefore return 0.
 
         int res = 0;
         int pre = min;
+        //why max(i) = len - 2 because bucketsMax length is len - 1
         for (int i = 0; i < len - 1; i++) {
             if (bucketsMin[i] == Integer.MAX_VALUE && bucketsMax[i] == Integer.MIN_VALUE) {
                 continue;

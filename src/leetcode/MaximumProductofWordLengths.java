@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : MaximumProductofWordLengths
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Aug, 2018
  * Description : 318. Maximum Product of Word Lengths
  */
 public class MaximumProductofWordLengths {
@@ -34,7 +34,7 @@ public class MaximumProductofWordLengths {
      1 << 0  00001 = 1  a
      1 << 1  00010 = 2  b
      1 << 2  00100 = 4  c
-     1 << 3  01000 = 8
+     1 << 3  01000 = 8  d
 
      abc = 00111 = 7   ab = 00011 = 3
 
@@ -48,23 +48,31 @@ public class MaximumProductofWordLengths {
      * @param words
      * @return
      */
-    public int maxProduct(String[] words) {
-        int res = 0;
-        int[] bytes = new int[words.length];
-        for (int i = 0; i < words.length; i++) {
+    public int maxProduct(String[] w) {
+        if (w ==null || w.length < 2) {
+            return 0;
+        }
+        
+        int[] bytes = new int[w.length];
+        for(int i = 0; i < w.length; i++) {
             int val = 0;
-            for (int j = 0; j < words[i].length(); j++) {
-                val |= 1 << (words[i].charAt(j) - 'a');
+            for(int j = 0; j < w[i].length(); j++) {
+                // this is the key, we use val to store all chars in one integer, this way we should remember,
+                // a--> move 0, b--> move 1, c --> move 2 positions, so each letter will move different position
+                //so when we |, it means sum them
+                val = val | 1 << (w[i].charAt(j) - 'a');
             }
             bytes[i] = val;
         }
-        for (int i = 0; i < bytes.length; i++) {
-            for (int j = i + 1; j < bytes.length; j++) {
+        int res = 0;
+        for(int i = 0; i < bytes.length; i++) {
+            for(int j = i + 1; j < bytes.length; j++) {
                 if ((bytes[i] & bytes[j]) == 0) {
-                    res = Math.max(res, words[i].length() * words[j].length());
+                    res = Math.max(res, w[i].length() * w[j].length());
                 }
             }
         }
+        
         return res;
     }
 }
