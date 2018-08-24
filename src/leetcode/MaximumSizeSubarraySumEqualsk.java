@@ -45,6 +45,8 @@ Can you do it in O(n) time?
         HashMap<Integer, Integer> map = new HashMap<>();
         map.put(0, -1);
 
+        // we have sum them up
+        //nums[i] = nums[0] + .. nums[i - 1]
         for (int i = 1; i < nums.length; i++) {
             nums[i] += nums[i - 1];
         }
