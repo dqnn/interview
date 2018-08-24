@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : MaximumSubarray
  * Creator : duqiang
- * Date : Aug, 2017
+ * Date : Aug, 2018
  * Description : TODO
  */
 public class MaximumSubarray {

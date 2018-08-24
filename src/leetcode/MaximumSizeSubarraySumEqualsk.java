@@ -52,6 +52,8 @@ Can you do it in O(n) time?
         }
         for (int i = 0; i < nums.length; i++) {
             if (map.containsKey(nums[i] - k)) {
+                // map.get(nums[i] - k) means the rest sum in array which means the length of the array
+                //  i - map.get(nums[i] - k) means the length
                 res = Math.max(res, i - map.get(nums[i] - k));
             }
             if (!map.containsKey(nums[i])) {
