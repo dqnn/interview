@@ -39,6 +39,8 @@ Can you do it in O(n) time?
      * @param k
      * @return
      */
+    // this is interview friendly solution, but thinking about if not K, just maxium, DP? LeetCode 53 is 
+    // this type
     public int maxSubArrayLen(int[] nums, int k) {
         if (nums == null || nums.length == 0) return 0;
         int res = 0;
