@@ -7,7 +7,7 @@ import java.util.TreeSet;
  * Package Name : leetcode
  * File Name : MaxSumofRectangleNoLargerThanK
  * Creator : duqiang
- * Date : Jan, 2018
+ * Date : Aug, 2018
  * Description : 363. Max Sum of Rectangle No Larger Than K
  */
 public class MaxSumofRectangleNoLargerThanK {
@@ -49,18 +49,18 @@ public class MaxSumofRectangleNoLargerThanK {
      * @param k
      * @return
      */
-    
+    // the problem is asking for max sum of a rectangle
     public int maxSumSubmatrix(int[][] matrix, int k) {
         if (matrix.length == 0) return 0;
 
-        int m = matrix.length;
-        int n = matrix[0].length;
+        int row = matrix.length;
+        int column = matrix[0].length;
         int res = Integer.MIN_VALUE;
-
-        for (int left = 0; left < n; left++) {
-            int[] sums = new int[m];
-            for (int right = left; right < n; right++) {
-                for (int i = 0; i < m; i++) {
+        // left and right, right is in 2nd loop
+        for (int left = 0; left < column; left++) {
+            int[] sums = new int[row];
+            for (int right = left; right < column; right++) {
+                for (int i = 0; i < row; i++) {
                     sums[i] += matrix[i][right];
                 }
                 TreeSet<Integer> set = new TreeSet<>();
