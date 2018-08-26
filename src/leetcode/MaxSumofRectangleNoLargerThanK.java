@@ -60,6 +60,7 @@ public class MaxSumofRectangleNoLargerThanK {
         for (int left = 0; left < column; left++) {
             int[] sums = new int[row];
             for (int right = left; right < column; right++) {
+                // this is column sum
                 for (int i = 0; i < row; i++) {
                     sums[i] += matrix[i][right];
                 }
