@@ -50,28 +50,39 @@ public class MaxSumofRectangleNoLargerThanK {
      * @return
      */
     // the problem is asking for max sum of a rectangle
-    public int maxSumSubmatrix(int[][] matrix, int k) {
-        if (matrix.length == 0) return 0;
-
-        int row = matrix.length;
-        int column = matrix[0].length;
-        int res = Integer.MIN_VALUE;
-        // left and right, right is in 2nd loop
-        for (int left = 0; left < column; left++) {
-            int[] sums = new int[row];
+    public int maxSumSubmatrix(int[][] m, int k) {
+        if (m == null || m.length < 1) {
+            return 0;
+        }
+        
+        int row = m.length, column = m[0].length, res = Integer.MIN_VALUE;
+        // scan from left to right
+        for (int left = 0; left < column; left ++) {
+            //each row sum, sum[i] from column mode 0--> i
+            int[] sum = new int[row];
+            // second pointer scan from left to right, only after from first pointer
+            // coulmn mode sum
             for (int right = left; right < column; right++) {
-                // this is column sum
+                // we scan from first row to last row but on the column we want,so it is more on the column level
                 for (int i = 0; i < row; i++) {
-                    sums[i] += matrix[i][right];
+                    sum[i] += m[i][right];
                 }
+                //add column value into treeset
                 TreeSet<Integer> set = new TreeSet<>();
                 set.add(0);
                 int cur = 0;
-                for (int sum : sums) {
-                    cur += sum;
-                    Integer num = set.ceiling(cur - k);
-                    if (num != null) {
-                        res = Math.max(res, cur - num);
+                // for each column mode, we visit by row level
+                for(int num : sum) {
+                    cur += num;
+                     // it returns least value >= cur-k
+                    //the Floor of 2.31 is 2 
+                    // The Ceiling of 2.31 is 3
+                    //The Floor/Ceiling of 5 is 5
+                    // 大于cur-k 的最小值
+                    //if we can find the temp means we find it
+                    Integer temp = set.ceiling(cur - k);
+                    if (temp != null) {
+                        res = Math.max(res, cur - temp);
                     }
                     set.add(cur);
                 }
