@@ -97,7 +97,9 @@ public class MedianofTwoSortedArrays {
                 return res[(len + 1)/2];
             }
         }
-        // this is to make sure N1 is smaller one, 
+        // this is to make sure N1 is smaller one, why?
+        // 1. since n1 is smaller so it would be faster when we calc the correct position
+        // 2. n1 is smaller so when we calc the n2 L2 and R2 there would be no indexOutofBoundary error
         if (n1.length > n2.length) {
             return findMedianSortedArrays(n2, n1);
         }
