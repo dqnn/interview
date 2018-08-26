@@ -1,6 +1,7 @@
 package leetcode;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Project Name : Leetcode
@@ -49,38 +50,58 @@ Explanation:
      * @param points
      * @return
      */
-    // this problems is very close to the question that Graph that a/b, b/c-->find out a/c value, 
-    //
-    public int maxPoints(Point[] points) {
-        if (points == null || points.length == 0) return 0;
-        if (points.length < 2) return points.length;
+   
+ // interview friendly
+    // we want to know how many points are on same line, so we want to use one point to connect all other points, when 
+    //we connect, we want to know from history whether there are some points are on the same line
+    // so we use a map for only second loop to store how many have same slope, but we use y/gcd / x/gcd as slope also as
+    // a key in the map so when we process next point, we will compare them with same slope since p[i] never change 
+    //when scan, so it will only on the same line
+    public int maxPoints(Point[] p) {
+        if (p == null || p.length < 1) {
+            return 0;
+        }
+        
+        if (p.length < 3) {
+            return p.length;
+        }
         int res = 0;
-        for (int i = 0; i < points.length; i++) {
-            HashMap<String, Integer> map = new HashMap<>();
-            int samePoint = 0;
-            int sameXAxis = 1;
-            for (int j = 0; j < points.length; j++) {
-                if (i != j) {
-                    if (points[i].x == points[j].x && points[i].y == points[j].y) {
-                        samePoint++;
-                    }
-                    if (points[i].x == points[j].x) {
-                        sameXAxis++;
-                        continue;
-                    }
-                    int numerator = points[i].y - points[j].y;
-                    int denominator = points[i].x - points[j].x;
-                    int gcd = gcd(numerator, denominator);
-                    String hashStr = (numerator / gcd) + "/" + (denominator / gcd);
-                    map.put(hashStr, map.getOrDefault(hashStr, 1) + 1);
-                    res = Math.max(res, map.get(hashStr) + samePoint);
+        for(int i = 0; i < p.length; i++) {
+            int samePoint = 0, sameXAxis = 1;
+            Map<String, Integer> map = new HashMap<>();
+            for(int j = 0; j< p.length; j++) {
+                if (i == j) {
+                    continue;
                 }
+                if (p[i].x == p[j].x && p[i].y == p[j].y) {
+                    // this only count the duplicate ones, cannot inlude p[i]
+                    samePoint++;
+                }
+             // this has to be special hanling or we cannot use x /gcd, since gcd cannot be 0
+                if (p[i].x == p[j].x) {
+                    sameXAxis ++;
+                    continue;
+                }
+                
+                int x = p[i].x - p[j].x;
+                int y = p[i].y - p[j].y;
+                int gcd = gcd(x, y);
+                // this is better why:
+                // 7/3 is bad because it has floating number so it may has some dizzy faults. and 
+                // int will ignore some 4/3 numbers after .
+                String key = (x / gcd) + "/" + (y /gcd);
+                // because for first time, p[i] has to be in the array
+                map.put(key, map.getOrDefault(key, 1) + 1);
+                // 
+                res = Math.max(res, map.get(key) + samePoint);
             }
             res = Math.max(res, sameXAxis);
         }
+        
         return res;
     }
-    private int gcd(int a, int b) {
+    // greatest common driver 最大公约数
+    public int gcd(int a, int b) {
         if (a == 0) return b;
         return gcd(b % a, a);
     }
