@@ -66,8 +66,8 @@ public class MedianofTwoSortedArrays {
      time : O(log(min(m,n)))
      space : O(1)
 
-     * @param nums1
-     * @param nums2
+     * @param n1
+     * @param n2
      * @return
      */
    // so this problem is thinking from different perspective, we cut one array into two parts l-> L1 and L2
@@ -76,35 +76,55 @@ public class MedianofTwoSortedArrays {
     // so we want to get rid of sorting and get the median of the two arrays. 
     
     // this is to setup a virtually binary search situation
-    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        if (nums1.length > nums2.length) {
-            return findMedianSortedArrays(nums2, nums1);
+    
+    //when in interview
+    //1. demonstrate the whole idea detail first: two arrays, all sorted, so we don't need to re-sort and we only
+    // need to find out the correct position in array 1 which satisfy L1 <= R2 and L2 <= R1 and len(L1 + L2) = 
+    //len (R1 + R2)
+    // so we use binary search to find the correct position, we virtually setup a situation to visit each element in array1
+    //since it is smaller, why?
+    // we add Integer.MIN_VALUE and integer.MAX_VALUE to be placed beginning and end of two arrays
+    public double findMedianSortedArrays(int[] n1, int[] n2) {
+      //edge case
+        if (n1 == null && n2 == null) {
+            return -1.0;
+        } else if (n1 == null || n2 == null){
+            int[] res = n1 == null ? n2 : n1;
+            int len = res.length;
+            if (len % 2 == 0) {
+                return (double)(res[len/2] + res[len/2 + 1]) / 2.0;
+            } else {
+                return res[(len + 1)/2];
+            }
         }
-        int len = nums1.length + nums2.length;
-        int cut1 = 0;
-        int cut2 = 0;
-        //cutL and cutR means the cut1 value range, cur1 position is the middle of cutL and cutR, 
+        // this is to make sure N1 is smaller one, 
+        if (n1.length > n2.length) {
+            return findMedianSortedArrays(n2, n1);
+        }
+        int len = n1.length + n2.length;
+        int middle1 = 0, middle2 = 0;
+        //start and end means the middle1 value range, middle1 position is the middle of start and end, 
         // it is like start and end in binary search
-        int cutL = 0;
-        // cutR1 is on nums1 most right position
-        int cutR = nums1.length;
+        int start = 0;
+        // end is on nums1 most right position
+        int end = n1.length;
         // so we want to find a correct position in array 1, the position can give us
         // L1 <= R2 and L2 <= R1 so we are easy to know the median
-        while (cut1 <= nums1.length) {
-            // cut1 means the cut position, firstly it will be in the middle of nums1
-            cut1 = (cutR - cutL) / 2 + cutL;
+        while (middle1 <= n1.length) {
+            // middle1 means the cut position, firstly it will be in the middle of nums1
+            middle1 = (end - start) / 2 + start;
             // we need to keep cut length(left) = length(right), so 
             // we need to len / 2 - cut1
-            cut2 = len / 2 - cut1;
+            middle2 = len / 2 - middle1;
             // we use double since we want to do calculation so we dont need to care about overflow
             // L1 means the left element nearest to the cut1
-            double L1 = (cut1 == 0) ? Integer.MIN_VALUE : nums1[cut1 - 1];
+            double L1 = (middle1 == 0) ? Integer.MIN_VALUE : n1[middle1 - 1];
             // L2 means the left element nearest to the cut2
-            double L2 = (cut2 == 0) ? Integer.MIN_VALUE : nums2[cut2 - 1];
+            double L2 = (middle2 == 0) ? Integer.MIN_VALUE : n2[middle2 - 1];
             //R1 means the right element nearest to cut1
-            double R1 = (cut1 == nums1.length) ? Integer.MAX_VALUE : nums1[cut1];
+            double R1 = (middle1 == n1.length) ? Integer.MAX_VALUE : n1[middle1];
             //R2 means the right element nearest to cut2
-            double R2 = (cut2 == nums2.length) ? Integer.MAX_VALUE : nums2[cut2];
+            double R2 = (middle2 == n2.length) ? Integer.MAX_VALUE : n2[middle2];
             //so we find Cut1 position is bigger than nums2 right element,so we need to move,
             // we only cared about cut1 or L1 because L2 is decided by L1
             
@@ -113,10 +133,10 @@ public class MedianofTwoSortedArrays {
                 // we move cutR to cut1 left 1 since
                 //1 nums array are already sorted
                 //2 move cut1 to left by 1
-                cutR = cut1 - 1;
+                end = middle1 - 1;
             } else if (L2 > R1) {
                 // we found that in L2 is bigger than right, so cutL 
-                cutL = cut1 + 1;
+                start = middle1 + 1;
             // here handles L1 = R2 or L2 == R1
                 //since they already sorted and L1 + L2 = L /2, 
                 //so we already find the correct place
