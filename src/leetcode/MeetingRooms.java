@@ -1,6 +1,5 @@
 package leetcode;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -8,7 +7,7 @@ import java.util.Arrays;
  * Package Name : leetcode
  * File Name : MeetingRooms
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Agu, 2018
  * Description : 252. Meeting Rooms
  */
 public class MeetingRooms {
@@ -27,6 +26,8 @@ public class MeetingRooms {
      * @return
      */
     public boolean canAttendMeetings(Interval[] intervals) {
+        // this is good, so we can sort by object easily, also PriorityQueue has similiar function
+        // so we sort by start first, then if end has overlap then we cannot attend all meetings
         Arrays.sort(intervals, (x, y) -> x.start - y.start);
         for (int i = 1; i <intervals.length; i++) {
             if (intervals[i - 1].end > intervals[i].start) {

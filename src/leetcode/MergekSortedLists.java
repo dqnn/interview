@@ -1,6 +1,5 @@
 package leetcode;
 
-import java.util.List;
 import java.util.PriorityQueue;
 
 /**
@@ -8,11 +7,22 @@ import java.util.PriorityQueue;
  * Package Name : leetcode
  * File Name : MergekSortedLists
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Aug, 2018
  * Description : 23. Merge k Sorted Lists
  */
 public class MergekSortedLists {
     /**
+Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+
+Example:
+
+Input:
+[
+  1->4->5,
+  1->3->4,
+  2->6
+]
+Output: 1->1->2->3->4->4->5->6
      *
      time : O(nlogk) where k is the number of linked lists
      space : O(n)
