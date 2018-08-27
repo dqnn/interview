@@ -57,17 +57,35 @@ Output: 1->1->2->3->4->4->5->6
 
 
     // use prioirtyqueue as sort
+    //N lgk, each time lgk
+    /*
+Time complexity : O(Nlogk) where k is the number of linked lists.
+
+The comparison cost will be reduced to O(logk) for every pop and insertion to priority queue. 
+But finding the node with the smallest value just costs O(1) time.
+There are NN nodes in the final linked list.
+Space complexity :
+
+O(n) Creating a new linked list costs O(n)O(n) space.
+O(k) The code above present applies in-place method which cost 
+O(1) space. And the priority queue (often implemented with heaps) costs O(k) space (it's far less than 
+NN in most situations). 
+
+     */
     public ListNode mergeKLists2(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
         PriorityQueue<ListNode> queue = new PriorityQueue<>(lists.length, (a, b) -> a.val - b.val);
         ListNode dummy = new ListNode(0);
         ListNode cur = dummy;
-
+        
+        // only first node here and we sort by first node, 
         for (ListNode list : lists) {
             if (list != null) {
                 queue.add(list);
             }
         }
+        // for each one, we add them into the queue 
+        // we always get smallest, this is similiar with kN solutions
         while (!queue.isEmpty()) {
             cur.next = queue.poll();
             cur = cur.next;
