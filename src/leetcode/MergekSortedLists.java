@@ -56,6 +56,7 @@ Output: 1->1->2->3->4->4->5->6
     }
 
 
+    // use prioirtyqueue as sort
     public ListNode mergeKLists2(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
         PriorityQueue<ListNode> queue = new PriorityQueue<>(lists.length, (a, b) -> a.val - b.val);
@@ -75,5 +76,47 @@ Output: 1->1->2->3->4->4->5->6
             }
         }
         return dummy.next;
+    }
+    
+    // self solution, 
+    //Time O(Nk), N is final elements number in final list, k is linked list number
+    public ListNode mergeKLists3(ListNode[] lists) {
+        if (lists == null || lists.length < 1) {
+            return null;
+        }
+        int len = lists.length;
+        ListNode dummy = new ListNode(0), cur = dummy;
+        ListNode[] end = new ListNode[len];
+        //we store a list of pointers which point current smallest val in the list
+        for(int i = 0; i < len; i++) {
+            end[i] = lists[i];
+        }
+        int minIdx = 0;
+        boolean existed = true;
+        while (existed) {
+            existed = false;
+            // the loop is to find the smallest in K lists
+            for(int i = 0; i < end.length; i++) {
+               if (end[i] != null) {
+                   existed = true;
+               }
+               if (end[i] == null) {
+                   continue;
+               }
+               
+               if (end[minIdx] == null || end[minIdx].val >= end[i].val) {
+                   minIdx = i;
+               }
+            }
+            // insert to the end of the list
+            if (end[minIdx] != null) {
+                cur.next = end[minIdx];
+                cur = cur.next;
+                end[minIdx]= end[minIdx].next;
+            }
+        }
+        cur.next = null;
+        return dummy.next;
+        
     }
 }
