@@ -42,6 +42,7 @@ public class MergeTwoBinaryTrees {
      */
 
     public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
+        // we are doing this way to return correct node
         if (t1 == null) return t2;
         if (t2 == null) return t1;
         TreeNode newNode = new TreeNode(t1.val + t2.val);
