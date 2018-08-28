@@ -93,6 +93,7 @@ Solution
 加入队列中，再下一轮删除。那么我们删到什么时候呢，当节点数小于等于2时候停止，
 此时剩下的一个或两个节点就是我们要求的最小高度树的根节点啦
      */
+ // this is simplified version, map should be better than set
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
         if (n == 1) {
             return Collections.singletonList(0);
@@ -109,20 +110,25 @@ Solution
             adj.get(edge[0]).add(edge[1]);
             adj.get(edge[1]).add(edge[0]);
         }
-        // if only one element
+        // if one set only has one elment means it is a leaf node
         for (int i = 0; i < n; i++) {
             if (adj.get(i).size() == 1) {
                 res.add(i);
             }
         }
         
-        // if n nodes more than 2
+        // if n nodes more than 2,if only 1, then we find it
         while (n > 2) {
+            //how many non-leaf nodes
             n = n - res.size();
             List<Integer> leaves = new ArrayList<>();
+            // we visit all leaf nodes
             for (int i : res) {
+                // connect to leaf nodes
                 for (int j : adj.get(i)) {
+                    //we remove the leaf nodes from set
                     adj.get(j).remove(i);
+                    // we detect the node become leaf, like we remove leaf nodes gradully
                     if (adj.get(j).size() == 1) {
                         leaves.add(j);
                     }
