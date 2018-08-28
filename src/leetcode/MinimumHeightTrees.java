@@ -1,6 +1,7 @@
 package leetcode;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
@@ -81,27 +82,43 @@ Solution
      * @param edges
      * @return
      */
+    
+    // there is similiar question before, that node is the center and we walk out step by step until end, 
+    // so we count how many steps we walked, 
+    /*
+发现大家推崇的方法是一个类似剥洋葱的方法，就是一层一层的褪去叶节点，最后剩下的一个或两个节点就是我们要求的最小高度树的根节点，
+这种思路非常的巧妙，而且实现起来也不难，跟之前那到课程清单的题一样，我们需要建立一个图g，是一个二维数组，其中g[i]是一个一维数组，
+保存了i节点可以到达的所有节点。我们开始将所有只有一个连接边的节点(叶节点)都存入到一个队列queue中，然后我们遍历每一个叶节点，
+通过图来找到和其相连的节点，并且在其相连节点的集合中将该叶节点删去，如果删完后此节点也也变成一个叶节点了，
+加入队列中，再下一轮删除。那么我们删到什么时候呢，当节点数小于等于2时候停止，
+此时剩下的一个或两个节点就是我们要求的最小高度树的根节点啦
+     */
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
-        List<Integer> res = new ArrayList<>();
         if (n == 1) {
-            res.add(0);
-            return res;
+            return Collections.singletonList(0);
         }
+        List<Integer> res = new ArrayList<>();
+        // we have Set in List
         List<HashSet<Integer>> adj = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             adj.add(new HashSet<>());
         }
+        //  first node number is the list index
+        // second is the anothe node so as a map
         for (int[] edge : edges) {
             adj.get(edge[0]).add(edge[1]);
             adj.get(edge[1]).add(edge[0]);
         }
+        // if only one element
         for (int i = 0; i < n; i++) {
             if (adj.get(i).size() == 1) {
                 res.add(i);
             }
         }
+        
+        // if n nodes more than 2
         while (n > 2) {
-            n -= res.size();
+            n = n - res.size();
             List<Integer> leaves = new ArrayList<>();
             for (int i : res) {
                 for (int j : adj.get(i)) {
