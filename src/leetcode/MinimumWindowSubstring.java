@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : MinimumWindowSubstring
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Aug, 2018
  * Description : 76. Minimum Window Substring
  */
 public class MinimumWindowSubstring {
@@ -65,12 +65,18 @@ public class MinimumWindowSubstring {
         int total = t.length();
         int min = Integer.MAX_VALUE;
         for (int i = 0, j = 0; i < s.length(); i++) {
+            //if we found one in map, so we reduce --
             if (cnt[s.charAt(i)]-- > 0) total--;
+            // s if totally == 0 so means we find all chars
+            // this while mainly focus on moving j
             while (total == 0) {
+                // the length, form i->j
                 if (i - j + 1 < min) {
                     min = i - j + 1;
                     from = j;
                 }
+                // so if we move j to next position to whether we can find one char in the array 
+                // so we have move from beginning to end, like i to end, so we can get overall shortest one
                 if (++cnt[s.charAt(j++)] > 0) total++;
             }
         }
