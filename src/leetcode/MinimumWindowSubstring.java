@@ -57,6 +57,9 @@ public class MinimumWindowSubstring {
      * @return
      */
     public static String minWindow(String s, String t) {
+        if (s == null || t == null) {
+            return null;
+        }
         int[] cnt = new int[128];
         for (char c : t.toCharArray()) {
             cnt[c]++;
@@ -80,6 +83,7 @@ public class MinimumWindowSubstring {
                 if (++cnt[s.charAt(j++)] > 0) total++;
             }
         }
+        // this means there is no such chars in S so we can return ""
         return (min == Integer.MAX_VALUE) ? "" : s.substring(from, from + min);
     }
 }
