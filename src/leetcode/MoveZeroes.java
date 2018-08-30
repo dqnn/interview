@@ -56,6 +56,10 @@ public class MoveZeroes {
     // lots of zeros
     public void  moveZeroes2(int[] nums) {
         if (nums == null || nums.length == 0) return;
+        
+        // so if not 0, then we use j to move next and switch position, 
+        // if we have 0, then j will stop there until i move to next non-zero postion, then switch,
+        // until we move all 0 to the end of the array
         for (int i = 0, j = 0; i < nums.length; i++) {
             if (nums[i] != 0) {
                 int temp = nums[i];

@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : MultiplyStrings
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Aug, 2018
  * Description : 43. Multiply Strings
  */
 public class MultiplyStrings {
@@ -32,9 +32,12 @@ public class MultiplyStrings {
         for (int i = num1.length() - 1; i >= 0; i--) {
             for (int j = num2.length() - 1; j >= 0; j--) {
                 int product = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
+                //this is the key
                 int p1 = i + j, p2 = i + j + 1;
                 int sum = product + digits[p2];
+                // incremental 
                 digits[p1] += sum / 10;
+                // real value in the position
                 digits[p2] = sum % 10;
             }
         }

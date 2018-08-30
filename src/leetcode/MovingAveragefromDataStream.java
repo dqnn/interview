@@ -8,11 +8,15 @@ import java.util.Queue;
  * Package Name : leetcode
  * File Name : MovingAveragefromDataStream
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Aug, 2018
  * Description : 346. Moving Average from Data Stream
  */
 public class MovingAveragefromDataStream {
     /**
+     * Given a stream of integers and a window size, calculate the moving average of all integers '
+     * in the sliding window.
+
+For example,
      * MovingAverage m = new MovingAverage(3);
      m.next(1) = 1
      m.next(10) = (1 + 10) / 2
@@ -32,7 +36,8 @@ public class MovingAveragefromDataStream {
         queue = new LinkedList<>();
         this.size = size;
     }
-
+    // next here means if we add val in to our consideratoon, how can we 
+    // calc the avg but keeping size the same
     public double next(int val) {
         if (queue.size() == size) {
             sum -= queue.remove();
