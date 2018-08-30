@@ -28,6 +28,7 @@ public class NestedInteger {
         this.list = list;
     }
     public void add(NestedInteger nestedInteger){}
+    public void setInteger(int value) {}
 
     // @return true if this NestedInteger holds a single integer,
     // rather than a nested list.

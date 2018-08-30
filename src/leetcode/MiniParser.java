@@ -7,7 +7,7 @@ import java.util.Stack;
  * Package Name : leetcode
  * File Name : MiniParser
  * Creator : duqiang
- * Date : Jan, 2018
+ * Date : Aug, 2018
  * Description : 385. Mini Parser
  */
 public class MiniParser {
@@ -53,29 +53,46 @@ public class MiniParser {
      * @param s
      * @return
      */
+ // whole return is a NestedInteger, so we can try stack and using peek() to always  
+    // pick the previous integer context and hook them together
+    
+    // [123,[456,[789]]], as example, 
+    // firstly we add new empty NestedInteger into stack, and we start scan from 1st character,
+    // if we encounter [, means second NestedInteger, so we are in a new NestedInteger context
+    // so we add a new empty NestedInteger into stack, 
+    // if we encounter , we need to add this integer from start position to i so we use stack.peek().add(the integer)
     public NestedInteger deserialize(String s) {
-        if (!s.startsWith("[")) {
-            return new NestedInteger(Integer.valueOf(s));
-        }
-
-        Stack<NestedInteger> stack = new Stack<>();
         NestedInteger res = new NestedInteger();
+        if (s == null) {
+           return res;
+        }
+        // NestedInteger must begin with [ or it just integer
+        if (s.charAt(0) != '[') {
+            res.setInteger(Integer.valueOf(s));
+        }
+        // we push the integer into stack so in scan process, we can use stack.peek to refer to this NestedInteger
+        Stack<NestedInteger> stack = new Stack<>();
         stack.push(res);
+        
         int start = 1;
-        for (int i = 1; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (c == '[') {
+        for(int i = 1; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (ch == '[') {
                 NestedInteger nestedInteger = new NestedInteger();
                 stack.peek().add(nestedInteger);
                 stack.push(nestedInteger);
                 start = i + 1;
-            } else if (c == ',' || c == ']') {
+            } else if ( ch == ',' || ch == ']') {
                 if (i > start) {
+                    // i here point to , or ]
                     Integer val = Integer.valueOf(s.substring(start, i));
                     stack.peek().add(new NestedInteger(val));
                 }
+                // we re-recongnize the new number
                 start = i + 1;
-                if (c == ']') {
+                //[123,[456], 789] this case, we need eject the [456], so if we encounter ] we have 
+                // to pop previous one
+                if (ch == ']') {
                     stack.pop();
                 }
             }
