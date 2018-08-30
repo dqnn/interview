@@ -1,14 +1,13 @@
 package leetcode;
 
-import java.util.Arrays;
-import java.util.HashSet;
+
 
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : MissingNumber
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Aug, 2018
  * Description : 268. Missing Number
  */
 public class MissingNumber {
@@ -25,6 +24,7 @@ public class MissingNumber {
      * @return
      */
 
+    // cool solution
     public int missingNumber(int[] nums) {
         int res = nums.length;
         for (int i = 0; i < nums.length; i++) {
@@ -40,6 +40,22 @@ public class MissingNumber {
             actualSum += num;
         }
         return expectedSum - actualSum;
+    }
+    
+    // 
+    public int missingNumber3(int[] nums) {
+        //edge case
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int res = 0;
+        for(int i = 0; i < nums.length; i++) {
+           res += i - nums[i]; 
+        }
+        
+        res += nums.length;
+        
+        return res;
     }
 
 }

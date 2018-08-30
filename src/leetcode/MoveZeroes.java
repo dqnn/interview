@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : MoveZeroes
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Aug, 2018
  * Description : TODO
  */
 public class MoveZeroes {
@@ -41,9 +41,11 @@ public class MoveZeroes {
         if (nums == null || nums.length == 0) return;
         int start = 0;
         for (int i = 0; i < nums.length; i++) {
+            // so this position is not 0, then we have to move start to next position
+            // until it is 0
             if (nums[i] != 0) {
                 nums[start++] = nums[i];
-            }
+            } 
         }
         while (start < nums.length) {
             nums[start++] = 0;

@@ -7,9 +7,11 @@ import java.util.Stack;
  * Package Name : leetcode
  * File Name : MinStack
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Aug, 2018
  * Description : TODO
  */
+
+// this question is to use simple structure to implement, like double linked list or array
 public class MinStack {
 
     /** initialize your data structure here. */
@@ -108,6 +110,7 @@ class MinStack2 {
         stack.push(x);
     }
 
+    // here is the key, we use a stack to store previous min below current x in the stack
     public void pop() {
         if (stack.pop() == min) {
             min = stack.pop();

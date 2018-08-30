@@ -8,13 +8,13 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : MissingRanges
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Aug, 2018
  * Description : 163. Missing Ranges
  */
 public class MissingRanges {
     /**
-     * Given a sorted integer array where the range of elements are in the inclusive range [lower, upper],
-     * return its missing ranges.
+Given a sorted integer array where the range of elements are [0, 99] inclusive, return its missing ranges.
+For example, given [0, 1, 3, 50, 75], return [“2”, “4->49”, “51->74”, “76->99”]
 
      For example, given [0, 1, 3, 50, 75], lower = 0 and upper = 99, return ["2", "4->49", "51->74", "76->99"].
 
@@ -30,6 +30,10 @@ public class MissingRanges {
      * @param upper
      * @return
      */
+    // so for the range missing, we use a point point to lower, so 
+    // when we scan the array, we wil process
+    // if lowe < nums[i], we need to append lower-> nums[i] - 1. here we need to differ 
+    // on nums[i] and nums[i] - 1
     public List<String> findMissingRanges(int[] nums, int lower, int upper) {
         List<String> res = new ArrayList<>();
         long alower = (long)lower, aupper = (long)upper;
