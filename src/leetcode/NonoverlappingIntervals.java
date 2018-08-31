@@ -8,12 +8,13 @@ import java.util.Comparator;
  * Package Name : leetcode
  * File Name : NonoverlappingIntervals
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Aug, 2018
  * Description : 435. Non-overlapping Intervals
  */
 public class NonoverlappingIntervals {
     /**
-     * Given a collection of intervals, find the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
+     * Given a collection of intervals, find the minimum number of intervals you need to remove to make the rest 
+     * of the intervals non-overlapping.
 
      Note:
      You may assume the interval's end point is always bigger than its start point.
