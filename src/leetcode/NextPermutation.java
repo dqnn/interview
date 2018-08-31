@@ -1,11 +1,13 @@
 package leetcode;
 
+import java.util.Arrays;
+
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : NextPermutation
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Aug, 2018
  * Description : TODO
  */
 public class NextPermutation {
@@ -68,6 +70,34 @@ public class NextPermutation {
     public void reverse(int[] nums, int i, int j) {
         while (i < j) {
             swap(nums, i++, j--);
+        }
+    }
+    
+    public void nextPermutation4(int[] nums) {
+        //edge case
+        if (nums == null || nums.length == 1) {
+            return;
+        }
+        
+        int end = nums.length -2;
+        int j = end;
+        for(; j>=0 && nums[j+1] <= nums[j];) {
+            j--;
+        }
+        
+        if(j < 0) { // it sorted desc
+            Arrays.sort(nums);
+            return;
+        }
+        
+        for(int i =end+1; i>j;i--) {
+            if(nums[j] < nums[i]) {
+                int temp = nums[j];
+                nums[j] = nums[i];
+                nums[i]  = temp;
+                Arrays.sort(nums, j+1, end+2);
+                break;
+            }
         }
     }
 }

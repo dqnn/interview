@@ -59,6 +59,9 @@ The length of both nums1 and nums2 would not exceed 1000.
      */
 
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        // the map is used to store the number relationship in nums2, and from left to right, only two adjacent 
+        // number can have such relation
+        // [1,3,4,2]--> map 1->3, 3->4, 
         HashMap<Integer, Integer> map = new HashMap<>();
         Stack<Integer> stack = new Stack<>();
         for (int num : nums2) {
@@ -66,7 +69,7 @@ The length of both nums1 and nums2 would not exceed 1000.
             while (!stack.isEmpty() && stack.peek() < num) {
                 map.put(stack.pop(), num);
             }
-            // 
+            // adding to stack
             stack.push(num);
         }
         int[] res = new int[nums1.length];
