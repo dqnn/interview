@@ -9,7 +9,7 @@ import java.util.Queue;
  * Package Name : leetcode
  * File Name : NestedListWeightSum
  * Creator : duqiang
- * Date : Aug, 2017
+ * Date : Aug, 2018
  * Description : TODO
  */
 public class NestedListWeightSum {
@@ -35,6 +35,11 @@ public class NestedListWeightSum {
 
 
     // DFS
+    
+    // need to understand what's NestedInteger means, it means 
+    //1 it must starts with [, and end with ] || or just 1 number
+    // 2 it means every element in nestedInteger may be a number or a list, this is different compared to MinParser
+    
     public int depthSum(List<NestedInteger> nestedList) {
         if (nestedList == null) return 0;
         return helper(nestedList, 1);
@@ -53,6 +58,7 @@ public class NestedListWeightSum {
     }
 
     // BFS
+    // interview friendly, every recursive, we have a stack way to solve
     public int depthSum2(List<NestedInteger> nestedList) {
         if (nestedList == null) return 0;
         int depth = 1;
@@ -60,6 +66,7 @@ public class NestedListWeightSum {
         Queue<NestedInteger> queue = new LinkedList<>(nestedList);
         while (!queue.isEmpty()) {
             int size = queue.size();
+            //broad scan the elements
             for (int i = 0; i < size; i++) {
                 NestedInteger nest = queue.poll();
                 if (nest.isInteger()) {

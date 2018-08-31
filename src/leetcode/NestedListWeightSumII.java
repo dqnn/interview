@@ -8,7 +8,7 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : NestedListWeightSumII
  * Creator : duqiang
- * Date : Aug, 2017
+ * Date : Aug, 2018
  * Description : 364. Nested List Weight Sum II
  */
 public class NestedListWeightSumII {
@@ -57,12 +57,15 @@ public class NestedListWeightSumII {
         return res;
     }
 
+    // interview friendly
     public int depthSumInverse2(List<NestedInteger> nestedList) {
         if (nestedList == null) return 0;
         int sum = 0;
         int res = 0;
         while (!nestedList.isEmpty()) {
             List<NestedInteger> nextList = new LinkedList<>();
+            // we broadly scan the the tree and add them as sum，
+            // here we visit by outside nestedList
             for (NestedInteger nest : nestedList) {
                 if (nest.isInteger()) {
                     sum += nest.getInteger();
@@ -71,6 +74,7 @@ public class NestedListWeightSumII {
                 }
             }
             res += sum;
+            // we change the scope, use nextList as nestedList as next level until we meet leaf
             nestedList = nextList;
         }
         return res;
