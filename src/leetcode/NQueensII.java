@@ -23,7 +23,7 @@ public class NQueensII {
      */
 
     int res = 0;
-
+    // why this is shorter since we only requires return integer
     public int totalNQueens(int n) {
         boolean[] cols = new boolean[n];
         boolean[] d1 = new boolean[2 * n]; //  \
