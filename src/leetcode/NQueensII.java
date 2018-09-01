@@ -24,14 +24,18 @@ public class NQueensII {
 
     int res = 0;
     // why this is shorter since we only requires return integer
+    //Start row by row, and loop through columns. At each decision point, 
+    //skip unsafe positions by using three boolean arrays.
     public int totalNQueens(int n) {
-        boolean[] cols = new boolean[n];
-        boolean[] d1 = new boolean[2 * n]; //  \
-        boolean[] d2 = new boolean[2 * n]; //  /
+        boolean[] cols = new boolean[n];// columns   |
+        boolean[] d1 = new boolean[2 * n]; // diagonals \
+        boolean[] d2 = new boolean[2 * n]; // diagonals /
         helper(0, cols, d1, d2, n);
         return res;
     }
+    //back tracking 
     public void helper(int row, boolean[] cols, boolean[] d1, boolean[] d2, int n) {
+        // last row
         if (row == n) {
             res++;
             return;
