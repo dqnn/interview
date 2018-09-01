@@ -34,7 +34,9 @@ public class NQueensII {
 */
     public int totalNQueens(int n) {
         boolean[] cols = new boolean[n];// columns   |
+        // we use one 2 * n dimension to store the 2D data
         boolean[] d1 = new boolean[2 * n]; // top left -> bottom right
+     // we use one 2 * n dimension to store the 2D data
         boolean[] d2 = new boolean[2 * n]; // top right -> bottom left
         helper(0, cols, d1, d2, n);
         return res;
