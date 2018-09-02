@@ -5,13 +5,15 @@ package leetcode;
  * Package Name : leetcode
  * File Name : NumberofConnectedComponentsinanUndirectedGraph
  * Creator : duqiang
- * Date : Jan, 2018
+ * Date : Sep, 2018
  * Description : 323. Number of Connected Components in an Undirected Graph
  */
 public class NumberofConnectedComponentsinanUndirectedGraph {
     /**
-     * Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes),
-     * write a function to find the number of connected components in an undirected graph.
+     * Given n nodes labeled from 0 to n - 1 and a list of undirected edges 
+     * (each edge is a pair of nodes),
+     * write a function to find the number of connected components in an 
+     * undirected graph.
 
      Example 1:
      0          3
@@ -40,10 +42,14 @@ public class NumberofConnectedComponentsinanUndirectedGraph {
      * @param edges
      * @return
      */
+    // n is nodes, edges are thread connected nodes
+    // since 
     public int countComponents(int n, int[][] edges) {
 
+        // firstly, we resume each node is one component
         int res = n;
 
+        // this is simplified map
         int[] roots = new int[n];
         for (int i = 0; i < n; i++) {
             roots[i] = -1;
@@ -60,6 +66,7 @@ public class NumberofConnectedComponentsinanUndirectedGraph {
         return res;
     }
 
+    // in roots map, it will find the end of a component 
     private int find(int[] roots, int i) {
         while (roots[i] != -1) {
             i = roots[i];
