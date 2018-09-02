@@ -10,7 +10,8 @@ package leetcode;
  */
 public class NumberofSegmentsinaString {
     /**
-     * Count the number of segments in a string, where a segment is defined to be a contiguous sequence of non-space characters.
+     * Count the number of segments in a string, where a segment is defined to be a contiguous sequence 
+     * of non-space characters.
 
      Please note that the string does not contain any non-printable characters.
 
@@ -26,8 +27,15 @@ public class NumberofSegmentsinaString {
      * @return
      */
     public int countSegments(String s) {
+        if (s == null) {
+            return 0;
+        }
+        
         s = s.trim();
-        if (s.length() == 0) return 0;
+        
+        if (s.length() < 1) {
+            return 0;
+        }
         return s.split("\\s+").length;
     }
 }

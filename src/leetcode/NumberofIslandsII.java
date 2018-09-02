@@ -9,7 +9,7 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : NumberofIslandsII
  * Creator : duqiang
- * Date : Jan, 2018
+ * Date : Aug, 2018
  * Description : 305. Number of Islands II
  */
 public class NumberofIslandsII {
@@ -88,6 +88,7 @@ public class NumberofIslandsII {
         return res;
     }
 
+    //same algorithms used in counting connected components
     private int find(int[] roots, int i) {
         while (i != roots[i]) {
             i = roots[i];

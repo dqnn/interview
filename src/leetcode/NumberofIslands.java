@@ -8,7 +8,7 @@ import java.util.Queue;
  * Package Name : leetcode
  * File Name : NumberofIslands
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Aug, 2018
  * Description : 200. Number of Islands
  */
 public class NumberofIslands {
@@ -70,6 +70,7 @@ public class NumberofIslands {
 
     private void dfs(char[][] grid, int i, int j) {
         if (i < 0 || j < 0 || i >= m || j >= n || grid[i][j] == '0') return;
+        // we mark it as 0 since we already reached  so mark it as 0
         grid[i][j] = '0';
         dfs(grid, i, j + 1);
         dfs(grid, i, j - 1);

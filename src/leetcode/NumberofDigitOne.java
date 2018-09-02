@@ -65,6 +65,7 @@ iterate through all digits and sum them all will give the final answer
             return 0;
         int q = n, x = 1, ans = 0;
         do {
+            // digit is the left on second digit of n from right
             int digit = q % 10;
             q /= 10;
             ans += q * x;
