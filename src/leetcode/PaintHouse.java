@@ -23,7 +23,13 @@ All costs are positive integers.
 
 Example:
 
-Input: [[17,2,17],[16,16,5],[14,3,19]]
+Input: 
+red   blue  green
+17    2    17   house 0
+16    16   5    house 1
+14    3    19   house 2
+
+
 Output: 10
 Explanation: Paint house 0 into blue, paint house 1 into green, paint house 2 into blue. 
              Minimum cost: 2 + 5 + 3 = 10.
@@ -44,7 +50,9 @@ Explanation: Paint house 0 into blue, paint house 1 into green, paint house 2 in
      * @return
      */
     public int minCost(int[][] costs) {
-        if (costs == null || costs[0].length == 0) return 0;
+        if (costs == null || costs[0].length < 1) return 0;
+        // row based since they cannot ajacent, so we will choose the smaller one of the other two
+        // so each house will be considered. 
         for (int i = 1; i < costs.length; i++) {
             costs[i][0] += Math.min(costs[i - 1][1], costs[i - 1][2]);
             costs[i][1] += Math.min(costs[i - 1][0], costs[i - 1][2]);

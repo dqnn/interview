@@ -10,7 +10,7 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : PalindromePairs
  * Creator : duqiang
- * Date : Jan, 2018
+ * Date : Aug, 2018
  * Description : 336. Palindrome Pairs
  */
 public class PalindromePairs {

@@ -30,6 +30,8 @@ public class PaintHouseII {
      * @return
      */
 
+    // this is typical DP problems, 
+    //maintain the minimum two costs min1(smallest) and min2 (second to smallest) after painting i-th house.
     public int minCostII(int[][] costs) {
         if (costs == null || costs.length == 0) return 0;
         int n = costs.length;

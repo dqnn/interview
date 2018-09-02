@@ -5,12 +5,24 @@ package leetcode;
  * Package Name : leetcode
  * File Name : PalindromeLinkedList
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class PalindromeLinkedList {
     /**
      * 234. Palindrome Linked List
+Given a singly linked list, determine if it is a palindrome.
+
+Example 1:
+
+Input: 1->2
+Output: false
+Example 2:
+
+Input: 1->2->2->1
+Output: true
+Follow up:
+Could you do it in O(n) time and O(1) space?
 
      * time : O(n)
      * space : O(1)
@@ -50,5 +62,35 @@ public class PalindromeLinkedList {
             head = temp;
         }
         return prev;
+    }
+    
+    
+    public boolean isPalindrome2(ListNode head) {
+        if (head == null || head.next == null) {
+            return true;
+        }
+        // please note: we always pass head element to next, leverage recursive to last element
+        return find(head, head.next) == null ? false : true;
+    }
+    
+    private ListNode find(ListNode head, ListNode nex) {
+         //If only one element
+        if (nex == null) {
+            return head;
+        }
+        //If you reach the last element
+        if (nex.next == null) {
+            return head.val== nex.val ? head.next : null;
+        }
+        
+         //Recursively call till you reach last element.
+        //As soon as you reach the last element, Just return the next of the head
+        //So that previous calls can use that refernce and compare with the second last and so on
+        ListNode checkHead = find(head, nex.next);
+        if (checkHead == null) {
+            return null;
+        }
+        
+        return checkHead.val == nex.val ? checkHead.next : null;
     }
 }
