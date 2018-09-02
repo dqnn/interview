@@ -55,9 +55,13 @@ public class NumberofConnectedComponentsinanUndirectedGraph {
             roots[i] = -1;
         }
 
+        // here is the key, when we scan the edges, we can add the pair if we cannot add them into the 
+        // map, so eventually the find method will help the noes they are connected or not
         for (int[] pair : edges) {
             int x = find(roots, pair[0]);
             int y = find(roots, pair[1]);
+            // they are connected, so res need to --.
+            //if x == y, means 
             if (x != y) {
                 roots[x] = y;
                 res--;
@@ -66,7 +70,7 @@ public class NumberofConnectedComponentsinanUndirectedGraph {
         return res;
     }
 
-    // in roots map, it will find the end of a component 
+    // in roots map, it will find the end of a component, we can call it transition map 
     private int find(int[] roots, int i) {
         while (roots[i] != -1) {
             i = roots[i];
