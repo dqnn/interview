@@ -7,7 +7,7 @@ import java.util.HashMap;
  * Package Name : leetcode
  * File Name : NumberofBoomerangs
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Sep, 2018
  * Description : 447. Number of Boomerangs
  */
 public class NumberofBoomerangs {
@@ -47,10 +47,14 @@ public class NumberofBoomerangs {
                 int distance = getDistance(points[i], points[j]);
                 map.put(distance, map.getOrDefault(distance, 0) + 1);
             }
-
+            // combnations, so the problem requires how many to combinations in 
+            // the result set
             for (int val : map.values()) {
                 res += val * (val - 1);
             }
+            //we clear the map because for p[i]  we have done searching 
+            //all points to p[i], if nexr cycle we have same distance then 
+            //result will be polluted
             map.clear();
         }
         return res;

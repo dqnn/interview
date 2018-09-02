@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : Numberof1Bits
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Aug, 2018
  * Description : 191. Number of 1 Bits
  */
 public class Numberof1Bits {
