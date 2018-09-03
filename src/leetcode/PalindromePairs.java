@@ -45,7 +45,8 @@ public class PalindromePairs {
         for (int i = 0; i < words.length; i++) {
             map.put(words[i], i);
         }
-
+     // we break down the current w[i] string into 2 parts, if each one can be palind, and we will add them to map and 
+        // compare the index, if it is not i which means other string is palind
         for (int i = 0; i < words.length; i++) {
             for (int j = 0; j <= words[i].length(); j++) {
                 String str1 = words[i].substring(0, j);
@@ -78,5 +79,64 @@ public class PalindromePairs {
             right--;
         }
         return true;
+    }
+    
+    //TLE version, just for reference, we will compare str1 + str2 and str2 + str1
+    public List<List<Integer>> palindromePairs2(String[] w) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (w == null || w.length < 1) {
+            return res;
+        }
+        
+        int len = w.length;
+        for(int i = 0; i < len;i++) {
+            for(int j = i + 1; j< len; j++) {
+                int t = isPalind(w, i, j);
+                List<Integer> list = new ArrayList<>();
+                switch(t) {
+                    case 1: 
+                        list.add(i);
+                        list.add(j);
+                        res.add(list);
+                        break;
+                    case 2: 
+                        list.add(j);
+                        list.add(i);
+                        res.add(list);
+                        break;
+                    case 3: 
+                        list.add(i);
+                        list.add(j);
+                        res.add(list);
+                        List<Integer> anotherlist = new ArrayList<>();
+                        anotherlist.add(j);
+                        anotherlist.add(i);
+                        res.add(anotherlist);
+                        break;
+                    default: 
+                        break;
+                        
+                }
+            }
+           
+        }
+        return res;
+    }
+    
+    public int isPalind(String[] w, int i , int j) {
+        StringBuilder sb1 = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder();
+        String t1 = sb1.append(w[i]).append(w[j]).toString(), t_1 = sb1.reverse().toString();
+        String t2 = sb2.append(w[j]).append(w[i]).toString(), t_2 = sb2.reverse().toString();
+        
+        if (t1.equals(t_1) && t2.equals(t_2)) {
+            return 3;
+        } else if (t1.equals(t_1)){
+            return 1;
+        } else if (t2.equals(t_2)){
+            return 2;
+        } else {
+            return 0;
+        }
     }
 }

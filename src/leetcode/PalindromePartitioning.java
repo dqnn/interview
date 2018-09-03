@@ -8,14 +8,23 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : PalindromePartitioning
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Sep, 2018
  * Description : 131. Palindrome Partitioning
  */
 public class PalindromePartitioning {
     /**
-     * Given a string s, partition s such that every substring of the partition is a palindrome.
+Given a string s, partition s such that every substring of the partition is a palindrome.
 
-     Return all possible palindrome partitioning of s.
+Return all possible palindrome partitioning of s.
+
+Example:
+
+Input: "aab"
+Output:
+[
+  ["aa","b"],
+  ["a","a","b"]
+]
 
      For example, given s = "aab",
      Return
@@ -42,6 +51,7 @@ public class PalindromePartitioning {
             res.add(new ArrayList<>(list));
             return;
         }
+        // backtracking templates
         for (int i = 0; i < s.length(); i++) {
             if (isPalindrome(s.substring(0, i + 1))) {
                 list.add(s.substring(0, i + 1));
