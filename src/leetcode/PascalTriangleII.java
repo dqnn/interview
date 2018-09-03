@@ -8,7 +8,7 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : PascalTriangleII
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : 119. Pascal's Triangle II
  */
 public class PascalTriangleII {

@@ -7,7 +7,7 @@ import java.util.HashSet;
  * Package Name : leetcode
  * File Name : PalindromePermutation
  * Creator : duqiang
- * Date : Aug, 2017
+ * Date : Sep, 2017
  * Description : TODO
  */
 public class PalindromePermutation {
@@ -36,7 +36,7 @@ public class PalindromePermutation {
         return set.size() <= 1;
     }
 
-    //space : O(1)
+    //space : O(n)
     public boolean canPermutePalindrome2(String s) {
         char[] count = new char[256];
         int res = 0;

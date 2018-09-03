@@ -8,7 +8,7 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : PascalTriangle
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : 118. Pascal's Triangle
  */
 public class PascalTriangle {
@@ -31,10 +31,19 @@ public class PascalTriangle {
      * @param numRows
      * @return
      */
+/*
+//f(0,0) = 1, f(1, 0) = 1....
+
+// f(i, j) = 
+
+//                  f(i-1, j)  j =0;    0< j < n  = f(i-1, j-1) + f(i-1, j); j = n, f(i-1, n);
+
+ */
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < numRows; i++) {
+            // this structure is good
             list.add(0, 1);
             for (int j = 1; j < list.size() - 1; j++) {
                 list.set(j, list.get(j) + list.get(j + 1));

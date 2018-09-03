@@ -9,7 +9,7 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : PalindromePermutationII
  * Creator : duqiang
- * Date : Dec, 2017
+ * Date : Sep, 2018
  * Description : 267. Palindrome Permutation II
  */
 public class PalindromePermutationII {
@@ -34,6 +34,7 @@ public class PalindromePermutationII {
         String mid = "";
         List<String> res = new ArrayList<>();
         List<Character> list = new ArrayList<>();
+        //store char in s--> frequency
         HashMap<Character, Integer> map = new HashMap<>();
 
         for (int i = 0; i < s.length(); i++) {
@@ -41,8 +42,10 @@ public class PalindromePermutationII {
             map.put(c, map.getOrDefault(c, 0) + 1);
             odd += map.get(c) % 2 != 0 ? 1 : -1;
         }
+        //means we have two chars that odd, cannot be palindrome
         if (odd > 1) return res;
 
+        //visit the map, remember the templates
         for (HashMap.Entry<Character, Integer> entry : map.entrySet()) {
             char key = entry.getKey();
             int val = entry.getValue();
