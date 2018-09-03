@@ -83,6 +83,8 @@ and it's best to add miss itself, to maximize the reach.
     
     //understand that if we have covered range [1 -> num], then adding num + 1 can extend the range to 
     //[1..2*num + 1].
+    // the original array, it must be adding from smallest, so we can extend the sum array to 2* n + 1, 
+    // the sum array was added n + 1 more elements
     public int minPatches(int[] nums, int n) {
         int i = 0, res = 0;
         //miss be the smallest sum in [0,n] that we might be missing
