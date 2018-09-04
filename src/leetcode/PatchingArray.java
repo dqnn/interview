@@ -104,4 +104,20 @@ and it's best to add miss itself, to maximize the reach.
         }
         return res;
     }
+    
+    // simpler version, we use how many times i moved and how many times we dected miss's difference
+    // to get how many patches we need
+    public int minPatches2(int[] nums, int n) {
+        if (nums == null) {
+            return 0;
+        }
+        int i = 0, count = 0;
+        
+        for(long miss = 1; miss <= n; count++) {
+            miss += i < nums.length && nums[i] <= miss ? nums[i++] : miss;
+        }
+        
+        
+        return count - i;
+    }
 }

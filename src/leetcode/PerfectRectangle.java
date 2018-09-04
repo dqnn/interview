@@ -7,16 +7,78 @@ import java.util.HashSet;
  * Package Name : leetcode
  * File Name : PerfectRectangle
  * Creator : duqiang
- * Date : Jan, 2018
+ * Date : Sep, 2018
  * Description : 391. Perfect Rectangle
  */
 public class PerfectRectangle {
+    
+/*
+ * 给定N个与坐标轴对齐的矩形（其中N > 0），判断它们是否恰好围成一个矩形区域
+Given N axis-aligned rectangles where N > 0, determine if they all together form an exact cover of a 
+rectangular region.
+
+Each rectangle is represented as a bottom-left point and a top-right point. For example, a unit square is
+ represented as [1,1,2,2]. (coordinate of bottom-left point is (1, 1) and top-right point is (2, 2)).
+
+
+Example 1:
+
+rectangles = [
+  [1,1,3,3],
+  [3,1,4,2],
+  [3,2,4,4],
+  [1,3,2,4],
+  [2,3,3,4]
+]
+
+Return true. All 5 rectangles together form an exact cover of a rectangular region.
+
+Example 2:
+
+rectangles = [
+  [1,1,2,3],
+  [1,3,2,4],
+  [3,1,4,2],
+  [3,2,4,4]
+]
+
+Return false. Because there is a gap between the two rectangular regions.
+
+Example 3:
+
+rectangles = [
+  [1,1,3,3],
+  [3,1,4,2],
+  [1,3,2,4],
+  [3,2,4,4]
+]
+
+Return false. Because there is a gap in the top center.
+
+Example 4:
+
+rectangles = [
+  [1,1,3,3],
+  [3,1,4,2],
+  [1,3,2,4],
+  [2,2,4,4]
+]
+
+Return false. Because two of the rectangles overlap with each other.
+ */
     /**
      * time : O(n)
      * space : O(n)
      * @param rectangles
      * @return
      */
+    
+    // how we solve this problem? 
+    // 1: area should be equals to esum(each one)
+    //2 if we research on each rec, we want to have its 4 coordinations, and iterate each, except the 
+    //most outest 4, others should be removed, if not they maybe overlap or gap
+    
+    // for example: 
     public boolean isRectangleCover(int[][] rectangles) {
         if (rectangles.length == 0 || rectangles[0].length == 0) return false;
 

@@ -2,13 +2,14 @@ package leetcode;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : PathSumIII
  * Creator : duqiang
- * Date : Jan, 2018
+ * Date : Sep, 2018
  * Description : 437. Path Sum III
  */
 public class PathSumIII {
@@ -52,32 +53,49 @@ public class PathSumIII {
 
     // time : O(n ^ 2) space : O(n)
     public int pathSum(TreeNode root, int sum) {
-        if (root == null) return 0;
+        if (root == null) {
+            return 0;
+        }
+        // so we need to start from every node so we will not miss any nodes sum
         return helper(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
     }
-
-    private int helper(TreeNode root, int sum) {
+    
+    public int helper(TreeNode node, int target) {
+        if (node == null) {
+            return 0;
+        }
         int res = 0;
-        if (root == null) return res;
-        if (sum == root.val) res++;
-        res += helper(root.left, sum - root.val) + helper(root.right, sum - root.val);
+        // we already find a path, so we need to +1
+        if (node.val == target) {
+            res++;
+        }
+        // we add all others together
+        res += helper(node.left, target - node.val) + helper(node.right, target - node.val);
         return res;
     }
 
     // time : O(n) space : O(n)
     public int pathSum2(TreeNode root, int sum) {
-        HashMap<Integer, Integer> map = new HashMap<>();
+        if (root == null) {
+            return 0;
+        }
+        //currentSum - sum --> frequency, already appeared when visiting these nodes
+        Map<Integer, Integer> map = new HashMap<>();
+        
+        // this means we already have answer to 1 
         map.put(0, 1);
         return helper(root, 0, sum, map);
     }
-
-    private int helper(TreeNode root, int curSum, int sum, HashMap<Integer, Integer> map) {
-        if (root == null) return 0;
-        curSum += root.val;
+    // helper will return  how many paths begining from this node which satisfy the requirements
+    public int helper(TreeNode node, int curSum, int sum, Map<Integer, Integer> map) {
+        if (node == null) {
+            return 0;
+        }
+        curSum += node.val;
         int res = map.getOrDefault(curSum - sum, 0);
         map.put(curSum, map.getOrDefault(curSum, 0) + 1);
-
-        res += helper(root.left, curSum, sum, map) + helper(root.right, curSum, sum, map);
+        // this is using backtracking, so we use map as memeory to go through the rest nodes,
+        res += helper(node.left, curSum, sum, map) + helper(node.right, curSum, sum, map);
         map.put(curSum, map.get(curSum) - 1);
         return res;
     }
