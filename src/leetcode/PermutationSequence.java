@@ -26,7 +26,18 @@ public class PermutationSequence {
      "321"
      Given n and k, return the kth permutation sequence.
 
-     Note: Given n will be between 1 and 9 inclusive.
+    Note:
+
+Given n will be between 1 and 9 inclusive.
+Given k will be between 1 and n! inclusive.
+Example 1:
+
+Input: n = 3, k = 3
+Output: "213"
+Example 2:
+
+Input: n = 4, k = 9
+Output: "2314"
 
      1， 2， 3， 4:
 
@@ -37,7 +48,7 @@ public class PermutationSequence {
 
      18 : 3421
 
-     res  :
+     res  : 1 2
      fact : 1 1 2 6
 
      k = 17
@@ -56,6 +67,14 @@ public class PermutationSequence {
      * @param k
      * @return
      */
+/*
+The logic is as follows: for n numbers the permutations can be divided to (n-1)! groups, 
+for n-1 numbers can be divided to (n-2)! groups, and so on. Thus k/(n-1)! indicates the index of 
+current number, and k%(n-1)! denotes remaining index for the remaining n-1 numbers.
+We keep doing this until n reaches 0, then we get n numbers permutations that is kth.
+
+
+ */
     public static String getPermutation(int n, int k) {
         List<Integer> res = new ArrayList<>();
         for (int i = 1; i <= n; i++) {
@@ -66,12 +85,15 @@ public class PermutationSequence {
         for (int i = 1; i < n; i++) {
             fact[i] = i * fact[i - 1];
         }
+        // array is from 0, so k = k - 1
         k = k - 1;
         StringBuilder sb = new StringBuilder();
         for (int i = n; i > 0; i--) {
+            // k / (i - 1)! so 
             int index = k / fact[i - 1];
             k = k % fact[i - 1];
             sb.append(res.get(index));
+            // since it already used, so we remove it
             res.remove(index);
         }
         return sb.toString();

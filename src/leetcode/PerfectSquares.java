@@ -53,7 +53,8 @@ dp[n] = Min{ dp[n - i*i] + 1 },  n - i*i >=0 && i >= 1
         dp[0] = 0;
         for (int i = 0; i <= n; i++) {
             for (int j = 1; j * j <= i; j++) {
-             // we use j * j to re-calc the res array
+             // we use j * j to re-calc the res array every time, so we have the opportunity to 
+                // find the least number to get it
                 dp[i] = Math.min(dp[i], dp[i - j * j] + 1);
             }
         }
