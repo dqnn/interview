@@ -46,6 +46,7 @@ parent has two children).
 
      * @param root
      */
+    // cannot understand
     public void connect(TreeLinkNode root) {
         if (root == null) return;
         if (root.left != null) {
@@ -59,6 +60,7 @@ parent has two children).
     }
 
     //space : O(1)
+    // most optimized solutions
     public void connect2(TreeLinkNode root) {
         TreeLinkNode start = root;
         while (start != null) {
