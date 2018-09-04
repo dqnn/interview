@@ -68,9 +68,12 @@ Output: "2314"
      * @return
      */
 /*
-The logic is as follows: for n numbers the permutations can be divided to (n-1)! groups, 
-for n-1 numbers can be divided to (n-2)! groups, and so on. Thus k/(n-1)! indicates the index of 
-current number, and k%(n-1)! denotes remaining index for the remaining n-1 numbers.
+The logic is as follows: for n numbers the permutations can be divided to n 个 (n-1)! groups, 
+
+ Thus k/(n-1)! indicates the index of 
+current number, 
+
+and k%(n-1)! denotes remaining index for the remaining n-1 numbers.
 We keep doing this until n reaches 0, then we get n numbers permutations that is kth.
 
 

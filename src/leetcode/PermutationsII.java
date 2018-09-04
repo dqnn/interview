@@ -9,19 +9,23 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : PermutationsII
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class PermutationsII {
     /**
      * 47. Permutations II
-     * For example,
-     [1,1,2] have the following unique permutations:
-     [
-     [1,1,2],
-     [1,2,1],
-     [2,1,1]
-     ]
+Given a collection of numbers that might contain duplicates, return all possible unique permutations.
+
+Example:
+
+Input: [1,1,2]
+Output:
+[
+  [1,1,2],
+  [1,2,1],
+  [2,1,1]
+]
 
 
      * @param nums
@@ -31,11 +35,13 @@ public class PermutationsII {
     public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         if (nums == null || nums.length == 0) return  res;
+        // we have to sort first since unique permutations
         Arrays.sort(nums);
         helper(res, new ArrayList<>(), nums, new boolean[nums.length]);
         return res;
     }
 
+    // so we used used to mark where we have visited, and use backtracking templates to get correct answer
     public void helper(List<List<Integer>> res, List<Integer> list, int[] nums, boolean[] used) {
         if (list.size() == nums.length) {
             res.add(new ArrayList<>(list));

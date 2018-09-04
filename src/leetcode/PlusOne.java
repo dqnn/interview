@@ -25,6 +25,7 @@ public class PlusOne {
 
         if (digits == null || digits.length == 0) return digits;
 
+        // this is simple version so we can incre on next
         for (int i = digits.length - 1; i >= 0; i--) {
             if (digits[i] < 9) {
                 digits[i]++;
@@ -33,6 +34,7 @@ public class PlusOne {
                 digits[i] = 0;
             }
         }
+        // most negative number
         int[] res = new int[digits.length + 1];
         res[0] = 1;
 

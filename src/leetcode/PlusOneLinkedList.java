@@ -7,7 +7,7 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : PlusOneLinkedList
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class PlusOneLinkedList {
@@ -25,6 +25,8 @@ public class PlusOneLinkedList {
      * @return
      */
 
+    // so the key is to find the element which is not 9, and we just increment it and mark all nodes 
+    //after it become 0
     public ListNode plusOne(ListNode head) {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
@@ -41,6 +43,7 @@ public class PlusOneLinkedList {
             i.val = 0;
             i = i.next;
         }
+        // means first digit is less than 9, so we just return next element
         if (dummy.val == 0) return dummy.next;
         return dummy;
     }
