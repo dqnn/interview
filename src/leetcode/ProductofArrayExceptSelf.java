@@ -5,12 +5,24 @@ package leetcode;
  * Package Name : leetcode
  * File Name : ProductofArrayExceptSelf
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class ProductofArrayExceptSelf {
     /**
      * 238. Product of Array Except Self
+Given an array nums of n integers where n > 1,  return an array output such that output[i] is 
+equal to the product of all the elements of nums except nums[i].
+
+Example:
+
+Input:  [1,2,3,4]
+Output: [24,12,8,6]
+Note: Please solve it without division and in O(n).
+
+Follow up:
+Could you solve it with constant space complexity? (The output array does not count 
+as extra space for the purpose of space complexity analysis.)
      * For example, given [1,2,3,4], return [24,12,8,6].
 
      time : O(n);
@@ -42,11 +54,12 @@ public class ProductofArrayExceptSelf {
         
         int len = nums.length - 1;
         int[] res = new int[len + 1];
+        //res[i] = nums[0] * nums[1]... nums[i - 1] 
         for (int i = 0, temp = 1; i <= len; i++) {
             res[i] = temp;
             temp = temp * nums[i];
         }
-        
+        // res[i] = res[i] * 1, so we  can multiple back
         for (int i = len, temp = 1; i >= 0; i--) {
             res[i] = res[i] * temp;
             temp = temp * nums[i];
