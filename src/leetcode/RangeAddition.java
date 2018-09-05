@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : RangeAddition
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : 370. Range Addition
  */
 public class RangeAddition {
@@ -13,7 +13,8 @@ public class RangeAddition {
      * Assume you have an array of length n initialized with all 0's and are given k update operations.
 
      Each operation is represented as a triplet: [startIndex, endIndex, inc]
-     which increments each element of subarray A[startIndex ... endIndex] (startIndex and endIndex inclusive) with inc.
+     which increments each element of subarray A[startIndex ... endIndex] 
+     (startIndex and endIndex inclusive) with inc.
 
      Return the modified array after all k operations were executed.
      * Example:
@@ -52,17 +53,22 @@ public class RangeAddition {
      * @param updates
      * @return
      */
+    // so each line in updates is an operation
+    // 这么想 一排灯，开关可以控制 其中的sub 灯， 最后求 那些灯亮着 还是暗着 所以我们只需要记得首尾就行
     public int[] getModifiedArray(int length, int[][] updates) {
+        //initialize as 0
         int[] res = new int[length];
+        // we onl cared about startIdx (+ value) and endIdx + 1 - value
         for (int[] update : updates) {
             int value = update[2];
-            int start = update[0];
-            int end = update[1];
-            res[start] += value;
-            if (end + 1 < length) {
-                res[end + 1] -= value;
+            int startIdx = update[0];
+            int endIdx = update[1];
+            res[startIdx] += value;
+            if (endIdx + 1 < length) {
+                res[endIdx + 1] -= value;
             }
         }
+        // add from begin to end
         for (int i = 1; i < length; i++) {
             res[i] += res[i - 1];
         }

@@ -5,15 +5,17 @@ package leetcode;
  * Package Name : leetcode
  * File Name : RangeSumQuery2DImmutable
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Sep, 2018
  * Description : 304. Range Sum Query 2D - Immutable
  */
 public class RangeSumQuery2DImmutable {
     /**
-     * Given a 2D matrix matrix, find the sum of the elements inside the rectangle defined by its upper left corner (row1, col1) and lower right corner (row2, col2).
+     * Given a 2D matrix matrix, find the sum of the elements inside the rectangle defined by its 
+     * upper left corner (row1, col1) and lower right corner (row2, col2).
 
      Range Sum Query 2D
-     The above rectangle (with the red border) is defined by (row1, col1) = (2, 1) and (row2, col2) = (4, 3), which contains sum = 8.
+     The above rectangle (with the red border) is defined by (row1, col1) = (2, 1) and 
+     (row2, col2) = (4, 3), which contains sum = 8.
 
      Example:
      Given matrix = [
@@ -35,6 +37,7 @@ public class RangeSumQuery2DImmutable {
 
     private int[][] sum;
 
+    // it is more like area calculation
     public RangeSumQuery2DImmutable(int[][] matrix) {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return;
         int m = matrix.length;
@@ -42,6 +45,10 @@ public class RangeSumQuery2DImmutable {
         sum = new int[m + 1][n + 1];
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {
+                // the four number 
+                //  x x
+                //  x x 
+                //right bottom down is ij, so 
                 sum[i][j] = sum[i - 1][j] + sum[i][j - 1] - sum[i - 1][j - 1] + matrix[i - 1][j - 1];
             }
         }
