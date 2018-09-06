@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : RangeSumQueryImmutable
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Sep, 2018
  * Description : 303. Range Sum Query - Immutable
  */
 public class RangeSumQueryImmutable {

@@ -4,10 +4,9 @@ import java.util.Arrays;
 
 /**
  * Project Name : Leetcode Package Name : leetcode File Name :
- * RangeSumQueryMutable Creator : duqiang Date : Jan, 2018 Description : 307.
- * Range Sum Query - Mutable
- * 
- * 
+ * RangeSumQueryMutable Creator : duqiang 
+ * Date : Sep, 2018 
+ * Description : 307. Range Sum Query - Mutable
  * 
  * Given an integer array nums, find the sum of the elements between indices i
  * and j (i ≤ j), inclusive.
@@ -228,7 +227,7 @@ public class RangeSumQueryMutable {
         int sum = 0;
         index++;
         while (index > 0) {
-            sum = sum + tree[index];
+            sum += tree[index];
             index -= index & (-index); // go to parent node
         }
         return sum;
