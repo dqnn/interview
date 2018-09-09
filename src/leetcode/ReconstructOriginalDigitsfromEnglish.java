@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : ReconstructOriginalDigitsfromEnglish
  * Creator : duqiang
- * Date : Jan, 2018
+ * Date : Sep, 2018
  * Description : 423. Reconstruct Original Digits from English
  */
 public class ReconstructOriginalDigitsfromEnglish {
@@ -36,20 +36,32 @@ public class ReconstructOriginalDigitsfromEnglish {
      * @param s
      * @return
      */
+    /*
+for zero, it's the only word has letter 'z',
+for two, it's the only word has letter 'w',
+......
+so we only need to count the unique letter of each word, Coz the input is always valid.
+     */
+    //O(n)
     public String originalDigits(String s) {
+        if (s == null || s.length() < 3) {
+            return "";
+        }
         int[] count = new int[10];
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (c == 'z') count[0]++;
-            if (c == 'w') count[2]++;
-            if (c == 'x') count[6]++;
-            if (c == 's') count[7]++; //7-6
-            if (c == 'g') count[8]++;
-            if (c == 'u') count[4]++;
-            if (c == 'f') count[5]++; //5-4
-            if (c == 'h') count[3]++; //3-8
-            if (c == 'i') count[9]++; //9-8-5-6
-            if (c == 'o') count[1]++; //1-0-2-4
+        for (char c : s.toCharArray()) {
+            switch(c) {
+                case 'z': count[0]++; break; // 0
+                case 'w': count[2]++; break;// 2
+                case 'x': count[6]++; break;// 6
+                case 's': count[7]++; break;//7-6
+                case 'g': count[8]++; break;// 8
+                case 'u': count[4]++; break;// 4
+                case 'f': count[5]++; break;//5-4
+                case 'h': count[3]++; break;//3-8
+                case 'i': count[9]++; break;//9-8-5-6
+                case 'o': count[1]++; break;//1-0-2-4
+                default: break;
+            }
         }
         count[7] -= count[6];
         count[5] -= count[4];

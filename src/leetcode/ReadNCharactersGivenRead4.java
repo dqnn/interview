@@ -1,5 +1,7 @@
 package leetcode;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
@@ -7,15 +9,18 @@ package leetcode;
  * Creator : duqiang
  * Date : Sep, 2018
  * Description : 157. Read N Characters Given Read4
+ * Tags: templates for two dimension of variables, and index++ as pointer in 
+ *array
  */
 public class ReadNCharactersGivenRead4 {
     /**
 The API: int read4(char *buf) reads 4 characters at a time from a file.
 
-The return value is the actual number of characters read. For example, it returns 3 if there is only 3 characters 
-left in the file.
+The return value is the actual number of characters read. For example, 
+it returns 3 if there is only 3 characters left in the file.
 
-By using the read4 API, implement the function int read(char *buf, int n) that reads n characters from the file.
+By using the read4 API, implement the function int read(char *buf, int n) 
+that reads n characters from the file.
 
 Example 1:
 
@@ -47,14 +52,19 @@ The read function will only be called once for each test case.
      * @return    The number of characters read
      */
     public int read(char[] buf, int n) {
+        // storage to store the char from  read4
         char[] temp = new char[4];
         int index = 0;
         while (true) {
             int count = read4(temp);
+            //how much we can copy from temp to buf, 
+            //since index++ always, so index already means how many chars copied
             count = Math.min(count, n - index);
+            //copy from temp to buf, 
             for (int i = 0; i < count; i++) {
                 buf[index++] = temp[i];
             }
+            // means either full or there is nore more data to read so we just return
             if (index == n || count < 4) return index;
         }
     }
@@ -79,4 +89,26 @@ The read function will only be called once for each test case.
         }
         return index;
     }
+//        File 
+// n    (x,4]   (5, +x)
+//we totally have 4 use cases, n range and file size range, the boundary is 4
+    
+   @Test
+   public void testRead4NCharsNlessthan4AndBufHasLessThan4Chars() {
+       
+   }
+   @Test
+   public void testRead4NCharsNlessThan4AndBufHasMoreThan4Chars() {
+       
+   }
+   
+   @Test
+   public void testRead4NCharsNMoreThan4AndBufHasLessThan4Chars() {
+       
+   }
+   @Test
+   public void testRead4NCharsNMoreThan4AndBufHasMoreThan4Chars() {
+       
+   }
+   
 }

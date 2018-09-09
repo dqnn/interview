@@ -5,12 +5,33 @@ package leetcode;
  * Package Name : leetcode
  * File Name : ReadNCharactersGivenRead4II_Callmultipletimes
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : 158. Read N Characters Given Read4 II - Call multiple times
  */
 public class ReadNCharactersGivenRead4II_Callmultipletimes {
     /**
-     *
+     The API: int read4(char *buf) reads 4 characters at a time from a file.
+
+The return value is the actual number of characters read. For example, it returns 3 
+if there is only 3 characters left in the file.
+
+By using the read4 API, implement the function int read(char *buf, int n) that 
+reads n characters from the file.
+
+Note:
+The read function may be called multiple times.
+
+Example 1: 
+
+Given buf = "abc"
+read("abc", 1) // returns "a"
+read("abc", 2); // returns "bc"
+read("abc", 1); // returns ""
+Example 2: 
+
+Given buf = "abc"
+read("abc", 4) // returns "abc"
+read("abc", 1); // returns ""
      case :
      abcd efgh igk 11
      case 1 : n = 8 first time read 4 next count == 4 index == n
@@ -35,9 +56,12 @@ public class ReadNCharactersGivenRead4II_Callmultipletimes {
     private int pointer = 0;
     private char[] temp = new char[4];
 
+    //  read from buf with max n chars
+    // 
     public int read(char[] buf, int n) {
         int index = 0;
         while (index < n) {
+            // how much we read from buf 
             if (pointer == 0) {
                 count = read4(temp);
             }

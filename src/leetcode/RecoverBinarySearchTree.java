@@ -7,7 +7,7 @@ import java.util.Stack;
  * Package Name : leetcode
  * File Name : RecoverBinarySearchTree
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Sep, 2018
  * Description : 99. Recover Binary Search Tree
  */
 public class RecoverBinarySearchTree {
@@ -28,7 +28,12 @@ public class RecoverBinarySearchTree {
 
 
      */
-
+/*
+ * 要使用O(1)空间进行遍历，最大的难点在于，遍历到子节点的时候怎样重新返回到父节点（假设节点中没有指向父节点的p指针），
+ * 由于不能用栈作为辅助空间。为了解决这个问题，Morris方法用到了线索二叉树（threaded binary tree）的概念。
+ * 在Morris方法中不需要为每个节点额外分配指针指向其前驱（predecessor）和后继节点（successor），
+ * 只需要利用叶子节点中的左右空指针指向某种顺序遍历下的前驱节点或后继节点就可以了。
+ */
     TreeNode first = null;
     TreeNode second = null;
     TreeNode prev = null;

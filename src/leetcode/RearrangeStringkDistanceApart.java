@@ -11,32 +11,33 @@ import java.util.Queue;
  * Package Name : leetcode
  * File Name : RearrangeStringkDistanceApart
  * Creator : duqiang
- * Date : Jan, 2018
+ * Date : Sep, 2018
  * Description : 358. Rearrange String k Distance Apart
  */
 public class RearrangeStringkDistanceApart {
 
     /**
-     * Given a non-empty string s and an integer k, rearrange the string such that the same characters are at least distance k from each other.
+Given a non-empty string s and an integer k, rearrange the string such that the same 
+characters are at least distance k from each other.
 
-     All input strings are given in lowercase letters. If it is not possible to rearrange the string, return an empty string "".
+All input strings are given in lowercase letters. If it is not possible to rearrange 
+the string, return an empty string "".
 
-     Example 1:
-     s = "aabbcc", k = 3
+Example 1:
 
-     Result: "abcabc"
+Input: s = "aabbcc", k = 3
+Output: "abcabc" 
+Explanation: The same letters are at least distance 3 from each other.
+Example 2:
 
-     The same letters are at least distance 3 from each other.
-     Example 2:
-     s = "aaabc", k = 3 
+Input: s = "aaabc", k = 3
+Output: "" 
+Explanation: It is not possible to rearrange the string.
+Example 3:
 
-     Answer: ""
-
-     It is not possible to rearrange the string.
-     Example 3:
-     s = "aaadbbcc", k = 2
-
-     Answer: "abacabcd"
+Input: s = "aaadbbcc", k = 2
+Output: "abacabcd"
+Explanation: The same letters are at least distance 2 from each other.
 
      Another possible answer is: "abcabcda"
 

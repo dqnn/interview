@@ -7,7 +7,7 @@ import java.util.*;
  * Package Name : leetcode
  * File Name : ReconstructItinerary
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Sep, 2018
  * Description : 332. Reconstruct Itinerary
  */
 public class ReconstructItinerary {
@@ -51,6 +51,12 @@ public class ReconstructItinerary {
     HashMap<String, PriorityQueue<String>> map;
     List<String> res;
 
+    // so the whole problem is we want to find one possible routine which starts from "JFK"
+    // given array which [start, end] format, sometimes the guy will fly back and again so it 
+    //is not smooth as we expect, like 1->2->1->3->2, etc, we cannot use map simply to get a linked
+    //list, we need to retreat back and try next route that's backtracking
+    
+    
     public List<String> findItinerary(String[][] tickets) {
         map = new HashMap<>();
         res = new LinkedList<>();
@@ -62,6 +68,7 @@ public class ReconstructItinerary {
     }
 
     private void helper(String airport) {
+        // this is back tracking to find one possible routings and templates
         while (map.containsKey(airport) && !map.get(airport).isEmpty()) {
             helper(map.get(airport).poll());
         }
@@ -79,6 +86,7 @@ public class ReconstructItinerary {
         Stack<String> stack = new Stack<>();
         stack.push("JFK");
 
+        // we have two while loop to find more elements
         while (!stack.empty()) {
             while (map.containsKey(stack.peek()) && !map.get(stack.peek()).isEmpty()) {
                 stack.push(map.get(stack.peek()).poll());
