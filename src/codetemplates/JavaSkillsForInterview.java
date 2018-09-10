@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
@@ -86,6 +87,8 @@ public class JavaSkillsForInterview {
         q.isEmpty();
         q.size();
         // HashMap
+        Map<Character, List<String>> map1 = new HashMap<>();
+        map1.computeIfAbsent('k', v->new ArrayList<>()).add("xxxx");
         HashMap<Character, Integer> map = new HashMap<>();
         map.put('c', 1);
         map.get('c');

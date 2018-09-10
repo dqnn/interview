@@ -5,12 +5,13 @@ package leetcode;
  * Package Name : leetcode
  * File Name : RegularExpressionMatching
  * Creator : duqiang
- * Date : Dec, 2017
+ * Date : Sep, 2018
  * Description : 10. Regular Expression Matching
  */
 public class RegularExpressionMatching {
     /**
-     * Implement regular expression matching with support for '.' and '*'.
+Given an input string (s) and a pattern (p), implement regular 
+expression matching with support for '.' and '*'.
 
      '.' Matches any single character.
      '*' Matches zero or more of the preceding element.
@@ -68,20 +69,21 @@ public class RegularExpressionMatching {
                 dp[0][i + 1] = true;
             }
         }
-        for (int i = 0; i < s.length(); i++) {
-            for (int j = 0; j < p.length(); j++) {
-                if (p.charAt(j) == s.charAt(i)) {
-                    dp[i + 1][j + 1] = dp[i][j];
+        for(int i = 0; i< s.length(); i++){
+            for(int j = 0; j < p.length(); j++) {
+                if (p.charAt(j) == s.charAt(i) || p.charAt(j) == '.') {
+                    dp[i+1][j+1] = dp[i][j];
                 }
-                if (p.charAt(j) == '.') {
-                    dp[i + 1][j + 1] = dp[i][j];
-                }
+                
                 if (p.charAt(j) == '*') {
-                    if (p.charAt(j - 1) != s.charAt(i) && p.charAt(j - 1) != '.') {
-                        dp[i + 1][j + 1] = dp[i + 1][j - 1];
+                    // since * can be 0 or multiple times, so we does not care 
+                    // p[j - 1] 
+                    if (p.charAt(j - 1) != s.charAt(i) && p.charAt(j-1) != '.') {
+                        dp[i+1][j+1] = dp[i+1][j -1]; 
                     } else {
-                        dp[i + 1][j + 1] = (dp[i + 1][j] || dp[i][j + 1] || dp[i + 1][j - 1]);
+                        dp[i+1][j+1] = dp[i+1][j] || dp[i][j+1] || dp[i+1][j-1];
                     }
+                    
                 }
             }
         }

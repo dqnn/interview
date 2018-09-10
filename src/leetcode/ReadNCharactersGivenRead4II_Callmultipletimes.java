@@ -57,9 +57,27 @@ read("abc", 1); // returns ""
     private char[] temp = new char[4];
 
     //  read from buf with max n chars
-    // 
+    // firstly understand read4, this function has an internal to note where we are,
+    // so evert time it will return 1: how much it actually read 2. result in buf
+    
+    // the problem is to say, we want to call read multiple times, and we want n is 
+    //how many chars we want to read, but we need to rememeber last time what we have 
+    //read, so we don't want to duplicate chars. 
+    
+    //so buf should contains chars read from last time with end n ideally, but 
+    // read4 cannot read n, buf should contain what it is, and we return how 
+    // many we read
+    // suppose n % 4 != 0
+    //use case 1: read('abc', 1)--> 'a', read('abc', 2)-> 'bc' read3 one time 
+    // can return 4 chars but we only first one, next time we has to read another 2
+    //'a',so we need temp char[4] to store current read since read4 already move to 
+    // next 4 char position, 
+    // suppose n % 4 == 0,
+    // in this case, the same as last one, we don't need to keep a copy from last 
+    //read
     public int read(char[] buf, int n) {
         int index = 0;
+        // we can change while(true)
         while (index < n) {
             // how much we read from buf 
             if (pointer == 0) {
@@ -69,7 +87,10 @@ read("abc", 1); // returns ""
             while (index < n && pointer < count) {
                 buf[index++] = temp[pointer++];
             }
-            if (pointer == count) pointer = 0;
+            //this means we rewind to start of next read4
+            if (pointer == count) {
+                pointer = 0;
+            }
         }
         return index;
     }
@@ -82,6 +103,33 @@ read("abc", 1); // returns ""
         for (int i = 0; i < res.length; i++) {
             if (index < 4){
                 ret[index++] = temp[i];
+            }
+        }
+        return index;
+    }
+    
+    
+    
+    int pointer2 = 0;
+    char[] temp2 = new char[4];
+    int cnt = 0;
+    public int read2(char[] buf, int n) {
+        if (buf == null || buf.length < 1 || n < 1) {
+            return 0;
+        }
+
+        int index = 0;
+        while(true) {
+            if (pointer2 == 0) {
+                cnt = read4(temp2);
+            }
+            if (cnt == 0) break;
+            while(index < n && pointer2 < cnt) {
+                buf[index++] = temp2[pointer2++];
+            }
+            if(pointer == cnt) pointer2 = 0;
+            if (index == n) {
+                return index;
             }
         }
         return index;

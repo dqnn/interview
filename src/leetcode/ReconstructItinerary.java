@@ -56,7 +56,7 @@ public class ReconstructItinerary {
     //is not smooth as we expect, like 1->2->1->3->2, etc, we cannot use map simply to get a linked
     //list, we need to retreat back and try next route that's backtracking
     
-    
+    //
     public List<String> findItinerary(String[][] tickets) {
         map = new HashMap<>();
         res = new LinkedList<>();
@@ -86,7 +86,8 @@ public class ReconstructItinerary {
         Stack<String> stack = new Stack<>();
         stack.push("JFK");
 
-        // we have two while loop to find more elements
+        // we have two while loop to find more elements, backtracking always can use
+        //stack to implement non-recursive ones
         while (!stack.empty()) {
             while (map.containsKey(stack.peek()) && !map.get(stack.peek()).isEmpty()) {
                 stack.push(map.get(stack.peek()).poll());

@@ -34,13 +34,17 @@ public class RecoverBinarySearchTree {
  * 在Morris方法中不需要为每个节点额外分配指针指向其前驱（predecessor）和后继节点（successor），
  * 只需要利用叶子节点中的左右空指针指向某种顺序遍历下的前驱节点或后继节点就可以了。
  */
+    // fist incorrect node
     TreeNode first = null;
+    //second incorrect
     TreeNode second = null;
+    // this always point to pre node compared to cur node
     TreeNode prev = null;
 
     public void recoverTree(TreeNode root) {
         if (root == null) return;
         helper(root);
+        // corret the two nodes
         int temp = first.val;
         first.val = second.val;
         second.val = temp;
@@ -48,6 +52,7 @@ public class RecoverBinarySearchTree {
     public void helper(TreeNode root) {
         if (root == null) return;
         helper(root.left);
+        //find the incorrect node
         if (prev != null && prev.val >= root.val) {
             if (first == null) first = prev;
             second = root;
@@ -64,6 +69,7 @@ public class RecoverBinarySearchTree {
 
         TreeNode cur = root;
         Stack<TreeNode> stack = new Stack<>();
+        //typical in-order visit
         while (!stack.isEmpty() || cur != null) {
             if (cur != null) {
                 stack.push(cur);

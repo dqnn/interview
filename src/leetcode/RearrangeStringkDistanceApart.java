@@ -84,7 +84,20 @@ Explanation: The same letters are at least distance 2 from each other.
     }
 
     // time : O(nlogn) space : O(n)
+    // we have two queues, one is <Char, Integer>, we sort by counts, so first one 
+    // is the best candidate, how can we keep K distance which means we need to 
+    //maintain n queue which help to find the candidate, we maintain two queues
+    // one is chars in line which help us to build the string, another one is  k queue
+    //which only keep k length of chars, so every time we visit two queues, 
+    // we get oen char from first queue into our string and pass to next queue
+    // if next queue size is bigger than k then we need to poll to first queue if 
+    // count > 0; 
+    // last is to check whether length is same as string since there is use case that
+    //we never satisfy it
     public String rearrangeString2(String s, int k) {
+        if (s == null || s.length() < 1 || k < 0) {
+            return "";
+        }
         HashMap<Character, Integer> map = new HashMap<>();
         for (char c : s.toCharArray()) {
             map.put(c, map.getOrDefault(c, 0) + 1);

@@ -89,6 +89,32 @@ The read function will only be called once for each test case.
         }
         return index;
     }
+    
+    // this way is more easier to understand
+    public int read2(char[] buf, int n) {
+        if (buf == null || buf.length < 1 || n < 1) {
+            return 0;
+        }
+        
+        char[] temp = new char[4];
+        int index = 0;
+        int pointer = 0, cnt = 0;
+        while(index < n) {
+            if (pointer == 0) {
+                cnt = read4(temp);
+            }
+            while(index < n && pointer < cnt) {
+                buf[index++] = temp[pointer++];
+            }
+            if (cnt < 4) {
+                break;
+            }
+            if (pointer == cnt) {
+                pointer = 0;
+            }
+        }
+        return index;
+    }
 //        File 
 // n    (x,4]   (5, +x)
 //we totally have 4 use cases, n range and file size range, the boundary is 4
