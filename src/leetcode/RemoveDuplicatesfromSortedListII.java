@@ -6,8 +6,10 @@ package leetcode;
 public class RemoveDuplicatesfromSortedListII {
 
     /**
-     * 82. Remove Duplicates from Sorted List II (83. Remove Duplicates from Sorted List: follow up)
-     * Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.
+     * 82. Remove Duplicates from Sorted List II (83. Remove Duplicates from 
+     * Sorted List: follow up)
+     * Given a sorted linked list, delete all nodes that have duplicate 
+     * numbers, leaving only distinct numbers from the original list.
 
      For example,
      Given 0->1->2->3->3->4->4->5, return 1->2->5.

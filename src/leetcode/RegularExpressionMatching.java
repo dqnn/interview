@@ -62,9 +62,12 @@ expression matching with support for '.' and '*'.
      */
     public boolean isMatch(String s, String p) {
         if (s == null || p == null) return false;
+        //please note the len is s.length() + 1
         boolean[][] dp = new boolean[s.length() + 1][p.length() + 1];
+        //initialize as true
         dp[0][0] = true;
         for (int i = 0; i < p.length(); i++) {
+            // we always use i+ 1 = i since our end is len + 1
             if (p.charAt(i) == '*' && dp[0][i - 1]) {
                 dp[0][i + 1] = true;
             }
@@ -74,10 +77,9 @@ expression matching with support for '.' and '*'.
                 if (p.charAt(j) == s.charAt(i) || p.charAt(j) == '.') {
                     dp[i+1][j+1] = dp[i][j];
                 }
-                
+                // common longest sequence
                 if (p.charAt(j) == '*') {
-                    // since * can be 0 or multiple times, so we does not care 
-                    // p[j - 1] 
+                    // since * can be 0 or multiple times
                     if (p.charAt(j - 1) != s.charAt(i) && p.charAt(j-1) != '.') {
                         dp[i+1][j+1] = dp[i+1][j -1]; 
                     } else {

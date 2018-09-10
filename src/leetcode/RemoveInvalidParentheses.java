@@ -8,7 +8,7 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : RemoveInvalidParentheses
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Sep, 2018
  * Description : 301. Remove Invalid Parentheses
  */
 public class RemoveInvalidParentheses {
