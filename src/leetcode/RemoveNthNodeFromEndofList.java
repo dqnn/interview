@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : RemoveNthNodeFromEndofList
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : 19. Remove Nth Node From End of List
  */
 public class RemoveNthNodeFromEndofList {
@@ -26,6 +26,7 @@ public class RemoveNthNodeFromEndofList {
         ListNode slow = dummy;
         ListNode fast = dummy;
         dummy.next = head;
+        // the distance between fast and slow should be n+1
         for (int i = 0; i <= n; i++) {
             fast = fast.next;
         }

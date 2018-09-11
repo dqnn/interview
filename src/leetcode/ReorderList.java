@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : ReorderList
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : 143. Reorder List
  */
 public class ReorderList {
