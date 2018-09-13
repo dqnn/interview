@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : ReverseBits
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Sep, 2018
  * Description : 190. Reverse Bits
  */
 public class ReverseBits {

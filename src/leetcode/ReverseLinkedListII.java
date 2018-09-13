@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : ReverseLinkedListII
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : 92. Reverse Linked List II
  */
 public class ReverseLinkedListII {

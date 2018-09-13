@@ -8,7 +8,7 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : helperAddresses
  * Creator : duqiang
- * Date : Dec, 2017
+ * Date : Sep, 2018
  * Descrstion : 93. Restore IP Addresses
  */
 public class RestoreIPAddresses {
@@ -42,6 +42,35 @@ public class RestoreIPAddresses {
             String temp = s.substring(index, index + i);
             if ((temp.startsWith("0") && temp.length() > 1) || (i == 3 && Integer.parseInt(temp) >= 256)) continue;
             helper(res, s, index + i, ret + temp + (count == 3 ? "" : "."), count + 1);
+        }
+    }
+    
+    
+    // interview friendly, wrote by myself
+    //backtracking or BFS templates
+    public List<String> restoreIpAddresses2(String s) {
+        List<String> res = new ArrayList<>();
+        helper2(res, s, "", 0, 4);
+        return res;
+    }
+    
+    public void helper2(List<String> res, String s, String cur, int index, int dim) {
+        // dim means dimension, 4 parts for ip address
+        if (dim < 0 || s.length() - index > dim * 3 || s.length() - index < dim) {
+            return;
+        }
+        
+        if (index == s.length() && dim == 0) {
+            res.add(cur.substring(0, cur.length()-1));
+            return;
+        }
+        for(int i = index; i < index + 3; i++) {
+            if (i >= s.length()) break;
+            String ip = s.substring(index, i+1);
+            if (Integer.valueOf(ip) > 255 || ip.startsWith("0") && ip.length() > 1) {
+                continue;
+            }
+            helper2(res, s, cur + ip +".", i + 1, dim - 1);
         }
     }
 }

@@ -5,16 +5,16 @@ package leetcode;
  * Package Name : leetcode
  * File Name : ReverseStringII
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class ReverseStringII {
     /**
      * 541. Reverse String II
-     * Given a string and an integer k, you need to reverse the first k characters for every 2k
-     * characters counting from the start of the string. If there are less than k characters left,
-     * reverse all of them. If there are less than 2k but greater than or equal to k characters, then
-     * reverse the first k characters and left the other as original.
+Given a string and an integer k, you need to reverse the first k characters for every 2k
+characters counting from the start of the string. If there are less than k characters left,
+reverse all of them. If there are less than 2k but greater than or equal to k characters, then
+reverse the first k characters and left the other as original.
 
 
      time : O(n);
