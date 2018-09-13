@@ -1,11 +1,13 @@
 package leetcode;
 
+import java.util.Arrays;
+
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : RotateArray
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Sep, 2018
  * Description : 189. Rotate Array
  */
 public class RotateArray {
@@ -15,7 +17,8 @@ public class RotateArray {
      For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].
 
      Note:
-     Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.
+     Try to come up as many solutions as you can, there are at least 3 different ways to solve this 
+     problem.
 
      * @param nums
      * @param k
@@ -24,11 +27,11 @@ public class RotateArray {
     public void rotate(int[] nums, int k) {
         int[] temp = new int[nums.length];
         for (int i = 0; i < nums.length; i++) {
+            // i + k % len means we move elements after k move to front
             temp[(i + k) % nums.length] = nums[i];
         }
-        for (int i = 0; i < nums.length; i++) {
-            nums[i] = temp[i];
-        }
+        //temp already the corrct answer, just copy here
+       System.arraycopy(temp, 0, nums, 0, nums.length);
     }
 
     //time : O(n)  space : O(1)

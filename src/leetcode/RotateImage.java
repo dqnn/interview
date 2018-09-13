@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : RotateImage
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : 48. Rotate Image
  */
 public class RotateImage {
@@ -49,6 +49,32 @@ public class RotateImage {
                 int temp = matrix[i][j];
                 matrix[i][j] = matrix[i][matrix.length - 1 - j];
                 matrix[i][matrix.length - 1 - j] = temp;
+            }
+        }
+    }
+    
+    // same as above
+    public void rotate2(int[][] m) {
+        //edge case
+        if (m == null || m.length == 1 && m[0].length == 1) {
+            return;
+        }
+        int r = m.length, c = m[0].length;
+        // i j <-> j i
+        for(int i = 0; i< r; i++) {
+            for(int j = i; j < c; j++) {
+                int temp = m[i][j];
+                m[i][j] = m[j][i];
+                m[j][i] = temp;
+            }
+        }
+        // we swap the elements in one row
+        for(int i = 0; i< r;i++){
+            int left = 0, right = c - 1;
+            while(left < right) {
+                int temp = m[i][left];
+                m[i][left++] = m[i][right];
+                m[i][right--] = temp;
             }
         }
     }

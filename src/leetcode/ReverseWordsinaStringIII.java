@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : ReverseWordsinaStringIII
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class ReverseWordsinaStringIII {
@@ -52,5 +52,31 @@ public class ReverseWordsinaStringIII {
             sb.append(st + " ");
         }
         return sb.toString().trim();
+    }
+    // interview frinendly 
+    public String reverseWords3(String s) {
+        if (s == null || s.length() <= 1) {
+            return s;
+        }
+        s = s.trim();
+        char[] chs = s.toCharArray();
+        int  r = 0; 
+        while(r < s.length()) {
+            int l = r;
+            while(r < s.length() && chs[r] != ' ') {
+                r++;
+            }
+            reverse2(chs, l, r-1);
+            r++;
+        }
+        return String.valueOf(chs);
+    }
+    
+    public void reverse2(char[] s, int i, int j) {
+        while(i < j) {
+            char temp = s[i];
+            s[i++] = s[j];
+            s[j--] = temp;
+        }
     }
 }

@@ -5,14 +5,15 @@ package leetcode;
  * Package Name : leetcode
  * File Name : RotateFunction
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : 396. Rotate Function
  */
 public class RotateFunction {
     /**
      * Given an array of integers A and let n to be its length.
 
-     Assume Bk to be an array obtained by rotating the array A k positions clock-wise, we define a "rotation function" F on A as follow:
+     Assume Bk to be an array obtained by rotating the array A k positions clock-wise, 
+     we define a "rotation function" F on A as follow:
 
      F(k) = 0 * Bk[0] + 1 * Bk[1] + ... + (n-1) * Bk[n-1].
 
