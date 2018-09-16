@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : ScrambleString
  * Creator : duqiang
- * Date : Dec, 2017
+ * Date : Sep, 2018
  * Description : 87. Scramble String
  */
 public class ScrambleString {
@@ -30,6 +30,7 @@ public class ScrambleString {
             letters[s1.charAt(i) - 'a']++;
             letters[s2.charAt(i) - 'a']--;
         }
+        // this is to check letters are the same
         for (int i = 0; i < 26; i++) {
             if (letters[i] != 0) return false;
         }
@@ -40,5 +41,60 @@ public class ScrambleString {
                     && isScramble(s1.substring(i), s2.substring(0, len - i))) return true;
         }
         return false;
+    }
+    
+    // this is better solution on Complexity O()n ^ 4
+    public boolean isScramble2(String s1, String s2) {
+        if (s1.length() != s2.length()) return false;
+        int len = s1.length();
+        /**
+         * Let F(i, j, k) = whether the substring S1[i..i + k - 1] is a scramble of S2[j..j + k - 1] or not
+         * Since each of these substrings is a potential node in the tree, we need to check for all possible cuts.
+         * Let q be the length of a cut (hence, q < k), then we are in the following situation:
+         * 
+         * S1 [   x1    |         x2         ]
+         *    i         i + q                i + k - 1
+         * 
+         * here we have two possibilities:
+         *      
+         * S2 [   y1    |         y2         ]
+         *    j         j + q                j + k - 1
+         *    
+         * or 
+         * 
+         * S2 [       y1        |     y2     ]
+         *    j                 j + k - q    j + k - 1
+         * 
+         * which in terms of F means:
+         * k is the cut length
+         * F(i, j, k) = for some 1 <= q < k we have:
+         *  (F(i, j, q) AND F(i + q, j + q, k - q)) OR (F(i, j + k - q, q) AND F(i + q, j, k - q))
+         *  
+         * Base case is k = 1, where we simply need to check for S1[i] and S2[j] to be equal 
+         * */
+        // templates for e dimension DP
+        boolean [][][] F = new boolean[len][len][len + 1];
+        for (int k = 1; k <= len; ++k)
+            for (int i = 0; i + k <= len; i++)
+                for (int j = 0; j + k <= len; j++)
+                    if (k == 1)
+                        // first k, just like initialize the value
+                        F[i][j][k] = s1.charAt(i) == s2.charAt(j);
+                    else {
+                        //(F(i, j, q) AND F(i + q, j + q, k - q)) means first S1 X1 S2 X1
+                        //F(i + q, j + q, k - q) means S1 X2 and S2 and Y2
+                        // k - q means the length between j +q => j+k -1, j + k - 1 -(k + q) + 1
+                        for (int q = 1; q < k && !F[i][j][k]; q++) {
+                            F[i][j][k] = (F[i][j][q] && F[i + q][j + q][k - q]) 
+                            
+                            //F[i][j + k - q][q] means S1 X1--> S2 Y2
+                            // i is beginning of S1, 
+                           // this time, q is from end of S2, so since len is k, so start
+                           //point would be j + k - q
+                           //F[i + q][j][k - q] same as previous
+                            || (F[i][j + k - q][q] && F[i + q][j][k - q]);
+                        }
+                    }
+        return F[0][0][len];
     }
 }

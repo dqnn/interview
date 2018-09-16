@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : Searcha2DMatrix
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Sep, 2018
  * Description : 74. Search a 2D Matrix
  */
 public class Searcha2DMatrix {
@@ -35,8 +35,11 @@ public class Searcha2DMatrix {
      * @param target
      * @return
      */
+    //binary search tamplates 1
     public boolean searchMatrix(int[][] matrix, int target) {
-        if (matrix == null || matrix.length == 0) return false;
+        if (matrix == null || matrix.length < 1 || matrix[0].length < 1) {
+            return false;
+        }
         int row = matrix.length;
         int col = matrix[0].length;
         int begin = 0, end = row * col - 1;

@@ -4,9 +4,11 @@ package leetcode;
  * 861. Score After Flipping Matrix
  * We have a two dimensional matrix A where each value is 0 or 1.
 
-A move consists of choosing any row or column, and toggling each value in that row or column: changing all 0s to 1s, and all 1s to 0s.
+A move consists of choosing any row or column, and toggling each value in that row or column: changing all
+ 0s to 1s, and all 1s to 0s.
 
-After making any number of moves, every row of this matrix is interpreted as a binary number, and the score of the matrix is the sum of these numbers.
+After making any number of moves, every row of this matrix is interpreted as a binary number, and the 
+score of the matrix is the sum of these numbers.
 
 Return the highest possible score.
 
@@ -30,10 +32,19 @@ A[i][j] is 0 or 1.
 class ScoreAfterFlippingMatrix {
 
     /*
-     * time O(m*n) space O(1) Greedy, we find first column we have to flip the rwo
+     * time O(m*n) space O(1) Greedy, we find first column we have to flip the row
      * which not start from 0, then for each column, we need to flip which sum(1) <
      * sum(0), then sum each row
      */
+/*
+what's the thinking:
+so we want to find max sum of each row with some rules of operations on each row and columns, by greedy 
+algorithms, column 0 has biggest contribution to sum, and we can change column to 1 for each row, 
+so column 0 has to be 1 no matter other columns in each row. 
+
+and for each column except column 0, we cannot think as above because we do not want to change column 0,
+from sum all perspective.
+ */
     public int matrixScore(int[][] A) {
         //edge case
         if (A == null || A.length < 1) {
@@ -45,7 +56,7 @@ class ScoreAfterFlippingMatrix {
         for(int i = 0; i < r; i++) {
             if(A[i][0] == 0) {
                 int j = 0;
-                // row mode operations
+                // row mode operations,since we have to flip column 0, others also have to flip
                 while (j < c) {
                     A[i][j] = A[i][j] == 0 ? 1: 0;
                     j++;

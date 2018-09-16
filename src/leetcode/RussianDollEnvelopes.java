@@ -62,11 +62,25 @@ Since the width is increasing, we only need to consider height.
 sorting otherwise it will be counted as
  an increasing number if the order is [3, 3], [3, 4]
  */
+    
+ /*
+thinking:
+we have 2D array which has [width, height] format array, we want to get LIS which means LIS in width and height
+
+edge case:
+if we have 1,1,1,1,1,1,1 like this, we will find the j will always j = mid, which means i will never will 
+// increase, so LIS length = always. 
+
+so we sort one dimension, and we want to find LIS on another dimension. 
+
+  */
     public int maxEnvelopes(int[][] envelopes) {
         if (envelopes == null || envelopes.length == 0) return 0;
+        // it will form [2,3], [5,4], [6,7], [6,4], [6,2], width do increasing, 
         Arrays.sort(envelopes, (a, b) -> a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]);
         int[] dp = new int[envelopes.length];
         int res = 0;
+        //for each pair, we do bianry search in dp to find out LIS for height since width already done
         for (int[] envelope : envelopes) {
             int i = binarySearch(dp, 0, res, envelope[1]);
             dp[i] = envelope[1];
@@ -76,8 +90,11 @@ sorting otherwise it will be counted as
         }
         return res;
     }
-
+    // this is binary search templates 3, 
+// https://leetcode.com/articles/introduction-to-binary-search/ 
     public int binarySearch(int[] dp, int start, int end, int target) {
+        // start + 1 < end vs start < end
+        // we can change to while(start < end) with start = mid + 1; 
         while (start + 1 < end) {
             int mid = start + (end - start) / 2;
             if (dp[mid] == target) {
@@ -88,6 +105,7 @@ sorting otherwise it will be counted as
                 end = mid;
             }
         }
+        // we have two candidates left, one is start and right
         if (dp[start] >= target) return start;
         return end;
     }

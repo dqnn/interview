@@ -1,7 +1,7 @@
 package leetcode;
 
 /**
- * Created by duqiang on 23/07/2017.
+ * Created by duqiang on 15/09/2017.
  */
 public class SameTree {
 
@@ -25,5 +25,22 @@ public class SameTree {
         if (p.val != q.val) return false;
 
         return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+    }
+    
+    //interview friendly solutions
+    public boolean isSameTree2(TreeNode p, TreeNode q) {
+        if (p == null) {
+            if (q == null) {
+                return true;
+            } else return false;
+        }
+        
+        boolean left = false, right = false;
+        if (p != null && q != null) {
+            if (p.val != q.val) return false;
+            right = isSameTree(p.right, q.right);
+            left = isSameTree(p.left, q.left);
+        }
+        return left && right;
     }
 }

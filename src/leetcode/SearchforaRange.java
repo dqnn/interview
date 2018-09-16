@@ -5,12 +5,12 @@ package leetcode;
  * Package Name : leetcode
  * File Name : SearchforaRange
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class SearchforaRange {
     /**
-     * 34. Search for a Range
+     * 34. Find First and Last Position of Element in Sorted Array
      * Given an array of integers sorted in ascending order, find the starting and ending
      * position of a given target value.
 
@@ -39,6 +39,10 @@ public class SearchforaRange {
     public int findFirst(int[] nums, int target) {
         int start = 0;
         int end = nums.length - 1;
+        // so when equals fall into each branch then 
+        // it would stop there for example:
+        //[8,8,8,8,8,8,8, 8], 8, 
+        // end will always move forward, start keep still
         while (start + 1 < end) {
             int mid = (end - start) / 2 + start;
             if (nums[mid] < target) {
@@ -55,6 +59,8 @@ public class SearchforaRange {
     public int findLast(int[] nums, int target) {
         int start = 0;
         int end = nums.length - 1;
+      //[8,8,8,8,8,8,8, 8], 8, 
+        // end will always move forward, start keep still
         while (start + 1 < end) {
             int mid = (end - start) / 2 + start;
             if (nums[mid] > target) {
@@ -66,5 +72,34 @@ public class SearchforaRange {
         if (nums[end] == target) return end;
         if (nums[start] == target) return start;
         return -1;
+    }
+    
+    
+    public int[] searchRange2(int[] A, int target) {
+        int start = firstGreaterEqual(A, target);
+        if (start == A.length || A[start] != target) {
+            return new int[]{-1, -1};
+        }
+        return new int[]{start, firstGreaterEqual(A, target + 1) - 1};
+    }
+
+    //find the first number that is greater than or equal to target.
+    //could return A.length if target is greater than A[A.length-1].
+    //actually this is the same as lower_bound in C++ STL.
+    //template 2
+    private static int firstGreaterEqual(int[] A, int target) {
+        int low = 0, high = A.length;
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            //low <= mid < high
+            if (A[mid] < target) {
+                low = mid + 1;
+            } else {
+                //should not be mid-1 when A[mid]==target.
+                //could be mid even if A[mid]>target because mid<high.
+                high = mid;
+            }
+        }
+        return low;
     }
 }
