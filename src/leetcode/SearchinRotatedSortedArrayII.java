@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : SearchinRotatedSortedArrayII
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class SearchinRotatedSortedArrayII {
@@ -45,5 +45,40 @@ public class SearchinRotatedSortedArrayII {
         if (nums[start] == target) return true;
         if (nums[end] == target) return true;
         return false;
+    }
+    //this is interview frinendly
+    //thinking process: 
+    public boolean search2(int[] nums, int target) {
+        if (nums == null || nums.length < 1) {
+            return false;
+        }
+        int left = 0, right = nums.length - 1;
+        while(left + 1 < right) {
+            int mid = left + (right -left) / 2;
+            if (nums[left] == target) {
+                return true;
+            }
+            // handle previous same situation, 
+            if(nums[left] < nums[mid]) {
+                if (nums[left] <= target && target <= nums[mid]) {
+                    right = mid;
+                } else {
+                    left = mid;
+                }
+            // this handles the case 2, mid fall into second ascend list
+            } else if (nums[left] > nums[mid]) {
+                if (nums[right] >= target && target >= nums[mid]) {
+                    left = mid;
+                } else {
+                    right = mid;
+                }
+            } else {
+                left++;
+            }
+        }
+        if (nums[left] == target || nums[right] == target) {
+                return true;
+            }
+            return false;
     }
 }

@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : SelfCrossing
  * Creator : duqiang
- * Date : Jan, 2018
+ * Date : Sep, 2018
  * Description : 335. Self Crossing
  */
 public class SelfCrossing {
@@ -15,7 +15,8 @@ public class SelfCrossing {
      * x[2] metres to the south, x[3] metres to the east and so on.
      * In other words, after each move your direction changes counter-clockwise.
 
-     Write a one-pass algorithm with O(1) extra space to determine, if your path crosses itself, or not.
+     Write a one-pass algorithm with O(1) extra space to determine, if your 
+     path crosses itself, or not.
 
      Example 1:
      Given x = [2, 1, 1, 2],
@@ -68,6 +69,9 @@ public class SelfCrossing {
 
     */
     public boolean isSelfCrossing(int[] x) {
+        if (x == null || x.length < 4) {
+            return false;
+        }
         for (int i = 3, l = x.length; i < l; i++) {
             if (x[i] >= x[i - 2] && x[i - 1] <= x[i - 3]) {
                 return true;

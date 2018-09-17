@@ -8,7 +8,7 @@ import java.util.Queue;
  * Package Name : leetcode
  * File Name : SerializeandDeserializeBinaryTree
  * Creator : duqiang
- * Date : Aug, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class SerializeandDeserializeBinaryTree {
@@ -29,6 +29,15 @@ public class SerializeandDeserializeBinaryTree {
      * @return
      */
     // Encodes a tree to a single string.
+    //so thinking process:
+    // we want to convert tree to String and decode the string to tree. 
+    // we want to use "null" to indicate the node is is null like array to represent 
+    // string, so when we converting from tree to string, we definitely there are null in string
+    // and when we decode the string, there cannot be null node at all. 
+    
+    // BFS on tree, we use Queue to store the node and it can be null to be added into queue
+    // we can use space or "," to split string please note when decode we has no case on node from queue
+    // is null because we never add null into queue because we node is initlized as null. 
     public String serialize(TreeNode root) {
        if (root == null) return "";
        StringBuilder res = new StringBuilder();

@@ -9,7 +9,7 @@ import java.util.Stack;
  * Package Name : leetcode
  * File Name : SerializeandDeserializeBST
  * Creator : duqiang
- * Date : Aug, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class SerializeandDeserializeBST {
@@ -29,6 +29,11 @@ public class SerializeandDeserializeBST {
      */
 
     // Encodes a tree to a single string.
+    // for this question, we cannot use queue to serialize the tree because 
+    // 3,1,4,null,2 if we use stack, it will be 3,1,2,4, if it is queue: 
+    // it will be 3,1,4,2, but when we deserialize using getNode() we use recursive way to 
+    // get left and right tree, which means left tree should be together, so we use queue
+    // it will lost node 2 to right tree
     public String serialize(TreeNode root) {
         if (root == null) return "";
         StringBuilder res = new StringBuilder();

@@ -31,34 +31,42 @@ public class SearchinRotatedSortedArray {
      * @return
      */
     //interview friendly
-    // 
+    // thinking process:
+    // so the array is like way up and way down, eg, 5,6,7,8,1,2,3
+    // mid has two cases: 1 is in 5,6,7,8 another is in 1,2,3 range, so we need to have 
+    // if else to handle the situation, suppose mid is in 5,6,7,8, target also have two cases
+    //one is in 5,6,7,8 another one is in 1,2,4 if it is in 5,6,7,8, we need to move end = mid
+    //else move left = mid since we want to narrow down the range
     public int search(int[] nums, int target) {
         if (nums == null || nums.length == 0) return -1;
-        int start = 0;
-        int end = nums.length - 1;
-        while (start + 1 < end) {
-            int mid = (end - start) / 2 + start;
+        int left = 0;
+        int right = nums.length - 1;
+        while (left + 1 < right) {
+            int mid = (right - left) / 2 + left;
             if (nums[mid] == target) return mid;
-            //which means we are in ascend sequence
-            if (nums[start] < nums[mid]) {
-                // target if between nums[start] and nums[mid]
-                if (nums[start] <= target && target <= nums[mid]) {
-                    end = mid;
+          //which means we are in ascend sequence maybe in first or second part
+            if (nums[left] < nums[mid]) {
+                // 5,6,7,8,1,2,3 left = 5 mid = 8, target is 2 so we want to 
+                //make sure target is between left and mid because we want to 
+                if (nums[left] <= target && target <= nums[mid]) {
+                    right = mid;
+                 //not here we only have > or < no equals
                 } else {
-                    start = mid;
+                    left = mid;
                 }
-            //which means we are in descend sequence maybe partially
+            //which means we are in descend sequence maybe partially 
             // but we examine from mid to end and move start to mid
+            //nums[start] >= nums[mid]
             } else {
-                if (nums[mid] <= target && target <= nums[end]) {
-                    start = mid;
+                if (nums[mid] <= target && target <= nums[right]) {
+                    left = mid;
                 } else {
-                    end = mid;
+                    right = mid;
                 }
             }
         }
-        if (nums[start] == target) return start;
-        if (nums[end] == target) return end;
+        if (nums[left] == target) return left;
+        if (nums[right] == target) return right;
         return -1;
     }
     

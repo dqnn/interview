@@ -1,5 +1,6 @@
 前言：常看到有人問 system design需不需要準備 new grad會不會考system design 我想給地裡的戰友們建議 當然準備面試刷題是基本中的基本 但當你刷到一定程度後 刷題投資報酬率就開始低了 這時我真心建議可以花些時間讀system design 因為你花在這個的前10-20小時投資報酬率非常高！基本的觀念有了以後可以apply到所有的問題 面試之前不管HR跟你說有沒有system design你都不怕 廢話不多說 直接進入主題
-
+https://www.educative.io/collection/5668639101419520/5649050225344512
+https://github.com/donnemartin/system-design-primer
 我的所有資料來源都是地裡還有以下連結
 https://www.evernote.com/shard/s576/sh/7e58b450-1abe-43a8-bf82-fbf07f1db13c/049802174415b418a2e65f75b744ab72
 https://github.com/checkcheckzz/system-design-interview
