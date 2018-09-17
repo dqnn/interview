@@ -7,7 +7,7 @@ import java.util.Random;
  * Package Name : leetcode
  * File Name : ShuffleanArray
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class ShuffleanArray {
@@ -48,6 +48,8 @@ public class ShuffleanArray {
     public int[] shuffle() {
         if (nums == null) return null;
         int[] clone = nums.clone();
+        // so here is the key, how can we have same probability to generate the permutations
+        //sampling algorithms here
         for (int i = 1; i < clone.length; i++) {
             int random = rmd.nextInt(i + 1);
             swap(clone, i, random);

@@ -9,7 +9,7 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : ShortestWordDistanceII
  * Creator : duqiang
- * Date : Aug, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class ShortestWordDistanceII {
@@ -63,6 +63,7 @@ public class ShortestWordDistanceII {
     }
 
     //time : O(n + m)
+    // we can try bianry search to min the search time since List is already sorted
     public int shortest2(String word1, String word2) {
         List<Integer> l1 = map.get(word1);
         List<Integer> l2 = map.get(word2);

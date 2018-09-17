@@ -7,7 +7,7 @@ import java.util.Stack;
  * Package Name : leetcode
  * File Name : SimplifyPath
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Sep, 2018
  * Description : 71. Simplify Path
  */
 public class SimplifyPath {

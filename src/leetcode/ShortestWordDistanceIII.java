@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : ShortestWordDistanceIII
  * Creator : duqiang
- * Date : Dec, 2017
+ * Date : Sep, 2018
  * Description : 245. Shortest Word Distance III
  */
 public class ShortestWordDistanceIII {
@@ -32,6 +32,9 @@ public class ShortestWordDistanceIII {
      * @return
      */
     public int shortestWordDistance(String[] words, String word1, String word2) {
+        if (words == null || words.length < 1) {
+            return 0;
+        }
         int res = words.length;
         int a = -1;
         int b = -1;

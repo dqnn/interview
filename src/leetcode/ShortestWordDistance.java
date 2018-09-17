@@ -1,12 +1,16 @@
 package leetcode;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ShortestWordDistance
  * Creator : duqiang
- * Date : Aug, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class ShortestWordDistance {
@@ -51,6 +55,7 @@ public class ShortestWordDistance {
         int res = words.length;
         int a = -1;
         int b = -1;
+        // so one time only word1 or word2 can match, and yes, they are nearest
         for (int i = 0; i < words.length; i++) {
             if (words[i].equals(word1)) {
                 a = i;
@@ -59,6 +64,31 @@ public class ShortestWordDistance {
             }
             if (a != -1 && b != -1) {
                 res = Math.min(res, Math.abs(a - b));
+            }
+        }
+        return res;
+    }
+    
+    
+    public int shortestDistance3(String[] words, String word1, String word2) {
+        if (words == null || words.length < 1) {
+            return 0;
+        }
+        Map<String, List<Integer>> map = new HashMap<>();
+        for(int i = 0; i < words.length; i++) {
+            map.computeIfAbsent(words[i], v->new ArrayList<>()).add(i);
+        }
+        
+        List<Integer> x = map.get(word1);
+        List<Integer> y = map.get(word2);
+        int res = Integer.MAX_VALUE;
+        if (x == null || y == null) {
+            return 0;
+        } else {
+            for(int temp1 : x) {
+                for(int temp2 : y) {
+                    res = Math.min(res, Math.abs(temp1 - temp2));
+                }
             }
         }
         return res;
