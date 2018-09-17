@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : SingleNumber
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : 136. Single Number
  */
 public class SingleNumber {

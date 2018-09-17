@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : SmallestRectangleEnclosingBlackPixels
  * Creator : duqiang
- * Date : Jan, 2018
+ * Date : Sep, 2018
  * Description : 302. Smallest Rectangle Enclosing Black Pixels
  */
 public class SmallestRectangleEnclosingBlackPixels {
