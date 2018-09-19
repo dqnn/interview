@@ -9,7 +9,7 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : StrobogrammaticNumberIII
  * Creator : duqiang
- * Date : Dec, 2017
+ * Date : Sep, 2018
  * Description : 248. Strobogrammatic Number III
  */
 public class StrobogrammaticNumberIII {
@@ -27,13 +27,18 @@ public class StrobogrammaticNumberIII {
      */
 
     public int strobogrammaticInRange(String low, String high){
+        if (low == null || high == null || low.length() < 1 || high.length() < 1) {
+            return 0;
+        }
         int res = 0;
         List<String> list = new ArrayList<>();
         for (int i = low.length(); i <= high.length(); i++) {
             list.addAll(helper(i, i));
         }
+        // a.comparesTo(b) > 0 if a lex order after b.
         for (String num : list) {
-            if ((num.length() == low.length() && num.compareTo(low) < 0) || (num.length() == high.length() && num.compareTo(high) > 0)) {
+            if ((num.length() == low.length() && num.compareTo(low) < 0) 
+                    || (num.length() == high.length() && num.compareTo(high) > 0)) {
                 continue;
             }
             res++;

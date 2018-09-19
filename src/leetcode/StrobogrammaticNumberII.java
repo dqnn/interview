@@ -36,7 +36,8 @@ public class StrobogrammaticNumberII {
     //which has such character, so we need  a map. 
     
     // we use recursive to solve this problem from 1,6,8, 0
-    //n stands for length of string, m means  
+    //n stands for length of string, m is parameter to decide 
+    //whether we are at outest digit, it would not 0 there. 
     public List<String> findStrobogrammatic(int n) {
         return helper(n, n);
     }
@@ -50,7 +51,8 @@ public class StrobogrammaticNumberII {
         // 
         for (int i = 0; i < list.size(); i++) {
             String s = list.get(i);
-            //add 0 around s
+            //It is to disallow zeros as first and last digit. 
+            //We want numbers of length 'n'.
             if (n != m) {
                 res.add("0" + s + "0");
             }
