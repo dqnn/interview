@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : SparseMatrixMultiplication
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : 311. Sparse Matrix Multiplication
  */
 public class SparseMatrixMultiplication {
@@ -34,6 +34,8 @@ public class SparseMatrixMultiplication {
      * @param B
      * @return
      */
+    // this is matrix calculations, so just know how to use
+    // 3 loops to calculate the sum
     public int[][] multiply(int[][] A, int[][] B) {
         int m = A.length, n = A[0].length;
         int nB = B[0].length;
@@ -43,7 +45,9 @@ public class SparseMatrixMultiplication {
             for (int k = 0; k < n; k++) {
                 if (A[i][k] != 0) {
                     for (int j = 0; j < nB; j++) {
-                        if (B[k][j] != 0) res[i][j] += A[i][k] * B[k][j];
+                        if (B[k][j] != 0) {
+                            res[i][j] += A[i][k] * B[k][j];
+                        }
                     }
                 }
             }

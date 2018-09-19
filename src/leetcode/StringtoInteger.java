@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : StringtoInteger
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : 8. String to Integer (atoi)
  */
 public class StringtoInteger {

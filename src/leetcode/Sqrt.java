@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : Sqrt
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : 69. Sqrt(x)
  */
 public class Sqrt {

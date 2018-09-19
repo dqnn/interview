@@ -39,10 +39,33 @@ public class SmallestRectangleEnclosingBlackPixels {
      * @param y
      * @return
      */
+    // thinking process:
+    // problem is table with black and white points, black horizonte or vertical to
+    // form a rectangle, we have to find the min area which cover all black points
+    
+    //one easy way to think it is go through m * n points, and if we have '1' point, 
+    // then we update with four coordination, so the model and basic template is four
+    // number can let us know its boundary, here the x--> right, y-->down
+    // so our width left, right, height is bottom and top
+    // left is min of j and right is max of j
+    // height top is min of i and bottom is max of i since y --> down
+    
+    
+    // how can we improve this, 
+    // so still same as above, we want to get 4 coordinations, 
+    // but we find a way faster than above, since one point is given, 
+    // horizonte or vertical, so we can try to leverage Binary search, 
+    //for left, we want to find from 0, y whether there is mid != black then
+    //move end = mid, 
+    //for right, y， col -1, so mid != black, we move end = mid
+    //same for up and down
     public int minArea(char[][] image, int x, int y) {
+        if (image == null || image.length < 1 || image[0].length < 1) {
+            return 0;
+        }
         int row = image.length;
         int col = image[0].length;
-
+        
         int left = binarySearchLeft(image, 0, y, true);
         int right = binarySearchRight(image, y, col - 1, true);
 
@@ -55,12 +78,14 @@ public class SmallestRectangleEnclosingBlackPixels {
     private int binarySearchLeft(char[][] image, int left, int right, boolean isHor) {
         while (left + 1 < right) {
             int mid = (right - left) / 2 + left;
+            // this means there was black point in this straight line, 
             if (hasBlack(image, mid, isHor)) {
                 right = mid;
             } else {
                 left = mid;
             }
         }
+        // we pre process left because 
         if (hasBlack(image, left, isHor)) {
             return left;
         }
@@ -93,5 +118,28 @@ public class SmallestRectangleEnclosingBlackPixels {
             }
         }
         return false;
+    }
+    
+    //brute force O(mn)
+    // thinking process, we 
+    public int minArea2(char[][] image, int x, int y) {
+        if (image == null || image.length < 1 || image[0].length < 1) {
+            return 0;
+        }
+        int left = y, right = y, up =x, down =x;
+        //or we don't need this, 
+        // int left = Integer.MAX_VALUE, right = Integer.MIN_VALUE, 
+        //up =Integer.MIN_VALUE, down =Integer.MAX_VALUE;
+        for(int i = 0; i < image.length;i++) {
+            for(int j = 0; j < image[0].length; j++) {
+                if (image[i][j] == '1') {
+                    left = Math.min(left, j);
+                    right = Math.max(right, j);
+                    up = Math.max(up, i);
+                    down = Math.min(down, i);
+                }
+            }
+        }
+        return (right - left + 1) * (up - down + 1);
     }
 }

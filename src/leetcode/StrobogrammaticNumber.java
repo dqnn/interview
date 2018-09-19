@@ -7,7 +7,7 @@ import java.util.HashMap;
  * Package Name : leetcode
  * File Name : StrobogrammaticNumber
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Sep, 2018
  * Description : 246. Strobogrammatic Number
  */
 public class StrobogrammaticNumber {

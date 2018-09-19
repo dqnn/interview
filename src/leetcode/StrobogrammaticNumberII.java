@@ -9,7 +9,7 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : StrobogrammaticNumberII
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Sep, 2018
  * Description : 247. Strobogrammatic Number II
  */
 public class StrobogrammaticNumberII {
@@ -30,6 +30,13 @@ public class StrobogrammaticNumberII {
      * @param n
      * @return
      */
+    //thinking process:
+    // so if n = 1, will output 3 strings, n is the length of the string
+    // so it is more like palidrome, since we have limited numbers
+    //which has such character, so we need  a map. 
+    
+    // we use recursive to solve this problem from 1,6,8, 0
+    //n stands for length of string, m means  
     public List<String> findStrobogrammatic(int n) {
         return helper(n, n);
     }
@@ -39,9 +46,11 @@ public class StrobogrammaticNumberII {
 
         List<String> list = helper(n - 2, m);
         List<String> res = new ArrayList<>();
-
+        //note: list at least has 1 size, "" 
+        // 
         for (int i = 0; i < list.size(); i++) {
             String s = list.get(i);
+            //add 0 around s
             if (n != m) {
                 res.add("0" + s + "0");
             }

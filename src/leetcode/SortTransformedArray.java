@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : SortTransformedArray
  * Creator : duqiang
- * Date : Jan, 2018
+ * Date : Sep, 2018
  * Description : 360. Sort Transformed Array
  */
 public class SortTransformedArray {
@@ -35,7 +35,18 @@ public class SortTransformedArray {
      * @param c
      * @return
      */
+    // thinking process:
+    // so  nums already sorted, so if a >= 0, the two sides
+    //would have bigger value, then we can use two pointers,
+    //so we use start and end to travel in nums array, 
+    // and we calc the both sides elements, startNum and endNum,
+    // so every one time, we just pick the bigger or smaller one 
+    // to the result array and we incr start or end, 
+    // we use i as internal pointer for result array. 
     public int[] sortTransformedArray(int[] nums, int a, int b, int c) {
+        if (nums == null || nums.length < 1) {
+            return nums;
+        }
         int[] res = new int[nums.length];
         int start = 0;
         int end = nums.length - 1;

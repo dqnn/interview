@@ -5,13 +5,15 @@ package leetcode;
  * Package Name : leetcode
  * File Name : SpiralMatrixII
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Sep, 2018
  * Description : 59. Spiral Matrix II
  */
 public class SpiralMatrixII {
 
     /**
-     *Given an integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
+     *Given an integer n, generate a square matrix 
+     *filled with elements from 1 to n2 in spiral order.
+     *
 
      For example,
      Given n = 3,

@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : StringCompression
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Sep, 2018
  * Description : 443. String Compression
  */
 public class StringCompression {
