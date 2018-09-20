@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : SumRoottoLeafNumbers
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : 129. Sum Root to Leaf Numbers
  */
 public class SumRoottoLeafNumbers {
@@ -38,5 +38,22 @@ public class SumRoottoLeafNumbers {
         }
         return helper(root.left, num * 10 + root.val) +
                 helper(root.right, num * 10 + root.val);
+    }
+    
+    int res = 0;
+    public int sumNumbers3(TreeNode root) {
+        helper(root, "");
+        return res;
+    }
+    
+    public void helper(TreeNode node, String pre) {
+        if (node == null) {
+            return;
+        }
+        if (node.left == null && node.right == null) {
+            res += Integer.valueOf(pre+node.val);
+        }
+        helper(node.left, pre+String.valueOf(node.val));
+        helper(node.right, pre+String.valueOf(node.val));
     }
 }

@@ -9,7 +9,7 @@ import java.util.Stack;
  * Package Name : leetcode
  * File Name : SumofLeftLeaves
  * Creator : duqiang
- * Date : Aug, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class SumofLeftLeaves {
@@ -62,6 +62,24 @@ public class SumofLeftLeaves {
             }
         }
         return res;
+    }
+    
+    
+    int res = 0;
+    public int sumOfLeftLeaves3(TreeNode root) {
+        helper(root, false);
+        return res;
+    }
+    
+    public void helper(TreeNode node, boolean isLeft) {
+        if (node == null) {
+            return;
+        }
+        if (node.left == null && node.right == null && isLeft) {
+            res += node.val;
+        }
+        helper(node.left, true);
+        helper(node.right, false);
     }
 
 }

@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : SumofTwoIntegers
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Sep, 2018
  * Description : 371. Sum of Two Integers
  */
 public class SumofTwoIntegers {
@@ -27,8 +27,11 @@ public class SumofTwoIntegers {
         if (b == 0) return a;
 
         while (b != 0) {
+            //get the same
             int carry = a & b;
+            // get different, actually 
             a = a ^ b;
+            // b is only 1 digits integer
             b = carry << 1;
         }
 

@@ -8,7 +8,7 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : SummaryRanges
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class SummaryRanges {
@@ -28,12 +28,18 @@ public class SummaryRanges {
      * @param nums
      * @return
      */
+    //thinking process:
+    //problem is output range sum with different format
+    
+    // so straightforward is to detect continous numbers
+    //use two loops then is able to get contious range
     public List<String> summaryRanges(int[] nums) {
         List<String> res = new ArrayList<>();
         if (nums == null || nums.length == 0) return res;
         for (int i = 0; i < nums.length; i++) {
             int num = nums[i];
-            while (i < nums.length - 1 && nums[i] + 1 == nums[i + 1]) {
+            while ((i < nums.length - 1) 
+                    && nums[i] + 1 == nums[i + 1]) {
                 i++;
             }
             if (num != nums[i]) {

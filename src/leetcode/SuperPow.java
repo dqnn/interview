@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : SuperPow
  * Creator : duqiang
- * Date : Jan, 2018
+ * Date : Sep, 2018
  * Description : 372. Super Pow
  */
 public class SuperPow {
