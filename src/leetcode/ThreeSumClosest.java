@@ -7,7 +7,7 @@ import java.util.Arrays;
  * Package Name : leetcode
  * File Name : ThreeSumClosest
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : 16. 3Sum Closest
  */
 public class ThreeSumClosest {
@@ -39,5 +39,41 @@ public class ThreeSumClosest {
             }
         }
         return res;
+    }
+    // my own solution, should be the same
+    public int threeSumClosest2(int[] nums, int target) {
+        //edge case 
+        if (nums == null || nums.length < 3) {
+            return -2;
+        }
+        
+        if (nums.length == 3) {
+            return nums[0] + nums[1] + nums[2];
+        }
+        
+        Arrays.sort(nums);
+        int delta = Integer.MAX_VALUE, result = Integer.MAX_VALUE;
+        for(int i=0; i<=nums.length-3; i++) {
+            int p =i+1, p2 = nums.length -1;
+            while(p<p2){
+                int movingSum = nums[p] + nums[p2];
+                int newDeltaWithoutAbs = target - nums[p] - nums[p2] - nums[i];
+                if(newDeltaWithoutAbs == 0) {
+                    return target;
+                } else {
+                    if (delta > Math.abs(newDeltaWithoutAbs)) {
+                        delta = Math.abs(newDeltaWithoutAbs);
+                        result = nums[p]  + nums[p2] + nums[i];
+                    }
+                    if (newDeltaWithoutAbs > 0) {
+                        p++;
+                    } else {
+                        p2--;
+                    }
+                }
+            }
+        }
+        
+        return result;
     }
 }

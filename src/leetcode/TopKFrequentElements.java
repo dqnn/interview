@@ -7,16 +7,25 @@ import java.util.*;
  * Package Name : leetcode
  * File Name : TopKFrequentElements
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class TopKFrequentElements {
     /**
-     * 347. Top K Frequent Elements
-     * Given a non-empty array of integers, return the k most frequent elements.
+Given a non-empty array of integers, return the k most frequent elements.
 
-     For example,
-     Given [1,1,1,2,2,3] and k = 2, return [1,2].
+Example 1:
+
+Input: nums = [1,1,1,2,2,3], k = 2
+Output: [1,2]
+Example 2:
+
+Input: nums = [1], k = 1
+Output: [1]
+Note:
+
+You may assume k is always valid, 1 ≤ k ≤ number of unique elements.
+Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
 
      * @param nums
      * @param k
@@ -100,6 +109,29 @@ public class TopKFrequentElements {
                 k--;
             }
         }*/
+        return res;
+    }
+    
+    // we use Map to count frequency and use priority queue to sort
+    public List<Integer> topKFrequent5(int[] nums, int k) {
+        List<Integer> res = new ArrayList<>();
+        if (nums == null || nums.length < 1) {
+            return res;
+        }
+        
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int temp : nums) {
+            map.put(temp, map.getOrDefault(temp, 0) + 1);
+        }
+        
+        Queue<int[]> q = new PriorityQueue<>((a, b) -> (b[1] - a[1]));
+        for(Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            q.offer(new int[]{entry.getKey(), entry.getValue()});
+                
+        }
+        for(int i = 0; i< k;i++) {
+            res.add(q.poll()[0]);
+        }
         return res;
     }
 }
