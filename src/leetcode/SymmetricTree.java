@@ -19,7 +19,8 @@ public class SymmetricTree {
      * @param root
      * @return
      */
-
+    // thinking process:
+    // just know how to recursive visit tree and BSF visit the tree
     public static boolean isSymmetric(TreeNode root) {
 
         if (root == null) return true;

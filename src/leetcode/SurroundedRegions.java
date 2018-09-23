@@ -36,7 +36,15 @@ public class SurroundedRegions {
 
      * @param board
      */
-
+    //thinking process:
+    
+    // the problem is asking for to flip O to X when O is on the edge 
+    // or not connect to another o on the edge
+    
+    // since o on the edge is special, so we just surface the 4 edges 
+    // we use DFS from each cell on the edge, we stop when i j is outlier
+    // and not o, if it is o and and on the edge  we change to 1, so 
+    //DFS will auto stop when it is not o, remember the DFS templates
     public void solve(char[][] board){
         if (board == null || board.length == 0 || board[0].length == 0) return;
 

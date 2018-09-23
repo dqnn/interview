@@ -8,7 +8,7 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : TextJustification
  * Creator : duqiang
- * Date : Dec, 2017
+ * Date : Sep, 2018
  * Description : 68. Text Justification
  */
 public class TextJustification {

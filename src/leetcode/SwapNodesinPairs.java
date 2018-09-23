@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : SwapNodesinPairs
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class SwapNodesinPairs {
@@ -22,6 +22,13 @@ public class SwapNodesinPairs {
      * @param head
      * @return
      */
+    
+    // thinking process；
+    // so use paper we can easily draw the pointers change, but this problem
+    //1 dummy node is always useful. 
+    // 2 while condition is always use fast != null and fast.next != null, 
+    // and in the loop, we should use fast.next as many as possible and not 
+    //use distance more than fast.next.next, because fast.next.next maybe null
     public ListNode swapPairs(ListNode head) {
         if (head == null || head.next == null) return head;
         ListNode dummy = new ListNode(0);

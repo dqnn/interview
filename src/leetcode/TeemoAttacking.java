@@ -30,6 +30,10 @@ You may assume the length of given time series array won't exceed 10000.
 You may assume the numbers in the Teemo's attacking time series and his poisoning time duration per attacking are non-negative integers, which won't exceed 10,000,000.
  * 
  */
+
+//thinking process:
+//so this problem is asking for time period which is in poision status 
+// 
 class TeemoAttacking {
     public int findPoisonedDuration(int[] timeSeries, int duration) {
         //edge case
