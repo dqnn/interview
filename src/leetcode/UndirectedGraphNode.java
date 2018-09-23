@@ -8,7 +8,7 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : UndirectedGraphNode
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class UndirectedGraphNode {

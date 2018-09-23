@@ -8,7 +8,7 @@ import java.util.HashSet;
  * Package Name : leetcode
  * File Name : TwoSumIVInputisaBST
  * Creator : duqiang
- * Date : Aug, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class TwoSumIVInputisaBST {
@@ -51,18 +51,21 @@ public class TwoSumIVInputisaBST {
     }
 
     //time : O(nlogn) space : O(h)  h : logn ~ n
-
+    // 3 use cases
+    //1 in left  2 in right, both has 1
+    //so we have first and second
     public boolean findTarget2(TreeNode root, int k) {
         return firstDfs(root, root, k);
     }
-
+    //try to find first number
     public boolean firstDfs(TreeNode first, TreeNode second, int k) {
         if (first == null) return false;
+        // find second number, if first one is root, or both number in left tree, or in right tree
         return secondDfs(first, second, k - first.val)
                 || firstDfs(first.left, second, k)
                 || firstDfs(first.right, second, k);
     }
-
+    //find second num
     public boolean secondDfs(TreeNode first, TreeNode second, int k) {
         if (second == null) return false;
         return (second.val == k) && (first != second)

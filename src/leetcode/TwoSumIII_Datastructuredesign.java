@@ -10,7 +10,7 @@ import java.util.Map;
  * Package Name : leetcode
  * File Name : TwoSumIII_Datastructuredesign
  * Creator : duqiang
- * Date : Aug, 2017
+ * Date : Sep, 2018
  * Description : 170. Two Sum III - Data structure design
  */
 public class TwoSumIII_Datastructuredesign {
