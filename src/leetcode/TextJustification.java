@@ -43,44 +43,77 @@ public class TextJustification {
      * @param L
      * @return
      */
-    public List<String> fullJustify(String[] words, int L) {
+  //thinking process: 
+    // the problem is word array and length of each line, so we want to form a list of strings, each string has max width, and 
+    //there is spaces between strings, and maybe more spaces than any other strings in on line
+    
+    // so first we need to know some edge cases, then return list of "" 
+    // then we use index as pointer to indicate whther we have reached to the end of the string
+    // inside first loop, we have another pointer last to indicate for the result, we have scan from index to last, 
+    
+    // after inside loop, we want to 
+    // detect whthe we reached to end of string w, if yes, then we just add to result and return; 
+    //if not the last line, then we need to know how many width we left, use maxWidth - len of string including spaces. 
+    // so from here we could know if we append string in w into stringbuilder that's not efficient, so fistly we calc index and last
+    // and how many spaces are there, if spacesNUm % num != 0 which means some are more than another so we want to add each space more than another
+    
+    //with all these above info together, we can try to write the code 
+    public List<String> fullJustify(String[] w, int maxWidth) {
         List<String> res = new ArrayList<>();
+        if (w == null || w.length < 1 || maxWidth < 1) {
+            return res;
+        }
+        
         int index = 0;
-        while (index < words.length) {
-            int count = words[index].length();
+        while(index < w.length) {
+            int count = w[index].length();
             int last = index + 1;
-            while (last < words.length) {
-                if (words[last].length() + count + 1 > L) break;
-                count += 1 + words[last].length();
-                last++;
-            }
-            StringBuilder builder = new StringBuilder();
-            builder.append(words[index]);
-            int diff = last - index - 1;
-            if (last == words.length || diff == 0) {
-                for (int i = index + 1; i < last; i++) {
-                    builder.append(" ");
-                    builder.append(words[i]);
+            while(last < w.length) {
+                // we want to detect the count first so 
+                //last is in the correct place
+                if (w[last].length() + count + 1 > maxWidth) {
+                    break;
                 }
-                for (int i = builder.length(); i < L; i++) {
-                    builder.append(" ");
+                // + 1 because we want to calc the space
+                count += 1 + w[last++].length();
+            }
+            StringBuilder sb = new StringBuilder();
+            //each line, we always append first word
+            sb.append(w[index]);
+            //how many cut we can use for spaces, 
+            //last - index means how many words
+            //diff = 0 means 1 word
+            int diff = last - index - 1;
+            if (last == w.length || diff == 0) {
+                //since we already append index, so we start from index + 1
+                for (int i = index + 1; i < last; i++) {
+                    sb.append(" " + w[i]);
+                }
+                //append rest of all spaces
+                for(int i = sb.length(); i < maxWidth; i++) {
+                    sb.append(" ");
                 }
             } else {
-                int spaces = (L - count) / diff;
-                int r = (L - count) % diff;
+                // if not last line, 
+                int spaces = (maxWidth - count) / diff;
+                //how many extra space
+                int r = (maxWidth - count) % diff;
                 for (int i = index + 1; i < last; i++) {
-                    for (int k = spaces; k > 0; k--) {
-                        builder.append(" ");
+                    //append avg space
+                    for(int k = spaces; k > 0; k--) {
+                        sb.append(" ");
                     }
-                    if (r > 0) {
-                        builder.append(" ");
-                        r--;
+                    //we append extra space
+                    if (r-- > 0) {
+                        sb.append(" ");
                     }
-                    builder.append(" ");
-                    builder.append(words[i]);
+                    //append one more space
+                    sb.append(" ");
+                    //append the word
+                    sb.append(w[i]);
                 }
             }
-            res.add(builder.toString());
+            res.add(sb.toString());
             index = last;
         }
         return res;
