@@ -8,14 +8,28 @@ import java.util.Arrays;
  * Package Name : leetcode
  * File Name : ValidAnagram
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : 242. Valid Anagram
  */
 public class ValidAnagram {
     /**
-     * For example,
-     s = "anagram", t = "nagaram", return true.
-     s = "rat", t = "car", return false.
+Given two strings s and t , write a function to determine if t is an 
+anagram of s.
+
+Example 1:
+
+Input: s = "anagram", t = "nagaram"
+Output: true
+Example 2:
+
+Input: s = "rat", t = "car"
+Output: false
+Note:
+You may assume the string contains only lowercase alphabets.
+
+Follow up:
+What if the inputs contain unicode characters? How would you adapt 
+your solution to such case?
 
      * @param s
      * @param t

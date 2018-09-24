@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : ValidPerfectSquare
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : 367. Valid Perfect Square
  */
 public class ValidPerfectSquare {

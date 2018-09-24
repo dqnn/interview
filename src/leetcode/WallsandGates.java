@@ -8,7 +8,7 @@ import java.util.Queue;
  * Package Name : leetcode
  * File Name : WallsandGates
  * Creator : duqiang
- * Date : Dec, 2017
+ * Date : Sep, 2018
  * Description : 286. Walls and Gates
  */
 public class WallsandGates {
@@ -21,6 +21,8 @@ public class WallsandGates {
      that the distance to a gate is less than 2147483647.
      Fill each empty room with the distance to its nearest gate. If it is impossible to reach a gate,
      it should be filled with INF.
+Fill each empty room with the distance to its nearest gate. If it is impossible to reach a gate, it should be filled with INF.
+
 
      For example, given the 2D grid:
      INF  -1  0  INF
@@ -41,6 +43,7 @@ public class WallsandGates {
      */
 
     // space : O(n)
+    // this is templates for backtracking mark distance
     public void wallsAndGates(int[][] rooms) {
         for (int i = 0; i < rooms.length; i++) {
             for (int j = 0; j < rooms[0].length; j++) {
@@ -52,7 +55,9 @@ public class WallsandGates {
     }
 
     private void dfs(int[][] rooms, int i, int j, int dis) {
-        if (i < 0 || i >= rooms.length || j < 0 || j >= rooms[0].length || rooms[i][j] < dis) return;
+        if (i < 0 || i >= rooms.length || j < 0 || j >= rooms[0].length 
+                || rooms[i][j] < dis) return;
+        //we set the distance first
         rooms[i][j] = dis;
         dfs(rooms, i - 1, j, dis + 1);
         dfs(rooms, i + 1, j, dis + 1);

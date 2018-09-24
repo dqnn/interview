@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : ValidNumber
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Sep, 2018
  * Description : TODO
  */
 public class ValidNumber {

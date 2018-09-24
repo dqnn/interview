@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : UTF8Validation
  * Creator : duqiang
- * Date : Jan, 2018
+ * Date : Sep, 2018
  * Description : 393. UTF-8 Validation
  */
 public class UTF8Validation {

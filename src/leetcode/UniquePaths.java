@@ -5,11 +5,20 @@ package leetcode;
  * Package Name : leetcode
  * File Name : UniquePaths
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Sep, 2018
  * Description : 62. Unique Paths
  */
 public class UniquePaths {
+/*
+A robot is located at the top-left corner of a m x n grid (marked 'Start' in the 
+diagram below).
 
+The robot can only move either down or right at any point in time. The robot is 
+trying to reach the bottom-right corner of the grid (marked 'Finish' in the diagram 
+below).
+
+How many possible unique paths are there?
+ */
     // time : O(n * m) space : (n * m)
     public int uniquePaths(int m, int n) {
         int[][] res = new int[m][n];
@@ -28,6 +37,7 @@ public class UniquePaths {
     }
 
     // time : O(n * m) space : O(n)
+    // this is something more on the res array duplicate computations
     public int uniquePaths2(int m, int n) {
         int[] res = new int[n];
         res[0] = 1;

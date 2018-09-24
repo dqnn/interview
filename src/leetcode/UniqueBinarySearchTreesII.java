@@ -31,6 +31,11 @@ public class UniqueBinarySearchTreesII {
      * @param n
      * @return
      */
+/*
+result[i] stores the result until length i. For the result for length i+1, 
+select the root node j from 0 to i, combine the result from left side and right side. 
+Note for the right side we have to clone the nodes as the value will be offsetted by j.
+ */
     public List<TreeNode> generateTrees(int n) {
         List<TreeNode>[] res = new List[n + 1];
         res[0] = new ArrayList<>();

@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : WaterandJugProblem
  * Creator : duqiang
- * Date : Jan, 2018
+ * Date : Sep, 2018
  * Description : 365. Water and Jug Problem
  */
 public class WaterandJugProblem {
@@ -59,13 +59,25 @@ public class WaterandJugProblem {
      * @return
      */
     public boolean canMeasureWater(int x, int y, int z) {
-        if (x + y < z) return false;
-        if (x == z || y == z || x + y == 2) return true;
-        return z % gcd(x, y) == 0;
+      //limit brought by the statement that water is finallly in one or both buckets
+        if(x + y < z) return false;
+        //case x or y is zero
+        if( x == z || y == z || x + y == z ) return true;
+        
+        //get GCD, then we can use the property of Bézout's identity
+        return z%gcd(x, y) == 0;
     }
 
     private int gcd(int a, int b) {
         if (b == 0) return a;
         return gcd(b, a % b);
+    }
+    public int gcd2(int x, int y) {
+        while ( y != 0) {
+            int temp = y;
+            y = x % y;
+            x = temp;
+        }
+        return x;
     }
 }

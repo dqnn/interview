@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.Stack;
+
 /**
  * Created by duqiang on 28/07/2017.
  */
@@ -82,5 +84,20 @@ What if the BST is modified (insert/delete operations) often and you need to fin
     public int countNodes(TreeNode node) {
         if (node == null) return 0;
         return 1 + countNodes(node.left) + countNodes(node.right);
+    }
+    
+    
+    public int kthSmallest3(TreeNode root, int k) {
+        Stack<TreeNode> stack = new Stack<>();
+        while(root != null || !stack.isEmpty()) {
+            while(root != null) {
+                stack.push(root);    
+                root = root.left;   
+            } 
+            root = stack.pop();
+            if(--k == 0) break;
+            root = root.right;
+        }
+        return root.val;
     }
 }
