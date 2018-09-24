@@ -74,6 +74,23 @@ space complexity. I might write this myself using O(n) time and O(1) space, but 
 This post is about what comes after that. We can use three-way partitioning to arrange the numbers so that those 
 larger than the median come first, then those equal to the median come next, and then those smaller than the median come last.
 
+procedure three-way-partition(A : array of values, mid : value):
+    i ← 0
+    j ← 0
+    n ← size of A - 1
+
+    while j ≤ n:
+        if A[j] < mid:
+            swap A[i] and A[j]
+            i ← i + 1
+            j ← j + 1
+        else if A[j] > mid:
+            swap A[j] and A[n]
+            n ← n - 1
+        else:
+            j ← j + 1
+
+
 Ordinarily, you'd then use one more phase to bring the numbers to their final positions to reach the overall 
 wiggle-property. But I don't know a nice O(1) space way for this. Instead, I embed this right into the partitioning 
 algorithm. That algorithm simply works with indexes 0 to n-1 as usual, but sneaky as I am, I rewire those indexes 

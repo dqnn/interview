@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : ZigZagConversion
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : 6. ZigZag Conversion
  */
 public class ZigZagConversion {

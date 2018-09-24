@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : WiggleSubsequence
  * Creator : duqiang
- * Date : Jan, 2018
+ * Date : Sep, 2018
  * Description : 376. Wiggle Subsequence
  */
 public class WiggleSubsequence {

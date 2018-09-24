@@ -7,7 +7,7 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : WordBreak
  * Creator : duqiang
- * Date : Sep, 2017
+ * Date : Sep, 2018
  * Description : 139. Word Break
  */
 public class WordBreak {
@@ -34,11 +34,20 @@ public class WordBreak {
      * @param wordDict
      * @return
      */
-
+    // thinking progress:
+    // the problem is say yse or no when wordDict contains substrings of s or not
+    
+    // typical DP, 0 <= j <i, 
+    // dp[j] means substring s[0, j] is in dic, so dp[i] = dp[j] && dic.conains(s[j,i)
+    
+    //key: 1. i = s.length() 
+    //2 i < i cannot be =
+    // for last char we have to access, we always use dp[n +1]
     public boolean wordBreak(String s, List<String> wordDict) {
         boolean[] dp = new boolean[s.length() + 1];
         dp[0] = true;
         for (int i = 1; i <= s.length(); i++) {
+            //we break because already find it, so we skip to next i
             for (int j = 0; j < i; j++) {
                 if (dp[j] && wordDict.contains(s.substring(j, i))) {
                     dp[i] = true;
