@@ -8,7 +8,7 @@ import java.util.HashSet;
  * Package Name : leetcode
  * File Name : WordPatternII
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Sep, 2018
  * Description : 291. Word Pattern II
  */
 public class WordPatternII {

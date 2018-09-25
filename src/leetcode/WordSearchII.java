@@ -8,7 +8,7 @@ import java.util.List;
  * Package Name : leetcode
  * File Name : WordSearchII
  * Creator : duqiang
- * Date : Dec, 2017
+ * Date : Sep, 2018
  * Description : 212. Word Search II
  */
 public class WordSearchII {

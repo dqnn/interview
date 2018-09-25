@@ -1,13 +1,14 @@
 package leetcode;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : WordPattern
  * Creator : duqiang
- * Date : Nov, 2017
+ * Date : Sep, 2018
  * Description : 290. Word Pattern
  */
 public class WordPattern {
@@ -28,7 +29,24 @@ public class WordPattern {
      * @param str
      * @return
      */
+    
+    
     public boolean wordPattern(String pattern, String str) {
+        String[] words = str.split(" ");
+        if (words.length != pattern.length())
+            return false;
+        Map index = new HashMap();
+        for (Integer i=0; i<words.length; ++i)
+            //the previous value associated with key, or null if there was no mapping for key. (A null return can also
+           //indicate that the map previously associated null with key, if the implementation supports 
+              //null values.)
+            if (index.put(pattern.charAt(i), i) != index.put(words[i], i))
+                return false;
+        return true;
+    }
+    
+    //this cannot pass
+    public boolean wordPattern2(String pattern, String str) {
        String[] arr = str.split(" ");
        if (arr.length != pattern.length()) {
            return false;

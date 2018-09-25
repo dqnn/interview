@@ -5,7 +5,7 @@ package leetcode;
  * Package Name : leetcode
  * File Name : WordSearch
  * Creator : duqiang
- * Date : Oct, 2017
+ * Date : Sep, 2018
  * Description : 79. Word Search
  */
 public class WordSearch {

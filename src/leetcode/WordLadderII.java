@@ -108,18 +108,19 @@ public class WordLadderII {
         return res;
     }
 
-    private void dfs(List<List<String>> res, List<String> list, HashMap<String, List<String>> map, String word, String start) {
-        if (word.equals(start)) {
-            list.add(0, start);
+    private void dfs(List<List<String>> res, List<String> list, HashMap<String, List<String>> map, String endWord, 
+            String startWord) {
+        if (endWord.equals(startWord)) {
+            list.add(0, startWord);
             res.add(new ArrayList<>(list));
             // list.remove(list.size - 1)
             list.remove(0);
             return;
         }
-        list.add(0, word);
-        if (map.get(word) != null) {
-            for (String s : map.get(word)) {
-                dfs(res, list, map, s, start);
+        list.add(0, endWord);
+        if (map.get(endWord) != null) {
+            for (String s : map.get(endWord)) {
+                dfs(res, list, map, s, startWord);
             }
         }
         list.remove(0);
