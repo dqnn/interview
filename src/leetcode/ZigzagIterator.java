@@ -25,7 +25,20 @@ public class ZigzagIterator {
      [4,5,6,7]
      [8,9]
      It should return [1,4,8,2,5,9,3,6,7].
+Follow up: What if you are given k 1d vectors? How well can your code be 
+extended to such cases?
 
+Clarification for the follow up question:
+The "Zigzag" order is not clearly defined and is ambiguous for k > 2 cases. 
+If "Zigzag" does not look right to you, replace "Zigzag" with "Cyclic". 
+For example:
+
+Input:
+[1,2,3]
+[4,5,6,7]
+[8,9]
+
+Output: [1,4,8,2,5,9,3,6,7].
      time : O(n)
      space : O(1)
 
@@ -71,6 +84,7 @@ public class ZigzagIterator {
     }
 
     public int next2() {
+        //remove the get the head
         Iterator poll = list.remove();
         int result = (Integer) poll.next();
         if (poll.hasNext()) {

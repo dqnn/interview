@@ -35,7 +35,15 @@ public class WordSearchII {
      * @param words
      * @return
      */
-
+//thinking process:
+    
+    // given a list words and 2D array of chars, visit in 2D board by adjacent cells, so output a list which lies 
+    //in words and board
+    
+    // we can use search path by brutal force, but that would not be efficient, so we created 
+    //triNode to improve
+    // so if board[i][j] match the char in triNode tree, then we continue, if not, we just 
+    //return from this path.
     public List<String> findWords(char[][] board, String[] words) {
         List<String> res = new ArrayList<>();
         TrieNode root = buildTrie(words);

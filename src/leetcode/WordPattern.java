@@ -35,11 +35,16 @@ public class WordPattern {
         String[] words = str.split(" ");
         if (words.length != pattern.length())
             return false;
-        Map index = new HashMap();
+        //here is the key, we don't want to use String as key because 
+        // abc  b c a, if this way, you will see a->b, b->a, 
+        Map<Object, Integer> index = new HashMap<>();
         for (Integer i=0; i<words.length; ++i)
             //the previous value associated with key, or null if there was no mapping for key. (A null return can also
            //indicate that the map previously associated null with key, if the implementation supports 
               //null values.)
+            
+            //we cannot use String.valueOf(Char) because if we change to string
+            // it will be the same as word[i] like b c a
             if (index.put(pattern.charAt(i), i) != index.put(words[i], i))
                 return false;
         return true;

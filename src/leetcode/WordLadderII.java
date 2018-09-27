@@ -54,7 +54,8 @@ public class WordLadderII {
      * @return
      */
 
-
+    //thinking process:
+    //how to think about this
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
         List<List<String>> res = new ArrayList<>();
         if (wordList.size() == 0) return res;
