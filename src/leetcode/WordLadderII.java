@@ -116,7 +116,9 @@ public class WordLadderII {
         dfs(res, new ArrayList<>(), map, endWord, beginWord);
         return res;
     }
-    //then we use dfs to visit the map to get begin to end string
+    //then we use dfs to visit the map to get begin to end string,
+    //we firstly visit the end word, and from end word to begin word and we always remove first one 
+    //as retreat
     private void dfs(List<List<String>> res, List<String> list, HashMap<String, List<String>> map, String endWord, 
             String startWord) {
         if (endWord.equals(startWord)) {
