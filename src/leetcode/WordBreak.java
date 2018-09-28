@@ -35,7 +35,7 @@ public class WordBreak {
      * @return
      */
     // thinking progress:
-    // the problem is say yse or no when wordDict contains substrings of s or not
+    // the problem is say yse or no when wordDict contains substrings of s or not space seperated
     
     // typical DP, 0 <= j <i, 
     // dp[j] means substring s[0, j] is in dic, so dp[i] = dp[j] && dic.conains(s[j,i)
@@ -48,6 +48,7 @@ public class WordBreak {
         dp[0] = true;
         for (int i = 1; i <= s.length(); i++) {
             //we break because already find it, so we skip to next i
+            // this for loop is mainly to verify j, i is in the dict or not
             for (int j = 0; j < i; j++) {
                 if (dp[j] && wordDict.contains(s.substring(j, i))) {
                     dp[i] = true;

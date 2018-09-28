@@ -65,7 +65,10 @@ Output:
     // index--> possible strings
     HashMap<Integer, List<String>> map = new HashMap<>();
 
-    // DFS
+    // thinking process:
+    // the problem is break s into words which should exists in dict
+    
+    //so 
     public List<String> wordBreak(String s, List<String> wordDict) {
         // last is index
         return dfs(s, wordDict, 0);

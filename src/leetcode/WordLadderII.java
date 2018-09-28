@@ -55,7 +55,13 @@ public class WordLadderII {
      */
 
     //thinking process:
-    //how to think about this
+    //the poblem is to give begin and endword, and diction, so we need to output the all 
+    //possible path of the transformation
+    
+    //we can use DFS to visit from the begin to end word
+    
+    // we use visited and unvisited set to record the string we have transformed. we use 
+    //Map<String, List<String> to record all possible trans
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
         List<List<String>> res = new ArrayList<>();
         if (wordList.size() == 0) return res;
@@ -91,6 +97,8 @@ public class WordLadderII {
                             list.add(word);
                             map.put(newWord, list);
                         }
+                        //if found then we don't need to visit again bcause there is 
+                        //no way repeated on same level we need to find another level
                         if (newWord.equals(endWord)) {
                             found = true;
                         }
@@ -108,7 +116,7 @@ public class WordLadderII {
         dfs(res, new ArrayList<>(), map, endWord, beginWord);
         return res;
     }
-
+    //then we use dfs to visit the map to get begin to end string
     private void dfs(List<List<String>> res, List<String> list, HashMap<String, List<String>> map, String endWord, 
             String startWord) {
         if (endWord.equals(startWord)) {
