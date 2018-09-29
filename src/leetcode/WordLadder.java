@@ -154,17 +154,9 @@ Explanation: The endWord "cog" is not in wordList, therefore no possible transfo
 ["hot","dot","dog","lot","log","cog"]
 
 
-shortSet-[hit]--q--[]--dic-[lot, log, dot, cog, hot, dog]
-shortSet-[hit]--q--[hot]--dic-[lot, log, dot, cog, dog]
 shortSet-[hit]--q--[hot]--dic-[lot, log, dot, cog, dog]
 shortSet-[hot]--q--[lot, dot]--dic-[log, cog, dog]
-shortSet-[hot]--q--[lot, dot]--dic-[log, cog, dog]
-shortSet-[hot]--q--[lot, dot]--dic-[log, cog, dog]
 shortSet-[cog]--q--[log, cog, dog]--dic-[]
-shortSet-[cog]--q--[log, cog, dog]--dic-[]
-shortSet-[cog]--q--[log, cog, dog]--dic-[]
-shortSet-[lot, dot]--q--[]--dic-[]
-shortSet-[lot, dot]--q--[]--dic-[]
  */
     //thinking process:
     //
@@ -209,6 +201,7 @@ shortSet-[lot, dot]--q--[]--dic-[]
                     chs[i] = ch;
                 }
             }
+            System.out.println(String.format("beginSet-%s--q--%s--dic-%s", beginSet, bRepSet, dict));
             beginSet = bRepSet;
         }
         return 0;

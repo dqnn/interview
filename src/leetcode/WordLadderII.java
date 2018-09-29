@@ -55,19 +55,24 @@ public class WordLadderII {
      */
 
     //thinking process:
-    //the poblem is to give begin and endword, and diction, so we need to output the all 
+    //the problem is to give begin and endword, and diction, so we need to output the all 
     //possible path of the transformation
     
     //we can use DFS to visit from the begin to end word
     
     // we use visited and unvisited set to record the string we have transformed. we use 
-    //Map<String, List<String> to record all possible trans
+    //Map<String, List<String> to record all possible word transformation, 
+    //unvisitedSet means the word in dicts we have not visited
+    //visitedSet means the word in dicts we have visited
+    
+    //we use visitedSet.add(newWord) to judge whether newWord was always in visited set or not. 
+    // we use curLevel as 
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
         List<List<String>> res = new ArrayList<>();
         if (wordList.size() == 0) return res;
-
-        int curNum = 1;
-        int nextNum = 0;
+        //this means current how many # of words in current q
+        int curQueNum = 1;
+        int nextQueNum = 0;
         boolean found = false;
 
         Queue<String> queue = new LinkedList<>();
@@ -79,17 +84,21 @@ public class WordLadderII {
         queue.offer(beginWord);
         while (!queue.isEmpty()) {
             String word = queue.poll();
-            curNum--;
+            curQueNum--;
             for (int i = 0; i < word.length(); i++) {
                 StringBuilder builder = new StringBuilder(word);
                 for (char ch = 'a'; ch <= 'z'; ch++) {
                     builder.setCharAt(i, ch);
                     String newWord = builder.toString();
+                    //this means it is reachable, so we need to record this into visit and remove from
+                    //unvisited set
                     if (unvisited.contains(newWord)) {
+                        //if visited does not have this word, so it would return true
                         if (visited.add(newWord)) {
-                            nextNum++;
                             queue.offer(newWord);
+                            nextQueNum++;
                         }
+                        // map has such newWord
                         if (map.containsKey(newWord)) {
                             map.get(newWord).add(word);
                         } else {
@@ -105,14 +114,19 @@ public class WordLadderII {
                     }
                 }
             }
-            if (curNum == 0) {
+//curNum是指当前queue里面单词的个数，每poll出一个单词时，curNum就减1，当curNum==0时，说明当前level处理完毕，
+            //准备要处理下一个level了，所以才将nextNum赋值给curNum
+            if (curQueNum == 0) {
                 if (found) break;
-                curNum = nextNum;
-                nextNum = 0;
+                curQueNum = nextQueNum;
+                nextQueNum = 0;
                 unvisited.removeAll(visited);
                 visited.clear();
             }
         }
+        //after all done, this would like to be
+        //map-{lot=[hot], log=[lot], dot=[hot], cog=[dog, log], hot=[hit], dog=[dot]}
+        //we always pass new ArrayList
         dfs(res, new ArrayList<>(), map, endWord, beginWord);
         return res;
     }
@@ -130,10 +144,12 @@ public class WordLadderII {
         }
         list.add(0, endWord);
         if (map.get(endWord) != null) {
+            //we search from map's list from one to another
             for (String s : map.get(endWord)) {
                 dfs(res, list, map, s, startWord);
             }
         }
+        //this removes first element which should be the tail of all these words
         list.remove(0);
     }
 }
