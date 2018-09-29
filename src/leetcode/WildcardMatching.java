@@ -54,34 +54,46 @@ public class WildcardMatching {
     // 1. we matched several chars and continue, 2 use cases, real char and *
     // 2. we meet star 
     // 3. does not match but previous has star so we continue move
+    
+    //the best example for this is 
+    //bbarc and b?*c, it contains all 3 use cases. 
+    
+    //use bbarc and b?*c as example, so if char at same position is not the same, 
     public boolean isMatch(String s, String p) {
         //sp means string s pointer
         int sp = 0;
         //pp means  string p pointer
         int pp = 0;
-        // match position in s
+        // match position index in s for star
         int match = 0;
-        // means the position of "*"
+        // means the position of "*" in p
         int star = -1;
         while (sp < s.length()) {
             //1 the chars are the same, 
             //2 p has ? so we can continue
             if (pp < p.length() && (s.charAt(sp) == p.charAt(pp) || p.charAt(pp) == '?')) {
+               //this is the place where only sp will move
                 sp++;
                 pp++;
-            //
+            //use case aaaaa ***a
+            //sp will stay at 0 in s, while pp will move to the end of p
             } else if (pp < p.length() && p.charAt(pp) == '*') {
                 star = pp;
                 match = sp;
                 pp++;
-            // so here stat can help to continue
+            // so here stat can help to continue until to end of s
             } else if (star != -1) {
+                //pp will stop next postion next to "*"
                 pp = star + 1;
+                //match means position in s move to next, like aaaaa ***a, match+ will move sp to 
+                //last char
                 match++;
+                //so here we need to match to tell sp to move to the position
                 sp = match;
             } else return false;
         }
-        // this means pp still stay at * position
+        // this means all left in p are all "*" since s already done, so 
+        //we reached to the end of this string
         while (pp < p.length() && p.charAt(pp) == '*') {
             pp++;
         }

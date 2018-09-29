@@ -46,6 +46,8 @@ public class WordSearchII {
     //return from this path.
     
     //bruth force is O(mn 4^k)
+    
+    //remember how to build triNode and how to search from it
     public List<String> findWords(char[][] board, String[] words) {
         List<String> res = new ArrayList<>();
         TrieNode root = buildTrie(words);
@@ -92,6 +94,7 @@ public class WordSearchII {
 
     class TrieNode {
         TrieNode[] next = new TrieNode[26];
+        //this was to mark it is the end of the string
         String word;
     }
 }
