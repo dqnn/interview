@@ -44,6 +44,8 @@ public class WordSearchII {
     //triNode to improve
     // so if board[i][j] match the char in triNode tree, then we continue, if not, we just 
     //return from this path.
+    
+    //bruth force is O(mn 4^k)
     public List<String> findWords(char[][] board, String[] words) {
         List<String> res = new ArrayList<>();
         TrieNode root = buildTrie(words);
