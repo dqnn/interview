@@ -68,11 +68,15 @@ public class WiggleSortII {
      */
 /*
 Explanation
-First I find a median using nth_element. That only guarantees O(n) average time complexity and I don't know about 
-space complexity. I might write this myself using O(n) time and O(1) space, but that's not what I want to show here.
+First I find a median using nth_element. That only guarantees O(n) average time complexity 
+and I don't know about 
+space complexity. I might write this myself using O(n) time and O(1) space, but that's 
+not what I want to show here.
 
-This post is about what comes after that. We can use three-way partitioning to arrange the numbers so that those 
-larger than the median come first, then those equal to the median come next, and then those smaller than the median come last.
+This post is about what comes after that. We can use three-way partitioning to arrange 
+the numbers so that those 
+larger than the median come first, then those equal to the median come next, and then 
+those smaller than the median come last.
 
 procedure three-way-partition(A : array of values, mid : value):
     i ← 0

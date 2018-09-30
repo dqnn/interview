@@ -80,10 +80,14 @@ public class WildcardMatching {
             } else if (pp < p.length() && p.charAt(pp) == '*') {
                 star = pp;
                 match = sp;
+                //so pp has to move to next char since current is * if not, this would be dead loop
                 pp++;
             // so here stat can help to continue until to end of s
             } else if (star != -1) {
                 //pp will stop next postion next to "*"
+                //s= "acdcb"  p = "a*c?b" this use cases, we have to make 
+                //pp always to stay behind * because if not, next time s char c = p char p, 
+                //and sp ++ and pp++, so this would be wrong
                 pp = star + 1;
                 //match means position in s move to next, like aaaaa ***a, match+ will move sp to 
                 //last char

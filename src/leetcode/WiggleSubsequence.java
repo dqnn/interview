@@ -1,5 +1,8 @@
 package leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
@@ -36,9 +39,29 @@ public class WiggleSubsequence {
      * @param nums
      * @return
      */
+    /*
+For every position in the array, there are only three possible statuses for it.
 
+up position, it means nums[i] > nums[i-1]
+down position, it means nums[i] < nums[i-1]
+equals to position, nums[i] == nums[i-1]
+So we can use two arrays up[] and down[] to record the max wiggle sequence length so far at index i.
+If nums[i] > nums[i-1], that means it wiggles up. the element before it must be a down position. so up[i] = down[i-1] + 1; down[i] keeps the same with before.
+If nums[i] < nums[i-1], that means it wiggles down. the element before it must be a up position. so down[i] = up[i-1] + 1; up[i] keeps the same with before.
+If nums[i] == nums[i-1], that means it will not change anything becasue it didn't wiggle at all. so both down[i] and up[i] keep the same.
+
+In fact, we can reduce the space complexity to O(1), but current way is more easy to understanding.
+             3    10      11     10    5    7
+up           1     2       2     2     2    4
+down         1     1       1     3    3     3   
+    */
+    //thinking process:
+    
+    //
     public int wiggleMaxLength(int[] nums) {
-        if (nums.length == 0) return 0;
+        if (nums == null || nums.length < 1) {
+            return 0;
+        }
         int[] up = new int[nums.length];
         int[] down = new int[nums.length];
 
@@ -61,7 +84,9 @@ public class WiggleSubsequence {
     }
 
     public int wiggleMaxLength2(int[] nums) {
-        if (nums.length == 0) return 0;
+        if (nums == null || nums.length < 1) {
+            return 0;
+        }
         int up = 1, down = 1;
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] > nums[i - 1]) {
@@ -72,4 +97,56 @@ public class WiggleSubsequence {
         }
         return Math.max(up, down);
     }
+    
+    //O(n^2) O(n)
+    public int wiggleMaxLength3(int[] nums) {
+        if (nums.length < 2)
+            return nums.length;
+        int[] up = new int[nums.length];
+        int[] down = new int[nums.length];
+        for (int i = 1; i < nums.length; i++) {
+            for(int j = 0; j < i; j++) {
+                if (nums[i] > nums[j]) {
+                    up[i] = Math.max(up[i],down[j] + 1);
+                } else if (nums[i] < nums[j]) {
+                    down[i] = Math.max(down[i],up[j] + 1);
+                }
+            }
+        }
+        return 1 + Math.max(down[nums.length - 1], up[nums.length - 1]);
+    }
+    
+    //another O(n) solutions
+    
+    // we use prediff means the previous diff between numbers, if prevdiff > 0 means we are 
+    //in increasing sequence, and we want to find decrease one, 
+    
+    //this is the way we can output the wiggle sequence
+    public int wiggleMaxLength4(int[] nums) { 
+        if (nums == null || nums.length < 1) {
+            return 0;
+        }
+        if (nums.length < 2) return nums.length;
+           
+        int prevdiff = nums[1] - nums[0];
+        int count = prevdiff != 0 ? 2 : 1;
+        List<Integer> res = new ArrayList<>();
+        if (count == 1) {
+            res.add(nums[1]);
+        } else {
+            res.add(nums[0]);
+            res.add(nums[1]);
+        }
+        for(int i = 2; i < nums.length; i++) {
+            int diff = nums[i] - nums[i-1];
+            if (diff > 0 && prevdiff <= 0 || diff < 0 && prevdiff >= 0) {
+                count += 1;
+                prevdiff = diff;
+                res.add(nums[i]);
+            }
+        }
+        System.out.println(res);
+        return res.size();
+       }
+
 }
