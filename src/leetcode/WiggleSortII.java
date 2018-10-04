@@ -145,27 +145,57 @@ to make the index rewiring simpler.
 
 
  */
-    public void wiggleSort2(int[] nums) {
+    // thinking process: 
+    // so the problem is asking to a < b > c, so we use kthLargestNumer to group the array
+    // large mid small, 
+    // we just need to re-range the array by some way
+/*
+Example:
+
+Original Indices:    0  1  2  3  4  5  6  7  8  9 10 11
+Mapped Indices:      1  3  5  7  9 11  0  2  4  6  8 10
+(its reverse mapping is)
+
+Mapped Indices:      0  1  2  3  4  5  6  7  8  9 10 11
+Original Indices:    6  0  7  1  8  2  9  3 10  4 11  5   (wiggled)
+
+ */
+    public static void wiggleSort2(int[] nums) {
+        // median is normal next one, so we want to find normal mid + 1 position, 
         int median = findKthLargest(nums, (nums.length + 1) / 2);
         int n = nums.length;
+        
         int left = 0, right = n - 1;
+        //array's index
         int index = 0;
+        //we use two pointers to swap, 
         while (index <= right) {
+            //so odd position is bigger than mid, so we exchange with left
+            System.out.println(Arrays.toString(nums));
             if (nums[newIndex(index, n)] > median) {
+                //swap odd position from left 
                 swap(nums, newIndex(left++, n), newIndex(index++, n));
             } else if (nums[newIndex(index, n)] < median) {
+                //swap even position 
                 swap(nums, newIndex(right--, n), newIndex(index, n));
             } else {
                 index++;
             }
         }
     }
-
-    private int newIndex(int index, int n) {
+    // this function is to fast get the idx 
+    private static int newIndex(int index, int n) {
+        // n | 1 means if n == odd, then it is same or it will be n+1
+        // 1 + 2 * index means the odd position
+        //note, from mid, it would be even number, see example above
         return (1 + 2 * index) % (n | 1);
     }
+    
+    public static void main(String[] args) {
+        wiggleSort2(new int[] {10,11,12,13,14,15,16,17,18});
+    }
 
-    public int findKthLargest(int[] nums, int k) {
+    public static int findKthLargest(int[] nums, int k) {
         if (nums == null || nums.length == 0) return 0;
         int left = 0;
         int right = nums.length - 1;
@@ -187,7 +217,7 @@ to make the index rewiring simpler.
     // we can swap them, and left++, right--, if element on left and right remain the correct group
     // then just move the pointer to next position, the return value means how many elements are 
     //bigger than value on left pointer
-    private int partition(int[] nums, int left, int right) {
+    private static int partition(int[] nums, int left, int right) {
         int pivot = nums[left];
         int l = left + 1;
         int r = right;
@@ -202,7 +232,7 @@ to make the index rewiring simpler.
         return r;
     }
 
-    private void swap(int[] nums, int i, int j) {
+    private static void swap(int[] nums, int i, int j) {
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
