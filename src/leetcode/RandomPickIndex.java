@@ -98,7 +98,7 @@ to get the random number 0 among {0,1,2,3} in the loop where i = 4, so the proba
 
 总体要求：从N个元素中随机的抽取k个元素，其中N无法确定，保证每个元素抽到的概率相同
 
-  1）当n<=k时，出现在pool中的每个元素概率都是相同的，都为1 
+  1）当n<=k时(总体数目 比 K要小，每一个都会被抽中)，出现在pool中的每个元素概率都是相同的，都为1 
     2）当n=k+1时,计算前k个元素在pool的概率 
     ==a==.前k个元素在pool中的元素概率都为1 
     ==b==.由假设得，第k+1个元素被选中的概率为：k/(k+1)，pool任意元素被替换的概率为(k/(k+1))*(1/k)=1/(k+1)，
@@ -124,8 +124,7 @@ to get the random number 0 among {0,1,2,3} in the loop where i = 4, so the proba
         Random r = new Random();
          
         // Iterate from the (k+1)th element to nth element
-        for (; i < n; i++)
-        {
+        for (; i < n; i++) {
             // Pick a random index from 0 to i.
             int j = r.nextInt(i + 1);
              
@@ -133,7 +132,7 @@ to get the random number 0 among {0,1,2,3} in the loop where i = 4, so the proba
             // then replace the element present at the index
             // with new element from stream
             if(j < k)
-                reservoir[j] = stream[i];            
+                reservoir[j] = stream[i];
         }
          
         System.out.println("Following are k randomly selected items");

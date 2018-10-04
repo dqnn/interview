@@ -12,7 +12,8 @@ import java.util.Arrays;
  */
 public class WiggleSortII {
     /**
-     * Given an unsorted array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]....
+     * Given an unsorted array nums, reorder it such that 
+     * nums[0] < nums[1] > nums[2] < nums[3]....
 
      Example:
      (1) Given nums = [1, 5, 1, 1, 6, 4], one possible answer is [1, 4, 1, 5, 1, 6].
@@ -29,6 +30,13 @@ public class WiggleSortII {
 
      * @param nums
      */
+    //thking process:
+    
+    // so the question is to want to have 1 small number, 1 big number, 1 small 1 big
+    // x1 < x2 > x3 < x4 > x5, so if we sort, we can see x1,x3, x5 are in a group because they 
+    //all smaller then x2 and x4, so we use (len - 1) / 2 as mid so we can arrange the array
+    // first one as 0 then last one(n - 1 -i) as second, we just loop to the mid then stop, 
+    //and copy the element to original one
     public void wiggleSort(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;
@@ -95,17 +103,22 @@ procedure three-way-partition(A : array of values, mid : value):
             j ← j + 1
 
 
-Ordinarily, you'd then use one more phase to bring the numbers to their final positions to reach the overall 
-wiggle-property. But I don't know a nice O(1) space way for this. Instead, I embed this right into the partitioning 
-algorithm. That algorithm simply works with indexes 0 to n-1 as usual, but sneaky as I am, I rewire those indexes 
-where I want the numbers to actually end up. The partitioning-algorithm doesn't even know that I'm doing that, 
-it just works like normal (it just uses A(x) instead of nums[x]).
+Ordinarily, you'd then use one more phase to bring the numbers to their final positions 
+to reach the overall 
+wiggle-property. But I don't know a nice O(1) space way for this. Instead, 
+I embed this right into the partitioning 
+algorithm. That algorithm simply works with indexes 0 to n-1 as usual, but sneaky as I am,
+ I rewire those indexes 
+where I want the numbers to actually end up. The partitioning-algorithm doesn't even know 
+that I'm doing that, it just works like normal (it just uses A(x) instead of nums[x]).
 
-Let's say nums is [10,11,...,19]. Then after nth_element and ordinary partitioning, we might have this (15 is my median):
+Let's say nums is [10,11,...,19]. Then after nth_element and ordinary partitioning, 
+we might have this (15 is my median):
 
 index:     0  1  2  3   4   5  6  7  8  9
 number:   18 17 19 16  15  11 14 10 13 12
-I rewire it so that the first spot has index 5, the second spot has index 0, etc, so that I might get this instead:
+I rewire it so that the first spot has index 5, the second spot has index 0, etc, 
+so that I might get this instead:
 
 index:     5  0  6  1  7  2  8  3  9  4
 number:   11 18 14 17 10 19 13 16 12 15
@@ -125,7 +138,9 @@ Accessing A(7) actually accesses nums[4].
 Accessing A(8) actually accesses nums[6].
 Accessing A(9) actually accesses nums[8].
 
-Props to apolloydy's solution, I knew the partitioning algorithm already but I didn't know the name. And apolloydy's idea to partition to reverse order happened to make the index rewiring simpler.
+Props to apolloydy's solution, I knew the partitioning algorithm already 
+but I didn't know the name. And apolloydy's idea to partition to reverse order happened 
+to make the index rewiring simpler.
 
 
 
@@ -165,7 +180,13 @@ Props to apolloydy's solution, I knew the partitioning algorithm already but I d
             }
         }
     }
-
+    //this function will partition the array, [10,11,....19]-->[19,18,17,16...11] so it would have 
+    // 2 groups and then big and small group which means left are all bigger than right group
+    // process: 
+    // loop from left to right, if we find nums[left] < pivot nums[right] > pivot then 
+    // we can swap them, and left++, right--, if element on left and right remain the correct group
+    // then just move the pointer to next position, the return value means how many elements are 
+    //bigger than value on left pointer
     private int partition(int[] nums, int left, int right) {
         int pivot = nums[left];
         int l = left + 1;
