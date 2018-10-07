@@ -26,6 +26,8 @@ public class ValidParentheses {
      * @param s
      * @return
      */
+    //thinking process: 
+    // 
     public static boolean isValid(String s) {
 
         if (s == null || s.length() == 0) return true;

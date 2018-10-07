@@ -23,6 +23,12 @@ public class ValidateBinarySearchTree {
      * @return
      */
 
+    //thinking process: 
+    
+    // so we want to left and right compare to root node
+    // we use min and max object to each unit tree, when we visit the tree, if left node, we need to compare it bigger 
+    //than root then return false, and for right, smaller than root, then recursive on these two nodes, 
+    // for left, max = root.val, min inherited, for right, min = root.val and max inherited 
     public static boolean isValidBST(TreeNode root) {
 
         if (root == null) return true;
@@ -50,23 +56,26 @@ public class ValidateBinarySearchTree {
         return isValidBST(root.left, minVal, root.val) && isValidBST(root.right, root.val, maxVal);
     }
     
-    
+    // this is using stack to in-order visit the tree
     public boolean isValidBST3(TreeNode root) {
         if (root == null) return true;
         Stack<TreeNode> stack = new Stack<>();
         TreeNode pre = null;
+        //this templates is pre-visit the tree, so 
         while (root != null || !stack.isEmpty()) {
+            //we go to most left
            while (root != null) {
               stack.push(root);
               root = root.left;
            }
+           //get most left child
            root = stack.pop();
+           // here is to check previous node in stack by pre-visit should be smaller 
            if(pre != null && root.val <= pre.val) return false;
            pre = root;
+           //ask root to be right, In order visit the tree, then we can compare in next loop
            root = root.right;
         }
         return true;
      }
-    
-    
 }

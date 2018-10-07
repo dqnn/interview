@@ -31,12 +31,15 @@ public class ValidPalindrome {
         int left = 0;
         int right = s.length() - 1;
         while (left < right) {
+            //move pointer to right if not character
             while (left < right && !Character.isLetterOrDigit(s.charAt(left))) {
                 left++;
             }
+            //move pointer to left if not character 
             while (left < right && !Character.isLetterOrDigit(s.charAt(right))) {
                 right--;
             }
+            //test if they match
             if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
                 return false;
             }
