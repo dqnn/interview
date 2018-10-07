@@ -50,6 +50,9 @@ public class VerifyPreorderSequenceinBinarySearchTree {
             if (num < min) {
                 return false;
             }
+            //so at this time, (pre-visit)peek always means parent node(left child is null) or 
+            //left child node,
+            //so this is to verify that its right element should be bigger than parent or left child
             while (!stack.isEmpty() && num > stack.peek()) {
                 min = stack.pop();
             }

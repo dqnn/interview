@@ -17,7 +17,7 @@ public class WallsandGates {
 
      -1 - A wall or an obstacle.
      0 - A gate.
-     INF - Infinity means an empty room. We use the value 231 - 1 = 2147483647 to represent INF as you may assume
+     INF - Infinity means an empty room. We use the value 2^31 - 1 = 2147483647 to represent INF as you may assume
      that the distance to a gate is less than 2147483647.
      Fill each empty room with the distance to its nearest gate. If it is impossible to reach a gate,
      it should be filled with INF.
@@ -36,8 +36,8 @@ Fill each empty room with the distance to its nearest gate. If it is impossible 
      1  -1   2  -1
      0  -1   3   4
 
-     time : O(m * n)
-     space : O(m * n)
+     time : O(4^n)
+     space : O(4^n)
 
      * @param rooms
      */
@@ -56,6 +56,7 @@ Fill each empty room with the distance to its nearest gate. If it is impossible 
 
     private void dfs(int[][] rooms, int i, int j, int dis) {
         if (i < 0 || i >= rooms.length || j < 0 || j >= rooms[0].length 
+                // gate is -1, dis is at least 0 so it is good
                 || rooms[i][j] < dis) return;
         //we set the distance first
         rooms[i][j] = dis;

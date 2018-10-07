@@ -12,7 +12,8 @@ import java.util.Stack;
  */
 public class VerifyPreorderSerializationofaBinaryTree {
     /**
-     * One way to serialize a binary tree is to use pre-order traversal. When we encounter a non-null node, we record the node's value. If it is a null node, we record using a sentinel value such as #.
+     * One way to serialize a binary tree is to use pre-order traversal. When we encounter a non-null node, 
+     * we record the node's value. If it is a null node, we record using a sentinel value such as #.
 
           _9_
          /   \
@@ -67,12 +68,15 @@ in degree. If the node is not null, we increase diff by 2, because it provides t
 correct, diff should never be negative and diff will be zero when finished.
  */
     
-    //diff = out degree - in degree, finallu it should be 0
+    //diff = out degree - in degree, finally it should be 0
     public boolean isValidSerialization(String preorder) {
         if (preorder == null || preorder.length() < 1) return true;
         String[] nodes = preorder.split(",");
+        // initialize the diff value as 1, so root node can be handled as common nodes
         int diff = 1;
         for (String node : nodes) {
+            //next node is always child, so we bring input degree, so we minus 1,
+            //if it is #, then it would only -1, which means every node it would -1
             if (--diff < 0) {
                 return false;
             }
@@ -90,22 +94,31 @@ correct, diff should never be negative and diff will be zero when finished.
         // if so, pop #, pop the number in a while loop, until top of stack is not #
         // if not, push it to stack
         // in the end, check if stack size is 1, and stack top is #
-        if (preorder == null) {
+        if (preorder == null || preorder.length() < 1) {
             return false;
         }
         Stack<String> st = new Stack<>();
         String[] strs = preorder.split(",");
         for (int pos = 0; pos < strs.length; pos++) {
             String curr = strs[pos];
+            /*
+                   4
+                  / \
+                 #   #
+             this loop first add left # into stack, then right # comes, we found 
+             stack.peek() already is # then we need to pop left #, parent 4. 
+             */
+            // this loop is mainly used in visiting tree, it provides a way to 
             while (curr.equals("#") && !st.isEmpty() && st.peek().equals(curr)) {
                 st.pop();
                 if (st.isEmpty()) {
                     return false;
                 }
-                st.pop();
+                st.pop(); //eject parent node, 
             }
             st.push(curr);
         }
+        //at last we put 6 right # into stack.
         return st.size() == 1 && st.peek().equals("#");
     }
 }
