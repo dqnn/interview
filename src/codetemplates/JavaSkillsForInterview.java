@@ -12,11 +12,26 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
+import java.util.SortedMap;
 import java.util.Stack;
+import java.util.TreeMap;
 
 public class JavaSkillsForInterview {
 
     public static void main(String[] args) {
+        
+        TreeMap<Integer, String> t = new TreeMap<>();
+        t.put(1, "a");
+        t.put(2, "b");
+        t.put(3, "c");
+        t.put(4, "d");
+        t.put(5, "e");
+        //subMap(K fromKey,K toKey) inclusive, exclusive, output: 1=a, 2=b
+        System.out.println("subMap:" + t.subMap(1, 3));
+        //ubMap(K fromKey, boolean fromInclusive, K toKey, boolean toInclusive), 
+        System.out.println("subMap:" + t.subMap(1, true, 3, true)); // 1=a, 2=b, 3 = c
+        //tailMap<K> return >= k view
+        System.out.println("subMap:" + t.tailMap(2)); //2=b, 3 = c 4=d  5= e
         // String
         String s = "abc";
         s.charAt(0);
@@ -30,8 +45,8 @@ public class JavaSkillsForInterview {
         s.lastIndexOf("a");
         s.indexOf("a", 1);
         s.toCharArray();
-        Integer.valueOf(s); // returns an Integer object
-        Integer.parseInt(s); // returns an int primitive
+        //Integer.valueOf(s); // returns an Integer object
+        //Integer.parseInt(s); // returns an int primitive
         String.valueOf(s); // integer to string
         // StringBuilder
 
