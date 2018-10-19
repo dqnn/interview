@@ -57,19 +57,19 @@ public class OutOfBoundaryPaths {
                     for (int[] d : dirs) {
                         int nr = r + d[0];
                         int nc = c + d[1];
+                        //outside
                         if (nr < 0 || nr >= m || nc < 0 || nc >= n) {
                             // 
                             result = (result + count[r][c]) % MOD;
-                        }
-                        else {
+                        } else {//inside the matrix
                             temp[nr][nc] = (temp[nr][nc] + count[r][c]) % MOD;
                         }
                     }
                 }
             }
+            //we change the DP 2D array to the temp one
             count = temp;
         }
-        
         return result;
     }
     
