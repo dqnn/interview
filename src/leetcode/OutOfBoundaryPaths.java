@@ -1,5 +1,8 @@
 package leetcode;
 /*
+ * author Denny Du 
+ * Date 10/18/2018
+576. Out of Boundary Paths
 There is an m by n grid with a ball. Given the start coordinate (i,j) of the ball, 
 you can move the ball to adjacent cell or cross the grid boundary in four 
 directions (up, down, left, right). However, you can at most move N times. 
