@@ -43,7 +43,19 @@ Fill each empty room with the distance to its nearest gate. If it is impossible 
      */
 
     // space : O(n)
-    // this is templates for backtracking mark distance
+    // thinking process:
+    
+    //this problem is to say in a 2D array, 
+    //we have 3 types of elements, INF empty room, -1 means wall, 0 means gate
+    // so we need to find for each room, the smallest steps to gate, 
+    // each move(4 directions) will be 1. and mark each room with steps to nearest gate
+    
+    //we can start from each room, and we use BFS to visit each gate and get the nearest one. 
+    //another way is to visit by dfs, we start from gate, and record each steps in each room until 
+    //we find next shorter ones
+    
+    //dfs exit condition: rooms[i][j] < dis , dis start value is 0. and we set room value 
+    //in dfs function
     public void wallsAndGates(int[][] rooms) {
         for (int i = 0; i < rooms.length; i++) {
             for (int j = 0; j < rooms[0].length; j++) {

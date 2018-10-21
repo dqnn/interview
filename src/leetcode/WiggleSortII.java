@@ -30,13 +30,16 @@ public class WiggleSortII {
 
      * @param nums
      */
-    //thking process:
+    //thinking process:
     
     // so the question is to want to have 1 small number, 1 big number, 1 small 1 big
     // x1 < x2 > x3 < x4 > x5, so if we sort, we can see x1,x3, x5 are in a group because they 
     //all smaller then x2 and x4, so we use (len - 1) / 2 as mid so we can arrange the array
     // first one as 0 then last one(n - 1 -i) as second, we just loop to the mid then stop, 
     //and copy the element to original one
+    
+    //Note: the reason why this problem cannot use Wigger sort 1 because it has no = so if we use 
+    //x1 <= x2 in if, they are still equals, so we cannot use one loop
     public void wiggleSort(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;
