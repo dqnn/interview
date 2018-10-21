@@ -59,7 +59,7 @@ public class OutOfBoundaryPaths {
                         int nc = c + d[1];
                         //outside
                         if (nr < 0 || nr >= m || nc < 0 || nc >= n) {
-                            // 
+                            // count[r][c] how many ways to r c, result currently how many
                             result = (result + count[r][c]) % MOD;
                         } else {//inside the matrix
                             temp[nr][nc] = (temp[nr][nc] + count[r][c]) % MOD;
