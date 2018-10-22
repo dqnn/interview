@@ -27,8 +27,9 @@ public class UniqueWordAbbreviation {
      1
      1---5----0
      d) l|ocalizatio|n          --> l10n
-     Assume you have a dictionary and given a word, find whether its abbreviation is unique in the dictionary.
-     A word's abbreviation is unique if no other word from the dictionary has the same abbreviation.
+     Assume you have a dictionary and given a word, find whether its abbreviation is 
+     unique in the dictionary.A word's abbreviation is unique if no other 
+     word from the dictionary has the same abbreviation.
 
      Example:
      Given dictionary = [ "deer", "door", "cake", "card" ] "make"
@@ -45,6 +46,11 @@ public class UniqueWordAbbreviation {
     HashMap<String, String> map;
 
     // time : O(n)
+    // so the problem is to implement isUnique API to say whether this word's abbreviation is 
+    //in the dictionary, 
+    
+    //firstly we add words into Map, and if key are the same and original string are different,
+    //then we would use "" to update the string
     public UniqueWordAbbreviation(String[] dictionary) {
         map = new HashMap<>();
         for (String s : dictionary) {

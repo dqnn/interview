@@ -29,6 +29,7 @@ public class ValidNumber {
     //thinking process:
     // the problem is validate a string is numberic, like 0, 0.1, 2e10, -10, +10
     //only these types
+    // so special case is point, e and number
     // 
     public boolean isNumber(String s) {
         s = s.trim();

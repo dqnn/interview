@@ -37,6 +37,10 @@ your solution to such case?
      */
 
     //time : O(nlogn) space : O(n)
+    //thinking process:
+    //the problem is to say, change the order of chars in s could be t. 
+    
+    //so we can sort and do string compare
     public boolean isAnagram(String s, String t) {
         if (s.length() != t.length()) {
             return false;
@@ -49,6 +53,8 @@ your solution to such case?
     }
 
     //time : O(n) space : O(1)
+    //another we can do char count, we can compare each char count is the same or we 
+    //just reduce them to 0, and validate each one
     public boolean isAnagram2(String s, String t) {
         if (s.length() != t.length()) {
             return false;

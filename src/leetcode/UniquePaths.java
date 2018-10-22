@@ -20,6 +20,15 @@ below).
 How many possible unique paths are there?
  */
     // time : O(n * m) space : (n * m)
+    
+    //thinking process:
+    
+    //the problem is to say, a robot in top-left, he can move down or right, so how many unique paths
+    // from too-left to right bottom
+    
+    //first row and first column are marked 1. 
+    // then visit each in res, res[i][j] = res[i-1][j] + res[i][j-1]
+    //last we return res[m-1][n-1]
     public int uniquePaths(int m, int n) {
         int[][] res = new int[m][n];
         for (int i = 0; i < m; i++) {
