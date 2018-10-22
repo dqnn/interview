@@ -12,8 +12,10 @@ import java.util.Stack;
  */
 public class VerifyPreorderSerializationofaBinaryTree {
     /**
-     * One way to serialize a binary tree is to use pre-order traversal. When we encounter a non-null node, 
-     * we record the node's value. If it is a null node, we record using a sentinel value such as #.
+One way to serialize a binary tree is to use pre-order traversal. 
+When we encounter a non-null node, 
+we record the node's value. If it is a null node, we record using a sentinel 
+value such as #.
 
           _9_
          /   \
@@ -57,8 +59,8 @@ public class VerifyPreorderSerializationofaBinaryTree {
      */
     // thinking process:
 /*
-Some used stack. Some used the depth of a stack. Here I use a different perspective. In a binary tree, if we consider 
-null as leaves, then
+Some used stack. Some used the depth of a stack. Here I use a different perspective. In a binary tree, 
+if we consider null as leaves, then
 
 all non-null node provides 2 outdegree and 1 indegree (2 children and 1 parent), except root
 all null node provides 0 outdegree and 1 indegree (0 child and 1 parent).
