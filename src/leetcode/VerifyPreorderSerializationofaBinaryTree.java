@@ -71,6 +71,8 @@ correct, diff should never be negative and diff will be zero when finished.
  */
     
     //diff = out degree - in degree, finally it should be 0
+    
+    // only need to think about two use cases: ordinary and leaf nodes: 
     public boolean isValidSerialization(String preorder) {
         if (preorder == null || preorder.length() < 1) return true;
         String[] nodes = preorder.split(",");
