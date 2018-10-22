@@ -24,6 +24,7 @@ Output: false
 public class ValidPerfectSquare {
 
     // time : O(n) space : O(1)
+    // this is to reduce the complexity of num, we use num / i
     public boolean isPerfectSquare(int num) {
         if (num < 0) return false;
         if (num == 1) return true;

@@ -27,7 +27,9 @@ public class ValidParentheses {
      * @return
      */
     //thinking process: 
-    // 
+    
+    //the problem is to validate the parentthese are valid, so we use a stack to store the 
+    //correspondence parenthese in the stack and compare each with input
     public static boolean isValid(String s) {
 
         if (s == null || s.length() == 0) return true;

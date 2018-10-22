@@ -16,7 +16,8 @@ Each row must contain the digits 1-9 without repetition.
 Each column must contain the digits 1-9 without repetition.
 Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.
 
-The Sudoku board could be partially filled, where empty cells are filled with the character '.'.
+The Sudoku board could be partially filled, 
+where empty cells are filled with the character '.'.
 
 Example 1:
 
@@ -38,6 +39,17 @@ public class ValidSudoku {
 
 
     // time : O(n^2) space : O(n)
+    // thinking process:
+    // the problem is to say i want to validate 3 rules on a 2D matrix, row, column and 3x3 cell 
+    // only contains 1-9 digits
+    
+    
+    //so for rule validating problems and this is 2D matrix, so we should consider backtracking immediately, 
+    // in solution 1, we use 3 Set when visiting each column, 
+    // we leverage set.add() to return false or true to determine whether set contains
+    //this number or not. so you can see 3 if clause. 
+    
+    //also note how to calc the coordination of cubes, column index and row index 
     public boolean isValidSudoku1(char[][] board) {
         //row scan mode to 
         for (int i = 0; i < board.length; i++) {
@@ -59,7 +71,7 @@ public class ValidSudoku {
         }
         return true;
     }
-
+    //
     public boolean isValidSudoku2(char[][] board) {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {

@@ -26,6 +26,16 @@ public class ValidPalindrome {
      * @param s
      * @return
      */
+    
+    //thinking process:
+    // the problem is to validate a string is alphanumeric and ignore cases, 
+    //like space, comma
+    // first we want to compare from both sides, we can try two pointers, 
+    
+    //so if we encounter char which is not letter or digits, we just left++,
+    //and if right not, we can right--.
+    //so we compare each character if they are not equals, we return false, if true, we continue
+    //at last, left++ and right--;
     public static boolean isPalindrome(String s) {
         if (s == null || s.length() == 0) return true;
         int left = 0;

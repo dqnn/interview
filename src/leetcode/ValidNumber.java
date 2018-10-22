@@ -26,7 +26,10 @@ public class ValidNumber {
      * @param s
      * @return
      */
-
+    //thinking process:
+    // the problem is validate a string is numberic, like 0, 0.1, 2e10, -10, +10
+    //only these types
+    // 
     public boolean isNumber(String s) {
         s = s.trim();
         boolean numberSeen = false;
