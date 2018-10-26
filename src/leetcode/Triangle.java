@@ -79,6 +79,9 @@ public class Triangle {
             int[] res = new int[triangle.size() + 1];
             for (int i = triangle.size() - 1; i >= 0; i--) {
                 for (int j = 0; j < triangle.get(i).size(); j++) {
+                    //so we start from last level, it will be same as last level
+                    //when go above, min(res[j], res[j+1])  + above level i, j, 
+                    //for example res[1] = min(res[1], res[2]) + above level 1; 
                     res[j] = Math.min(res[j], res[j + 1]) + triangle.get(i).get(j);
                 }
             }

@@ -96,6 +96,8 @@ With the above explanation and formulas, here is the implementation in Java.
     
     // anothr solution but it is the same
     //total = left num of BST *  right num of BST
+    //interview friendly
+    // 
     public int numTrees2(int n) {
         return numTrees(1, n, new int[n]);
     }

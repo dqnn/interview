@@ -42,7 +42,11 @@ Input is within the 32-bit signed integer range: [−231,  231 − 1].
      * @param num
      * @return
      */
-
+    // thinking process: we only think about num is 2, 3, 5 numbers, so
+    // firstly we thinking about edge case, then we use 3 while loop to make sure they can be 
+    // % 2, 3,5, last check it equals 1 or not. 
+    
+    //this is math problem
     public boolean isUgly(int num) {
         if (num == 1) return true;
         if (num == 0) return false;

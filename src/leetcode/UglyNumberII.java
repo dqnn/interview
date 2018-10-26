@@ -28,6 +28,11 @@ n does not exceed 1690.
      * @param n
      * @return
      */
+    //thinking ptocess: Math problem, so we want to know a number is 2,3,5 factors, given n, we want to know n-th number
+    //so we start from 1, and we use that number to multiple 2,3,5, every loop on i->(1,n) we use Math.min to get smallest number
+    
+    //we use 3 pointers to say index2, index3, index5 so if nums[i] equals to the number multiple 2, 3 or 5, then we 
+    //move pointer to next integer
     public int nthUglyNumber(int n) {
         int[] nums = new int[n];
         int index2 = 0, index3 = 0, index5 = 0;

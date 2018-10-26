@@ -77,19 +77,35 @@ Note for the right side we have to clone the nodes as the value will be offsette
         return cur;
     }
 
+    //interview frinendly:
+    
+    //thinking process:
+    //so the problem is to get list of root node of BST tree which contains 1->n nodes, 
+    //so if consider each number i will be root node, then left(0, i -1) and right i+1, n, we can 
+    //recursively setup the tree. 
+    
+    //if we think about top down, we can easily to have recursive for loop to construct the n-child tree
+    //for each unit, left child and right child, 
     public List<TreeNode> generateTrees2(int n) {
         if (n == 0) return new ArrayList<>();
         return genTreeList(1, n);
     }
 
+    // Tree structure, the tree has n child tree
     public List<TreeNode> genTreeList(int start, int end) {
         List<TreeNode> list = new ArrayList<>();
+        //note: this is exit condition, and note we add null into list because left or right child maybe null
+        //and we need to assign them to child tree, null left and right is allowable
         if (start > end) {
             list.add(null);
         }
         for (int idx = start; idx <= end; idx++) {
+            //we split the range into two parts and we recursive on each part by genTreeList() 
+            // note the for loop here is perfect
             List<TreeNode> leftList = genTreeList(start, idx - 1);
             List<TreeNode> rightList = genTreeList(idx + 1, end);
+            //for each left child, we add the into list
+            //two loops to setup left and right tree with idx as root
             for (TreeNode left : leftList) {
                 for (TreeNode right : rightList) {
                     TreeNode root = new TreeNode(idx);
