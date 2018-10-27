@@ -81,7 +81,12 @@ public class Triangle {
                 for (int j = 0; j < triangle.get(i).size(); j++) {
                     //so we start from last level, it will be same as last level
                     //when go above, min(res[j], res[j+1])  + above level i, j, 
-                    //for example res[1] = min(res[1], res[2]) + above level 1; 
+                    //for example res[1] = min(res[1], res[2]) + above level n-2 and j = 0; 
+                    // j starts from 0, so we min(res[0], res[1]) + number[j],
+                    //if we are in one level above, then we use lower level number min 
+                    //between to plus current ones
+                    
+                    // j and j+1 are adjacent numbers
                     res[j] = Math.min(res[j], res[j + 1]) + triangle.get(i).get(j);
                 }
             }

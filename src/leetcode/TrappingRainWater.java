@@ -1,6 +1,5 @@
 package leetcode;
 
-import java.util.Arrays;
 import java.util.Stack;
 
 /**
@@ -49,7 +48,7 @@ if current height of left is lower, we fill water in the left bin. Until left me
 we filled the whole container.
 */
     public int trap(int[] height) {
-        if (height == null || height.length < 1) {
+        if (height == null || height.length < 3) {
             return 0;
         }
         
@@ -57,6 +56,10 @@ we filled the whole container.
         int leftMax = 0, rightMax = 0;
         int res = 0;
         while(left < right) {
+            //we scan from left to right and find the max bin, 
+            //the max maybe current one or previous one, so res will be means how much can fill the gaps
+            
+            //so if right will be taller so one side wall, 
             if (height[left] < height[right]) {
                 leftMax = Math.max(height[left], leftMax);
                 res += leftMax - height[left];
