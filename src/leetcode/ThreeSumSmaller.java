@@ -35,15 +35,26 @@ Follow up: Could you solve it in O(n2) runtime?
      * @param target
      * @return
      */
-
+    //thinking process:
+    
+    // the problem is to state how many combinations that sum of 3 numbers in nums small than
+    //target, 
+    
+    //we use a for and while loop to get the answer
+    //
     public int threeSumSmaller(int[] nums, int target) {
         int res = 0;
         Arrays.sort(nums);
+        // i max =  nums.length - 3 becz left is i + 1, so left max is nums.length - 2
+        //right will be last,so we don't need overlap
         for (int i = 0; i < nums.length - 2; i++) {
             int left = i + 1;
             int right = nums.length - 1;
+            //left is i + 1, right is last one
             while (left < right) {
                 if (nums[i] + nums[left] + nums[right] < target) {
+                    //we use right-left, since we find all numbers 
+                    //between it is correct
                     res += right - left;
                     left++;
                 } else right--;

@@ -15,7 +15,9 @@ import java.util.PriorityQueue;
  */
 public class ThirdMaximumNumber {
     /**
-     * Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).
+     * Given a non-empty array of integers, return the third maximum number in this array.
+     *  If it does not exist, return the maximum number. 
+     *  The time complexity must be in O(n).
 
      Example 1:
      Input: [3, 2, 1]
@@ -90,8 +92,6 @@ public class ThirdMaximumNumber {
         if (nums == null || nums.length < 1) {
             return 0;
         }
-        
-        
         int len = nums.length - 1;
         if (len <= 1) {
             Arrays.sort(nums);
@@ -100,10 +100,11 @@ public class ThirdMaximumNumber {
         // Integer used to assigned value or not
         Integer max3 = null, max2 = null, max1 = null;
         for(Integer num : nums) {
+            //it does affect the order so just continue
             if (nums.equals(max3) || nums.equals(max2) || nums.equals(max1)) {
                 continue;
             }
-            
+
             if (max3 == null || (num > max3)) {
                 max1 = max2;
                 max2 = max3;

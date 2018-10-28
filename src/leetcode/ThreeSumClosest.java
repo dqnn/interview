@@ -23,6 +23,10 @@ public class ThreeSumClosest {
      * @param target
      * @return
      */
+    //thnking process:
+    //the problem is get the closet sum to the target
+    
+    //so we need to 
     public int threeSumClosest(int[] nums, int target) {
         int res = nums[0] + nums[1] + nums[nums.length - 1];
         Arrays.sort(nums);

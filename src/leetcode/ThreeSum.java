@@ -42,6 +42,7 @@ public class ThreeSum {
             while (low < high) {
                 if (nums[low] + nums[high] == sum) {
                     res.add(Arrays.asList(nums[i], nums[low], nums[high]));
+                    //we move since we found many dup
                     while (low < high && nums[low] == nums[low + 1]) low++;
                     while (low < high && nums[high] == nums[high - 1]) high--;
                     low++;
