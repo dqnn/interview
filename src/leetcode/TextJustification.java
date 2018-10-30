@@ -44,18 +44,20 @@ public class TextJustification {
      * @return
      */
   //thinking process: 
-    // the problem is word array and length of each line, so we want to form a list of strings, each string has max width, and 
-    //there is spaces between strings, and maybe more spaces than any other strings in on line
+    // the problem is given string array and length of each line, so we want to form a list of strings, each string has max width, and 
+    //there is spaces between each word, and maybe more spzaces than any other strings in on line
+    //each word has to be one same line, last line will be left justified
     
     // so first we need to know some edge cases, then return list of "" 
     // then we use index as pointer to indicate whther we have reached to the end of the string
     // inside first loop, we have another pointer last to indicate for the result, we have scan from index to last, 
     
     // after inside loop, we want to 
-    // detect whthe we reached to end of string w, if yes, then we just add to result and return; 
+    // detect whether we reached to end of string w, if yes, then we just add to result and return; 
     //if not the last line, then we need to know how many width we left, use maxWidth - len of string including spaces. 
-    // so from here we could know if we append string in w into stringbuilder that's not efficient, so fistly we calc index and last
-    // and how many spaces are there, if spacesNUm % num != 0 which means some are more than another so we want to add each space more than another
+    // so from here we could know if we append string in w into stringbuilder that's not efficient, so firstly 
+    //we calc index and last and how many spaces are there, if spacesNUm % num != 0 which means some 
+    //are more than another so we want to add each space more than another
     
     //with all these above info together, we can try to write the code 
     public List<String> fullJustify(String[] w, int maxWidth) {
@@ -74,7 +76,7 @@ public class TextJustification {
                 if (w[last].length() + count + 1 > maxWidth) {
                     break;
                 }
-                // + 1 because we want to calc the space
+                // + 1 because we want to calc the blank space
                 count += 1 + w[last++].length();
             }
             StringBuilder sb = new StringBuilder();
@@ -107,7 +109,7 @@ public class TextJustification {
                     if (r-- > 0) {
                         sb.append(" ");
                     }
-                    //append one more space
+                    //append one more space because previous count already plus 1 space
                     sb.append(" ");
                     //append the word
                     sb.append(w[i]);
