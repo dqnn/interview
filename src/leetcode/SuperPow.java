@@ -10,7 +10,8 @@ package leetcode;
  */
 public class SuperPow {
     /**
-     * Your task is to calculate ab mod 1337 where a is a positive integer and b is an extremely
+     * Your task is to calculate ab mod 1337 where a is a positive 
+     * integer and b is an extremely
      * large positive integer given in the form of an array.
 
      a^b%1337
@@ -50,7 +51,8 @@ public class SuperPow {
         if (length == 1) {
             return powMod(a, b[0], k);
         }
-        return powMod(superPow(a, b, length - 1, k), 10, k) * powMod(a, b[length - 1], k) % k;
+        return powMod(superPow(a, b, length - 1, k), 10, k) 
+                * powMod(a, b[length - 1], k) % k;
     }
 
     private int powMod(int x, int y, int k) {
