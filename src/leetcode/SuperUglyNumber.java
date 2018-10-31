@@ -27,7 +27,7 @@ public class SuperUglyNumber {
      * @param primes
      * @return
      */
-
+    //thinking process: 
     public int nthSuperUglyNumber(int n, int[] primes) {
         int[] res = new int[n];
         res[0] = 1;
@@ -36,7 +36,7 @@ public class SuperUglyNumber {
         for (int i = 0; i < primes.length; i++) {
             pq.add(new Num(primes[i], 1, primes[i]));
         }
-
+        //for loop contains a while loop, templates 
         for (int i = 1; i < n; i++) {
             res[i] = pq.peek().val;
             while (pq.peek().val == res[i]) {

@@ -35,11 +35,18 @@ public class SwapNodesinPairs {
         dummy.next = head;
         ListNode l1 = dummy;
         ListNode l2 = head;
+        //dummy->1->2->3->4
+        // head points to 1
         while (l2 != null && l2.next != null) {
+            //move to next start, start point to 3
             ListNode nextStart = l2.next.next;
+            // dummy point to 2
             l1.next = l2.next;
+            // l2.next.next point to 3,so 2 here will point to 1
             l2.next.next = l2;
+            // head move to point to 3
             l2.next = nextStart;
+            
             l1 = l2;
             l2 = l2.next;
         }
