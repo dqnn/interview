@@ -59,7 +59,13 @@ Initialization: dp[i][0] = 1
 
 Once you figure out all these, it's easy to write out the code:
  */
+    //thinking process:
     
+    //the problem is to say coins = [1,2,5] and amount =12
+    //how many combinations we have assume coins are unlimited
+    
+    //dp[i][j], i means coins value, j means amount, whole means how many
+    //combinations if we use i to form j
     public int change3(int amount, int[] coins) {
         int[][] dp = new int[coins.length+1][amount+1];
         dp[0][0] = 1;
@@ -72,8 +78,9 @@ Once you figure out all these, it's easy to write out the code:
         }
         return dp[coins.length][amount];
     }
+    //thinking about this way:
     
-    
+    //dp[i] += dp[i -coin], 
     public int change2(int a, int[] c) {
         if (a <= 0)
             return 1;

@@ -6,9 +6,12 @@ package leetcode;
 
 /*
  * 495. Teemo Attacking
- * In LOL world, there is a hero called Teemo and his attacking can make his enemy Ashe be in poisoned condition. Now, given the Teemo's attacking ascending time series towards Ashe and the poisoning time duration per Teemo's attacking, you need to output the total time that Ashe is in poisoned condition.
+ * In LOL world, there is a hero called Teemo and his attacking can make his enemy Ashe be in 
+ * poisoned condition. Now, given the Teemo's attacking ascending time series towards Ashe and the poisoning 
+ * time duration per Teemo's attacking, you need to output the total time that Ashe is in poisoned condition.
 
-You may assume that Teemo attacks at the very beginning of a specific time point, and makes Ashe be in poisoned condition immediately.
+You may assume that Teemo attacks at the very beginning of a specific time point, and makes Ashe be in poisoned 
+condition immediately.
 
 Example 1:
 Input: [1,4], 2
@@ -32,7 +35,7 @@ You may assume the numbers in the Teemo's attacking time series and his poisonin
  */
 
 //thinking process:
-//so this problem is asking for time period which is in poision status 
+//so this problem is asking for time period which is in poision status, if we 
 // 
 class TeemoAttacking {
     public int findPoisonedDuration(int[] timeSeries, int duration) {
@@ -40,14 +43,12 @@ class TeemoAttacking {
         if (timeSeries == null || timeSeries.length < 1) {
             return 0;
         }
-        
         int len = timeSeries.length - 1;
-        
         if (len == 0) {
             return duration;
         }
         
-        int sum = duration; // since starts from 1
+        int sum = duration; // since starts from 1, at least we have two elements
         for (int i = 1; i <= len; i++) {
             if (timeSeries[i] - timeSeries[i - 1] >= duration) {
                 sum += duration;

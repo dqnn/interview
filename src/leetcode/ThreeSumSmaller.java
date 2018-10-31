@@ -44,6 +44,7 @@ Follow up: Could you solve it in O(n2) runtime?
     //
     public int threeSumSmaller(int[] nums, int target) {
         int res = 0;
+        //we sort first then we can use two pointers to move
         Arrays.sort(nums);
         // i max =  nums.length - 3 becz left is i + 1, so left max is nums.length - 2
         //right will be last,so we don't need overlap
