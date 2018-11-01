@@ -16,7 +16,19 @@ public class StrobogrammaticNumber {
 
      Write a function to determine if a number is strobogrammatic. The number is represented as a string.
 
-     For example, the numbers "69", "88", and "818" are all strobogrammatic.
+Example 1:
+
+Input:  "69"
+Output: true
+Example 2:
+
+Input:  "88"
+Output: true
+Example 3:
+
+Input:  "962"
+Output: false
+
 
      time : O(n)
      space : O(n)
@@ -24,6 +36,9 @@ public class StrobogrammaticNumber {
      * @param num
      * @return
      */
+    //thinking process:
+    
+    //the problems is to say rotate all numbers 180, so look at upside, it would be same as before
     public boolean isStrobogrammatic(String num) {
         HashMap<Character, Character> map = new HashMap<>();
         map.put('6', '9');

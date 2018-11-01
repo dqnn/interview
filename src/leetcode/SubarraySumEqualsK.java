@@ -53,7 +53,9 @@ k = pre_j - pre_i =>
 k - pre_j = - pre_i =>
 pre_j - k = pre_i.
 
-But in this problem we don't explicitly store presums in an array. Instead @shawngao uses the variable 'sum' to store the presum computed up the current iteration of the algorithm. Basically sum represents pre_j in the algorithm.
+But in this problem we don't explicitly store presums in an array. Instead @shawngao uses the 
+variable 'sum' to store the presum computed up the current iteration of the algorithm. 
+Basically sum represents pre_j in the algorithm.
 
 In other words we can replace pre_j with the variable sum.
 

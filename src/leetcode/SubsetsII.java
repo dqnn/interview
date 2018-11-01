@@ -46,6 +46,8 @@ public class SubsetsII {
         helper(res, new ArrayList<>(), nums, 0);
         return res;
     }
+    //if we did not return after adding to result which means 
+    // we would have permuatations
     public static void helper(List<List<Integer>> res, List<Integer> list, int[] nums, int index) {
         if (nums == null || index < 0 || index >= nums.length) {
             return;
