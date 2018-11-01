@@ -13,7 +13,8 @@ import java.util.Set;
 public class SubsetsII {
     /**
      * 90. Subsets II
-     * Given a collection of integers that might contain duplicates, nums, return all possible subsets.
+     * Given a collection of integers that might contain duplicates, nums, 
+     * return all possible subsets.
 
      Note: The solution set must not contain duplicate subsets.
 
@@ -46,6 +47,9 @@ public class SubsetsII {
         return res;
     }
     public static void helper(List<List<Integer>> res, List<Integer> list, int[] nums, int index) {
+        if (nums == null || index < 0 || index >= nums.length) {
+            return;
+        }
         res.add(new ArrayList<>(list));
         for (int i = index; i < nums.length; i++) {
             if (i != index && nums[i] == nums[i - 1]) continue;
