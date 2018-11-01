@@ -43,6 +43,12 @@ public class SuperPow {
      * @param b
      * @return
      */
+    //thinking process: this problem is to find out a^[b array] % 1337
+    
+    //so (a*b)%c = (a%c * b%c)%c, so we here use recursive way to
+    // get the answer
+    
+    //
     public int superPow(int a, int[] b) {
         return superPow(a, b, b.length, 1337);
     }
@@ -51,6 +57,7 @@ public class SuperPow {
         if (length == 1) {
             return powMod(a, b[0], k);
         }
+        //this is the same as for loop,we use length-1 as variable 
         return powMod(superPow(a, b, length - 1, k), 10, k) 
                 * powMod(a, b[length - 1], k) % k;
     }

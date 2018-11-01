@@ -26,7 +26,11 @@ public class SumRoottoLeafNumbers {
      * @param root
      * @return
      */
-
+    //so typical dfs and binary tree ops, sum of tree path top-bottom
+    
+    // 1. helper return value, best is to use class field, not return 
+    //anything. 
+    //2 exit conditions
     public int sumNumbers(TreeNode root) {
         return helper(root, 0);
     }

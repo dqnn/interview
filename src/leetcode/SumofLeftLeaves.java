@@ -26,7 +26,8 @@ public class SumofLeftLeaves {
           /  \
          15   7
 
-     There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.
+     There are two left leaves in the binary tree, with 
+     values 9 and 15 respectively. Return 24.
 
      time : O(n);
      space : O(n);
@@ -64,7 +65,7 @@ public class SumofLeftLeaves {
         return res;
     }
     
-    
+    //we always pass a flag to lowerlevel that you are left child
     int res = 0;
     public int sumOfLeftLeaves3(TreeNode root) {
         helper(root, false);
