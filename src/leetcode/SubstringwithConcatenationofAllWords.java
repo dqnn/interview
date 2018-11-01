@@ -21,9 +21,19 @@ public class SubstringwithConcatenationofAllWords {
      * concatenation of each word
      * in words exactly once and without any intervening characters.
 
-     For example, given:
-     s: "barfoothefoobarman"
-     words: ["foo", "bar"]
+Input:
+  s = "barfoothefoobarman",
+  words = ["foo","bar"]
+Output: [0,9]
+Explanation: Substrings starting at index 0 and 9 are "barfoo" 
+and "foobar" respectively.
+The output order does not matter, returning [9,0] is fine too.
+Example 2:
+
+Input:
+  s = "wordgoodstudentgoodword",
+  words = ["word","student"]
+Output: []
 
      You should return the indices: [0,9].
      (order does not matter).
@@ -62,12 +72,14 @@ public class SubstringwithConcatenationofAllWords {
             return res;
         }
         Map<String, Integer> map = new HashMap<>();
+        //len is dictionalry words lengths sum
         int len = 0;
         for(String temp : words) {
             map.put(temp, map.getOrDefault(temp, 0) + 1);
             len += temp.length();
         }
         int n = words.length;
+        //
         for(int i = 0; i <= s.length() - len; i++) {
             Map<String, Integer> copy = new HashMap<>(map);
             int j = i, k = 0;

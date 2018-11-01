@@ -61,7 +61,8 @@ public class ValidSudoku {
                 if (board[i][j] != '.' && !rows.add(board[i][j])) return false;
                 // here we have a trick, stablize i and loop on column as j. 
                 if (board[j][i] != '.' && !cols.add(board[j][i])) return false;
-                //cube index calc
+                //cube index calc，and this is base, the big cell index in
+                //9x9 matrix
                 int rowIndex = 3 * (i / 3);
                 int colIndex = 3 * (i % 3);
 
