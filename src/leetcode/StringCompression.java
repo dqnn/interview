@@ -28,7 +28,9 @@ public class StringCompression {
      ["a","a","b","b","c","c","c"]
 
      Output:
-     Return 6, and the first 6 characters of the input array should be: ["a","2","b","2","c","3"]
+     Return 6, and the first 6 
+     characters of the input array should be: 
+     ["a","2","b","2","c","3"]
 
      Explanation:
      "aa" is replaced by "a2". "bb" is replaced by "b2". "ccc" is replaced by "c3".
@@ -37,7 +39,8 @@ public class StringCompression {
      ["a"]
 
      Output:
-     Return 1, and the first 1 characters of the input array should be: ["a"]
+     Return 1, and the first 1 characters of the input 
+     array should be: ["a"]
 
      Explanation:
      Nothing is replaced.
@@ -46,10 +49,12 @@ public class StringCompression {
      ["a","b","b","b","b","b","b","b","b","b","b","b","b"]
 
      Output:
-     Return 4, and the first 4 characters of the input array should be: ["a","b","1","2"].
+     Return 4, and the first 4 characters of the input array 
+     should be: ["a","b","1","2"].
 
      Explanation:
-     Since the character "a" does not repeat, it is not compressed. "bbbbbbbbbbbb" is replaced by "b12".
+     Since the character "a" does not repeat, it is not compressed. 
+     "bbbbbbbbbbbb" is replaced by "b12".
      Notice each digit has it's own entry in the array.
 
      time : O(n)
@@ -58,7 +63,10 @@ public class StringCompression {
      * @param chars
      * @return
      */
-
+    //thinking process:
+    //the problem is to compress chars in array which char is duplicate 
+    
+    //
     public int compress(char[] chars) {
         int res = 0, index = 0;
         while (index < chars.length) {

@@ -31,13 +31,14 @@ public class StrobogrammaticNumberII {
      * @return
      */
     //thinking process:
-    // so if n = 1, will output 3 strings, n is the length of the string
-    // so it is more like palidrome, since we have limited numbers
-    //which has such character, so we need  a map. 
+    //the problem is to output list of strobogrammatic numbers 
+    //which is length less than n
     
-    // we use recursive to solve this problem from 1,6,8, 0
-    //n stands for length of string, m is parameter to decide 
-    //whether we are at outest digit, it would not 0 there. 
+    //so from I we can know there will two pointers, but here if we continue to use two pointers, 
+    //we need several for loop and base n = 1 to solve this problem, TODO: why we use recursive instead of for loop
+    
+    //here we use different way to solve this problem, we use f(n) = 4 * f(n - 2), the anonying part is to handle 
+    // "0" case, so if it is not the outest loop, then we need to add "0" as valid case, if it is, then we do not need 
     public List<String> findStrobogrammatic(int n) {
         return helper(n, n);
     }
@@ -45,6 +46,7 @@ public class StrobogrammaticNumberII {
         if (n == 0) return new ArrayList<>(Arrays.asList(""));
         if (n == 1) return new ArrayList<>(Arrays.asList("0", "1", "8"));
 
+        // n - 2 because 
         List<String> list = helper(n - 2, m);
         List<String> res = new ArrayList<>();
         //note: list at least has 1 size, "" 
@@ -53,6 +55,7 @@ public class StrobogrammaticNumberII {
             String s = list.get(i);
             //It is to disallow zeros as first and last digit. 
             //We want numbers of length 'n'.
+            //because in next loop, it maybe add 1 outside 0 s 0
             if (n != m) {
                 res.add("0" + s + "0");
             }

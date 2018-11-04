@@ -15,6 +15,11 @@ public class StringtoInteger {
      * @param str
      * @return
      */
+    // this problem is to translate from string to int
+    //1 is to detect + -
+    //2 is to use res * 10 + char - '0'
+    //result is Long
+    //if some char is not digit, then we stop there
     public int myAtoi(String str) {
         if (str == null || str.length() == 0) return 0;
         str = str.trim();
@@ -33,6 +38,7 @@ public class StringtoInteger {
             if (!Character.isDigit(str.charAt(i))) {
                 return (int) res * sign;
             }
+            //this is the computations
             res = res * 10 + str.charAt(i) - '0';
             if (sign == 1 && res > Integer.MAX_VALUE) return  Integer.MAX_VALUE;
             if (sign == -1 && res > Integer.MAX_VALUE) return Integer.MIN_VALUE;
