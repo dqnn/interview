@@ -16,6 +16,7 @@ public class Sqrt {
      * @param x
      * @return
      */
+    //we use logx to identify the result
     public int mySqrt(int x) {
         if (x <= 0) return 0;
         int low = 1, high = x;

@@ -64,9 +64,11 @@ public class StringCompression {
      * @return
      */
     //thinking process:
-    //the problem is to compress chars in array which char is duplicate 
+    //the problem is to compress chars in array which char is 
+    //duplicate 
     
-    //
+    //we use a two while to locate where we can stop, note, this way, 
+    //index will point to next char
     public int compress(char[] chars) {
         int res = 0, index = 0;
         while (index < chars.length) {
@@ -77,6 +79,7 @@ public class StringCompression {
                 count++;
             }
             chars[res++] = cur;
+            //handle not 1 case
             if (count != 1) {
                 for (char c : String.valueOf(count).toCharArray()) {
                     chars[res++] = c;
