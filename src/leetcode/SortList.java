@@ -10,7 +10,8 @@ package leetcode;
  */
 public class SortList {
     /**
-     * Sort a linked list in O(n log n) time using constant space complexity.
+     * Sort a linked list in O(n log n) time using constant space 
+     * complexity.
      *
      * time : O(nlogn)
      * space : O(n)
@@ -18,7 +19,8 @@ public class SortList {
      * @param head
      * @return
      */
-
+    //thinking process:
+    //
     public ListNode sortList(ListNode head) {
         if (head == null || head.next == null) return head;
         ListNode middle = getMiddle(head);

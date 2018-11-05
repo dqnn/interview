@@ -16,7 +16,12 @@ public class Sqrt {
      * @param x
      * @return
      */
-    //we use logx to identify the result
+    //we use logx to identify the result，
+    
+    //in a sorted array, binary search is most efficient
+    
+    //please note we use bianry search first templates, low <=high
+    //and last we handle high + 1 = low
     public int mySqrt(int x) {
         if (x <= 0) return 0;
         int low = 1, high = x;

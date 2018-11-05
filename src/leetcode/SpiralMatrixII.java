@@ -12,7 +12,7 @@ public class SpiralMatrixII {
 
     /**
      *Given an integer n, generate a square matrix 
-     *filled with elements from 1 to n2 in spiral order.
+     *filled with elements from 1 to n^2 in spiral order.
      *
 
      For example,
@@ -31,7 +31,12 @@ public class SpiralMatrixII {
      * @param n
      * @return
      */
-
+    //thinking process: 
+    //so the problem is to output n*n matrix from 1-n, 
+    //we do not need to if (colB <= colE) because we know it is 
+    // nxn matrix. 
+    //I need these two if becuase their colE and rowE are different,
+    //so we need 
     public int[][] generateMatrix(int n) {
 
         int[][] matrix = new int[n][n];
