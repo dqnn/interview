@@ -20,7 +20,12 @@ public class SortList {
      * @return
      */
     //thinking process:
-    //
+    //to sort a linkedList, we firstly find its middle node, then 
+    //we recursively sort two parts and merge them together, so 
+    //we need sort(ListNode head), merge(ListNode, ListNode) and 
+    // findMiddle(ListNode)  these are all common ops for LinkedList
+    
+    //remembered all ops
     public ListNode sortList(ListNode head) {
         if (head == null || head.next == null) return head;
         ListNode middle = getMiddle(head);
@@ -32,6 +37,7 @@ public class SortList {
     private ListNode getMiddle(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
+        //this is to judge fast reaches the end
         while (fast.next != null && fast.next.next != null) {
             slow = slow.next;
             fast = fast.next.next;
