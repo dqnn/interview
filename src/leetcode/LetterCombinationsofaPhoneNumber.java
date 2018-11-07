@@ -1,8 +1,11 @@
 package leetcode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 
 /**
@@ -61,6 +64,41 @@ public class LetterCombinationsofaPhoneNumber {
             }
         }
         return res;
+    }
+    //another DFS way
+    public List<String> letterCombinations3(String digits) {
+        List<String> res = new ArrayList<>();
+        if (digits == null || digits.length() < 1) {
+            return res;
+        }
+        Map<String, List<String>> map = new HashMap<>();
+        map.put("2", new ArrayList<>(Arrays.asList("a", "b", "c")));
+        map.put("3", new ArrayList<>(Arrays.asList("d", "e", "f")));
+        map.put("4", new ArrayList<>(Arrays.asList("g", "h", "i")));
+        map.put("5", new ArrayList<>(Arrays.asList("j", "k", "l")));
+        map.put("6", new ArrayList<>(Arrays.asList("m", "n", "o")));
+        map.put("7", new ArrayList<>(Arrays.asList("p", "q", "r", "s")));
+        map.put("8", new ArrayList<>(Arrays.asList("t", "u", "v")));
+        map.put("9", new ArrayList<>(Arrays.asList("w", "x", "y", "z")));
+        
+        helper(res, new StringBuilder(), digits, map, 0);
+            
+        return res;
+    }
+    
+    private void helper(List<String> res, StringBuilder temp, String origin, Map<String, List<String>> map, int index) {
+        if (index == origin.length()) {
+            res.add(temp.toString());
+            return;
+        }
+        // 2-> a,b,c  3-> d,e,f
+        //
+        List<String> charStr = map.get(String.valueOf(origin.charAt(index)));
+        for(String str : charStr) {
+                temp.append(str);
+                helper(res, temp, origin, map, index + 1);
+                temp.deleteCharAt(temp.length() - 1);
+        }
     }
 
 }

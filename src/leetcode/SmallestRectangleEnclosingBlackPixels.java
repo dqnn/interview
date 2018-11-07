@@ -49,8 +49,7 @@ public class SmallestRectangleEnclosingBlackPixels {
     // so our width left, right, height is bottom and top
     // left is min of j and right is max of j
     // height top is min of i and bottom is max of i since y --> down
-    
-    
+
     // how can we improve this, 
     // so still same as above, we want to get 4 coordinations, 
     // but we find a way faster than above, since one point is given, 
@@ -67,6 +66,7 @@ public class SmallestRectangleEnclosingBlackPixels {
         int col = image[0].length;
         
         int left = binarySearchLeft(image, 0, y, true);
+        //find right part
         int right = binarySearchRight(image, y, col - 1, true);
 
         int top = binarySearchLeft(image, 0, x, false);
@@ -79,6 +79,7 @@ public class SmallestRectangleEnclosingBlackPixels {
         while (left + 1 < right) {
             int mid = (right - left) / 2 + left;
             // this means there was black point in this straight line, 
+            //isHor means isHorizonte
             if (hasBlack(image, mid, isHor)) {
                 right = mid;
             } else {
@@ -95,6 +96,7 @@ public class SmallestRectangleEnclosingBlackPixels {
     private int binarySearchRight(char[][] image, int left, int right, boolean isHor) {
         while (left + 1 < right) {
             int mid = (right - left) / 2 + left;
+            //means we have black points
             if (hasBlack(image, mid, isHor)) {
                 left = mid;
             } else {

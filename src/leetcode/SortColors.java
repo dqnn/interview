@@ -35,18 +35,21 @@ Could you come up with a one-pass algorithm using only constant space?
      * @param nums
      */
     //thinking process:
-    //since we only have 0, 1, 2 three types of data, so 0 mnust be put in first places, 
+    //since we only have 0, 1, 2 three types of data, so 0 must be put in first places, 
     // we use left to indicate current position is for 0
     // right to indicate position is for 2
     // 1 still there
+    
+    //this is like partition sort， 3 pointer templates
     public void sortColors(int[] nums) {
         if (nums == null || nums.length == 0) return;
         // indicate 0 count
         int left = 0;
-        //indicate 2 index
+        //indicate 2 count
         int right = nums.length - 1;
         int index = 0;
         while (index <= right) {
+            //
             if (nums[index] == 0) {
                 swap(nums, index++, left++);
             } else if (nums[index] == 1) {
