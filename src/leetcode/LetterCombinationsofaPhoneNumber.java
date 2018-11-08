@@ -46,7 +46,8 @@ public class LetterCombinationsofaPhoneNumber {
             helper(res, digits, pre + letters.charAt(i), idx + 1);
         }
     }
-    // non recursive way 
+    // non recursive way, this templates is the same 
+    //as prime number example, Super ugly number
     public List<String> letterCombinations2(String digits) {
         LinkedList<String> res = new LinkedList<>();
         if (digits == null || digits.length() == 0) {
@@ -56,6 +57,8 @@ public class LetterCombinationsofaPhoneNumber {
         res.add("");
         for (int i = 0; i < digits.length(); i++) {
             int num = digits.charAt(i) - '0';
+            //this is the key which to say the first string length
+            //is the same as i，it is like a gate
             while (res.peek().length() == i) {
                 String t = res.remove();
                 for (char s : mapping[num].toCharArray()) {
