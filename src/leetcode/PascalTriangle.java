@@ -26,7 +26,7 @@ public class PascalTriangle {
 
 
      time : O(n^2)
-     space : O(n)
+     space : O(n^2)
 
      * @param numRows
      * @return
@@ -44,7 +44,9 @@ public class PascalTriangle {
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < numRows; i++) {
             // this structure is good
+            //we insert 1 into head of list
             list.add(0, 1);
+            //the loop is to add middle parts except first and last element
             for (int j = 1; j < list.size() - 1; j++) {
                 list.set(j, list.get(j) + list.get(j + 1));
             }
