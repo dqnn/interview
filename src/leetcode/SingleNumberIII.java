@@ -37,6 +37,9 @@ public class SingleNumberIII {
      * @param nums
      * @return
      */
+    //thinking process: two numbers appear once while others appear twice, find the two numbers
+    
+    //
     public int[] singleNumber(int[] nums) {
         int diff = 0;
         for (int num : nums) {
