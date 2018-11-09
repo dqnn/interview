@@ -13,9 +13,12 @@ import java.util.LinkedList;
  */
 public class SlidingWindowMaximum {
     /**
-Given an array nums, there is a sliding window of size k which is moving from the very 
-left of the array to the very right. You can only see the k numbers in the window. 
-Each time the sliding window moves right by one position. Return the max sliding window.
+Given an array nums, there is a sliding window of size k which 
+is moving from the very 
+left of the array to the very right. You can only see the 
+k numbers in the window. 
+Each time the sliding window moves right by one position. 
+Return the max sliding window.
 
 Example:
 
@@ -34,6 +37,7 @@ Window position                Max
 Note: 
 You may assume k is always valid, 1 ≤ k ≤ input array's size for non-empty array.
 
+direct solution will be O(nk), but we want O(n)
 Follow up:
 Could you solve it in linear time?
      Deque : 存的是index 从大到小排序
@@ -94,13 +98,14 @@ Could you solve it in linear time?
         if (in == null || in.length < 1) {
            return in;
        }
-       final int[] max_left = new int[in.length];
-       final int[] max_right = new int[in.length];
+        int[] max_left = new int[in.length];
+        int[] max_right = new int[in.length];
 
        max_left[0] = in[0];
        max_right[in.length - 1] = in[in.length - 1];
 
-       //scan from left
+       //scan from left and right in one pass
+       //we use i % w == 0 to detect boundary of the sliding window
        for (int i = 1; i < in.length; i++) {
            max_left[i] = (i % w == 0) ? in[i] : Math.max(max_left[i - 1], in[i]);
 

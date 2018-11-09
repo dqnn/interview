@@ -10,7 +10,8 @@ package leetcode;
  */
 public class SingleNumber {
     /**
-     * Given an array of integers, every element appears twice except for one. Find that single one.
+     * Given an array of integers, every element appears twice except for one. 
+     * Find that single one.
      *
      * ^ : 异或 : 相同为0，不同为1
      * 1 1 : 0
