@@ -27,6 +27,17 @@ public class SimplifyPath {
      * @param path
      * @return
      */
+    //interview friendly
+    //thinking process: we use a stack to calculate the "real path", such 
+    //like "././" will ignore ., also for ".././../" in stack,
+    //we will pop and calculate the correct last path
+    
+    //there are 1 edge case
+    //1 in /, we still /../../../.. actually we will stop at / 
+    //2 stack has nothing which means the input is just / or .. to top
+    
+    //so we parse the text into a stack
+    //and we form the correct path from stack
     public String simplifyPath(String path) {
         if (path == null || path.length() < 1) {
             return "";
@@ -42,10 +53,12 @@ public class SimplifyPath {
                 stack.push(s);
             }
         }
+        //output from back to front
         String res = "";
         while (!stack.isEmpty()) {
             res = "/" + stack.pop() + res;
         }
+        //note, here is one edge case 
         if (res.length() == 0) {
             return "/";
         }

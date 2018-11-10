@@ -9,6 +9,7 @@ import java.util.Random;
  * Creator : duqiang
  * Date : Sep, 2018
  * Description : TODO
+ * Tags: Math, Permutations
  */
 public class ShuffleanArray {
     /**
@@ -17,7 +18,8 @@ public class ShuffleanArray {
      int[] nums = {1,2,3};
      Solution solution = new Solution(nums);
 
-     // Shuffle the array [1,2,3] and return its result. Any permutation of [1,2,3] must equally likely to be returned.
+     // Shuffle the array [1,2,3] and return its result. 
+      * Any permutation of [1,2,3] must equally likely to be returned.
      solution.shuffle();
 
      // Resets the array back to its original configuration [1,2,3].
@@ -48,7 +50,8 @@ public class ShuffleanArray {
     public int[] shuffle() {
         if (nums == null) return null;
         int[] clone = nums.clone();
-        // so here is the key, how can we have same probability to generate the permutations
+        // so here is the key, how can we have same probability to 
+        //generate the permutations
         //sampling algorithms here
         for (int i = 1; i < clone.length; i++) {
             int random = rmd.nextInt(i + 1);
