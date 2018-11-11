@@ -50,7 +50,9 @@ public class ShortestWordDistance {
         return res;
     }
 
-    //time : O(n);
+    //time : O(n)， interview friendly, so 
+    // we only want to get res when a and b index are set
+    //
     public static int shortestDistance2(String[] words, String word1, String word2) {
         int res = words.length;
         int a = -1;

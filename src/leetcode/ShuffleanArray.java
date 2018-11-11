@@ -53,8 +53,22 @@ public class ShuffleanArray {
         // so here is the key, how can we have same probability to 
         //generate the permutations
         //sampling algorithms here
+        
+        //so reservior sampling algorithms, 
+        //we want to get k of n, and k all have same probability 
+        //for k + i, each elements was to be selected is k/(k+i)
+        //suppose there are 3 5 in the array, and when we meet first 5, the probobality is 100% 
+        // but that's ok because later we are able to override, next 5, we have 50%, third we have 33%, 
         for (int i = 1; i < clone.length; i++) {
+            //random will be [0,1,2...i], so  it would be 1/(i+1), 
+            //the array suppose we have n digits, so random one will be 
+            //[0,1],[0,1,2],[0,1,2,3]..[0,1,2...n]， so we always choose i to switch with 
+            //one index before i(inclusive), 
+            //each number should try to switch another number in the loop, but they should
+            //have same probability 
             int random = rmd.nextInt(i + 1);
+            //so for each number probability, 
+            //first is 1/n, 1/(n-1),....1/2 each number in array, that's the same as above one
             swap(clone, i, random);
         }
         return clone;

@@ -10,12 +10,14 @@ package leetcode;
  */
 public class ShortestPalindrome {
     /**
-     * Given a string S, you are allowed to convert it to a palindrome by adding characters in front of it.
-     * Find and return the shortest palindrome you can find by performing this transformation.
+     * Given a string S, you are allowed to convert it to a palindrome by 
+     * adding characters in front of it.
+     * Find and return the shortest palindrome you can find by 
+     * performing this transformation.
 
      For example:
 
-     Given "aacecaaa", return "aaacecaaa".
+     Given "aacecaaa", return "aaa-".
 
      Given "abcd", return "dcbabcd".
 
@@ -37,23 +39,25 @@ public class ShortestPalindrome {
 
     // time :  O(n^2) for aaaaabcaaaaa
     // thinking process: so we want to examine the original string, how palidrome it is, 
-    //so since we can only add str in front of the strng, so most expensive ops will be 
+    //so since we can only add str in front of the string, so most expensive ops will be 
     //reverse the string and put before the original string
-    // and so if there are some string can be reused, so we can try to comapre from left to right
+    // and so if there are some string can be reused, so we can try to compare from left to right
     // if we found some chars are not equals to each other, then left will move to idx 0 and 
     // end-- and right will move this location, so the char will be used in the new extra string
     //
+    
+    //we need to find end index which indicates padindrom and non-palidrome boundary
     public String shortestPalindrome(String s) {
-        int i = 0, j = s.length() - 1;
+        int left = 0, right = s.length() - 1;
         int end = s.length() - 1;
-        while (i < j) {
-            if (s.charAt(i) == s.charAt(j)) {
-                i++;
-                j--;
+        while (left < right) {
+            if (s.charAt(left) == s.charAt(right)) {
+                left++;
+                right--;
             } else {
-                i = 0;
+                left = 0;
                 end--;
-                j = end;
+                right = end;
             }
         }
         return new StringBuilder(s.substring(end + 1)).reverse().toString() + s;
