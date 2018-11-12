@@ -123,6 +123,9 @@ Output: false
          * Base case is k = 1, where we simply need to check for S1[i] and S2[j] to be equal 
          * */
         // templates for e dimension DP
+        //i,j, k, k as elements count to count s1 [i, i + k - 1] vs S2, [j , j + k -1] are scramble or not
+        
+        //F[0][0][len] is the answer of the problem
         boolean [][][] F = new boolean[len][len][len + 1];
         for (int k = 1; k <= len; ++k)
             for (int i = 0; i + k <= len; i++)
