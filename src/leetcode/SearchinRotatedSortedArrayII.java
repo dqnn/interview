@@ -47,7 +47,16 @@ public class SearchinRotatedSortedArrayII {
         return false;
     }
     //this is interview frinendly
-    //thinking process: 
+    //thinking process: find a target value in a rotated sorted array, 
+    //so its start, end mid may not in one trend, so we need to fiure out a 
+    //way how to proceed with binary search
+    
+    //draw two lines then it is easy to fiure out
+    
+    //the if/else logic mainly is to narrow down the search scope,
+    // we mainly want to know whther we need to move left or right, so one quick
+    //way is to detect target is in one trend, like start <= target <= mid, or 
+    //mid <= target <= right
     public boolean search2(int[] nums, int target) {
         if (nums == null || nums.length < 1) {
             return false;
@@ -72,6 +81,7 @@ public class SearchinRotatedSortedArrayII {
                 } else {
                     right = mid;
                 }
+            //nums[left] == nums[mid], so we move left one step
             } else {
                 left++;
             }
@@ -79,6 +89,6 @@ public class SearchinRotatedSortedArrayII {
         if (nums[left] == target || nums[right] == target) {
                 return true;
             }
-            return false;
+       return false;
     }
 }

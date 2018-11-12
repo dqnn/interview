@@ -68,6 +68,11 @@ public class SelfCrossing {
                 i-2
 
     */
+ // Categorize the self-crossing scenarios, there are 3 of them: 
+ // 1. Fourth line crosses first line and works for fifth line crosses 
+    //second line and so on...
+ // 2. Fifth line meets first line and works for the lines after
+ // 3. Sixth line crosses first line and works for the lines after
     public boolean isSelfCrossing(int[] x) {
         if (x == null || x.length < 4) {
             return false;

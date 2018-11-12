@@ -12,11 +12,13 @@ public class SearchinRotatedSortedArray {
 
     /**
      * 33. Search in Rotated Sorted Array
-     * Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
+     * Suppose an array sorted in ascending order is rotated at some pivot 
+     * unknown to you beforehand.
 
      (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
 
-     You are given a target value to search. If found in the array return its index, otherwise return -1.
+     You are given a target value to search. If found in the array return its index, 
+     otherwise return -1.
 
      You may assume no duplicate exists in the array.
 
@@ -33,9 +35,11 @@ public class SearchinRotatedSortedArray {
     //interview friendly
     // thinking process:
     // so the array is like way up and way down, eg, 5,6,7,8,1,2,3
-    // mid has two cases: 1 is in 5,6,7,8 another is in 1,2,3 range, so we need to have 
-    // if else to handle the situation, suppose mid is in 5,6,7,8, target also have two cases
-    //one is in 5,6,7,8 another one is in 1,2,4 if it is in 5,6,7,8, we need to move end = mid
+    // mid has two cases: 1 is in 5,6,7,8 another is in 1,2,3 range, 
+    //so we need to have  if else to handle the situation, suppose 
+    //mid is in 5,6,7,8, target also have two cases
+    //one is in 5,6,7,8 another one is in 1,2,4 if it is in 5,6,7,8, 
+    //we need to move end = mid
     //else move left = mid since we want to narrow down the range
     public int search(int[] nums, int target) {
         if (nums == null || nums.length == 0) return -1;

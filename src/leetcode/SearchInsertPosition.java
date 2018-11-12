@@ -12,7 +12,9 @@ public class SearchInsertPosition {
 
     /**
      * 35. Search Insert Position
-     * Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+     * Given a sorted array and a target value, return the index if the target 
+     * is found. If not, return the index where it would be if it were inserted 
+     * in order.
 
      You may assume no duplicates in the array.
 
@@ -39,6 +41,7 @@ public class SearchInsertPosition {
             else if (target < nums[mid]) end = mid;
             else start = mid;
         }
+        //here is the key, last it would be start + 1 == end
         if (target <= nums[start]) {
             return start;
         } else if (target <= nums[end]) {

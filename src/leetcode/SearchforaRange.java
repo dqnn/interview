@@ -11,8 +11,8 @@ package leetcode;
 public class SearchforaRange {
     /**
      * 34. Find First and Last Position of Element in Sorted Array
-     * Given an array of integers sorted in ascending order, find the starting and ending
-     * position of a given target value.
+     * Given an array of integers sorted in ascending order, find the starting 
+     * and ending position of a given target value.
 
      Your algorithm's runtime complexity must be in the order of O(log n).
 
@@ -45,12 +45,17 @@ public class SearchforaRange {
         // end will always move forward, start keep still
         while (start + 1 < end) {
             int mid = (end - start) / 2 + start;
+            //so we do not have = because we want to move end in more probability 
+            // and move start in a very strict conditions, this can help to make sure 
+            //start will always < target, so mid can get first 8 or end
             if (nums[mid] < target) {
                 start = mid;
             } else {
                 end = mid;
             }
         }
+        //this process is also interesting that we want to return start as start since 
+        // start may equals end
         if (nums[start] == target) return start;
         if (nums[end] == target) return end;
         return -1;

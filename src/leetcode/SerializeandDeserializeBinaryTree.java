@@ -57,6 +57,8 @@ public class SerializeandDeserializeBinaryTree {
     }
 
     // Decodes your encoded data to tree.
+    //note we use a queue to go along with a for loop, the way how we preserve the 
+    //tree is straightforward
     public TreeNode deserialize(String data) {
         if (data == "") return null;
         String[] str = data.split(" ");

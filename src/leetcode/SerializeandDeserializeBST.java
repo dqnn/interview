@@ -72,7 +72,8 @@ Note: Do not use class member/global/static variables to store states. Your seri
         }
         return getNode(queue);
     }
-
+    //we use BST tree characteristic left < root < right, so we split the 
+    //queue into 2 left and right and recursive to setup the tree
     public TreeNode getNode(Queue<Integer> queue) {
         if (queue.isEmpty()) return null;
         TreeNode root = new TreeNode(queue.poll());
