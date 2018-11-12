@@ -37,6 +37,7 @@ public class Searcha2DMatrixII {
      * @param target
      * @return
      */
+    //so we went through the 2D matrix by two pointer, row and col
     public boolean searchMatrix(int[][] matrix, int target) {
         if (matrix == null || matrix.length == 0) return false;
         int row = 0;
@@ -54,8 +55,22 @@ public class Searcha2DMatrixII {
         return false;
     }
     
-    //Binary Search
+    //Binary Search, interview frinendly 
     //O(logmn)
+    
+    // so the array was increase in 2D, so if we want to find some element faster, 
+    //the fastest way is bianry search, so we need to adjust the common BS to be 
+    //2D Binary search. 
+    
+    //since it is 2D BS, so we need binary search, top left and bottom right coordination
+/*
+ top left   |
+            |
+            |
+ -----------| bottom right
+ 
+ so when we do binary search, the search is on coordinations not on on single number
+ */
     int[][] matrix;
     int target;
     public boolean searchMatrix2(int[][] matrix, int target) {
@@ -85,10 +100,13 @@ public class Searcha2DMatrixII {
         // If number found in any of the 2 matrices, we return true.
         if(matrix[mx][my]==target)
             return true;
+        //so it is in (mid, end), so we left to mid
         else if(matrix[mx][my]<target){
             return helper(x1,my+1,x2,y2) || helper(mx+1,y1,x2,my);
+        //so it is in (left, mid). so we move to left
         }else if(matrix[mx][my]>target){
             return helper(x1,y1,x2,my-1) || helper(x1,my,mx-1,y2);
+        //return
         }else
             return false;
     }

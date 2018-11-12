@@ -42,7 +42,10 @@ public class Searcha2DMatrix {
         }
         int row = matrix.length;
         int col = matrix[0].length;
+        //we consider while maxtrix as 1D array
+        //x = mid / col, y = mid % col
         int begin = 0, end = row * col - 1;
+        //we use first template,since we just need to find the target
         while (begin <= end) {
             int mid = (end - begin) / 2 + begin;
             int value = matrix[mid / col][mid % col];
