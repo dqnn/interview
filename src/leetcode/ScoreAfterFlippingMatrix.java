@@ -54,6 +54,7 @@ from sum all perspective.
         int r = A.length, c = A[0].length;
         // 0 column visit
         for(int i = 0; i < r; i++) {
+            //only detect first column is 0, if yes then mark it and change all rows
             if(A[i][0] == 0) {
                 int j = 0;
                 // row mode operations,since we have to flip column 0, others also have to flip
@@ -81,7 +82,7 @@ from sum all perspective.
                 }
             }
         }
-        
+        //get sum of all rows
         int res = 0;
         for(int i = 0; i < r; i++) {
             int rSum = 0;

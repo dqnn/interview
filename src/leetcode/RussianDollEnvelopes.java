@@ -81,8 +81,11 @@ so we sort one dimension, and we want to find LIS on another dimension.
         int[] dp = new int[envelopes.length];
         int res = 0;
         //for each pair, we do bianry search in dp to find out LIS for height since width already done
+        //
         for (int[] envelope : envelopes) {
+            //note, res is the end
             int i = binarySearch(dp, 0, res, envelope[1]);
+            //first is 0
             dp[i] = envelope[1];
             if (i == res) {
                 res++;
@@ -92,6 +95,7 @@ so we sort one dimension, and we want to find LIS on another dimension.
     }
     // this is binary search templates 3, 
 // https://leetcode.com/articles/introduction-to-binary-search/ 
+    //we want to find for each element in envelopes as ith the ceiling of envelope[i]
     public int binarySearch(int[] dp, int start, int end, int target) {
         // start + 1 < end vs start < end
         // we can change to while(start < end) with start = mid + 1; 
@@ -105,7 +109,8 @@ so we sort one dimension, and we want to find LIS on another dimension.
                 end = mid;
             }
         }
-        // we have two candidates left, one is start and right
+        // we have two candidates left, start and end, we detect start means we scan from left to right, get
+        //first 
         if (dp[start] >= target) return start;
         return end;
     }
