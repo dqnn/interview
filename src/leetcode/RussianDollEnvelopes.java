@@ -81,11 +81,16 @@ so we sort one dimension, and we want to find LIS on another dimension.
         int[] dp = new int[envelopes.length];
         int res = 0;
         //for each pair, we do bianry search in dp to find out LIS for height since width already done
-        //
+        //note: we will override the value in i, not insert
         for (int[] envelope : envelopes) {
             //note, res is the end
             int i = binarySearch(dp, 0, res, envelope[1]);
-            //first is 0
+            //so i here is the index of next envelope[1] should be inserted, 
+            // if next index is smaller than previous one so i should be incremental 
+            // like res, 0,1,2,3 so if we have a smaller number in i which i != res
+            // which means this envelop cannot to another one
+            
+            //so the track of i would height which cantain previous one
             dp[i] = envelope[1];
             if (i == res) {
                 res++;

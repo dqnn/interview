@@ -125,7 +125,8 @@ Output: false
         // templates for e dimension DP
         //i,j, k, k as elements count to count s1 [i, i + k - 1] vs S2, [j , j + k -1] are scramble or not
         
-        //F[0][0][len] is the answer of the problem
+        //i means s1 start index, j means s2 start index, k means length of the 
+        //compared string
         boolean [][][] F = new boolean[len][len][len + 1];
         for (int k = 1; k <= len; ++k)
             for (int i = 0; i + k <= len; i++)
