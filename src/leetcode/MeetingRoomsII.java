@@ -13,7 +13,8 @@ import java.util.PriorityQueue;
  */
 public class MeetingRoomsII {
     /**
-     * Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] 
+     * Given an array of meeting time intervals consisting of start and 
+     * end times [[s1,e1],[s2,e2],...] 
      * (si < ei), find the minimum number of conference rooms required.
 
 For example,
@@ -38,8 +39,8 @@ this graph demonstrated how to solve this problem
      * @param intervals
      * @return
      */
-    // so 252 is a question which wants to know whether the meetings has conflicts or not, so 
-    // here for conflicted ones, we need to merge them 
+    // so 252 is a question which wants to know whether the meetings has 
+    //conflicts or not, so here for conflicted ones, we need to merge them 
     public int minMeetingRooms(Interval[] intervals) {
         int[] starts = new int[intervals.length];
         int[] ends = new int[intervals.length];

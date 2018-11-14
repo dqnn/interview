@@ -32,7 +32,8 @@ public class LongestSubstringWithoutRepeatingCharacters {
      */
     // we use a map to store char-> idx, so we use two pointers i and j.
     // when we scan from left to right, 
-    // if find the char in the map, then we know the left pointer position max(j, map.get(ch) + 1
+    // if find the char in the map, then we know the 
+    //left pointer position max(j, map.get(ch) + 1
     // and we update new char since left pointer move one more step， the length of the string is i -j +1
     // the key of the problem is to understand how we move the left and right pointers
     public int lengthOfLongestSubstring(String s) {
