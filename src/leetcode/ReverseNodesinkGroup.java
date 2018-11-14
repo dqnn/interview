@@ -86,9 +86,10 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
      * Reverse a link list between begin and end exclusively
      * an example:
      * a linked list:
+     * cur starts from begin.next
      * 0->1->2->3->4->5->6
-     * |           |   
-     * begin       end
+     * |        |      |   
+     * begin    cur   end
      * after call begin = reverse(begin, end)
      * 
      * 0->3->2->1->4->5->6

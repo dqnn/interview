@@ -21,6 +21,7 @@ public class ReverseString {
         int left = 0;
         int right = s.length() - 1;
         char[] str = s.toCharArray();
+        //we use left < right
         while (left < right) {
             char temp = str[left];
             str[left++] = str[right];

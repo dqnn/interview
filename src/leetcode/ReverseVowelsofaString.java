@@ -25,6 +25,9 @@ public class ReverseVowelsofaString {
      * @param s
      * @return
      */
+    //interview friendly 
+    
+    //so remmeber how we find the char ,start and end pointers
     public String reverseVowels(String s) {
         if (s == null || s.length() == 0) return s;
         String vowels = "aeiouAEIOU";

@@ -13,7 +13,8 @@ import java.util.List;
  */
 public class RestoreIPAddresses {
     /**
-     * Given a string containing only digits, restore it by returning all possible valid s address combinations.
+     * Given a string containing only digits, restore it by returning 
+     * all possible valid s address combinations.
 
      For example:
      Given "25525511135",
@@ -40,7 +41,8 @@ public class RestoreIPAddresses {
         for (int i = 1; i < 4; i++) {
             if (index + i > s.length()) break;
             String temp = s.substring(index, index + i);
-            if ((temp.startsWith("0") && temp.length() > 1) || (i == 3 && Integer.parseInt(temp) >= 256)) continue;
+            if ((temp.startsWith("0") && temp.length() > 1) 
+                    || (i == 3 && Integer.parseInt(temp) >= 256)) continue;
             helper(res, s, index + i, ret + temp + (count == 3 ? "" : "."), count + 1);
         }
     }
@@ -50,10 +52,13 @@ public class RestoreIPAddresses {
     //backtracking or BFS templates
     public List<String> restoreIpAddresses2(String s) {
         List<String> res = new ArrayList<>();
+        if (s == null || s.length() < 1) {
+            return res;
+        }
         helper2(res, s, "", 0, 4);
         return res;
     }
-    
+    //templates
     public void helper2(List<String> res, String s, String cur, int index, int dim) {
         // dim means dimension, 4 parts for ip address
         if (dim < 0 || s.length() - index > dim * 3 || s.length() - index < dim) {

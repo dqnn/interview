@@ -53,7 +53,9 @@ public class ReverseWordsinaStringIII {
         }
         return sb.toString().trim();
     }
-    // interview frinendly 
+    // interview frinendly
+    
+    //this is exactly the same as ii 
     public String reverseWords3(String s) {
         if (s == null || s.length() <= 1) {
             return s;

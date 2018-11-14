@@ -47,6 +47,7 @@ rotate 4 steps to the right: 2->0->1->NULL
         if (head == null || head.next == null) return head;
         ListNode index = head;
         int len = 1;
+        //got to know the length of the list
         while (index.next != null) {
             index = index.next;
             len++;

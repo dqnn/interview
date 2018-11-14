@@ -32,12 +32,14 @@ Follow up: Could you do it in-place without allocating extra space?
     public void reverseWords(char[] s) {
         reverse(s, 0, s.length - 1);
         int r = 0;
+        //we scan from left to right and stop when we encounter ' '
         while (r < s.length) {
             int l = r;
             // this is help to detect right position
             while (r < s.length && s[r] != ' ') {
                 r++;
             }
+            // note r - 1
             reverse(s, l, r - 1);
             //skip the space
             r++;

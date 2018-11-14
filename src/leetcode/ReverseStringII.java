@@ -30,12 +30,12 @@ and left the other as original.
         while (i < s.length()) {
             // swap i and distance k k, k - 1, actually we use how 
             int j = Math.min(i + k - 1, s.length() - 1);
-            swap(arr, i, j);
+            reverse(arr, i, j);
             i += 2 * k;
         }
         return String.valueOf(arr);
     }
-    public void swap(char[] arr, int i, int j) {
+    public void reverse(char[] arr, int i, int j) {
         while (i < j) {
             char temp = arr[i];
             arr[i++] = arr[j];
