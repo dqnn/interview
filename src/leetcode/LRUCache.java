@@ -53,102 +53,95 @@ public class LRUCache {
  * 1.The key to solve this problem is using a double linked list which enables us to quickly move nodes.
 2.The LRU cache is a hash table of keys and double linked nodes. The hash table makes the time of get() to be O(1). 
 The list of double linked nodes make the nodes adding/removal operations O(1).
-
-class Node {
-int key;
-int value;
-Node pre;
-Node next;
+3.
+one key here is reduce the head and tail code is to use two dummy nodes
+head and tail, they don't change, so when we want to remove and move heads in
+list, we don't need to worry about null pointer
  */
     class Node {
-        int key, value;
+        int  key, value;
         Node next, pre;
+
         public Node(int key, int value) {
             this.key = key;
             this.value = value;
         }
+
+        public Node() {
+        }
     }
-    
+
     private Map<Integer, Node> map;
-    private int capacity;
-    private Node head, tail;
-    
-    // interview friendly 
-    //
+    private int                capacity = 0;
+    //this is the key
+    private Node               tail     = new Node(), 
+            head = new Node();
+    private int                size     = 0;
+
     public LRUCache(int capacity) {
         map = new HashMap<>();
         this.capacity = capacity;
-        head = null;
-        tail = null;
+        head.next = tail;
+        tail.pre = head;
     }
-    
+
+    private void remove(Node node) {
+        // remove node from list, and it must be existed
+        Node pre = node.pre;
+        Node next = node.next;
+        pre.next = next;
+        next.pre = pre;
+    }
+
+    private void moveToHead(Node node) {
+        // insert to head
+        node.pre = head;
+        node.next = head.next;
+        head.next.pre = node;
+        head.next = node;
+    }
+
     public int get(int key) {
         Node node = map.get(key);
+
         if (node == null) {
             return -1;
         }
-        // means it has pre and next, if it equals tail, 
-        //then we just return the tail 
-        // 
-        if (node != tail) {
-            // how could it be head?
-            if (node == head) {
-                head = head.next;
-            } else { // this is to remove the node from the chain
-                // node.pre point to node.next
-                node.pre.next = node.next;
-                // node next pre point to node.pre
-                node.next.pre = node.pre;
-            }
-            // insert node into tail
-            tail.next = node;
-            node.pre = tail;
-            node.next = null;
-            tail = node;
+
+        if (node == head.next) {
+            return node.value;
         }
+
+        remove(node);
+        moveToHead(node);
+
+        // return value
         return node.value;
     }
-    
+
     public void put(int key, int value) {
         Node node = map.get(key);
-        // this is the same as get 
+        // this is the same as get
         if (node != null) {
+            // update the value
             node.value = value;
-            if (node != tail) {
-                if (node == head) {
-                    head = head.next;
-                } else {
-                    node.pre.next = node.next;
-                    node.next.pre = node.pre;
-                }
-                tail.next = node;
-                node.next = null;
-                node.pre = tail;
-                tail = node;
+            if (node == head.next) {
+                return;
             }
+
+            remove(node);
+            moveToHead(node);
+            // new node
         } else {
-            Node newNode = new Node(key, value);
-            // capacity means how many capactiy we left for new elements,if 0 then we need to remove
-            // from double list, we remove the first one, head
-            if (capacity == 0) {
-                Node temp = head;
-                head = head.next;
-                map.remove(temp.key);
-                capacity++;
+            node = new Node(key, value);
+            moveToHead(node);
+            size += 1;
+            if (size > capacity) {
+                // remove tail.pre
+                map.remove(tail.pre.key);
+                remove(tail.pre);
             }
-            //means first one
-            if (head == null || tail == null) {
-                head = newNode;
-            // if not we just add to the tail
-            } else {
-                tail.next = newNode;
-                newNode.pre = tail;
-                newNode.next = null;
-            }
-            // this part of code is shared with if (head == null || tail == null)  
-            tail = newNode;
-            map.put(key, newNode);
-            capacity--;
+            map.put(key, node);
         }
     }
     
@@ -181,6 +174,4 @@ It will automatically remove the least recent one when the size of map exceeds t
             map.put(key, value);
         }
     }
-
-  
 }
