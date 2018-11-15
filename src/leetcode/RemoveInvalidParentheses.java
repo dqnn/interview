@@ -1,6 +1,7 @@
 package leetcode;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -68,7 +69,7 @@ public class RemoveInvalidParentheses {
     // DFS and BFS
 //https://leetcode.com/problems/remove-invalid-parentheses/discuss/75038/Evolve-from-intuitive-solution-to-optimal-a-review-of-all-solutions
     
-  //O(n * 2^n)
+  // Time： O(n * 2^n) Space O(2^n)
     // interview friendly, the question is to find  minimal removal elements & valid parenthese, so 
     // the minimal ops on string is only to remove one element one time. to solve the duplicate one, we 
     // can use set to store string we have visited. 
@@ -95,12 +96,14 @@ public class RemoveInvalidParentheses {
                 res.add(temp);
                 isFound = true;
             }
-            // this is the key, so we cannot use break since queue may have more qualified strings
+            // this is the key, so we cannot use break since queue may have more qualified strings,
+            //for that level, because if we go deeper, that;s not minial removal of ( or )
             if (isFound) {
                 continue;
             }
-            
+            // for loop we would like to make it simple
             for(int i = 0; i < temp.length(); i++) {
+                //we will ignore other chars since we only focus on ( )
                 if (temp.charAt(i) == '(' || temp.charAt(i) == ')') {
                     String str = temp.substring(0, i) + temp.substring(i+1);
                     if (!visited.contains(str)) {
@@ -121,6 +124,78 @@ public class RemoveInvalidParentheses {
             if (cnt < 0) return false;
         }
         return cnt == 0;
+    }
+    
+    //this is for just reference, but this solution remove some duplicates 
+    //case 1: "())" ---> "()"  only remove the first one of '))'
+    /*case 2: 
+     * we need remove 2 from "(())(("
+       we want to remove positions combination i,j with no duplicate
+    so we let i < j then it will not generate duplicate combinations
+    in practice, we record the position i and put it in to queue
+    which is then polled out and used as the starting point of the next removal
+     */
+    //case 3: 
+    /*
+     A third observation is if the previous step we removed a "(", we should never remove a ")" in the following steps. 
+     This is obvious since otherwise we could just save these two removals and still be valid with less removals. 
+     With this observation all the possible removals will be something like this
+     ")))))))))((((((((("
+     All the removed characters forming a string with consecutive left bracket followed by consecutive right bracket.
+     By applying these restrictions, we can avoid generate duplicate strings and the need of a set which saves 
+     a lot of space.
+     */
+    public List<String> removeInvalidParentheses3(String s) {
+        if (isValid(s))
+            return Collections.singletonList(s);
+        List<String> ans = new ArrayList<>();
+        //The queue only contains invalid middle steps
+        Queue<Tuple> queue = new LinkedList<>();
+        //The 3-Tuple is (string, startIndex, lastRemovedChar)
+        queue.add(new Tuple(s, 0, ')'));
+        while (!queue.isEmpty()) {
+            Tuple x = queue.poll();
+            //Observation 2, start from last removal position
+            for (int i = x.start; i < x.string.length(); ++i) {
+                char ch = x.string.charAt(i);
+                //Not parentheses
+                if (ch != '(' && ch != ')') continue;
+                //Observation 1, do not repeatedly remove from consecutive ones
+                if (i != x.start && x.string.charAt(i - 1) == ch) continue;
+                //Observation 3, do not remove a pair of valid parentheses
+                if (x.removed == '(' && ch == ')') continue;
+                String t = x.string.substring(0, i) + x.string.substring(i + 1);
+                //Check isValid before add
+                if (isValid(t))
+                    ans.add(t);
+                //Avoid adding leaf level strings
+                else if (ans.isEmpty())
+                    queue.add(new Tuple(t, i, ch));
+            }
+        }
+        return ans;
+    }
+
+    public static boolean isValid(String s) {
+        int count = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (c == '(') ++count;
+            if (c == ')' && count-- == 0) return false;
+        }
+        return count == 0;
+    }
+
+    private class Tuple {
+        public final String string;
+        public final int start;
+        public final char removed;
+
+        public Tuple(String string, int start, char removed) {
+            this.string = string;
+            this.start = start;
+            this.removed = removed;
+        }
     }
     
     public static void main(String[] args) {

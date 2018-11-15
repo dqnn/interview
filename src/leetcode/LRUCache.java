@@ -57,6 +57,7 @@ The list of double linked nodes make the nodes adding/removal operations O(1).
 one key here is reduce the head and tail code is to use two dummy nodes
 head and tail, they don't change, so when we want to remove and move heads in
 list, we don't need to worry about null pointer
+4. added multiple thread support
  */
     class Node {
         int  key, value;
@@ -85,7 +86,7 @@ list, we don't need to worry about null pointer
         tail.pre = head;
     }
 
-    private void remove(Node node) {
+    private synchronized void remove(Node node) {
         // remove node from list, and it must be existed
         Node pre = node.pre;
         Node next = node.next;
@@ -93,7 +94,7 @@ list, we don't need to worry about null pointer
         next.pre = pre;
     }
 
-    private void moveToHead(Node node) {
+    private synchronized void moveToHead(Node node) {
         // insert to head
         node.pre = head;
         node.next = head.next;
@@ -107,7 +108,7 @@ list, we don't need to worry about null pointer
         if (node == null) {
             return -1;
         }
-
+        //if only first element, just return
         if (node == head.next) {
             return node.value;
         }
@@ -138,10 +139,14 @@ list, we don't need to worry about null pointer
             size += 1;
             if (size > capacity) {
                 // remove tail.pre
-                map.remove(tail.pre.key);
+                synchronized(map) {
+                    map.remove(tail.pre.key);
+                }
                 remove(tail.pre);
             }
-            map.put(key, node);
+            synchronized(map) {
+                map.put(key, node);
+            }
         }
     }
     

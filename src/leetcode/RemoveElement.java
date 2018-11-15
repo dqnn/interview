@@ -30,6 +30,11 @@ public class RemoveElement {
      * @param val
      * @return
      */
+    // thinking process:
+    // the problem to replace element with same value, so we use overwrite, 
+    // res is the numbe of count, but also can be used as index
+    //when we found one num[i] != target, then num[res] can be position for
+    //res like gatekeeper always guard only different value can be there
     public static int removeElement(int[] nums, int val) {
         if (nums == null || nums.length == 0) return 0;
         //always use this way to remove duplicates
