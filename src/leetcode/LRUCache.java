@@ -87,7 +87,8 @@ Node next;
         if (node == null) {
             return -1;
         }
-        // means it has pre and next, if it equals tail, then we just return the tail 
+        // means it has pre and next, if it equals tail, 
+        //then we just return the tail 
         // 
         if (node != tail) {
             // how could it be head?
