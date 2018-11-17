@@ -54,6 +54,7 @@ Output: "acdb"
     public String removeDuplicateLetters(String s) {
         if (s == null || s.length() == 0) return s;
         HashMap<Character, Integer> map = new HashMap<>();
+        //we only have last (char, idx) if duplicate
         for (int i = 0; i < s.length(); i++) {
             map.put(s.charAt(i), i);
         }
@@ -75,7 +76,7 @@ Output: "acdb"
         }
         return new String(res);
     }
-
+    //this is aim to find the position of char last appearance, minimal
     public int findMinLastPos(HashMap<Character, Integer> map) {
         int res = Integer.MAX_VALUE;
         for (int num : map.values()) {

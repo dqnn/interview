@@ -12,7 +12,7 @@ import java.util.Arrays;
  */
 public class CoinChange {
     /**
-     * ou are given coins of different denominations and a total amount of money
+     * you are given coins of different denominations and a total amount of money
      * amount. Write a function to compute the fewest number of coins that you need
      * to make up that amount. If that amount of money cannot be made up by any
      * combination of the coins, return -1.
@@ -21,7 +21,8 @@ public class CoinChange {
      * 
      * Example 2: coins = [2], amount = 3 return -1.
      * 
-     * dp[] amount 需要多少coins 这里其实是 15块的问题转换成10块的问题 + 1个硬币 或则14块的问题加一个硬币 这个很巧妙 min =
+     * dp[] amount 需要多少coins 这里其实是 15块的问题转换成10块的问题 + 1个硬币 
+     * 或则14块的问题加一个硬币 这个很巧妙 min =
      * Math.min(min, dp[i - coins[j]] + 1);
      * 
      * time : O(n*amount) space : O(amount)
@@ -38,6 +39,8 @@ public class CoinChange {
         for (int i = 1; i <= amount; i++) {
             int min = Integer.MAX_VALUE;
             for (int j = 0; j < coins.length; j++) {
+                //i > coins[j] is make sure no negative on idx and also 
+                //means 2 only needs 1 and 2 value coins
                 if (i >= coins[j] && dp[i - coins[j]] != -1) {
                     min = Math.min(min, dp[i - coins[j]] + 1);
                 }
