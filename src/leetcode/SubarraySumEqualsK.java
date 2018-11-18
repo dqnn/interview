@@ -46,7 +46,8 @@ Sum[i,j] = prefixSum[j] - prefixSum[i-1].
 
 But we want S[i,j] = k
 
-So we are looking for all pairs (i,j) such that, k = prefixSum[j] + prefixSum[i-1]. To make it easier to type out. Let pre_j = prefixSum[j]. Let pre_i = prefixSum[i-1]
+So we are looking for all pairs (i,j) such that, k = prefixSum[j] + prefixSum[i-1]. 
+To make it easier to type out. Let pre_j = prefixSum[j]. Let pre_i = prefixSum[i-1]
 
 Then,
 k = pre_j - pre_i =>
