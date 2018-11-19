@@ -67,8 +67,30 @@ boxes[i]现在相邻了，又因为二者值相同，所以k应该加1，
 那么代码就不难写了，需要注意的是，这里的C++的写法不能用vector来表示三维数组，好像是内存限制超出，
 只能用C语言的写法，由于C语言数组的定义需要初始化大小，
 而题目中说了数组长度不会超100，所以我们就用100来初始化，参见代码如下：
+
+Use dp[l][r][k] to denote the max score of subarray box[l] ~ box[r] 
+with k boxes after box[r] that have the same color as box[r]
+
+box[l], box[l+1], …, box[r], box[r+1], …, box[r+k]
+
+e.g. “CDABACAAAAA”
+
+dp[2][6][4] is the max score of [ABACA] followed by [AAAA]
+dp[2][6][3] is the max score of [ABACA] followed by [AAA]
+
+base case: l > r, empty array, return 0.
+Transition:
+dp[l][r][k] = max(dp[l][r-1][0] + (k + 1)*(k + 1),  # case 1
+                  dp[l][i][k+1] + dp[i+1][r-1][0])  # case 2
+# "ABACA|AAAA" 
+# case 1: dp("ABAC") + score("AAAAA") drop j and the tail.
+# case 2: box[i] == box[r], l <= i < r, try all break points
+# max({dp("A|AAAAA") + dp("BAC")}, {dp("ABA|AAAAA") + dp("C")})
+Time complexity: O(n^4)
+
+Space complexity: O(n^3)
  */
-class RemoveBoxes {
+public class RemoveBoxes {
 
     public int removeBoxes(int[] b) {
         //edge case
@@ -85,6 +107,7 @@ class RemoveBoxes {
         if (dp[left][right][k] > 0) {
             return dp[left][right][k];
         }
+        //we use k to represent left
         int res = (1 + k) * (1 + k) + helper(dp, nums, left + 1, right, 0);
         // this is backtracking templates
         for (int m = left + 1; m <= right; ++m) {
