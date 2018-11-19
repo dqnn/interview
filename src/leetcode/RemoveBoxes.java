@@ -89,7 +89,8 @@ class RemoveBoxes {
         // this is backtracking templates
         for (int m = left + 1; m <= right; ++m) {
             if (nums[m] == nums[left]) {
-                res = Math.max(res, helper(dp, nums, left + 1, m - 1, 0) + helper(dp, nums, m, right, k + 1));
+                res = Math.max(res, helper(dp, nums, left + 1, m - 1, 0) 
+                        + helper(dp, nums, m, right, k + 1));
             }
         }
         return dp[left][right][k] = res;
