@@ -15,9 +15,7 @@ import java.util.*;
  */
 public class TravelingSalesmanHeldKarp {
 
-    private static int INFINITY = 100000000;
-
-    private static class Index {
+    static class Index {
         int currentVertex;
         Set<Integer> vertexSet;
 
@@ -39,72 +37,92 @@ public class TravelingSalesmanHeldKarp {
             return result;
         }
 
-        private static Index createIndex(int vertex, Set<Integer> vertexSet) {
-            Index i = new Index();
-            i.currentVertex = vertex;
-            i.vertexSet = vertexSet;
-            return i;
+        public Index(int vertex, Set<Integer> vertexSet) {
+            this.currentVertex = vertex;
+            this.vertexSet = vertexSet;
+        }
+        public String toString() {
+            return "[index:" + this.currentVertex + "," + "set:" + this.vertexSet + "]";
         }
     }
 
     public int minCost(int[][] distance) {
 
-        //stores intermediate values in map
-        Map<Index, Integer> minCostDP = new HashMap<>();
+        //stores Index to minimal cost
+        Map<Index, Integer> minIndexToCostMap = new HashMap<>();
+        //store the Index to city number
         Map<Index, Integer> parent = new HashMap<>();
         //why we distance.length - 1 because we want one city becomes the starting point
         //allSets: {},{1},{2},{3},{1,2},{1,3},{2,3}
-        List<Set<Integer>> allSets = generateCombination(distance.length - 1);
+        List<Set<Integer>> srcCitySets = generateCombination(distance.length - 1);
 
-        for(Set<Integer> set : allSets) {
-            //row scan
+        for(Set<Integer> srcCitySet : srcCitySets) {
+            //column scan, the matrix is n x n, this would include all cities except 0 
             for(int dstCity = 1; dstCity < distance.length; dstCity++) {
-                if(set.contains(dstCity)) {
+                if(srcCitySet.contains(dstCity)) {
                     continue;
                 }
-                Index index = Index.createIndex(dstCity, set);
+                //dst City as index,srcCitySet as source
+                Index index = new Index(dstCity, srcCitySet);
+                //here minCost means srcCitySet to dstCity min cost
                 int minCost = Integer.MAX_VALUE;
-                int minPrevVertex = 0;
+                int minPreSrcCity = 0;
                 //to avoid ConcurrentModificationException copy set into another set while iterating
-                Set<Integer> dstCitiesCopySet = new HashSet<>(set);
+                Set<Integer> srcCityCloneSet = new HashSet<>(srcCitySet);
                 //if set = [1,2], we scan from top to bottom for each column,
-                //preCity->DesCity
-                for(int fromCity : set) {
-                    int cost = distance[fromCity][dstCity] 
-                            + getCost(dstCitiesCopySet, fromCity, minCostDP);
+                //srcCity->DesCity, column mode scan
+                for(int srcCity : srcCitySet) {
+                    int cost = distance[srcCity][dstCity] 
+                            + getCost(srcCityCloneSet, srcCity, minIndexToCostMap);
                     if(cost < minCost) {
                         minCost = cost;
-                        minPrevVertex = fromCity;
+                        minPreSrcCity = srcCity;
                     }
                 }
-                //this happens for empty subset
-                if(set.size() == 0) {
+                //this happens for empty subset, this is [0,1]
+                if(srcCitySet.size() == 0) {
                     minCost = distance[0][dstCity];
                 }
-                minCostDP.put(index, minCost);
-                parent.put(index, minPrevVertex);
+                //map stores from 1->[2,3], the min cost
+                minIndexToCostMap.put(index, minCost);
+                //parent here stores 1->[2,3] which dstCity is minimal cost
+                parent.put(index, minPreSrcCity);
             }
         }
 
-        Set<Integer> set = new HashSet<>();
+        //flying back to 0
+        Set<Integer> srcCitySet = new HashSet<>();
+        //1,2,3
         for(int i=1; i < distance.length; i++) {
-            set.add(i);
+            srcCitySet.add(i);
         }
         int min = Integer.MAX_VALUE;
-        int prevVertex = -1;
+        int preCity = -1;
         //to avoid ConcurrentModificationException copy set into another set while iterating
-        Set<Integer> copySet = new HashSet<>(set);
-        for(int k : set) {
-            int cost = distance[k][0] + getCost(copySet, k, minCostDP);
+        Set<Integer> srcCityCloneSet = new HashSet<>(srcCitySet);
+        for(int srcCity : srcCitySet) {
+            //first column
+            int cost = distance[srcCity][0] 
+                    //previous srcCity is the dstCity
+                    + getCost(srcCityCloneSet, srcCity, minIndexToCostMap);
             if(cost < min) {
                 min = cost;
-                prevVertex = k;
+                preCity = srcCity;
             }
         }
-
-        parent.put(Index.createIndex(0, set), prevVertex);
+        
+        parent.put(new Index(0, srcCitySet), preCity);
         printTour(parent, distance.length);
         return min;
+    }
+    //to get from srcCityset->dstCity minimal cost
+    private int getCost(Set<Integer> srcCityset, int dstCity, 
+                        Map<Index, Integer> minIndexToCostMap) {
+        srcCityset.remove(dstCity);
+        Index index = new Index(dstCity, srcCityset);
+        int cost = minIndexToCostMap.get(index);
+        srcCityset.add(dstCity);
+        return cost;
     }
 
     private void printTour(Map<Index, Integer> parent, int totalVertices) {
@@ -117,7 +135,7 @@ public class TravelingSalesmanHeldKarp {
         while(true) {
             stack.push(start);
             set.remove(start);
-            start = parent.get(Index.createIndex(start, set));
+            start = parent.get(new Index(start, set));
             if(start == null) {
                 break;
             }
@@ -126,14 +144,6 @@ public class TravelingSalesmanHeldKarp {
         stack.forEach(v -> joiner.add(String.valueOf(v)));
         System.out.println("\nTSP tour");
         System.out.println(joiner.toString());
-    }
-
-    private int getCost(Set<Integer> set, int prevVertex, Map<Index, Integer> minCostDP) {
-        set.remove(prevVertex);
-        Index index = Index.createIndex(prevVertex, set);
-        int cost = minCostDP.get(index);
-        set.add(prevVertex);
-        return cost;
     }
 
     private List<Set<Integer>> generateCombination(int n) {
@@ -185,6 +195,7 @@ allSets: {},{1},{2},{3},{1,2},{1,3},{2,3}
       
   
  */
+        //0->2 = 15 here means distance[0][2] = 15
         int distance[][] = {{0, 1, 15, 6},
                             {2, 0, 7, 3},
                             {9, 6, 0, 12},
