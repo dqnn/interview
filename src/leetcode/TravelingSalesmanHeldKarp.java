@@ -47,43 +47,39 @@ public class TravelingSalesmanHeldKarp {
         }
     }
 
-    private static class SetSizeComparator implements Comparator<Set<Integer>>{
-        @Override
-        public int compare(Set<Integer> o1, Set<Integer> o2) {
-            return o1.size() - o2.size();
-        }
-    }
-
     public int minCost(int[][] distance) {
 
         //stores intermediate values in map
         Map<Index, Integer> minCostDP = new HashMap<>();
         Map<Index, Integer> parent = new HashMap<>();
         //why we distance.length - 1 because we want one city becomes the starting point
-        //but we did not consider back to origin one because 
+        //allSets: {},{1},{2},{3},{1,2},{1,3},{2,3}
         List<Set<Integer>> allSets = generateCombination(distance.length - 1);
 
         for(Set<Integer> set : allSets) {
-            for(int currentVertex = 1; currentVertex < distance.length; currentVertex++) {
-                if(set.contains(currentVertex)) {
+            //row scan
+            for(int dstCity = 1; dstCity < distance.length; dstCity++) {
+                if(set.contains(dstCity)) {
                     continue;
                 }
-                Index index = Index.createIndex(currentVertex, set);
-                int minCost = INFINITY;
+                Index index = Index.createIndex(dstCity, set);
+                int minCost = Integer.MAX_VALUE;
                 int minPrevVertex = 0;
                 //to avoid ConcurrentModificationException copy set into another set while iterating
-                Set<Integer> copySet = new HashSet<>(set);
-                for(int prevVertex : set) {
-                    int cost = distance[prevVertex][currentVertex] 
-                            + getCost(copySet, prevVertex, minCostDP);
+                Set<Integer> dstCitiesCopySet = new HashSet<>(set);
+                //if set = [1,2], we scan from top to bottom for each column,
+                //preCity->DesCity
+                for(int fromCity : set) {
+                    int cost = distance[fromCity][dstCity] 
+                            + getCost(dstCitiesCopySet, fromCity, minCostDP);
                     if(cost < minCost) {
                         minCost = cost;
-                        minPrevVertex = prevVertex;
+                        minPrevVertex = fromCity;
                     }
                 }
                 //this happens for empty subset
                 if(set.size() == 0) {
-                    minCost = distance[0][currentVertex];
+                    minCost = distance[0][dstCity];
                 }
                 minCostDP.put(index, minCost);
                 parent.put(index, minPrevVertex);
@@ -148,7 +144,7 @@ public class TravelingSalesmanHeldKarp {
         List<Set<Integer>> allSets = new ArrayList<>();
         int result[] = new int[input.length];
         generateCombination(input, 0, 0, allSets, result);
-        Collections.sort(allSets, new SetSizeComparator());
+        Collections.sort(allSets, (a, b)->(a.size() - b.size()));
         return allSets;
     }
 
