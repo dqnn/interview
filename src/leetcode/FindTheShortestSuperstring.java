@@ -57,6 +57,36 @@ eg. A[i] = abcd, A[j] = bcde, then graph[i][j] = 1
 Then the problem becomes to: find the shortest path in this graph which 
 visits every node exactly once. This is a Travelling Salesman Problem.
 Apply TSP DP solution. Remember to record the path.
+
+Another explanation of TSP:
+其中的 d(i,{j,k,l}) 表示由城市 i 出发, 集合 {j,k,l} 中的城市 j,k,l 每个经过一次需要的最小路程, 箭头上的值表示两个城市之间的距离. 
+很显然, d(0,{1,2,3}) 就是我们最终要求的值. 这个值可以一步一步分解下去, 最终分解为每个城市到城市0的距离, 
+d(i,{}). 将过程反过来, 向上递推, 就可以得到需要的值了.
+
+为了方便求解并记录路径, 我们可以使用二进制数表示城市集合. 一个 n 位的二进制数可以表示 n 个城市的集合. 
+当某位为1时, 表示这个位所代表的城市出现在集合中. 我们最多有3个城市需要经历, 所以需要 2<<3=8 个集合. 
+每个集合对应的数字如下:
+编号  二进制 集合
+0   000 {}
+1   001 {1}
+2   010 {2}
+3   011 {1,2}
+4   100 {3}
+5   101 {1,3}
+6   110 {2,3}
+7   111 {1,2,3}
+在上面图中, d[i,j] 中的 j 使用的就是表中对应的集合. 根据递推关系
+
+d[i,j]= Ci0, j = 0, 
+        min{Cik+d[k,j∖{k}]}=min{Cik+d[k,j−2<<(k−1)]},j=0j≠0
+其中的 j∖{k} 表示从集合 j 中去除集合 {k}. 
+集合 j 去除 城市 k 后所形成的集合, 
+其对应的编号为 j−2<<(k−1). 判断城市 k 是否属于集合 
+j 的方法是使用二进制与操作, 若j & 2^(k-1) == 0, k 不属于集合 j.
+
+在写代码实现时, 我们可以使用一个二维表格(数组), 其大小为 n2n−1, 
+根据上面的关系式逐次填充计算值, 最终得到结果.
+
  */
     public static String shortestSuperstring(String[] A) {
         int inStrArrLen = A.length;
@@ -80,21 +110,27 @@ Apply TSP DP solution. Remember to record the path.
         // start TSP DP, from 1 to pow(2,5) - 1, permutations
         for (int i = 1; i < mLen; i++) {
             Arrays.fill(dp[i], Integer.MAX_VALUE);
-            //j belong to [0,4]
+            //j belong to [0,4], j stands for one city, i stands set of cities
+            //so we use i & (1 << j) == 0 to detect whether j was in i or not, if true then no vice yes. 
             for (int j = 0; j < inStrArrLen; j++) {
                 // i means the power of 2,
                 int tempJ = 1 << j;
-                //only true when 
+                // i & (1<< j) menas j belong to i set 
                 if ((i & tempJ) > 0) {
-                    System.out.println("i-J-tempJ:" + i + "-" + j + "-" +tempJ);
-                    //prev here means the 
+                   System.out.println("i-j-tempJ:" + i + "-" + j + "-" +tempJ);
+                    //prev here means the cities set without j, notes, i>=1 and j starts from 0 so 
                     int prev = i - tempJ;
+                    //means empty set, 
                     if (prev == 0) {
-                        //
+                        //empty to one city means the follower's length
                         dp[i][j] = A[j].length();
+                     //pre did not contain j
                     } else {
+                        //we use prev to connect each city, plus graph weight
                         for (int k = 0; k < inStrArrLen; k++) {
                             //prev->k->j
+                            System.out.println(String.format("prev:%s-k:%s-j:%s", 
+                                    prev,k,j));
                             int newCost = dp[prev][k] + graph[k][j];
                             if (dp[prev][k] < Integer.MAX_VALUE 
                                     && newCost < dp[i][j]) {
