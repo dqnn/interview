@@ -65,18 +65,24 @@ this graph demonstrated how to solve this problem
         return res;
     }
 
-    // this is to use stack to merge intervals
-    public int minMeetingRooms2(Interval[] intervals) {
-        Arrays.sort(intervals, (a, b) -> a.start - b.start);
-        PriorityQueue<Interval> heap = new PriorityQueue<>(intervals.length, (a, b) -> a.end - b.end);
-        heap.offer(intervals[0]);
-        for (int i = 1; i < intervals.length; i++) {
+    // this is to use pq to merge intervals
+    public int minMeetingRooms2(Interval[] schedule) {
+        Arrays.sort(schedule, (a, b) -> a.start - b.start);
+        //the PQ keeps how many meeting  rooms are needed for current meeting schedule
+        PriorityQueue<Interval> heap = new PriorityQueue<>(schedule.length, (a, b) -> a.end - b.end);
+        //we add smallest start time into queue
+        heap.offer(schedule[0]);
+        for (int i = 1; i < schedule.length; i++) {
             Interval interval = heap.poll();
-            if (intervals[i].start >= interval.end) {
-                interval.end = intervals[i].end;
+            //we have a new schedule and want to check first room that can we merge the the schedule 
+            //with current meeting,if the schedule start time bigger than current meeting room ends time then 
+            //we can merge else we need to open another meeting
+            if (schedule[i].start >= interval.end) {
+                interval.end = schedule[i].end;
             } else {
-                heap.offer(intervals[i]);
+                heap.offer(schedule[i]);
             }
+            //original meeting still there
             heap.offer(interval);
         }
         return heap.size();

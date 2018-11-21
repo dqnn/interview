@@ -11,7 +11,11 @@ package leetcode;
 public class RectangleArea {
 
     /**
-     *
+Find the total area covered by two rectilinear rectangles in a 2D plane.
+
+Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.
+
+point (A, B), (C, D), (E, F), (G, H)
      * time : O(1)
      * space : O(1)
      *
@@ -37,7 +41,7 @@ public class RectangleArea {
         int bottom = Math.max(B, F);
 
         int overlap = 0;
-        // calc the overlap one
+        // calc the overlap one,there maybe no overlapped area
         if (right > left && top > bottom) {
             overlap = (right - left) * (top - bottom);
         }

@@ -45,13 +45,19 @@ expression matching with support for '.' and '*'.
          here are two sub conditions:
          1，if p.charAt(j-1) != s.charAt(i) : dp[i][j] = dp[i][j-2] //in this case, a* only counts as empty
          2，if p.charAt(j-1) == s.charAt(i) or p.charAt(j-1) == ‘.’:
-             dp[i][j] = dp[i][j-1] // in this case, a* counts as single a
-             dp[i][j] = dp[i-1][j] //in this case, a* counts as multiple a
-             dp[i][j] = dp[i][j-2] // in this case, a* counts as empty
+             dp[i][j] = dp[i][j-1] // in this case, a* counts as single a, like dp[2][3]
+             dp[i][j] = dp[i-1][j] //in this case, a* counts as multiple a, dp[3][4]
+             dp[i][j] = dp[i][j-2] // in this case, a* counts as empty   dp[1][3]
 
-     "aab", "c*aab"
-
-     i = 1 dp[0][2] = true
+xaabyc  xa*b.c
+     x  a  *  b  .  c
+  1  0  0  0  0  0  0
+x 0  1  0  1  0  0  0
+a 0  0  1  1  0  0  0
+a 0  0  0  1  0  0  0
+b 0  0  0  0  1  0  0
+y 0  0  0  0  0  1  0
+c 0  0  0  0  0  0  1
 
      time : O(m * n)
      space : O(m * n)
