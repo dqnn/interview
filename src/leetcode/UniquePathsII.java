@@ -32,6 +32,12 @@ How many unique paths would there be?
      time : O(m * n)
      space : O(n)
 
+Follow up:
+
+Round 2
+1. 给定一个二维数组，从(0,0)出发到第一行最后一个位置，每次只能向右，向右上或右下(对角线)走一格，问有多少种走法
+2. Follow up: 如果给你一些点，要求你必须经过这些点，有多少种走法
+3. Follow up: 如果指定一个高度(row number)，你的路径必须经过至少一次这个高度，有多少种走法
      * @param obstacleGrid
      * @return
      */

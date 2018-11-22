@@ -79,15 +79,16 @@ public class ReconstructItinerary {
         HashMap<String, PriorityQueue<String>> map = new HashMap<>();
 
         for (String[] ticket : tickets) {
-            map.computeIfAbsent(ticket[0], k -> new PriorityQueue()).add(ticket[1]);
+            map.computeIfAbsent(ticket[0], k -> new PriorityQueue<>()).add(ticket[1]);
         }
 
-        List<String> res = new LinkedList();
+        List<String> res = new LinkedList<>();
         Stack<String> stack = new Stack<>();
         stack.push("JFK");
 
         // we have two while loop to find more elements, backtracking always can use
         //stack to implement non-recursive ones
+        //this is DFS, how to use stack to pick one road for DFS
         while (!stack.empty()) {
             while (map.containsKey(stack.peek()) && !map.get(stack.peek()).isEmpty()) {
                 stack.push(map.get(stack.peek()).poll());
