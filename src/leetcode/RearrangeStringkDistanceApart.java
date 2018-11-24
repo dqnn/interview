@@ -104,7 +104,7 @@ Explanation: The same letters are at least distance 2 from each other.
         }
 
         PriorityQueue<Map.Entry<Character, Integer>> pq =
-                new PriorityQueue<>((a, b) -> Integer.compare(b.getValue(), a.getValue()));
+                new PriorityQueue<>((a, b) -> (b.getValue() - a.getValue()));
         pq.addAll(map.entrySet());
 
         Queue<Map.Entry<Character, Integer>> queue = new LinkedList<>();
