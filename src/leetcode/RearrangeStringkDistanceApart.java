@@ -98,6 +98,7 @@ Explanation: The same letters are at least distance 2 from each other.
         if (s == null || s.length() < 1 || k < 0) {
             return "";
         }
+        
         HashMap<Character, Integer> map = new HashMap<>();
         for (char c : s.toCharArray()) {
             map.put(c, map.getOrDefault(c, 0) + 1);
@@ -116,6 +117,7 @@ Explanation: The same letters are at least distance 2 from each other.
             cur.setValue(cur.getValue() - 1);
             queue.offer(cur);
             if (queue.size() < k) continue;
+            //get first and put back to queue
             Map.Entry<Character, Integer> front = queue.poll();
             if (front.getValue() > 0) {
                 pq.offer(front);
