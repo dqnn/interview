@@ -87,6 +87,18 @@ public class JavaSkillsForInterview {
                 // return o2‐o1; 1‐>0
             }
         });
+        //removeIf means they can run the lambda first before they do remove ops
+        /**
+         * 删除集合中符合条件的成员，empty集合也可以，但是null就炸啦。
+         */
+            List<String> list2 = new ArrayList<>(Arrays.asList("1","12","13","14","15","0"));
+            System.out.println("初始时："+ list.toString());
+            list2.removeIf(e -> e.contains("1")); //removed all string which contains 1
+            System.out.println("过滤完：" + list2.toString()); //["0"]
+        /*
+         *
+         */
+
         // Stack
         Stack<Integer> stack = new Stack<Integer>();
         stack.push(0);

@@ -55,6 +55,9 @@ T(n) = T(n-1) + O(n)            O(n^2)      O(n)        quick_sort(worst case)
 T(n) = n * T(n-1)               O(n!)       O(n)        permutation
 T(n) = T(n-1)+T(n-2)+…+T(1)     O(2^n)      O(n)        combination
 
+
+
+
 DP with memorization
 Time: number of subproblems time * exclusive time
 Space: max depth * space
@@ -112,4 +115,58 @@ please take a look at graph in Complexity_Cheatsheet.pdf
 < INT_MAX: O(sqrt(n)), prime, square sum
 < INT_MAX: O(logn), binary search
 < INT_MAX: O(1) Math
+
+
+
+another explanations of permutation complexity: 
+
+0
+down vote
+this answer is for people like me who doesn't remember e=1/0!+1/1!+1/2!+1/3!...
+
+I can explain using a simple example, say we want all the permutation of "abc"
+
+        /    /   \     <--- for first position, there are 3 choices
+       /\   /\   /\    <--- for second position, there are 2 choices
+      /  \ /  \ /  \   <--- for third position, there is only 1 choice
+      
+
+this answer is for people like me who doesn't remember e=1/0!+1/1!+1/2!+1/3!...
+
+I can explain using a simple example, say we want all the permutation of "abc"
+
+        /    /   \     <--- for first position, there are 3 choices
+       /\   /\   /\    <--- for second position, there are 2 choices
+      /  \ /  \ /  \   <--- for third position, there is only 1 choice
+above is the recursion tree, and we know that there are 3! leaf nodes, 
+which represents all possible permutations of "abc" (which is also where 
+we perform an action on the result, ie print()), but since you are counting all 
+function calls, we need to know how many tree nodes in total (leaf + internal)
+
+if it was a complete binary tree, we know there are 2^n leaf nodes...
+how many internal nodes?
+
+x = |__________leaf_____________|------------------------|  
+let this represent 2^n leaf nodes, |----| represents the max number of
+nodes in the level above, since each node has 1 parent, 2nd last level
+cannot have more nodes than leaf
+since its binary, we know second last level = (1/2)leaf 
+x = |__________leaf_____________|____2nd_____|-----------|
+same for the third last level...which is (1/2)sec
+x = |__________leaf_____________|____2nd_____|__3rd_|----|
+x can be used to represent total number of tree nodes, and since we are always 
+cutting half on the initial |-----| we know that total <= 2*leaf
+
+now for permutation tree
+
+x = |____leaf____|------------|
+let this represent n! leaf nodes
+since its second last level has 1 branch, we know second last level = x 
+x = |____leaf____|____2nd_____|-------------|
+but third last level has 2 branches for each node, thus = (1/2)second
+x = |____leaf____|____2nd_____|_3rd_|-------|
+fourth last level has 3 branches for each node, thus = (1/3)third
+x = |____leaf____|____2nd_____|_3rd_|_4|--| |
+| | means we will no longer consider it
+here we see that total < 3*leaf, this is as expected (e = 2.718)
 
