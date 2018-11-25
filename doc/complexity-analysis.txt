@@ -98,4 +98,18 @@ dp(i, j):
 
 Max recursion depth <= O(n)
 Time complexity: O(n^2) * O(n) = O(n^3)
+Space complexity: O(n^2) + O(n) * O(1) = O(n^2)
+
+
+please take a look at graph in Complexity_Cheatsheet.pdf
+< 10: O(n!) permutation
+< 15: O(2^n) combination
+< 50: O(n^4) DP
+< 200: O(n^3) DP, all pairs shortest path
+< 1,000: O(n^2) DP, all pairs, dense graph
+< 1,000,000: O(nlogn), sorting-based (greedy), heap, divide & conquer
+< 1,000,000: O(n), DP, graph traversal / topological sorting (V+E), tree traversal
+< INT_MAX: O(sqrt(n)), prime, square sum
+< INT_MAX: O(logn), binary search
+< INT_MAX: O(1) Math
 

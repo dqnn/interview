@@ -27,12 +27,12 @@ The number of nodes in the graph will be in the range [2, 15].
 You can print different paths in any order, but you should keep the order of nodes inside one path.
 */  
     //typical DFS
-    //time complexity: O(2^N * N^2), space: O(2^N * N)
+    //time complexity: O(2^N), space: O(2^N)
     //We can have exponentially many paths, and for each such path, our prepending operation path.add(0, node) 
     //will be O(N^2 * N ^2).
     //Space Complexity: O(2^N * N) the size of the output dominating the final space complexity.
     
-    //Time, T(n) = 
+    //if we only have 1 element, the time would be T(n) = T(n-1) + T(n-2)+...+T(1) 
     public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
         List<List<Integer>> res = new ArrayList<>();
         if (graph == null || graph.length < 1 || graph[0].length < 1) {
