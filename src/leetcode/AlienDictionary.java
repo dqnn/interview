@@ -102,6 +102,7 @@ public class AlienDictionary {
                     if (!map.containsKey(cur[j])) {
                         map.put(cur[j], new HashSet<>());
                     }
+                    //like t->f,
                     if (map.get(cur[j]).add(next[j])) {
                         degree[next[j] - 'a']++;
                     }
