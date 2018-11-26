@@ -86,6 +86,7 @@ public class AlienDictionary {
 
         for (String word : words) {
             for (char c : word.toCharArray()) {
+                //we only +1 for each char,
                 if (degree[c - 'a'] == 0) {
                     count++;
                     degree[c - 'a'] = 1;
@@ -93,6 +94,7 @@ public class AlienDictionary {
             }
         }
 
+        //this finally will process: w->e->r->t->f. plus line 92, f in degree = 2
         for (int i = 0; i < words.length - 1; i++) {
             char[] cur = words[i].toCharArray();
             char[] next = words[i + 1].toCharArray();
@@ -102,7 +104,7 @@ public class AlienDictionary {
                     if (!map.containsKey(cur[j])) {
                         map.put(cur[j], new HashSet<>());
                     }
-                    //like t->f,
+                    
                     if (map.get(cur[j]).add(next[j])) {
                         degree[next[j] - 'a']++;
                     }
@@ -113,7 +115,7 @@ public class AlienDictionary {
 
         Queue<Character> queue = new LinkedList<>();
         for (int i = 0; i < 26; i++) {
-            //this means they are leaf nodes, only have 1 in
+            //this means they are only 1 degree, which menas they are the roots of all dictionary
             if (degree[i] == 1) {
                 queue.offer((char)('a' + i));
             }
@@ -125,6 +127,7 @@ public class AlienDictionary {
             res.append(c);
             if (map.containsKey(c)) {
                 for (char ch : map.get(c)) {
+                    //means we have removed other relationship
                     if (--degree[ch - 'a'] == 1) {
                         queue.offer(ch);
                     }
