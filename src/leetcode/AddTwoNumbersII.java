@@ -28,6 +28,13 @@ public class AddTwoNumbersII {
      * @return
      */
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        if (l1 == null && l2 == null) {
+            return null;
+        } else if (l1 == null) {
+            return l2;
+        } else if (l2 == null){
+            return l1;
+        }
         Stack<Integer> s1 = new Stack<>();
         Stack<Integer> s2 = new Stack<>();
 
@@ -51,6 +58,8 @@ public class AddTwoNumbersII {
             cur = head;
             sum /= 10;
         }
+        //for example 5 + 5, so at this time, head = 1, so we should pass cur instead of 
+        //cur.next
         return cur.val == 0 ? cur.next : cur;
     }
 }
