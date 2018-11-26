@@ -1,3 +1,4 @@
+
 package leetcode;
 
 import java.util.*;
@@ -13,9 +14,10 @@ import java.util.*;
 public class AlienDictionary {
     /**
      * There is a new alien language which uses the latin alphabet.
-     * However, the order among letters are unknown to you. You receive a list of non-empty words from the dictionary,
-     * where words are sorted lexicographically by the rules of this new language. Derive the order of letters
-     * in this language.
+     * However, the order among letters are unknown to you. You receive a list of non-empty words 
+     * from the dictionary,
+     * where words are sorted lexicographically by the rules of this new language. Derive the 
+     * order of letters in this language.
 
      Example 1:
      Given the following words in dictionary,
@@ -65,11 +67,19 @@ public class AlienDictionary {
      * @param words
      * @return
      */
+    //thinking process:
+    //given list of words, the words are sorted lexi order by this language, so to get the letter order
+    
+    //like [z,x] means z are before x, so z x z are incorrect dictionary, 
+    //thinking about each letter is a node, each word consist nodes,so we have a map,
+    //Character ->Set<Character>, we add each character and same position next char to this map
+    //"wrt","wrf"--> w-{w},r->{r},t-{f}, 
+    
+    //and we have a degree to store each node in degree, like above f indegree + 1
+    
     public static String alienOrder(String[] words) {
 
         if (words == null || words.length == 0) return "";
-
-        
         HashMap<Character, Set<Character>> map = new HashMap<>();
         int[] degree = new int[26];
         int count = 0;
@@ -102,6 +112,7 @@ public class AlienDictionary {
 
         Queue<Character> queue = new LinkedList<>();
         for (int i = 0; i < 26; i++) {
+            //this means they are leaf nodes, only have 1 in
             if (degree[i] == 1) {
                 queue.offer((char)('a' + i));
             }
@@ -123,5 +134,4 @@ public class AlienDictionary {
         if (res.length() != count) return "";
         return res.toString();
     }
-
 }
