@@ -76,6 +76,7 @@ all routes have more ‘)’ than ‘(’ --> all routes are invalid --> stop an
                     low--;
                 }
                 high--;
+            //process * 
             } else {
                 if (low > 0) {
                     low--;
