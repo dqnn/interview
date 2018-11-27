@@ -88,12 +88,12 @@ public class NextPermutation {
         for(; j>=0 && nums[j+1] <= nums[j];) {
             j--;
         }
-        
+        //the last number, and 
         if(j < 0) { // it sorted desc
             Arrays.sort(nums);
             return;
         }
-        
+        //here is the key: 
         for(int i =end+1; i>j;i--) {
             if(nums[j] < nums[i]) {
                 int temp = nums[j];

@@ -15,7 +15,8 @@ import java.util.List;
 public class PermutationsII {
     /**
      * 47. Permutations II
-Given a collection of numbers that might contain duplicates, return all possible unique permutations.
+Given a collection of numbers that might contain duplicates, 
+return all possible unique permutations.
 
 Example:
 
@@ -41,7 +42,8 @@ Output:
         return res;
     }
 
-    // so we used used to mark where we have visited, and use backtracking templates to get correct answer
+    // so we used used to mark where we have visited, 
+    //and use backtracking templates to get correct answer
     public void helper(List<List<Integer>> res, List<Integer> list, int[] nums, boolean[] used) {
         if (list.size() == nums.length) {
             res.add(new ArrayList<>(list));
@@ -56,7 +58,7 @@ Output:
         }
     }
 
-    // time : O(n!) space : O(n);
+    // time : O(n! * n) space : O(n);
     public List<List<Integer>> permuteUnique2(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         if (nums == null || nums.length == 0) return  res;
