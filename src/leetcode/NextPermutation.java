@@ -13,7 +13,8 @@ import java.util.Arrays;
 public class NextPermutation {
     /**
      * 31. Next Permutation
-     * Here are some examples. Inputs are in the left-hand column and its corresponding outputs are in the right-hand column.
+     * Here are some examples. Inputs are in the left-hand column and 
+     * its corresponding outputs are in the right-hand column.
      1,2,3 → 1,3,2
      3,2,1 → 1,2,3
      1,1,5 → 1,5,1
@@ -33,6 +34,9 @@ public class NextPermutation {
      space : O(1);
      * @param nums
      */
+    //thinking process: the problem is to find next permutation if they all sorted, if last one
+    //return first permutation
+    //so 
     public void nextPermutation(int[] nums) {
         if (nums == null || nums.length == 0) return;
 
@@ -73,7 +77,7 @@ public class NextPermutation {
         }
     }
     
-    public void nextPermutation4(int[] nums) {
+    public void nextPermutation2(int[] nums) {
         //edge case
         if (nums == null || nums.length == 1) {
             return;

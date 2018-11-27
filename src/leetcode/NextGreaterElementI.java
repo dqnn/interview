@@ -57,15 +57,21 @@ The length of both nums1 and nums2 would not exceed 1000.
      * @param nums2
      * @return
      */
-
+    //thinking process: the problem is to find the next greater element for each element in nums1
+    //for example 1 in above
+    
+    //
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-        // the map is used to store the number relationship in nums2, and from left to right, only two adjacent 
-        // number can have such relation
+        // the map is used to store the number relationship in nums2, and from left 
+        //to right, only two closest number can have such relation if first < second
         // [1,3,4,2]--> map 1->3, 3->4, 
         HashMap<Integer, Integer> map = new HashMap<>();
         Stack<Integer> stack = new Stack<>();
+        //so if it is 5,3,4,6--> stack: 5,3 and num = 3, so map: 3->4, stack:4/5 next 
+        //num = 6, map: 3->4, 4->6, 5->6, stack is empty. so 
+        //this template aimed to find in one array, the closest greater/smaller number
         for (int num : nums2) {
-            // nums1 and nums2 are distinct number, so we dont need to handle dup cases
+            // we are using stack to find next great 
             while (!stack.isEmpty() && stack.peek() < num) {
                 map.put(stack.pop(), num);
             }
