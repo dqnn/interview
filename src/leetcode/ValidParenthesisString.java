@@ -119,9 +119,6 @@ if one of them is valid.
         
         return count == 0;
     }
-    
-    
-    
     /*
 Let lo, hi respectively be the smallest and largest possible number of open left 
 brackets after processing the current character in the string.
@@ -133,7 +130,7 @@ the current prefix can't be made valid no matter what our choices are. Also,
 we can never have less than 0 open left brackets. At the end, we should check 
 that we can have exactly 0 open left brackets.
     */
-    //Best O(n), O(1)
+    //Best O(n), O(1) this sems left scan and right scan
     public boolean checkValidString(String s) {
        int lo = 0, hi = 0;
        for (char c: s.toCharArray()) {
