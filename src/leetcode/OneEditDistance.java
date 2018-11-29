@@ -50,7 +50,39 @@ Explanation: We can replace '0' with '1' to get t.
      * @param t
      * @return
      */
+    //thinking process: 
+    //the problem is to two only 1 edit distance, if we can equals the two strings
+    
+    //we use two point to compare each char on its place, and use a counter to see whther it exceed
+    //1 time. 
+    public boolean isOneEditDistance2(String s, String t) {
+        if (s == null || t == null || s.equals(t) || Math.abs(s.length() - t.length()) > 1)  {
+            return false;
+        }
+        
+        int sp = 0, tp = 0, diffCount = 0;
+        while(sp < s.length() && tp < t.length() && diffCount < 2) {
+            if (s.charAt(sp) == t.charAt(tp)) {
+                sp++;
+                tp++;
+                continue;
+            }
+            diffCount++;
+            if (s.length() == t.length()) {
+                tp++;
+                sp++;
+            } else if (s.length() > t.length()) {
+                sp++;
+            } else {
+                tp++;
+            }
+        }
+        return diffCount > 1 ? false: true;
+    }
     public static boolean isOneEditDistance(String s, String t) {
+        if (s == null || t == null || s.equals(t) || Math.abs(s.length() - t.length()) > 1) {
+            return false;
+        }
         for (int i = 0; i < Math.min(s.length(), t.length()); i++) {
             //only when it is different so we can compare
             if (s.charAt(i) != t.charAt(i)) {
