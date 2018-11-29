@@ -39,6 +39,10 @@ N is in range [1,200].
 M[i][i] = 1 for all students.
 If M[i][j] = 1, then M[j][i] = 1.
  */
+    //interview friendly, 
+    //thinking process: 2D matrix m[i][j] =1 means i knew j, and knowship will be transitive, 
+    //so j will know i, so on, return how many circles are there
+    // 
     public int findCircleNum(int[][] m) {
         if (m == null || m.length < 1 || m[0].length < 1) {
             return 0;
@@ -56,13 +60,14 @@ If M[i][j] = 1, then M[j][i] = 1.
             while(!q.isEmpty()) {
                 int s = q.poll();
                 visited[s] = 1;
-                //row scan, if someone s who does not know, add to q
+                //row scan, if someone s who know but not in visited, add to q
                 for(int j = 0; j < len; j++) {
                     if (m[s][j] == 1 && visited[j] == 0) {
                         q.offer(j);
                     }
                 }
             }
+            //we come here means we have visited for all person that i knew, so we plus one
             res++;
         }
         return res;
