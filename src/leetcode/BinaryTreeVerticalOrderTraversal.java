@@ -134,7 +134,7 @@ public class BinaryTreeVerticalOrderTraversal {
         if (root == null) {
             return res;
         }
-        Map<Integer, List<Node2>> map = new HashMap<>();
+        Map<Integer, List<Integer>> map = new HashMap<>();
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
         Queue<Node2> q = new LinkedList<>();
@@ -143,7 +143,7 @@ public class BinaryTreeVerticalOrderTraversal {
             int size = q.size();
             for(int i = 0; i< size;i++) {
                 Node2 node = q.poll();
-                map.computeIfAbsent(node.idx, v->new ArrayList<>()).add(node);
+                map.computeIfAbsent(node.idx, v->new ArrayList<>()).add(node.node.val);
                 min = Math.min(min, node.idx);
                 max = Math.max(max, node.idx);
                 if (node.node.left != null){
@@ -156,12 +156,7 @@ public class BinaryTreeVerticalOrderTraversal {
         }
         
         for(int i =min; i<=max;i++) {
-             List<Integer> temp = new ArrayList<>();
-            for(Node2 node : map.get(i)) {
-                temp.add(node.node.val);
-            }
-            res.add(temp);
-                
+            res.add(map.get(i));
         }
         return res;
     }
