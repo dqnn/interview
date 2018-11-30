@@ -26,20 +26,31 @@ public class FindtheCelebrity {
      * @param n
      * @return
      */
+    //thinking process: 
+    //like 0->1->2->3->4->8->5->6 but 6 knows 0, after first loop, celebrity = 6
+    //
     public int findCelebrity(int n) {
         if (n < 2) return -1;
-        int possible = 0;
+        int celebrity = 0;
+        //so after this loop, 0-celebrity-1 and celebrity+1..n-1 will not be celebrity
+        //the possible is only chance to be celebrity
+        //but we not sure celebirty is true becasue this loop also ignore a lot info, like 
+        //when we compare, some number may not know celebrity but we missed
         for (int i = 1; i < n; i++) {
-            if (knows(possible, i)) {
-                possible = i;
+            if (!knows(i, celebrity)) {
+                celebrity = i;
             }
         }
+        //this loop is to verify this celebrity, if he know someone or 
+        //someone does not know him then he is not
         for (int i = 0; i < n; i++) {
-            if (possible != i && ((knows(possible, i) || !knows(i, possible)))) {
+            if (i == celebrity) continue;
+            //if i does not know candidate, or candidate knows i, return -1;
+            if (knows(celebrity, i) || !knows(i, celebrity)) {
                 return -1;
             }
         }
-        return possible;
+        return celebrity;
     }
 
     public boolean knows(int a, int b) {
