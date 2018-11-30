@@ -103,7 +103,8 @@ id[i][j] stands for in i th sum, the first starting index for that sum.
     // standard solution
 /*
 
- */
+ */     //interview friendly
+        //
         public int[] maxSumOfThreeSubarrays3(int[] nums, int K) {
             //W is an array of sums of windows
             //note: W is sliding window size = k
@@ -135,9 +136,11 @@ id[i][j] stands for in i th sum, the first starting index for that sum.
              
             int[] ans = new int[]{-1, -1, -1};
           //merge the results, so i and k are all largest value if from left or right
-            //so we just iterator 
+            //so we just iterator,since at j, we always know past and future info
+            //
             for (int j = K; j < W.length - K; j++) {
                 int i = left[j - K], k = right[j + K];
+                //in case initialize 
                 if (ans[0] == -1 || W[i] + W[j] + W[k] >
                         W[ans[0]] + W[ans[1]] + W[ans[2]]) {
                     ans[0] = i;
