@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class AccountsMerge {
+public class AccountsMerge {
 /*
 Given a list accounts, each element accounts[i] is a list of strings, where the first element 
 accounts[i][0] is a name, and the rest of the elements are emails representing emails of 
