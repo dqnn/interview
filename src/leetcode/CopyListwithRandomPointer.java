@@ -29,6 +29,11 @@ public class CopyListwithRandomPointer {
      * @param head
      * @return
      */
+    
+    //thinking process: originally this is a list, each node has an additional pointer like
+    // left,right etc, so find the 
+    
+    //
     public RandomListNode copyRandomList(RandomListNode head) {
         HashMap<RandomListNode, RandomListNode> map = new HashMap<>();
         RandomListNode cur = head;

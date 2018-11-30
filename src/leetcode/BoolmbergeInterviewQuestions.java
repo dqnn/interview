@@ -1,6 +1,7 @@
 package leetcode;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -99,6 +100,36 @@ public class BoolmbergeInterviewQuestions {
         }
         if (nums[end] <= target) return end;
         else return start;
+    }
+    
+    //implement a ArrayList
+    // do we 
+    
+    
+    //rate limit, return true if access 3 times in last 3 seconds. 
+    //follow up: if to add clientId. for each one
+    long lastAccessTimeStamp = 0;
+    int count = 0;
+    public boolean isAboveThreshold() {
+        if (count == 0) {
+            lastAccessTimeStamp = new Date().getTime();
+            count++;
+            return false;
+        }
+        
+        long elapsedTime = new Date().getTime() - lastAccessTimeStamp;
+        if (elapsedTime > 3*1000) {
+            count = 0;
+            lastAccessTimeStamp = new Date().getTime();
+        } else {
+            count +=1;
+            if (count == 3) {
+                lastAccessTimeStamp = new Date().getTime();
+                count = 0;
+                return true;
+            }
+        }
+        return false;
     }
     public static void main(String[] args) {
         System.out.println(printNumbers(-23330));

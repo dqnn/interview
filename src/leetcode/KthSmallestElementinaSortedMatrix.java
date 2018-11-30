@@ -40,14 +40,16 @@ return 13.
      */
 
     // time : (nlogn) space : O(n)
-    // the scan is: first rwo, then from each element we scan column by column until we find the element
+    // the scan is: first rwo, then from each element 
+    //we scan column by column until we find the element
     public int kthSmallest(int[][] matrix, int k) {
         if (matrix == null || matrix.length < 1 || k < 1) {
             return -1;
         }
         //using lambda to as comparator, first parameter is the length, this is optimization
         PriorityQueue<Tuple> pq = new PriorityQueue<>(matrix.length, (a, b) -> (a.val - b.val));
-        // we add first row first and sorted， this is nxn, so he used m.length to replace m[0].length
+        // we add first row first and sorted， this is nxn, so we 
+        //used m.length to replace m[0].length
         for (int i = 0; i < matrix.length; i++) {
             pq.offer(new Tuple(0, i, matrix[0][i]));
         }

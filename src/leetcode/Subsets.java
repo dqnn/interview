@@ -63,8 +63,8 @@ public class Subsets {
     	    if (nums == null || index < 0 || index > nums.length) {
             return;
         }
-    	
-    	    res.add(new ArrayList<>(list));
+    	    if (list.size() > 0)
+    	        res.add(new ArrayList<>(list));
         for (int i = index; i < nums.length; i++) {
             list.add(nums[i]);
             helper(res, list, nums, i + 1);
@@ -107,5 +107,10 @@ Combine them, now we have [ [ ], [1], [2], [1,2], [3], [1,3], [2,3], [1,2,3] ]
         
         return res;
     
+    }
+    
+    public static void main(String[] args) {
+        int[] input = {1,2,3};
+        System.out.println(subsets(input));
     }
 }

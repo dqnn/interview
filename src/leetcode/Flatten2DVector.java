@@ -1,5 +1,6 @@
 package leetcode;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -31,35 +32,28 @@ public class Flatten2DVector {
 
      */
 
-    int indexList, indexElement;
-    List<List<Integer>> list;
-
-
+    Iterator<List<Integer>> itrs;
+    Iterator<Integer> row;
     public Flatten2DVector(List<List<Integer>> vec2d) {
-        indexElement = 0;
-        indexList = 0;
-        list = vec2d;
+        if(vec2d == null || vec2d.size() == 0) return;
+        itrs = vec2d.iterator();
+        row = itrs.next().iterator();
+        getNextRow();
     }
-
-
+    private void getNextRow() {
+        while(!row.hasNext() && itrs.hasNext()) {
+            row = itrs.next().iterator();
+        }
+    }
     //@Override
     public Integer next() {
-        return list.get(indexList).get(indexElement++);
+        int next = row.next();
+        getNextRow();
+        return next;
     }
 
     //@Override
     public boolean hasNext() {
-        // so we need a cunt down to get whether we have next element
-        // while here helps to iterate to next list 
-        while (indexList < list.size()) {
-            if (indexElement < list.get(indexList).size()) {
-                return true;
-            } else {
-                // so indexElement means index in each sub list
-                indexList++;
-                indexElement = 0;
-            }
-        }
-        return false;
+        return row != null && row.hasNext();
     }
 }

@@ -47,9 +47,7 @@ public class FindAllAnagramsinaString {
      * @param p
      * @return
      */
-
-    class Solution {
-        
+        //thinking process: two pointers
         // we change change to templates which use two while and get the answer, but here is more elegant version
         public List<Integer> findAnagrams(String s, String p) {
             List<Integer> res = new ArrayList<>();
@@ -62,8 +60,6 @@ public class FindAllAnagramsinaString {
             for(char ch : p.toCharArray()) {
                 visited[ch - 'a'] ++;
             }
-            
-            
             int start = 0, end = 0;
             int count = p.length();
             while(end < s.length()) {
@@ -94,7 +90,6 @@ public class FindAllAnagramsinaString {
         
             return res;
         }
-    }
     
     //another TLE solution
     public List<Integer> findAnagrams2(String s, String p) {
@@ -139,4 +134,4 @@ public class FindAllAnagramsinaString {
         }
         return true;
     }
-}
+ }

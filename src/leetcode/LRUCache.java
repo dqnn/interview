@@ -103,6 +103,7 @@ list, we don't need to worry about null pointer
     }
 
     public int get(int key) {
+        if (capacity == 0) return -1;
         Node node = map.get(key);
 
         if (node == null) {
@@ -121,6 +122,7 @@ list, we don't need to worry about null pointer
     }
 
     public void put(int key, int value) {
+        if (capacity == 0) return;
         Node node = map.get(key);
         // this is the same as get
         if (node != null) {
