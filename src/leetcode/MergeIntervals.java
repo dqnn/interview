@@ -65,7 +65,7 @@ Explanation: Intervals [1,4] and [4,5] are considerred overlapping.
         }
         // this is come to the situation, for example, [1,3] and [2, 6], we cannot add to result set since 
         // we still do not know whether we need to merge more, we can only know when we exit the loop
-        // for [1,3], [4,6], so we still have one left to add. 
+        // for [1,3], [4,6], so we still have one left to add. last one, [4,6]
         res.add(new Interval(start, end));
         return res;
     }

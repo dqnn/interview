@@ -42,7 +42,7 @@ be accepted.
     public List<List<String>> accountsMerge(List<List<String>> accounts) {
         if (accounts == null || accounts.size() < 1) return new ArrayList<>();
         
-        DSU dsu = new DSU();
+        Unionhelper dsu = new Unionhelper();
         //email --> name mapping
         Map<String, String> emailToName = new HashMap<>();
         //email mapping to ID, id is from 0, 
@@ -86,9 +86,9 @@ be accepted.
         }
         return new ArrayList(ans.values());
     }
-class DSU {
+class Unionhelper {
     int[] parent;
-    public DSU() {
+    public Unionhelper() {
         parent = new int[101];
         for (int i = 0; i <= 100; ++i)
             parent[i] = i;
