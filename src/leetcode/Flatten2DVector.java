@@ -31,29 +31,32 @@ public class Flatten2DVector {
      space : O(1)
 
      */
-
+    //so original 2d has iterator, we just need to base on that
+    // the key is to getNextRow(), it is aim to get next correct row iterator
     Iterator<List<Integer>> itrs;
-    Iterator<Integer> row;
+    Iterator<Integer> rowItr;
     public Flatten2DVector(List<List<Integer>> vec2d) {
         if(vec2d == null || vec2d.size() == 0) return;
         itrs = vec2d.iterator();
-        row = itrs.next().iterator();
+        rowItr = itrs.next().iterator();
         getNextRow();
     }
+    //here is the key
     private void getNextRow() {
-        while(!row.hasNext() && itrs.hasNext()) {
-            row = itrs.next().iterator();
+        //why we while becasue next row maybe = [], no elements, so need while here
+        while(!rowItr.hasNext() && itrs.hasNext()) {
+            rowItr = itrs.next().iterator();
         }
     }
     //@Override
     public Integer next() {
-        int next = row.next();
+        int next = rowItr.next();
         getNextRow();
         return next;
     }
 
     //@Override
     public boolean hasNext() {
-        return row != null && row.hasNext();
+        return rowItr != null && rowItr.hasNext();
     }
 }
