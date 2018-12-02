@@ -20,6 +20,8 @@ public class JavaSkillsForInterview {
 
     public static void main(String[] args) {
         
+        int[] stones = {1,2,3,4};
+        Arrays.stream(stones).forEach(e-> System.out.println(e));
         TreeMap<Integer, String> t = new TreeMap<>();
         t.put(1, "a");
         t.put(2, "b");
@@ -147,7 +149,24 @@ public class JavaSkillsForInterview {
         pq.size();
         while (!pq.isEmpty()) {
         }
+        
+
+       
 
     }
-
+    static class Node {
+        int id;
+        public Node(int id) {
+            this.id =id;
+        }
+        @Override
+        public int hashCode() {
+            return id;
+        }
+        
+        public boolean equals(Node o) {
+            return o.id ==id;
+        }
+    }
+   
 }
