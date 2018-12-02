@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.Arrays;
+
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
@@ -9,7 +11,7 @@ package leetcode;
  * Description : 323. Number of Connected Components in an Undirected Graph
  */
 public class NumberofConnectedComponentsinanUndirectedGraph {
-    /**
+    /**tag:union-find
      * Given n nodes labeled from 0 to n - 1 and a list of undirected edges 
      * (each edge is a pair of nodes),
      * write a function to find the number of connected components in an 
@@ -44,7 +46,7 @@ public class NumberofConnectedComponentsinanUndirectedGraph {
      */
     // n is nodes, edges are thread connected nodes
     // since 
-    public int countComponents(int n, int[][] edges) {
+    public static int countComponents(int n, int[][] edges) {
 
         // firstly, we resume each node is one component
         int res = n;
@@ -71,10 +73,38 @@ public class NumberofConnectedComponentsinanUndirectedGraph {
     }
 
     // in roots map, it will find the end of a component, we can call it transition map 
-    private int find(int[] roots, int i) {
+    private static int find(int[] roots, int i) {
         while (roots[i] != -1) {
             i = roots[i];
         }
         return i;
+    }
+    //another same solution, but we have a union method
+    public static int countComponents2(int n, int[][] edges) {
+        int res = n;
+        int[] roots = new int[n];
+        Arrays.fill(roots, -1);
+        
+        for(int[] pair: edges) {
+            if (union(roots, pair[0], pair[1])) {
+                res--;
+            }
+        }
+        return res;
+    }
+    
+    private static boolean union(int[] roots, int x, int y) {
+        int i = find(roots, x);
+        int j = find(roots, y);
+        if (i != j){
+            roots[i] = j;
+            return true;
+        }
+        return false;
+    }
+    
+    public static void main(String[] args) {
+        int[][] in = {{0,1},{1,2},{3,4}};
+        System.out.println(countComponents2(5, in));
     }
 }

@@ -5,7 +5,7 @@ package leetcode;
 // m odd numbers 
 import java.util.*;
 
- public class GFG {
+ public class SubArrayWithMOddNumber {
 /*
 Given an array of n elements and an integer m, we need to write a program to find the number of 
 contiguous subarrays in the array which contains exactly m odd numbers.

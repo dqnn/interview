@@ -1,6 +1,7 @@
 package leetcode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
@@ -13,8 +14,9 @@ import java.util.List;
  * Description : 261. Graph Valid Tree
  */
 public class GraphValidTree {
-    /**
-     * Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes),
+    /**tag: union-find
+     * Given n nodes labeled from 0 to n - 1 and a list of undirected edges 
+     * (each edge is a pair of nodes),
      * write a function to check whether these edges make up a valid tree.
 
      For example:
@@ -41,31 +43,32 @@ public class GraphValidTree {
      * @param edges
      * @return
      */
-
+    //thinking process: 
+    //so if two connected nodes have some parent, then it is not tree so we use union-find 
+    //
     public boolean validTree(int n, int[][] edges) {
         if (n == 1 && edges.length == 0) return true;
         if (n < 1 || edges == null || edges.length != n - 1) return false;
 
         int[] roots = new int[n];
-        for (int i = 0; i < n; i++) {
-            roots[i] = -1;
-        }
+        Arrays.fill(roots, -1);
 
         for (int[] pair : edges) {
             int x = find(roots, pair[0]);
             int y = find(roots, pair[1]);
             if (x == y) return false;
-            roots[x] = y;
+            roots[x] = y;//x is y's parent
         }
         return true;
     }
-
+    //see union and find utility class and test cases
     private int find(int[] roots, int i) {
         while (roots[i] != -1) {
             i = roots[i];
         }
         return i;
     }
+
 
     public boolean validTree2(int n, int[][] edges) {
         List<List<Integer>> graph = new ArrayList<>();
