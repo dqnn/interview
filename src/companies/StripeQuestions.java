@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class StripQuestions {
+public class StripeQuestions {
 /*
 电面的题目非常简单，就跟他说的一样，不考alg，只看你的思路.
 第一问：一个database，以array of hashmap的形式储存，每一个hashmap是一个record，给你一个key，
@@ -22,7 +22,7 @@ public class StripQuestions {
  */
 
     //第四问
-     public class SortByRecordsComparator implements Comparator<Map<String, Integer>> {
+     public static class SortByRecordsComparator implements Comparator<Map<String, Integer>> {
          private String key;
          private String dir;
          public SortByRecordsComparator(String key, String dir) {
@@ -99,6 +99,7 @@ public class StripQuestions {
     public static void main(String[] args) {
         testMinByKey();
         testFirstByKey();
+        testComparator();
     }
     
     
@@ -109,6 +110,21 @@ public class StripQuestions {
           throw new AssertionError("Expected:\n  " + expected + "\nActual:\n  " + actual + "\n");
         }
       }
+    private static void testComparator() {
+        Map<String, Integer> left1 = Map.of("a", 1);
+        Map<String, Integer> right1 = Map.of("a", 2);
+        
+        Map<String, Integer> left2 = Map.of("a", 2);
+        Map<String, Integer> right2 = Map.of("a", 1);
+        
+        
+        Map<String, Integer> left3 = Map.of("a", 1);
+        Map<String, Integer> right3 = Map.of("a", 1);
+        SortByRecordsComparator cmp = new SortByRecordsComparator("a", "asc");
+        assertEqual(-1, cmp.compare(left1, right1));
+        assertEqual(1, cmp.compare(left2, right2));
+        assertEqual(0, cmp.compare(left3, right3));
+    }
     
     public static void testFirstByKey() {
         List<Map<String, Integer>> example1 = Arrays.asList(Maps.of("a", 1));
