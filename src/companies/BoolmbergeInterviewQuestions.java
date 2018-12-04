@@ -1,4 +1,4 @@
-package leetcode;
+package companies;
 
 import java.util.Arrays;
 import java.util.Date;
