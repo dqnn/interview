@@ -57,11 +57,11 @@ read("abc", 1); // returns ""
     private char[] temp = new char[4];
 
     //  read from buf with max n chars
-    // firstly understand read4, this function has an internal to note where we are,
+    // firstly understand read4, this function has an internal pointer to note where we are,
     // so evert time it will return 1: how much it actually read 2. result in buf
     
     // the problem is to say, we want to call read multiple times, and we want n is 
-    //how many chars we want to read, but we need to rememeber last time what we have 
+    //how many chars we want to read, but we need to remember last time what we have 
     //read, so we don't want to duplicate chars. 
     
     //so buf should contains chars read from last time with end n ideally, but 
@@ -79,11 +79,13 @@ read("abc", 1); // returns ""
         int index = 0;
         // we can change while(true)
         while (index < n) {
-            // how much we read from buf 
+            // how much we can read from buf 
             if (pointer == 0) {
                 count = read4(temp);
             }
             if (count == 0) break;
+            //we need this while here because not sure pointer or index which 
+            //reach to its limit first
             while (index < n && pointer < count) {
                 buf[index++] = temp[pointer++];
             }

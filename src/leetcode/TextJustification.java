@@ -44,8 +44,9 @@ public class TextJustification {
      * @return
      */
   //thinking process: 
-    // the problem is given string array and length of each line, so we want to form a list of strings, each string has max width, and 
-    //there is spaces between each word, and maybe more spzaces than any other strings in on line
+    // the problem is given string array and length of each line, so we want to form a list of strings, 
+    //each string has max width, and 
+    //there is spaces between each word, and maybe more spaces than any other strings in on line
     //each word has to be one same line, last line will be left justified
     
     // so first we need to know some edge cases, then return list of "" 

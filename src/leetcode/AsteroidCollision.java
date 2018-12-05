@@ -1,5 +1,6 @@
 package leetcode;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 public class AsteroidCollision {
@@ -47,4 +48,37 @@ The 10 and -5 collide resulting in 10.  The 5 and 10 never collide.
         }
         return stack.stream().mapToInt(i->i).toArray();
     }
+    //no storage solution, as follow up 
+    public int[] asteroidCollision2(int[] asteroids) {
+        if (asteroids.length < 2) {
+            return asteroids;
+        }
+
+    int right = 1;
+    int left =0;
+    while (right < asteroids.length) {
+        if(left==-1) {
+            asteroids[0] = asteroids[right];
+            left=0;
+            right++;
+            continue;
+        } else {
+            if (asteroids[left] > 0 && asteroids[right] < 0) {
+                if (Math.abs(asteroids[left]) == Math.abs(asteroids[right])) {
+                    left--;
+                    right++;
+                } else if (Math.abs(asteroids[left]) > Math.abs(asteroids[right])) {
+                    right++;
+                } else {
+                    left--;
+                }
+            } else {
+                left++;
+                asteroids[left] = asteroids[right];
+                right++;
+            }
+        }
+    }
+    return Arrays.copyOf(asteroids, left+1);
+}
 }

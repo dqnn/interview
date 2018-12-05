@@ -74,7 +74,7 @@ public class WordLadderII {
         int curQueNum = 1;
         int nextQueNum = 0;
         boolean found = false;
-
+        //store the next level nodes
         Queue<String> queue = new LinkedList<>();
         HashSet<String> unvisited = new HashSet<>(wordList);
         HashSet<String> visited = new HashSet<>();
@@ -85,6 +85,7 @@ public class WordLadderII {
         while (!queue.isEmpty()) {
             String word = queue.poll();
             curQueNum--;
+            //put all possible word transformation for word and put into queue. udated visited and unvisited sets
             for (int i = 0; i < word.length(); i++) {
                 StringBuilder builder = new StringBuilder(word);
                 for (char ch = 'a'; ch <= 'z'; ch++) {
@@ -98,14 +99,9 @@ public class WordLadderII {
                             queue.offer(newWord);
                             nextQueNum++;
                         }
-                        // map has such newWord
-                        if (map.containsKey(newWord)) {
-                            map.get(newWord).add(word);
-                        } else {
-                            List<String> list = new ArrayList<>();
-                            list.add(word);
-                            map.put(newWord, list);
-                        }
+                        // map to store all possible transformation, so when we in queue, we can 
+                        //easily know which one can be put into queue, which are not
+                        map.computeIfAbsent(newWord, v->new ArrayList<>()).add(word);
                         //if found then we don't need to visit again bcause there is 
                         //no way repeated on same level we need to find another level
                         if (newWord.equals(endWord)) {

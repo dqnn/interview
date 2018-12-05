@@ -8,7 +8,7 @@ package leetcode;
  * Date : Sep, 2018
  * Description : TODO
  */
-public class SearchforaRange {
+public class FindFirstAndLastPositionOfElementInSortedArray {
     /**
      * 34. Find First and Last Position of Element in Sorted Array
      * Given an array of integers sorted in ascending order, find the starting 

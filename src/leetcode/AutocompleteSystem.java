@@ -77,18 +77,20 @@ class AutocompleteSystem {
             arr[sentences[i].charAt(0) - 'a'].put(sentences[i], times[i]);
     }
     
-    String cur_sent = "";
+    String cur_Input = "";
     public List<String> input(char c) {
         List < String > res = new ArrayList < > ();
         if (c == '#') {
-            arr[cur_sent.charAt(0) - 'a'].put(cur_sent, arr[cur_sent.charAt(0) - 'a'].getOrDefault(cur_sent, 0) + 1);
-            cur_sent = "";
+            //first char as index, "i l" -> times + 1, one more search on the key word
+            arr[cur_Input.charAt(0) - 'a'].
+            put(cur_Input, arr[cur_Input.charAt(0) - 'a'].getOrDefault(cur_Input, 0) + 1);
+            cur_Input = "";
         } else {
             List <Node> list = new ArrayList<>();
-            cur_sent += c;
-            for (String key: arr[cur_sent.charAt(0) - 'a'].keySet()) {
-                if (key.indexOf(cur_sent) == 0) {
-                    list.add(new Node(key, arr[cur_sent.charAt(0) - 'a'].get(key)));
+            cur_Input += c;
+            for (String key: arr[cur_Input.charAt(0) - 'a'].keySet()) {
+                if (key.indexOf(cur_Input) == 0) {
+                    list.add(new Node(key, arr[cur_Input.charAt(0) - 'a'].get(key)));
                 }
             }
             //result sort
@@ -107,6 +109,7 @@ class AutocompleteSystem {
             Map<String, Integer> counts;
             boolean isWord;
             public TrieNode() {
+                //each char-> TrieNode
                 children = new HashMap<Character, TrieNode>();
                 counts = new HashMap<String, Integer>();
                 isWord = false;
@@ -114,7 +117,9 @@ class AutocompleteSystem {
         }
         
         class Pair {
+            //sentence
             String s;
+            //count
             int c;
             public Pair(String s, int c) {
                 this.s = s; this.c = c;
@@ -136,6 +141,7 @@ class AutocompleteSystem {
         
         private void add(String s, int count) {
             TrieNode curr = root;
+            // i love--> i's map tp get TrieNode for each character, we setup the trieNode tree
             for (char c : s.toCharArray()) {
                 TrieNode next = curr.children.get(c);
                 if (next == null) {
@@ -150,13 +156,16 @@ class AutocompleteSystem {
         
         public List<String> input(char c) {
             if (c == '#') {
+                //add this word into the trieNode
                 add(prefix, 1);
                 prefix = "";
-                return new ArrayList<String>();
+                return new ArrayList<>();
             }
             
             prefix = prefix + c;
             TrieNode curr = root;
+            //add to TrieNode tree, for the new input like i l, we dfs to the 
+            //deepest node
             for (char cc : prefix.toCharArray()) {
                 TrieNode next = curr.children.get(cc);
                 if (next == null) {
@@ -164,12 +173,14 @@ class AutocompleteSystem {
                 }
                 curr = next;
             }
-            
-            PriorityQueue<Pair> pq = new PriorityQueue<>((a, b) -> (a.c == b.c ? a.s.compareTo(b.s) : b.c - a.c));
+            //add the New Pair into the heap,current all possible result, it is sorting
+            PriorityQueue<Pair> pq = new PriorityQueue<>((a, b) -> 
+            (a.c == b.c ? a.s.compareTo(b.s) : b.c - a.c));
             for (String s : curr.counts.keySet()) {
                 pq.add(new Pair(s, curr.counts.get(s)));
             }
-
+            
+            //only need first 3
             List<String> res = new ArrayList<String>();
             for (int i = 0; i < 3 && !pq.isEmpty(); i++) {
                 res.add(pq.poll().s);

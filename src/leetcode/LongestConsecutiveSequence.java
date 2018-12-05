@@ -60,14 +60,16 @@ Therefore its length is 4.
     
     
     // we are using hashMap to store this
+   //thinking process: for each number m, we want to see know its m - 1 and m + 1 whether 
+    //existed in the map or not, 
     public int longestConsecutive2(int[] n) {
         if (n == null || n.length < 1) {
             return 0;
         }
         int res = 0;
         Map<Integer, Integer> map = new HashMap<>();
-        //We will use HashMap. The key thing is to keep track of the sequence 
-        //length and store that in 
+        //key is the the number in nums, value is to say how many consective numbers in the 
+        //sequence which contains the current nums
         //the boundary points of the sequence. 
         //For example, as a result, for sequence {1, 2, 3, 4, 5}, 
         //map.get(1) and map.get(5) should both return 5.
@@ -78,11 +80,16 @@ Therefore its length is 4.
             int left = map.containsKey(m - 1) ? map.get(m - 1) : 0;
             int right = map.containsKey(m + 1) ? map.get(m + 1) : 0;
             int sum = left + right + 1;
+            //why res compare to sum?  becz if left or right exists, then 
+            //sum should be bigger, 
             res = Math.max(res, sum);
+            //we put m point to sum, so next time,
             map.put(m, sum);
             // [100, 4, 200, 1, 3, 2]
             // when reaches to 2 finally, left = map.get(1) = 1, map.get(3) = 2 becz 3,4
-            // so sum = 1 + 2 + 1 = 4, we update 1, 4, and 4, 4, right here means the length, left is the same
+            // so sum = 1 + 2 + 1 = 4, we update 1, 4, and 4, 4, right here means the length, 
+            //left is the same
+            //expand the m boundary
             map.put(m - left, sum);
             map.put(m + right, sum);
         }

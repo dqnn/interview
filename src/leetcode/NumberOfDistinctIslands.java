@@ -60,15 +60,19 @@ private static void dfs(int[][] grid, int i, int j, StringBuilder sb, String dir
     //we mark each point to 0, so we should not have any other call to here for only 1 connected 
     //islands
     grid[i][j] = 0;
-    dfs(grid, i-1, j, sb, "u");
-    dfs(grid, i+1, j, sb, "d");
+    
     dfs(grid, i, j-1, sb, "l");
     dfs(grid, i, j+1, sb, "r");
+    dfs(grid, i-1, j, sb, "u");
+    dfs(grid, i+1, j, sb, "d");
     sb.append("b"); // back
 }
 
 public static void main(String[] args) {
-    int[][] grid = {{1,1,0,0,0}, {1,1,0,0,0},{0,0,0,1,1},{0,0,0,1,1}};
+    int[][] grid = {{1,1,0,1,1}, 
+                    {1,0,0,0,0},
+                    {0,0,0,0,1},
+                    {1,1,0,1,1}};
     System.out.println(numDistinctIslands(grid));
 }
 }

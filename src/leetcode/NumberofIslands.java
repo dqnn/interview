@@ -60,7 +60,8 @@ public class NumberofIslands {
         return res;
     }
 
-    /**
+    /** in the end, we only visit MN nodes, and for depth, we only need to go to 
+     * level MN deep
      time : O(m * n)
      space : O(m * n)
      * @param grid

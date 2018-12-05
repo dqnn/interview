@@ -30,6 +30,10 @@ as extra space for the purpose of space complexity analysis.)
      * @param nums
      * @return
      */
+    //this is also interesting solution, so 
+    //[1,2,3,4], res=[1,0,0,0], res from 1, then res[i] = res[i-1] * nums[i-1] which means
+    // for res, every position it his left subarray product,
+    //then second scan, we multiple the right part.
     public int[] productExceptSelf(int[] nums) {
         if (nums == null || nums.length == 0) return nums;
         int[] res = new int[nums.length];
@@ -38,6 +42,8 @@ as extra space for the purpose of space complexity analysis.)
             res[i] = res[i - 1] * nums[i - 1];
         }
         int right = 1;
+        //[1,2,3,4]-> [1, 1, 2, 6],so here we did not change last number, 
+        //from len -2, we can see ,right = nums[i+1]...nums[len - 1]
         for (int i = nums.length - 1; i >= 0; i--) {
             res[i] *= right;
             right *= nums[i];

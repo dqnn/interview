@@ -136,7 +136,8 @@ Clearly len + 1 = 4 is our result : )
         for(int i = 0; i < len; i++) {
             for(int j = 0; j < i; j++) {
                 if (n[j] < n[i]) {
-                    // means nums[i] could be nums[j] next element, that's why we need compare to n[j]
+                    // means nums[i] could be nums[j] next element, 
+                    //that's why we need compare to n[j]
                     dp[i] = Math.max(dp[j] + 1, dp[i]);
                     max = Math.max(dp[i], max);
                 }
