@@ -40,7 +40,7 @@ Could you come up with a one-pass algorithm using only constant space?
     // right to indicate position is for 2
     // 1 still there
     
-    //this is like partition sort， 3 pointer templates
+    //this is like partition sort， 3 pointer templates，partition. 
     public void sortColors(int[] nums) {
         if (nums == null || nums.length == 0) return;
         // indicate 0 count
@@ -49,11 +49,12 @@ Could you come up with a one-pass algorithm using only constant space?
         int right = nums.length - 1;
         int index = 0;
         while (index <= right) {
-            //
+            //left move to right only when nums[index] = 0
             if (nums[index] == 0) {
                 swap(nums, index++, left++);
             } else if (nums[index] == 1) {
                 index++;
+            //right move to left only left when nums[index] = 2
             } else {
                 swap(nums, index, right--);
             }
