@@ -43,7 +43,7 @@ Follow up: Recursive solution is trivial, could you do it iteratively?
         res.add(root.val);
     }
 
-    // this way should be remmembered
+    // this way should be remembered
     public static List<Integer> postorderTraversal2(TreeNode root) {
         LinkedList<Integer> res = new LinkedList<>();
         if (root == null) return res;

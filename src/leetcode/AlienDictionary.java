@@ -80,13 +80,15 @@ public class AlienDictionary {
     public static String alienOrder(String[] words) {
 
         if (words == null || words.length == 0) return "";
+        //store each character next characters, we use set to avoid dup
         HashMap<Character, Set<Character>> map = new HashMap<>();
+        //record each character indegree, char - 'a' as index
         int[] degree = new int[26];
         int count = 0;
-
+        //save all possible roots, here if it already showed up then continue;
         for (String word : words) {
             for (char c : word.toCharArray()) {
-                //we only +1 for each char,
+                //we only +1 for each char, initialized as 1 for all words
                 if (degree[c - 'a'] == 0) {
                     count++;
                     degree[c - 'a'] = 1;
@@ -95,6 +97,9 @@ public class AlienDictionary {
         }
 
         //this finally will process: w->e->r->t->f. plus line 92, f in degree = 2
+        //[wrt, wrf, er, ett, rftt]- > compare wrt, wrf, w->{r, f}, r->{w, f}, 
+        //wrf->er, w->{r,f,e}, r->{w,f,e},f->{e, r}, and we update all 
+        // possible paths to previous to next word
         for (int i = 0; i < words.length - 1; i++) {
             char[] cur = words[i].toCharArray();
             char[] next = words[i + 1].toCharArray();
@@ -104,7 +109,7 @@ public class AlienDictionary {
                     if (!map.containsKey(cur[j])) {
                         map.put(cur[j], new HashSet<>());
                     }
-                    
+                    //if we can add to the set, degree ++, 
                     if (map.get(cur[j]).add(next[j])) {
                         degree[next[j] - 'a']++;
                     }
@@ -112,29 +117,35 @@ public class AlienDictionary {
                 }
             }
         }
-
+        //we add all possible roots to the queue
         Queue<Character> queue = new LinkedList<>();
         for (int i = 0; i < 26; i++) {
-            //this means they are only 1 degree, which menas they are the roots of all dictionary
+            //this means they are only 1 degree, which means they are the 
+            //roots of all dictionary
             if (degree[i] == 1) {
                 queue.offer((char)('a' + i));
             }
         }
-
+        //add the root to the results and BFS the Map
+        //wrt, er, 
+        //    w-> r
+        //    \  /
+        //     e  <- t
         StringBuilder res = new StringBuilder();
         while (!queue.isEmpty()) {
             char c = queue.poll();
             res.append(c);
             if (map.containsKey(c)) {
                 for (char ch : map.get(c)) {
-                    //means we have removed other relationship
+                    //means we have removed other relationship util it become the root 
+                    //of the left graph
                     if (--degree[ch - 'a'] == 1) {
                         queue.offer(ch);
                     }
                 }
             }
         }
-
+        //
         if (res.length() != count) return "";
         return res.toString();
     }
