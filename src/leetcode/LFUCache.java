@@ -1,10 +1,6 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class LFUCache {
 /*
@@ -185,6 +181,50 @@ cache.get(4);       // returns 4
             fre2DNodeMap.computeIfAbsent(node.fre, v->new DLinkedList()).offer(node);
             size += 1;
             low = 1;
+        }
+    }
+    
+    //interview friendly versions, but need to ask whether we can use LinkedHashSet<>
+    public class LFUCacheV2 {
+        HashMap<Integer, Integer> kvMap;
+        HashMap<Integer, Integer> counts;
+        HashMap<Integer, LinkedHashSet<Integer>> fre2KeySets;
+        int cap;
+        int min = -1;
+        public LFUCacheV2(int capacity) {
+            cap = capacity;
+            kvMap = new HashMap<>();
+            counts = new HashMap<>();
+            fre2KeySets = new HashMap<>();
+        }
+        
+        public int get(int key) {
+            if(!kvMap.containsKey(key)) return -1;
+            int count = counts.get(key);
+            counts.put(key, count+1);
+            fre2KeySets.get(count).remove(key);
+            if(count==min && fre2KeySets.get(count).size()==0)
+                min++;
+            fre2KeySets.computeIfAbsent(count+1, V->new LinkedHashSet<>()).add(key);
+            return kvMap.get(key);
+        }
+        
+        public void set(int key, int value) {
+            if(cap<=0) return;
+            if(kvMap.containsKey(key)) {
+                kvMap.put(key, value);
+                get(key);
+                return;
+            } 
+            if(kvMap.size() >= cap) {
+                int evit = fre2KeySets.get(min).iterator().next();
+                fre2KeySets.get(min).remove(evit);
+                kvMap.remove(evit);
+            }
+            kvMap.put(key, value);
+            counts.put(key, 1);
+            min = 1;
+            fre2KeySets.computeIfAbsent(1, V->new LinkedHashSet<>()).add(key);
         }
     }
 }
