@@ -60,21 +60,24 @@ parent has two children).
     }
 
     //space : O(1)
-    // most optimized solutions
+    // this is using level scan, and iterate from left to right
+    // 
     public void connect2(TreeLinkNode root) {
-        TreeLinkNode start = root;
-        while (start != null) {
-            TreeLinkNode cur = start;
+        TreeLinkNode levelStart = root;
+        while (levelStart != null) {
+            TreeLinkNode cur = levelStart;
             while (cur != null) {
+                //make left next to its right
                 if (cur.left != null) {
                     cur.left.next = cur.right;
                 }
+                //
                 if (cur.right != null && cur.next != null) {
                     cur.right.next = cur.next.left;
                 }
                 cur = cur.next;
             }
-            start = start.left;
+            levelStart = levelStart.left;
         }
     }
 }

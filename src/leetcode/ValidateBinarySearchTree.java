@@ -30,13 +30,10 @@ public class ValidateBinarySearchTree {
     //than root then return false, and for right, smaller than root, then recursive on these two nodes, 
     // for left, max = root.val, min inherited, for right, min = root.val and max inherited 
     public static boolean isValidBST(TreeNode root) {
-
-        if (root == null) return true;
         return helper(root, null, null);
     }
 
     public static boolean helper(TreeNode root, Integer min, Integer max) {
-
         if (root == null) return true;
         if (min != null && root.val <= min) return false;
         if (max != null && root.val >= max) return false;
