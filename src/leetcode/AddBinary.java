@@ -22,6 +22,7 @@ public class AddBinary {
      * @return
      */
     public static String addBinary(String a, String b) {
+        if (a == null || b == null) return b;
         StringBuilder sb = new StringBuilder();
         int i = a.length() - 1;
         int j = b.length() - 1;
