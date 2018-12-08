@@ -132,7 +132,7 @@ public class BasicCalculatorIII {
             put('-', 1);
             put('*', 2);
             put('/', 2);
-                put('(', Integer.MAX_VALUE);
+            put('(', Integer.MAX_VALUE);
         }};
         
         int res = 0;

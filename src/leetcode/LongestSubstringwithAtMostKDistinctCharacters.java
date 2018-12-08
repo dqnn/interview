@@ -32,6 +32,7 @@ public class LongestSubstringwithAtMostKDistinctCharacters {
     // if it bigger, then we need another pointer j from beginning to scan to reduce num
     // and we try tested again. 
     // this will be biggest
+    //note, when we count the chat, we ++ at end of count, but when we -- when left point moves
     public int lengthOfLongestSubstringKDistinct(String s, int k) {
         int[] count = new int[256];
         int res = 0, num = 0, j = 0;
@@ -41,6 +42,13 @@ public class LongestSubstringwithAtMostKDistinctCharacters {
                 while (--count[s.charAt(j++)] > 0);
                 num--;
             }
+            /* this also works to replace 41- 44
+             *while (num > k) {
+                if (--count[s.charAt(i++)]== 0) {
+                    num--;
+                }
+             }
+             */
             res = Math.max(res, i - j + 1);
         }
         return res;
