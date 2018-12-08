@@ -36,11 +36,33 @@ Explanation: 2 people friend request each other.
         
         for(int i = 1; i <= 120; ++i) 
             sumInAge[i] = countInAge[i] + sumInAge[i - 1];
-        //age[B] <= 0.5 * age[A] + 7 ==> 2y <= x + 14==> y <= 14
+        ////In order to get at least 1 valid age value from (0.5 * A + 7, A], 
+        //A has to be at lease 15.
         for(int i = 15; i <= 120; ++i) {
             if(countInAge[i] == 0) continue;
             int count = sumInAge[i] - sumInAge[i / 2 + 7];
             res += count * countInAge[i] - countInAge[i]; //people will not friend request themselves, so  - numInAge[i]
+        }
+        return res;
+    }
+    
+    public int numFriendRequests3(int[] ages) {
+        int[] ageCount = new int[121];
+        int[] ageSum = new int[121];
+        for (int i = 0; i < ages.length; i++) {
+            ageCount[ages[i]]++;
+        }
+        int sum = 0;
+        int res = 0;
+        //In order to get at least 1 valid age value from (0.5 * A + 7, A], 
+        //A has to be at lease 15.
+
+        for (int i = 15; i <= 120; i++) {//
+            sum += ageCount[i];
+            ageSum[i] = sum;
+            if (ageCount[i] > 0) {
+                res += ((ageSum[i] - ageSum[(int)(i * .5 + 7)] - 1) * ageCount[i]);
+            }
         }
         return res;
     }
