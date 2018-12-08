@@ -1,6 +1,8 @@
 package leetcode;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,8 +36,96 @@ Do not use the eval built-in library function.
  follow up: how could we extend to + - * / and () and empty spaces: 
  */
 public class BasicCalculatorIII {
+/*
+In this section, I will specify the general rules for carrying out the actual 
+evaluations of the expression.
 
-    // recursive, A + B, we recursive to get A and B, understand its templates
+Separation rule:
+
+We separate the calculations into two different levels corresponding to the two 
+precedence levels.
+
+For each level of calculation, we maintain two pieces of information: the partial 
+result and the operator in effect.
+
+For level one, the partial result starts from 0 and the initial operator in effect 
+is +; for level two, the partial result starts from 1 and the initial operator 
+in effect is *.
+
+We will use l1 and o1 to denote respectively the partial result and the operator 
+in effect for level one; l2 and o2 for level two. The operators have the following mapping:
+o1 == 1 means +; o1 == -1 means - ;
+o2 == 1 means *; o2 == -1 means /.
+By default we have l1 = 0, o1 = 1, and l2 = 1, o2 = 1.
+
+Precedence rule:
+
+Each operand in the expression will be associated with a precedence of level two 
+by default, meaning they can only take part in calculations of precedence level two, 
+not level one.
+
+The operand can be any of the aforementioned types (number, variable or subexpression), 
+and will be evaluated together with l2 under the action prescribed by o2.
+
+Demotion rule:
+
+The partial result l2 of precedence level two can be demoted to level one. 
+Upon demotion, l2 becomes the operand for precedence level one and will be 
+evaluated together with l1 under the action prescribed by o1.
+
+The demotion happens when either a level one operator (i.e., + or -) is hit or 
+the end of the expression is reached. After demotion, l2 and o2 will be reset for 
+following calculations.
+ */
+    //iterator version, really good one
+    public static int calculate4(String s) {
+        int l1 = 0, o1 = 1;
+        int l2 = 1, o2 = 1;
+
+        Deque<Integer> stack = new ArrayDeque<>(); // stack to simulate recursion
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+
+            if (Character.isDigit(c)) {
+                int num = c - '0';
+                while (i + 1 < s.length() && Character.isDigit(s.charAt(i + 1))) {
+                    num = num * 10 + (s.charAt(++i) - '0');
+                }
+                l2 = (o2 == 1 ? l2 * num : l2 / num);
+
+            } else if (c == '(') {
+                // First preserve current calculation status
+                stack.offerFirst(l1); stack.offerFirst(o1);
+                stack.offerFirst(l2); stack.offerFirst(o2);
+                
+                // Then reset it for next calculation
+                l1 = 0; o1 = 1;
+                l2 = 1; o2 = 1;
+
+            } else if (c == ')') {
+                // First preserve the result of current calculation
+                int num = l1 + o1 * l2;
+
+                // Then restore previous calculation status
+                o2 = stack.poll(); l2 = stack.poll();
+                o1 = stack.poll(); l1 = stack.poll();
+                
+                // Previous calculation status is now in effect
+                l2 = (o2 == 1 ? l2 * num : l2 / num);
+            } else if (c == '*' || c == '/') {
+                o2 = (c == '*' ? 1 : -1);
+
+            } else if (c == '+' || c == '-') {
+                l1 = l1 + o1 * l2;
+                o1 = (c == '+' ? 1 : -1);
+
+                l2 = 1; o2 = 1;
+            }
+        }
+        return (l1 + o1 * l2);
+    }
+
+    // O(n^2)/O(n)recursive, A + B, we recursive to get A and B, understand its templates
      public int calculate(String s) {
          int res = 0, curRes = 0, num = 0;
          char op = '+';
@@ -96,112 +186,9 @@ public class BasicCalculatorIII {
          return res;
      }
 
-    /*
-     * 你需要设定一个栈SOP,和一个线性表 L 。SOP用于临时存储运算符和分界符( ，L用于存储后缀表达式。 遍历原始表达式中的每一个表达式元素
-     * （1）如果是操作数，则直接追加到 L中。只有 运算符 或者 分界符（ 才可以存放到 栈SOP中 （2）如果是分界符 Ⅰ 如果是左括号 ( ，
-     * 则直接压入SOP，等待下一个最近的 右括号 与之配对。 Ⅱ 如果是右括号），则说明有一对括号已经配对(在表达式输入无误的情况下)。不将它压栈，丢弃它，
-     * 然后从SOP中出栈，得到元素e，将e依次追加到L里。一直循环，直到出栈元素e 是 左括号 ( ，同样丢弃他。 （3）如果是运算符（用op1表示）
-     * Ⅰ如果SOP栈顶元素（用op2表示） 不是运算符，则二者没有可比性，则直接将此运算符op1压栈。 例如栈顶是左括号 ( ，或者栈为空。
-     * Ⅱ如果SOP栈顶元素（用op2表示） 是运算符 ，则比较op1和 op2的优先级。如果op1 > op2 ， 则直接将此运算符op1压栈。 如果op1
-     * <= op2，则将op2出栈，并追加到L，重复步骤3。 也就是说，如果在SOP栈中，有2个相邻的元素都是运算符，则他们必须满足：
-     * 下层运算符的优先级一定小于上层元素的优先级，才能相邻。
-     * 
-     * 最后，如果SOP中还有元素，则依次弹出追加到L后，就得到了后缀表达式。
-     */
-     // re-polish, AST, abstract syntax tree way, this is for formal way
-    // Agorithms, data all go to output, while ops and () go to ops or pop, high
-    // priviledge will be
-    // compute first, op1 as new operator we want to add in, op2 is top op in op
-    // stack
-    // 1. if digital, go to outout, stack or list
-    // 2. if not digital, if op1 == ')', return all things from op stack to output
-    // until
-    // meet "(",
-    // 2.1 if not ")", if op1 <= op2, then pop op2 to output and go to 2. else go to
-    // op stack
-    //
-    // 2.1.2 if bigger  than head of stack, go to op stack,
-    // a * (b- c * d) + e ---> abcd*-*e+
-    public static int calculate3(String s) {
-        if (s == null || s.length() < 1) {
-            return 0;
-        }
-        Map<Character, Integer> opPMap = new HashMap<Character, Integer>() {
-            {
-            put('+', 1);
-            put('-', 1);
-            put('*', 2);
-            put('/', 2);
-            put('(', Integer.MAX_VALUE);
-        }};
-        
-        int res = 0;
-        // set up op stack and out put string.
-        Stack<Character> opStack = new Stack<>();
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < s.length();) {
-            Character ch = s.charAt(i);
-            if (Character.isDigit(ch)) { //handle digit
-                int j = i + 1;
-                while (j < s.length() && Character.isDigit(s.charAt(i + 1))) {
-                    j ++;
-                }
-                list.add(s.substring(i, j));
-                i++;
-            } else {// handle operator
-                if (opStack.isEmpty() || opStack.peek() == '('
-                        || opPMap.get(ch) != null && opPMap.get(ch) > opPMap.get(opStack.peek())) {
-                    opStack.push(ch);
-                    i++;
-                } else if (opPMap.get(ch) != null && opPMap.get(ch) <= opPMap.get(opStack.peek())) {
-                    while (!opStack.isEmpty() && opPMap.get(ch) <= opPMap.get(opStack.peek())) {
-                        list.add(String.valueOf(opStack.pop()));
-                    }
-                } else if (ch == ')') {
-                    while (opStack.peek() != '(') {
-                        list.add(String.valueOf(opStack.pop()));
-                    }
-                    opStack.pop(); // remove the "("
-                    i++;
-                } else {
-                    // should be not be here
-                }
-            }
-        }
-        // add rest of the Stack into output list
-        while (!opStack.isEmpty()) {
-            list.add(String.valueOf(opStack.pop()));
-        }
 
-        // parse the output into another stack and do the computation
-
-        Stack<String> computeStack = new Stack<>();
-        for (String str : list) { // dump list into this stack and do the computations
-            if (!opPMap.containsKey(str.charAt(0))) {
-                computeStack.push(str);
-            } else {
-                int num1 = Integer.valueOf(computeStack.pop());
-                int num2 = Integer.valueOf(computeStack.pop());
-                if (str.equals("+")) {
-                    res += num1 + num2;
-                } else if (str.equals("-")) {
-                    res += num2 - num1;
-                } else if (str.equals("*")) {
-                    res += num2 * num1;
-                } else if (str.equals("/")) {
-                    res += num2 / num1;
-                } else {
-                    // nothing
-                }
-                computeStack.push(String.valueOf(res));
-                res = 0;
-            }
-        }
-        return Integer.parseInt(computeStack.pop());
-     }
-
-     // time : O(n) space : O(1)
-    public int calculate2(String s) {
+     // time : O(n) space : O(1), this igorens the ()
+    public static int calculate2(String s) {
         if (s == null || s.length() == 0) return 0;
         s = s.trim().replaceAll(" +", ""); // remove all spaces
         int res = 0;
@@ -235,8 +222,8 @@ public class BasicCalculatorIII {
     }
 
     public static void main(String[] args) {
-        String temp = "3*2+(1+2)";
-        System.out.println(BasicCalculatorIII.calculate3(temp));
+        String temp = "3*(2+1+2)";
+        System.out.println(BasicCalculatorIII.calculate4(temp));
     }
 
 }
