@@ -49,17 +49,30 @@ Output: [1,2,3,4]
 }
     
     //BS V2, O(lgn) Space: O(k), simplest one
+    /*
+ //BS result is to say lo == hi, 
+ //so we want to know x = nums[i] > nums[i + k] - x means 
+// x > nums[i] since it is sorted, so 
+
+     */
+    //best solution, but need to understand: suppose array [1,2,3,4,5], k=4, x=3, each so we
+    //want to know for ai, aj, which is more close to 3, if we minus 3 for every element in above 
+    // array, [-2,-1,0,1,2], 
     public List<Integer> findClosestElements1(int[] arr, int k, int x) {
         List<Integer> temp = Arrays.stream(arr).boxed().collect(Collectors.toList());
+        //the end is len - k, 
         int lo = 0, hi = temp.size() - k;
+        //we want to find the idx which is [x, x+k) closest to x, if each element minus x, 
+        //so here we want to find a subarray, 
         while (lo < hi) {
-            int mid = (lo + hi) / 2;
-            // x > temp.get(mid)
+            int mid = lo + ((hi-lo) >> 1);
+            //means A[mid + 1] ~ A[mid + k] is better than A[mid] ~ A[mid + k - 1],
             if (x - temp.get(mid) > temp.get(mid+k) - x)
                 lo = mid + 1;
             else
                 hi = mid;
         }
+        //lo + k is exclusive
         return temp.subList(lo, lo + k);
     }
     //BS version 1, O(lgn + k), O(k) is for shrinking the index range to k elements.

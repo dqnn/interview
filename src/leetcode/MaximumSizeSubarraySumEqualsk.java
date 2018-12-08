@@ -58,6 +58,8 @@ Can you do it in O(n) time?
                 //  i - map.get(nums[i] - k) means the length
                 res = Math.max(res, i - map.get(nums[i] - k));
             }
+            //if later it has duplicate nums[i], we choose the the smallest i which can 
+            //make the subarray the longest
             if (!map.containsKey(nums[i])) {
                 map.put(nums[i], i);
             }
