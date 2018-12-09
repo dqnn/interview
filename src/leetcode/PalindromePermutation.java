@@ -36,7 +36,23 @@ public class PalindromePermutation {
         return set.size() <= 1;
     }
 
-    //space : O(n)
+    //one pass
+    public boolean canPermutePalindrome3(String s) {
+        int[] map = new int[128];
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            map[s.charAt(i)]++;
+            //so if it is even, then it would not be concern,so we -1
+            if (map[s.charAt(i)] % 2 == 0)
+                count--;
+            else
+                count++;
+        }
+        return count <= 1;
+    }
+    
+    
+    //space : O(256)
     public boolean canPermutePalindrome2(String s) {
         char[] count = new char[256];
         int res = 0;
