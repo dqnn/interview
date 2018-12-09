@@ -55,19 +55,19 @@ public class CountofSmallerNumbersAfterSelf {
     // insert sort and find the correct position, it returns the
     // position that target should be, it is asc
     // and so end is the number how many numbers are there smaller than target
-    // bianry insert sort
+    // binary insert sort
     private int findIndex(List<Integer> list, int target) {
         if (list.size() == 0) return 0;
         int start = 0;
         int end = list.size() - 1;
         if (list.get(end) < target) return end + 1;
         if (list.get(start) >= target) return 0;
-        // why start < end - 1???
+        // 
         while (start + 1 < end) {
             int mid = (end - start) / 2 + start;
             if (list.get(mid) < target) {
-                start = mid + 1;
-            } else {// need to understand why we use >= while if there is no equals
+                start = mid;
+            } else {
                 end = mid;
             }
         }
