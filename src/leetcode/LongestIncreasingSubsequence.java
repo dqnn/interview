@@ -100,11 +100,12 @@ Clearly len + 1 = 4 is our result : )
             // binary search on tails here can help to find which position for num
             // this templates is while(left < start), 2# template, we have one element left for 
             //post processing
+            //binary search 2nd templates
             while (i != j) {
                 int mid = i + (j - i) /2;
                 if (tails[mid] < num) {
                     i = mid + 1;
-                } else {// please note here should be >=
+                } else {// here is  >=
                     j = mid;
                 }
             }
