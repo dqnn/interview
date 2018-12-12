@@ -2,6 +2,7 @@ package leetcode;
 import java.util.*;
 public class TargetSum {
 /*
+ tag: DP
 494. Target Sum
 You are given a list of non-negative integers, a1, a2, ..., an, and a target, S. Now you have 2 symbols + and -. For each integer, you should choose one from + and - as its new symbol.
 
@@ -32,7 +33,8 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
         int[] dp = new int[2 * totalSum + 1];
          //dp[i] -> the number of ways to have sum = i - totalSum
         dp[totalSum] = 1; 
-        //We start from no elements in the array, so there is one way to have sum = 0 that there is no element
+        //We start from no elements in the array, so there is one way to have 
+        //sum = 0 that there is no element
         for (int i = 0; i < nums.length; i++) { //Start from deciding to add the first element as positive or negative
             int[] next = new int[2 * totalSum + 1];
             for (int j = 0; j < 2 * totalSum + 1; j++) {
@@ -50,24 +52,25 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
 
     //setup model in the position of operators, and using backtracking to solve it
     int count = 0;
+    //O(ln)/O(n), l is range of sum, n is nums length
     public int findTargetSumWays(int[] nums, int S) {
+        //sum will be small than 1000, 
         int[][] memo = new int[nums.length][2001];
         for (int[] row: memo)
             Arrays.fill(row, Integer.MIN_VALUE);
         return calculate(nums, 0, 0, S, memo);
     }
+
     public int calculate(int[] nums, int i, int sum, int S, int[][] memo) {
         if (i == nums.length) {
-            if (sum == S) return 1;
-            else return 0;
-        } else {
-            if (memo[i][sum + 1000] != Integer.MIN_VALUE) {
-                return memo[i][sum + 1000];
-            }
-            int add = calculate(nums, i + 1, sum + nums[i], S, memo);
-            int subtract = calculate(nums, i + 1, sum - nums[i], S, memo);
-            memo[i][sum + 1000] = add + subtract;
+            return sum == S ? 1 : 0;
+        }
+        if (memo[i][sum + 1000] != Integer.MIN_VALUE) {
             return memo[i][sum + 1000];
         }
+        int add = calculate(nums, i + 1, sum + nums[i], S, memo);
+        int subtract = calculate(nums, i + 1, sum - nums[i], S, memo);
+        memo[i][sum + 1000] = add + subtract;
+        return memo[i][sum + 1000];
     }
 }

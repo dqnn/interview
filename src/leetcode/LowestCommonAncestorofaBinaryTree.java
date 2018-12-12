@@ -19,6 +19,14 @@ public class LowestCommonAncestorofaBinaryTree {
      * @param q
      * @return
      */
+    //thinking process: given two nodes and root node, find the lowest common parent node
+    
+    //so design the recursive func, with the return value, which means we can top down, 
+    //the common node only have 3 cases, only in left or right, or both. 
+    //so we visit from top by this recursive function, if we find it equals p or q, then we 
+    //just return
+    
+    //and 
     public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
        // please note here root ==p and root == q
         if (root == null || root == p || root == q) {

@@ -1,6 +1,7 @@
 package leetcode;
 public class SmallestSubtreeWithAllTheDeepestNodes {
 /*
+ * tag: tree, dfs, lowest ancestor
 865. Smallest Subtree with all the Deepest Nodes
 Given a binary tree rooted at root, the depth of each node is the shortest distance to the root.
 
@@ -45,7 +46,8 @@ Return the node with the largest depth such that it contains all the deepest nod
         }
     }
     
-    //same as above, but code is more cleaner
+    //same as above, but code is more cleaner, this is the same as lowest ancestors
+    //
     public TreeNode subtreeWithAllDeepest(TreeNode root) {
         return deep(root).node;
     }

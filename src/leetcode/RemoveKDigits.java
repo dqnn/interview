@@ -3,7 +3,8 @@ import java.util.*;
 public class RemoveKDigits {
 /*
 402. Remove K Digits
-given a non-negative integer num represented as a string, remove k digits from the number so that the new number is the smallest possible.
+given a non-negative integer num represented as a string, remove k digits 
+from the number so that the new number is the smallest possible.
 
 Note:
 The length of num is less than 10002 and will be ≥ k.
@@ -12,12 +13,14 @@ Example 1:
 
 Input: num = "1432219", k = 3
 Output: "1219"
-Explanation: Remove the three digits 4, 3, and 2 to form the new number 1219 which is the smallest.
+Explanation: Remove the three digits 4, 3, and 2 to form the new 
+number 1219 which is the smallest.
 Example 2:
 
 Input: num = "10200", k = 1
 Output: "200"
-Explanation: Remove the leading 1 and the number is 200. Note that the output must not contain leading zeroes.
+Explanation: Remove the leading 1 and the number is 200. 
+Note that the output must not contain leading zeroes.
 */
     
     //O(n)
@@ -43,7 +46,13 @@ Explanation: Remove the leading 1 and the number is 200. Note that the output mu
         return idx == digits? "0": new String(stk, idx, digits - idx);
     }
     
-    public String removeKdigits2(String num, int k) {
+    //give a string and remove K digits, so the left could be smallest, thinking problem from 
+    //two perspetive, one is how to get smallest K digits, for example, if i remove one, i think 
+    //it is max one, because the number length is the same no matter which one i changed, but it may
+    //be different that second one is a 0. 
+    // so the correct way is to remove digits which is bigger than its right.so we can always 
+    //to get the smallest, this is the pattern
+    public static String removeKdigits2(String num, int k) {
         int len = num.length();
         // corner case
         if (k == len)
@@ -51,6 +60,11 @@ Explanation: Remove the leading 1 and the number is 200. Note that the output mu
 
         Stack<Character> stack = new Stack<>();
         int i = 0;
+        //1432219-->14, when we push 3, we found 3 < 4. so stack pop until 1 then 
+        //if we continue doing this, which means we will remove max k digits, 
+        //stack help to keep the order of the chars in string, so after this while loop,
+        //we already removed max j digits, we cannot remove digits they are the same, so 
+        //we need another loop to remove the rest then we can reverse them
         while (i < num.length()) {
             // whenever meet a digit which is less than the previous digit, discard the
             // previous one
@@ -75,5 +89,10 @@ Explanation: Remove the leading 1 and the number is 200. Note that the output mu
         while (sb.length() > 1 && sb.charAt(0) == '0')
             sb.deleteCharAt(0);
         return sb.toString();
+    }
+    
+    public static void main(String[]args) {
+        String in = "1432211119";
+        System.out.println(removeKdigits2(in, 5));
     }
 }
