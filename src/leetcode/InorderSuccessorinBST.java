@@ -23,7 +23,7 @@ public class InorderSuccessorinBST {
      */
     // how we think about this question:
     // we visit the tree from left ->parent-> right this way, so if we visit the BST from root,
-    // we have to visit its left branch, so for most use cases we have to go thorugh a number of 
+    // we have to visit its left branch, so for most use cases we have to go through a number of 
     // nodes which are smaller than P, then we mark the node to its right child we can be more closer 
     // to P, 
     //so finally we will meet one node which is bigger than P, then its successor should be a leaf node,
