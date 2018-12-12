@@ -87,11 +87,17 @@ In the final round, obviously dp[len] (7) < nums[i] (8) so we increase the 'len'
 
 Clearly len + 1 = 4 is our result : )
      */
-    public int lengthOfLIS(int[] nums) {
+    //the tail means, if we want to find nums[i] as the last elment in LIS, then how it would like
+    //LIS(5) = LIS(4) + 1,
+    
+    //so the length means if we want to find the if last elment is nums[i], what's the max
+    //LIS length,
+    public static int lengthOfLIS(int[] nums) {
         if (nums == null || nums.length < 1) {
             return 0;
         }
         //to store the LIS last elements in array
+        //[1,3,5,4,7]->[1, 3, 4, 7, 0]
         int[] tails = new int[nums.length];
         int res = 0;
         for (int num : nums) {
@@ -134,6 +140,10 @@ Clearly len + 1 = 4 is our result : )
         // set max = 1, edge case like [2, 2] it will not go through the two loops,
         //also for [0] cases, we also need max to be 1 or else we have add if (len == 1) return 1;
         int max = 1;
+        //we compare each nums[j] to nums[i]. if n[j] < n[i] then it should be included. 
+        // so we update each dp[i] = max(dp[i],dp[j] + 1)
+        //same: if nums[i] as last elment in array, what's the maxium increase array
+        //[1,3,5,4,7]->dp[1,2,3,3,4]
         for(int i = 0; i < len; i++) {
             for(int j = 0; j < i; j++) {
                 if (n[j] < n[i]) {
@@ -145,5 +155,9 @@ Clearly len + 1 = 4 is our result : )
             }
         }
         return max;
+    }
+    public static void main(String[] args) {
+        int[] in= {3,5,4,7,1};
+        System.out.println(lengthOfLIS(in));
     }
 }
