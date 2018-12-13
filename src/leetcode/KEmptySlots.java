@@ -38,24 +38,53 @@ which satisfies: for any i = left+1,..., left+k-1, we can have days[left] < days
  */
     //O(n)/O(n)
     public int kEmptySlots(int[] flowers, int k) {
-        //value is ith day boom
         int[] days = new int[flowers.length];
-        for (int i = 0; i < flowers.length; i++)
+        for (int i = 0; i < days.length; i++) {
             days[flowers[i] - 1] = i + 1;
-        //we found a subarray
-        int left = 0, right = k + 1, res = Integer.MAX_VALUE;
-        //we use days[i] to compare days[left] and days[right], to guarteen there are k slots
-        //between them, we just need to make sure date 
-        for (int i = 0; right < days.length; i++) {
-            if (days[i] < days[left] || days[i] <= days[right]) {
-                if (i == right)
-                 // we get a valid subarray
-                    res = Math.min(res, Math.max(days[left], days[right])); 
-                left = i;
-                right = k + 1 + i;
-            }
         }
-        return (res == Integer.MAX_VALUE) ? -1 : res;
+        int left = 0;
+        int right = k + 1;
+        int res = Integer.MAX_VALUE;
+        for (int i = 1; right < days.length; i++) {
+            // current days[i] is valid, continue scanning
+            if (days[i] > days[left] && days[i] > days[right]) {
+                continue;
+            }
+           // reach boundary of sliding window, since previous number are all valid, 
+            //record result  
+            if (i == right) {
+                res = Math.min(res, Math.max(days[left],days[right]));
+            }
+            // not valid, move the sliding window
+            left = i;
+            right = left + k + 1;
+        }
+        return res == Integer.MAX_VALUE ? -1 : res;
+    }
+    //bucket to store min and max
+    public static int kEmptySlots3(int[] flowers, int k) {
+        int n = flowers.length;
+        if (n == 0 || k >= n) return -1;
+        //++k;
+        int bs = (n + k - 1) / k;
+        int[] lows = new int[bs];
+        int[] highs = new int[bs];
+        Arrays.fill(lows, Integer.MAX_VALUE);
+        Arrays.fill(highs, Integer.MIN_VALUE);
+       for (int i = 0; i < n; ++i) {
+           int x = flowers[i];
+           int p = x / k;
+           if (x < lows[p]) {
+               lows[p] = x;
+               if (p > 0 && highs[p - 1] == x - k) return i + 1;
+           } 
+           if (x > highs[p]) {
+               highs[p] = x;
+               if (p < bs - 1 && lows[p + 1] == x + k) return i + 1;
+           }            
+       }
+       
+       return -1;
     }
     //O(n)/O(n), this introduce minQueue data structure
     /*
@@ -171,5 +200,9 @@ which satisfies: for any i = left+1,..., left+k-1, we can have days[left] < days
             status[f[i]] = 1;
         }
         return -1;
+    }
+    public static void main(String[] args) {
+        int[] in = {1,2,3,4};
+        System.out.println(kEmptySlots3(in, 1));
     }
 }
