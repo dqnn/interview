@@ -38,14 +38,19 @@ which satisfies: for any i = left+1,..., left+k-1, we can have days[left] < days
  */
     //O(n)/O(n)
     public int kEmptySlots(int[] flowers, int k) {
+        //value is ith day boom
         int[] days = new int[flowers.length];
         for (int i = 0; i < flowers.length; i++)
             days[flowers[i] - 1] = i + 1;
+        //we found a subarray
         int left = 0, right = k + 1, res = Integer.MAX_VALUE;
+        //we use days[i] to compare days[left] and days[right], to guarteen there are k slots
+        //between them, we just need to make sure date 
         for (int i = 0; right < days.length; i++) {
             if (days[i] < days[left] || days[i] <= days[right]) {
                 if (i == right)
-                    res = Math.min(res, Math.max(days[left], days[right])); // we get a valid subarray
+                 // we get a valid subarray
+                    res = Math.min(res, Math.max(days[left], days[right])); 
                 left = i;
                 right = k + 1 + i;
             }
