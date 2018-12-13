@@ -45,8 +45,11 @@ which satisfies: for any i = left+1,..., left+k-1, we can have days[left] < days
         int left = 0;
         int right = k + 1;
         int res = Integer.MAX_VALUE;
-        for (int i = 1; right < days.length; i++) {
-            // current days[i] is valid, continue scanning
+        //two pointers, i is from 0->right, if flower boom time bigger than left and right, 
+        //then
+        for (int i = 0; right < days.length; i++) {
+            // current days[i] is valid, continue scanning, means at i postion the flower 
+            //boom late than right and left
             if (days[i] > days[left] && days[i] > days[right]) {
                 continue;
             }
@@ -55,13 +58,13 @@ which satisfies: for any i = left+1,..., left+k-1, we can have days[left] < days
             if (i == right) {
                 res = Math.min(res, Math.max(days[left],days[right]));
             }
-            // not valid, move the sliding window
+            // not valid, move the sliding window to next possible location
             left = i;
             right = left + k + 1;
         }
         return res == Integer.MAX_VALUE ? -1 : res;
     }
-    //bucket to store min and max
+    //bucket to store min and max, still not understnd how to calc the bucket numbers and index
     public static int kEmptySlots3(int[] flowers, int k) {
         int n = flowers.length;
         if (n == 0 || k >= n) return -1;
