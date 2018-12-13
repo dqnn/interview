@@ -65,7 +65,7 @@ which satisfies: for any i = left+1,..., left+k-1, we can have days[left] < days
     public static int kEmptySlots3(int[] flowers, int k) {
         int n = flowers.length;
         if (n == 0 || k >= n) return -1;
-        //++k;
+        ++k;
         int bs = (n + k - 1) / k;
         int[] lows = new int[bs];
         int[] highs = new int[bs];
