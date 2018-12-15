@@ -75,6 +75,7 @@ public class CircularArrayLoop {
              * direction or encounter a '0' element.
              * During the re-traverse, we set each element we see to 0.
              */
+            //the first number as sign
             slow = i;
             int sgn = nums[i];
             while (sgn * nums[slow] > 0) {
