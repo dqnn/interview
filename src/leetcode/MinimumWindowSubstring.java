@@ -56,6 +56,7 @@ public class MinimumWindowSubstring {
      * @param t
      * @return
      */
+    //thinking process: 
     public static String minWindow(String s, String t) {
         if (s == null || t == null) {
             return null;
