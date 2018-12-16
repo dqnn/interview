@@ -22,6 +22,8 @@ public class MinimumCostToHireKWorkers {
      * Explanation: We pay 70 to 0-th worker and 35 to 2-th worker.
      * 
      */
+    // note: pay/quality >= wage/quality, so we choose the greatest wage/quality in the 
+    //K workers
     public static double mincostToHireWorkers(int[] q, int[] w, int K) {
         double[][] workers = new double[q.length][2];
         //finish 1 product's wage
