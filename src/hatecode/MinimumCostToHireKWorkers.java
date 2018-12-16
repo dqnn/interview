@@ -22,7 +22,7 @@ public class MinimumCostToHireKWorkers {
      * Explanation: We pay 70 to 0-th worker and 35 to 2-th worker.
      * 
      */
-    public double mincostToHireWorkers(int[] q, int[] w, int K) {
+    public static double mincostToHireWorkers(int[] q, int[] w, int K) {
         double[][] workers = new double[q.length][2];
         //finish 1 product's wage
         for (int i = 0; i < q.length; ++i)
@@ -36,7 +36,7 @@ public class MinimumCostToHireKWorkers {
         //workers are sorted by their unit product wage, from small to large, 
         //so 
         for (double[] worker: workers) {
-            System.out.println(pq);
+            System.out.println(res + "---" + pq);
             //quality sum, you can think about products
             qsum += worker[1];
             //how much quality we need, this sort asc
@@ -73,5 +73,11 @@ public class MinimumCostToHireKWorkers {
         }
 
         return ans;
+    }
+    
+    public static void main(String[] args) {
+        int[] quality = {10,20,5}, wage = {70,50,30};
+        System.out.println(mincostToHireWorkers(quality, wage,2));
+        
     }
 }
