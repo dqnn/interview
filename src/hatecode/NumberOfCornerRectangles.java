@@ -36,8 +36,15 @@ Explanation: There is only one corner rectangle, with corners grid[1][2], grid[1
         return ans;
     }
     //O(R^2C)/O(1)
+    //thinking process:  given a matrix, find out how many rectangles, nodes can be re-used
+    // so visit in this way, 
+    // loop row 0
+    //   loop  row 0 + 1
+    //      loop 0 -> col g[0].length, we try to find row 0 and row 1 have i in same column
+    //suppse we find n points like this, so pick two of them can be formed one rectangles
     public int countCornerRectangles1(int[][] grid) {
         int ans = 0;
+        //same row
         for (int i = 0; i < grid.length - 1; i++) {
             //next row
             for (int j = i + 1; j < grid.length; j++) {
@@ -54,6 +61,7 @@ Explanation: There is only one corner rectangle, with corners grid[1][2], grid[1
     }
     //O(N*sqrt(N) *+ RC)/O(N+R+C^2), N is number of 1 in grid
     public int countCornerRectangles(int[][] grid) {
+        //this list will store each row's 1's coordinations
         List<List<Integer>> rows = new ArrayList<>();
         int N = 0;
         for (int r = 0; r < grid.length; ++r) {
