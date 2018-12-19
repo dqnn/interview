@@ -79,15 +79,15 @@ Explanation: There is only one corner rectangle, with corners grid[1][2], grid[1
 
         for (int r = 0; r < grid.length; ++r) {
             if (rows.get(r).size() >= sqrtN) {
+                //column number,so if we found one, then add it, for each row
                 Set<Integer> target = new HashSet<>(rows.get(r));
 
                 for (int r2 = 0; r2 < grid.length; ++r2) {
-                    if (r2 <= r && rows.get(r2).size() >= sqrtN)
-                        continue;
+                    if (r2 <= r && rows.get(r2).size() >= sqrtN) continue;
                     int found = 0;
                     for (int c2: rows.get(r2))
-                        if (target.contains(c2))
-                            found++;
+                        if (target.contains(c2)) found++;
+                    
                     ans += found * (found - 1) / 2;
                 }
             } else {
