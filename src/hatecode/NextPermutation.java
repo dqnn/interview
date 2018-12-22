@@ -3,8 +3,8 @@ package hatecode;
 import java.util.Arrays;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
+ * Project Name : hatecode
+ * Package Name : hatecode
  * File Name : NextPermutation
  * Creator : duqiang
  * Date : Aug, 2018
@@ -37,7 +37,7 @@ public class NextPermutation {
     //thinking process: the problem is to find next permutation if they all sorted, if last one
     //return first permutation
     //so 
-    public void nextPermutation(int[] nums) {
+    public static void nextPermutation(int[] nums) {
         if (nums == null || nums.length == 0) return;
 
         int firstSmall = -1;
@@ -65,19 +65,19 @@ public class NextPermutation {
         return;
     }
 
-    public void swap(int[] nums, int i, int j) {
+    public static void swap(int[] nums, int i, int j) {
         int temp = nums[i];
-        nums[i++] = nums[j];
-        nums[j--] = temp;
+        nums[i] = nums[j];
+        nums[j] = temp;
     }
 
-    public void reverse(int[] nums, int i, int j) {
+    public static void reverse(int[] nums, int i, int j) {
         while (i < j) {
             swap(nums, i++, j--);
         }
     }
     
-    public void nextPermutation2(int[] nums) {
+    public static void nextPermutation2(int[] nums) {
         //edge case
         if (nums == null || nums.length == 1) {
             return;
@@ -85,15 +85,17 @@ public class NextPermutation {
         
         int end = nums.length -2;
         int j = end;
+        //we find the the pattern like 1,2,3, note j point to 2 and stop
         for(; j>=0 && nums[j+1] <= nums[j];) {
             j--;
         }
-        //the last number, and 
+        //this means the all array is desc, we just need to reverse it
         if(j < 0) { // it sorted desc
             Arrays.sort(nums);
             return;
         }
-        //here is the key: 
+        //here is the key: we scan from back to j, if we find one number 
+        //which is bigger than j, then we swap and sort
         for(int i =end+1; i>j;i--) {
             if(nums[j] < nums[i]) {
                 int temp = nums[j];
@@ -103,5 +105,10 @@ public class NextPermutation {
                 break;
             }
         }
+    }
+    public static void main(String[] args) {
+        int[] in = {1,2,7,4,3,1};
+        nextPermutation(in);
+        System.out.println(Arrays.toString(in));
     }
 }

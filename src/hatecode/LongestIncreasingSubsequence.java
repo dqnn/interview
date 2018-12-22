@@ -91,7 +91,7 @@ Clearly len + 1 = 4 is our result : )
     //LIS(5) = LIS(4) + 1,
     
     //so the length means if we want to find the if last elment is nums[i], what's the max
-    //LIS length,
+    //LIS length, O(nlgn)/O(n)
     public static int lengthOfLIS(int[] nums) {
         if (nums == null || nums.length < 1) {
             return 0;
