@@ -42,7 +42,7 @@ public class CoinChange {
         int[] dp = new int[amount + 1];
         //we want to know min so we set each value to be max
         Arrays.fill(dp, Integer.MAX_VALUE);
-        //start will be 0
+        //start will be 0 according to forumn and dp[1]
         dp[0] = 0;
         for(int i = 1; i <= amount; i++) {
             for(int coin : coins) {

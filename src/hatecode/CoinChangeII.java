@@ -64,8 +64,16 @@ Once you figure out all these, it's easy to write out the code:
     //the problem is to say coins = [1,2,5] and amount =12
     //how many combinations we have assume coins are unlimited
     
-    //dp[i][j], i means coins value, j means amount, whole means how many
-    //combinations if we use i to form j
+    //dp[i][j], i means i types of coins, j means amount, whole means how many
+    //combinations if we use i types of coin to form j
+    /*a= 5, coins=[1,2,5]
+    0  1  2  3  4  5
+ 0  1  0  0  0  0  0
+ 1  1  1  2
+ 2  1
+ 5  1
+
+ */
     public int change3(int amount, int[] coins) {
         int[][] dp = new int[coins.length+1][amount+1];
         dp[0][0] = 1;
@@ -82,15 +90,13 @@ Once you figure out all these, it's easy to write out the code:
     
     //dp[i] += dp[i -coin], 
     public int change2(int a, int[] c) {
-        if (a <= 0)
-            return 1;
-        if (c == null || c.length < 1)
-            return 0;
+        if (a <= 0) return 1;
+        if (c == null || c.length < 1) return 0;
         int[] dp = new int[a + 1];
         dp[0] = 1;
         for (int coin : c) {
             for (int i = coin; i <= a; i++) {
-                dp[i] += dp[i - coin];
+                dp[i] = dp[i] + dp[i - coin];
             }
         }
         return dp[a];
