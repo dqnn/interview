@@ -69,9 +69,9 @@ Once you figure out all these, it's easy to write out the code:
     /*a= 5, coins=[1,2,5]
     0  1  2  3  4  5
  0  1  0  0  0  0  0
- 1  1  1  2
- 2  1
- 5  1
+ 1  1  1  1  1  1  1 
+ 2  1  1  2  2  3  3
+ 5  1  1  2  2  2  4
 
  */
     public int change3(int amount, int[] coins) {
@@ -95,6 +95,7 @@ Once you figure out all these, it's easy to write out the code:
         int[] dp = new int[a + 1];
         dp[0] = 1;
         for (int coin : c) {
+            //starts from coin, we do not need to i >= coin
             for (int i = coin; i <= a; i++) {
                 dp[i] = dp[i] + dp[i - coin];
             }
