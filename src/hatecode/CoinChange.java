@@ -31,7 +31,29 @@ public class CoinChange {
      * @param amount
      * @return
      */
+    
+    // coinChange and coinChange3 are typical DP and they are interview friendly. 
+    //
     public int coinChange(int[] coins, int amount) {
+        if (coins == null || coins.length < 1 || amount < 1) {
+            return 0;
+        }
+        //we require n + 1 space since amount will be in last index
+        int[] dp = new int[amount + 1];
+        //we want to know min so we set each value to be max
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        //start will be 0
+        dp[0] = 0;
+        for(int i = 1; i <= amount; i++) {
+            for(int coin : coins) {
+                if (i < coin || dp[i-coin] == Integer.MAX_VALUE) continue;
+                dp[i]= Math.min(dp[i], dp[i - coin] + 1);
+            }
+        }
+        return dp[amount] == Integer.MAX_VALUE ? -1 : dp[amount];
+    }
+    
+    public int coinChange3(int[] coins, int amount) {
         if (amount == 0) return 0;
         if (coins == null || coins.length == 0) return -1;
 

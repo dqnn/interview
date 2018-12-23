@@ -44,6 +44,9 @@ public class DecodeWays {
         }
         int len = s.length();
         int[] dp = new int[len + 1];
+        //here also is one key that initialized as 1 because 
+        //"12" this case, we have 2 ways of decoding, so default every character would have 1
+        //way to decode
         dp[0] = 1;
         dp[1] = s.charAt(0) != '0' ? 1 : 0;
         for (int i = 2; i <= len; i++) {

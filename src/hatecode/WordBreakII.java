@@ -1,6 +1,7 @@
 package hatecode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -62,20 +63,25 @@ Output:
      * @param wordDict
      * @return
      */
-    // index--> possible strings
-    HashMap<Integer, List<String>> map = new HashMap<>();
+    // index--> possible strings, list represents from index->s.length()
+    //the possible word break
+    static HashMap<Integer, List<String>> map = new HashMap<>();
 
     // thinking process:
-    // the problem is break s into words which should exists in dict
+    // the problem is break s into words which should exist in dict
     
-    //so 
-    public List<String> wordBreak(String s, List<String> wordDict) {
+    //so for example catsanddog ["cat", "cats", "and", "sand", "dog"]
+    // start from 0, 
+    public static List<String> wordBreak(String s, List<String> wordDict) {
         // last is index
         return dfs(s, wordDict, 0);
     }
     // c a t s a n d d o g
-    // 
-    public List<String> dfs(String s, List<String> wordDict, int start) {
+   //        /           \ 
+  //    cat|sanddog   cats|anddog
+  //      /                 /   
+//   cat|sand|dog       cats|and|dog
+    public static List<String> dfs(String s, List<String> wordDict, int start) {
         if (map.containsKey(start)) {
             return map.get(start);
         }
@@ -99,5 +105,9 @@ Output:
         }
         map.put(start, res);
         return res;
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(wordBreak("catsanddog", Arrays.asList("cats", "dog", "sand", "and", "cat")));
     }
 }
