@@ -8,6 +8,10 @@ package hatecode;
  * Date : July, 2018
  * Description : TODO
  */
+
+/*
+ * this can be used as utility class to search tree with same prefix, add a new string
+ */
 public class ImplementTrie {
 
     /**

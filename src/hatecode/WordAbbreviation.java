@@ -23,7 +23,9 @@ public class WordAbbreviation {
     //the problem itself is to say abbreivate list of words,if they are the same then we can 
     // try to resolve the conflicting words, the way is to add one new character, until full word
     
-    //this operation is like trie operation, along with character, we decide it is correct or not
+    //this operation is like trie operation, along with character, count means 
+    //how many abbreivated words has same string
+    //so if we found one, we re-create the abbrevation string and put into result,
     public static List<String> wordsAbbreviation(List<String> words) {
         Map<String, List<IndexedWord>> groups = new HashMap<>();
         String[] ans = new String[words.size()];
@@ -38,7 +40,7 @@ public class WordAbbreviation {
             Trie trie = new Trie();
             for (IndexedWord iw: group) {
                 Trie cur = trie;
-                //ignore first character
+                //ignore first character and build the trie tree
                 for (char letter: iw.word.substring(1).toCharArray()) {
                     if (cur.children[letter - 'a'] == null)
                         cur.children[letter - 'a'] = new Trie();
@@ -50,6 +52,9 @@ public class WordAbbreviation {
             for (IndexedWord iw: group) {
                 Trie cur = trie;
                 int i = 1;
+                //if count = 1 means there will be only 1 word, so we stop
+                //otherwise we continue, beause we want to know on which character
+                //count will be 1 then we can abbreviate  
                 for (char letter: iw.word.substring(1).toCharArray()) {
                     if (cur.count == 1) break;
                     cur = cur.children[letter - 'a'];
@@ -61,7 +66,7 @@ public class WordAbbreviation {
 
         return Arrays.asList(ans);
     }
-
+    // i means i+1 char as prefix will be remain in abbreviated string
     public static String abbrev(String word, int i) {
         int N = word.length();
         if (N - i <= 3) return word;
