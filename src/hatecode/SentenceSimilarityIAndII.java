@@ -36,10 +36,12 @@ Finally, sentences can only be similar if they have the same number of words. So
   //II is transitive, others are the same
   //if if transitive, so it would be a graph, for each word, we need to find whether these words
     //are connected, if yes, then return yes
-    public boolean areSentencesSimilarII(String[] words1, String[] words2, String[][] pairs) {
+    //O(N * M) N is words1 length, M is pairs length
+    public boolean areSentencesSimilarTwo(String[] words1, String[] words2, String[][] pairs) {
         if (words1.length != words2.length) {
             return false;
         }
+        
         Map<String, Set<String>> graph = new HashMap<>();
         for(String[] pair : pairs) {
             graph.computeIfAbsent(pair[0], V->new HashSet<>()).add(pair[1]);
@@ -47,8 +49,9 @@ Finally, sentences can only be similar if they have the same number of words. So
         }
         
         for (int i = 0; i < words1.length; i++) {
+            //this has to be here because some words may not in paris but they
+            //are the same
             if (words1[i].equals(words2[i])) continue;           
-            if (!graph.containsKey(words1[i])) return false;            
             if (!dfs(graph, words1[i], words2[i], new HashSet<>())) return false;
         }
         
@@ -56,13 +59,15 @@ Finally, sentences can only be similar if they have the same number of words. So
     }
     
     private boolean dfs(Map<String, Set<String>> graph, String source, String target, Set<String> visited) {
+        //if there was no similiar words, then false
+        if (graph.get(source) == null) return false;
         if (graph.get(source).contains(target)) return true;
         
-        if (visited.add(source)) {
-            for (String next : graph.get(source)) {
-                if (!visited.contains(next) && dfs(graph, next, target, visited)) 
-                    return true;
-            }
+        //graph bsf visits
+        for (String next : graph.get(source)) {
+            if (visited.contains(next)) continue;
+            visited.add(next);
+            if (dfs(graph, next, target, visited))  return true;
         }
         return false;
     }

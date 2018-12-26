@@ -66,6 +66,20 @@ The character '-' signifies an empty space on the screen.
     
     //start from each word, to see whether if we start word words[i], then next line 
     //will start words[words[idx]], 
+ /*
+ words = [a, b, c], rows = 8, cols = 7
+          a   b   c
+nextInt   1   2   0
+time      1   1   2
+a_b_c_a
+b_c_a_b
+c_a_b_a
+a_b_c_a
+b_c_a_b
+so nextInt will store next line start word index
+time will store how many times words has been printed if start as words[i], actually this 
+is accumulated results
+  */
     public static int wordsTyping(String[] words, int rows, int cols) {
         //which sentence will be each line start
         int[] nextIndex = new int[words.length];
@@ -141,7 +155,7 @@ The character '-' signifies an empty space on the screen.
         return res;
     }
     public static void main(String[] args) {
-        String[] in = {"f", "p", "a"};
+        String[] in = {"a", "b", "c"};
         System.out.println(wordsTyping(in, 8,7));
     }
 }
