@@ -60,19 +60,25 @@ The character '-' signifies an empty space on the screen.
     
     
     // O(n*(cols/lenAverage)) + O(rows), 
-    public static int wordsTyping(String[] sentence, int rows, int cols) {
+    //this is very special solution, unique perspective,
+    //suppose we have big enough rows, then every string in stence have the chance to be 
+    //start in lines, so it will be a cycle for the start idx of each line. 
+    
+    //start from each word, to see whether if we start word words[i], then next line 
+    //will start words[words[idx]], 
+    public static int wordsTyping(String[] words, int rows, int cols) {
         //which sentence will be each line start
-        int[] nextIndex = new int[sentence.length];
+        int[] nextIndex = new int[words.length];
         //how many times does this sentence[i] as line start
-        int[] times = new int[sentence.length];
-        for(int i=0;i<sentence.length;i++) {
+        int[] times = new int[words.length];
+        for(int i=0;i<words.length;i++) {
             int count = 0;
             int idx = i;
             int time = 0;
-            while(count + sentence[idx].length() <= cols) {
-                count += sentence[idx++].length();
+            while(count + words[idx].length() <= cols) {
+                count += words[idx++].length();
                 if (count < cols) count += 1;
-                if(idx==sentence.length) {
+                if(idx == words.length) {
                     idx = 0;
                     time ++;
                 }
