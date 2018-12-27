@@ -1,11 +1,10 @@
 package hatecode;
 
 import java.util.*;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 /*
- * this one is not from LeetCode, but just for understanding he consistence hash implementations
+ * this one is not from LeetCode, but just for understanding he consistence 
+ * hash implementations
  */
 public class ConsistentHash<T> {
 
