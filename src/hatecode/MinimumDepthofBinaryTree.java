@@ -37,6 +37,7 @@ return its minimum depth = 2.
         if (root.left == null || root.right == null) {
             return Math.max(minDepth(root.left), minDepth(root.right)) + 1;
         }
+        //leaf node, 
         return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
     }
     
@@ -45,11 +46,26 @@ return its minimum depth = 2.
         if (root == null) {
             return 0;
         }
-        int left = minDepth(root.left);
-        int right = minDepth(root.right);
-        
-        
+        int left = minDepth2(root.left);
+        int right = minDepth2(root.right);
+        //leaf node: we get the minimal of left and right tree  + 1
+        //if not leaf node, 
         return (left == 0 || right == 0) ? left + right + 1 : Math.min(left, right) + 1;
-        
     }
+    //here is more easy to understand version
+    public int minDepth3(TreeNode root) {
+        if(root == null) return 0;
+        if(root.left == null && root.right == null) return 1;
+
+            int left = minDepth(root.left);
+            int right = minDepth(root.right);
+            
+            if(left == 0) {
+                return 1 + right;
+            } else if(right == 0) {
+                return 1 + left;
+            } else {
+                return 1 + Math.min(left, right);
+            }
+        }
 }

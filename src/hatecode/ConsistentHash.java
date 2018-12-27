@@ -1,6 +1,6 @@
 package hatecode;
 
-import java.util.Collection;
+import java.util.*;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -38,7 +38,6 @@ public class ConsistentHash<T> {
      * @param nodes            物理服务器节点
      */
     public ConsistentHash(HashFunction hashFunction, int numberOfReplicas, Collection<T> nodes) {
-
         this.hashFunction = hashFunction;
         this.numberOfReplicas = numberOfReplicas;
         //将物理服务器放在环上
@@ -75,6 +74,11 @@ public class ConsistentHash<T> {
             circle.remove(hashFunction.hash(node.toString() + i));
         }
     }
+    
+    
+    public int getSize() {
+        return circle.size();
+    }
 
     /**
      * 根据缓存数据的key获取物理服务器节点
@@ -99,12 +103,35 @@ public class ConsistentHash<T> {
         }
         return circle.get(hash);
     }
+    public static void main(String[] args) {
+
+        Set<String> nodes = new HashSet<String>();
+        nodes.add("0");
+        nodes.add("1");
+        nodes.add("D");
+        ConsistentHash<String> consistentHash = new ConsistentHash<String>(new HashFunction(), 160, nodes);
+
+        //consistentHash.add("D");
+        System.out.println(consistentHash.getSize());  //640
+
+        System.out.println(consistentHash.get("0"));
+        System.out.println(consistentHash.get("1"));
+        System.out.println(consistentHash.get("2"));
+        System.out.println(consistentHash.get("3"));
+        System.out.println(consistentHash.get("4"));
+        System.out.println(consistentHash.get("162"));
+        System.out.println(consistentHash.get("170"));
+        System.out.println(consistentHash.get("200"));
+        System.out.println(consistentHash.get("250"));
+        System.out.println(consistentHash.get("319"));
+    }
 
 }
 
 
 class HashFunction {
     //we should use MD5 to improve
+    //this is to get this object ram address
     int hash(Object key) {
         return key.hashCode();
     }
