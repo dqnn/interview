@@ -72,4 +72,28 @@ public class EncodeandDecodeStrings {
         }
         return res;
     }
+    
+    
+    // Encodes a list of strings to a single string.
+    public String encode2(List<String> strs) {
+        if (strs == null || strs.size() < 1) return "";
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < strs.size(); i++) {
+            String s = strs.get(i).replaceAll("#", "##");
+            sb.append(s).append(" # ");
+        }
+        return sb.toString();
+    }
+
+    // Decodes a single string to a list of strings.
+    public List<String> decode2(String s) {
+        List<String> res = new ArrayList<>();
+        if (s == null || s.length() < 1) return res;
+       
+        String[] strs = s.split(" # ",-1);
+        for(int i = 0; i< strs.length -1; i++) {
+            res.add(strs[i].replace("##", "#"));
+        }
+        return res;
+    }
 }
