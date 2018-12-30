@@ -1,5 +1,7 @@
 package codetemplates;
 // Java program to implement Morris preorder traversal
+//O(n)/O(1), space complexity is O(1)
+//morris travel purpose is to visit the tree without stack or recursion
  
 // A binary tree node
 
@@ -14,38 +16,31 @@ class Node {
     }
 }
 public class MorrisTravelTree {
-    
     Node root;
-     
-    void morrisTraversalPreorder()
-    {
+    void morrisTraversalPreorder(){
         morrisTraversalPreorder(root);
     }
  
     // Preorder traversal without recursion and without stack
     void morrisTraversalPreorder(Node node) {
         while (node != null) {
- 
             // If left child is null, print the current node data. Move to
             // right child.
             if (node.left == null) {
                 System.out.print(node.data + " ");
                 node = node.right;
             } else {
- 
                 // Find inorder predecessor
                 Node current = node.left;
                 while (current.right != null && current.right != node) {
                     current = current.right;
                 }
- 
                 // If the right child of inorder predecessor already points to
                 // this node
                 if (current.right == node) {
                     current.right = null;
                     node = node.right;
                 }
-  
                 // If right child doesn't point to this node, then print this
                 // node and make right child point to this node
                 else {
@@ -56,9 +51,7 @@ public class MorrisTravelTree {
             }
         }
     }
-     
-    void preorder()
-    {
+    void preorder() {
         preorder(root);
     }
  

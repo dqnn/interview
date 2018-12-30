@@ -18,7 +18,7 @@ public class BinaryTreeLongestConsecutiveSequence {
      be from parent to child (cannot be the reverse).
 
      For example,
-      1
+     1
       \
        3
       / \

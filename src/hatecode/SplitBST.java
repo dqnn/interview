@@ -20,7 +20,14 @@ Output: [[2,1],[4,3,6,null,null,5,7]]
     //a structure which could help to keep the tree same structure while 
     //we visit the tree, and at the same time we the node which equals 
     //or most close we want
-    //it is like the dummy node in linked list, which could help to prevent null
+    //we create two dummy nodes as sm and lg, so if one node is <=V, then put the node to
+    // sm tree on its right, and we mark the tree right child as null because we do not 
+    //this tree right child is bigger than V or not. and continue
+    
+    //if the node is >V, then we put lg tree left, since we want to visit the left tree, 
+    // and mark its left as null
+    
+    //this is every elegant code
     public static TreeNode[] splitBST2(TreeNode root, int V) {
         // to store the nodes which are smaler than V
         TreeNode dummySm = new TreeNode(0);
