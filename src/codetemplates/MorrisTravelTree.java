@@ -25,12 +25,12 @@ public class MorrisTravelTree {
     void morrisTraversalPreorder(Node node) {
         while (node != null) {
             // If left child is null, print the current node data. Move to
-            // right child.
+            // right child. because left branch work is done
             if (node.left == null) {
                 System.out.print(node.data + " ");
                 node = node.right;
             } else {
-                // Find inorder predecessor
+                // Find preorder predecessor
                 Node current = node.left;
                 while (current.right != null && current.right != node) {
                     current = current.right;
@@ -66,6 +66,15 @@ public class MorrisTravelTree {
      
     // Driver programs to test above functions
     public static void main(String args[]) {
+/*
+                   1
+              /        \
+             2           3
+           /   \       /    \
+         4       5    6       7 
+       /  \     /  \         
+      8   9    10   11
+ */
         MorrisTravelTree tree = new MorrisTravelTree();
         tree.root = new Node(1);
         tree.root.left = new Node(2);
