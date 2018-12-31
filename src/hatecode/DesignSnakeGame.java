@@ -1,6 +1,6 @@
 package hatecode;
 
-import java.util.Deque;
+import java.util.*;
 import java.util.HashSet;
 import java.util.LinkedList;
 
@@ -60,57 +60,141 @@ import java.util.LinkedList;
  */
 public class DesignSnakeGame {
 
-    HashSet<Integer> set; // 位置
-    Deque<Integer> deque;
+    //2D position info is encoded to 1D and stored as two copies 
+    Set<Integer> bodyCopy; // this copy is good for fast loop-up for eating body case
+    Deque<Integer> body; // this copy is good for updating tail
     int score;
+    int[][] food;
     int foodIndex;
     int width;
     int height;
-    int[][] food;
-
+    
     public DesignSnakeGame(int width, int height, int[][] food) {
         this.width = width;
         this.height = height;
         this.food = food;
-        set = new HashSet<>();
-        deque = new LinkedList<>();
-        score = 0;
-        foodIndex = 0;
-        set.add(0);
-        deque.offerLast(0);
+        bodyCopy = new HashSet<>();
+        bodyCopy.add(0); //intially at [0][0]
+        body = new LinkedList<>();
+        body.offerLast(0);
     }
-
     public int move(String direction) {
+        //case 0: game already over: do nothing
         if (score == -1) {
             return -1;
         }
-
-        int rowHead = deque.peekFirst() / width;
-        int colHead = deque.peekFirst() % width;
-
+        // compute new head
+        int rowHead = body.peekFirst() / width;
+        int colHead = body.peekFirst() % width;
         switch (direction) {
             case "U" : rowHead--;
-                break;
+                       break;
             case "D" : rowHead++;
-                break;
+                       break;
             case "L" : colHead--;
-                break;
-            default : colHead++;
+                       break;
+            default :  colHead++;
         }
         int head = rowHead * width + colHead;
-        set.remove(deque.peekLast());
-        if (rowHead < 0 || rowHead == height || colHead < 0 || colHead == width || set.contains(head)) {
+        
+        //case 1: out of boundary or eating body
+     // new head is legal to be in old tail's position, remove from set temporarily
+        bodyCopy.remove(body.peekLast());  
+        if (rowHead < 0 || rowHead == height || colHead < 0 || colHead == width 
+                || bodyCopy.contains(head)) {
             return score = -1;
         }
-        set.add(head);
-        deque.offerFirst(head);
+        
+        // add head for case2 and case3
+        bodyCopy.add(head); 
+        body.offerFirst(head);
+        
+        //case2: eating food, keep tail, add head
         if (foodIndex < food.length && rowHead == food[foodIndex][0] && colHead == food[foodIndex][1]) {
+            bodyCopy.add(body.peekLast()); // old tail does not change, so add it back to set
             foodIndex++;
-            ++score;
-            set.add(deque.peekLast());
-            return score;
+            return ++score;
         }
-        deque.pollLast();
+        
+        //case3: normal move, remove tail, add head
+        body.pollLast();
         return score;
+        
+    }
+    
+    //OO solution, which is interview friendly
+    class Position{
+        int x;
+        int y;
+        public Position(int x,int y){
+            this.x = x;
+            this.y = y;
+        }
+        public boolean isEqual(Position p){
+            return this.x==p.x && this.y == p.y ;
+        }
+    }
+    
+    
+    
+    int len;
+    int rows ,cols;
+    
+    int[][] f;
+    LinkedList<Position> snake;
+   
+    /** Initialize your data structure here.
+        @param width - screen width
+        @param height - screen height 
+        @param food - A list of food positions
+        E.g food = [[1,1], [1,0]] means the first food is positioned at [1,1], the second is at [1,0]. */
+    public void SnakeGame2(int width, int height, int[][] food) {
+        this.rows = height;
+        this.cols = width;
+        this.f = food;
+   
+        snake = new LinkedList<Position>();
+        snake.add(new Position(0,0));
+        len = 0;
+    }
+    
+    /** Moves the snake.
+        @param direction - 'U' = Up, 'L' = Left, 'R' = Right, 'D' = Down 
+        @return The game's score after the move. Return -1 if game over. 
+        Game over when snake crosses the screen boundary or bites its body. */
+    public int move2(String direction) {
+        //if(len>=food.length) return len;
+    
+        Position cur = new Position(snake.get(0).x,snake.get(0).y);
+        
+        switch(direction){
+        case "U": 
+            cur.x--;  break;
+        case "L": 
+            cur.y--; break;
+        case "R": 
+            cur.y++;   break;
+        case "D": 
+            cur.x++;   break;
+        }
+        if(cur.x<0 || cur.x>= rows || cur.y<0 || cur.y>=cols) return -1;
+
+        for(int i=1;i<snake.size()-1;i++){
+            Position next = snake.get(i);
+            if(next.isEqual(cur)) return -1;           
+        }
+        snake.addFirst(cur);     
+        if(len<f.length){
+            Position p = new Position(f[len][0],f[len][1]);           
+            if(cur.isEqual(p)){             
+                len++;
+            }
+        }
+        //since every call to move, we will always add cur into snake, 
+        //so the len will be more than its correct size, so we remove extra ones
+        //correct size is len + 1;
+        while(snake.size()>len+1) snake.removeLast();
+       
+        return len;
     }
 }

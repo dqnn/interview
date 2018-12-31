@@ -67,7 +67,6 @@ Output: [[2,1],[4,3,6,null,null,5,7]]
             root.left = splitted[1];
             splitted[1] = root;
         }
-        
         return splitted;
     }
         
