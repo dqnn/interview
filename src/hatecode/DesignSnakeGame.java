@@ -122,7 +122,8 @@ public class DesignSnakeGame {
         
     }
     
-    //OO solution, which is interview friendly
+    //OO solution, which is interview friendly, but we have a copy of dup data
+    //the best is to have a DequeHashList
     class Position{
         int x;
         int y;
@@ -138,8 +139,6 @@ public class DesignSnakeGame {
             return Objects.hash(x, y);
         }
     }
-    
-    
     
     int len;
     int rows ,cols;
@@ -170,8 +169,6 @@ public class DesignSnakeGame {
         @return The game's score after the move. Return -1 if game over. 
         Game over when snake crosses the screen boundary or bites its body. */
     public int move2(String direction) {
-        //if(len>=food.length) return len;
-    
         Position cur = new Position(snake.peek().x,snake.peek().y);
         
         switch(direction){
