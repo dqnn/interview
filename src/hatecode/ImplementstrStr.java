@@ -35,7 +35,7 @@ public class ImplementstrStr {
      * @param needle
      * @return
      */
-    public int strStr(String haystack, String needle) {
+    public int strStr2(String haystack, String needle) {
       //edge case
         if (haystack == null || needle == null) {
             return -1;
@@ -44,6 +44,24 @@ public class ImplementstrStr {
         // note i <= becz i + needle.length() = haystack.length
         for (int i = 0; i <= haystack.length() - needle.length(); i++) {
             if (haystack.substring(i, i + needle.length()).equals(needle)) return i;
+        }
+        return -1;
+    }
+    //KMP
+    public int strStr(String haystack, String needle) {
+        if (needle.length() == 0) return 0;
+        if (needle.length() > haystack.length() || haystack.length() == 0) return -1;
+        char[] ndl = needle.toCharArray();
+        char[] hay = haystack.toCharArray();
+        int[] pai = new int[ndl.length];
+        pai[0] = -1;
+        for (int i = 1, k = -1; i < ndl.length; i++) {
+            while (k > -1 && ndl[k + 1] != ndl[i]) k = pai[k];
+            pai[i] = ndl[k + 1] == ndl[i] ? ++k : k;
+        }
+        for (int i = 0, k = -1; i < hay.length; i++) {
+            while (k > -1 && ndl[k + 1] != hay[i]) k = pai[k];
+            if (ndl[k + 1] == hay[i] && ++k == ndl.length - 1) return i - k;
         }
         return -1;
     }
