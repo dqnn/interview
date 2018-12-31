@@ -10,7 +10,8 @@ package hatecode;
  */
 public class BombEnemy {
     /**
-     * Given a 2D grid, each cell is either a wall 'W', an enemy 'E' or empty '0' (the number zero),
+     * Given a 2D grid, each cell is either a wall 'W', an enemy 'E' or empty '0' 
+     * (the number zero),
      * return the maximum enemies you can kill using one bomb.
      The bomb kills all the enemies in the same row and column from the planted point 
      until it hits the wall
@@ -52,6 +53,7 @@ public class BombEnemy {
         int rowCount = 0;
         int[] colCount = new int[n];
         int res = 0;
+        //O(mn(m + n)) because k starts from j and i, 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (j == 0 || grid[i][j - 1] == 'W') {// this is optimization, which means we need to calculate
