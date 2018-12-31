@@ -47,6 +47,19 @@ public class ImplementstrStr {
         }
         return -1;
     }
+    /*
+next数组的含义就是一个固定字符串的最长前缀和最长后缀相同的长度。
+
+比如：abcjkdabc，那么这个数组的最长前缀和最长后缀相同必然是abc。 
+cbcbc，最长前缀和最长后缀相同是cbc。 
+abcbc，最长前缀和最长后缀相同是不存在的。
+对于目标字符串ptr，ababaca，长度是7，所以next[0]，next[1]，next[2]，
+next[3]，next[4]，next[5]，next[6]分别计算的是 
+a，ab，aba，abab，ababa，ababac，ababaca的相同的最长前缀和最长后缀的长度。
+由于a，ab，aba，abab，ababa，ababac，ababaca的相同的最长前缀和最长后缀是
+“”，“”，“a”，“ab”，“aba”，“”，“a”,所以next数组的值是[-1,-1,0,1,2,-1,0]，
+这里-1表示不存在，0表示存在长度为1，2表示存在长度为3。这是为了和代码相对应。
+     */
     //KMP
     public int strStr(String haystack, String needle) {
         if (needle.length() == 0) return 0;

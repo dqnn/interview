@@ -130,8 +130,12 @@ public class DesignSnakeGame {
             this.x = x;
             this.y = y;
         }
-        public boolean isEqual(Position p){
-            return this.x==p.x && this.y == p.y ;
+        public boolean equals(Object p){
+            return this.x== ((Position)p).x && this.y == ((Position)p).y ;
+        }
+         @Override
+        public int hashCode() {
+            return Objects.hash(x, y);
         }
     }
     
@@ -142,6 +146,7 @@ public class DesignSnakeGame {
     
     int[][] f;
     LinkedList<Position> snake;
+    Set<Position> snakeBody;
    
     /** Initialize your data structure here.
         @param width - screen width
@@ -156,6 +161,8 @@ public class DesignSnakeGame {
         snake = new LinkedList<Position>();
         snake.add(new Position(0,0));
         len = 0;
+        snakeBody = new HashSet<>();
+        snakeBody.add(snake.peek());
     }
     
     /** Moves the snake.
@@ -165,7 +172,7 @@ public class DesignSnakeGame {
     public int move2(String direction) {
         //if(len>=food.length) return len;
     
-        Position cur = new Position(snake.get(0).x,snake.get(0).y);
+        Position cur = new Position(snake.peek().x,snake.peek().y);
         
         switch(direction){
         case "U": 
@@ -177,24 +184,25 @@ public class DesignSnakeGame {
         case "D": 
             cur.x++;   break;
         }
-        if(cur.x<0 || cur.x>= rows || cur.y<0 || cur.y>=cols) return -1;
+        snakeBody.remove(snake.peekLast());
+        if(cur.x<0 || cur.x>= rows || cur.y<0 
+           || cur.y>=cols || snakeBody.contains(cur)) return -1;
 
-        for(int i=1;i<snake.size()-1;i++){
-            Position next = snake.get(i);
-            if(next.isEqual(cur)) return -1;           
-        }
-        snake.addFirst(cur);     
+        snake.addFirst(cur);  
+        snakeBody.add(cur);
+       
         if(len<f.length){
             Position p = new Position(f[len][0],f[len][1]);           
-            if(cur.isEqual(p)){             
+            if(cur.equals(p)){             
+                snakeBody.add(snake.peekLast());
                 len++;
             }
         }
+        
         //since every call to move, we will always add cur into snake, 
         //so the len will be more than its correct size, so we remove extra ones
         //correct size is len + 1;
         while(snake.size()>len+1) snake.removeLast();
-       
         return len;
     }
 }
