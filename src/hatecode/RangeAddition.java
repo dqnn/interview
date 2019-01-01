@@ -58,7 +58,8 @@ public class RangeAddition {
     public int[] getModifiedArray(int length, int[][] updates) {
         //initialize as 0
         int[] res = new int[length];
-        // we onl cared about startIdx (+ value) and endIdx + 1 - value
+        // we only cared about startIdx (+ value) and endIdx + 1 - value,
+        //because 
         for (int[] update : updates) {
             int value = update[2];
             int startIdx = update[0];
