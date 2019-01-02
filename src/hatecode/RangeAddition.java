@@ -59,7 +59,12 @@ public class RangeAddition {
         //initialize as 0
         int[] res = new int[length];
         // we only cared about startIdx (+ value) and endIdx + 1 - value,
-        //because 
+        //because for example (1,3,2), for [1,3] elments we add 2 for each, this 2 will 
+        //be added at 1, 2 and 3 indexes, in another way, the impact is on 1,2 and 3, so 
+        //the impact will disappear on 4th, thats why we need to add -value on endIdx + 1
+        
+        //another thinking is each op is a gate, start and end, the impact will be within 
+        //range, disppear on endIdx + 1, start from startIdx
         for (int[] update : updates) {
             int value = update[2];
             int startIdx = update[0];

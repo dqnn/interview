@@ -52,6 +52,8 @@ Can you figure out ways to solve it with O(n) time complexity?
     // key points:
     //a. post order, mainly help to collect child info then parent info
     //b. BST critirial, how can we use lower and upper to achieve this.
+    //each BST tree, all left should be smaller than root, using a recursive solution 
+    //here sounds good
     public int largestBSTSubtree(TreeNode root) {
         if (root == null) return 0;
         helper(root);

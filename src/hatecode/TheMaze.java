@@ -1,15 +1,20 @@
 package hatecode;
 import java.util.*;
 public class TheMaze {
-/*
-490. The Maze
-There is a ball in a maze with empty spaces and walls. The ball can go through empty spaces by rolling up, down, left or right, but it won't stop rolling until hitting a wall. When the ball stops, it could choose the next direction.
-
-Given the ball's start position, the destination and the maze, determine whether the ball could stop at the destination.
-
-The maze is represented by a binary 2D array. 1 means the wall and 0 means the empty space. You may assume that the borders of the maze are all walls. The start and destination coordinates are represented by row and column indexes.
-
- 
+    /*
+     * 490. The Maze There is a ball in a maze with empty spaces and walls. The ball
+     * can go through empty spaces by rolling up, down, left or right, but it won't
+     * stop rolling until hitting a wall. When the ball stops, it could choose the
+     * next direction.
+     * 
+     * Given the ball's start position, the destination and the maze, determine
+     * whether the ball could stop at the destination.
+     * 
+     * The maze is represented by a binary 2D array. 1 means the wall and 0 means
+     * the empty space. You may assume that the borders of the maze are all walls.
+     * The start and destination coordinates are represented by row and column
+     * indexes.
+     *
 
 Example 1:
 
@@ -46,7 +51,7 @@ Output: true
         for(int[] dir : dirs){
             int x = i + dir[0];
             int y = j + dir[1];
-            //we canno put visited here because the ball is rolling no matter we 
+            //we cannot put visited here because the ball is rolling no matter we 
             //visited it or not
             //this while loop is mimic the rolling behavior
             while(x >= 0 && y >= 0 && x < m.length && y < m[0].length && m[x][y] ==0) {
