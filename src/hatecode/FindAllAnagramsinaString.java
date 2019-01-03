@@ -48,7 +48,8 @@ public class FindAllAnagramsinaString {
      * @return
      */
         //thinking process: two pointers
-        // we change change to templates which use two while and get the answer, but here is more elegant version
+        // we change change to templates which use two while and get the answer, 
+    //but here is more elegant version
         public List<Integer> findAnagrams(String s, String p) {
             List<Integer> res = new ArrayList<>();
             //edge case

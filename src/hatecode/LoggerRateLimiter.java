@@ -77,12 +77,16 @@ Examples:
 
     public class Logger {
         PriorityQueue<Log> recentLogs;
-        Set<String> recentMessages;   
+        Set<String> recentMessages;  
+        
+        TreeMap<Long, String> logMap;
         
         /** Initialize your data structure here. */
         public Logger() {
             recentLogs = new PriorityQueue<>((a, b)->(a.timestamp -b.timestamp));
             recentMessages = new HashSet<String>();
+            
+            logMap = new TreeMap<>();
         }
         
         /** Returns true if the message should be printed in the given timestamp, otherwise returns false.
@@ -103,6 +107,18 @@ Examples:
                 recentMessages.add(message);
             }
             return res;
+        }
+        
+        
+        public boolean shouldPrintMessageWithTreeMap(int timestamp, String message) {
+            while(!logMap.isEmpty()) {
+                Map<Long, Log> subMap = logMap.subMap(timestamp - 10L, true, timestamp -0L, true);
+                if (subMap.size() == 0) break;
+                else {
+                    subMap.forEach((k,v)->logMap.remove(k));
+                }
+            }
+            
         }
     }
 }
