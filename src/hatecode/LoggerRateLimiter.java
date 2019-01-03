@@ -108,17 +108,5 @@ Examples:
             }
             return res;
         }
-        
-        
-        public boolean shouldPrintMessageWithTreeMap(int timestamp, String message) {
-            while(!logMap.isEmpty()) {
-                Map<Long, Log> subMap = logMap.subMap(timestamp - 10L, true, timestamp -0L, true);
-                if (subMap.size() == 0) break;
-                else {
-                    subMap.forEach((k,v)->logMap.remove(k));
-                }
-            }
-            
-        }
     }
 }
