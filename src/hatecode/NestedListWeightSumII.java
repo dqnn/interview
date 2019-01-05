@@ -57,9 +57,21 @@ public class NestedListWeightSumII {
         return res;
     }
 
-    // interview friendly
+    // interview friendly,
+    //thinking process:
+    //the problem is reversly sum, the leaf will be last level, and the root will 
+    //have the highest level, we can also try top-down accumulate the level, but it sounds 
+    //will have 2nd visit, first to make sure the each node level, seond is sum them up. 
+    
+    //now we think differently, each time we visit lower level, its top will be add another time
+    //this is the key, so we pass res to lower level then add them 
+    
+    //[[1,2],3,[1,2]], 
+    //first sum = 3, then we pass 3 to next level, 1+2+1+2, at last we will add 3 to this level
+    //as its sum. 
     public int depthSumInverse2(List<NestedInteger> nestedList) {
         if (nestedList == null) return 0;
+        //sum represents its upper level sum, will be passed to next level
         int sum = 0;
         int res = 0;
         while (!nestedList.isEmpty()) {

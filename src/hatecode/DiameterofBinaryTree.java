@@ -27,8 +27,8 @@ public class DiameterofBinaryTree {
      * @return
      */
 
-    public int res = Integer.MIN_VALUE;
-    public int diameterOfBinaryTree(TreeNode root) {
+    public static int res = Integer.MIN_VALUE;
+    public static int diameterOfBinaryTree(TreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -37,7 +37,7 @@ public class DiameterofBinaryTree {
     }
 
     // the problem it has return value and recursive
-    public int helper(TreeNode node) {
+    public static int helper(TreeNode node) {
         if (node == null) {
             return 0;
         }
@@ -46,7 +46,19 @@ public class DiameterofBinaryTree {
         int right = helper(node.right);
         // whole max should be accessed by this
         res = Math.max(res, left + right);
-        // we alrways return left or right plus 1.
+        // we always return left or right plus 1.
         return Math.max(left, right) + 1;
     }
+    
+    public static void main(String args[])  { 
+        /* creating a binary tree and entering the nodes */
+        TreeNode tree = new TreeNode(1); 
+        tree.left = new TreeNode(2); 
+        tree.right = new TreeNode(3); 
+        tree.left.left = new TreeNode(4); 
+        tree.left.right = new TreeNode(5); 
+  
+        System.out.println("The max distance of given binary tree is : "
+                           + diameterOfBinaryTree(tree)); 
+    } 
 }
