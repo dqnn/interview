@@ -139,7 +139,15 @@ against average/general test cases.
     public String toString() {
         return String.join("*", vars);
     }
-    
+    /**
+    Compares two Terms according to the following:
+    1. returns 0 if the two Terms has the same number of variables and all 
+    corresponding variables are the same.
+    2. return +ve if either:
+        i. @that term has more variables than @this term, otherwise,
+        ii. if @this term is lexicorgraphically smaller than @that
+    3. return -ve otherwise.
+*/
     public int compareTo(Term other) {
         if (this.vars.size() != other.vars.size()) {
             return Integer.compare(other.vars.size(), this.vars.size());
@@ -152,7 +160,7 @@ against average/general test cases.
         return 0;
     }
 }
-    
+    //stands for C1 * Term1 + C2 * Term2,  C1, C2 表示系数
 private static class Expression {
     Map<Term, Integer> terms;
     
@@ -160,7 +168,11 @@ private static class Expression {
         terms = new HashMap<>();
         terms.put(term, coeff);
     }
-    //合并同类项
+    /** Adds a term to this expression:
+    1- If the term already exists in this expression then its coefficient 
+    is updated (added to the new coeeficient)
+    2- If the coefficient is/becomes zero then this term is removed from the expression
+*/
     void addTerm(Term term, int coeff) {
         terms.put(term, coeff + terms.getOrDefault(term, 0));
     }
@@ -175,7 +187,11 @@ private Term merge(Term term1, Term term2) {
         
     return new Term(vars);
 }
-
+/** Add terms of the @ex expression to the current expression
+Example: Ex1 = C1 * Term1  + C2 * Term2 + C3 * Term3, 
+         Ex2 = C4 * Term2  + C5 * Term8 + C6 * Term9
+         Result = C1 * Term1  + (C2 + C4) * Term2 + C3 * Term3 + C5 * Term8  + C6 * Term9
+*/
 private Expression add(Expression expression1, Expression expression2, int sign) {
     for (Map.Entry<Term, Integer> e : expression2.terms.entrySet()) {
         expression1.addTerm(e.getKey(), sign * e.getValue());
@@ -183,7 +199,8 @@ private Expression add(Expression expression1, Expression expression2, int sign)
     
     return expression1;
 }
-// multiply two expressions: ex: @a = C1 * Term1, @b = C2 * Term2 --> @ex = (C1 * C2) * (Term1 * Term2)
+// multiply two expressions: ex: @a = C1 * Term1, @b = C2 * Term2 
+//--> @ex = (C1 * C2) * (Term1 * Term2)
 private Expression mult(Expression expression1, Expression expression2) {
     Expression res = new Expression(Term.C, 0);
         
@@ -217,15 +234,17 @@ private Expression mult(Expression expression1, Expression expression2) {
 
             } else if (Character.isLowerCase(c)) { // this is a variable
                 int j = i;
+                //extract variables, so here we only consider single character or like word 
+                //temp, a * b will be considered as two variables
                 while (i + 1 < s.length() && Character.isLowerCase(s.charAt(i + 1)))
                     i++;
-                //we extract the variable name,not sure why we have multiple chars for one variable
+                //we extract the variable name,not sure why we have multiple 
+                //chars for one variable
                 String var = s.substring(j, i + 1);
                 Term term = map.containsKey(var) ? Term.C : new Term(Arrays.asList(var));
                 int num = map.getOrDefault(var, 1);
 
                 l2 = mult(l2, new Expression(term, num));
-
             } else if (c == '(') { // this is a subexpression
                 int j = i;
 
@@ -237,7 +256,7 @@ private Expression mult(Expression expression1, Expression expression2) {
                     if (cnt == 0)
                         break;
                 }
-
+                //recursive to calc the expressions in ()
                 l2 = mult(l2, calculate(s.substring(j + 1, i), map));
 
             } else if (c == '+' || c == '-') { // level one operators
@@ -253,19 +272,15 @@ private Expression mult(Expression expression1, Expression expression2) {
 
 private List<String> format(Expression expression) {
     List<Term> terms = new ArrayList<>(expression.terms.keySet());
-        
     Collections.sort(terms);
-        
     List<String> res = new ArrayList<>(terms.size());
-        
+
     for (Term term : terms) {
         int coeff = expression.terms.get(term);
-            
         if (coeff == 0) continue;
-            
         res.add(coeff + (term.equals(Term.C) ? "" : "*" + term.toString()));
     }
-        
+
     return res;
 }
 
