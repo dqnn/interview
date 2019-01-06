@@ -66,6 +66,11 @@ Examples:
     
     //interview friendly,
     //1 is to reduce logs entry size and keep minimal size of logger
+    //another possible followup, is message->price, return in last hour ,the biggest price
+    //so we will keep 
+    //PriorityQueue<Node>, 
+    //TreeMap<Price, timestamp>,  treemap can find bunch of nodes in logN time cost, pq can remove at 
+    //O(1) and return max at O(1)
     class Log {
         int timestamp;
         String message;

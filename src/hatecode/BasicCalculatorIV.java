@@ -111,6 +111,9 @@ longer stands true, since the number of terms may grow exponentially (think abou
 expression (a + b) * (c + d) * (e + f) * ...). Nevertheless, this solution should work 
 against average/general test cases.
 */
+/**
+    @Term represents a list of variables: example: a * a * b * c * d -> [a, a, b, c, d]
+*/
  private static class Term implements Comparable<Term> {
     List<String> vars;
     static final Term C = new Term(Arrays.asList()); // this is the term for pure numbers
@@ -146,7 +149,6 @@ against average/general test cases.
                 if (cmp != 0) return cmp;
             }
         }
-        
         return 0;
     }
 }
@@ -158,7 +160,7 @@ private static class Expression {
         terms = new HashMap<>();
         terms.put(term, coeff);
     }
-    
+    //合并同类项
     void addTerm(Term term, int coeff) {
         terms.put(term, coeff + terms.getOrDefault(term, 0));
     }
@@ -181,7 +183,7 @@ private Expression add(Expression expression1, Expression expression2, int sign)
     
     return expression1;
 }
-
+// multiply two expressions: ex: @a = C1 * Term1, @b = C2 * Term2 --> @ex = (C1 * C2) * (Term1 * Term2)
 private Expression mult(Expression expression1, Expression expression2) {
     Expression res = new Expression(Term.C, 0);
         
@@ -194,57 +196,60 @@ private Expression mult(Expression expression1, Expression expression2) {
     return res;
 }
 
-private Expression calculate(String s, Map<String, Integer> map) {
-    Expression l1 = new Expression(Term.C, 0);
-    int o1 = 1;
-    
-    Expression l2 = new Expression(Term.C, 1); 
-    // we don't need 'o2' because the precedence level two operators contain '*' only
-    
-    for (int i = 0; i < s.length(); i++) {
-        char c = s.charAt(i);
-            
-        if (Character.isDigit(c)) {  // this is a number
-            int num = c - '0';
-                
-            while (i + 1 < s.length() && Character.isDigit(s.charAt(i + 1))) {
-                num = num * 10 + (s.charAt(++i) - '0');
+    private Expression calculate(String s, Map<String, Integer> map) {
+        Expression l1 = new Expression(Term.C, 0);
+        int o1 = 1;
+
+        Expression l2 = new Expression(Term.C, 1);
+        // we don't need 'o2' because the precedence level two operators contain '*'
+        // only
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            // calc the number,like 10,20
+            if (Character.isDigit(c)) { // this is a number
+                int num = c - '0';
+
+                while (i + 1 < s.length() && Character.isDigit(s.charAt(i + 1))) {
+                    num = num * 10 + (s.charAt(++i) - '0');
+                }
+
+                l2 = mult(l2, new Expression(Term.C, num));
+
+            } else if (Character.isLowerCase(c)) { // this is a variable
+                int j = i;
+                while (i + 1 < s.length() && Character.isLowerCase(s.charAt(i + 1)))
+                    i++;
+                //we extract the variable name,not sure why we have multiple chars for one variable
+                String var = s.substring(j, i + 1);
+                Term term = map.containsKey(var) ? Term.C : new Term(Arrays.asList(var));
+                int num = map.getOrDefault(var, 1);
+
+                l2 = mult(l2, new Expression(term, num));
+
+            } else if (c == '(') { // this is a subexpression
+                int j = i;
+
+                for (int cnt = 0; i < s.length(); i++) {
+                    if (s.charAt(i) == '(')
+                        cnt++;
+                    if (s.charAt(i) == ')')
+                        cnt--;
+                    if (cnt == 0)
+                        break;
+                }
+
+                l2 = mult(l2, calculate(s.substring(j + 1, i), map));
+
+            } else if (c == '+' || c == '-') { // level one operators
+                l1 = add(l1, l2, o1);
+                o1 = (c == '+' ? 1 : -1);
+
+                l2 = new Expression(Term.C, 1);
             }
-                
-            l2 = mult(l2, new Expression(Term.C, num));
-                
-        } else if (Character.isLowerCase(c)) { // this is a variable
-            int j = i;
-                
-            while (i + 1 < s.length() && Character.isLowerCase(s.charAt(i + 1))) i++;
-                
-            String var = s.substring(j, i + 1);
-            Term term = map.containsKey(var) ? Term.C : new Term(Arrays.asList(var));
-            int num = map.getOrDefault(var, 1);
-                
-            l2 = mult(l2, new Expression(term, num));
-                
-        } else if (c == '(') { // this is a subexpression
-            int j = i;
-                
-            for (int cnt = 0; i < s.length(); i++) {
-                if (s.charAt(i) == '(') cnt++;
-                if (s.charAt(i) == ')') cnt--;
-                if (cnt == 0) break;
-            }
-                
-            l2 = mult(l2, calculate(s.substring(j + 1, i), map));
-                
-        } else if (c == '+' || c == '-') { // level one operators
-            l1 = add(l1, l2, o1);
-            o1 = (c == '+' ? 1 : -1);
-                
-            l2 = new Expression(Term.C, 1);
         }
+
+        return add(l1, l2, o1);
     }
-        
-    return add(l1, l2, o1);
-}
 
 private List<String> format(Expression expression) {
     List<Term> terms = new ArrayList<>(expression.terms.keySet());

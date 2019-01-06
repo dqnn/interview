@@ -104,7 +104,7 @@ Mainly to use double linked list, each node is bucket, it contains count-> strin
         newBucket.keySet.add(key);
         removeKeyFromBucket(curBucket, key);
     }
-    
+
     private void removeKeyFromBucket(Bucket bucket, String key) {
         bucket.keySet.remove(key);
         if (bucket.keySet.size() == 0) {
@@ -112,14 +112,14 @@ Mainly to use double linked list, each node is bucket, it contains count-> strin
             countBktMap.remove(bucket.count);
         }
     }
-    
+
     private void removeBucketFromList(Bucket bucket) {
         bucket.pre.next = bucket.next;
         bucket.next.pre = bucket.pre;
         bucket.next = null;
         bucket.pre = null;
     }
-    
+
     // add newBucket after preBucket
     private void addBucketAfter(Bucket newBucket, Bucket preBucket) {
         newBucket.pre = preBucket;
