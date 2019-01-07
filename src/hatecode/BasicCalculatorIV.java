@@ -159,6 +159,15 @@ against average/general test cases.
         }
     }
     //stands for C1 * Term1 + C2 * Term2,  C1, C2 表示系数
+   /*  2* 7 + 3
+             exp
+           /    \
+         term  +   term
+        / \        /  
+     var *  var   var   
+     /       |     |
+    2        7     3
+    */
     private class Expression {
         Map<Term, Integer> terms;
 
@@ -177,7 +186,7 @@ against average/general test cases.
             terms.put(term, coeff + terms.getOrDefault(term, 0));
         }
     }
-
+    //two terms -> into one
     private Term merge(Term term1, Term term2) {
         List<String> vars = new ArrayList<>();
 
@@ -259,7 +268,7 @@ Example: Ex1 = C1 * Term1  + C2 * Term2 + C3 * Term3,
             } else if (c == '+' || c == '-') { // level one operators
                 l1 = add(l1, l2, o1);
                 o1 = (c == '+' ? 1 : -1);
-
+                //l2 starts new
                 l2 = new Expression(Term.C, 1);
             }
         }
