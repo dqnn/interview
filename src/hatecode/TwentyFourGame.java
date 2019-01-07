@@ -57,7 +57,8 @@ Output: False
     }
     
     
-    //another solution
+    //thinking process:
+    //
     boolean res = false;
     final double eps = 0.001;
 
@@ -68,24 +69,26 @@ Output: False
         helper2(arr);
         return res;
     }
-
+    //
     private void helper2(List<Double> arr){
         if(res) return;
         if(arr.size() == 1){
-            if(Math.abs(arr.get(0) - 24.0) < eps)
-                res = true;
+            if(Math.abs(arr.get(0) - 24.0) < eps) res = true;
             return;
         }
         for (int i = 0; i < arr.size(); i++) {
             for (int j = 0; j < i; j++) {
                 List<Double> next = new ArrayList<>();
                 Double p1 = arr.get(i), p2 = arr.get(j);
+                //add 4 possible results
                 next.addAll(Arrays.asList(p1+p2, p1-p2, p2-p1, p1*p2));
+                //this is improvement, 
                 if(Math.abs(p2) > eps)  next.add(p1/p2);
                 if(Math.abs(p1) > eps)  next.add(p2/p1);
-                
+                //first we remove the two numbers from array, 
                 arr.remove(i);
                 arr.remove(j);
+                //add possible numbers into arr one by one, and dfs on arr
                 for (Double n: next){
                     arr.add(n);
                     helper2(arr);
