@@ -116,6 +116,7 @@ against average/general test cases.
 */
     private static class Term implements Comparable<Term> {
         List<String> vars;
+        //this is for pure numbers, like e = 1
         static final Term C = new Term(Arrays.asList()); // this is the term for pure numbers
 
         Term(List<String> vars) {
@@ -147,6 +148,7 @@ against average/general test cases.
          */
         public int compareTo(Term other) {
             if (this.vars.size() != other.vars.size()) {
+                //we cannot change the order, but it only affected result order
                 return Integer.compare(other.vars.size(), this.vars.size());
             } else {
                 for (int i = 0; i < this.vars.size(); i++) {
@@ -222,6 +224,7 @@ Example: Ex1 = C1 * Term1  + C2 * Term2 + C3 * Term3,
 
         return res;
     }
+    //question: how to do divide /
 
     private Expression calculate(String s, Map<String, Integer> map) {
         Expression l1 = new Expression(Term.C, 0);
@@ -229,7 +232,7 @@ Example: Ex1 = C1 * Term1  + C2 * Term2 + C3 * Term3,
 
         Expression l2 = new Expression(Term.C, 1);
         // we don't need 'o2' because the precedence level two operators contain '*'
-        // only
+        // we did not process "*" since default we think it is mult
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             // calc the number,like 10,20
@@ -239,7 +242,8 @@ Example: Ex1 = C1 * Term1  + C2 * Term2 + C3 * Term3,
                 while (i + 1 < s.length() && Character.isDigit(s.charAt(i + 1))) {
                     num = num * 10 + (s.charAt(++i) - '0');
                 }
-
+                //C is shared instance which store all variables, this means for 
+                //all variables in C, will all have its coeff num
                 l2 = mult(l2, new Expression(Term.C, num));
 
             } else if (Character.isLowerCase(c)) { // this is a variable
@@ -251,9 +255,10 @@ Example: Ex1 = C1 * Term1  + C2 * Term2 + C3 * Term3,
                 //we extract the variable name,not sure why we have multiple 
                 //chars for one variable
                 String var = s.substring(j, i + 1);
+                //if it is number, then it should be in C or we will have a new TERM
                 Term term = map.containsKey(var) ? Term.C : new Term(Arrays.asList(var));
                 int num = map.getOrDefault(var, 1);
-
+                //here we will add num to term
                 l2 = mult(l2, new Expression(term, num));
             } else if (c == '(') { // this is a subexpression
                 int j = i;
@@ -285,7 +290,6 @@ Example: Ex1 = C1 * Term1  + C2 * Term2 + C3 * Term3,
             if (coeff == 0) continue;
             res.add(coeff + (term.equals(Term.C) ? "" : "*" + term.toString()));
         }
-
         return res;
     }
 
@@ -301,7 +305,7 @@ Example: Ex1 = C1 * Term1  + C2 * Term2 + C3 * Term3,
     
     public static void main(String[] args) {
         BasicCalculatorIV s= new BasicCalculatorIV();
-        String in = "e + 8 - a + 5";
+        String in = "e * 8 - a * 5";
         String[] evalvars = {"e"};
         int[] evalints = {1};
         
