@@ -34,8 +34,8 @@ public class CompareVersionNumbers {
         for (int i = 0; i < Math.max(v1.length, v2.length); i++) {
             // or we can use while(j < len) num = num * 10 + a[j] to have the number
             //
-            int num1 = i < v1.length ? Integer.parseInt(v1[i]) : 0;
-            int num2 = i < v2.length ? Integer.parseInt(v2[i]) : 0;
+            int num1 = i < v1.length ? Integer.valueOf(v1[i]) : 0;
+            int num2 = i < v2.length ? Integer.valueOf(v2[i]) : 0;
             if (num1 < num2) {
                 return -1;
             } else if (num1 > num2) {
