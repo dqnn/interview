@@ -187,6 +187,13 @@ class AutocompleteSystem {
             }
             return res;
         }
+        public void main(String[] args) {
+            String[] in = {"are", "as"};
+            AutocompleteSystemV2 V2 = new AutocompleteSystem.AutocompleteSystemV2(in, new int[] {1,2});
+        }
     }
+    
+    
+    
 }
 
