@@ -6,6 +6,7 @@ public class ReversedFibonacciSeries {
 
     public static void main(String[] args) {
         System.out.println(reverseFibo(80,50, 10));
+        System.out.println(reverseFibo(-2,-5, 10));
     }
     
     //from example,80,50,30, 20,10,10,0, we can see res[n] = res[n-2]-res[n-1]
