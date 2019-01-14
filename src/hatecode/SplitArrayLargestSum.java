@@ -40,7 +40,7 @@ Output:
     }
     //m means groups
     private int dfs(int start, int m, int[] nums, int[] presum, int[][] visited) {
-        //like edge case, only 1 group
+        //like edge case, only 1 group left,so we just calculate the result
         if (m == 1) {
             return presum[nums.length] - presum[start];
         }
@@ -59,7 +59,7 @@ Output:
    2|5 10 8 .... like this 
    
 so we use visited[start][m] as mem to record which we have visited
-*/
+*/      // i last position is nums.length - 2 since m > 1
         for (int i = start; i < nums.length-1; i++) {
             //left means first group sum
             int left = presum[i+1] - presum[start];
@@ -69,7 +69,7 @@ so we use visited[start][m] as mem to record which we have visited
             maxSum = Math.min(maxSum, Math.max(left, rightIntervalMax));
             
         }
-        
+        //record result
         visited[start][m] = maxSum;
         return maxSum;
     }
@@ -94,6 +94,7 @@ so we use visited[start][m] as mem to record which we have visited
         }
         return (int)l;
     }
+    //true: we can divide nums into m group which means 
     public boolean valid(long target, int[] nums, int m) {
         int count = 1;
         long total = 0;
@@ -102,6 +103,7 @@ so we use visited[start][m] as mem to record which we have visited
             if (total > target) {
                 total = num;
                 count++;
+                //exceed total group number
                 if (count > m) {
                     return false;
                 }
