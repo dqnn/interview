@@ -51,6 +51,15 @@ Output:
         
         int maxSum = Integer.MAX_VALUE;
         //this is templates for groups and nums to get max for subarray problems
+        /*
+        [7,2,5,10,8] m  =2, 
+          /        \ 
+      7 | 2 5 10 8   7 2|... and we have 4 child here 
+       / \
+   2|5 10 8 .... like this 
+   
+so we use visited[start][m] as mem to record which we have visited
+*/
         for (int i = start; i < nums.length-1; i++) {
             //left means first group sum
             int left = presum[i+1] - presum[start];
