@@ -94,24 +94,24 @@ so we use visited[start][m] as mem to record which we have visited
         }
         return (int)l;
     }
-    //true: we can divide nums into m group which means 
+    //all num are non-negative, so suppose all sum, and max number. and if we can divide 
+    //m groups, each group avg(sum) compare to mid = (max + sum) / 2
+    // if we found we have more groups if we compare each group to continous sum
     public boolean valid(long target, int[] nums, int m) {
-        int count = 1;
+        int curGroupCnt = 1;
         long total = 0;
         for(int num : nums) {
             total += num;
             if (total > target) {
                 total = num;
-                count++;
+                curGroupCnt++;
                 //exceed total group number
-                if (count > m) {
-                    return false;
-                }
+                if (curGroupCnt > m) return false;
             }
         }
         return true;
     }
-    
+
     //DP, 
     /*
     dp[s,j] is the solution for splitting subarray n[j]...n[L-1] into s parts.
