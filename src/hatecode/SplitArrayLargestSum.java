@@ -92,6 +92,7 @@ so we use visited[start][m] as mem to record which we have visited
                 l = mid + 1;
             }
         }
+        //so we return left as minimized sum
         return (int)l;
     }
     //all num are non-negative, so suppose all sum, and max number. and if we can divide 
@@ -103,6 +104,8 @@ so we use visited[start][m] as mem to record which we have visited
         for(int num : nums) {
             total += num;
             if (total > target) {
+                //we reset total from each group by a new number
+                //but this could help to make sure previous group less than mid
                 total = num;
                 curGroupCnt++;
                 //exceed total group number
