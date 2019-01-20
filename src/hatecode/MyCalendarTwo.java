@@ -44,50 +44,50 @@ MyCalendar.book(25, 55); // returns true
         cals.add(new int[]{start, end});
         return true;
     }
-    
-    
-    
-    
-    private static class SegmentTreeNode {
-    int l, r;
-    int k, lazy;
-    SegmentTreeNode left, right;
-        
-    SegmentTreeNode(int l, int r, int k) {
-        this.l = l;
-        this.r = r;
-        this.k = k;
-        this.lazy = 0;
-        this.left = this.right = null;
+
+     private static class SegmentTreeNode {
+        int             l, r;
+        int             k, lazy;
+        SegmentTreeNode left, right;
+
+        SegmentTreeNode(int l, int r, int k) {
+            this.l = l;
+            this.r = r;
+            this.k = k;
+            this.lazy = 0;
+            this.left = this.right = null;
+        }
     }
-}
 
-private int query(SegmentTreeNode node, int i, int j) {
-    normalize(node);
-    
-    if (i > j || node == null || i > node.r || j < node.l) return 0;
-    
-    if (i <= node.l && node.r <= j) return node.k;
-        
-    return Math.max(query(node.left, i, j), query(node.right, i, j));
-}
-
-private void update(SegmentTreeNode node, int i, int j, int val) {
-    normalize(node);
-        
-    if (i > j || node == null || i > node.r || j < node.l) return;
-    
-    if (i <= node.l && node.r <= j) {
-        node.lazy = val;
+    private int query(SegmentTreeNode node, int i, int j) {
         normalize(node);
-        return;
+
+        if (i > j || node == null || i > node.r || j < node.l)
+            return 0;
+
+        if (i <= node.l && node.r <= j)
+            return node.k;
+
+        return Math.max(query(node.left, i, j), query(node.right, i, j));
     }
-        
-    update(node.left, i, j, val);
-    update(node.right, i, j, val);
-    
-    node.k = Math.max(node.left.k, node.right.k);
-}
+
+    private void update(SegmentTreeNode node, int i, int j, int val) {
+        normalize(node);
+
+        if (i > j || node == null || i > node.r || j < node.l)
+            return;
+
+        if (i <= node.l && node.r <= j) {
+            node.lazy = val;
+            normalize(node);
+            return;
+        }
+
+        update(node.left, i, j, val);
+        update(node.right, i, j, val);
+
+        node.k = Math.max(node.left.k, node.right.k);
+    }
 
 private void normalize(SegmentTreeNode node) {
     if (node.lazy > 0) node.k += node.lazy;
@@ -107,24 +107,19 @@ private void normalize(SegmentTreeNode node) {
     node.lazy = 0;
 }
 
+    SegmentTreeNode root;
 
-SegmentTreeNode root;
+    public MyCalendarTwo() {
+        root = new SegmentTreeNode(0, 1_000_000_000, 0);
+    }
 
-public MyCalendarTwo() {
-    root = new SegmentTreeNode(0, 1_000_000_000, 0);
-}
+    public boolean book(int start, int end) {
+        int k = query(root, start, end - 1);
+        if (k >= 2) return false;
 
-public boolean book(int start, int end) {
-    int k = query(root, start, end - 1);
-    if (k >= 2) return false;
-    
-    update(root, start, end - 1, 1);
-    return true;
-}
-    
-    
-    
-    
+        update(root, start, end - 1, 1);
+        return true;
+    }
 }
 
 /**
