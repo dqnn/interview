@@ -73,11 +73,11 @@ private int racecar(int i, int[] dp) {
 }
     
   //DP, O(t^2)/O(t)
-  //m[t][d] : min steps to reach t and facing d (0 = right, 1 = left). speed direction
+  //m[t][d] : min steps to reach target and facing d (0 = right, 1 = left). speed direction
   private static int[][] m;
   public int racecar_DP2D(int target) {
     if (m == null) {
-      final int kMaxT = 10000;
+      int kMaxT = 10000;
       m = new int[kMaxT + 1][2];
       for (int t = 1; t <= kMaxT; ++t) {
         int n = (int)Math.ceil(Math.log(t + 1) / Math.log(2));
@@ -91,6 +91,7 @@ private int racecar(int i, int[] dp) {
         m[t][1] = n + 1 + Math.min(m[l][0], m[l][1] + 1);
         for (int i = 1; i < t; ++i) 
           for (int d = 0; d <= 1; d++)
+            //m[t][d] = min(m[i][0] + 2 +m[t-i][d], m[i][1] + 1 + m[t-i][d])
             m[t][d] = Math.min(m[t][d], Math.min(
                 m[i][0] + 2 + m[t - i][d],
                 m[i][1] + 1 + m[t - i][d]));
