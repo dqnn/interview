@@ -27,6 +27,7 @@ public class RectangleAreaII {
             data.add(new Point(r[2], r[1], -1));
             data.add(new Point(r[2], r[3], 1));
         }
+        //Collections.sort(data, (a, b) -> (a.x - b.x)); also works
         Collections.sort(data, (a, b) -> (a.x == b.x ? b.y -a.y : a.x - b.x));
         TreeMap<Integer, Integer> map = new TreeMap<>();
         int preX = -1;
@@ -50,6 +51,7 @@ public class RectangleAreaII {
     private static int calcY(TreeMap<Integer, Integer> map) {
         int result = 0, pre = -1, count = 0;
         for (Map.Entry<Integer, Integer> e : map.entrySet()) {
+            //pre >= 0 can be removed
             if (pre >= 0 && count > 0) {
                 result += e.getKey() - pre;
             }
