@@ -35,6 +35,7 @@ public class RectangleAreaII {
         for (int i = 0; i < data.size(); i++) {
             Point p = data.get(i);
             map.put(p.y, map.getOrDefault(p.y, 0) + p.val);
+            //if last one or either next x is bigger than current one
             if (i == data.size() - 1 || data.get(i + 1).x > p.x) {
                 if (preX > -1) {
                     result += ((long)preY * (p.x - preX)) % M;
