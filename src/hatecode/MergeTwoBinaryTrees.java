@@ -41,7 +41,7 @@ public class MergeTwoBinaryTrees {
      * @return
      */
 
-    public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
+    public static TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
         // we are doing this way to return correct node
         if (t1 == null) return t2;
         if (t2 == null) return t1;
@@ -50,4 +50,34 @@ public class MergeTwoBinaryTrees {
         newNode.right = mergeTrees(t1.right, t2.right);
         return newNode;
     }
+    
+    public static void main(String[] args) {
+        TreeNode root1 = new TreeNode(1);
+        root1.left = new TreeNode(3);
+        root1.right = new TreeNode(2);
+        root1.left.left = new TreeNode(5);
+
+        TreeNode root2 = new TreeNode(2);
+        root2.left = new TreeNode(1);
+        root2.right = new TreeNode(3);
+
+        root2.left.right = new TreeNode(4);
+        root2.right.right = new TreeNode(7);
+        printTree(root1);
+        System.out.println("");
+        printTree(root2);
+        System.out.println("");
+        TreeNode res = mergeTrees(root1, root2);
+        printTree(res);
+    }
+
+    private static void printTree(TreeNode root) {
+        if (root == null) return;
+        System.out.print(root.val + " ");
+
+        printTree(root.left);
+
+        printTree(root.right);
+    }
+
 }
