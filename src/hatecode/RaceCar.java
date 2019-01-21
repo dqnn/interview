@@ -57,15 +57,12 @@ private int racecar(int i, int[] dp) {
     
     for (int i = 1; i <= target; i++) {
         dp[i] = Integer.MAX_VALUE;
-        
         int m = 1, j = 1;
-        
         for (; j < i; j = (1 << ++m) - 1) {
             for (int q = 0, p = 0; p < j; p = (1 << ++q) - 1) {
                 dp[i] = Math.min(dp[i], m + 1 + q + 1 + dp[i - (j - p)]);
             }
         }
-        
         dp[i] = Math.min(dp[i], m + (i == j ? 0 : 1 + dp[j - i]));
     }
     
@@ -77,12 +74,16 @@ private int racecar(int i, int[] dp) {
   private static int[][] m;
   public int racecar_DP2D(int target) {
     if (m == null) {
+      //target will be less than 10000
       int kMaxT = 10000;
       m = new int[kMaxT + 1][2];
       for (int t = 1; t <= kMaxT; ++t) {
         int n = (int)Math.ceil(Math.log(t + 1) / Math.log(2));
+        //the position would be 0 ,1, 3, 7, 15, 31... 2^n - 1. n means steps
+        //so this would mean we reached the target
         if (1 << n == t + 1) {
           m[t][0] = n;
+          //if we face left means we have turned around, 
           m[t][1] = n + 1;
           continue;
         }
@@ -118,6 +119,7 @@ private int racecar(int i, int[] dp) {
                 
                 int[] next = new int[] {cur[0] + cur[1], 2 * cur[1] };  // accelerate instruction
                 String key = getKey(next);
+                //target 
                 if (!visited.contains(key) && next[0] > 0 && next[0] < (t << 1)) {
                     q.offerLast(next);
                     visited.add(key);
