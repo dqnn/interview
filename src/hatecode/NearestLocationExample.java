@@ -3,7 +3,7 @@ import java.util.*;
 
 import org.junit.Test;
 
-public class AmazonOATest {
+public class NearestLocationExample {
 /*
 top K closet restraunts to this customer, locations is the restaurant coordinations
  */
