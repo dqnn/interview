@@ -18,6 +18,12 @@ public class RectangleAreaII {
             this.val = val;
         }
     }
+    //thinking process:
+    
+    //first we sort the 4 rectangle points, if same x, the bigger one will come first then 
+    //second one. so we use x = 0 to scan this array. 
+    
+    //preY means for next "x", what's previous Y value which can form the new rectangle. 
     public static int rectangleArea(int[][] rectangles) {
         int M = 1000000007;
         List<Point> data = new ArrayList<>();
@@ -66,6 +72,8 @@ preX:3, preY: 0, result: 6, map:{0=0, 1=0, 2=0, 3=0}
     //calculate left line length of y
     private static int calcY(TreeMap<Integer, Integer> map) {
         int result = 0, pre = -1, count = 0;
+        //for rectangle starts here then we need to count, but if some ends here then we should 
+        //ignore, so summary the two cases here we just need to get the final result
         for (Map.Entry<Integer, Integer> e : map.entrySet()) {
             //pre >= 0 can be removed
             if (pre >= 0 && count > 0) {
@@ -82,9 +90,9 @@ preX:3, preY: 0, result: 6, map:{0=0, 1=0, 2=0, 3=0}
   A|_|_|_|
  */
     public static void main(String[] args) {
-        //int[][] in = {{0,0,2,2}};
+        int[][] in = {{0,0,2,2}};
         // A B as above example as following order
-        int[][] in = {{0,0,2,2},{1,0,2,3},{1,0,3,1}};
+        //int[][] in = {{0,0,2,2},{1,0,2,3},{1,0,3,1}};
         System.out.println(rectangleArea(in));
     }
     
