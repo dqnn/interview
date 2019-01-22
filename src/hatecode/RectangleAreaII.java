@@ -38,6 +38,7 @@ public class RectangleAreaII {
         Collections.sort(data, (a, b) -> (a.x == b.x ? b.y -a.y : a.x - b.x));
         //store each node y value, and rec starts or end summary
         TreeMap<Integer, Integer> map = new TreeMap<>();
+        //some points 0 are valid value, so we use -1
         int preX = -1;
         int preY = -1;
         int result = 0;
