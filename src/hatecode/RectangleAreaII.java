@@ -21,7 +21,7 @@ public class RectangleAreaII {
     public static int rectangleArea(int[][] rectangles) {
         int M = 1000000007;
         List<Point> data = new ArrayList<>();
-        //1 means rectangle starts and -1 means ends
+        //1 means rectangle starts and -1 means rectangle ends
         for (int[] r : rectangles) {
             data.add(new Point(r[0], r[1], 1));
             data.add(new Point(r[0], r[3], -1));
@@ -63,6 +63,7 @@ preX:3, preY: 0, result: 6, map:{0=0, 1=0, 2=0, 3=0}
         }
         return result;
     }
+    //calculate left line length of y
     private static int calcY(TreeMap<Integer, Integer> map) {
         int result = 0, pre = -1, count = 0;
         for (Map.Entry<Integer, Integer> e : map.entrySet()) {
