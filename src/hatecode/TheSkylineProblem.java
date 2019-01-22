@@ -187,7 +187,7 @@ firstKey()
             heights.add(new int[]{b[1], b[2]});
         }
         Collections.sort(heights, (a, b) -> (a[0] == b[0]) ? a[1] - b[1] : a[0] - b[0]);
-        //we use treemap to store the heights
+        //we use tree map to store the heights
         //height as key, value is the final result of height, some may starts some may end, so 
         //we need to calculate them here
         TreeMap<Integer, Integer> map = new TreeMap<>(Collections.reverseOrder());

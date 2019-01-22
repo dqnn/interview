@@ -54,7 +54,8 @@ public class RectangleAreaII {
                 preY = calcY(map);
                 preX = p.x;
             }
-/*preX:-1, preY: -1, result: 0, map:{2=-1}
+/*
+preX:-1, preY: -1, result: 0, map:{2=-1}
 preX:0, preY: 2, result: 0, map:{0=1, 2=-1}
 preX:0, preY: 2, result: 0, map:{0=1, 2=-1, 3=-1}
 preX:0, preY: 2, result: 0, map:{0=1, 1=-1, 2=-1, 3=-1}
@@ -77,7 +78,7 @@ preX:3, preY: 0, result: 6, map:{0=0, 1=0, 2=0, 3=0}
         //for rectangle starts here then we need to count, but if some ends here then we should 
         //ignore, so summary the two cases here we just need to get the final result
         for (Map.Entry<Integer, Integer> e : map.entrySet()) {
-            //pre >= 0 can be removed
+            //prePointY >= 0 can be removed
             if (prePointY >= 0 && recStartsCount > 0) {
                 recYLen += e.getKey() - prePointY;
             }
