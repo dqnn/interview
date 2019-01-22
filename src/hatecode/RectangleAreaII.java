@@ -36,7 +36,7 @@ public class RectangleAreaII {
         for (int i = 0; i < data.size(); i++) {
             Point p = data.get(i);
             map.put(p.y, map.getOrDefault(p.y, 0) + p.val);
-            //if last one or either next x is bigger than current one
+            //we get next point to compare to current x,
             if (i == data.size() - 1 || data.get(i + 1).x > p.x) {
                 if (preX > -1) {
                     result += ((long)preY * (p.x - preX)) % M;
@@ -45,6 +45,20 @@ public class RectangleAreaII {
                 preY = calcY(map);
                 preX = p.x;
             }
+/*preX:-1, preY: -1, result: 0, map:{2=-1}
+preX:0, preY: 2, result: 0, map:{0=1, 2=-1}
+preX:0, preY: 2, result: 0, map:{0=1, 2=-1, 3=-1}
+preX:0, preY: 2, result: 0, map:{0=1, 1=-1, 2=-1, 3=-1}
+preX:0, preY: 2, result: 0, map:{0=2, 1=-1, 2=-1, 3=-1}
+preX:1, preY: 3, result: 2, map:{0=3, 1=-1, 2=-1, 3=-1}
+preX:1, preY: 3, result: 2, map:{0=3, 1=-1, 2=-1, 3=0}
+preX:1, preY: 3, result: 2, map:{0=3, 1=-1, 2=0, 3=0}
+preX:1, preY: 3, result: 2, map:{0=2, 1=-1, 2=0, 3=0}
+preX:2, preY: 1, result: 5, map:{0=1, 1=-1, 2=0, 3=0}
+preX:2, preY: 1, result: 5, map:{0=1, 1=0, 2=0, 3=0}
+preX:3, preY: 0, result: 6, map:{0=0, 1=0, 2=0, 3=0}
+ */
+            System.out.println(String.format("preX:%s, preY: %s, result: %s, map:%s", preX, preY, result, map));
         }
         return result;
     }
@@ -60,8 +74,14 @@ public class RectangleAreaII {
         }
         return result;
     }
-    
+/*     B
+ *  _| |
+   | | |_ C
+  A|_|_|_|
+ */
     public static void main(String[] args) {
+        //int[][] in = {{0,0,2,2}};
+        // A B as above example as following order
         int[][] in = {{0,0,2,2},{1,0,2,3},{1,0,3,1}};
         System.out.println(rectangleArea(in));
     }
