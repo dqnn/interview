@@ -36,6 +36,7 @@ public class RectangleAreaII {
         }
         //Collections.sort(data, (a, b) -> (a.x - b.x)); also works
         Collections.sort(data, (a, b) -> (a.x == b.x ? b.y -a.y : a.x - b.x));
+        //store each node y value, and rec starts or end summary
         TreeMap<Integer, Integer> map = new TreeMap<>();
         int preX = -1;
         int preY = -1;
@@ -71,18 +72,18 @@ preX:3, preY: 0, result: 6, map:{0=0, 1=0, 2=0, 3=0}
     }
     //calculate left line length of y
     private static int calcY(TreeMap<Integer, Integer> map) {
-        int result = 0, pre = -1, count = 0;
+        int recYLen = 0, prePointY = -1, recStartsCount = 0;
         //for rectangle starts here then we need to count, but if some ends here then we should 
         //ignore, so summary the two cases here we just need to get the final result
         for (Map.Entry<Integer, Integer> e : map.entrySet()) {
             //pre >= 0 can be removed
-            if (pre >= 0 && count > 0) {
-                result += e.getKey() - pre;
+            if (prePointY >= 0 && recStartsCount > 0) {
+                recYLen += e.getKey() - prePointY;
             }
-            count += e.getValue();
-            pre = e.getKey();
+            recStartsCount += e.getValue();
+            prePointY = e.getKey();
         }
-        return result;
+        return recYLen;
     }
 /*     B
  *  _| |
