@@ -42,7 +42,8 @@ dp[i][j] = dp[i-1][j-1] * (N- (j-1))
         return (int)dp[L][N];
     }
     
-    //O(NL)/O(L)
+    //O(NL)/O(L), for reference: https://leetcode.com/problems/number-of-music-playlists/solution/
+    //not recommended in interview
     public int numMusicPlaylists(int N, int L, int K) {
         int MOD = 1_000_000_007;
 
