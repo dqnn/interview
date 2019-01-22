@@ -184,7 +184,7 @@ preX:3, preY: 0, result: 6, map:{0=0, 1=0, 2=0, 3=0}
 
  class SegmenTreeNode {
     int start, end;
-    Integer[] X;
+    Integer[] values;
     SegmenTreeNode left, right;
     int count;
     long total;
@@ -192,7 +192,7 @@ preX:3, preY: 0, result: 6, map:{0=0, 1=0, 2=0, 3=0}
     public SegmenTreeNode(int start, int end, Integer[] X) {
         this.start = start;
         this.end = end;
-        this.X = X;
+        this.values = X;
         left = null;
         right = null;
         count = 0;
@@ -204,12 +204,12 @@ preX:3, preY: 0, result: 6, map:{0=0, 1=0, 2=0, 3=0}
     }
 
     public SegmenTreeNode getLeft() {
-        if (left == null) left = new SegmenTreeNode(start, getRangeMid(), X);
+        if (left == null) left = new SegmenTreeNode(start, getRangeMid(), values);
         return left;
     }
 
     public SegmenTreeNode getRight() {
-        if (right == null) right = new SegmenTreeNode(getRangeMid(), end, X);
+        if (right == null) right = new SegmenTreeNode(getRangeMid(), end, values);
         return right;
     }
 
@@ -222,7 +222,7 @@ preX:3, preY: 0, result: 6, map:{0=0, 1=0, 2=0, 3=0}
             getRight().update(Math.max(getRangeMid(), i), j, val);
         }
 
-        if (count > 0) total = X[end] - X[start];
+        if (count > 0) total = values[end] - values[start];
         else total = getLeft().total + getRight().total;
 
         return total;
