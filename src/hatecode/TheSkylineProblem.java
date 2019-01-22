@@ -213,9 +213,6 @@ firstKey()
         }
         return res;
     }
-    
-    
-    
     //binary一Segment tree
     
     private static class Node{
