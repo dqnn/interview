@@ -21,6 +21,7 @@ public class RectangleAreaII {
     public static int rectangleArea(int[][] rectangles) {
         int M = 1000000007;
         List<Point> data = new ArrayList<>();
+        //1 means rectangle starts and -1 means ends
         for (int[] r : rectangles) {
             data.add(new Point(r[0], r[1], 1));
             data.add(new Point(r[0], r[3], -1));
