@@ -36,7 +36,6 @@ public class RedundantConnectionII {
     //O(n) 2 pass, 
     public int[] findRedundantDirectedConnection(int[][] edges) {
         if (edges == null || edges.length < 1) return new int[]{};
-        
         // 因为可能有节点存在两个父亲节点，此时答案必定在这两条边之中
         int[] candidate1 = new int[]{-1, -1};
         int[] candidate2 = new int[]{-1, -1};
