@@ -34,6 +34,19 @@ public class RedundantConnectionII {
         }
     }
     //O(n) 2 pass, 
+    //thinking process: so graph becomes directed graph and we need to remove one edge so 
+    //graph will become tree which has N child, so this means, two nodes can only have 1 
+    //directed edge and there should be no cycle in graph
+    //there are 3 cases: 
+    //1 same as RCI, no  >=2 parent nodes, in this case, we just use UF to find out
+    //2 we have >=2 parent node but no cycle, like  follow, 2-->3, 1->3, so 3 has 2 parent
+/*
+           1
+         /   \
+        2---->3
+ */
+    // 3 >=2 parent node with cycle, 3->1->4->2->1, here has a cycle 1 4 2 1 
+    //and 1 has two parents
     public int[] findRedundantDirectedConnection(int[][] edges) {
         if (edges == null || edges.length < 1) return new int[]{};
         // 因为可能有节点存在两个父亲节点，此时答案必定在这两条边之中
