@@ -47,7 +47,18 @@ seat() -> 5, the student sits at the last seat number 5.
     //so thinking from small example, it is empty, seat() will return 0, seat() return N-1 as second
     //then it is middle, then first middle.....
     
-    //so the allocation is relatively fixed pattern. 
+    //so the allocation is relatively fixed pattern. if we thinking the thread is segment,so 
+    //there are a lot of intervals when we call seat() and leave() functions. 
+    // interval has start, end and len attributes. if we use this data structure how we implement 
+    //seat() and leave, for seat, we want to allocate one postion which has max distance to closet
+    //position, so if we sort the segment intervals by distance, so we would get conclusion that 
+    //the middle one is the answer, if distance is the same, then we choose smaller x interval. 
+    
+    //seat() is to poll() the largest distance interval and break two parts and add to the PQ
+    //leave(int) is to find the two interval which is start and end and remove these two from the 
+    //pq, then merge these two and added to PQ
+    
+    //TODO: how to make leave(int) to lgn
     public ExamRoom(int N) {
         this.pq = new PriorityQueue<>((a, b) -> a.dist != b.dist? b.dist - a.dist : a.x - b.x);
         this.N = N;
