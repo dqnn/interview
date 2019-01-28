@@ -112,7 +112,7 @@ class RangeModule2 {
         }
         // clean up intermediate intervals
         Map<Integer, Integer> subMap = map.subMap(left, true, right, false);
-        Set<Integer> set = new HashSet(subMap.keySet());
+        Set<Integer> set = new HashSet<>(subMap.keySet());
         map.keySet().removeAll(set);
         
     }
