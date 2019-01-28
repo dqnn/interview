@@ -69,6 +69,45 @@ top K closet restraunts to this customer, locations is the restaurant coordinati
         int y = restaurant.get(1) != null ? restaurant.get(1) : 0;
         return x * x + y * y;
     }
+    
+    static List<List<Integer>> nearestVegetarianRestaurant2(int totalRestaurants, List<List<Integer>> allocations,
+            int numRestaurants) {
+        List<List<Integer>> nearestRestaurants = new ArrayList<List<Integer>>(numRestaurants);
+
+        if (numRestaurants  <= 0) {
+            return nearestRestaurants;
+        }
+        
+        if (numRestaurants > totalRestaurants) {
+            return nearestRestaurants;
+        }
+
+        if (numRestaurants > allocations.size()) {
+            return nearestRestaurants;
+        }
+
+        if (allocations == null || allocations.size() < 1) {
+            return nearestRestaurants;
+        } else if (numRestaurants == 1 && allocations.size() == 1) {
+            return allocations;
+        }
+
+        if (allocations.size() != totalRestaurants) {
+            return nearestRestaurants;
+        }
+        
+        PriorityQueue<List<Integer>> pq = new PriorityQueue<>
+        ((a, b)->(getDistancePoweredBy2_MAX(a) - getDistancePoweredBy2_MAX(b)));
+        
+        for(List<Integer> temp : allocations) {
+            pq.add(temp);
+        }
+        while(numRestaurants-- > 0) {
+            nearestRestaurants.add(pq.poll());
+        }
+        
+        return nearestRestaurants;
+    }
 
     
     @Test
@@ -78,7 +117,8 @@ top K closet restraunts to this customer, locations is the restaurant coordinati
         List<Integer> p3 = Arrays.asList(1,0);
         List<Integer> p4 = Arrays.asList(1,1);
         List<List<Integer>> lists = Arrays.asList(p1,p2,p3,p4);
-        System.out.println(nearestVegetarianRestaurant(4, lists, 3));
+        System.out.println(nearestVegetarianRestaurant2(4, lists, 3));
+        System.out.println("old -- " + nearestVegetarianRestaurant(4, lists, 3));
     }
     
     @Test
@@ -88,7 +128,8 @@ top K closet restraunts to this customer, locations is the restaurant coordinati
         List<Integer> p3 = Arrays.asList(1,0);
         List<Integer> p4 = Arrays.asList(1,1);
         List<List<Integer>> lists = Arrays.asList(p1,p2,p3,p4);
-        System.out.println(nearestVegetarianRestaurant(4, lists, 3));
+        System.out.println(nearestVegetarianRestaurant2(4, lists, 3));
+        System.out.println("old -- " + nearestVegetarianRestaurant(4, lists, 3));
     }
 }
 
