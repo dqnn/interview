@@ -116,4 +116,88 @@ class RangeModule2 {
         map.keySet().removeAll(set);
         
     }
+
+    class RangeModuleWithSegmentTree {
+        
+        SegmentTreeNode root;
+
+        public RangeModuleWithSegmentTree() {
+            root = new SegmentTreeNode(0, 1_000_000_000);
+        }
+        
+        public void addRange(int left, int right) {
+            root.update(left, right, 1);
+        }
+        
+        public boolean queryRange(int left, int right) {
+            return right - left == root.query(left, right);
+        }
+        
+        public void removeRange(int left, int right) {
+            root.update(left, right, 0);
+        }
+        
+        private class SegmentTreeNode {
+            int start, end;
+            SegmentTreeNode left, right;
+            int sum;
+            boolean lazy;
+            int lazyValue;
+            
+            public SegmentTreeNode(int s, int e) {
+                start = s;
+                end = e;
+                left = null;
+                right = null;
+                sum = 0;
+                lazy = false;
+                lazyValue = 0;
+            }
+            
+            // this segment tree is a bit special, the smallest unit is [1-2] and [2-3] rather than [1-1], [2-2], and [3-3]
+            public void update(int l, int r, int val) {
+                if (end <= l || start >= r) return;
+                
+                if (l <= start && end <= r) {
+                    lazy = true;
+                    lazyValue = val;
+                    sum = (end - start) * lazyValue;
+                    return;
+                }
+                
+                int mid = start + (end - start) / 2;
+                if (left == null) left = new SegmentTreeNode(start, mid);
+                if (right == null) right = new SegmentTreeNode(mid, end);
+                
+                if (lazy) {
+                    left.update(start, end, lazyValue);
+                    right.update(start, end, lazyValue);
+                    lazy = false;
+                }
+                
+                left.update(l, r, val);
+                right.update(l, r, val);
+                sum = left.sum + right.sum;
+            }
+            
+            public int query(int l, int r) {
+                if (end <= l || start >= r) return 0;
+                
+                if (l <= start && end <= r) {
+                    return sum;
+                }
+                
+                int mid = start + (end - start) / 2;
+                if (left == null) left = new SegmentTreeNode(start, mid);
+                if (right == null) right = new SegmentTreeNode(mid, end);
+                
+                if (lazy) {
+                    left.update(start, end, lazyValue);
+                    right.update(start, end, lazyValue);
+                    lazy = false;
+                }
+                return left.query(l, r) + right.query(l, r);
+            }
+        }
+    }
 }
