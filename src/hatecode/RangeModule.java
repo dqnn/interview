@@ -51,11 +51,12 @@ queryRange(16, 17): true (The number 16 in [16, 17) is still being tracked, desp
     }
 
     public boolean queryRange(int left, int right) {
-        //return Interval which right is bigger than left, strictly greater than
+        //return Interval which right is bigger than left, strictly greater than left. 
+        //begin with left + 1
         Interval iv = ranges.higher(new Interval(0, left));
         return (iv != null && iv.left <= left && right <= iv.right);
     }
-
+    //remove range, so we go through all ranges between left and right, and remove we can remove
     public void removeRange(int left, int right) {
         Iterator<Interval> itr = ranges.tailSet(new Interval(0, left)).iterator();
         ArrayList<Interval> todo = new ArrayList<>();
@@ -89,7 +90,7 @@ class RangeModule2 {
         }
         // clean up intermediate intervals
         Map<Integer, Integer> subMap = map.subMap(left, false, right, true);
-        Set<Integer> set = new HashSet(subMap.keySet());
+        Set<Integer> set = new HashSet<>(subMap.keySet());
         map.keySet().removeAll(set);
     }
     
