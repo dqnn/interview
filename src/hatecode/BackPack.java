@@ -1,5 +1,7 @@
 package hatecode;
 
+import java.util.Arrays;
+
 public class BackPack {
 
     //list of back pack problems and explain
@@ -174,7 +176,8 @@ return 6
    
     
     public static void main(String[] args) {
-        System.out.println("backPackI result should be 10," + backPackI(new int[] {2,3,5,7}, 11));
+        int[] in = {2,3,5,7};
+        System.out.println(String.format("backPackI 单次选择 去找最大重量, input = %s, output=%s", Arrays.toString(in), backPackI(in, 11)));
         System.out.println("backPackII result should be 9," + backPackII(new int[] {2,3,5,7}, new int[] {1,5,2,4}, 10));
         System.out.println("backPackIII result should be 15," + backPackIII(new int[] {2,3,5,7}, new int[] {1,5,2,4}, 10));
         System.out.println("backPackIV result should be 2," +  backPackIV(new int[] {2,2,3}, 7));
