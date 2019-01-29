@@ -53,13 +53,15 @@ Explanation: We can replace '0' with '1' to get t.
     //thinking process: 
     //the problem is to two only 1 edit distance, if we can equals the two strings
     
-    //we use two point to compare each char on its place, and use a counter to see whther it exceed
-    //1 time. 
+    //since one edit distance so the length max(diff) should be <=1,  so thinking about two 
+    //pointers sp and tp in s and t, if s.charAt(sp) == t.charAt(tp) then we continue move, 
+    //if not, we need to check which string is longer, if not still both move forward, if not 
+    //longer move forward
     public boolean isOneEditDistance2(String s, String t) {
         if (s == null || t == null || s.equals(t) || Math.abs(s.length() - t.length()) > 1)  {
             return false;
         }
-        
+        //sp point to s, tp point to t
         int sp = 0, tp = 0, diffCount = 0;
         while(sp < s.length() && tp < t.length() && diffCount < 2) {
             if (s.charAt(sp) == t.charAt(tp)) {
@@ -68,6 +70,7 @@ Explanation: We can replace '0' with '1' to get t.
                 continue;
             }
             diffCount++;
+            //so if 
             if (s.length() == t.length()) {
                 tp++;
                 sp++;
@@ -79,6 +82,11 @@ Explanation: We can replace '0' with '1' to get t.
         }
         return diffCount > 1 ? false: true;
     }
+    
+    //this solution is more straightforward that we find the character not equals.
+    //then we compare the rest, since it is one edit distance, so that;s the last chance, left
+    //must be the same to be true. one thing need to note is the longer should be i + 1 while 
+    //shorter keeps i
     public static boolean isOneEditDistance(String s, String t) {
         if (s == null || t == null || s.equals(t) || Math.abs(s.length() - t.length()) > 1) {
             return false;
