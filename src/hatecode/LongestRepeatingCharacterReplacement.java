@@ -43,7 +43,7 @@ Replace the two 'A's with two 'B's or vice versa.
         return maxLen;
         
     }
-
+    //find most frequently character
     private boolean ok(char[] ch, int k, int mid) {
         int[] cnt = new int[26];
         for (int i = 0; i < ch.length; i++) {
@@ -52,6 +52,7 @@ Replace the two 'A's with two 'B's or vice versa.
             cnt[ch[i] - 'A']++;
             if (i >= mid - 1) {
                 int max = 0;
+                //find most frequently char
                 for (int j : cnt) max = Math.max(max, j);
                 
                 if (mid - max <= k) return true;
