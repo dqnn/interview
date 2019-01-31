@@ -72,4 +72,49 @@ Return:
             } 
         }
     }
+    //this is accepted, the reason is it reduced units which are needed to be checked
+    class AcceptedSolution {
+        List<int[]> res;
+        int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0,1}};
+        public List<int[]> pacificAtlantic(int[][] m) {
+            res = new ArrayList<>();
+            if (m == null || m.length < 1 || m[0].length < 1) return res;
+            
+            int r = m.length, c = m[0].length;
+            boolean[][] left = new boolean[r][c];
+            boolean[][] right = new boolean[r][c];
+           
+            for(int i = 0; i< r;i++) {
+                helper(m, i, 0, left);
+                helper(m, i, c-1, right);
+            }
+            for(int i = 0; i< c;i++) {
+                helper(m, 0, i, left);
+                helper(m, r-1, i, right);
+            }
+            
+            for(int i = 0; i < r;i++) {
+                for(int j = 0; j < c;j++) {
+                    if (left[i][j] && right[i][j]) {
+                        res.add(new int[]{i, j});
+                    }
+                }
+            }
+            return res;
+        }
+        
+        private void helper(int[][] m, int i, int j, boolean[][] visited) {
+            if (visited[i][j]) return;
+            
+            visited[i][j] = true;
+            
+            for(int[] dir : dirs) {
+                int x = i + dir[0];
+                int y = j + dir[1];
+                if (x >= 0 && y >= 0 && x < m.length && y < m[0].length && m[x][y] >= m[i][j]){
+                    helper(m, x, y, visited);
+                } 
+            }
+        }
+    }
 }
