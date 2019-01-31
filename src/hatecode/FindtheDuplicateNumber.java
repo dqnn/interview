@@ -52,6 +52,15 @@ public class FindtheDuplicateNumber {
     }
 
     // time : O(n) space : O(1)
+    /*
+slowPointer distance before meeting =x+y
+fastPointer distance before meeting =(x+y+z)+y = x + 2y + z
+
+2x+2y=x+2y+z => x = z
+|---->x<----|----->y<------|
+-------------
+            |----->Z<------| meet here
+     */
     public int findDuplicate2(int[] nums) {
         //edge case
         if (nums == null || nums.length < 1) {

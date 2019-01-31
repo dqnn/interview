@@ -53,14 +53,14 @@ public class FactorCombinations {
      * @return
      */
 
-    public List<List<Integer>> getFactors(int n) {
+    public static List<List<Integer>> getFactors(int n) {
         List<List<Integer>> res = new ArrayList<>();
         helper(res, new ArrayList<>(), n, 2);
         return res;
     }
     
     // recursive templates, like to pick from some list
-    public void helper(List<List<Integer>> res, List<Integer> list, int n, int start) {
+    public static void helper(List<List<Integer>> res, List<Integer> list, int n, int start) {
         if (n == 1) {
             if (list.size() > 1) {
                 res.add(new ArrayList<>(list));
@@ -74,5 +74,8 @@ public class FactorCombinations {
                 list.remove(list.size() - 1);
             }
         }
+    }
+    public static void main(String[] args) {
+        System.out.println(getFactors(12));
     }
 }
