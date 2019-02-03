@@ -25,6 +25,12 @@ You can split them into two consecutive subsequences :
     
     //so for the problem specifically, we use one map to store number->fre, another map is to store the possible append number->freq, 
     // when we visit the array, we detect whether its fre == 0, yes then we continue, if not we will try to find whther it is possible to append previous consective sequence, if not, whether it is start a new sequence. this is greedy thinking, we want to move as many numbers as we can in one sequence
+    //append priority is higher than starting new sequence, since greedy algorithms, 
+    //example like [1,2,3,3,4,4,5,6,7,7,8,9]
+    //if we change the order, it would be false actually it can split into 
+    //1,2,3,4 | 3,4,5,6,7 | 7, 8, 9
+    //if we running this array, it will return false 
+    
     //this is two sum map solution extension, we added the candidate we want into map for later visit
     public boolean isPossible(int[] nums) {
         if (nums == null || nums.length < 1) return false;
@@ -37,7 +43,8 @@ You can split them into two consecutive subsequences :
         //second pass, 
         for(int i : nums) {
             if (num2FreMap.get(i) == 0) continue;
-            //for 1, this will be 0, so 
+            //this is trying to append pre consective sequence  and we cannot change the if else 
+            //order, this has to be before the starting real sequence order
             if (candidateToAppendPreSeqMap.getOrDefault(i, 0) > 0) {
                 candidateToAppendPreSeqMap.put(i, candidateToAppendPreSeqMap.get(i) - 1);
                 candidateToAppendPreSeqMap.put(i + 1,  candidateToAppendPreSeqMap.getOrDefault(i + 1, 0) + 1);
@@ -46,7 +53,6 @@ You can split them into two consecutive subsequences :
             } else if (num2FreMap.getOrDefault(i+1,0) > 0 && num2FreMap.getOrDefault(i+2,0) > 0) {
                 num2FreMap.put(i+1, num2FreMap.get(i+1) - 1);
                 num2FreMap.put(i+2, num2FreMap.get(i+2) - 1);
-                
                 candidateToAppendPreSeqMap.put(i+3, candidateToAppendPreSeqMap.getOrDefault(i+3,0) + 1);
             } else return false;
             //default, we reduce i fre by 1
