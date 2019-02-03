@@ -7,14 +7,15 @@ this is good problem, need to dive deep later.
 */
     public int catMouseGame(int[][] graph) {
         int size = graph.length;
+        //to record the result, res[1][2] means mouse starts 1, cats starts 2 's result
         int dp[][] = new int[size][size];
         for (int i = 0; i < size; i++) Arrays.fill(dp[i], -1);
-
+        //initialize the boundary
         for (int i = 0; i < size; ++i) {
             dp[0][i] = 1;   // mouse reached home, m win
             dp[i][i] = 2;   // cat met mouse, cat win
         }
-
+        //mouse starts 1 and cat starts 2
         return helper(graph, 1, 2, dp);
     }
 
