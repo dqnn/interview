@@ -46,6 +46,8 @@ Explanation:
     //sine mouse go fist, if mouse have priority if we can see mouse win, if not, cat win
     //3 boundaries: we are easy to transform the conditions into dp[0][i] and dp[i][i], 
     //4 to calc, so we starts from 2 and 1, starting dfs, note we can re-use the dp, top-down dp
+    
+    //TODO: fix  [[6],[4,11],[9,12],[5],[1,5,11],[3,4,6],[0,5,10],[8,9,10],[7],[2,7,12],[6,7],[1,4],[2,9]] bug
     public int catMouseGame(int[][] graph) {
         int size = graph.length;
         //to record the result, res[1][2] means mouse starts 1, cats starts 2 's result
@@ -97,6 +99,16 @@ Explanation:
         dp[mouse][cat] = mouseDefault;
         return dp[mouse][cat];
     }
+    
+    public static void main(String[] args) {
+
+        int[][] graph = {{2,5},{3},{0,4,5},{1,4,5},{2,3},{0,2,3}};
+        int[][] graph2 = {{6},{4},{9},{5},{1,5},{3,4,6},{0,5,10},{8,9,10},{7},{2,7},{6,7}};
+        CatAndMouse catandMouse = new CatAndMouse();
+        System.out.println(catandMouse.catMouseGame(graph));
+        System.out.println(catandMouse.catMouseGame(graph2));
+
+    }
  /*
 this is DFS search detail, need to draw a tree to replace following output
 mouse-cat: 3-0
@@ -131,4 +143,56 @@ mouse-cat: 0-0
 mouse-cat: 0-2
 mouse-cat: 0-3
   */
+    //correct toplogic solution, colored 
+    public int catMouseGame2(int[][] graph) {
+        int n = graph.length;
+        // (cat, mouse, mouseMove = 0)
+        int[][][] color = new int[n][n][2];
+        int[][][] outdegree = new int[n][n][2];
+        for (int i = 0; i < n; i++) { // cat
+            for (int j = 0; j < n; j++) { // mouse
+                outdegree[i][j][0] = graph[j].length;
+                outdegree[i][j][1] = graph[i].length;
+                for (int k : graph[i]) {
+                    if (k == 0) {
+                        outdegree[i][j][1]--;
+                        break;
+                    }
+                }
+            }
+        }
+        Queue<int[]> q = new LinkedList<>();
+        for (int k = 1; k < n; k++) {
+            for (int m = 0; m < 2; m++) {
+                color[k][0][m] = 1;
+                q.offer(new int[]{k, 0, m, 1});
+                color[k][k][m] = 2;
+                q.offer(new int[]{k, k, m, 2});
+            }
+        }
+        while (!q.isEmpty()) {
+            int[] cur = q.poll();
+            int cat = cur[0], mouse = cur[1], mouseMove = cur[2], c = cur[3];
+            if (cat == 2 && mouse == 1 && mouseMove == 0) {
+                return c;
+            }
+            int prevMouseMove = 1 - mouseMove;
+            for (int prev : graph[prevMouseMove == 1 ? cat : mouse]) {
+                int prevCat = prevMouseMove == 1 ? prev : cat;
+                int prevMouse = prevMouseMove == 1 ? mouse : prev;
+                if (prevCat == 0) {
+                    continue;
+                }
+                if (color[prevCat][prevMouse][prevMouseMove] > 0) {
+                    continue;
+                }
+                if (prevMouseMove == 1 && c == 2 || prevMouseMove == 0 && c == 1
+                    || --outdegree[prevCat][prevMouse][prevMouseMove] == 0) {
+                    color[prevCat][prevMouse][prevMouseMove] = c;
+                    q.offer(new int[]{prevCat, prevMouse, prevMouseMove, c});
+                }
+            }
+        }
+        return color[2][1][0];
+    }
 }
