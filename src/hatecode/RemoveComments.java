@@ -14,7 +14,7 @@ public class RemoveComments {
         boolean isStarExist = false;
         for(String source : src) {
             //we have 2^3 cases
-            int startIndex = source.indexOf("/*"), comIndex = source.indexOf("//"), endStart = source.indexOf("*/");
+            int startIndex = source.indexOf("\\/\\*"), comIndex = source.indexOf("\\/\\/"), endStart = source.indexOf("\\*\\/");
             if (isStarExist) continue;
             else {
                 if (startIndex < 0 && comIndex < 0 && endStart < 0) {
@@ -44,7 +44,8 @@ public class RemoveComments {
                     }
                 } else {
                     //ignore remaining characters on line s
-                    if (s.charAt(i) == '/' && i < s.length() - 1 && s.charAt(i + 1) == '/')  break;     
+                    if (s.charAt(i) == '/' && i < s.length() - 1 && s.charAt(i + 1) == '/')  
+                        break;     
                     else if (s.charAt(i) == '/' && i < s.length() - 1 && s.charAt(i + 1) == '*') {
                         mode = true;
                         //skip '*' on next iteration of i
