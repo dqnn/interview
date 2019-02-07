@@ -1,29 +1,41 @@
 package hatecode;
 import java.util.*;
 class StampingTheSequence {
-/*
-936. Stamping The Sequence
-For example, if the sequence is "ababc", and the stamp is "abc", then we could return the answer [0, 2], corresponding to the moves "?????" -> "abc??" -> "ababc".
-
-Also, if the sequence is possible to stamp, it is guaranteed it is possible to stamp within 10 * target.length moves.  Any answers specifying more than this number of moves will not be accepted.
-
- 
-
-Example 1:
-
-Input: stamp = "abc", target = "ababc"
-Output: [0,2]
-([1,0,2] would also be accepted as an answer, as well as some other answers.)
-
- */
+    /*
+     * 936. Stamping The Sequence For example, if the sequence is "ababc", and the
+     * stamp is "abc", then we could return the answer [0, 2], corresponding to the
+     * moves "?????" -> "abc??" -> "ababc".
+     * 
+     * Also, if the sequence is possible to stamp, it is guaranteed it is possible
+     * to stamp within 10 * target.length moves. Any answers specifying more than
+     * this number of moves will not be accepted.
+     * 
+     * 
+     * 
+     * Example 1:
+     * 
+     * Input: stamp = "abc", target = "ababc" 
+     * Output: [0,2] ([1,0,2] would also be
+     * accepted as an answer, as well as some other answers.)
+     * 
+     */
     //thinking process: 
-    //given a target string "ababc" and stamp string "abc", so suppose there is same length string as target, called it pre-target = "****", each time we can copy "abc" to overwrite the pre-target, so what's min number of ops to pre-target = target,return list of index which are needed for the min ops
+    //given a target string "ababc" and stamp string "abc", 
+    //so suppose there is same length string as target, called it pre-target = "****", 
+    //each time we can copy "abc" to overwrite the pre-target, 
+    //so what's number of ops to pre-target = target,return list of index which are needed 
+    //for the ops
     
-    //TODO brute force solution is ....
-    //TODO: DFS:
-    //optimal one： it is not easy to think through how we can from "*****"-> "ababc" by "abc", but if we can try different pos and overrite smaller part of target which is not equals to target, this is the direction
+    //TODO: DFS brute force: thinking about path which will record for each char in target, the 
+    //corresponding index in stamp. which means if 
+    //optimal one： it is not easy to think through how we can from "*****"-> "ababc" by "abc", 
+    //but if we can try different pos and overwrite smaller part of target which is not 
+    //equals to target, this is the direction
     
-    //we thinking back: the minimal step 
+    //we thinking back: 1 the first char must be stamp[0], the last 3 character must be stamp or 
+    //we cannot reach target. 
+    //2: if we think from ***** -> ababc, we at least have to starting overwrite * by i =1, 
+    // 
     
     //O(N(N-M))/O(N), N is target len, M is stamp len
     public int[] movesToStamp(String stamp, String target) {
