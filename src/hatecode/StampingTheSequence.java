@@ -35,7 +35,7 @@ class StampingTheSequence {
     //we thinking back: 1 the first char must be stamp[0], the last 3 character must be stamp or 
     //we cannot reach target. 
     //2: if we think from ***** -> ababc, we at least have to starting overwrite * by i =1, 
-    // 
+    //
     
     //O(N(N-M))/O(N), N is target len, M is stamp len
     public int[] movesToStamp(String stamp, String target) {

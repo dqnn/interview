@@ -20,8 +20,13 @@ public class JavaSkillsForInterview {
 
     public static void main(String[] args) {
         
-        int[] stones = {1,2,3,4};
+        Integer[] stones = {1,2,3,4};
         Arrays.stream(stones).forEach(e-> System.out.println(e));
+        List<Integer> list = Arrays.asList(stones);
+        
+        Integer[] spam = new Integer[] { 1, 2, 3 };
+        List<Integer> rlist = Arrays.asList(spam);
+        list = new ArrayList<>(Arrays.asList(1,2));
         TreeMap<Integer, String> t = new TreeMap<>();
         t.put(1, "a");
         t.put(2, "b");
@@ -72,7 +77,7 @@ public class JavaSkillsForInterview {
             System.out.println(c[i]);
         }
         // List
-        List<Integer> list = new ArrayList<>();
+        list = new ArrayList<>();
         list.add(0);
         // this can be used as stack, latter will be as first always
         list.add(0, 1);
