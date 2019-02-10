@@ -119,4 +119,36 @@ Note:
         helper(b, n -1, i -2, j+1);
         //b[i][j] = temp;
     }
+    
+    
+    public static final int max = (int) Math.pow(10, 9) + 7;
+    
+    public int knightDialer3(int n) {
+       long s = 0;
+       //do n hops from every i, j index (the very requirement of the problem)
+       for(int i = 0; i < 4; i++) {
+          for(int j = 0; j < 3; j++) {
+             s = (s + paths(i, j, n)) % max;
+          }
+       }
+       return (int) s;
+    }
+
+    private long paths(int i, int j, int n) {
+       // if the knight hops outside of the matrix or to * return 0 
+       //as there are no unique paths from here
+       if(i < 0 || j < 0 || i >= 4 || j >= 3 || (i == 3 && j != 1)) return 0;
+       //trivial case
+       if(n == 1) return 1;
+       //non trivial case
+       long s = paths(i - 1, j - 2, n - 1) % max + // jump to a
+                paths(i - 2, j - 1, n - 1) % max + // jump to b
+                paths(i - 2, j + 1, n - 1) % max + // jump to c
+                paths(i - 1, j + 2, n - 1) % max + // jump to d
+                paths(i + 1, j + 2, n - 1) % max + // jump to e
+                paths(i + 2, j + 1, n - 1) % max + // jump to f
+                paths(i + 2, j - 1, n - 1) % max + // jump to g
+                paths(i + 1, j - 2, n - 1) % max; // jump to h
+       return s;
+    }
 }
