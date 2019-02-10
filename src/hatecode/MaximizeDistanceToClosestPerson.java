@@ -21,7 +21,7 @@ If Alex sits in any other open seat, the closest person has distance 1.
 Thus, the maximum distance to the closest person is 2.
 */
     //O(n)/O(1)
-    //thinking process: given an array with 0 or 1, 1 stands occpied, return the distance which max the distance to closest person
+    //thinking process: given an array with 0 or 1, 1 stands occupied, return the distance which max the distance to closest person
     
     //two pointers, the length of window is distance, so /2 is the answer.
     //if we did not find the window, right++, if we find the window, left = right, and right continue searching for next

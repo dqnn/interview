@@ -1,4 +1,5 @@
 package hatecode;
+import java.util.*;
 public class KnightDialer {
 /*
 935.
@@ -41,10 +42,47 @@ Note:
 
 1 <= N <= 5000
  */
+    //thinking process: given phone 0-9, and its move restriction each step, find out for N, 
+    //how many possible numbers can be formed. 
     
-    //TLE solutions
-    private long res = 0;
+    //the brute force is DFS as TLE version, we start from different number, so there is no duplicate number, 
+    //but it can definitely cache some temp variables TODO: add memo[i][j], it means: for length i, and now at j, how 
+    //many possible numbers can be formed. 
+    
+    //memo function typical is to be result of recursive function, so 
     public int knightDialer(int N) {
+        //0->{4,6}, 1->{6,8},map[i] means i can move to map[i][j]
+        int[][] nextHopMap = new int[][]{{4, 6}, {6, 8}, {7, 9}, {4, 8}, {0, 3, 9}, {}, {0, 1, 7}, {2, 6}, {1, 3}, {2, 4}};
+        //memo[i][j] means if we start from j, i moves, how many number can be formed
+        int[][] memo = new int[N + 1][10];
+        for (int i = 1; i <= N; i++)  Arrays.fill(memo[i], -1);
+        
+        int res = 0;
+        for (int i = 0; i < 10; i++) {
+            res += helper(N, i, nextHopMap, memo);
+            res %= (int)1e9 + 7;
+        }
+        return res;
+    }
+    private int helper(int N, int start, int[][] nextHopMap, int[][] memo) {
+        if (N == 1) {
+            return 1;
+        }
+        if (memo[N][start] > -1) {
+            return memo[N][start];
+        }
+        memo[N][start] = 0;
+        //every current memo step is its successive hop sum
+        for (int next : nextHopMap[start]) {
+            memo[N][start] += helper(N - 1, next, nextHopMap, memo);
+            memo[N][start] %= (int)1e9 + 7;
+        }
+        return memo[N][start];
+    }
+    
+    //TLE solutions, to add memo[i][j]= helper(b, i, j, memo)
+    private long res = 0;
+    public int knightDialer2(int N) {
         if (N == 0) return 0;
         int[][] keyBoard = {{1,2,3}, {4,5,6}, {7,8,9}, {-1, 0, -1}};
         int r = keyBoard.length, c = keyBoard[0].length;
