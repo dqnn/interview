@@ -22,6 +22,9 @@ Output: "2[2[abbb]c]"
     
     //thinking process: to compress the string into a single string with k[str] pattern, so 
     //we use DP to simplify how we find the best shorten pattern
+    //every time we first get dp[i][j] then we use i<k<j, to update dp[i][j] each time
+    //default dp[i][j] = substr(i,j) and then between the dp[i][j], we use dp[i][i+k] to 
+    //detect whether we can get a substr which can cover the whole dp[i][j] 
     public static String encode2(String s) {
         if (s == null || s.length() <= 4) return s;
         int N = s.length();
