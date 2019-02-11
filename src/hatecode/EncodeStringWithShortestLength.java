@@ -22,10 +22,12 @@ Output: "2[2[abbb]c]"
         if (s == null || s.length() <= 4) return s;
         int N = s.length();
         String[][] dp = new String[N][N];
-        for(int l = 0; l < N;l++) {
-            for(int i = 0; i < N -l;i++) {
+        //here l means window length, because in dp, we using down-top to assign the value to each
+        //
+        for(int window = 0; window < N;window++) {
+            for(int i = 0; i < N -window;i++) {
                 // j move to l lenth of window
-                int j = i + l;
+                int j = i + window;
                 String substr = s.substring(i, j+1);
                 
                 if (j - i < 4) dp[i][j] = substr;
