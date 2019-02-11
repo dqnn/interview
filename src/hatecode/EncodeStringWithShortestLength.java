@@ -63,37 +63,50 @@ Output: "2[2[abbb]c]"
     
     
   //we have Hashmap solution, it is better than dp
+ /*
+ two edge cases:
+ 1. "abab" should not replace "ab" as the longest repeated substring
+ 2. If there is an overlap for two different repeated substring, 
+ you should choose the longest one, for example "abcdefabcdefffff", 
+ you should let the middle 'f' belong to 'abcdef' instead of 'fffff'.
+
+  */
     public String encode(String s) {
        int n = s.length();
-       HashMap<String, Integer>[] reps = new HashMap[n];
-       String[] words = new String[n];
+       //record which substring repeated how many time up until current index,
+       HashMap<String, Integer>[] substrFreMapArray = new HashMap[n];
+       // record the longest repeated substring up until current index
+       String[] lgestSubstrArray = new String[n];
        int bound = -1;
        for (int i = 0; i < n; i++) {
-           reps[i] = new HashMap<>();
-           words[i] = "";
+           substrFreMapArray[i] = new HashMap<>();
+           lgestSubstrArray[i] = "";
+           //look back from i, -1 each time,
            for (int j = i; j >= 0; j--) {
                String tmp = s.substring(j, i + 1);
-               if (j > 0 && reps[j - 1].containsKey(tmp)) {
-                   if (j - 1 > bound || tmp.length() >= words[bound].length()) {
-                       reps[i].put(tmp, (int)reps[j - 1].get(tmp) + 1);
+               if (j > 0 && substrFreMapArray[j - 1].containsKey(tmp)) {
+                   if (j - 1 > bound || tmp.length() >= lgestSubstrArray[bound].length()) {
+                       substrFreMapArray[i].put(tmp, (int)substrFreMapArray[j - 1].get(tmp) + 1);
                    } else {
-                       reps[i].put(tmp, 1);
+                       substrFreMapArray[i].put(tmp, 1);
                    }
-                   if (tmp.split(words[i]).length > 0) {
-                       words[i] = tmp;
+                   if (tmp.split(lgestSubstrArray[i]).length > 0) {
+                       lgestSubstrArray[i] = tmp;
                        bound = i;
                    }
                } else {
-                   reps[i].put(tmp, 1);
+                   substrFreMapArray[i].put(tmp, 1);
                }               
            }
        }
        
        StringBuilder sb = new StringBuilder();
        for (int i = n - 1; i >= 0; i--) {
-           if (words[i].length() > 0 && words[i].length() * (int)reps[i].get(words[i]) > 4) {
-               sb.insert(0, (int)reps[i].get(words[i]) + "[" + encode(words[i]) + "]");
-               i = i - words[i].length() * (int)reps[i].get(words[i]) + 1;
+           if (lgestSubstrArray[i].length() > 0 
+                   //test the frequency * length of each substr
+                   && lgestSubstrArray[i].length() * (int)substrFreMapArray[i].get(lgestSubstrArray[i]) > 4) {
+               sb.insert(0, (int)substrFreMapArray[i].get(lgestSubstrArray[i]) + "[" + encode(lgestSubstrArray[i]) + "]");
+               i = i - lgestSubstrArray[i].length() * (int)substrFreMapArray[i].get(lgestSubstrArray[i]) + 1;
            } else {
                sb.insert(0, s.charAt(i));
            }
