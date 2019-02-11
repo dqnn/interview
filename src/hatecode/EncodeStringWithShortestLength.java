@@ -23,29 +23,35 @@ Output: "2[2[abbb]c]"
         int N = s.length();
         String[][] dp = new String[N][N];
         //here l means window length, because in dp, we using down-top to assign the value to each
-        //
         for(int window = 0; window < N;window++) {
             for(int i = 0; i < N -window;i++) {
-                // j move to l lenth of window
+                // j move to l length of window
                 int j = i + window;
-                String substr = s.substring(i, j+1);
+                //here get the window string
+                String windowStr = s.substring(i, j+1);
                 
-                if (j - i < 4) dp[i][j] = substr;
+                if (j - i < 4) dp[i][j] = windowStr;
                 else {
-                    dp[i][j] = substr;
+                    dp[i][j] = windowStr;
+                    
+                    //in windowStr, we try to check whether there is possible to have a 
+                    //shorter compression substr
+                    for(int k = 0; k < windowStr.length(); k++) {
+                        String repeatStr = windowStr.substring(0, k+1);
+                        if(repeatStr != null && windowStr.length()%repeatStr.length() == 0 
+                            && windowStr.replaceAll(repeatStr, "").length() == 0) {
+                            String ss = windowStr.length()/repeatStr.length() + "[" + dp[i][i+k] + "]";
+                          
+                            if(ss.length() < dp[i][j].length()) dp[i][j] = ss;
+                        }
+                    }
+                    
+                  //in this window string, we try to optimize to find the shorter compressed 
+                    //string
+                    //we placed the dp forum calc here is better because TODO: 
                     for(int k = i; k < j; k++) {
                         if ((dp[i][k] + dp[k+1][j]).length() < dp[i][j].length()) {
                             dp[i][j] = dp[i][k] + dp[k+1][j];
-                        }
-                    }
-                    //in substr, we try to check whether there is possible to have a longer compression substr
-                    for(int k = 0; k < substr.length(); k++) {
-                        String repeatStr = substr.substring(0, k+1);
-                        if(repeatStr != null && substr.length()%repeatStr.length() == 0 
-                            && substr.replaceAll(repeatStr, "").length() == 0) {
-                            String ss = substr.length()/repeatStr.length() + "[" + dp[i][i+k] + "]";
-                          
-                            if(ss.length() < dp[i][j].length()) dp[i][j] = ss;
                         }
                     }
                 }
