@@ -18,9 +18,10 @@ Output: "2[2[abbb]c]"
 */
     //interview friendly dp[i][j] = string from index i to index j in encoded form.
     //dp[i][j] = min(dp[i][j], dp[i][k] + dp[k+1][j]) or if we can find some pattern in string from i to j which will result in more less length.
-    //O(N^3)
+    //O(N^4) substring is O(n)
     
-    //thinking process: 
+    //thinking process: to compress the string into a single string with k[str] pattern, so 
+    //we use DP to simplify how we find the best shorten pattern
     public static String encode2(String s) {
         if (s == null || s.length() <= 4) return s;
         int N = s.length();
@@ -41,9 +42,13 @@ Output: "2[2[abbb]c]"
                     //shorter compression substr
                     for(int k = 0; k < windowStr.length(); k++) {
                         String repeatStr = windowStr.substring(0, k+1);
+                        //whole substr can be repeated by repeatStr
+                        
+                        //&& windowStr.length()%repeatStr.length() == 0 can be removed
                         if(repeatStr != null && windowStr.length()%repeatStr.length() == 0 
                             && windowStr.replaceAll(repeatStr, "").length() == 0) {
-                            String ss = windowStr.length()/repeatStr.length() + "[" + dp[i][i+k] + "]";
+                            String ss = windowStr.length()/repeatStr.length() + 
+                                    "[" + dp[i][i+k] + "]";
                           
                             if(ss.length() < dp[i][j].length()) dp[i][j] = ss;
                         }
