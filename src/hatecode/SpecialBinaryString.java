@@ -53,12 +53,10 @@ Output: "11100100"
         stack.push(new ArrayList<>());
 
         for (char c: S.toCharArray()) {
-            if (c == '1') {
-                stack.push(new ArrayList<>());
-            } else {
+            if (c == '1')  stack.push(new ArrayList<>());
+            else {
                 List<String> list = stack.pop();
                 sortStr(list);
-
                 stack.peek().add("1" + getStr(list) + "0");
             }
         }
