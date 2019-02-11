@@ -49,20 +49,24 @@ Output: "11100100"
     public String makeLargestSpecial(String S) {
         if (S == null || S.length() <= 2) return S;
 
-        Stack<List<String>> nodes = new Stack<>();
-        nodes.push(new ArrayList<>());
+        Stack<List<String>> stack = new Stack<>();
+        stack.push(new ArrayList<>());
 
         for (char c: S.toCharArray()) {
             if (c == '1') {
-                nodes.push(new ArrayList<>());
+                stack.push(new ArrayList<>());
             } else {
-                List<String> list = nodes.pop();
+                List<String> list = stack.pop();
                 sortStr(list);
 
-                nodes.peek().add("1" + getStr(list) + "0");
+                stack.peek().add("1" + getStr(list) + "0");
             }
         }
-        List<String> list = nodes.peek();
+        List<String> list = stack.peek();
+        //Collections.sort(list, Collections.reverseOrder()); 
+        //Collections.sort(list, (a,b)->(b.compareTo(a)));
+        //it can be replaced by above code, but it gave an example how to write comparator 
+        //also we can use lambda
         sortStr(list);
         return getStr(list);
     }
