@@ -1,4 +1,5 @@
 package hatecode;
+import java.util.*;
 class EncodeStringWithShortestLength {
 /*
 471. Encode String with Shortest Length
@@ -18,7 +19,7 @@ Output: "2[2[abbb]c]"
     //dp[i][j] = string from index i to index j in encoded form.
     //dp[i][j] = min(dp[i][j], dp[i][k] + dp[k+1][j]) or if we can find some pattern in string from i to j which will result in more less length.
     //O(N^3)
-    public String encode(String s) {
+    public String encode2(String s) {
         if (s == null || s.length() <= 4) return s;
         int N = s.length();
         String[][] dp = new String[N][N];
@@ -58,5 +59,46 @@ Output: "2[2[abbb]c]"
             }
         }
         return dp[0][s.length()-1];
+    }
+    
+    
+  //we have Hashmap solution, it is better than dp
+    public String encode(String s) {
+       int n = s.length();
+       HashMap<String, Integer>[] reps = new HashMap[n];
+       String[] words = new String[n];
+       int bound = -1;
+       for (int i = 0; i < n; i++) {
+           reps[i] = new HashMap<>();
+           words[i] = "";
+           for (int j = i; j >= 0; j--) {
+               String tmp = s.substring(j, i + 1);
+               if (j > 0 && reps[j - 1].containsKey(tmp)) {
+                   if (j - 1 > bound || tmp.length() >= words[bound].length()) {
+                       reps[i].put(tmp, (int)reps[j - 1].get(tmp) + 1);
+                   } else {
+                       reps[i].put(tmp, 1);
+                   }
+                   if (tmp.split(words[i]).length > 0) {
+                       words[i] = tmp;
+                       bound = i;
+                   }
+               } else {
+                   reps[i].put(tmp, 1);
+               }               
+           }
+       }
+       
+       StringBuilder sb = new StringBuilder();
+       for (int i = n - 1; i >= 0; i--) {
+           if (words[i].length() > 0 && words[i].length() * (int)reps[i].get(words[i]) > 4) {
+               sb.insert(0, (int)reps[i].get(words[i]) + "[" + encode(words[i]) + "]");
+               i = i - words[i].length() * (int)reps[i].get(words[i]) + 1;
+           } else {
+               sb.insert(0, s.charAt(i));
+           }
+       }
+       
+       return sb.toString();
     }
 }
