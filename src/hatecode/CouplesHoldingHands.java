@@ -95,9 +95,9 @@ public class CouplesHoldingHands {
    
     
     //union find solutions,
-    //[4, 2, 5, 1, 3, 0]-->
-    //i = 0, a = 4, b = 2, we union couch 2 and 1
-    //i = 1, a = 5, b= 1, we union couch 2 and 0
+    //[4, 2, 5, 1, 3, 0]-->[0, 2, 5, 1, 3, 4]->
+    //i = 0, a = 4, b = 2, we union couch 2 and 1， actually 4<->0
+    //i = 1, a = 5, b= 1, we union couch 2 and 0, 
     //i = 2, a = 3, b = 0, we union couch 1 and 0, actually they already linked
     //so we think couple as a whole, then we just need them together no matter 
     //ordered or not, so 
