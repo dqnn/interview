@@ -99,7 +99,7 @@ public class CouplesHoldingHands {
     //i = 0, a = 4, b = 2, we union couch 2 and 1
     //i = 1, a = 5, b= 1, we union couch 2 and 0
     //i = 2, a = 3, b = 0, we union couch 1 and 0, actually they already linked
-    //so we thinking coupld as a whole, then we just need them together no matter 
+    //so we think couple as a whole, then we just need them together no matter 
     //ordered or not, so 
     public int minSwaps2Couples(int[] row) {
         //N is like a couch number, from 0
