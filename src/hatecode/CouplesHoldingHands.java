@@ -95,14 +95,23 @@ public class CouplesHoldingHands {
    
     
     //union find solutions,
-    //so starting from 0 to N-1. N is half of row, we know 2i and 2i+1 value and we union 
-    //them together, 
+    //[4, 2, 5, 1, 3, 0]-->
+    //i = 0, a = 4, b = 2, we union couch 2 and 1
+    //i = 1, a = 5, b= 1, we union couch 2 and 0
+    //i = 2, a = 3, b = 0, we union couch 1 and 0, actually they already linked
+    //so we thinking coupld as a whole, then we just need them together no matter 
+    //ordered or not, so 
     public int minSwaps2Couples(int[] row) {
+        //N is like a couch number, from 0
         int N = row.length/ 2;
         DSU uf = new DSU(N);
         for (int i = 0; i < N; i++) {
+            //a is on the couch, left people value, b is right people value. 
             int a = row[2*i];
             int b = row[2*i + 1];
+            //union the couch， if they sit together, then a/2 = b/2, they are already on 
+            //same couch, if not, means the couple sits on different couch, so we would like to 
+            //union(switch) them 
             uf.union(a/2, b/2);
         }
         // uf.count means how many isolated components
