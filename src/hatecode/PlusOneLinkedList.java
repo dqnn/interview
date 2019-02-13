@@ -1,7 +1,5 @@
 package hatecode;
 
-import java.util.List;
-
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
@@ -32,7 +30,11 @@ public class PlusOneLinkedList {
         dummy.next = head;
         ListNode i = dummy;
         ListNode j = dummy;
-
+        
+        //so i is to locate where the range in linkedlist is impacted, 
+        //from i to j they are all 9, if not, i would jump to j, and j is last. 
+        
+        //suppose j after 9 is not 9, i will jump to that node and no impact to previous 9
         while (j.next != null) {
             j = j.next;
             if (j.val != 9) i = j;
@@ -44,6 +46,8 @@ public class PlusOneLinkedList {
             i = i.next;
         }
         // means first digit is less than 9, so we just return next element
+        //i first point to dummy, so j will move to head, but for edge case 
+        //dummy->9->9->9, dummy will become 1, that's the reason
         if (dummy.val == 0) return dummy.next;
         return dummy;
     }

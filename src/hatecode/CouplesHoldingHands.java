@@ -94,7 +94,8 @@ public class CouplesHoldingHands {
     
    
     
-    //union find solutions,
+    //union find solutions, TODO: spend a little bit more time to write more 
+    //detailed explainations
     //[4, 2, 5, 1, 3, 0]-->[0, 2, 5, 1, 3, 4]->
     //i = 0, a = 4, b = 2, we union couch 2 and 1， actually 4<->0
     //i = 1, a = 5, b= 1, we union couch 2 and 0, 
@@ -111,7 +112,7 @@ public class CouplesHoldingHands {
             int b = row[2*i + 1];
             //union the couch， if they sit together, then a/2 = b/2, they are already on 
             //same couch, if not, means the couple sits on different couch, so we would like to 
-            //union(switch) them 
+            //union(switch) them, 
             uf.union(a/2, b/2);
         }
         // uf.count means how many isolated components
