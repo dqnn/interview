@@ -20,6 +20,9 @@ Same with other integers chosen by the first player, the second player will alwa
 */
     //O(n2^n)/O()
     //another version is  Map<String, Boolean> map; string is to dump the boolean[] visited array, Arrays.toString(visited)
+    
+    //TODO: compare this to first or last digit game, another is to compare the new 21 game.
+    //how we can have a template for all the games, Cats and mouse, candy crush, etc
     Map<Integer, Boolean> map;
     boolean[] visited;
     public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
