@@ -43,6 +43,7 @@ Square ending at i-1,j-1
 Square ending at i-1,j
 Square ending at i,j-1
 So maximum size of square ending at i,j will be minimum of the above three squares plus 1
+also this is the reason we want to start with (1,1)
   */
     //O(mn)/O(mn)
     public int maximalSquare(char[][] matrix) {
@@ -50,6 +51,7 @@ So maximum size of square ending at i,j will be minimum of the above three squar
         
         int r = matrix.length, c = matrix[0].length;
         int res = 0;
+        //why the len = r+ 1 and c+1 because we do not want trivial code
         int[][] dp = new int[r + 1][c + 1];
         //we start from (1,1)
         for(int i =1; i <= r; i++) {
@@ -63,13 +65,16 @@ So maximum size of square ending at i,j will be minimum of the above three squar
         return res * res;
     }
     
-    //here is the same solution but space complexity reduce to O(n)
+    //here is the same solution but space complexity reduce to O(n), O(mn)/O(n)
     public int maximalSquare2(char[][] matrix) {
-        int rows = matrix.length, cols = rows > 0 ? matrix[0].length : 0;
-        int[] dp = new int[cols + 1];
+        if (matrix == null || matrix.length < 1 || matrix[0].length < 1) return 0;
+        
+        int r = matrix.length, c = r > 0 ? matrix[0].length : 0;
+        int[] dp = new int[c + 1];
+        //pre = old dp[i-1]
         int maxsqlen = 0, prev = 0;
-        for (int i = 1; i <= rows; i++) {
-            for (int j = 1; j <= cols; j++) {
+        for (int i = 1; i <= r; i++) {
+            for (int j = 1; j <= c; j++) {
                 int temp = dp[j];
                 if (matrix[i - 1][j - 1] == '1') {
                     dp[j] = Math.min(Math.min(dp[j - 1], prev), dp[j]) + 1;
