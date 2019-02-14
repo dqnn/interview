@@ -34,9 +34,28 @@ public class CountUnivalueSubtrees {
 
      */
 
+    //simpler version, dfs version
+    int count = 0;
+    public int countUnivalSubtrees(TreeNode root) {
+        if (root == null) return count;
+        //we will overwrite root value as root value, no use for first time use
+        helper(root, root.val);
+        return count;
+    }
+    
+    public boolean helper(TreeNode node, int val) {
+        if (node == null) return true;
+        boolean l = helper(node.left, node.val), r = helper(node.right, node.val);
+        if (l && r) {
+            count ++;
+            return node.val == val;
+        }
+        return false;
+    }
+
     int res;
 
-    public int countUnivalSubtrees(TreeNode root) {
+    public int countUnivalSubtrees2(TreeNode root) {
         res = 0;
         helper(root);
         return res;
