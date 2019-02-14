@@ -27,17 +27,25 @@ public class MaximalSquare {
      * @param matrix
      * @return
      */
-
+    //thinking process:
+    //given a char matrix, '0' and '1' find all '1' square area
+    
+    //so if we know the square length then we know its area, so we would like to know how many 
+    //'1's there, for dp we have several steps. subproblems/result, formual, initilize, compute
+    
+    //dp[i][j] means square as (i,j) as bottom right coordination, so given 
+    //matrix, the max square in matrix is dp[r-1][c-1]
     public int maximalSquare(char[][] matrix) {
-        if (matrix.length == 0) return 0;
-        int m = matrix.length;
-        int n = matrix[0].length;
+        if (matrix == null || matrix.length < 1 || matrix[0].length < 1) return 0;
+        
+        int r = matrix.length, c = matrix[0].length;
         int res = 0;
-        int[][] dp = new int[m + 1][n + 1];
-        for (int i = 1; i <= m; i++) {
-            for (int j = 1; j <= n; j++) {
-                if (matrix[i - 1][j - 1] == '1') {
-                    dp[i][j] = Math.min(Math.min(dp[i][j - 1], dp[i - 1][j - 1]), dp[i - 1][j]) + 1;
+        int[][] dp = new int[r + 1][c + 1];
+        //we start from (1,1)
+        for(int i =1; i <= r; i++) {
+            for(int j = 1; j<=c;j++) {
+                if (matrix[i-1][j-1] == '1') {
+                    dp[i][j] = Math.min(Math.min(dp[i][j-1], dp[i-1][j-1]), dp[i-1][j]) + 1;
                     res = Math.max(res, dp[i][j]);
                 }
             }
