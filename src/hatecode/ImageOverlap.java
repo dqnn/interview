@@ -30,11 +30,10 @@ Explanation: We slide A to right by 1 unit and down by 1 unit.
         }
         //we need equals and hashCode when in a hashSet collection 
         @Override
-        public boolean equals(Object obj)
-        { //System.out.println("inside");
+        public boolean equals(Object obj) { //System.out.println("inside");
             return (((Point) obj).x == this.x)&&(((Point) obj).y == this.y);
         }
-         
+
         @Override
         public int hashCode(){
             return Objects.hash(x,y);
@@ -50,9 +49,9 @@ Explanation: We slide A to right by 1 unit and down by 1 unit.
             if (A[i/N][i%N] == 1) A2.add(new Point(i/N, i%N));
             if (B[i/N][i%N] == 1) B2.add(new Point(i/N, i%N));
         }
-        
+
         Set<Point> BSet = new HashSet<>(B2);
-        
+
         int res = 0;
         Set<Point> visited = new HashSet<>();
         for(Point a : A2) {
@@ -70,7 +69,7 @@ Explanation: We slide A to right by 1 unit and down by 1 unit.
         }
         return res;
     }
-    
+
     //O(N^4)/O(N^2)
     public int largestOverlap2(int[][] A, int[][] B) {
         int N = A.length;
