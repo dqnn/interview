@@ -131,7 +131,8 @@ No, it's wrong for simple test case [[0,1],[1,1]], [[1,1],[1,0]]
         int N = A.length;
         List<Integer> LA = new ArrayList<>(), LB = new ArrayList<>();
         HashMap<Integer, Integer> count = new HashMap<>();
-        
+        //so we map the 2D matrix to one array, 
+        //
         for (int i = 0; i < N * N; ++i) 
             if (A[i / N][i % N] == 1) LA.add(i / N * 100 + i % N);
         
