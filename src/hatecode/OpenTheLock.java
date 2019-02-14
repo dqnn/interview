@@ -15,6 +15,9 @@ because the wheels of the lock become stuck after the display becomes the dead e
     //thinking process: 
     //TODO: understand the complexity, O(n^2 * A^N + D)/O(A^N + D), A is number of digits in alphebet,
     //N is number of digits in lock, D is size of deadlock
+    
+    //BFS is better than DFS here, because BFS can get the answer then stop while DFS still have to 
+    //search, so we choose bfs as correct and fast approch
     public int openLock(String[] deadends, String target) {
         Set<String> begin = new HashSet<>();
         Set<String> end = new HashSet<>();
