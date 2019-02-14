@@ -45,6 +45,7 @@ Explanation: We slide A to right by 1 unit and down by 1 unit.
         int N = A.length;
         List<Point> A2 = new ArrayList<>();
         List<Point> B2 = new ArrayList<>();
+        //transform 2D to 1D array, but 
         for(int i = 0; i< N * N; i++) {
             if (A[i/N][i%N] == 1) A2.add(new Point(i/N, i%N));
             if (B[i/N][i%N] == 1) B2.add(new Point(i/N, i%N));
@@ -70,17 +71,22 @@ Explanation: We slide A to right by 1 unit and down by 1 unit.
         return res;
     }
 
-    //O(N^4)/O(N^2)
+    //O(N^4)/O(N^2)， this is brutal force solution, 
+    
+    //so no matte what kind of overlap A and B, the x and y max is 2N, so we list 
+    //2N +1  2D matrix and we use 4 for loop to calculate the occurrence 
+    
     public int largestOverlap2(int[][] A, int[][] B) {
         int N = A.length;
         int[][] allinOneMatrix = new int[2*N+1][2*N+1];
         for (int i = 0; i < N; ++i)
             for (int j = 0; j < N; ++j)
                 if (A[i][j] == 1)
+                    //so we (i,j) as top left in A, how many same 1 in B with all kinds of move
                     for (int i2 = 0; i2 < N; ++i2)
                         for (int j2 = 0; j2 < N; ++j2)
-                            if (B[i2][j2] == 1)
-                                allinOneMatrix[i-i2 +N][j-j2 +N] += 1;
+                            //so if we foind another 1, we always +1
+                            if (B[i2][j2] == 1) allinOneMatrix[i-i2 +N][j-j2 +N] += 1;
 
         int ans = 0;
         for (int[] row: allinOneMatrix)
