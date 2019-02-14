@@ -40,7 +40,7 @@ Explanation: We slide A to right by 1 unit and down by 1 unit.
         }
        
     }
-    //O(N^6)/O(N^2)
+    //O(A2^2 * B2  + N^2 )/O(N^2)
     public int largestOverlap(int[][] A, int[][] B) {
         int N = A.length;
         List<Point> A2 = new ArrayList<>();
@@ -93,5 +93,57 @@ Explanation: We slide A to right by 1 unit and down by 1 unit.
             for (int v: row)
                 ans = Math.max(ans, v);
         return ans;
+    }
+    
+    
+    //O(N^2 + AB)
+/*
+Assume index in A and B is [0, N * N -1].
+
+Loop on A, if value == 1, save a coordinates i / N * 100 + i % N to LA.
+Loop on B, if value == 1, save a coordinates i / N * 100 + i % N to LB.
+Loop on combination (i, j) of LA and LB, increase count[i - j] by 1.
+If we slide to make A[i] orverlap B[j], we can get 1 point.
+Loop on count and return max values.
+I use a 1 key hashmap. Assume ab for row and cd for col, I make it abcd as coordinate.
+For sure, hashmap with 2 keys will be better for understanding.
+
+Time Complexity:
+O(N^2) for preparing, and O(AB) for loop.
+O(AB + N^2) AB means how many 1 in A * count(1) in B
+
+1.why 100?
+100 is big enough and very clear.
+For example, If I slide 13 rows and 19 cols, it will be 1319.
+
+why not 30?
+30 is not big enough.
+For example: 409 = 13 * 30 + 19 = 14 * 30 - 11.
+409 can be taken as sliding "14 rows and -11 cols" or "13 rows and 19 cols" at the same time.
+
+How big is enough?
+Bigger than 2N-1. Bigger than 2N-1. Bigger than 2N-1. N <= 30
+
+Can we replace i / N * 100 + i % N by i?
+No, it's wrong for simple test case [[0,1],[1,1]], [[1,1],[1,0]]
+ */
+    public int largestOverlap4(int[][] A, int[][] B) {
+        int N = A.length;
+        List<Integer> LA = new ArrayList<>(), LB = new ArrayList<>();
+        HashMap<Integer, Integer> count = new HashMap<>();
+        
+        for (int i = 0; i < N * N; ++i) 
+            if (A[i / N][i % N] == 1) LA.add(i / N * 100 + i % N);
+        
+        for (int i = 0; i < N * N; ++i) 
+            if (B[i / N][i % N] == 1) LB.add(i / N * 100 + i % N);
+        
+        for (int i : LA) 
+            for (int j : LB)
+                count.put(i - j, count.getOrDefault(i - j, 0) + 1);
+        
+        int res = 0;
+        for (int i : count.values()) res = Math.max(res, i);
+        return res;
     }
 }
