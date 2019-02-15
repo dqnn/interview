@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Project Name : Leetcode
@@ -72,5 +73,37 @@ public class GroupShiftedStrings {
             res.add(list);
         }
         return res;
+    }
+    //my own solution O(NM)/O(1)
+    public List<List<String>> groupStrings2(String[] strs) {
+        List<List<String>> res = new ArrayList<>();
+        if (strs == null || strs.length < 1) return res;
+        
+        Map<String, List<String>> map = new HashMap<>();
+        for(String str : strs) {
+            map.computeIfAbsent(getKey(str), v->new ArrayList<>()).add(str);
+        }
+        map.values().forEach(ele->res.add(new ArrayList<>(ele)));
+        System.out.println(map);
+        return res;
+    }
+    
+    //az, ba
+    public String getKey(String str) {
+        if(str == null || str.length() < 1) return "0";
+        
+        if (str.length() == 1) return "1";
+        
+        StringBuilder sb1 = new StringBuilder();
+        sb1.append("#");
+        for(int i = 1; i < str.length(); i++) {
+            int key1 = str.charAt(i) - str.charAt(i-1);
+            key1 = key1 < 0 ? 26 + key1 : key1;
+            sb1.append(key1);
+            if (i != str.length() - 1) {
+                sb1.append("#");
+            }
+        }
+        return sb1.toString();
     }
 }
