@@ -20,6 +20,8 @@ public class JavaSkillsForInterview {
 
     public static void main(String[] args) {
         
+        System.out.println("comapre to:" + "2017:".compareTo("2017"));
+        
         Integer[] stones = {1,2,3,4};
         Arrays.stream(stones).forEach(e-> System.out.println(e));
         List<Integer> list = Arrays.asList(stones);
