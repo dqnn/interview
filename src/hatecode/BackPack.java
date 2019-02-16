@@ -52,6 +52,31 @@ O(n x m) memory is acceptable, can you do it in O(m) memory?
         }
         return dp[m];
     }
+    //this is more space solution, but need to understand how we compress the space
+    public int backPackII_2DDP(int[] nums, int m) {
+        if (nums == null || nums.length < 1) return 0;
+        
+        int N = nums.length;
+        //dp[i][j] means  i items weight <=j , max weight the first item can reach
+        //note we have m + 1 len, that's why i - 1
+        //dp[i][j] = Math.max(dp[i-1][j], dp[i-1][j-nums[i-1]] + nums[i-1]);
+        
+        //TODO: why we always use len =  m + 1,
+        int[][] dp =  new int[N + 1][m + 1];
+        
+        for(int i = 1; i<=N;i++) {
+            for(int j = 0; j <=m;j++) {
+                if (j < nums[i-1]) {
+                    dp[i][j] = dp[i-1][j];
+                } else {
+                    System.out.println(nums[i-1] + "--" + j);
+                    dp[i][j] = Math.max(dp[i-1][j], dp[i-1][j-nums[i-1]] + nums[i-1]);
+                }
+            }
+        }
+        Arrays.stream(dp).forEach(e->System.out.println(Arrays.toString(e)));
+        return dp[N][m];
+    }
 /*
 backPackIII 重复选择+最大价值
 Given n kind of items with size Ai and value Vi( each item has an infinite number available) 
