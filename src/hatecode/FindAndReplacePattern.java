@@ -14,13 +14,14 @@ Explanation: "mee" matches the pattern because there is a permutation {a -> m, b
 since a and b map to the same letter.
 */
     public List<String> findAndReplacePattern(String[] words, String pattern) {
-        int[] p = f(pattern);
-        return Arrays.stream(words).filter(e->Arrays.equals(f(e), p)).collect(Collectors.toList());
+        int[] p = getPattern(pattern);
+        return Arrays.stream(words).filter(e->Arrays.equals(getPattern(e), p)).collect(Collectors.toList());
     }
     
-    public int[] f(String in) {
+    public int[] getPattern(String in) {
         Map<Character, Integer> map = new HashMap<>();
         int n = in.length();
+        //distinct char count from 0->i, for "abb"->[0,1,1] become the signature
         int[] res = new int[n];
         for (int i = 0; i < n; i++) {
             map.putIfAbsent(in.charAt(i), map.size());
