@@ -52,7 +52,7 @@ Since sqrt(8) < sqrt(10), (-2, 2) is closer to the origin.
         }
         return Arrays.copyOfRange(points, 0, K);
     }
-
+    //we move the elements right or left arranged by A
     private int helper(int[][] A, int l, int r) {
         int[] pivot = A[l];
         while (l < r) {
