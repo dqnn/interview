@@ -20,6 +20,7 @@ Note:
         //for times array, we 
         Arrays.stream(times).forEach(e->graph.get(e[0]).add(new int[]{e[1],e[2]}));
         
+        //distTo 
         int[] distTo = new int[N+1];
         Arrays.fill(distTo, Integer.MAX_VALUE);
         
