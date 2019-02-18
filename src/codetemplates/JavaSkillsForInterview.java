@@ -15,12 +15,15 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.Stack;
 import java.util.TreeMap;
+import java.util.stream.IntStream;
 
 public class JavaSkillsForInterview {
 
     public static void main(String[] args) {
         
         System.out.println("comapre to:" + "2017:".compareTo("2017"));
+        int N =10;
+        int res = IntStream.range(1, N+1).map(i->5).max().getAsInt();
         
         Integer[] stones = {1,2,3,4};
         Arrays.stream(stones).forEach(e-> System.out.println(e));
