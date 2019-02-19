@@ -54,13 +54,18 @@ Since sqrt(8) < sqrt(10), (-2, 2) is closer to the origin.
     }
     //we move the elements right or left arranged by A
     private int helper(int[][] A, int l, int r) {
+        //mark start as pivot
         int[] pivot = A[l];
+        //start swap
         while (l < r) {
+           //r wil stop when A[r] < pviot which means should be in left bucket
             while (l < r && compare(A[r], pivot) >= 0) r--;
             A[l] = A[r];
+            //l will stop when A[l] > pivot, so left should be in right bucket
             while (l < r && compare(A[l], pivot) <= 0) l++;
             A[r] = A[l];
         }
+        //move original pivot value to here and retun the value
         A[l] = pivot;
         return l;
     }

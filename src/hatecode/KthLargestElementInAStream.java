@@ -24,12 +24,12 @@ kthLargest.add(4);   // returns 8
     public KthLargestElementInAStream(int k, int[] nums) {
         this.k = k; 
         pq = new PriorityQueue<>(k);
-        for(int n : nums){
+        for(int num : nums){
             if(pq.size() < k){
-                pq.add(n);
-            } else if (pq.peek() < n){
+                pq.add(num);
+            } else if (pq.peek() < num){
                 pq.poll();
-                pq.offer(n);
+                pq.offer(num);
             }
         }
         
