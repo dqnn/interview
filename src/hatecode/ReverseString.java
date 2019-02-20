@@ -33,7 +33,7 @@ public class ReverseString {
     }
     
     //in ="ab(cd)"-->abdc, "ab(cd(ef))"-->abefdc 
-    public static String reString(String s) {
+    public static String reverseStringWithBrakets(String s) {
         if (s == null || s.length() == 0) return s;
         
         StringBuilder sb = new StringBuilder();
@@ -48,7 +48,7 @@ public class ReverseString {
                     else if (s.charAt(end) == ')') cnt--;
                     end++;
                 }
-                temp.append(reString(s.substring(i+1, end - 1)));
+                temp.append(reverseStringWithBrakets(s.substring(i+1, end - 1)));
                 sb.append(temp.reverse().toString());
                 i = end;
             } else {
@@ -60,9 +60,9 @@ public class ReverseString {
     }
     
     public static void main(String[] args) {
-        System.out.println(reString("ab(cd)"));
-        System.out.println(reString("ab(cd(ef))"));
+        System.out.println(reverseStringWithBrakets("ab(cd)"));
+        System.out.println(reverseStringWithBrakets("ab(cd(ef))"));
         //ab(cd(ef(gh)))->ab(cd(efhg))->ab(cdghfe)->abefhgdc
-        System.out.println(reString("ab(cd(ef(gh)))"));
+        System.out.println(reverseStringWithBrakets("ab(cd(ef(gh)))"));
     }
 }
