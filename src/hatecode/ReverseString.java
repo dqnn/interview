@@ -1,5 +1,7 @@
 package hatecode;
 
+import java.util.Stack;
+
 /**
  * Created by duqiang on 28/07/2017.
  */
@@ -28,5 +30,39 @@ public class ReverseString {
             str[right--] = temp;
         }
         return new String(str);
+    }
+    
+    //in ="ab(cd)"-->abdc, "ab(cd(ef))"-->abefdc 
+    public static String reString(String s) {
+        if (s == null || s.length() == 0) return s;
+        
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i< s.length();) {
+            char ch = s.charAt(i);
+            if (ch == '(') {
+                int end = i;
+                int cnt = 1;
+                StringBuilder temp = new StringBuilder();
+                while(end < s.length() && cnt > 0) {
+                    if (s.charAt(end) == '(') cnt++;
+                    else if (s.charAt(end) == ')') cnt--;
+                    end++;
+                }
+                temp.append(reString(s.substring(i+1, end - 1)));
+                sb.append(temp.reverse().toString());
+                i = end;
+            } else {
+                sb.append(ch);
+                i++;
+            }
+        }
+        return sb.toString();
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(reString("ab(cd)"));
+        System.out.println(reString("ab(cd(ef))"));
+        //ab(cd(ef(gh)))->ab(cd(efhg))->ab(cdghfe)->abefhgdc
+        System.out.println(reString("ab(cd(ef(gh)))"));
     }
 }
