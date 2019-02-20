@@ -59,10 +59,35 @@ public class ReverseString {
         return sb.toString();
     }
     
+    //this is interview friendly and least space complexity
+    public static String reverseStringWithBrakets_Stack(String s) {
+        if (s == null || s.length() == 0) return s;
+        Stack<String> stack = new Stack<>();
+        String res = "";
+        for(int i = 0; i< s.length();i++) {
+            char ch = s.charAt(i);
+            if (ch == '(') {
+                stack.push(res);
+                res = "";
+            } else if (ch == ')'){
+               StringBuilder sb = new StringBuilder(stack.pop());
+               res = sb.toString() + new StringBuilder(res).reverse().toString();
+            } else {
+                res += ch;
+            }
+        }
+        return res;
+    }
+    
     public static void main(String[] args) {
         System.out.println(reverseStringWithBrakets("ab(cd)"));
         System.out.println(reverseStringWithBrakets("ab(cd(ef))"));
         //ab(cd(ef(gh)))->ab(cd(efhg))->ab(cdghfe)->abefhgdc
         System.out.println(reverseStringWithBrakets("ab(cd(ef(gh)))"));
+        
+        System.out.println(reverseStringWithBrakets_Stack("ab(cd)"));
+        System.out.println(reverseStringWithBrakets_Stack("ab(cd(ef))"));
+        //ab(cd(ef(gh)))->ab(cd(efhg))->ab(cdghfe)->abefhgdc
+        System.out.println(reverseStringWithBrakets_Stack("ab(cd(ef(gh)))"));
     }
 }
