@@ -32,6 +32,9 @@ private int moves;
     
     int count;
     //interview friendly version
+    //1. null node is ok
+    //2. leaf if more than 1 then give parents, or get from parents, so for minimal tree it 
+    //will be balanced
     public int distributeCoins(TreeNode root) {
         distributeCoinsHelper(root);
         return count;
