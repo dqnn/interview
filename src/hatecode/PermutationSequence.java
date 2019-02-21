@@ -2,6 +2,8 @@ package hatecode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Project Name : Leetcode
@@ -78,26 +80,30 @@ We keep doing this until n reaches 0, then we get n numbers permutations that is
 
 
  */
+    //we should ask how big n is 
     public static String getPermutation(int n, int k) {
-        List<Integer> res = new ArrayList<>();
-        for (int i = 1; i <= n; i++) {
-            res.add(i);
-        }
+        List<Integer> numList = IntStream.range(1, n+1).boxed().collect(Collectors.toList());
         int[] fact = new int[n];
+        //res: 1, 1, 2, 6, 12,,,
+        //idx: 0  1  2  3  4
+        //fact[i] = i!
         fact[0] = 1;
         for (int i = 1; i < n; i++) {
             fact[i] = i * fact[i - 1];
         }
         // array is from 0, so k = k - 1
+        //eg: n= 3, k =3, its composition, 1,2,3
+        //
         k = k - 1;
         StringBuilder sb = new StringBuilder();
         for (int i = n; i > 0; i--) {
             // k / (i - 1)! so 
             int index = k / fact[i - 1];
             k = k % fact[i - 1];
-            sb.append(res.get(index));
+            //this is to get its index in res
+            sb.append(numList.get(index));
             // since it already used, so we remove it
-            res.remove(index);
+            numList.remove(index);
         }
         return sb.toString();
     }
