@@ -97,8 +97,9 @@ We keep doing this until n reaches 0, then we get n numbers permutations that is
         k = k - 1;
         StringBuilder sb = new StringBuilder();
         for (int i = n; i > 0; i--) {
-            // k / (i - 1)! so 
+            // k / (i - 1)! means 2/(3-1)! = 1, it is the first group
             int index = k / fact[i - 1];
+            //this is next number group index, for example, 1,2,3->2 index
             k = k % fact[i - 1];
             //this is to get its index in res
             sb.append(numList.get(index));
