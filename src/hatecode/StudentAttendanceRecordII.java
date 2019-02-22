@@ -120,4 +120,43 @@ the same logic for "PorL[i] = (P[i] + P[i - 1] + P[i - 2]) % M".....
 }
     
     
+    //this is copy from discussion board, reduce the complexity to O(lgn) 
+    final int MOD = 1000000007;
+    final int MLEN = 6;
+
+    int[][] mul(int[][] A, int[][] B) {
+        int[][] C = new int[MLEN][MLEN];
+        for (int i = 0; i < MLEN; i++)
+            for (int j = 0; j < MLEN; j++)
+                for (int k = 0; k < MLEN; k++)
+                    C[i][j] = (int) ((C[i][j] + (long) A[i][k] * B[k][j]) % MOD);
+        return C;
+    }
+
+
+    int[][] pow(int[][] A, int n) {
+        int[][] res = new int[MLEN][MLEN];
+        for (int i = 0; i < MLEN; i++)
+            res[i][i] = 1;
+        while (n > 0) {
+            if (n % 2 == 1)
+                res = mul(res, A);
+            A = mul(A, A);
+            n /= 2;
+        }
+        return res;
+    }
+
+    public int checkRecord_logn(int n) {
+        int[][] A = {
+                {0, 0, 1, 0, 0, 0},
+                {1, 0, 1, 0, 0, 0},
+                {0, 1, 1, 0, 0, 0},
+                {0, 0, 1, 0, 0, 1},
+                {0, 0, 1, 1, 0, 1},
+                {0, 0, 1, 0, 1, 1},
+        };
+        return pow(A, n + 1)[5][2];
+    }
+    
 }
