@@ -12,9 +12,9 @@ Given the following 3x6 height map:
 
 Return 4.
 */
+    //this is the same as 417. Pacific Atlantic Water Flow problem
     public class Cell {
-        int x;
-        int y;
+        int x, y;
         int h;
         public Cell(int x, int y, int h) {
             this.x = x;
