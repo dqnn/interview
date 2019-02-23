@@ -59,6 +59,7 @@ return 13.
         // at the front of the queue
         for (int i = 0; i < k - 1; i++) {
             Tuple tuple = pq.poll();
+            //if the column is last elment, then w skip
             if (tuple.x == matrix.length - 1) continue;
             pq.offer(new Tuple(tuple.x + 1, tuple.y, matrix[tuple.x + 1][tuple.y]));
         }
