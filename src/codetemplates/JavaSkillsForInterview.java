@@ -15,11 +15,17 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.Stack;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.stream.IntStream;
 
 public class JavaSkillsForInterview {
 
     public static void main(String[] args) {
+        int[] nums = {1,3,5,4,3};
+        TreeSet<Integer> tt= new TreeSet<>((a, b)->(a == b ?(a - b) : (a - b)));
+        for(int num : nums) tt.add(num);
+        System.out.println("hahahah: " + tt);
+        
         
         System.out.println("comapre to:" + "2017:".compareTo("2017"));
         int N =10;

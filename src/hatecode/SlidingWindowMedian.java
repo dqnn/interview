@@ -44,13 +44,14 @@ Given an array nums, there is a sliding window of size k which is moving from th
                 right.add(m);
             }
             
-            //qualifid window 
+            //qualified window 
             if(left.size() + right.size() == k) {
                 double med;
                 if(left.size() == right.size())  med = ((double)nums[left.last()] + nums[right.first()]) / 2;
                 else if (left.size() < right.size())  med = (double)nums[right.first()];
                 else  med = (double)nums[left.last()];
-            
+                
+                //first i = k - 1 
                 int start = i - k + 1;
                 res[start] = med;
                 
@@ -61,7 +62,8 @@ Given an array nums, there is a sliding window of size k which is moving from th
     }
     
     public TreeSet<Integer> getSet(int[] nums) {
-        //TODO: why nums[a] == nums[b] ?(a - b) : (nums[b] - nums[a]) cannot work
+        //(a, b)->(nums[a] == nums[b] ?(a - b) : (nums[a] < nums[b] ? -1:1)) is better than 
+        //nums[a] - nums[b] because there will be overflow cases, always using -1 : 1
         return new TreeSet<>((a, b)->(nums[a] == nums[b] ?(a - b) : (nums[a] < nums[b] ? -1:1)));
     }
     
