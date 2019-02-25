@@ -10,6 +10,8 @@ Input: [5,-3,5]
 Output: 10
 Explanation: Subarray [5,5] has maximum sum 5 + 5 = 10
 */
+    //this is some tricky answer, not good in interview, but good to show
+//max(prefix+suffix) = max(total sum - subarray) = total sum + max(-subarray) = total sum - min(subarray)
     
     public int maxSubarraySumCircular(int[] A) {
         int total = 0, maxSum = -30000, curMax = 0, minSum = 30000, curMin = 0;
