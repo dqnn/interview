@@ -37,8 +37,11 @@ public class LongestPalindromicSubstring {
         if (s == null || s.length() < 1) {
             return "";
         }
-        boolean[][] dp = new boolean[s.length()][s.length()];
-        String res = "";
+        //dp[i][j] means substring(i, j+1) is palindromic or not, substring is O(n), so here we 
+        //use start and end to reduce the complexity
+        int n = s.length();
+        boolean[][] dp = new boolean[n][n];
+        int start=0, end=0;
         for(int j = 0; j < s.length(); j++) {
             for(int i = 0; i <= j; i++) {
                 // we need j - i because when s.charAt(i) == s.charAt(j), 
@@ -46,14 +49,13 @@ public class LongestPalindromicSubstring {
                 // if there are only "aa", "a", "aba" these 3 cases, if more than that, we need to look for the value in 
                 // dp[i+1][j-1]
                 dp[i][j] = s.charAt(i) == s.charAt(j) && ((j - i <=2) || dp[i+1][j-1]);
-                if (dp[i][j] && (j - i + 1 > res.length())) {
-                    res = s.substring(i, j+1);
-                } 
+                if (dp[i][j] && (j-i+1>(end - start + 1))) {
+                    start = i;
+                    end = j;
+                }
             }
         }
-        
-        
-        return res;
+        return n == 0 ? "" : s.substring(start, end + 1);
     }
 
     String res = "";
