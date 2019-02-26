@@ -44,31 +44,34 @@ All arithmetic subsequence slices are:
     
   //the same as  128. Longest Consecutive Sequence
     //O(n^2)
+    
+    //this is common tricky that 
     public static int numberOfArithmeticSlices(int[] A) {
-    int res = 0;
-    Map<Integer, Integer>[] map = new Map[A.length];
-        
-    for (int i = 0; i < A.length; i++) {
-        map[i] = new HashMap<>(i);
-            
-        for (int j = 0; j < i; j++) {
-            long diff = (long)A[i] - A[j];
-            if (diff <= Integer.MIN_VALUE || diff > Integer.MAX_VALUE) continue;
-            //first when i scan the map, suppose [2,4,6,8,10], i =1, j = 0;
-            // then d = 2, c1 = 0, c2= 0, so we would put(2, 1) into map[i],
-            //i moved to i = 2, j = 0, again, d= 4, map[2] = (4,1), in map[1] 
-            // c2 = 1, why we use c2 is because when i moved, we found that 
-            //idx={0,1,2}, their diff is the same
-            int d = (int)diff;
-            int c1 = map[i].getOrDefault(d, 0);
-            int c2 = map[j].getOrDefault(d, 0);
-            res += c2;
-            map[i].put(d, c1 + c2 + 1);
+        int res = 0;
+        Map<Integer, Integer>[] map = new Map[A.length];
+
+        for (int i = 0; i < A.length; i++) {
+            map[i] = new HashMap<>(i);
+
+            for (int j = 0; j < i; j++) {
+                long diff = (long) A[i] - A[j];
+                if (diff <= Integer.MIN_VALUE || diff > Integer.MAX_VALUE)
+                    continue;
+                // first when i scan the map, suppose [2,4,6,8,10], i =1, j = 0;
+                // then d = 2, c1 = 0, c2= 0, so we would put(2, 1) into map[i],
+                // i moved to i = 2, j = 0, again, d= 4, map[2] = (4,1), in map[1]
+                // c2 = 1, why we use c2 is because when i moved, we found that
+                // idx={0,1,2}, their diff is the same
+                int d = (int) diff;
+                int c1 = map[i].getOrDefault(d, 0);
+                int c2 = map[j].getOrDefault(d, 0);
+                res += c2;
+                map[i].put(d, c1 + c2 + 1);
+            }
         }
+
+        return res;
     }
-        
-    return res;
-}
     //O(2^n)/O(n)
     public int numberOfArithmeticSlices2(int[] A) {
         if (A == null || A.length < 3) return 0;

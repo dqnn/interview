@@ -51,12 +51,13 @@ public class ArithmeticSlices {
      * @return
      */
 
-	// we start from index = 2 to detect, 
+    // we start from index = 2 to detect,
     public int numberOfArithmeticSlices(int[] A) {
-    		if (A == null || A.length <= 2) {
-    			return 0;
-    		}
+        if (A == null || A.length <= 2) {
+            return 0;
+        }
         int cur = 0, res = 0;// cur indicate res how many steps that res need to 
+        //we start from 2 so we do not need to take care of i+1 index, 
         for (int i = 2; i < A.length; i++) {
             if (A[i] - A[i - 1] == A[i - 1] - A[i - 2]) {
                 cur++; // add one more elements means we will have 2 more, 1,2,3--> 1,2,3,4
