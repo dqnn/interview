@@ -99,19 +99,15 @@ All arithmetic subsequence slices are:
                 long diff = (long) A[i] - A[j];
                 if (diff <= Integer.MIN_VALUE || diff > Integer.MAX_VALUE)
                     continue;
-                // first when i scan the map, suppose [2,4,6,8,10], i =1, j = 0;
-                // then d = 2, c1 = 0, c2= 0, so we would put(2, 1) into map[i],
-                // i moved to i = 2, j = 0, again, d= 4, map[2] = (4,1), in map[1]
-                // c2 = 1, why we use c2 is because when i moved, we found that
-                // idx={0,1,2}, their diff is the same
+                // first when i scan the map, 
                 int delta = (int) diff;
                 //current maps diff count
-                int c1 = map.get(i).getOrDefault(delta, 0);
-                //prev map same diff count, this is dp[i][diff] 
-                int c2 = map.get(j).getOrDefault(delta, 0);
-                res += c2;
+                int curCnt = map.get(i).getOrDefault(delta, 0);
+                //prev map same diff count, this is dp[j][k] 
+                int preCnt = map.get(j).getOrDefault(delta, 0);
+                res += preCnt;
                 //every time, j will from 0->i-1, this is dp formula
-                map.get(i).put(delta, c1 + c2 + 1);
+                map.get(i).put(delta, curCnt + preCnt + 1);
             }
 /*
 the map will be looks like this:

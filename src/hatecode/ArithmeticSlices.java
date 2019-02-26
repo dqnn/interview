@@ -68,4 +68,28 @@ public class ArithmeticSlices {
         }
         return res;
     }
+    //dp solution, not hard, but should be easy to understand 
+    public int numberOfArithmeticSlices_DP(int[] A) {
+        if (A == null || A.length < 3) return 0;
+        int n = A.length;
+        // dp[i] means the number of arithmetic slices ending with A[i]
+        int[] dp = new int[n];
+        // if the first three numbers are arithmetic or not, this is for the edge case
+        if (A[2] - A[1] == A[1] - A[0]) dp[2] = 1;
+        int res =dp[2];
+ // if A[i-2], A[i-1], A[i] are arithmetic, then the number of arithmetic slices ending with A[i] (dp[i])
+            // equals to:
+            //      the number of arithmetic slices ending with A[i-1] (dp[i-1], all these arithmetic slices appending A[i] are also arithmetic)
+            //      +
+            //      A[i-2], A[i-1], A[i] (a brand new arithmetic slice)
+            // it is how dp[i] = dp[i-1] + 1 comes     
+        for(int i =3; i < n; i++) {
+            if (A[i] - A[i-1] == A[i-1] - A[i-2]) {
+                dp[i] = dp[i-1] + 1;
+            }
+            // accumulate all valid slices, so it is more like 1+2+3, this way
+            res += dp[i];
+        }
+        return res;
+    }
 }
