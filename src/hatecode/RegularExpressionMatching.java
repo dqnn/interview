@@ -72,14 +72,18 @@ c 0  0  0  0  0  0  1
         boolean[][] dp = new boolean[s.length() + 1][p.length() + 1];
         //initialize as true
         dp[0][0] = true;
+        //why we initialize p first string first? because our calclation is row by row, so 
+        //we initialize first row first
         for (int i = 0; i < p.length(); i++) {
             // we always use i+ 1 = i since our end is len + 1
             if (p.charAt(i) == '*' && dp[0][i - 1]) {
                 dp[0][i + 1] = true;
             }
         }
+        //we loop two strings, row by row,  our len is 0-N, so our initialization 
         for(int i = 0; i< s.length(); i++){
             for(int j = 0; j < p.length(); j++) {
+                //case 1 and 2
                 if (p.charAt(j) == s.charAt(i) || p.charAt(j) == '.') {
                     dp[i+1][j+1] = dp[i][j];
                 }
