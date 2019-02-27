@@ -29,6 +29,14 @@ How many possible unique paths are there?
     //first row and first column are marked 1. 
     // then visit each in res, res[i][j] = res[i-1][j] + res[i][j-1]
     //last we return res[m-1][n-1]
+    
+    //i tried to make this method use DP templates as dp = new int[m+1][n+1] but failed
+    //the reason is here the initialization is important, we initialize first row and 
+    //column to mark we already done the walking
+    //so if we use m+1 and n+1, it means we have to walk again, the result will be one more row and 
+    //column
+    //so we can get conclusion that for DP, we how we initialize the entries is related to 
+    //its meaning, also related how we walk through the matrix or calling the formula
     public int uniquePaths(int m, int n) {
         int[][] res = new int[m][n];
         for (int i = 0; i < m; i++) {
