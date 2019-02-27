@@ -1,5 +1,5 @@
 package hatecode;
-
+import java.util.*;
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
@@ -49,32 +49,28 @@ public class EditDistance {
         //if w1 == null or "", then we need insert w2.length() chars into w1, steps are the w2 length
         //if w2 == null or "", then we need to delete w1.length() char into w1,,steps are the w1 length
         //if both are null, then we nothing just return
-        if (s == null && t == null) return 0;
+        if (s == null && t ==null) return 0;
         
         if (s == null) s = "";
         if (t == null) t = "";
+        int r = s.length(), c = t.length();
         
-        int[][] dp = new int[s.length() + 1][t.length() + 1];
+        int[][] dp = new int[r+1][c+1];
+        dp[0][0] = 0;
+        for(int i = 0; i <r; i++) dp[i+1][0] = i + 1;
+        for(int j = 0; j < c; j++) dp[0][j+1] = j + 1;
         
-        //so this is to say, suppose t is empty string ,how many steps we need,actually 
-        //they are all delete
-        for(int i = 0; i <= s.length();i++) dp[i][0] = i;
-        //suppose s is empty. how many step we need to to make s.equals(t), 
-        for(int j =0; j <= t.length(); j++) dp[0][j] = j;
-        
-        for(int i = 1; i <= s.length(); i++) {
-            for(int j = 1; j <= t.length(); j++) {
-                if (s.charAt(i-1) == t.charAt(j - 1)) {
-                    dp[i][j] = dp[i - 1][j - 1]; // steps are the same as diagonal 
-                } else {
-                    // insert means:
-                    //considering j - 1, dp[i][j - 1], we insert one 
-                    int inAndDel = Math.min(dp[i][j - 1] + 1, dp[i -1][j] + 1);
-                    dp[i][j] = Math.min(inAndDel, dp[i - 1][j - 1] + 1);
+        for(int i = 0; i < r; i++) {
+            for( int j = 0; j < c; j++) {
+                //same char
+                if (s.charAt(i) == t.charAt(j)) dp[i+1][j+1] = dp[i][j];
+                //compare to those steps count + 1
+                else {
+                    dp[i+1][j+1] = Math.min(dp[i][j] + 1, Math.min(dp[i+1][j] + 1, dp[i][j+1] + 1));
                 }
             }
         }
-        
-        return dp[s.length()][t.length()];
+        for(int[] p: dp) System.out.println(Arrays.toString(p));
+        return dp[r][c];
     }
 }
