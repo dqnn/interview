@@ -1,5 +1,5 @@
 package hatecode;
-
+import java.util.*;
 import java.util.Stack;
 
 /**
@@ -36,42 +36,39 @@ Explanation: The longest valid parentheses substring is "()()"
      * @param s
      * @return
      */
-
+    //")()(()))" should be good example
+    //"", 
     public int longestValidParentheses(String s) {
         if (s == null || s.length() < 1) {
             return 0;
         }
         
         Stack<Integer> stack = new Stack<>();
+        //start = -1, because length of string is end-start + 1, but considering "()" you will 
+        //need -1 to make the length as 2, also for "(()))" for last ")" it will be a new start
+        //for next valid parenthese, so in this problem we always make start as -1 is better
         int start = -1, res = 0;
         for(int i = 0; i< s.length(); i++) {
             //System.out.println(stack);
-            if (s.charAt(i) == '(') {
-                stack.push(i);
-            } else {
+            if (s.charAt(i) == '(')  stack.push(i);
+            else {
                 // so if stack is empty, then we know we already matched all "C", so current i as idx 
                 // the position in S is end pointer, 
                 //means we need to start new round of matching or just end
-                if (stack.isEmpty()) {
-                    start = i;
-                } else {
+                if (stack.isEmpty())  start = i;
+                else {
+                    // so we meet ")" and stack is not empty which means it has "(" at least
                     //if stack is not empty, means we still have "C" not matched, so we continue to move and  
                     // use top in stack as start pointer to calc the length of the qualified string
                     stack.pop();
-                    if (stack.isEmpty()) {
-                        res = Math.max(res, i - start);
                     // this is if stack is not empty, we calc from the current top ( idx
-                    } else {
-                        res = Math.max(res, i - stack.peek());
-                    }
+                    //start last time which it is legal
+                    res = Math.max(res, stack.isEmpty() ? i - start : i - stack.peek());
                 }
             }
         }
-        
         return res;
     }
-    
-    
     /*
      * My solution uses DP. The main idea is as follows: I construct a array longest[], for any longest[i], it stores the longest length of valid parentheses which is end at i.
 
@@ -83,35 +80,41 @@ Else if s[i] is ')'
 
      If s[i-1] is '(', longest[i] = longest[i-2] + 2
 
-     Else if s[i-1] is ')' and s[i-longest[i-1]-1] == '(', longest[i] = longest[i-1] + 2 + longest[i-longest[i-1]-2]
+     Else if s[i-1] is ')' and s[i-longest[i-1]-1] == '(', 
+     longest[i] = longest[i-1] + 2 + longest[i-longest[i-1]-2]
 
-For example, input "()(())", at i = 5, longest array is [0,2,0,0,2,0], longest[5] = longest[4] + 2 + longest[1] = 6.
+For example, input "()(())", 
+at i = 5, longest array is [0,2,0,0,2,0], longest[5] = longest[4] + 2 + longest[1] = 6.
      */
-    public int longestValidParentheses2(String s) {
-        if (s == null || s.length() == 0) return 0;
-        
-        // build && init dp[i]: longest valid string that ends at index i
+    //dp[i] means the the max string len of valid parenthese ends in s[i], so 
+    //s[i] = '(' this is not true, so dp[i] = 0
+    //s[i] = ')', if s[i-1] = '(', then dp[i] = dp[i-1] + 2 because () has length of 2
+    //            if s[i-1] = ')', so we need to look back to find the the valid parenthese which
+    //ends i - dp[i], here needs one example "()(())",so when i = 5, s[4] = ')',so 
+    //we need to look back for valid parenthese which can be a longer string, so we should jump back to
+    // i = 1, now we are at i=5, so dp[i] = 4, so   5 - 4 = 1
+    public static int longestValidParentheses2(String s) {
+        if (s == null || s.length() < 1) return 0;
         int n = s.length();
         int[] dp = new int[n];
-
-        // calculate dp && track global max
-        int max = 0;
-        for (int i = 1; i < n; i++) {
-            if (s.charAt(i) == '(') continue;
-
-            boolean consecutiveEnd = s.charAt(i - 1) == '(';
-            int priorIndex = consecutiveEnd ? i - 1 : i - dp[i - 1] - 1;
-            if (priorIndex < 0 || s.charAt(priorIndex) != '(') continue;
-
-            dp[i] = 2 + addPriorLength(priorIndex, dp);
-            dp[i] += consecutiveEnd ? 0 : dp[i - 1]; //add length from (priorIndex, i - 1]
-            max = Math.max(max, dp[i]);
+        int res = 0, left = 0;
+        for (int i = 0; i < n; i++) {
+            if (s.charAt(i) == '(') left++; 
+            else if (left > 0){
+                // we need to add dp[i-1] first, because then we can jump back to most 
+                //earliest index so that we can connect them
+                //(()) or () case
+                 dp[i] = dp[i-1] + 2;
+                 dp[i] += (i - dp[i] >= 0) ? dp[i-dp[i]] : 0;
+                 res = Math.max(res, dp[i]);
+                 left--;
+            }
         }
-
-        return max;
+        System.out.println(Arrays.toString(dp));
+        return res;
     }
-
-    private int addPriorLength(int priorIndex, int[] dp) {
-        return (priorIndex - 1 >= 0) ? dp[priorIndex - 1] : 0;
+    
+    public static void main(String[] args) {
+        System.out.println(longestValidParentheses2("((())((()))"));
     }
 }

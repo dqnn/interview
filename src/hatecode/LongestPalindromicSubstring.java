@@ -60,6 +60,7 @@ public class LongestPalindromicSubstring {
 
     String res = "";
     // time : O(n^2) space : O(1)
+    //we find one point and want to expand from that point
     public String longestPalindrome2(String s) {
         if (s == null || s.length() == 0) return s;
         for (int i = 0; i < s.length(); i++) {
