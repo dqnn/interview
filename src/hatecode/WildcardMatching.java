@@ -103,4 +103,47 @@ public class WildcardMatching {
         }
         return pp == p.length();
     }
+    //DP string match templates, also the templates for any 2D dp matrix
+    //the only difference is about dp foruma, for *, regex match is to remove previous 
+    //char but wild char cannot
+    public boolean isMatch_Templates(String s, String p) {
+        if (s == null &&  p == null) return false;
+        //please note the len is s.length() + 1
+        int r = s.length(), c = p.length();
+        boolean[][] dp = new boolean[r + 1][c + 1];
+        //initialize as true 
+        dp[0][0] = true;
+        //why we initialize p first string first? because our calclation is row by row, so 
+        //we initialize first row first
+        
+        //also this is for detecting the s = "" case, we also need initilaize dp[i][0] for p = "" case
+        for (int i = 0; i < c; i++) {
+            // we always use i+ 1 = i since our end is len + 1
+            if (p.charAt(i) == '*' && dp[0][i]) {
+                dp[0][i + 1] = true;
+            }
+        }
+        //we also should initialize the dp[r][0] but since if p is not "" then s should dp[i][0] default to false
+        //but i will write whole templates as below: 
+        for (int i = 0; i < r; i++) {
+                dp[i+1][0] = false;
+        }
+        //we loop two strings, row by row,  our len is 0-N, so our initialization 
+        for(int i = 0; i< r; i++){
+            for(int j = 0; j < c; j++) {
+                //case 1 and 2
+                if (p.charAt(j) == s.charAt(i) || p.charAt(j) == '?') {
+                    dp[i+1][j+1] = dp[i][j];
+                }
+                // the same as common longest sequence because * here can not remove previous char but to any sequence chars
+                //previous problem which it could remove previous char so it has to be with dp[i+1][j-2]
+                //so we 
+                if (p.charAt(j) == '*') {
+                        dp[i+1][j+1] = dp[i+1][j] || dp[i][j+1];
+                }
+            }
+        }
+        return dp[r][c];
+    }
+
 }
