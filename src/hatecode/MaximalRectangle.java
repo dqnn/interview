@@ -142,7 +142,7 @@ right[row][col]记录的是(row, col)这个坐标点对应的height可以延申�
      * @param matrix
      * @return
      */
-
+    //this solution is to use stack to compute the area
     public int maximalRectangle2(char[][] matrix) {
         if (matrix == null || matrix.length == 0) return 0;
         int n = matrix[0].length;
