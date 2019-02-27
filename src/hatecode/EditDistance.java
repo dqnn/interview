@@ -19,7 +19,7 @@ public class EditDistance {
      b) Delete a character
      c) Replace a character
 
-     abcd -> aef
+     aef -> abcd
 
      dp[i][j]表示的是，从字符串1的i的位置转换到字符串2的j的位置，所需要的最少步数。
 
@@ -33,10 +33,14 @@ public class EditDistance {
          delete: dp[i][j] = dp[i - 1][j] + 1;  这个就是把最后一个不等的去掉就和前面一个样了
 
            a  b  c  d
-        0  1  2  3  4
+        0  1  2  3  4    steps when aef  is empty
      a  1  0  1  2  3
      e  2  1  1  2  3
      f  3  2  2  2  3
+ steps when abcd is empty
+Replace   Insert
+Delete     Here
+
 
      time : O(m * n)
      space : O(m * n)
