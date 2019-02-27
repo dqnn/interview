@@ -84,6 +84,32 @@ Round 2
         return dp[rowLen][colLen];
     }
     
+    //so this version is the heritance of V1, we continue to use 2D DP and 
+    //continue to use the same DP foruma, this is easier to understand
+    public int uniquePathsWithObstacles_Path1_HeritanceV(int[][] m) {
+        if (m == null || m.length < 1 || m[0].length < 1)  return 0;
+        int r = m.length, c = m[0].length;
+        
+        int[][] dp = new int[r][c];
+        dp[0][0] = m[0][0] == 1 ? 0 : 1;
+        for(int i = 1; i < r; i++) {
+            if (m[i][0] == 1) dp[i][0] = 0;
+            else dp[i][0] = dp[i-1][0];
+        }
+        for(int i = 1; i< c;i++) {
+            if (m[0][i] == 1) dp[0][i] = 0;
+            else dp[0][i] = dp[0][i-1];
+        }
+        
+        for(int i = 1; i < r;i++) {
+            for(int j = 1; j< c;j++) {
+                if (m[i][j] == 1) dp[i][j] = 0;
+                else dp[i][j] = dp[i-1][j] + dp[i][j-1];
+            }
+        }
+        return dp[r-1][c-1];
+    }
+    
     //back tracking
     private int[][] arr;
 
