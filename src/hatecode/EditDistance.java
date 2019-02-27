@@ -45,32 +45,26 @@ public class EditDistance {
      * @param word2
      * @return
      */
-    public int minDistance(String w1, String w2) {
+    public int minDistance(String s, String t) {
         //if w1 == null or "", then we need insert w2.length() chars into w1, steps are the w2 length
         //if w2 == null or "", then we need to delete w1.length() char into w1,,steps are the w1 length
         //if both are null, then we nothing just return
-        if (w1 == null && w2 == null) {
-            return 0;
-        }
+        if (s == null && t == null) return 0;
         
-        if (w1 == null) {
-            w1 = "";
-        }
-        if (w2 == null) {
-            w2 = "";
-        }
+        if (s == null) s = "";
+        if (t == null) t = "";
         
-        int[][] dp = new int[w1.length() + 1][w2.length() + 1];
-        for(int i = 0; i <= w1.length();i++) {
-            dp[i][0] = i;
-        }
-        for(int j =0; j <= w2.length(); j++) {
-            dp[0][j] = j;
-        }
+        int[][] dp = new int[s.length() + 1][t.length() + 1];
         
-        for(int i = 1; i <= w1.length(); i++) {
-            for(int j = 1; j <= w2.length(); j++) {
-                if (w1.charAt(i-1) == w2.charAt(j - 1)) {
+        //so this is to say, suppose t is empty string ,how many steps we need,actually 
+        //they are all delete
+        for(int i = 0; i <= s.length();i++) dp[i][0] = i;
+        //suppose s is empty. how many step we need to to make s.equals(t), 
+        for(int j =0; j <= t.length(); j++) dp[0][j] = j;
+        
+        for(int i = 1; i <= s.length(); i++) {
+            for(int j = 1; j <= t.length(); j++) {
+                if (s.charAt(i-1) == t.charAt(j - 1)) {
                     dp[i][j] = dp[i - 1][j - 1]; // steps are the same as diagonal 
                 } else {
                     // insert means:
@@ -81,6 +75,6 @@ public class EditDistance {
             }
         }
         
-        return dp[w1.length()][w2.length()];
+        return dp[s.length()][t.length()];
     }
 }
