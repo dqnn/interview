@@ -1,7 +1,7 @@
 package hatecode;
 import java.util.*;
 public class RedundantConnectionII {
-    static class DUS {
+    class DUS {
         int[] parent;
         int[] size;
         public DUS(int size) {

@@ -1,5 +1,48 @@
 package hatecode;
 import java.util.*;
+
+class DUS {
+    
+    private int[] parent;
+    private int[] size;
+    
+    public DUS(int n) {
+        parent = new int[n];
+        size = new int[n];
+        for(int i =0; i< n;i++) parent[i] = i;
+        Arrays.fill(this.size,1);
+    }
+    
+    public int find(int x) {
+        while(parent[x] != x) {
+            parent[x] = parent[parent[x]];
+            x = parent[x];
+        }
+        return x;
+    }
+    
+    // Return false if x, y are connected.
+    public boolean union(int x, int y) {
+        x = find(x);
+        y = find(y);
+        if (x == y) return false;
+        
+        if (size[x] < size[y]) {
+            parent[x] = y;
+            size[y] += size[x];
+        } else {
+            parent[y] = x;
+            size[x] += size[y];
+        }
+        
+        return true;
+    }
+    
+    public int getSize(int x) {
+        int root = find(x);
+        return size[root];
+    }
+}
 public class RedundantConnection {
     /*
      * 684. Redundant Connection In this problem, a tree is an undirected graph that
@@ -37,44 +80,6 @@ Explanation: The given undirected graph will be like this:
         }
         
         return new int[]{};
-    }
-    
-    static class DUS {
-        
-        private int[] parent;
-        private int[] size;
-        
-        public DUS(int n) {
-            parent = new int[n];
-            size = new int[n];
-            for(int i =0; i< n;i++) parent[i] = i;
-            Arrays.fill(this.size,1);
-        }
-        
-        public int find(int x) {
-            while(parent[x] != x) {
-                parent[x] = parent[parent[x]];
-                x = parent[x];
-            }
-            return x;
-        }
-        
-        // Return false if x, y are connected.
-        public boolean union(int x, int y) {
-            x = find(x);
-            y = find(y);
-            if (x == y) return false;
-            
-            if (size[x] < size[y]) {
-                parent[x] = y;
-                size[y] += size[x];
-            } else {
-                parent[y] = x;
-                size[x] += size[y];
-            }
-            
-            return true;
-        }
     }
     
     

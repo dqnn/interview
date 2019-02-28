@@ -1,7 +1,11 @@
-package codetemplates;
+package hatecode;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
+
+//min spanning tree is just collecting edges, from small weight to large weight, 
+//if we already connect all nodes, then stop, so greedy can help to make sure all weight 
+//is min
 public class KrushkalMST {
     static class Edge {
         int src;
@@ -34,48 +38,25 @@ public class KrushkalMST {
             //add all the edges to priority queue, //sort the edges on weights
             edges.stream().forEach(e->pq.offer(e));
 
-            //create a parent []
-            int [] parent = new int[vertices];
+            ArrayList<Edge> minSpanningTree = new ArrayList<>();
 
-            for (int i = 0; i <vertices; i++) {
-                parent[i] = i;
-            }
-
-            ArrayList<Edge> mst = new ArrayList<>();
-
-            //process vertices - 1 edges
-            int index = 0;
-            while(index<vertices-1){
+            DUS dus = new DUS(vertices);
+            //if our size is not same to vertices, then we have to continue
+            while(dus.getSize(0) != vertices){
                 Edge edge = pq.poll();
                 //check if adding this edge creates a cycle
-                int x_set = find(parent, edge.src);
-                int y_set = find(parent, edge.dst);
+                int x_set = dus.find(edge.src);
+                int y_set = dus.find(edge.dst);
 
                 if(x_set!=y_set){
                     //add it to our final result
-                    mst.add(edge);
-                    index++;
-                    union(parent,x_set,y_set);
+                    minSpanningTree.add(edge);
+                    dus.union(x_set, y_set);
                 }
             }
             //print MST
             System.out.println("Minimum Spanning Tree: ");
-            printGraph(mst);
-        }
-
-        public int find(int [] parent, int vertex){
-            //chain of parent pointers from x upwards through the tree
-            // until an element is reached whose parent is itself
-            if(parent[vertex]!=vertex)
-                return find(parent, parent[vertex]);;
-            return vertex;
-        }
-
-        public void union(int [] parent, int x, int y){
-            int x_set_parent = find(parent, x);
-            int y_set_parent = find(parent, y);
-            //make x as parent of y
-            parent[y_set_parent] = x_set_parent;
+            printGraph(minSpanningTree);
         }
 
         public void printGraph(ArrayList<Edge> edgeList){
