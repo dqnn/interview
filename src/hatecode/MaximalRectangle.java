@@ -85,10 +85,10 @@ left: we always keep most left '1' index of a substring '111111'
 [0, 0, 0, 3, 0]
 
 right: we always keep most right '1' index of 
-[1, 5, 3, 5, 5]
-[1, 5, 3, 5, 5]
-[1, 5, 3, 5, 5]
-[1, 5, 5, 4, 5]
+[0, 4, 2, 4, 4]
+[0, 4, 2, 4, 4]
+[0, 4, 2, 4, 4]
+[0, 4, 4, 3, 4]
 
 策略: 把matrix看成多个直方图, 每一行及其上方的数据都构成一个直方图, 需要考察matrix.size()个直方图
 对于每个点(row, col), 我们最后都计算以这个点上方的连续的'1'往left, right方向延申可以得到的最大的矩形的面积
@@ -122,7 +122,7 @@ right[row][col]记录的是(row, col)这个坐标点对应的height可以延申�
         Arrays.fill(right, c);
         
         for(int i = 0; i < r; i++) {
-            int curLeft = 0, curRight = c;
+            int curLeft = 0, curRight = c - 1;
             for(int j = 0; j < c; j++) {
                 if (m[i][j] == '1') {
                     height[j] ++;
@@ -152,13 +152,13 @@ right[row][col]记录的是(row, col)这个坐标点对应的height可以延申�
                     //be the  same
                     right[j] = Math.min(curRight, right[j]);
                 } else {
-                    right[j] = c;
-                    curRight = j;
+                    right[j] = c - 1;
+                    curRight = j - 1;
                 }
             }
             for(int j = 0; j < c; j++) {
-                //the length is end - start + 1 since we already have 1 there
-                res = Math.max(res, (right[j] - left[j]) * height[j]);
+                //
+                res = Math.max(res, (right[j] - left[j] + 1) * height[j]);
             }
         }
         return res;
