@@ -72,6 +72,24 @@ a matrix example:
    ["1","1","1","1","1"],
    ["1","0","0","1","0"]
  ]
+height: we record successive '1' count from top to down
+[1, 0, 1, 0, 0]
+[2, 0, 2, 1, 1]
+[3, 1, 3, 2, 2]
+[4, 0, 0, 3, 0]
+
+left: we always keep most left '1' index of a substring '111111'
+[0, 0, 2, 0, 0]
+[0, 0, 2, 2, 2]
+[0, 0, 2, 2, 2]
+[0, 0, 0, 3, 0]
+
+right: we always keep most right '1' index of 
+[1, 5, 3, 5, 5]
+[1, 5, 3, 5, 5]
+[1, 5, 3, 5, 5]
+[1, 5, 5, 4, 5]
+
 策略: 把matrix看成多个直方图, 每一行及其上方的数据都构成一个直方图, 需要考察matrix.size()个直方图
 对于每个点(row, col), 我们最后都计算以这个点上方的连续的'1'往left, right方向延申可以得到的最大的矩形的面积
 通过这种方法获取的矩形一定会把最大的矩形包含在内
@@ -93,6 +111,8 @@ right[row][col]记录的是(row, col)这个坐标点对应的height可以延申�
         int r =m.length, c = m[0].length;
         int res = 0;
         //height[i] is to say from previous up to i-1, we have height[i]'s 1 horiontely 
+        //if scan next row, and we will add previous row height[i-1], so we can always re-add them into
+        //one, this is like a thread to scan the rectangles in side the matrix
         int[] height = new int[c];
         //left is we record the for a contious '1', left[i] will record the first 1's index for this sub
         //'1' array
@@ -106,9 +126,12 @@ right[row][col]记录的是(row, col)这个坐标点对应的height可以延申�
             for(int j = 0; j < c; j++) {
                 if (m[i][j] == '1') {
                     height[j] ++;
-                    // left[j] means "1" string start position idx, so suppose we have 1 1 0 1 1 1, so 
+                    //two case for left: 
+                    // 1: same row, left[j] means "1" string start position idx, so suppose we have 1 1 0 1 1 1, so 
                     // curLeft will be stay the same since we want first, left[j] initialized as 0 so 
                     // only if m[0][0] = 0 will be used.
+                    
+                    //2. change row: if we changed row, then if previous left[j] > 0 then we would get pervious value
                     left[j] = Math.max(curLeft, left[j]);
                 } else {
                     height[j] = 0;
@@ -124,6 +147,9 @@ right[row][col]记录的是(row, col)这个坐标点对应的height可以延申�
                     // so we scan from right to left, right is inialized as c, so if 1 1 0 1 1 1
                     // first we need to mark the end position is 1, and right[j] should stay last idx
                     // if it is not 1, then curRight will be c, and right will be j(because next is j--)
+                    
+                    //if we change row, so we compare to previous row,if they also '1', the value will
+                    //be the  same
                     right[j] = Math.min(curRight, right[j]);
                 } else {
                     right[j] = c;
@@ -134,7 +160,6 @@ right[row][col]记录的是(row, col)这个坐标点对应的height可以延申�
                 //the length is end - start + 1 since we already have 1 there
                 res = Math.max(res, (right[j] - left[j]) * height[j]);
             }
-            
         }
         return res;
         
