@@ -95,6 +95,7 @@ Output: false
     // this is better solution on Complexity O()n ^ 4
     
     // this problem is needed to remembered and discussed
+    //one good point is that this DP is templates for 
     public boolean isScramble2(String s1, String s2) {
         if (s1.length() != s2.length()) return false;
         int len = s1.length();
