@@ -157,7 +157,7 @@ right[row][col]记录的是(row, col)这个坐标点对应的height可以延申�
                 }
             }
             for(int j = 0; j < c; j++) {
-                //
+                //for row i, we scan all possible rectangles
                 res = Math.max(res, (right[j] - left[j] + 1) * height[j]);
             }
         }
@@ -173,29 +173,32 @@ right[row][col]记录的是(row, col)这个坐标点对应的height可以延申�
      * @return
      */
     //this solution is to use stack to compute the area
+    
+    //
     public int maximalRectangle2(char[][] matrix) {
         if (matrix == null || matrix.length == 0) return 0;
-        int n = matrix[0].length;
-        int[] height = new int[n + 1];
-        height[n] = 0;
+        int r = matrix.length, c = matrix[0].length;
+        int[] height = new int[c + 1];
+        height[c] = 0;
         int res = 0;
 
-        for (int row = 0; row < matrix.length; row++) {
+        for (int i = 0; i < r; i++) {
             Stack<Integer> stack = new Stack<>();
-            for (int i = 0; i < n + 1; i++) {
-                if (i < n) {
-                    if (matrix[row][i] == '1') {
-                        height[i]++;
-                    } else height[i] = 0;
+            for (int j = 0; j < c + 1; j++) {
+                if (j < c) {
+                    if (matrix[i][j] == '1') height[j]++;
+                    else height[j] = 0;
                 }
-                if (stack.isEmpty() || height[stack.peek()] <= height[i]) {
-                    stack.push(i);
+                //continue '1' we can push
+                if (stack.isEmpty() || height[stack.peek()] <= height[j]) {
+                    stack.push(j);
+                //we realize that 1 has break, so we want to count previous 1 to calculate
                 } else {
-                    while (!stack.isEmpty() && height[i] < height[stack.peek()]) {
-                        int cur = height[stack.pop()] * (stack.isEmpty() ? i : (i - stack.peek() - 1));
+                    while (!stack.isEmpty() && height[j] < height[stack.peek()]) {
+                        int cur = height[stack.pop()] * (stack.isEmpty() ? j : (j - stack.peek() - 1));
                         res = Math.max(res, cur);
                     }
-                    stack.push(i);
+                    stack.push(j);
                 }
             }
         }
