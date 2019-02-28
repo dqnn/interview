@@ -92,8 +92,12 @@ right[row][col]记录的是(row, col)这个坐标点对应的height可以延申�
         }
         int r =m.length, c = m[0].length;
         int res = 0;
+        //height[i] is to say from previous up to i-1, we have height[i]'s 1 horiontely 
         int[] height = new int[c];
+        //left is we record the for a contious '1', left[i] will record the first 1's index for this sub
+        //'1' array
         int[] left = new int[c];
+        //record the '1' from right
         int[] right = new int[c];
         Arrays.fill(right, c);
         
@@ -110,7 +114,7 @@ right[row][col]记录的是(row, col)这个坐标点对应的height可以延申�
                     height[j] = 0;
                     // for left, if it is not 1 then we mark it is 0
                     left[j] = 0;
-                    // this means next 1 position, 
+                    // this means next 1 position,  we assume element is 1
                     curLeft = j + 1;
                 }
             }
@@ -127,6 +131,7 @@ right[row][col]记录的是(row, col)这个坐标点对应的height可以延申�
                 }
             }
             for(int j = 0; j < c; j++) {
+                //the length is end - start + 1 since we already have 1 there
                 res = Math.max(res, (right[j] - left[j]) * height[j]);
             }
             
