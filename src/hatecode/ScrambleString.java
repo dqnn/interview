@@ -60,7 +60,7 @@ Example 2:
 
 Input: s1 = "abcde", s2 = "caebd"
 Output: false
-     time : O(n!)
+     time : O(n!) T(n) = n T(n-1)
      space : O(n)
 
      * @param s1
@@ -70,6 +70,7 @@ Output: false
 
     public boolean isScramble(String s1, String s2) {
         if (s1 == null || s2 == null) return false;
+        if (s1.length() != s2.length()) return false;
         if (s1.equals(s2)) return true;
 
         int[] letters = new int[26];
