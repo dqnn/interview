@@ -32,25 +32,30 @@ for num[i], put it in each bag or not put in bag will make it heavier or not
     //dp[i] = max{dp[i], dp[i - nums[j] + nums[j}, j = 0, ...nums.length - 1
     public static int backPackI(int[] nums, int w) {
         int[] dp = new int[w+1];
-        List<Integer> list = new ArrayList<>();
+        int[][] m = new int[nums.length][w+1];
         for (int i = 0; i < nums.length; i++) {
             //reduce some iteration
-            int max = Integer.MIN_VALUE;
             for (int j = w; j >= nums[i]; j--) {
                 //if (j >= nums[i]) {
-                   dp[j] = Math.max(dp[j], dp[j-nums[i]] + nums[i]);
+                   //if we do not print the path, just use this line is enough
+                   //dp[j] = Math.max(dp[j], dp[j-nums[i]] + nums[i]);
                     
                    //this is to print all combinations
                     if (dp[j - nums[i]] + nums[i] > dp[j]) {
-                        max = nums[i];
                         dp[j] = Math.max(dp[j], dp[j-nums[i]] + nums[i]);
+                        m[i][j] = 1;
                     }
                 //}
-              // System.out.println(j + "- stone list: " + Arrays.toString(dp));
             }
-            list.add(max);
         }
-        System.out.println("stone list2: " + list);
+        //here is to print the path, general way
+        int j = w;
+        for(int i =nums.length - 1; i>=0; i--) {
+                if (m[i][j] == 1)  {
+                    System.out.println("picked: " + nums[i]);
+                    j -= nums[i];
+            }
+        }
         return dp[w];
     }
 /*
