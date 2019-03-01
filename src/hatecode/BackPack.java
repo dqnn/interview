@@ -1,6 +1,6 @@
 package hatecode;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class BackPack {
 
@@ -18,18 +18,28 @@ Challenge
 O(n x m) time and O(m) memory.
 
 O(n x m) memory is also acceptable if you do not know how to optimize memory.
+if we want to output the numbers as a list, how? 
+1. back tracking is doable but with high complexity.
+2.
  */
     //dp[i] = max{dp[i], dp[i - nums[j] + nums[j}, j = 0, ...nums.length - 1
     public static int backPackI(int[] nums, int w) {
         int[] dp = new int[w+1];
+        List<Integer> list = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
             //reduce some iteration
             for (int j = w; j >= nums[i]; j--) {
                 //if (j >= nums[i]) {
                     dp[j] = Math.max(dp[j], dp[j-nums[i]] + nums[i]);
+                    
+                    if (dp[j - nums[i]] + nums[i] > dp[j]) {
+                        list.add(nums[i]);
+                    }
                 //}
+               System.out.println("stone list: " + Arrays.toString(dp));
             }
         }
+        System.out.println("stone list: " + Arrays.toString(dp));
         return dp[w];
     }
 /*
@@ -203,7 +213,7 @@ return 6
     public static void main(String[] args) {
         int[] in = {2,3,5,7};
         System.out.println(String.format("backPackI 单次选择 去找最大重量, input = %s, output=%s", Arrays.toString(in), backPackI(in, 11)));
-        System.out.println("backPackII result should be 9," + backPackII(new int[] {2,3,5,7}, new int[] {1,5,2,4}, 10));
+        System.out.println("backPackII result should be 9," + backPackII(new int[] {2,5,3,7}, new int[] {1,5,2,4}, 10));
         System.out.println("backPackIII result should be 15," + backPackIII(new int[] {2,3,5,7}, new int[] {1,5,2,4}, 10));
         System.out.println("backPackIV result should be 2," +  backPackIV(new int[] {2,2,3}, 7));
         System.out.println("backPackV result should be 2," +  backPackV(new int[] {1,2,3,3,7}, 7));
