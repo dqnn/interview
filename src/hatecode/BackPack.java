@@ -21,6 +21,13 @@ O(n x m) memory is also acceptable if you do not know how to optimize memory.
 if we want to output the numbers as a list, how? 
 1. back tracking is doable but with high complexity.
 2.
+
+thiking about this way:
+11 bags, it can hold 1,2...11 weight objects, so we if bag 8 already have its max posssible 
+combination, we just use it. 
+
+so every time, we use each nums[i] to be added in these 11 bags, so it just means 
+for num[i], put it in each bag or not put in bag will make it heavier or not
  */
     //dp[i] = max{dp[i], dp[i - nums[j] + nums[j}, j = 0, ...nums.length - 1
     public static int backPackI(int[] nums, int w) {
@@ -28,18 +35,22 @@ if we want to output the numbers as a list, how?
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
             //reduce some iteration
+            int max = Integer.MIN_VALUE;
             for (int j = w; j >= nums[i]; j--) {
                 //if (j >= nums[i]) {
-                    dp[j] = Math.max(dp[j], dp[j-nums[i]] + nums[i]);
+                   dp[j] = Math.max(dp[j], dp[j-nums[i]] + nums[i]);
                     
+                   //this is to print all combinations
                     if (dp[j - nums[i]] + nums[i] > dp[j]) {
-                        list.add(nums[i]);
+                        max = nums[i];
+                        dp[j] = Math.max(dp[j], dp[j-nums[i]] + nums[i]);
                     }
                 //}
-               System.out.println("stone list: " + Arrays.toString(dp));
+              // System.out.println(j + "- stone list: " + Arrays.toString(dp));
             }
+            list.add(max);
         }
-        System.out.println("stone list: " + Arrays.toString(dp));
+        System.out.println("stone list2: " + list);
         return dp[w];
     }
 /*
