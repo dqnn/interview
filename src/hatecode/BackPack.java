@@ -25,6 +25,8 @@ if we want to output the numbers as a list, how?
 thiking about this way:
 11 bags, it can hold 1,2...11 weight objects, so we if bag 8 already have its max posssible 
 combination, we just use it. 
+as we loop on the numbers, because of the number distribution, we can only have some  bags can be 
+filled.
 
 so every time, we use each nums[i] to be added in these 11 bags, so it just means 
 for num[i], put it in each bag or not put in bag will make it heavier or not
