@@ -109,7 +109,10 @@ Let dp[i][j] denote Initial HP needed if the knight starts from dungeon[i][j].
 dp[i][j] = min(dp[i + 1][j], dp[i][j + 1]) - dungeon[i][j];
 if(dp[i][j] <= 0) dp[i][j] = 1;
 */
-    //interview friendly
+    //interview friendly,
+    //the brutal force solution is we visit all possible path to end, each path we should 
+    //have a number, if it is smaller than 0, then we add a number to make it 1, then the number we added
+    //is the minimal we want, the time complexity is O(2^(MN)), every node we have two ways 
     public int calculateMinimumHP(int[][] m) {
         if (m == null || m.length < 1 || m[0].length < 1) return 0;
         int r = m.length, c= m[0].length;
