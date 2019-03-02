@@ -32,7 +32,7 @@ public class BestTimetoBuyandSellStockIV {
     public int maxProfit(int k, int[] prices) {
         int len = prices.length;
         if (k >= len / 2) return helper(prices);
-
+        //dp[i, j] 当前到达第j天可以最多进行i次交易，最大的利润是多少
         int[][] dp = new int[k + 1][len];
         for (int i = 1; i <= k; i++) {
             int tmpMax = -prices[0];

@@ -9,8 +9,7 @@ package hatecode;
  * Description : 123. Best Time to Buy and Sell Stock III
  * Your are given an array of integers prices, for which the i-th element is the price of a given stock on day i; and a non-negative integer fee representing a transaction fee.
 
-You may complete as many transactions as you like, but you need to pay the transaction fee for each transaction. You may not buy more than 1 share of a stock at a time (ie. you must sell the stock share before you buy again.)
-
+You may complete as up to 2 transactions as you like,
 Return the maximum profit you can make.
 
 Example 1:
@@ -41,9 +40,6 @@ public class BestTimetoBuyandSellStockIII {
  * T[i][k][1]: 最多K次交易后当天手里有1股股票的最大利润
  * 所以每一天只能有个状态，一个是手里股票，一个事手里没股票，前一个分两种，一个是买 ，另一个hold， 后一个也有两个
  * 一个是卖，二是hold
- * 
- * 
- * 
  */
     public int maxProfit(int[] prices) {
         int buy1 = Integer.MIN_VALUE, buy2 = Integer.MIN_VALUE;

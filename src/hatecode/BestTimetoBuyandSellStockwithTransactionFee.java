@@ -40,14 +40,21 @@ Note:
         }
         
         int len = nums.length;
+        //withStock means by the end of day i, if i have stock, the max profit i have.
+        //for first day, the profit is - nums[0], 
+        //noStock[i] means by end of  i-day, we have no stock in hand, so first 
+        //nostock[0] = 0
         int[] noStock = new int[len], withStock = new int[len];
         noStock[0] = 0;
         withStock[0] = - nums[0];
         for(int i = 1; i <= nums.length - 1; i++) {
+            //nostock we have 2 options, 1 is to buy, 2nd to hold, but we want to get max profit
+            //so we max of two of them
             noStock[i] = Math.max(noStock[i - 1], withStock[i - 1] + nums[i] - fee);
+            //withStock means we have 2 options, 1 is to sell, another is to hold
             withStock[i] = Math.max(withStock[i - 1], noStock[i - 1] - nums[i]);
         }
-        
+        //finally we have no stock in hand, so we want to know the max profit
         return noStock[len - 1];
     }
 }

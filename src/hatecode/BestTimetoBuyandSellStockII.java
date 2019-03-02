@@ -18,6 +18,12 @@ public class BestTimetoBuyandSellStockII {
      * @param prices
      * @return
      */
+    //given an array, find the max diff sum, i < j. 
+    //so the only difference is prev quesiton is to ask only one transaction, 
+    //this question, if only the diff between 2 days is positive, then we should include this
+    //we may wonder, maybe we should not sell on i-day. but actually if we think about
+    //a[i] - a[i-1]  + a[i+1] - a[i], so we can see they are the same, no matter 
+    //which day we have highest stock price.
     public static int maxProfit2(int[] prices) {
         if (prices == null || prices.length < 2) {
             return 0;

@@ -21,6 +21,9 @@ public class BestTimetoBuyandSellStock {
      * @param prices
      * @return
      */
+    //the question is to look for the max diff between elements and elements after it.
+    //we use min to denote for 0->i-1, the smallest one, so for i, we can know the 
+    //max diff, 
     public static int maxProfit(int[] prices) {
         if (prices == null || prices.length < 2) return 0;
         int min = prices[0];
