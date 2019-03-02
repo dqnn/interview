@@ -30,7 +30,8 @@ For example, given the dungeon below, the initial health of the knight must be a
 Note:
 
 The knight's health has no upper bound.
-Any room can contain threats or power-ups, even the first room the knight enters and the bottom-right room where the princess is imprisoned.
+Any room can contain threats or power-ups, even the first room the 
+knight enters and the bottom-right room where the princess is imprisoned.
  */
 public class DungeonGame {
 
@@ -50,8 +51,89 @@ public class DungeonGame {
      * @param dungeon
      * @return
      */
+  //Given the knight start from top left to right down, every time he has at least 1 HP, so if we use the traditional way 
+    //dp[i][j] means the min HP in m[i][j] then it would have problem, because we don't know how much HP we have to lose in 
+    //m[i+1][j+1], so dp[i][j] was decided by m[i+1][j+1], 
+    
+    //this typical question is to understand that the current state is decided by next matrix value, so we cannot find relation bewteen i and i-1,but insted, if we look back from last cell,  we can find that relation ship between i+1 and 1. 
+/*
+/ given the example dungeon, lets label cells as follows: 
+// +-+-+-+
+// |1|2|3|
+// +-+-+-+
+// |4|5|6|
+// +-+-+-+
+// |7|8|9|
+// +-+-+-+
 
-    public int calculateMinimumHP(int[][] dungeon) {
+The dungeon:                              Initial HP knight needed:       
++-------+-------+-------+                 +-------+-------+-------+
+|       |       |       |                 |       |       |       |
+|  -2   |  -3   |   3   |                 |   7   |   5   |   2   |
+|       |       |       |                 |       |       |       |
++-------+-------+-------+                 +-------+-------+-------+
+|       |       |       |                 |       |       |       |
+|  -5   |  -10  |   1   |                 |   6   |   11  |   5   |
+|       |       |       |                 |       |       |       |
++-------+-------+-------+                 +-------+-------+-------+
+|       |       |       |                 |       |       |       |
+|  10   |  30   |  -5(P)|                 |   1   |   1   |   6   |
+|       |       |       |                 |       |       |       |
++-------+-------+-------+                 +-------+-------+-------+
+
+Knight HP: 
+
+// To solve this problem, we can start with the simpliest cases.
+// Les's say,
+
+// If the knight starts from cell 9.
+Initial HP: 6 (6 - 5 = 1), which means as long as the knight has 6 HP when reaching cell 9, he would be fine.
+
+// If the knight starts from cell 6.
+Initial HP: 5 (5 + 1 = 6), which means as long as the knight has 5 HP when reaching cell 6, he would be fine.
+
+// If the knight starts from cell 8.
+Initial HP: 1 (1 + 30 >= 6, HP needs to be at least 1, 0 means the knight is already dead), 
+which means as long as the kinght has 1 HP when reaching cell 7, he would be fine.
+
+// If the knight starts from cell 5.
+Emm... the knight now has two options, going right or going down.
+If go right (5 --> 6 --> 9), Initial HP(R): 15 (15 - 10 = 5)
+If go down (5 --> 8 --> 9), Initial HP(D): 11 (11 - 10 = 1)
+Hence, Initial HP = MIN(HP(R), HP(D)) = 11
+
+// Sub-problems and state: 
+Let dp[i][j] denote Initial HP needed if the knight starts from dungeon[i][j].
+
+// recurrence relation:
+dp[i][j] = min(dp[i + 1][j], dp[i][j + 1]) - dungeon[i][j];
+if(dp[i][j] <= 0) dp[i][j] = 1;
+*/
+    //interview friendly
+    public int calculateMinimumHP(int[][] m) {
+        if (m == null || m.length < 1 || m[0].length < 1) return 0;
+        int r = m.length, c= m[0].length;
+        
+        int[][] dp = new int[r][c];
+        
+        dp[r-1][c-1] = 1 - m[r-1][c-1] <= 0 ? 1 : 1 - m[r-1][c-1];
+        
+        for(int i = r-1; i>=0; i--) {
+            for(int j = c-1; j>=0;j--) {
+                if (i == r-1 && j == c-1) continue;
+                //if last row we cannot down further, so we use max
+                int down = i + 1 == r? Integer.MAX_VALUE : dp[i+1][j] - m[i][j];
+                //if most right row we cannto right further, so we use max
+                int right = j + 1 == c? Integer.MAX_VALUE:dp[i][j+1] - m[i][j];
+                dp[i][j] = Math.min(down, right) <= 0 ? 1 : Math.min(down, right);
+            }
+        }
+        
+        return dp[0][0];
+        
+    }
+
+    public int calculateMinimumHP_Reference(int[][] dungeon) {
         if (dungeon == null || dungeon.length == 0 || dungeon[0].length == 0) return 0;
 
         int m = dungeon.length;
@@ -60,9 +142,11 @@ public class DungeonGame {
 
         dp[m - 1][n - 1] = Math.max(1 - dungeon[m - 1][n - 1], 1);
 
+        //initialize last column
         for (int i = m - 2; i >= 0; i--) {
             dp[i][n - 1] = Math.max(dp[i + 1][n - 1] - dungeon[i][n - 1], 1);
         }
+        //initialize last row
         for (int i = n - 2; i >= 0; i--) {
             dp[m - 1][i] = Math.max(dp[m - 1][i + 1] - dungeon[m - 1][i], 1);
         }
