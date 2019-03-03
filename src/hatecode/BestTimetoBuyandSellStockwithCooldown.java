@@ -38,6 +38,8 @@ public class BestTimetoBuyandSellStockwithCooldown {
      */
     //interview friendly
     //thinking process:  we thought there are 3 states during whole operation time, 
+    //this is state machines and their state change code, follow up will be reduce the space
+    //complexity
     //S0 represents 
 /*
            buy         reset
@@ -47,7 +49,7 @@ public class BestTimetoBuyandSellStockwithCooldown {
  each of these states can reset return to same
   s0[i] = max(s0[i-1], s2[i-1])
   s1[i] = max(s1[i-1], s0[i-1] - prices[i-1])
-  s2[i] = s1[i-1] + prices[i-1)  only one way
+  s2[i] = max( s2[i-1],s1[i-1] + prices[i-1])  
  
  explanations for the states 
  s0:
@@ -88,6 +90,7 @@ immediate after selling, we cannot stay here.)
             /* for current state of s2, we may stay on s2 state to rest many days (wait better opportunity to sell), or transfer from s1 state to sell (at current price) on the second day after buying */
             s2[i] = Math.max(s2[i - 1], s1[i - 1] + prices[i]);
         }
+        //only at s0 or s2 we do not have stocks
         return Math.max(s0[len - 1], s2[len - 1]);
     }
     
