@@ -34,9 +34,14 @@ public class CombinationSumIV {
      */
 
     // time : (n * k) space : O(k)
+    //this is backpack IV, 重复选择 + 不同排列 + 装满可能性总数
     public int combinationSum4(int[] nums, int target) {
         int[] res = new int[target + 1];
         res[0] = 1;
+        //one key here is from backpack question 1 - 6, this one 
+        //we have to put target in outer loop, all others are put 
+        //target in innner loop, why?
+        //because 
         for (int i = 1; i < res.length; i++) {
             for (int num : nums) {
                 if (i - num >= 0) {
