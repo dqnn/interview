@@ -30,7 +30,7 @@ public class BestTimetoBuyandSellStockIV {
      * @return
      */
     //interview friendly and thinking process: 
-    //so we have 5 questions about how to buy stock,
+    //so we have 5 questions about how to buy stock, need more time to reflect on this point
     public int maxProfit(int k, int[] prices) {
         int len = prices.length;
         //if k more than half of the price array, then we have to buy or sell each day because 
