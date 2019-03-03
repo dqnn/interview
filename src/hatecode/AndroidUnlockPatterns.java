@@ -60,7 +60,10 @@ public class AndroidUnlockPatterns {
      * @param n
      * @return
      */
-	// DFS
+	// this problem is actually good ones, 
+    //it may describe the DFS under restrictions, also it use visited array for dfs
+    //to search for all possible combinations, after the search, and clear the visited flag. 
+    //for this problem, we need to draw the recursive tree
     public int numberOfPatterns(int m, int n) {
         int[][] skip = new int[10][10];
         skip[1][3] = skip[3][1] = 2;
