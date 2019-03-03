@@ -59,8 +59,10 @@ s1:
 [Action can take] Sell a stock / Continue to take a rest
 
 s2:
-[Consequence] State immediate after selling; Doesn't have any stock (since just sell one to enter this state)
-[Action can take] Enters next state by taking a rest (since s2 is only for state immediate after selling, we cannot stay here.)
+[Consequence] State immediate after selling; Doesn't have any stock (since just 
+sell one to enter this state)
+[Action can take] Enters next state by taking a rest (since s2 is only for state 
+immediate after selling, we cannot stay here.)
  */
     public int maxProfit(int[] prices) {
         int len = prices.length;
