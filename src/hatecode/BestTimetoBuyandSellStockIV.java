@@ -29,8 +29,8 @@ public class BestTimetoBuyandSellStockIV {
      * @param prices
      * @return
      */
-    //thinking process； 
-    //so we have 5 questions about how to buy stock, so basically 
+    //interview friendly and thinking process: 
+    //so we have 5 questions about how to buy stock,
     public int maxProfit(int k, int[] prices) {
         int len = prices.length;
         //if k more than half of the price array, then we have to buy or sell each day because 
@@ -56,6 +56,9 @@ public class BestTimetoBuyandSellStockIV {
          * dp[i][0] = 0 for 0 < i <= k, since there does not have any available prices
          */
         int[][] dp = new int[k + 1][len];
+        //so we have two loops K and length of prices, we want to know 
+        //if k = 1 which means only 1 transaction, what kind of profit we can have, 
+        //so dp[i][j] is trying to detect if we only make one transaction, what's the profit. 
         for (int i = 1; i <= k; i++) {
          // assume we buy stock at the first price, this is like withStock[0] = - prices[0]
             int prevMax = -prices[0];
@@ -68,6 +71,8 @@ public class BestTimetoBuyandSellStockIV {
                  *     throw previous max, update new max profit by doing one more transaction at current new price (bought new stock before, and sell it on current transaction)
                  *  By comparing these two max profit, we will keep the one with max value, and assign to dp[i][j]
                  * */
+                //we keep i transactions and j prices, we want to compare if we hold or buying 
+                //stock at new price prices[j], 
                 dp[i][j] = Math.max(dp[i][j - 1], prices[j] + prevMax);
                 /* preMax deciding the buying point
                  *  in order to prepare previous price state for dp[i][j] in next iteration, we need to calculate
@@ -81,6 +86,13 @@ public class BestTimetoBuyandSellStockIV {
                 prevMax = Math.max(prevMax, dp[i - 1][j - 1] - prices[j]);
             }
         }
+/*
+Input: k= 2  prices = [3,2,6,5,0,3]
+DP 
+[0, 0, 0, 0, 0, 0]
+[0, 0, 4, 4, 4, 4]
+[0, 0, 4, 4, 4, 7]
+ */
         return dp[k][len - 1];
     }
     //another solution. k >= len/2 means you can sell/buy every day since "at most", this 
