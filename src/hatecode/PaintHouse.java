@@ -63,6 +63,11 @@ Explanation: Paint house 0 into blue, paint house 1 into green, paint house 2 in
         return Math.min(Math.min(costs[n][0], costs[n][1]), costs[n][2]);
     }
     //easier to understand version
+    ////thinking proess and this interview friendly
+    //we use typical 1D DP problem with restrictions, the key is the formula, and 
+    //we have leverage how the restriction contribute to the formula
+    //it is pretty straightword and one thing need to know is about the iteration of 
+    //lastG, lastB and lastR, they cannot be adjacent, like house robbery
     public int minCost2(int[][] costs) {
         if(costs.length==0) return 0;
         int lastR = costs[0][0];
