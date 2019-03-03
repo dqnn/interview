@@ -64,6 +64,21 @@ public class DecodeWays {
             if (second >= 10 && second <= 26) {
                 dp[i] += dp[i - 2];
             }
+            
+            /*
+             * this is another way of no need to trans to integer
+             String first = s.substring(i-1,i);
+            String second = s.substring(i-2, i);
+            
+            if (second.compareTo("10") >= 0 && second.compareTo("26") <= 0) {
+                dp[i] += dp[i-2];
+            }
+            if (first.compareTo("1") >=0) {
+                dp[i] += dp[i-1];
+            }
+             */
+            
+            
         }
         return dp[len];
 
