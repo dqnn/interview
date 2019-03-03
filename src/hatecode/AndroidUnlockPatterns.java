@@ -60,11 +60,66 @@ public class AndroidUnlockPatterns {
      * @param n
      * @return
      */
-	// this problem is actually good ones, 
+    
+    
+    
+ // For numbers 1 - 9, 
+    //this is best solution, so we optimize the DFS function, 
+    //previous was for each i in [m, n], we will count from i->0, then we will have some 
+    //pattern which would already visited, like from 0->m, we do not need to visit again for 
+    //each number in [m,n], that's why here is fast
+    private static final int DIGITS = 10;
+    private static int[][] skip = new int[DIGITS][DIGITS];
+    private static boolean[] visited = new boolean[DIGITS];
+ // this problem is actually good ones, 
     //it may describe the DFS under restrictions, also it use visited array for dfs
     //to search for all possible combinations, after the search, and clear the visited flag. 
     //for this problem, we need to draw the recursive tree
     public int numberOfPatterns(int m, int n) {
+        skip[1][3] = skip[3][1] = 2;
+        skip[3][9] = skip[9][3] = 6;
+        skip[9][7] = skip[7][9] = 8;
+        skip[7][1] = skip[1][7] = 4;
+        skip[1][9] = skip[9][1] = skip[2][8] = skip[8][2] = skip[3][7] = skip[7][3] = skip[4][6] = skip[6][4] = 5;
+        int res = 0;
+        
+        // Default 0 to false so that each value in our skip array that isn't initialized will default to true.
+        visited[0] = true;
+        // 4 * is used for 1 & 2 since we can utilize symmetry to know that, e.g., 
+        // whatever 1 gives us also applies to 3, 7 & 9. 2 would be for 4, 6 & 8
+        res += 4 * dfs(1, 1, m, n);
+        res += 4 * dfs(2, 1, m, n);
+        res += dfs(5, 1, m, n);
+        
+        return res;
+    }
+    
+    private int dfs(int start, int depth, int min, int max) {
+        int res = 0;
+        //here means we have done from 1->min, so we found a result, then res++
+        if(depth >= min) res++;
+        
+        //here means we already reached the end of the pattern length, so we get out
+        if(++depth > max) {
+            return res;
+        }
+        
+        visited[start] = true;
+        for(int i = 1; i < DIGITS; i++) {
+            // We haven't already visited this digit and 
+            //if we are on non-adjacent numbers, we've visited the number in between.
+            if(!visited[i] && visited[skip[start][i]]) {
+               res += dfs(i, depth, min, max);
+            }
+        }
+
+        // Backtrack
+        visited[start] = false;
+        
+        return res;
+    }
+
+    public int numberOfPatterns_reference(int m, int n) {
         int[][] skip = new int[10][10];
         skip[1][3] = skip[3][1] = 2;
         skip[1][7] = skip[7][1] = 4;
@@ -85,7 +140,7 @@ public class AndroidUnlockPatterns {
     }
 
     public int DFS(boolean[] visited, int[][] skip, int cur, int remain) {
-        //
+        //actually we do not need this
         if (remain < 0) return 0;
         //find one combinations
         if (remain == 0) return 1;
