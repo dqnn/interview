@@ -19,21 +19,45 @@ public class RemoveDuplicatesfromSortedListII {
      * @param head
      * @return
      */
+    
     public ListNode deleteDuplicates(ListNode head) {
-        if (head == null || head.next == null) return head;
-        ListNode dummy = new ListNode(0);
+        if(head == null || head.next == null) return head;
+        
+        ListNode dummy = new ListNode(-1), cur = dummy, prev = dummy;
         dummy.next = head;
-        ListNode p = dummy;
-        while (p.next != null && p.next.next !=null) {
-            if (p.next.val == p.next.next.val) {
-                int sameNum = p.next.val;
-                while (p.next != null && p.next.val == sameNum) {
-                    p.next = p.next.next;
-                }
-            } else {
-                p = p.next;
+        
+        // dummy->1->2->3->3->4->4->5, cur points to 1, while prev point dummy, 
+        //every time, if there was no duplicate, then cur will one step by step and 
+        //prev is 2 steps behind cur, 
+        while(cur != null) {
+            cur = cur.next;
+            //dummy->1->2->3->3->4->4->5, this is to look for start and end sub array which has same 
+            //value, the loop is to identify first and last value, first is prev.next
+            while(cur != null && cur.val == prev.next.val) {
+                cur = cur.next;
             }
+            
+            //we did not find any duplicate value, then prev moves to next
+            if(prev.next.next == cur) prev = prev.next;
+            //if we find duplicate ,this is going to remove all of them
+            prev.next = cur;
         }
+        
         return dummy.next;
+    }
+    
+    //just for reference, no need to understand this version
+    public ListNode deleteDuplicates_recursive(ListNode head) {
+        if (head == null) return null;
+        
+        if (head.next != null && head.val == head.next.val) {
+            while (head.next != null && head.val == head.next.val) {
+                head = head.next;
+            }
+            return deleteDuplicates(head.next);
+        } else {
+            head.next = deleteDuplicates(head.next);
+        }
+        return head;
     }
 }
