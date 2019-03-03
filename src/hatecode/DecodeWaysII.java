@@ -27,7 +27,29 @@ public class DecodeWaysII {
     // we target last status, dp[i] which means s(0,i - 1) how many decode ways, let's see
     // relationship with dp[i-1] and dp[i-2],why i -1 and i -2 because 
     // example, 13*3, we can divide two interpreting, like (13*)3 and 13(*3), that's why 
-    //and the result is two types sum. 
+    //and the result is two types sum.
+/*
+ For dp[i-1]:
+
+                  /           \
+                 /             \
+            s[i-1]='*'    s[i-1]>0     
+                |               |
+          + 9*dp[i-1]        + dp[i-1]
+
+             
+        For dp[i-2]:
+
+                   /                                  \
+                  /                                    \  
+              s[n-2]='1'||'2'                         s[n-2]='*'
+              /            \                       /             \     
+        s[n-1]='*'         s[n-1]!='*'          s[n-1]='*'       s[n-1]!='*'
+         /       \               |                  |              /         \
+  s[n-2]='1'  s[n-2]='2'   num(i-2,i-1)<=26         |         s[n-1]<=6    s[n-1]>6
+      |            |             |                  |              |            |
+ + 9*dp[i-2]   + 6*dp[i-2]     + dp[i-2]       + 15*dp[i-2]    + 2*dp[i-2]   + dp[i-2]
+ */
     
     //for dp[i-1], (13*)3, we can see 
     public static int numDecodings(String s) {
@@ -48,30 +70,20 @@ public class DecodeWaysII {
             //in this case, it would only two cases:
             //dp[i] += dp[i-1] (second > '0') or 
             //dp[i] +=  9 * dp[i-1] (second = "*")
-            if (second == '*') {
-                dp[i] += 9 * dp[i - 1];
-            } else if (second > '0') {
-                dp[i] += dp[i - 1];
-            }
+            if (second == '*') dp[i] += 9 * dp[i - 1];
+            else if (second > '0') dp[i] += dp[i - 1];
 
             // we consider i-1 and i-2 as one character to decode
             
             //so first one must be 1, 2 or * if not, dp[i] just be the same as dp[i-2]
             if (first == '*') {
-                if (second == '*') {
-                    dp[i] += 15 * dp[i - 2];
-                } else if (second <= '6') {
-                    dp[i] += 2 * dp[i - 2];
-                } else {
-                    dp[i] += dp[i - 2];
-                }
+                if (second == '*')  dp[i] += 15 * dp[i - 2];
+                else if (second <= '6')  dp[i] += 2 * dp[i - 2];
+                else dp[i] += dp[i - 2];
             } else if (first == '1' || first == '2') {
                 if (second == '*') {
-                    if (first == '1') {
-                        dp[i] += 9 * dp[i - 2];
-                    } else { // first == '2'
-                        dp[i] += 6 * dp[i - 2];
-                    }
+                    if (first == '1')  dp[i] += 9 * dp[i - 2];
+                    else dp[i] += 6 * dp[i - 2]; // first == '2'
                  //this means two number,like 19, 25,etc, but there would be only 1 way to 
                     //decode
                 } else if (((first - '0') * 10 + (second - '0')) <= 26) {
