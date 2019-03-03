@@ -65,6 +65,9 @@ s2:
 sell one to enter this state)
 [Action can take] Enters next state by taking a rest (since s2 is only for state 
 immediate after selling, we cannot stay here.)
+
+S2 state here is to make sure we have a cool state, that after we sell, from S1->S2, 
+we cannot buy on next day, so we have to make S2-->S0 so we can rest 1 day 
  */
     public int maxProfit(int[] prices) {
         int len = prices.length;
@@ -78,6 +81,8 @@ immediate after selling, we cannot stay here.)
 
         s0[0] = 0;
         s1[0] = -prices[0];
+        //we mark it as MIN, which means any profit will be better than initial value,
+        //this is mostly for final output
         s2[0] = Integer.MIN_VALUE;
 
         for (int i = 1; i < len; i++) {
