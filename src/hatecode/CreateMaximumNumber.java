@@ -31,7 +31,7 @@ public class CreateMaximumNumber {
      * 
      * 三个不同的函数分别用于取，合并，比较。 Reference : https://segmentfault.com/a/1190000007655603
      * 
-     * time : O((m+n)^3) 不确定 space : O(k)
+     * time : O((m+n)^3) 不确定 space : O(m1+m2)
      * 
      * [2,3,1] [2,3]
      * 
@@ -40,13 +40,14 @@ public class CreateMaximumNumber {
      * @param k
      * @return
      */
+    //
     public int[] maxNumber(int[] nums1, int[] nums2, int k) {
         int m = nums1.length;
         int n = nums2.length;
         int[] res = new int[k];
         // we get from k -n as start,
         for (int i = Math.max(0, k - n); i <= k && i <= m; i++) {
-            int[] temp = merge(maxArray(nums1, i), maxArray(nums2, k - i), k);
+            int[] temp = merge(maxNumber(nums1, i), maxNumber(nums2, k - i), k);
             if (greater(temp, 0, res, 0)) {
                 res = temp;
             }
@@ -70,8 +71,8 @@ public class CreateMaximumNumber {
         return j == nums2.length || (i < nums1.length && nums1[i] > nums2[j]);
     }
 
-    // for array num,
-    private int[] maxArray(int[] nums, int k) {
+    // get K number from nums to form the largest number
+    private int[] maxNumber(int[] nums, int k) {
         int n = nums.length;
         int[] res = new int[k];
         for (int i = 0, j = 0; i < n; i++) {
