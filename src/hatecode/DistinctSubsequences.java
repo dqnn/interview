@@ -108,7 +108,7 @@ public class DistinctSubsequences {
         for (int i = 1; i <= S.length(); i++) {
             for (int j = 1; j <= T.length(); j++) {
                 if (S.charAt(i - 1) == T.charAt(j - 1)) {
-                    // here means left and diagonal value.
+                    // 
                     dp[i][j] = dp[i-1][j] + dp[i-1][j-1];
                 } else {
                     dp[i][j] = dp[i-1][j];
