@@ -38,14 +38,15 @@ Output: 6
          
          int max = Arrays.stream(nums).max().getAsInt();
          int[] dp = new int[max+1];
+         //this is bucket, store same number value sum
+         
          int[] sum = new int[max+1];
          sum[0] = 0;
-         for(int i = 0; i < n; i++) {
-             sum[nums[i]] += nums[i];
-         }
+         for(int i = 0; i < n; i++) sum[nums[i]] += nums[i];
+
          dp[0] = 0; dp[1] = sum[1];
          for(int i = 2; i < max+1; i++) {
-             dp[i] = Math.max(dp[i-2]+sum[i], dp[i-1]);
+             dp[i] = Math.max(dp[i-2] + sum[i], dp[i-1]);
          }
          return dp[max];
      }
