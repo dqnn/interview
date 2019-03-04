@@ -20,21 +20,23 @@ Explanation: The 7 distinct subsequences are "a", "b", "c", "ab", "ac", "bc", an
         //so suppose "abab", 
         //dp[0]= {"", "a"} = 2
         //dp[1] = {"", "a", "b", "ab"} = 4
-        //dp[2] = {"", "a", "b", "ab", "aba", "aa", "ba"} = 7, the extra is ignored since duplicated
-        //so last character s[i] is added previous set dp[i-1], suppose no duplicate, it would be 2* dp[i-1]，suppose if  
-        //there are dup, then we need to substract from 2*dp[i-1], we will need count[26] to remember for each char what's their count
-        //dp[i] = 2 * dp[i-1] - dp[S[i]] - 1]
+        //dp[2] = {"", "a", "b", "ab", "aba", "aa", "ba"} = 7, the extra is ignored since 
+        //duplicated so last character s[i] is added previous set dp[i-1], 
+        //suppose no duplicate, it would be 2* dp[i-1]，suppose if  
+        //there are dup, then we need to substract from 2*dp[i-1], we will need 
+        //count[26] to remember for each char what's their count
+        //dp[i] = 2 * dp[i-1] - dp[last[x]], last[x] means last same char in string and 
         
         if (s == null || s.length() < 1) return 0;
         
         int M = (int)1e9 + 7;
-        int N = s.length();
-        int[] dp = new int[N+ 1];
+        int n = s.length();
+        int[] dp = new int[n+ 1];
         dp[0] = 1;
         int[] last = new int[26];
         Arrays.fill(last, -1);
         
-        for(int i =0; i < N; i++) {
+        for(int i =0; i < n; i++) {
             int x = s.charAt(i) - 'a';
             dp[i+1] = dp[i] * 2 % M;
             if (last[x] >= 0) {
@@ -42,15 +44,18 @@ Explanation: The 7 distinct subsequences are "a", "b", "c", "ab", "ac", "bc", an
                 dp[i+1] %= M;
             }
 /*
-Assume ith character is x, we want to subtract all the substrings that add x as the last character in other to avoid repetition. e.g. assume we have aba before the first time we add x. Then, in this time we want to add x we need to remove aba first and add x. If we don't do so, there will be two abax.
+Assume ith character is x, we want to subtract all the substrings that add 
+x as the last character in other to avoid repetition. e.g. assume we have aba 
+before the first time we add x. Then, in this time we want to add x we need 
+to remove aba first and add x. If we don't do so, there will be two abax.
 */
                 last[x] = i;
 
         }
         //remove empty string
-        dp[N]--;
-        if (dp[N] < 0) dp[N] += M;
-        return dp[N];
+        dp[n]--;
+        if (dp[n] < 0) dp[n] += M;
+        return dp[n];
 
     }
     //O(1) space version, it use prev to remember dp[i-1]
