@@ -110,13 +110,15 @@ public class DistinctSubsequences {
             for (int j = 1; j <= t.length(); j++) {
                 if (s.charAt(i - 1) == t.charAt(j - 1)) {
                     //so this is the key point, if s[i-1] = t[j-1]
-                    //一, T的前j个元素都存在于S的前i-1个元素里面, dp[i-1][j]
-                    //二, T的前j-1个元素都存在于S的前i-1个元素里面,dp[i-1][j-1]
+                    //那么S[0...i-1]包含的T[0...j-1]的数量 = S[0...i-2]包含T[0...j-1]的数量
+                    //加上**S[0...i-2]包含T[0...j-2]的数量
                     //换句话, 当S[i-1]==T[j-1]时, 情况可以被分为T带S[i]玩和不带S[i]玩的情况, 
                     //两种情况的可能结果加起来就是总共的 :
-                    //eg: s = "baggg", t= bag, so we want to know for t[0,j-1], how many times
-                    //it showed as sequence in s[0-i]
-                    //
+                    //eg: s = "baggg", t= bag, when s[i] = "baggg" and t[j] = 'bag'
+                    //1. we want to know s[i-1]='bagg' contains how many t[j] = 'bag'
+                    //2. remove last char both, s[i-1] = 'bagg', t[j-1] = 'ba', how many
+                    //times s[i-1] contains t[j-1] because last one is the same, this means
+                    //2 gs is replacable
                     dp[i][j] = dp[i-1][j] + dp[i-1][j-1];
                 } else {
                 //so s="raaaaar" and t="r", so we can see when we visit "a", no matter 
