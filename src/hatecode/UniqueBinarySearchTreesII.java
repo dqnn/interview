@@ -86,31 +86,48 @@ Note for the right side we have to clone the nodes as the value will be offsette
     
     //if we think about top down, we can easily to have recursive for loop to construct the n-child tree
     //for each unit, left child and right child, 
+    //O(nG(n))/O(nG(n)), so G(n) = 4^n/n^(1/2)
     public List<TreeNode> generateTrees2(int n) {
         if (n == 0) return new ArrayList<>();
-        return genTreeList(1, n);
+        return helper(1, n);
     }
 
-    // Tree structure, the tree has n child tree
-    public List<TreeNode> genTreeList(int start, int end) {
+    // Tree structure, the tree has n child tree, 
+    //need to think about how we construct the tree 
+    public List<TreeNode> helper(int start, int end) {
         List<TreeNode> list = new ArrayList<>();
         //note: this is exit condition, and note we add null into list because left or right child maybe null
         //and we need to assign them to child tree, null left and right is allowable
+        /*
+         * this is also one way to write, the reason is the for loop even both rlist and lList are null, they 
+         * still can mark idx as root, its left and right are null
+          if (st > ed) {
+            tmpList.add(null);
+        } else if (st == ed) {
+            tmpList.add(new TreeNode(st));
+        } else {
+            for (int i=st; i<=ed; i++) {
+            }
+        }
+         */
+        
+        
+        
         if (start > end) {
             list.add(null);
         }
         for (int idx = start; idx <= end; idx++) {
             //we split the range into two parts and we recursive on each part by genTreeList() 
             // note the for loop here is perfect
-            List<TreeNode> leftList = genTreeList(start, idx - 1);
-            List<TreeNode> rightList = genTreeList(idx + 1, end);
+            List<TreeNode> leftList = helper(start, idx - 1);
+            List<TreeNode> rightList = helper(idx + 1, end);
             //for each left child, we add the into list
             //two loops to setup left and right tree with idx as root
-            for (TreeNode left : leftList) {
-                for (TreeNode right : rightList) {
+            for (TreeNode l : leftList) {
+                for (TreeNode r : rightList) {
                     TreeNode root = new TreeNode(idx);
-                    root.left = left;
-                    root.right = right;
+                    root.left = l;
+                    root.right = r;
                     list.add(root);
                 }
             }
