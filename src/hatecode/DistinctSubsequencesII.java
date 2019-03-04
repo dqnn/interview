@@ -24,16 +24,10 @@ Explanation: The 7 distinct subsequences are "a", "b", "c", "ab", "ac", "bc", an
         //duplicated so last character s[i] is added previous set dp[i-1], 
         //suppose no duplicate, it would be 2* dp[i-1]，because set's principal, 2^n, previous was
         //2^(n-1)
-        //but there are dup, eg, "ab"->"aba", "aa" should be only once, we need to know 
-        //the how many we should substract, it is dp[prev a index], 
-        //reason: "****bab", if we add "a" to this sequence, if we don't care about dup, then it would 
-        //add just add each sequence "a" and append to that list, so the only part we dup is the prev "a"
-        //end 's sub sequence, "***aa" is not doubled, but "***ba" and "***ba" is dup, the count of this 
-        //part is dp[prev a index], because that number describe with a as end and without a, 
-        //if we add a new 
-        //count[26] to remember for each char what's their count
-        //dp[i] = 2 * dp[i-1] - dp[last[x]], last[x] means last same char in string and 
-        
+        //eg: "baca", dp=[1, 2, 4, 8, 13], last['a'-'a'] = 1, dp[1] = 2, not a, it is the set count
+        //before last 'a', so that part will double, and we substract one
+        ////count[26] to remember for each char what's their count
+        //dp[i] = 2 * dp[i-1] - dp[last[x]], last[x] means last same char in string and
         if (s == null || s.length() < 1) return 0;
         
         int M = (int)1e9 + 7;
@@ -47,6 +41,7 @@ Explanation: The 7 distinct subsequences are "a", "b", "c", "ab", "ac", "bc", an
             int x = s.charAt(i) - 'a';
             dp[i+1] = dp[i] * 2 % M;
             if (last[x] >= 0) {
+                //"baca", here last['a' - 'a'] = 0,  
                 dp[i+1] -= dp[last[x]];
                 dp[i+1] %= M;
             }
