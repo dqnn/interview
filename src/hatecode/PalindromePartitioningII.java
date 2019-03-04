@@ -7,6 +7,7 @@ package hatecode;
  * Creator : duqiang
  * Date : Sep, 2018
  * Description : 132. Palindrome Partitioning II
+ * tags: two pointers, dp
  */
 public class PalindromePartitioningII {
     /**
@@ -31,7 +32,7 @@ public class PalindromePartitioningII {
      * @return
      */
     /*
-    This can be solved by two points:
+    This can be solved by two pointers:
 
    cut[i] is the minimum of cut[j - 1] + 1 (j <= i), if [j, i] is palindrome.
    If [j, i] is palindrome, [j + 1, i - 1] is palindrome, and c[j] == c[i].
@@ -41,8 +42,8 @@ public class PalindromePartitioningII {
                    j  i
           j-1  |  [j, i] is palindrome
       cut(j-1) +  1
-    */
-    
+
+ */
     // interview friendly:
     // we want to know in string s, where to cut the string so each string partition is 
     //palindrome and cuts has smallest number, so 
@@ -65,26 +66,60 @@ public class PalindromePartitioningII {
         if (s == null || s.length() < 1) {
             return 0;
         }
-        int len = s.length();
-        int[] cuts = new int[len];
+        int n = s.length();
+        //cuts[i] means string 0->i, the max cut
+        int[] cuts = new int[n];
         
-        boolean[][] isPalindrome = new boolean[len][len];
+        boolean[][] isPalindrome = new boolean[n][n];
         
-        for(int i = 0; i < len; i++) {
+        for(int i = 0; i < n; i++) {
             //cuts initialize
             int min = i;
             for(int j = 0; j <= i; j++) {
                 // j +1, i - 1. means string between j and i, 
                 // so this means i and j are outest char and if internal is palindrome, so whole string
                 // will be palindrome
-                if(s.charAt(i) == s.charAt(j) && (i - j < 2 || isPalindrome[j+1][i-1])) {
+                //j+1 > i-1 -> 2 > i-j, which means i = j or j+1=i, 
+                if(s.charAt(i) == s.charAt(j) && (i == j || i == j+1 || isPalindrome[j+1][i-1])) {
                     isPalindrome[j][i] = true;
-                    min = j == 0? 0 : Math.min(min, cuts[j-1] + 1);
+                    //min default is index i which is maxium cuts, 
+                    //so how the code runs:
+                    //every time, when i is fixed, we initialize the max possuble cut value min = i, 
+                    //then from j ->i, we try to detect the longest palindrome so we can reduce the cuts, 
+                    //every time we will remember the min cuts with the string length, so we use cuts[i] here
+                    min = j == 0 ? 0 : Math.min(min, cuts[j-1] + 1);
                 }
             }
             cuts[i] = min;
         }
-        return cuts[len -1];
+        return cuts[n -1];
+    }
+
+    //recursion solutions, best performance and it use expand from one central point to both sides
+    public int minCut_Recursion(String s){
+        int len = s.length();
+        int[] f = new int[len];
+        for (int i = 0; i < len; i++){
+            f[i] = i;
+        }
+        for (int i = 0; i < len; i++){
+            search(s, f, i, i);
+            search(s, f, i, i + 1);
+        }
+        return f[len - 1];
+    }
+    
+    private void search (String s, int[] f, int left, int right){
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)){
+            if (left == 0){
+                f[right] = 0;
+            } else {
+                f[right] = Math.min(f[right], f[left - 1] + 1);
+            }
+            left--;
+            right++;
+        }
+        
     }
 
 }

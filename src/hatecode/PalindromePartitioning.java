@@ -15,7 +15,7 @@ public class PalindromePartitioning {
     /**
 Given a string s, partition s such that every substring of the partition is a palindrome.
 
-Return all possible palindrome partitioning of s.
+Return all possible palindrome partitioning of s. max ones
 
 Example:
 
@@ -34,7 +34,7 @@ Output:
      ["a","a","b"]
      ]
 
-     time: O(2^n) space O(n)
+     time: O(n*2^n) space O(n)
 
      * @param s
      * @return

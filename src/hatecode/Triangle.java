@@ -72,6 +72,23 @@ public class Triangle {
     minpath[i] = min( minpath[i], minpath[i+1]) + triangle[k][i]; 
     Thus, we have the following solution
     */
+    /*
+     * [
+     [2],
+    [3,4],
+   [6,5,7],
+  [4,1,8,3]
+]
+we start from last row, 
+res[j] = Math.min(res[j], res[j+1]) + t.get(i).get(j), 
+so in last row, res[j] and res[j+1] will be 0, so after this loop, res= [4, 1, 8, 3, 0]
+
+then we jump one row, then you can see we always made this row to plus smaller than on previous row by above code, and 
+we put the result to res[j] because res[j+1] needs to compare with next, res = [7, 6, 10, 3, 0]
+then next, we add [3,4], it will be res = [9, 10,10,3,0]
+last we add 2, then it will be res=[11,10,10,3,0]
+     */
+    
         public int minimumTotal(List<List<Integer>> triangle) {
             if (triangle == null || triangle.size() < 1) {
                 return 0;

@@ -1,6 +1,7 @@
 package hatecode;
 
-import java.util.List;
+import java.util.*;
+
 
 /**
  * Project Name : Leetcode
@@ -57,5 +58,29 @@ public class WordBreak {
             }
         }
         return dp[s.length()];
+    }
+    
+    //DFS solutions
+    private boolean[] visited = null;
+    private Set<String> dic = null;
+    public boolean wordBreak_DFS(String s, List<String> wordDict) {
+        if (s == null || s.length() == 0) return false;
+        visited = new boolean[s.length()+1];
+        dic = new HashSet<>();
+        wordDict.stream().forEach(e->dic.add(e));
+        return helper(s,0);
+    }
+    
+    private boolean helper(String s, int start) {
+        if (start == s.length()) return true;
+        visited[start] = true;
+        
+        for(int i = start + 1; i<= s.length(); i++) {
+            String sub = s.substring(start, i);
+            if (dic.contains(sub) && !visited[start + sub.length()]) {
+                if (helper(s, i)) return true;
+            }
+        }
+        return false;
     }
 }
