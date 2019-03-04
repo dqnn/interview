@@ -1,4 +1,5 @@
 package hatecode;
+import java.util.*;
 public class DeleteAndEarn {
 /*
 740. Delete and Earn
@@ -29,23 +30,23 @@ Output: 6
         }
         return Math.max(take, skip);
     }
-    //O(n)/O(1)
-    public int deleteAndEarn(int[] nums) {
-        int n = nums.length;
-        if(n == 0) return 0;
-        int max = Integer.MIN_VALUE;
-        for(int i = 0; i < n; i++)
-            max = Math.max(max, nums[i]);
-        int[] dp = new int[max+1];
-        int[] sum = new int[max+1];
-        sum[0] = 0;
-        for(int i = 0; i < n; i++) {
-            sum[nums[i]] += nums[i];
-        }
-        dp[0] = 0; dp[1] = sum[1];
-        for(int i = 2; i < max+1; i++) {
-            dp[i] = Math.max(dp[i-2]+sum[i], dp[i-1]);
-        }
-        return dp[max];
-    }
+    //O(n)/O(1), interview friendly
+   //O(n)/O(1)
+     public int deleteAndEarn(int[] nums) {
+         int n = nums.length;
+         if(n == 0) return 0;
+         
+         int max = Arrays.stream(nums).max().getAsInt();
+         int[] dp = new int[max+1];
+         int[] sum = new int[max+1];
+         sum[0] = 0;
+         for(int i = 0; i < n; i++) {
+             sum[nums[i]] += nums[i];
+         }
+         dp[0] = 0; dp[1] = sum[1];
+         for(int i = 2; i < max+1; i++) {
+             dp[i] = Math.max(dp[i-2]+sum[i], dp[i-1]);
+         }
+         return dp[max];
+     }
 }
