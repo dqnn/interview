@@ -65,18 +65,19 @@ public class InterleavingString {
         if ((s1.length() + s2.length()) != s3.length()) return false;
 
        // s1 as row, s2 as column, this determine when we use the condition to check how we write the forumla
-        boolean[][] dp = new boolean[s1.length() + 1][s2.length() + 1];
+        int r = s1.length(), c = s2.length();
+        boolean[][] dp = new boolean[r + 1][c + 1];
         dp[0][0] = true;
         // initialize first column, we compare y axis with s3, compare each character is same as s3
-        for (int i = 1; i < dp.length; i++) {
+        for (int i = 1; i <= r; i++) {
             dp[i][0] = dp[i - 1][0] && (s1.charAt(i - 1) == s3.charAt(i - 1));
         }
-        for (int j = 1; j < dp[0].length; j++) {
+        for (int j = 1; j <= c; j++) {
             dp[0][j] = dp[0][j - 1] && (s2.charAt(j - 1) == s3.charAt(j - 1));
         }
 
-        for (int i = 1; i < dp.length; i++) {
-            for (int j = 1; j < dp[0].length; j++) {
+        for (int i = 1; i <= r; i++) {
+            for (int j = 1; j <= c; j++) {
                 // (i,j) above and left value, 
                 // if we detect i -1 means above, so we have to check S2 axis value is the same as in S3, the path is like 
                 //  ---
@@ -109,7 +110,8 @@ public class InterleavingString {
                 } else if (j == 0) {
                     dp[i][j] = dp[i - 1][j] && s1.charAt(i - 1) == s3.charAt(i + j - 1);
                 } else {
-                    dp[i][j] = (dp[i - 1][j] && s1.charAt(i - 1) == s3.charAt(i + j - 1)) || (dp[i][j - 1] && s2.charAt(j - 1) == s3.charAt(i + j - 1));
+                    dp[i][j] = (dp[i - 1][j] && s1.charAt(i - 1) == s3.charAt(i + j - 1)) 
+                            || (dp[i][j - 1] && s2.charAt(j - 1) == s3.charAt(i + j - 1));
                 }
             }
         }
@@ -117,7 +119,8 @@ public class InterleavingString {
     }
     
     /*
-     * If we expand the two strings s1 and s2 into a chess board, then this problem can be transformed into a path 
+     * If we expand the two strings s1 and s2 into a chess board, then this problem can be 
+     * transformed into a path 
      * seeking problem from the top-left corner to the bottom-right corner. 
      * The key is, each cell (y, x) in the board corresponds to an interval between 
      * y-th character in s1 and x-th character in s2. And adjacent cells are connected with like a grid. 
