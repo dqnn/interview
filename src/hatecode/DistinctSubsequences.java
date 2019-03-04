@@ -114,7 +114,9 @@ public class DistinctSubsequences {
                     //二, T的前j-1个元素都存在于S的前i-1个元素里面,dp[i-1][j-1]
                     //换句话, 当S[i-1]==T[j-1]时, 情况可以被分为T带S[i]玩和不带S[i]玩的情况, 
                     //两种情况的可能结果加起来就是总共的 :
-                    //eg: s = "baggg", t= bag, when i went to 2nd g, 
+                    //eg: s = "baggg", t= bag, so we want to know for t[0,j-1], how many times
+                    //it showed as sequence in s[0-i]
+                    //
                     dp[i][j] = dp[i-1][j] + dp[i-1][j-1];
                 } else {
                 //so s="raaaaar" and t="r", so we can see when we visit "a", no matter 
