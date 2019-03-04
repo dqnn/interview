@@ -86,6 +86,8 @@ Output:
             return map.get(start);
         }
         List<String> res = new ArrayList<>();
+        //this is necessary to bootstrap the word append in backtracking code, there is 
+        //list loop, if list.size() ==0, then res has no chance to add the substring
         if (start == s.length()) {
             res.add("");
         }
@@ -99,6 +101,7 @@ Output:
             if (wordDict.contains(s.substring(start, end))) {
                 List<String> list = dfs(s, wordDict, end);
                 for (String temp : list) {
+                    //here, suppose we end at cat, then it will send "sand dog" back
                     res.add(s.substring(start, end) + (temp.equals("") ? "" : " ") + temp);
                 }
             }
