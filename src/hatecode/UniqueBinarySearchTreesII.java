@@ -76,6 +76,50 @@ Note for the right side we have to clone the nodes as the value will be offsette
         cur.right = clone(root.right, k);
         return cur;
     }
+    
+    //standard DP to solve the problem the only difference is that this one does 
+    //not clone as necessary
+        public List<TreeNode> generateTrees_DP(int n) {
+            if(n == 0) return new ArrayList<TreeNode>();
+            List<List<TreeNode>>[] dp = new List[n + 1];
+            dp[0] = new ArrayList<List<TreeNode>>();
+            for(int j = 1; j <= n + 1; j++){
+                List<TreeNode> temp = new ArrayList<>();
+                temp.add(null);
+                dp[0].add(temp);
+            }        
+            dp[1] = new ArrayList<List<TreeNode>>();
+            for(int j = 1; j <= n; j++){
+                List<TreeNode> temp = new ArrayList<>();
+                TreeNode tempNode = new TreeNode(j);
+                temp.add(tempNode);
+                dp[1].add(temp);
+            }        
+            for(int i = 2; i < dp.length; i++){
+                dp[i] = new ArrayList<List<TreeNode>>();
+                generateTreesHelper(dp, i, n);
+            }
+            return dp[n].get(0);
+        }
+        
+        public void generateTreesHelper(List<List<TreeNode>>[] dp, int n, int total){
+            for(int i = 1; i <= total - n + 1; i++){ // for example, n = 4. we need to generate 1234, 2345, 3456
+                List<TreeNode> l = new ArrayList<>();
+                for(int j = i; j < n + i; j++){
+                    List<TreeNode> left = dp[j - i].get(i - 1);
+                    List<TreeNode> right = dp[n + i - j - 1].get(j);
+                    for(TreeNode leftNode : left){
+                        for(TreeNode rightNode : right){
+                            TreeNode root = new TreeNode(j);
+                            root.left = leftNode;
+                            root.right = rightNode;
+                            l.add(root);
+                        }
+                    }   
+                }
+                dp[n].add(l);
+            }
+        }
 
     //interview frinendly:
     
@@ -110,9 +154,6 @@ Note for the right side we have to clone the nodes as the value will be offsette
             }
         }
          */
-        
-        
-        
         if (start > end) {
             list.add(null);
         }
