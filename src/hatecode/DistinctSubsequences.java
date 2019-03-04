@@ -98,24 +98,33 @@ public class DistinctSubsequences {
     //LCS initialize as 0 because they want to find LCS or length of LCS, there is no meaning to be 1
     // here we initialize as 1 because if t = "" which means 
     // we don't need to do anything so it would equals T.
-    public static int numDistinct(String S, String T) {
-        int[][] dp = new int[S.length() + 1][T.length() + 1];
-        // initialize 1 so we can
-        for (int i = 0; i < S.length(); i++) {
+    public static int numDistinct(String s, String t) {
+        //dp[i][j] means S[0,i] has dp[i][j] sequence equals to T[0-j]
+        int[][] dp = new int[s.length() + 1][t.length() + 1];
+        // 因为我们只要不选S中任何的字符,就能成为T。所以用dp做时,dp[i][0]我们都设为1.
+        for (int i = 0; i < s.length(); i++) {
             dp[i][0] = 1;
         }
 
-        for (int i = 1; i <= S.length(); i++) {
-            for (int j = 1; j <= T.length(); j++) {
-                if (S.charAt(i - 1) == T.charAt(j - 1)) {
-                    // 
+        for (int i = 1; i <= s.length(); i++) {
+            for (int j = 1; j <= t.length(); j++) {
+                if (s.charAt(i - 1) == t.charAt(j - 1)) {
+                    //so this is the key point, if s[i-1] = t[j-1]
+                    //一, T的前j个元素都存在于S的前i-1个元素里面, dp[i-1][j]
+                    //二, T的前j-1个元素都存在于S的前i-1个元素里面,dp[i-1][j-1]
+                    //换句话, 当S[i-1]==T[j-1]时, 情况可以被分为T带S[i]玩和不带S[i]玩的情况, 
+                    //两种情况的可能结果加起来就是总共的 :
+                    //eg: s = "baggg", t= bag, when i went to 2nd g, 
                     dp[i][j] = dp[i-1][j] + dp[i-1][j-1];
                 } else {
+                //so s="raaaaar" and t="r", so we can see when we visit "a", no matter 
+                //which, the value is 1, the same as left in matrix, so we use dp[i-1][j]
+                //also means s[i-1] is no use
                     dp[i][j] = dp[i-1][j];
                 }
             }
         }
-        return dp[S.length()][T.length()];
+        return dp[s.length()][t.length()];
     }
     // this is DFS solution
     //space O(m*n), Time ？
