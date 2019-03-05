@@ -1,0 +1,6 @@
+TODO:
+1. 188--buy stock IV, how to understand prevMax = Math.max(prevMax, dp[i - 1][j - 1] - prices[j]);
+2. 740 delete and earn, i could understand the dp[i] = max(dp[i-2] + sum[nums[i]], 
+dp[i-1]), but i cannot understand the iskip and itake version. 
+3. backpack, how transfrom from 2D array to 1D to save space
+

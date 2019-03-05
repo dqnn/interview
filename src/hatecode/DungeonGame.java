@@ -109,11 +109,43 @@ Let dp[i][j] denote Initial HP needed if the knight starts from dungeon[i][j].
 dp[i][j] = min(dp[i + 1][j], dp[i][j + 1]) - dungeon[i][j];
 if(dp[i][j] <= 0) dp[i][j] = 1;
 */
-    //interview friendly,
+  //interview friendly,
     //the brutal force solution is we visit all possible path to end, each path we should 
     //have a number, if it is smaller than 0, then we add a number to make it 1, then the number we added
     //is the minimal we want, the time complexity is O(2^(MN)), every node we have two ways 
+    
+    //remember: dp[i][j] means the least HP if starting from (i,j), 
+    //1-m[i][j] means to keep alive, the least HP we need, if that column is -5, then you have 
+    //to be 6, if 1, you have to be 1 at least alive
     public int calculateMinimumHP(int[][] m) {
+        if (m == null || m.length == 0 || m[0].length == 0) return 0;
+
+        int r = m.length;
+        int c = m[0].length;
+        int[][] dp = new int[r][c];
+
+        dp[r - 1][c - 1] = Math.max(1 - m[r - 1][c - 1], 1);
+
+        //initialize last column, starting from second last
+        for (int i = r - 2; i >= 0; i--) {
+            dp[i][c - 1] = Math.max(dp[i + 1][c - 1] - m[i][c - 1], 1);
+        }
+        //initialize last row, starting from 2nd last
+        for (int i = c - 2; i >= 0; i--) {
+            dp[r - 1][i] = Math.max(dp[r - 1][i + 1] - m[r - 1][i], 1);
+        }
+
+        for (int i = r - 2; i >= 0; i--) {
+            for (int j = c - 2; j >= 0; j--) {
+                int down = Math.max(dp[i + 1][j] - m[i][j], 1);
+                int right = Math.max(dp[i][j + 1] - m[i][j], 1);
+                dp[i][j] = Math.min(down, right);
+            }
+        }
+        return dp[0][0];
+    }
+
+    public int calculateMinimumHP_Reference(int[][] m) {
         if (m == null || m.length < 1 || m[0].length < 1) return 0;
         int r = m.length, c= m[0].length;
         
@@ -135,33 +167,4 @@ if(dp[i][j] <= 0) dp[i][j] = 1;
         return dp[0][0];
         
     }
-
-    public int calculateMinimumHP_Reference(int[][] dungeon) {
-        if (dungeon == null || dungeon.length == 0 || dungeon[0].length == 0) return 0;
-
-        int m = dungeon.length;
-        int n = dungeon[0].length;
-        int[][] dp = new int[m][n];
-
-        dp[m - 1][n - 1] = Math.max(1 - dungeon[m - 1][n - 1], 1);
-
-        //initialize last column
-        for (int i = m - 2; i >= 0; i--) {
-            dp[i][n - 1] = Math.max(dp[i + 1][n - 1] - dungeon[i][n - 1], 1);
-        }
-        //initialize last row
-        for (int i = n - 2; i >= 0; i--) {
-            dp[m - 1][i] = Math.max(dp[m - 1][i + 1] - dungeon[m - 1][i], 1);
-        }
-
-        for (int i = m - 2; i >= 0; i--) {
-            for (int j = n - 2; j >= 0; j--) {
-                int down = Math.max(dp[i + 1][j] - dungeon[i][j], 1);
-                int right = Math.max(dp[i][j + 1] - dungeon[i][j], 1);
-                dp[i][j] = Math.min(down, right);
-            }
-        }
-        return dp[0][0];
-    }
-
 }

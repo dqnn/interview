@@ -69,4 +69,29 @@ I chose i = n and i + 1 = 0 for simpler coding. But, you can choose whichever tw
         }
         return Math.max(prevNo, prevYes);
     }
+    
+    //this is my own solutions
+    public int rob_DP(int[] A) {
+        if (A == null || A.length < 1) return 0;
+        
+        int n = A.length;
+        if (n == 1) return A[0];
+        if (n == 2) return Math.max(A[0], A[1]);
+        
+        return Math.max(Rob(A, 0, n-2), Rob(A, 1, n-1));
+    }
+    
+    private int Rob(int[] A, int start, int end) {
+        //this is the same to have result, but return fast
+        if (start == end - 1) return Math.max(A[start], A[end]);
+        int n = end - start + 1;
+        int[] dp = new int[n + 1];
+        dp[0] = 0;
+        dp[1] = A[start];
+        
+        for(int i = 2; i <= n; i++){
+            dp[i] = Math.max(dp[i-2] + A[i-1 + start], dp[i-1]);
+        }
+        return dp[n];
+    }
 }
