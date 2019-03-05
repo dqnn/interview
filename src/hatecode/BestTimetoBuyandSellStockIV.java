@@ -49,7 +49,8 @@ public class BestTimetoBuyandSellStockIV {
             return result;
         }
         /** sub-problem:
-         * dp[i][j] represents max profit of first j + 1 prices by making i transactions
+         * dp[i][j] represents max profit of first j + 1 prices by making i transactions， 
+         * j starts from 0 so it is j + 1 transactions
          *
          * base case:
          * dp[0][j] = 0 for 0 < j < prices.length, since 0 transaction will have no profit

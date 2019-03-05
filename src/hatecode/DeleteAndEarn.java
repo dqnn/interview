@@ -33,13 +33,12 @@ skip[i] through, can be derived from either take[i-1] or skip[i-1], whatever the
  */
      public int deleteAndEarn_DP(int[] nums) {
         int n = 10001;
-        int[] values = new int[n];
-        for (int num : nums)
-            values[num] += num;
+        int[] sum = new int[n];
+        Arrays.stream(nums).forEach(e->sum[e] += e);
 
         int take = 0, skip = 0;
         for (int i = 0; i < n; i++) {
-            int takei = skip + values[i];
+            int takei = skip + sum[i];
             int skipi = Math.max(skip, take);
             take = takei;
             skip = skipi;
