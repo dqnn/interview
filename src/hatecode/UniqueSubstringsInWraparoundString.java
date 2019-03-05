@@ -1,4 +1,5 @@
 package hatecode;
+import java.util.*;
 class UniqueSubstringsInWraparoundString {
 /*
 467. Unique Substrings in Wraparound String
@@ -35,12 +36,7 @@ Explanation: There are two substrings "a", "c" of string "cac" in the string s.
             count[index] = Math.max(count[index], maxLengthCur);
         }
         
-        // Sum to get result
-        int sum = 0;
-        for (int i = 0; i < 26; i++) {
-            sum += count[i];
-        }
-        return sum;
+        return Arrays.stream(count).sum();
     }
     
     //why this complexity is better?
