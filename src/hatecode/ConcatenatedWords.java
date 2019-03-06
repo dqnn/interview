@@ -15,6 +15,13 @@ Explanation: "catsdogcats" can be concatenated by "cats", "dog" and "cats";
  "dogcatsdog" can be concatenated by "dog", "cats" and "dog"; 
 "ratcatdogcat" can be concatenated by "rat", "cat", "dog" and "cat".
 */
+    //the problem is to say: given a word dic, it has strings, try to find the longer ones
+    //which can be concatenated by the shorter ones, 
+    //so from a longer string, we can easily word break to shorter ones, see word break 1, 
+    //so leverage that solution, we can sort the dic by string length, then we 
+    //start from 0 string and put into set one by one, so longer cannot form shorter ones
+    //so when we reached a longer string, then its former string can be reused.
+    //O(n * k^2), k is max string length(), /O(n)
     public List<String> findAllConcatenatedWordsInADict(String[] words) {
         List<String> res = new ArrayList<>();
         Arrays.sort(words, (a, b)->(a.length() - b.length()));
