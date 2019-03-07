@@ -35,6 +35,7 @@ public class PaintHouseII {
     //maintain the minimum two costs min1(smallest) and min2 (second to smallest) after painting i-th house.
     //dp[i][j] represents the min paint cost from house 0 to house i when house i use color j; 
     //The formula will be dp[i][j] = Math.min(any k!= j| dp[i-1][k]) + costs[i][j].
+    //O(nk)/O(1)
     public int minCostII(int[][] costs) {
         if (costs == null || costs.length == 0) return 0;
         int n = costs.length;

@@ -1,3 +1,20 @@
+system design:
+1. ask interviewer the design tenets, like 
+2. finalize features we want to design
+3. parameters calculations， qps = 100, your PC, 1k, 1 web server, 1m, 1000 hosts how to maintain
+fanout, 
+4. system->service, each service storage, 
+for example: user service, tweet service, media service, followship service, logic process unit
+5.how to store 4 places, 
+1. mem storage-- no need to persist
+2. structure data,L, like RDS or no sql db
+3. file system, unstructure data, like image, video
+6. pull or push, 
+7.about some cache problems, see https://www.jiuzhang.com/article/pbt7Df/ 
+8 need to learn kafka and redis difference, try small experiments, 
+9.client-side partition, redis
+
+
 前言：常看到有人問 system design需不需要準備 new grad會不會考system design 我想給地裡的戰友們建議 當然準備面試刷題是基本中的基本 但當你刷到一定程度後 刷題投資報酬率就開始低了 這時我真心建議可以花些時間讀system design 因為你花在這個的前10-20小時投資報酬率非常高！基本的觀念有了以後可以apply到所有的問題 面試之前不管HR跟你說有沒有system design你都不怕 廢話不多說 直接進入主題
 https://www.educative.io/collection/5668639101419520/5649050225344512
 https://github.com/donnemartin/system-design-primer

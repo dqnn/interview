@@ -3,3 +3,6 @@ https://github.com/yangshun/tech-interview-handbook/tree/master/design
 
 https://wizardforcel.gitbooks.io/gainlo-interview-guide/content/sd1.html
 https://segmentfault.com/a/1190000006025876
+
+1. system design 
+

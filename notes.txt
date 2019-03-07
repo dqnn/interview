@@ -6,3 +6,5 @@ dp[i-1]), but i cannot understand the iskip and itake version.
 4. how to understand the max square dp foruma, 3 square? why? max rectangle should applied to 
 max square, 
 5. re-write Trie class with hashmap, so that it can adapt to any problems, include add, search methods
+6. write paint house 2 on paper from O(nk^2) to O(nk), this is also space optimization
+7.
