@@ -7,28 +7,25 @@ public class QuickSort {
      * correct position in sorted array, and places all smaller (smaller than pivot)
      * to left of pivot and all greater elements to right of pivot
      */
-    int partition(int arr[], int low, int high) {
-        int pivot = arr[high];
-        int i = (low - 1); // index of smaller element
-        for (int j = low; j < high; j++) {
-            // If current element is smaller than or
-            // equal to pivot
-            if (arr[j] <= pivot) {
-                i++;
-
-                // swap arr[i] and arr[j]
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+    public  int partition(int[] nums, int left, int right) {
+        int pivot = nums[left];
+        int l = left + 1;
+        int r = right;
+        while (l <= r) {
+            if (nums[l] < pivot && nums[r] > pivot) {
+                swap(nums, l++, r--);
             }
+            if (nums[l] >= pivot) l++;
+            if (nums[r] <= pivot) r--;
         }
+        swap(nums, left, r);
+        return r;
+    }
 
-        // swap arr[i+1] and arr[high] (or pivot)
-        int temp = arr[i + 1];
-        arr[i + 1] = arr[high];
-        arr[high] = temp;
-
-        return i + 1;
+    private  void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
     }
 
     /*
@@ -60,7 +57,7 @@ public class QuickSort {
     // Driver program
     public static void main(String args[]) {
         int arr[] = {
-                10, 7, 8, 9, 1, 5 };
+                10, 1, 7, 8, 9, 1, 5 };
         int n = arr.length;
 
         QuickSort ob = new QuickSort();
