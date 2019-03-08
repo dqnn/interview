@@ -133,25 +133,33 @@ public class BurstBalloons {
      * won't give any coins. The algorithm runs in O(n^3) which can be easily seen
      * from the 3 loops in dp solution.
      */
-
+    //interview friendly O(n ^ 3)
     public int maxCoins2(int[] iNums) {
-        int[] nums = new int[iNums.length + 2];
-        int n = 1;
-        for (int x : iNums)
-            if (x > 0)
-                nums[n++] = x;
-        nums[0] = nums[n++] = 1;
-
+        int len = iNums.length;
+        int n = len + 2;
+       int[] nums = new int[n];
+       for (int i = 0; i< len;i++)
+            //if (iNums[i] > 0)//we can remove this
+                nums[i+1] = iNums[i];
+        nums[0] = nums[len+1] = 1;
+        System.out.println(n);
+        //dp[1][len] will be the result
         int[][] dp = new int[n][n];
-        for (int k = 2; k < n; ++k)
-            for (int left = 0; left < n - k; ++left) {
-                int right = left + k;
-                for (int i = left + 1; i < right; ++i) // don't understand why ++i
-                    dp[left][right] = Math.max(dp[left][right],
-                            nums[left] * nums[i] * nums[right] + dp[left][i] + dp[i][right]);
+        
+        //dp[i][j] means new array nums, from i to j, max coins
+        //it has 3 parts, suppose k is last to burst, so we walk 1 balloon, 2 balloons, etc 
+         for(int l=1;l<=len;++l)
+            //i and j is the sub array, l is the length of the sub array
+            for(int i=1;i<=len-l+1;++i) {
+                int j=i+l-1;
+                //k is the index between i and j
+                for(int k=i;k<=j;++k) {
+                    dp[i][j] = Math.max(dp[i][j], dp[i][k-1] + nums[i-1] * nums[k] * nums[j+1] + dp[k+1][j]);
+                }
             }
-
-        return dp[0][n - 1];
+        
+        return dp[1][len];
+        
     }
 
 }
