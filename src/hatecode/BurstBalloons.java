@@ -53,15 +53,16 @@ public class BurstBalloons {
 
     public int maxCoins(int[] nums) {
         int n = nums.length;
+        //copy original data into new ones and add 1 in start and end
         int[] arr = new int[n + 2];
-        for (int i = 0; i < n; i++) {
-            arr[i + 1] = nums[i];
-        }
+        for (int i = 0; i < n; i++) arr[i + 1] = nums[i];
         arr[0] = arr[n + 1] = 1;
+        
         int[][] dp = new int[n + 2][n + 2];
         return helper(1, n, arr, dp);
     }
-
+    //helper is aim to calc (i,j) the max ballon burst sum, 
+    //(i, x-1), x, (x+1, j)
     private int helper(int i, int j, int[] nums, int[][] dp) {
         if (i > j) return 0;
         if (dp[i][j] > 0) return dp[i][j];
