@@ -107,7 +107,7 @@ Clearly len + 1 = 4 is our result : )
             // this templates is while(left < start), 2# template, we have one element left for 
             //post processing
             //binary search 2nd templates
-            while (i != j) {
+            while (i < j) {
                 int mid = i + (j - i) /2;
                 if (tails[mid] < num) {
                     i = mid + 1;
