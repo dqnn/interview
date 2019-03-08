@@ -4,8 +4,8 @@ package hatecode;
 // substring searching algorithm, this is just for being familiar with KMP
 
 public class KMP_String_Matching {
-    void KMPSearch(String pat, String txt) {
-        int M = pat.length();
+    void KMPSearch(String pattern, String txt) {
+        int M = pattern.length();
         int N = txt.length();
 
         // create lps[] that will hold the longest
@@ -15,11 +15,11 @@ public class KMP_String_Matching {
 
         // Preprocess the pattern (calculate lps[]
         // array)
-        computeLPSArray(pat, M, lps);
+        computeLPSArray(pattern, M, lps);
 
         int i = 0; // index for txt[]
         while (i < N) {
-            if (pat.charAt(j) == txt.charAt(i)) {
+            if (pattern.charAt(j) == txt.charAt(i)) {
                 j++;
                 i++;
             }
@@ -29,7 +29,7 @@ public class KMP_String_Matching {
             }
 
             // mismatch after j matches
-            else if (i < N && pat.charAt(j) != txt.charAt(i)) {
+            else if (i < N && pattern.charAt(j) != txt.charAt(i)) {
                 // Do not match lps[0..lps[j-1]] characters,
                 // they will match anyway
                 if (j != 0)
@@ -52,8 +52,7 @@ public class KMP_String_Matching {
                 len++;
                 lps[i] = len;
                 i++;
-            } else // (pat[i] != pat[len])
-            {
+            } else { // (pat[i] != pat[len])
                 // This is tricky. Consider the example.
                 // AAACAAAA and i = 7. The idea is similar
                 // to search step.
@@ -62,8 +61,7 @@ public class KMP_String_Matching {
 
                     // Also, note that we do not increment
                     // i here
-                } else // if (len == 0)
-                {
+                } else {// if (len == 0)
                     lps[i] = len;
                     i++;
                 }
@@ -78,4 +76,3 @@ public class KMP_String_Matching {
         new KMP_String_Matching().KMPSearch(pat, txt);
     }
 }
-// This code has been contributed by Amit Khandelwal.
