@@ -51,7 +51,8 @@ public class MaxSumofRectangleNoLargerThanK {
      */
     // the problem is asking for max sum of a rectangle, all numbers sum in this rectangle.
     
-    //we do like 
+    //we scan the matrix 3 times, 2 row 1 coumn to get accumulted sum, so for each iteration,
+    //we use a treeSet to to look for numbers which is cur -k the minimal ones  
     /*
      row scan i->0..c we define sum[i], i is from 0->r
           row scan j ->i, c.
@@ -86,7 +87,7 @@ public class MaxSumofRectangleNoLargerThanK {
                 int cur = 0;
                 // for each column mode, we visit by row level
                 // because sum is accumulated, so use sum[big] - sum[small] <= k, 
-                //
+                //that's why we use cur - k
                 for(int num : sum) {
                     cur += num;
                      // it returns least value >= cur-k
