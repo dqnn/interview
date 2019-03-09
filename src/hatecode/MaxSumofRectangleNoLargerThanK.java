@@ -57,6 +57,10 @@ public class MaxSumofRectangleNoLargerThanK {
           row scan j ->i, c.
                  column scan col->0, r to get sum[col]
                  we use treeset to store the sum[col], col->0. r. and find the min
+                 
+                 since sum, we want no more than 7, we seek to ceiling in treeset which contains
+                 all integers from sum.this is more like in array, we want to find two numbers
+                 sum no more than k
                       
      */
     public int maxSumSubmatrix(int[][] m, int k) {
