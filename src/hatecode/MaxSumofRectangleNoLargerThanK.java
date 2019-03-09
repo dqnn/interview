@@ -55,16 +55,17 @@ public class MaxSumofRectangleNoLargerThanK {
             return 0;
         }
         
-        int row = m.length, column = m[0].length, res = Integer.MIN_VALUE;
+        int r = m.length, c = m[0].length, res = Integer.MIN_VALUE;
         // scan from left to right
-        for (int left = 0; left < column; left ++) {
+        for (int left = 0; left < c; left ++) {
             //each row sum, sum[i] from column mode 0--> i
-            int[] sum = new int[row];
+            int[] sum = new int[r];
             // second pointer scan from left to right, only after from first pointer
             // coulmn mode sum
-            for (int right = left; right < column; right++) {
-                // we scan from first row to last row but on the column we want,so it is more on the column level
-                for (int i = 0; i < row; i++) {
+            for (int right = left; right < c; right++) {
+                // we scan from first row to last row but on the column we want,
+                //so it is more on the column level
+                for (int i = 0; i < r; i++) {
                     sum[i] += m[i][right];
                 }
                 //add column value into treeset
