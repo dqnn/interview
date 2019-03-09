@@ -49,28 +49,36 @@ public class MaxSumofRectangleNoLargerThanK {
      * @param k
      * @return
      */
-    // the problem is asking for max sum of a rectangle
+    // the problem is asking for max sum of a rectangle, all numbers sum in this rectangle.
+    
+    //we do like 
+    /*
+     row scan i->0..c we define sum[i], i is from 0->r
+          row scan j ->i, c.
+                 column scan col->0, r to get sum[col]
+                 we use treeset to store the sum[col], col->0. r. and find the min
+                      
+     */
     public int maxSumSubmatrix(int[][] m, int k) {
         if (m == null || m.length < 1) {
             return 0;
         }
         
         int r = m.length, c = m[0].length, res = Integer.MIN_VALUE;
-        // scan from left to right
+        // row scan
         for (int left = 0; left < c; left ++) {
             //each row sum, sum[i] from column mode 0--> i
             int[] sum = new int[r];
             // second pointer scan from left to right, only after from first pointer
-            // coulmn mode sum
+            // column mode sum
             for (int right = left; right < c; right++) {
-                // we scan from first row to last row but on the column we want,
-                //so it is more on the column level
+                // we scan from on column right
                 for (int i = 0; i < r; i++) {
                     sum[i] += m[i][right];
                 }
-                //add column value into treeset
-                TreeSet<Integer> set = new TreeSet<>();
-                set.add(0);
+                //add column value into treeSet
+                TreeSet<Integer> treeSet = new TreeSet<>();
+                treeSet.add(0);
                 int cur = 0;
                 // for each column mode, we visit by row level
                 for(int num : sum) {
@@ -80,12 +88,12 @@ public class MaxSumofRectangleNoLargerThanK {
                     // The Ceiling of 2.31 is 3
                     //The Floor/Ceiling of 5 is 5
                     // 大于cur-k 的最小值
-                    //if we can find the temp means we find it
-                    Integer temp = set.ceiling(cur - k);
+                    //temp > cur - k, while temp is min, so k > cur - temp,so 
+                    Integer temp = treeSet.ceiling(cur - k);
                     if (temp != null) {
                         res = Math.max(res, cur - temp);
                     }
-                    set.add(cur);
+                    treeSet.add(cur);
                 }
             }
         }
