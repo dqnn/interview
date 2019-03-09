@@ -74,6 +74,7 @@ if we have 1,1,1,1,1,1,1 like this, we will find the j will always j = mid, whic
 so we sort one dimension, and we want to find LIS on another dimension. 
 
   */
+    //O(nlgn)/O(1)
     public int maxEnvelopes(int[][] envelopes) {
         if (envelopes == null || envelopes.length == 0) return 0;
         // it will form [2,3], [5,4], [6,7], [6,4], [6,2], width do increasing, 
@@ -118,5 +119,39 @@ so we sort one dimension, and we want to find LIS on another dimension.
         //first 
         if (dp[start] >= target) return start;
         return end;
+    }
+    //so dp[i] = dp[k] + 1, k = 0...i-1
+    public int maxEnvelopes_DP(int[][] envelopes) {
+        if (   envelopes           == null
+            || envelopes.length    == 0
+            || envelopes[0]        == null
+            || envelopes[0].length == 0){
+            return 0;    
+        }
+        
+        Arrays.sort(envelopes, new Comparator<int[]>(){
+            @Override
+            public int compare(int[] e1, int[] e2){
+                return Integer.compare(e1[0], e2[0]);
+            }
+        });
+        
+        int   n  = envelopes.length;
+        int[] dp = new int[n];
+        
+        int ret = 0;
+        for (int i = 0; i < n; i++){
+            dp[i] = 1;
+            
+            for (int j = 0; j < i; j++){
+                if (   envelopes[i][0] > envelopes[j][0]
+                    && envelopes[i][1] > envelopes[j][1]){
+                    dp[i] = Math.max(dp[i], 1 + dp[j]);    
+                }
+            }
+            
+            ret = Math.max(ret, dp[i]);
+        }
+        return ret;
     }
 }

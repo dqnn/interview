@@ -56,7 +56,8 @@ public class BombEnemy {
         //O(mn(m + n)) because k starts from j and i, 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (j == 0 || grid[i][j - 1] == 'W') {// this is optimization, which means we need to calculate
+             // this is optimization, which means we need to calculate
+                if (j == 0 || grid[i][j - 1] == 'W') {
                     rowCount = 0;
                     for (int k = j; k < n && grid[i][k] != 'W'; k++) {
                         rowCount += grid[i][k] == 'E' ? 1 : 0;
