@@ -47,6 +47,8 @@ public class BombEnemy {
     // 我们总不能没换个列就重新统计一遍吧，所以就在第一行时一起统计了存到数组中供后来使用。
     // 有了水平方向和竖直方向敌人的个数，那么如果当前位置是0，表示可以放炸弹，
     // 我们更新结果res即可
+    
+    //rowCount will be same on same, it will be calculated if its left is W
     public int maxKilledEnemies(char[][] grid) {
         if (grid == null || grid.length == 0 || grid[0].length == 0) return 0;
         int m = grid.length, n = grid[0].length;
@@ -71,6 +73,7 @@ public class BombEnemy {
                         colCount[j] += grid[k][j] == 'E' ? 1 : 0;
                     }
                 }
+                //since we are row scan so rowCount will be same
                 if (grid[i][j] == '0') {
                     res = Math.max(res, colCount[j] + rowCount);
                 }
