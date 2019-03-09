@@ -70,21 +70,23 @@ public class MaxSumofRectangleNoLargerThanK {
         
         int r = m.length, c = m[0].length, res = Integer.MIN_VALUE;
         // row scan
-        for (int left = 0; left < c; left ++) {
+        for (int i = 0; i < c; i ++) {
             //each row sum, sum[i] from column mode 0--> i
             int[] sum = new int[r];
             // second pointer scan from left to right, only after from first pointer
             // column mode sum
-            for (int right = left; right < c; right++) {
+            for (int j = i; j < c; j++) {
                 // we scan from on column right
-                for (int i = 0; i < r; i++) {
-                    sum[i] += m[i][right];
+                for (int p = 0; p < r; p++) {
+                    sum[p] += m[p][j];
                 }
                 //add column value into treeSet
                 TreeSet<Integer> treeSet = new TreeSet<>();
                 treeSet.add(0);
                 int cur = 0;
                 // for each column mode, we visit by row level
+                // because sum is accumulated, so use sum[big] - sum[small] <= k, 
+                //
                 for(int num : sum) {
                     cur += num;
                      // it returns least value >= cur-k
