@@ -166,8 +166,9 @@ Here comes the revised version:
         if (nums == null || nums.length == 0) return res;
         Arrays.sort(nums);
         //dp[i] means how many integers in the result set for 0->i
+        //each dp should at least 1 number as result set
         int[] dp = new int[nums.length];
-        dp[0] = 1;
+        Arrays.fill(dp,1);
 
         //for each element in nums, find the length of largest subset it has.
         for (int i = 1; i < nums.length; i++){
@@ -190,7 +191,8 @@ Here comes the revised version:
         //from nums[maxIndex] to 0, add every element belongs to the largest subset.
         int temp = nums[maxIndex];
         int curDp = dp[maxIndex];
-        //we track back to original value by dp[i] value, the length must match and mod == 0
+        //we track back to original value by dp[i] value, the length must match and mod == 0,
+        //
         for (int i = maxIndex; i >= 0; i--){
             if (temp % nums[i] == 0 && dp[i] == curDp){
                 res.add(nums[i]);
