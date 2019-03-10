@@ -56,6 +56,7 @@ If there are lots of incoming S, say S1, S2, ... , Sk where k >= 1B, and you wan
     //to improve the whole problem efficiency, need to do work on t
     // need to ask interviewer that whether we can process S strings first, because 
     // 
+    //O(max(m,n))/O(1)
     public boolean isSubsequence(String s, String t) {
         if (s == null || s.length() == 0) return true;
         int i = 0;

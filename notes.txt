@@ -10,4 +10,6 @@ max square,
 7.LIS and russian env doll also used bianry search, so need to understand how and why we use bianry search
 8.guess the number II, thinking about why k + max(dp[i][k-1], dp[k+1][j]), why we use max here? and 
 draw the tree， another is thinking about why 
-9.combinationSum4,  knapsack VI problems. 
+9.combinationSum4,  knapsack VI problems. 1. 2D solutions, 2. to understand in VI, why we put target in 
+otter loop, 
+10. longest wigger sequence, why up = down + 1? need more thoughts
