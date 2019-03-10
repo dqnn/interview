@@ -31,20 +31,20 @@ public class GuessNumberHigherorLower {
      * @return
      */
     public int guessNumber(int n) {
-        int start = 1;
-        int end = n;
-        while (start + 1 < end) {
-            int mid = (end - start) / 2 + start;
+        int l = 1;
+        int r = n;
+        while (l + 1 < r) {
+            int mid = (r - l) / 2 + l;
             if (guess((mid)) == 0) {
                 return mid;
             } else if (guess(mid) == 1) {
-                start = mid;
+                l = mid;
             } else {
-                end = mid;
+                r = mid;
             }
         }
-        if (guess(start) == 0) return start;
-        return end;
+        if (guess(l) == 0) return l;
+        return r;
     }
 
 
@@ -57,19 +57,19 @@ public class GuessNumberHigherorLower {
         if (n < 1) {
             return -1;
         }
-        int start = 1, end = n;
-        while (start < end) {
-            int mid = start + (end -start) / 2;
+        int l = 1, r = n;
+        while (l < r) {
+            int mid = l + (r -l) / 2;
             int g = guess(mid);
             if (g == 1) {
-                start = mid + 1;
+                l = mid + 1;
             } else if (g == -1) {
-                end = mid - 1;
+                r = mid - 1;
             }  else {
                 return mid;
             }
         }
-        if (guess(start) == 0) return start;
-        return end;
+        if (guess(l) == 0) return l;
+        return r;
     }
 }

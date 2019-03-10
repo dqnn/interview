@@ -88,12 +88,12 @@ so to guarantee you have enough money to find the target, you need to prepare th
         for (int i = n - 1; i > 0; i--) {
             for (int j = i + 1; j <= n; j++) {
                 dp[i][j] = Integer.MAX_VALUE;
-                for (int x = i; x < j; x++) {
+                for (int k = i; k < j; k++) {
                  // the max means whenever you choose a number, the feedback is always 
                     //bad and therefore leads you to a worse branch.
                    // this min makes sure that you are minimizing your cost.
                     // k+DP( start, k-1 ) + DP(k+1, end ),
-                    dp[i][j] = Math.min(dp[i][j], x + Math.max(dp[i][x - 1], dp[x + 1][j]));
+                    dp[i][j] = Math.min(dp[i][j], k + Math.max(dp[i][k - 1], dp[k + 1][j]));
                 }
             }
         }
