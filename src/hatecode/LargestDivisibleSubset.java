@@ -1,11 +1,6 @@
 package hatecode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Project Name : Leetcode
@@ -162,10 +157,15 @@ i = 6
 The old version cant pass the test case [1,2,4,8,9,72] and [4,8,10,240], thanks for that @Yanning and @svc
 Here comes the revised version:
      */
+    
+    //this is most easiest version to understand, 
+    //we first use dp to find the longest set, then we find the biggest index, and starts there
+    //we find all items in the set
     public static List<Integer> largestDivisibleSubset3(int[] nums) {
         List<Integer> res = new ArrayList<Integer>();
         if (nums == null || nums.length == 0) return res;
         Arrays.sort(nums);
+        //dp[i] means how many integers in the result set for 0->i
         int[] dp = new int[nums.length];
         dp[0] = 1;
 
@@ -260,6 +260,27 @@ for each of the aforementioned values.
         return ls;
 
     }
+    
+    
+    public List<Integer> largestDivisibleSubset_Map(int[] nums) {
+        if (nums.length == 0) return new ArrayList<>();
+        Arrays.sort(nums);
+        Map <Integer, List<Integer>> map = new HashMap<>();
+        for (int num : nums) {
+            Integer copyKey = null;
+            for (Integer key : map.keySet())
+                if (num % key == 0) 
+                    if (copyKey == null || map.get (copyKey).size() < map.get (key).size()) copyKey = key;
+                    
+            map.put (num, copyKey != null ? new ArrayList<> (map.get (copyKey)) : new ArrayList<>());
+            map.get (num).add (num);
+        }
+        
+        List<Integer> max = null;
+        for (Map.Entry<Integer, List<Integer>> entry : map.entrySet())
+            if (max == null || max.size() < entry.getValue().size()) max = entry.getValue();
+        return max;
+}
     
     public static void main(String[] args) {
         int[] input = new int[] {1,2,3,4,5,6,8};
