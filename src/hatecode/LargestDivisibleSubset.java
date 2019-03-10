@@ -190,6 +190,7 @@ Here comes the revised version:
         //from nums[maxIndex] to 0, add every element belongs to the largest subset.
         int temp = nums[maxIndex];
         int curDp = dp[maxIndex];
+        //we track back to original value by dp[i] value, the length must match and mod == 0
         for (int i = maxIndex; i >= 0; i--){
             if (temp % nums[i] == 0 && dp[i] == curDp){
                 res.add(nums[i]);
