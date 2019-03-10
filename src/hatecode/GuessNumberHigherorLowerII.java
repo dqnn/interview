@@ -82,10 +82,15 @@ so to guarantee you have enough money to find the target, you need to prepare th
      * @param n
      * @return
      */
-
+    //note i has to be from 1 to n-1 because it stands for smaller than j,also j has to be 
+    //i +1, n
+    
+    //and k has to be [i,j-1]
     public int getMoneyAmount2(int n) {
+        //dp[i][j] means from range(i...j) the minimal cost,
+        //so if we guess k, then we need to 
         int[][] dp = new int[n + 1][n + 1];
-        for (int i = n - 1; i > 0; i--) {
+        for (int i = n - 1; i >= 1; i--) {
             for (int j = i + 1; j <= n; j++) {
                 dp[i][j] = Integer.MAX_VALUE;
                 for (int k = i; k < j; k++) {
