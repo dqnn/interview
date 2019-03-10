@@ -57,7 +57,9 @@ down         1     1       1     3    3     3
     */
     //thinking process:
     
-    //
+    //up = down + 1 becasue up and down here means correct wigger sequence length, so
+    //we need to make previous also correct, so up = down + 1 or down = up +1, this can help 
+    //to make sure previous are wigger 
     public int wiggleMaxLength(int[] nums) {
         if (nums == null || nums.length < 1) {
             return 0;

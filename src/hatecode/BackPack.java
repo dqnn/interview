@@ -268,6 +268,19 @@ return 6
  */
     //dp[i] = dp[i-nums[0]] + dp[i-nums[1]] + ... + dp[i-nums[i-1]]
     //coin change 1 and 2 belong to this
+/*
+for (int i = 0; i < nums.length; ++i){
+    for (int j = target; j >= nums[i]; --j){
+        f[j] += f[j - nums[i]];
+    }
+}
+从target循环到nums[i]是因为每个物品只能使用一次，倒序循环不会影响之后的操作。
+比如对于一个体积为5的物品 target=10
+那么j循环就是f[10]+=f[10-5];f[9]+=f[9-5];f[8]+=f[8-5];f[7]+=f[7-5];f[6]+=f[6-5];f[5]+=f[5-5] ;
+在每种可能的情况下放物品时，都是基于这个物品还没有放进去的情况，只有倒序循环才能满足条件，如果正序循环：
+那么5次操作分别是f[5]+=f[5-5];f[6]+=f[6-5];f[7]+=f[7-5];f[8]+=f[8-5];f[9]+=f[9-5];f[10]+=f[10-5]
+在计算f[10]的时候，f[5]在之前已经计算过了，并且是由f[0]得到的，这个容量为10的背包包含了装了两个体积为5的物品，是不符合题意的
+ */
     public static int backPackVI(int[] nums, int target) {
         if (nums == null || nums.length < 1 || target < 1) return 0;
         int[] dp = new int[target + 1];
@@ -279,15 +292,21 @@ return 6
         }
         return dp[target];
     }
-    
+/*
+可以看到最大的不同是，考虑组合次序不同是不同的方案的话是先迭代背包容量(空间)，而考虑组合次序不同是
+同一种方案先迭代物品。 这是因为比如容量
+大小为4的背包，[1, 1,2]和[2, 1, 1]是不同的方案，容量都为4，所以要先迭代容量，找出所有容量为4的物品组合。
+http://www.yikanggao.com/blog/2017/06/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%BB%86%E8%8A%82%E6%8E%A2%E6%9E%90.html
+ */
+    //for nums=[3,4,5,6,7], w = 1, should be 0 but it returned 1
     public static int backPackVI_2DDP(int[] nums, int w) {
         if (nums == null || nums.length < 1 || w < 1) return 0;
         int n = nums.length;
         int[][] dp = new int[n + 1][w + 1];
         dp[0][0]  = 1;
-        for(int i= 1; i <=n; i++) {
-            dp[0][i] = 1;
-            for(int j = 0; j <= w; j++) {
+        for(int j= 1; j <=w; j++) {
+            dp[0][j] = 1;
+            for(int i = 1; i <= n; i++) {
                 if (j < nums[i-1]) dp[i][j] = dp[i-1][j];
                 else dp[i][j] = dp[i-1][j] + dp[i][j-nums[i-1]];
             }

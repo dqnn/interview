@@ -9,5 +9,5 @@ max square,
 6. write paint house 2 on paper from O(nk^2) to O(nk), this is also space optimization
 7.LIS and russian env doll also used bianry search, so need to understand how and why we use bianry search
 8.guess the number II, thinking about why k + max(dp[i][k-1], dp[k+1][j]), why we use max here? and 
-draw the tree
-9.
+draw the tree， another is thinking about why 
+9.combinationSum4,  knapsack VI problems. 
