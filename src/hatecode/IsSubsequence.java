@@ -1,6 +1,6 @@
 package hatecode;
 
-import java.util.ArrayList;
+import java.util.*;
 import java.util.Collections;
 import java.util.List;
 
@@ -86,28 +86,31 @@ If there are lots of incoming S, say S1, S2, ... , Sk where k >= 1B, and you wan
         // a--1,3,5,6,7
         // b--0,4,8,9,
         // a is character in t, the list contains the index in t
-        List<Integer>[] idx = new List[256]; // Just for clarity, List<Integer>[] idx = new ArrayList[256]; also work
+        Map<Character, List<Integer>> idx = new HashMap<>(); // Just for clarity, List<Integer>[] idx = new ArrayList[256]; also work
         for (int i = 0; i < t.length(); i++) {
-            if (idx[t.charAt(i)] == null)
-                idx[t.charAt(i)] = new ArrayList<>();
-            idx[t.charAt(i)].add(i);
+            idx.computeIfAbsent(t.charAt(i), v->new LinkedList<>()).add(i);
         }
         
         int prev = 0;
         for (int i = 0; i < s.length(); i++) {
-            if (idx[s.charAt(i)] == null) return false; // Note: char of S does NOT exist in T causing NPE
+            if (idx.get(s.charAt(i)) == null) return false; // Note: char of S does NOT exist in T causing NPE
            //If key is not present, the it returns "(-(insertion point) - 1)". 
             //The insertion point is defined as the point at which the key 
             // would be inserted into the list.
             //// Returns index of key in sorted list sorted in
-            // ascending order
-            int j = Collections.binarySearch(idx[s.charAt(i)], prev); // preV is the key
+            /*
+s = "abc", t = "ahbgdca", j will be like
+a:0
+b:-1
+c:-1
+             */
+            int j = Collections.binarySearch(idx.get(s.charAt(i)), prev); // preV is the key
             // means we did not find it
             if (j < 0) j = -j - 1; 
             // means there is no such character in t
-            if (j == idx[s.charAt(i)].size()) return false;
+            if (j == idx.get(s.charAt(i)).size()) return false;
             // j existed, so pre is the index of t, so pre move 1 character
-            prev = idx[s.charAt(i)].get(j) + 1;
+            prev =idx.get(s.charAt(i)).get(j) + 1;
         }
         return true;
     }
