@@ -2,7 +2,7 @@ package hatecode;
 
 import java.util.*;
 
-public class BackPack {
+public class KnapSack_Commons {
 
     //list of back pack problems and explain
 /*
