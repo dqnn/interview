@@ -171,14 +171,17 @@ Here comes the revised version:
 
         //for each element in nums, find the length of largest subset it has.
         for (int i = 1; i < nums.length; i++){
-            for (int j = i-1; j >= 0; j--){
+            for (int j = 0; j < i; j++){
                 if (nums[i] % nums[j] == 0){
                     dp[i] = Math.max(dp[i],dp[j] + 1);
                 }
             }
         }
 
-        //pick the index of the largest element in dp.
+        //pick the index of the largest element in dp and if there is a tie, we need the min
+        //idx
+        //we need this, because for example, [2,3,4,8,9]
+        //dp=[1, 0, 2, 3, 1], so maxIdx = 3,
         int maxIndex = 0;
         for (int i = 1; i < nums.length; i++){
             maxIndex = dp[i] >= dp[maxIndex] ?  i :  maxIndex;
