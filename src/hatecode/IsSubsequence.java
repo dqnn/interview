@@ -111,4 +111,27 @@ If there are lots of incoming S, say S1, S2, ... , Sk where k >= 1B, and you wan
         }
         return true;
     }
+    //simple DP solutions,
+    //so s = "abc", t = "ahbgdc", dp[i][j] means s(0,i) is sequence of t(0,j)
+    //s[i] = t[j] then dp[i][j] = dp[i-1][j-1] 
+    //if not, then dp[i][j] = d[i][j-1] because comapre "ab"(s) to "a" (t), we can see only
+    //only left is true can guarantee that it is sequence, the right top cannot
+    public boolean isSubsequence_DP(String s, String t) {
+        if (s == null && t == null) return true;
+        if (s == null || t == null) return false;
+        
+        int m = s.length(), n = t.length();
+        boolean[][] dp = new boolean[m + 1][n + 1];
+        
+        for(int i = 0; i<= n; i++) dp[0][i] = true;
+        
+        for(int i = 1; i<=m; i++) {
+            for(int j = 1; j<=n; j++) {
+                if (s.charAt(i-1) == t.charAt(j-1)) dp[i][j] = dp[i-1][j-1];
+                else dp[i][j] = dp[i][j-1];
+            }
+        }
+        return dp[m][n];
+        
+    }
 }
