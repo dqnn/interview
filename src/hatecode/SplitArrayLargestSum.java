@@ -36,10 +36,10 @@ Output:
         //visited means [start][m] 
         int[][] visited = new int[n][m+1];
         //start from 0 and m groups
-        return dfs(0, m, nums, presum, visited);
+        return helper(0, m, nums, presum, visited);
     }
     //m means groups
-    private int dfs(int start, int m, int[] nums, int[] presum, int[][] visited) {
+    private int helper(int start, int m, int[] nums, int[] presum, int[][] visited) {
         //like edge case, only 1 group left,so we just calculate the result
         if (m == 1) {
             return presum[nums.length] - presum[start];
@@ -64,7 +64,7 @@ so we use visited[start][m] as mem to record which we have visited
             //left means first group sum
             int left = presum[i+1] - presum[start];
             //this will be recursive calc to each group
-            int rightIntervalMax = dfs(i+1, m-1, nums, presum, visited);
+            int rightIntervalMax = helper(i+1, m-1, nums, presum, visited);
             //this would pick max sum for each group
             maxSum = Math.min(maxSum, Math.max(left, rightIntervalMax));
             
@@ -74,7 +74,7 @@ so we use visited[start][m] as mem to record which we have visited
         return maxSum;
     }
     
-    //binary search, 
+    //O(nlogsum) best solutions
     public int splitArray3(int[] nums, int m) {
         int max = 0; long sum = 0;
         for (int num : nums) {
