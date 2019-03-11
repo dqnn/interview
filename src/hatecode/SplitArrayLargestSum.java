@@ -121,29 +121,26 @@ so we use visited[start][m] as mem to record which we have visited
      dp[s+1,i] = min{ max(dp[s,j], n[i]+...+n[j-1]) }, i+1 <= j <= L-s
     */
     public int splitArray(int[] nums, int m) {
-        int L = nums.length;
-        int[] S = new int[L + 1];
+        int n = nums.length;
+        int[] S = new int[n + 1];
         S[0] = 0;
-        for (int i = 0; i < L; i++)
+        for (int i = 0; i < n; i++)
             S[i + 1] = S[i] + nums[i];
 
-        int[] dp = new int[L];
-        for (int i = 0; i < L; i++)
-            dp[i] = S[L] - S[i];
+        int[] dp = new int[n];
+        for (int i = 0; i < n; i++)
+            dp[i] = S[n] - S[i];
 
         for (int s = 1; s < m; s++) {
-            for (int i = 0; i < L - s; i++) {
+            for (int i = 0; i < n - s; i++) {
                 dp[i] = Integer.MAX_VALUE;
-                for (int j = i + 1; j <= L - s; j++) {
+                for (int j = i + 1; j <= n - s; j++) {
                     int t = Math.max(dp[j], S[j] - S[i]);
-                    if (t <= dp[i])
-                        dp[i] = t;
-                    else
-                        break;
+                    if (t <= dp[i]) dp[i] = t;
+                    else break;
                 }
             }
         }
-
         return dp[0];
     }
 }
