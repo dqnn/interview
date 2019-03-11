@@ -177,7 +177,7 @@ is accumulated results
     //After advancing the pointer, if ptr points to a space, it means the piece can 
     //fit in row perfectly. If ptr points to the middle of a word, we must retreat the 
     //pointer to the beginning of the word, because a word cannot be split into two lines.
-    
+    //the same as previous one
     public int wordsTyping4(String[] sentence, int rows, int cols) {
         String s = String.join(" ", sentence) + " ";
         int[] map = new int[s.length()];
