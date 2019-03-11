@@ -51,21 +51,21 @@ Hence, player 1 will never be the winner and you need to return False.
     //O(n^2)/O(n^2), memo as 2D array, it can only be filled once
     public boolean PredictTheWinner2(int[] nums) {
         Integer[][] memo = new Integer[nums.length][nums.length];
-        return winner(nums, 0, nums.length - 1, memo) >= 0;
+        return helper(nums, 0, nums.length - 1, memo) >= 0;
     }
-    public int winner(int[] nums, int s, int e, Integer[][] memo) {
-        if (s == e)
-            return nums[s];
-        if (memo[s][e] != null)
-            return memo[s][e];
-        int a = nums[s] - winner(nums, s + 1, e, memo);
-        int b = nums[e] - winner(nums, s, e - 1, memo);
+    //helper means one play can get the max score from the sub array, from s to e
+    public int helper(int[] nums, int s, int e, Integer[][] memo) {
+        if (s == e) return nums[s];
+        if (memo[s][e] != null) return memo[s][e];
+        
+        int a = nums[s] - helper(nums, s + 1, e, memo);
+        int b = nums[e] - helper(nums, s, e - 1, memo);
         memo[s][e] = Math.max(a, b);
         return memo[s][e];
     }
     
     //DP version  //O(n^2)/O(n^2)
-    //dp[i][j] means for sub array in nums, diff bewteen player 1 and conterparts best scoore he can get
+    //dp[i][j] means for sub array(i,j) in nums, diff bewteen player 1 and conterparts best scoore he can get
     
     //so dp[i][j] = max(nums[i] - dp[i+1][j], nums[i] - dp[i][j-1]), 
     //boundary: so i dependson i+1, so start needs to back to front, and j depends j -1, so j can start from front to back
