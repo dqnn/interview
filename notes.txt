@@ -13,3 +13,4 @@ draw the tree， another is thinking about why
 9.combinationSum4,  knapsack VI problems. 1. 2D solutions, 2. to understand in VI, why we put target in 
 otter loop, 
 10. longest wigger sequence, why up = down + 1? need more thoughts
+11. lc 410, dp solution, not understand how it formed m groups. 

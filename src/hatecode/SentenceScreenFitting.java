@@ -28,24 +28,32 @@ The character '-' signifies an empty space on the screen.
 */
     /*DP solution
      * like a jump game. I use a array to record for each word, how far it can jump.
-     * eg. dp[index] means if the row start at index then the start of next row is
-     * dp[index]. dp[index] can be larger than the length of the sentence, in this
+     * eg. dp[i] means if the row start at index then the start of next row is
+     * dp[i].i is  index of sentence, dp[index] can be larger than the length of the sentence, in this
      * case, one row can span multiple sentences. I comment the check whether a word
      * is longer than the row since there is no such test case. But it's better to
      * check it. And it make little difference to the speed.
      */
-    public int wordsTyping6(String[] sentence, int rows, int cols) {
+    public static int wordsTyping6(String[] sentence, int rows, int cols) {
         int[] dp = new int[sentence.length];
         int n = sentence.length;
+        //pretty elegant code,
+        //len means: 
+        //prev: 
         for(int i = 0, prev = 0, len = 0; i < sentence.length; ++i) {
             // remove the length of previous word and space
             if(i != 0 && len > 0) len -= sentence[i - 1].length() + 1;
-            // calculate the start of next line.
+            // calculate the start index of next line.
             // it's OK the index is beyond the length of array so that 
             // we can use it to count how many words one row has.
-            while(len + sentence[prev % n].length() <= cols) len += sentence[prev++ % n].length() + 1;
+            while(len + sentence[prev % n].length() <= cols) 
+                len += sentence[prev++ % n].length() + 1;
+            
+            //prev is next row start index in sentence
             dp[i] = prev;
         }
+//dp=[4,5,6], sentence=["a", "b", "c'] rows = 8, cols = 7
+        
         int count = 0;
         for(int i = 0, k = 0; i < rows; ++i) {
             // count how many words one row has and move to start of next row.
@@ -108,12 +116,16 @@ is accumulated results
         }
         return ans;
     }
-    
+    //this is to say assume no space in sentence, and we concat them to be one string,
+    //cols is like a ruler, we use a ruler to measure the times of the sentence show times,
+    //if we detect the end is " " then we continue, if not, then means we measure too much, the 
+    //word is truncated, so we retreat back until we meet the space
     public int wordsTyping3(String[] sentence, int rows, int cols) {
         String s = String.join(" ", sentence) + " ";
         int start = 0, l = s.length();
         for (int i = 0; i < rows; i++) {
             start += cols;
+            //
             if (s.charAt(start % l) == ' ') {
                 start++;
             } else {
@@ -154,8 +166,42 @@ is accumulated results
         }
         return res;
     }
+    
+    
+    
+  //Imagine an infinite sentence that are concatenated by words from the given sentence, 
+    //infiStr. We want to cut the infiStr properly and put a piece at each row of the screen.
+    //We maintain a pointer ptr. The ptr points to a position at infiStr, where next row 
+    //will start. Cutting the infiStr and putting a piece at a row can be simulated as 
+    //advancing the pointer by cols positions.
+    //After advancing the pointer, if ptr points to a space, it means the piece can 
+    //fit in row perfectly. If ptr points to the middle of a word, we must retreat the 
+    //pointer to the beginning of the word, because a word cannot be split into two lines.
+    
+    public int wordsTyping4(String[] sentence, int rows, int cols) {
+        String s = String.join(" ", sentence) + " ";
+        int[] map = new int[s.length()];
+        for(int i=1; i<s.length(); i++){
+            if(s.charAt(i) == ' ') map[i] = 1;
+            else map[i] = map[i-1]-1;
+        }
+        int count = 0;
+        //s => " hello world "
+        //count => 0+8 = 8
+        //so now at 8%13 = 8th position in the string is w.. 
+        //we cnt put just w in one line and rest next line.. 
+        //we fill with spaces thats why we store negative values for that position 
+        //in the map.
+        for(int i=0; i<rows; i++){
+            count += cols;
+            count += map[count%s.length()];
+        }
+        
+        //At last, the count represents the length of the repeated lines in which each word is separated by exactly one space. And since the joined sentence s has its words separated by 1 space as well, the number of repeats we can get is count / s.length().
+        return count/s.length();
+    }
     public static void main(String[] args) {
         String[] in = {"a", "b", "c"};
-        System.out.println(wordsTyping(in, 8,7));
+        System.out.println(wordsTyping6(in, 8,7));
     }
 }
