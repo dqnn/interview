@@ -100,7 +100,7 @@ Explanation:
         
         return res;
     }
-    // greatest common driver 最大公约数
+    // greatest common driver 最大公约数, thinking about it is a= 3, b= 6
     public int gcd(int a, int b) {
         if (a == 0) return b;
         return gcd(b % a, a);

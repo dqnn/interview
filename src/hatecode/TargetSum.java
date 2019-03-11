@@ -23,13 +23,15 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
 */
      //DP solution, 
     public int findTargetSumWays2(int[] nums, int S) {
-        int totalSum = 0;
+        int totalSum = Arrays.stream(nums).sum();
+        //this can be removed
         for (int num : nums) {  //calculate the totalSum keeping all the elements in the array positive
             totalSum += num;  
         }
         if (totalSum < S || -totalSum > S) { //If the target sum S is not reachable by the range
             return 0;
         }
+        //2* sum + 1 means any one is possible
         int[] dp = new int[2 * totalSum + 1];
          //dp[i] -> the number of ways to have sum = i - totalSum
         dp[totalSum] = 1; 
