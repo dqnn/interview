@@ -64,7 +64,7 @@ player2 -> loose   win   loose
         //10,11, here we needs = 0, 
         if (desired <= 0) return false;
         
-        //another way to do:  String key = Arrays.toString(chosen); 
+        //another way to do:  String key = Arrays.toString(visited); [true, false,]
         //using string to boolean map 
         int key = format(visited);
         if (!map.containsKey(key)) {

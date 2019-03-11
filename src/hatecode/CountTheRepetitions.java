@@ -24,6 +24,11 @@ How do we know "string s2 can be obtained from string s1"? Easy, use two pointer
 We repeat step 1 and go through s1 for n1 times and count how many times can we go through s2.
 Answer to this problem is times go through s2 divide by n2.
     */
+    
+    //the problem is to say how many times n2* s2= S2 in n1*s1, max showed up time.  sub sequence, not substring
+    //
+    //we comare two mini strings, every time each went to the end, then rewind, we will count
+    //how many times s2 appeared in s1, then we would just simply count2/n2;
     public int getMaxRepetitions2(String s1, int n1, String s2, int n2) {
         char[] array1 = s1.toCharArray(), array2 = s2.toCharArray();
         int count1 = 0, count2 = 0, i = 0, j = 0;
