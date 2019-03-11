@@ -122,20 +122,20 @@ so we use visited[start][m] as mem to record which we have visited
     */
     public int splitArray(int[] nums, int m) {
         int n = nums.length;
-        int[] S = new int[n + 1];
-        S[0] = 0;
+        int[] sum = new int[n + 1];
+        sum[0] = 0;
         for (int i = 0; i < n; i++)
-            S[i + 1] = S[i] + nums[i];
+            sum[i + 1] = sum[i] + nums[i];
 
         int[] dp = new int[n];
         for (int i = 0; i < n; i++)
-            dp[i] = S[n] - S[i];
+            dp[i] = sum[n] - sum[i];
 
         for (int s = 1; s < m; s++) {
             for (int i = 0; i < n - s; i++) {
                 dp[i] = Integer.MAX_VALUE;
                 for (int j = i + 1; j <= n - s; j++) {
-                    int t = Math.max(dp[j], S[j] - S[i]);
+                    int t = Math.max(dp[j], sum[j] - sum[i]);
                     if (t <= dp[i]) dp[i] = t;
                     else break;
                 }
