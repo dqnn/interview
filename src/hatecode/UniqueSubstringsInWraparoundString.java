@@ -14,7 +14,7 @@ Output: 2
 Explanation: There are two substrings "a", "c" of string "cac" in the string s.
 */
     //give a string,find all contious substring with string, like "zab", "cac"->"a" and "c", at least
-    //each one will be one,
+    //each one will be one, just return the size of all continous substring
     
     //so we use count[26] to record each character, what's the max length of contious substring, then eg "zab", 
     //3 + 2 + 1, this is pretty like arithestic slices1 and 2

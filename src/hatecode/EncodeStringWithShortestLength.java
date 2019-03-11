@@ -31,7 +31,7 @@ Output: "2[2[abbb]c]"
         String[][] dp = new String[N][N];
         //here window means window length, because in dp, we using down-top to assign the value to each
         for(int window = 0; window < N;window++) {
-            for(int i = 0; i < N -window;i++) {
+            for(int i = 0; i < N - window;i++) {
                 // j move to l length of window
                 int j = i + window;
                 //here get the window string
