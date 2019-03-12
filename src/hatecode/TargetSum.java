@@ -55,24 +55,25 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
     //setup model in the position of operators, and using backtracking to solve it
     int count = 0;
     //O(ln)/O(n), l is range of sum, n is nums length
-    public int findTargetSumWays(int[] nums, int S) {
-        //sum will be small than 1000, 
+    public int findTargetSumWays(int[] nums, int target) {
+        //memo[i][j] means for nums[0->i], sum = j combinations
+        //sum <=1000, the real sum must be [-sum, sum], so we would have max =2000, so we use 2001
         int[][] memo = new int[nums.length][2001];
-        for (int[] row: memo)
-            Arrays.fill(row, Integer.MIN_VALUE);
-        return calculate(nums, 0, 0, S, memo);
+        for (int[] row: memo) Arrays.fill(row, Integer.MIN_VALUE);
+        
+        return calculate(nums, 0, 0, target, memo);
     }
 
-    public int calculate(int[] nums, int i, int sum, int S, int[][] memo) {
+    public int calculate(int[] nums, int i, int curSum, int target, int[][] memo) {
         if (i == nums.length) {
-            return sum == S ? 1 : 0;
+            return curSum == target ? 1 : 0;
         }
-        if (memo[i][sum + 1000] != Integer.MIN_VALUE) {
-            return memo[i][sum + 1000];
+        if (memo[i][curSum + 1000] != Integer.MIN_VALUE) {
+            return memo[i][curSum + 1000];
         }
-        int add = calculate(nums, i + 1, sum + nums[i], S, memo);
-        int subtract = calculate(nums, i + 1, sum - nums[i], S, memo);
-        memo[i][sum + 1000] = add + subtract;
-        return memo[i][sum + 1000];
+        int add = calculate(nums, i + 1, curSum + nums[i], target, memo);
+        int subtract = calculate(nums, i + 1, curSum - nums[i], target, memo);
+        memo[i][curSum + 1000] = add + subtract;
+        return memo[i][curSum + 1000];
     }
 }

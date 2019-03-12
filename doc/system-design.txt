@@ -1,5 +1,5 @@
 Key Milestones
-Understand requirements and asked questions to reduce problem space. Meets.
+Understand requirements and asked questions to reduce problem space.
 
 Designing an API / Storage
 
