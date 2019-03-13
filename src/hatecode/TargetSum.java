@@ -21,7 +21,7 @@ Explanation:
 
 There are 5 ways to assign symbols to make the sum of nums be target 3.
 */
-     //DP solution, 
+     //DP solution, this is knapsack problems
     public int findTargetSumWays2(int[] nums, int S) {
         int totalSum = Arrays.stream(nums).sum();
         //this can be removed

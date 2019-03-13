@@ -91,7 +91,7 @@ Time complexity: O(n^4)
 Space complexity: O(n^3)
  */
 public class RemoveBoxes {
-
+    //this is actually memo, 
     public int removeBoxes(int[] b) {
         //edge case
         if (b == null || b.length < 1) {
@@ -103,13 +103,17 @@ public class RemoveBoxes {
     }
     
     public int helper(int[][][] dp, int[] nums, int left, int right, int k) {
+        //dfs end, left bigger than right
         if (left > right) return 0;
+        //at least dp should be >= 1
         if (dp[left][right][k] > 0) {
             return dp[left][right][k];
         }
-        //we use k to represent left
+        //we use k to represent left, we first cut on first box, 
         int res = (1 + k) * (1 + k) + helper(dp, nums, left + 1, right, 0);
-        // this is backtracking templates
+        // from left + 1 to right, we find if there are box color the same as left,
+        //then we keep nums[m] break the array into two parts, so the box can be connected to k on the left of
+        //l
         for (int m = left + 1; m <= right; ++m) {
             if (nums[m] == nums[left]) {
                 res = Math.max(res, helper(dp, nums, left + 1, m - 1, 0) 

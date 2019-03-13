@@ -14,3 +14,8 @@ draw the tree， another is thinking about why
 otter loop, 
 10. longest wigger sequence, why up = down + 1? need more thoughts
 11. lc 410, dp solution, not understand how it formed m groups. 
+12. 514. Freedom Trail why we have to iterate from back, and why result is dp[0][0], +m can understand
+13. longest palindrome sequence, i has to start from length() because j depends j+1, inner part depends on 
+outter part
+14. student record II, 552, brute force(O(3^n))->memo(O(n))->O(lgn) with the help of fast matrix
+15. 

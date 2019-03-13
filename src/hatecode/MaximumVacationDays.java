@@ -3,6 +3,7 @@ import java.util.*;
 public class MaximumVacationDays {
 /*
 568. Maximum Vacation Days
+tags:DP-best
 LeetCode wants to give one of its best employees the option to travel 
 among N cities to collect algorithm problems. But all work and no play makes 
 Jack a dull boy, you could take vacations in some particular cities and weeks. 
