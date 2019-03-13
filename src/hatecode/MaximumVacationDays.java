@@ -84,15 +84,15 @@ Ans = 1 + 1 + 1 = 3.
      //all will sum to dp[i][0], from back to front
      public int maxVacationDays(int[][] flights, int[][] days) {
          int n = flights.length;
-         int k = days[0].length;
-         int[][] dp = new int[n][k];
+         int m = days[0].length;
+         int[][] dp = new int[n][m];
          int res = 0;
-         for (int j = k - 1; j >= 0; --j) {
+         for (int j = m - 1; j >= 0; --j) {
              for (int i = 0; i < n; ++i) {
                  //at least we can have vacation days in current city i for j week
                  dp[i][j] = days[i][j];
                  for (int p = 0; p < n; ++p) {
-                     if ((i == p || flights[i][p] == 1) && j < k - 1) {
+                     if ((i == p || flights[i][p] == 1) && j < m - 1) {
                          dp[i][j] = Math.max(dp[i][j], dp[p][j + 1] + days[i][j]);
                      }
                      if (j == 0 && (i == 0 || flights[0][i] == 1)) res = Math.max(res, dp[i][0]);
@@ -113,8 +113,8 @@ Ans = 1 + 1 + 1 = 3.
          dp[0][0] = days[0][0];
          //for week 0, it means can we start with city j, if yes, then vacation days
          //days[j][0]
-         for (int j = 1; j < N; j++) {
-             dp[0][j] = flights[0][j] == 0 ? -1 : days[j][0];
+         for (int dst = 1; dst < N; dst++) {
+             dp[0][dst] = flights[0][dst] == 0 ? -1 : days[dst][0];
          }
          // thinking in this way, dp here just means maxium days when starting from week i
          //and now stay in city j, so how can we come to this state two cases:
