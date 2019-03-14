@@ -57,7 +57,7 @@ public class OutOfBoundaryPaths {
                     for (int[] d : dirs) {
                         int nr = r + d[0];
                         int nc = c + d[1];
-                        //outside
+                        //outside boundary detect
                         if (nr < 0 || nr >= m || nc < 0 || nc >= n) {
                             // count[r][c] how many ways to r c, result currently how many
                             result = (result + count[r][c]) % MOD;
