@@ -43,9 +43,8 @@ Output: False
             if (n % (idx+1) == 0) {
                 String pattern = s.substring(0, idx+1);
                 if (foundPattern(s, pattern))  return true;
-                else 
-                    //否则找下一个出现lastChar的位置
-                    idx = s.indexOf(lastChar, idx+1);
+              //否则找下一个出现lastChar的位置
+                else idx = s.indexOf(lastChar, idx+1);
             } else {
                 //否则找下一个出现lastChar的位置
                 idx = s.indexOf(lastChar, idx+1);
