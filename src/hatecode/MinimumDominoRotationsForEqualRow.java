@@ -40,7 +40,8 @@ s.size = 1, one and only one result.
 s.size = 2, it means all dominos are [a,b] or [b,a], try either one.
 s.size > 2, impossible.
 */
-
+    //interview friendly, so the problem is to say, given two arrays, A[i] and B[i], they are top and bottom
+    //sides for one domino, so find the min flip to make one sides all have same value
     public int minDominoRotations_Better(int[] A, int[] B) {
         HashSet<Integer> s = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5, 6));
         int[] countA = new int[7], countB = new int[7];
@@ -50,6 +51,7 @@ s.size > 2, impossible.
             countA[A[i]]++;
             countB[B[i]]++;
         }
+        //s may be empty or only 1 element
         for (int i : s) return Math.min(A.length - countA[i], B.length - countB[i]);
         return -1;
     }
