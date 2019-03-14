@@ -38,13 +38,12 @@ Output: False
         char lastChar = s.charAt(n-1);
         int idx = s.indexOf(lastChar);
         // 思想是： 找到最后一个字符所在的位置，那么如果是pattern，则一定有
-        // len％（index＋1）＝＝ 0。 那么pattern应该是从0到index位置的子串。
+        // n％（idx＋1）＝＝ 0。 那么pattern应该是从0到index位置的子串。
         while (idx >=0 && idx < n-1) {
             if (n % (idx+1) == 0) {
                 String pattern = s.substring(0, idx+1);
-                if (foundPattern(s, pattern)) {
-                    return true;
-                } else {
+                if (foundPattern(s, pattern))  return true;
+                else {
                     //否则找下一个出现lastChar的位置
                     idx = s.indexOf(lastChar, idx+1);
                 }
