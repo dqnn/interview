@@ -36,7 +36,7 @@ Each element of A is an integer within the range [0, N-1].
        Set to add check duplicate elements, this will have time Exceed problems
     */
     
-    
+    //brute force
     public int arrayNesting2(int[] nums) {
         //edge case
         if (nums == null || nums.length < 1) {
