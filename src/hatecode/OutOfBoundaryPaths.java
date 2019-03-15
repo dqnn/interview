@@ -72,8 +72,6 @@ public class OutOfBoundaryPaths {
         }
         return result;
     }
-    
-    
     //memo[i][j][k] is used to store the number of possible moves leading to a path 
     //out of the boundary if the current position is given by the indices (i, j)(i,j) 
     //and number of moves left is kk.
