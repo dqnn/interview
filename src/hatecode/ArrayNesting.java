@@ -82,6 +82,7 @@ Each element of A is an integer within the range [0, N-1].
             }
             
             // 5 6 0 2 and 0 5 6 0 2, we will stop at 0 so we have to delete 2 in 0 array
+            //this is to detect the head link to tail, so we would double this part
             if (map.containsKey(temp)) {
                 List<Integer> list = new ArrayList<>(set);
                 max = Math.max(max, set.size() + list.indexOf(start) + 1);
