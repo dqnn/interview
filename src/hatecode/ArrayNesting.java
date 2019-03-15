@@ -32,6 +32,22 @@ Each element of A is an integer within the range [0, N-1].
      
     */
     
+    //interview frinendly, O(n)/O(n), we can improve to O(1) space
+    public int arrayNesting_Best(int[] nums) {
+        int res = 0;
+        boolean[] visited = new boolean[nums.length];
+        for(int n : nums){
+            int cur = 0;
+            while(!visited[n]){
+                cur++;
+                visited[n] = true;
+                n = nums[n];
+            }
+            res = Math.max(res, cur);
+        }
+        return res;
+    }
+    
     /*
        Set to add check duplicate elements, this will have time Exceed problems
     */
