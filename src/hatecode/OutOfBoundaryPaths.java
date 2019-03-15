@@ -74,7 +74,7 @@ public class OutOfBoundaryPaths {
     }
     //memo[i][j][k] is used to store the number of possible moves leading to a path 
     //out of the boundary if the current position is given by the indices (i, j)(i,j) 
-    //and number of moves left is kk.
+    //and number of moves left is k.
     //Thus, now if a function call with some parameters is repeated, the memomemo array 
     //will already contain valid values corresponding to that function call resulting 
     //in pruning of the search space.
