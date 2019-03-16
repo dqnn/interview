@@ -32,20 +32,20 @@ Explanation:
         }
         return max;
     }
+   
     //
     public int findMinMoves_esay_To_Understand(int[] machines) {
         int sum = 0, n = machines.length;
-        
         for (int i = 0; i < machines.length; i++) {
             sum += machines[i];
         }
-        
+
         if (sum % n != 0) {
             return -1;
         }
-        
+
         int target = sum / n;
-        
+
         int toLeft = 0;
         int res = 0;
         for (int i = 0; i < machines.length; i++) {
@@ -53,24 +53,21 @@ Explanation:
             res = Math.max(res, Math.max(Math.max(toLeft, toRight), toLeft + toRight));
             toLeft = -toRight;
         }
-        
         return res;
-        
     }
-    
+    //[0,0,11,5]->dp=[-4,-4,7,1], 
+    //throughput: 4,8,1,2
     public int findMinMoves(int[] machines) {
         int n = machines.length;
-        
         int sum = Arrays.stream(machines).sum();
-        
+
         if (sum % n != 0) return -1;
-        
+
         int avg = sum / n;
-        
+
+        //dp stores the diff when comparing to avg
         int[] dp = new int[n];
-        for (int i = 0; i < n; i++) {
-            dp[i] = machines[i] - avg;
-        }
+        for (int i = 0; i < n; i++) dp[i] = machines[i] - avg;
         
         int throughput = 0;
         int res = 0;
@@ -79,7 +76,7 @@ Explanation:
             throughput += dp[i];
             res = Math.max(res, Math.max(dp[i], Math.abs(throughput)));
         }
-        
+
         return res;
     }
 }
