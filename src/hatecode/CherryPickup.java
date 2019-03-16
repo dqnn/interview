@@ -20,6 +20,13 @@ Input: grid =
 Output: 5
  
 */
+    //interview friendly, 
+    //thinking process: given a matrix, 0 empty, 1 cherry, -1 obstack, so you walk from 0,0->n-1,n-1, then back
+    //try to grab more cherries as many as possible. 
+    //so if using two dp will be wrong because when you back, you may not be able to catch all cherries, 
+    //so we think about two people start at the same time from top left to botton right, both only down or right
+    
+    //we have the formula: x1 + y1 = x2 + y2, so we can only use 3 dimension to simplify the DP
     public int cherryPickup(int[][] g) {
         if (g == null || g.length < 1 || g[0].length < 1) return 0;
         //since N x N matrix
