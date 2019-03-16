@@ -11,6 +11,14 @@ Explanation: Deleting "s" from "sea" adds the ASCII value of "s" (115) to the su
 Deleting "t" from "eat" adds 116 to the sum.
 At the end, both strings are equal, and 115 + 116 = 231 is the minimum sum possible to achieve this.
 */
+    //interview friendly, 
+    //"s1=sea, s2=eat", only delete from two strings, what's the minimum sum of to be equals of the deleted 
+    //chars. 
+    
+    //first considering s1 ="", then it would required delete all s2, then think about for s2, so 
+    //lets's dp[i][j] is minimal ascii sum for s1,0-i, s2, 0-j, then we can see two cases
+    //if s1[i]=s2[j], then dp[i][j] = dp[i-1][j-1], if not, then we would delete s1[i] or s2[j],
+    //we choose the min one, this is the same as edit distance
     public int minimumDeleteSum_2D(String s1, String s2) {
         if (s1 == null || s2 == null || s1.length() < 1 || s2.length() < 1) return 0;
         
@@ -20,7 +28,7 @@ At the end, both strings are equal, and 115 + 116 = 231 is the minimum sum possi
         for (int j = 1; j <= n; j++)
             dp[0][j] = dp[0][j-1]+s2.charAt(j-1);
         
-        //we can embeded this into first loop 
+        //we can embed this into first loop 
         for (int j = 1; j <= m; j++)
             dp[j][0] = dp[j-1][0]+s1.charAt(j-1);
         
@@ -50,7 +58,8 @@ At the end, both strings are equal, and 115 + 116 = 231 is the minimum sum possi
             dp[0] += s1.charAt(i-1);
             for (int j = 1; j <= n; j++) {
                 int t2 = dp[j];
-                dp[j] = s1.charAt(i-1) == s2.charAt(j-1)? t1:Math.min(dp[j]+s1.charAt(i-1), dp[j-1]+s2.charAt(j-1));
+                dp[j] = s1.charAt(i-1) == s2.charAt(j-1)? t1:Math.min(dp[j]+s1.charAt(i-1), 
+                                                                      dp[j-1]+s2.charAt(j-1));
                 t1 = t2;
             }
         }
