@@ -27,6 +27,7 @@ Output: 5
     //so we think about two people start at the same time from top left to botton right, both only down or right
     
     //we have the formula: x1 + y1 = x2 + y2, so we can only use 3 dimension to simplify the DP
+    //another part is the how to initialize the dp and how to get from internal loop
     public int cherryPickup(int[][] g) {
         if (g == null || g.length < 1 || g[0].length < 1) return 0;
         //since N x N matrix
