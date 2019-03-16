@@ -32,7 +32,8 @@ Each element of A is an integer within the range [0, N-1].
      
     */
     
-    //interview frinendly, O(n)/O(n), we can improve to O(1) space
+    //interview friendly, O(n)/O(n), we can improve to O(1) space
+    //the underlying is that unvisited nodes has longest length
     public int arrayNesting_Best(int[] nums) {
         int res = 0;
         boolean[] visited = new boolean[nums.length];
