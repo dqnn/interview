@@ -37,7 +37,7 @@ Output: 5
         for(int[][] d : dp) {
             for(int[] e : d) Arrays.fill(e, Integer.MIN_VALUE);
         }
-        
+        //we initialize the 1 1 1 same as 0 0 0 if length is n
         dp[1][1][1] = g[0][0];
         for(int x1 =1; x1 <=r; x1++) {
             for(int y1 =1; y1 <=r; y1++) {
