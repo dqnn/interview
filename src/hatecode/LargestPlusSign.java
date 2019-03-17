@@ -26,13 +26,16 @@ Example 3:
 Input: N = 1, mines = [[0, 0]]
 Output: 0
 */
-    public int orderOfLargestPlusSign(int N, int[][] mines) {
+//the technical of the solution is to scan the row, 
+    //left->right, then right ->left, we always use min() to get the smaller one, 
+    //so technically we can get count how many 1's and 
+public int orderOfLargestPlusSign(int N, int[][] mines) {
     int[][] grid = new int[N][N];
-        
+
     for (int i = 0; i < N; i++) {
         Arrays.fill(grid[i], N);
     }
-        
+
     for (int[] m : mines) {
         grid[m[0]][m[1]] = 0;
     }
@@ -77,7 +80,14 @@ Output: 0
                 // after four loops each time taking Math.min over the grid value itself
                 // all grid values will eventually take the min of the 4 direcitons.
             }
-        
+/*
+grid= 
+[1, 1, 1, 1, 1]
+[1, 2, 2, 2, 1]
+[1, 2, 2, 2, 1]
+[1, 2, 1, 2, 1]
+[1, 1, 0, 1, 1]
+ */
     int res = 0;
         
     for (int i = 0; i < N; i++) {
