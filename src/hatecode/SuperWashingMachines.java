@@ -20,6 +20,36 @@ Explanation:
 2nd move:    1 <-- 1 <-- 4    =>    2     1     3    
 3rd move:    2     1 <-- 3    =>    2     2     2   
 */
+    //interview friendly:
+    //l > 0 means have to passs dress to left, r>0 means same
+    //so the whole problem is to find the max moves when we visit the array, 
+    //but we add one additional array to store the sum, but we can remove them by using two variables.
+    public int findMinMoves_GOOD(int[] machines) {
+        int n = machines.length;
+        int[] sum = new int[n + 1];
+        int res = Integer.MIN_VALUE;
+        for(int i= 1; i<= n;i++) sum[i] = sum[i-1] + machines[i-1];
+        
+        if (sum[n] % n != 0)  return -1;
+        int avg = sum[n]/n;
+        for(int i = 0; i<n;i++){
+            int l = sum[i] - avg * i;
+            int r = sum[n] - sum[i+1] - avg * (n-1-i);
+            if (l > 0 && r > 0) {
+                res = Math.max(res, Math.max(l, r));
+            }else if (l <0 && r <0) {
+                res = Math.max(res, -l-r);
+            } else {
+                res = Math.max(res, Math.max(Math.abs(l), Math.abs(r)));
+            }
+        }
+        
+        return res;
+    }
+    
+    
+    
+    
     public int findMinMoves_Best(int[] machines) {
         int total = 0; 
         for(int i: machines) total+=i;
@@ -56,7 +86,9 @@ Explanation:
         return res;
     }
     //[0,0,11,5]->dp=[-4,-4,7,1], 
-    //throughput: 4,8,1,2
+    //throughput: 4,8,1,2-->8
+    //explain:
+    //
     public int findMinMoves(int[] machines) {
         int n = machines.length;
         int sum = Arrays.stream(machines).sum();
@@ -65,7 +97,7 @@ Explanation:
 
         int avg = sum / n;
 
-        //dp stores the diff when comparing to avg
+        //dp means the min moves to be final state
         int[] dp = new int[n];
         for (int i = 0; i < n; i++) dp[i] = machines[i] - avg;
         
