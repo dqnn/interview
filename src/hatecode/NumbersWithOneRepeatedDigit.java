@@ -9,7 +9,7 @@ Example 1:
 
 Input: 20
 Output: 1
-    Intuition
+    
 Count res the Number Without Repeated Digit
 Then the number with repeated digits = N - res
 
@@ -27,26 +27,25 @@ the number of permutations A(m,n) is O(1)
 We count digit by digit, so it's O(logN)
 
 */
-
+    //
     public int numDupDigitsAtMostN(int N) {
         // Transform N + 1 to arrayList
-        ArrayList<Integer> L = new ArrayList<Integer>();
-        for (int x = N + 1; x > 0; x /= 10)
-            L.add(0, x % 10);
+        List<Integer> list = new ArrayList<Integer>();
+        //if N = 1000, then list=[1,0,0,1]
+        for (int x = N + 1; x > 0; x /= 10) list.add(0, x % 10);
 
         // Count the number with digits < N
-        int res = 0, n = L.size();
-        for (int i = 1; i < n; ++i)
-            res += 9 * A(9, i - 1);
+        int res = 0, n = list.size();
+        for (int i = 1; i < n; ++i) res += 9 * A(9, i - 1);
 
         // Count the number with same prefix
         HashSet<Integer> seen = new HashSet<>();
         for (int i = 0; i < n; ++i) {
-            for (int j = i > 0 ? 0 : 1; j < L.get(i); ++j)
-                if (!seen.contains(j))
-                    res += A(9 - i, n - i - 1);
-            if (seen.contains(L.get(i))) break;
-            seen.add(L.get(i));
+            for (int j = i > 0 ? 0 : 1; j < list.get(i); ++j)
+                if (!seen.contains(j)) res += A(9 - i, n - i - 1);
+
+            if (seen.contains(list.get(i))) break;
+            seen.add(list.get(i));
         }
         return N - res;
     }
