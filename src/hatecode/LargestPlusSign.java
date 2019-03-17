@@ -29,6 +29,8 @@ Output: 0
 //the technical of the solution is to scan the row, 
     //left->right, then right ->left, we always use min() to get the smaller one, 
     //so technically we can get count how many 1's and 
+    
+    //this is too tricky, that several scan and it is jut coincidence the result
 public int orderOfLargestPlusSign(int N, int[][] mines) {
     int[][] grid = new int[N][N];
 
@@ -48,7 +50,7 @@ public int orderOfLargestPlusSign(int N, int[][] mines) {
             grid[j][i] = Math.min(grid[j][i], u = (grid[j][i] == 0 ? 0 : u + 1));  // up direction
             grid[k][i] = Math.min(grid[k][i], d = (grid[k][i] == 0 ? 0 : d + 1));  // down direction
         }
-    */
+    */          //g[i][j] was initialized N, so we should always get 1, 2, if they are contious
                 for (int j=0, l=0; j < N; j++) {
                     // j is a column index, iterate from left to right
                     // every time check how far left it can reach.
