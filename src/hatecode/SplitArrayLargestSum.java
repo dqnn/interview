@@ -1,7 +1,17 @@
 package hatecode;
 public class SplitArrayLargestSum {
 /*
+1014. Capacity To Ship Packages Within D Days
 410. Split Array Largest Sum
+
+Given the number of bags,
+return the minimum capacity of each bag,
+so that we can put items one by one into all bags.
+
+Similar as
+875. Koko Eating Bananas
+774. Minimize Max Distance to Gas Station
+
 Given an array which consists of non-negative integers and an integer m, you can split the array into m non-empty continuous subarrays. Write an algorithm to minimize the largest sum among these m subarrays.
 
 Note:
