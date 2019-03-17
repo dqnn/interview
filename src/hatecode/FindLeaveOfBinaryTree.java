@@ -33,11 +33,14 @@ Output: [[4,5,3],[2],[1]]
         helper(root, res);
         return res;
     }
+    
+    //we consider the leaf as level 0, so it would be straightforward
     private int helper(TreeNode node, List<List<Integer>> res){
         if(null==node)  return -1;
         int level = 1 + Math.max(helper(node.left, res), helper(node.right, res));
         if(res.size()<level+1)  res.add(new ArrayList<>());
         res.get(level).add(node.val);
+        //this is optional
         node.left = node.right = null;
         return level;
     }
