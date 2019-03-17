@@ -26,7 +26,8 @@ For i = 1, either swap or fix is OK. So we take the minimum previous result, min
 For i = 2, notice that A[1] >= B[2], which means the manipulation of A[2] and B[2] should be same as A[1] and B[1], if A[1] and B[1] swap, A[2] and B[2] should swap, vice versa. Make sense, right? So swapRecord[2] = swapRecord[1] + 1 and fixRecord[2] = fixRecord[1]
 For i = 3, notice that A[2] >= A[3], which mean the manipulation of A[3] and B[3] and A[2] and B[2] should be opposite. In this case, swapRecord[3] = fixRecord[2] + 1 and fixRecord[3] = swapRecord[2]
  */
-     public int minSwap(int[] A, int[] B) {
+     public int minSwap_Best(int[] A, int[] B) {
+         //initialize 
         int swapRecord = 1, fixRecord = 0;
         for (int i = 1; i < A.length; i++) {
             if (A[i - 1] >= B[i] || B[i - 1] >= A[i]) {
@@ -47,4 +48,31 @@ For i = 3, notice that A[2] >= A[3], which mean the manipulation of A[3] and B[3
         }
         return Math.min(swapRecord, fixRecord);
     }
+     
+     /*
+     A.... 2 3
+     B.... 1 4
+   we have 4 cases, TODO
+   1.  same as original, nothing to do, so keep[i] = keep[i-1], swap[i] = swap[i-1] + 1
+   2. if A[i-1] < B[i] && A[i] > B[i-1], means we can swap i or swap i-1, so swap[i] = min(swap[i], keep[i-1] + 1), keep[i] = min(keep[i], swap[i-1])
+  */
+      public int minSwap(int[] A, int[] B) {
+          int N = A.length;
+          int[] swap = new int[N+1];
+          int[] keep = new int[N+1];
+          swap[0] = 1;
+          keep[0] = 0;
+          for (int i = 1; i < N; ++i) {
+              keep[i] = swap[i] = N;
+              if (A[i - 1] < A[i] && B[i - 1] < B[i]) {
+                  keep[i] = keep[i - 1];
+                  swap[i] = swap[i - 1] + 1;
+              }
+              if (A[i - 1] < B[i] && B[i - 1] < A[i]) {
+                  keep[i] = Math.min(keep[i], swap[i - 1]);
+                  swap[i] = Math.min(swap[i], keep[i - 1] + 1);
+              }
+          }
+          return Math.min(swap[N - 1], keep[N - 1]);
+      }
 }
