@@ -111,17 +111,17 @@ DP
             return T_ik0;
         }
             
-        int[] T_ik0 = new int[k + 1];
-        int[] T_ik1 = new int[k + 1];
-        Arrays.fill(T_ik1, Integer.MIN_VALUE);
+        int[] noStock = new int[k + 1];
+        int[] ownStock = new int[k + 1];
+        Arrays.fill(ownStock, Integer.MIN_VALUE);
             
         for (int price : prices) {
             for (int j = k; j > 0; j--) {
-                T_ik0[j] = Math.max(T_ik0[j], T_ik1[j] + price);
-                T_ik1[j] = Math.max(T_ik1[j], T_ik0[j - 1] - price);
+                noStock[j] = Math.max(noStock[j], ownStock[j] + price);
+                ownStock[j] = Math.max(ownStock[j], noStock[j - 1] - price);
             }
         }
             
-        return T_ik0[k];
+        return noStock[k];
     }
 }
