@@ -11,6 +11,7 @@ Notice that only the above abbreviations are valid abbreviations of the string "
 */
     //O(min(m,n))/O(1)
     //pretty straightforword, so just need to be cautious about how many cases we have
+    //lower letters and digits
     public boolean validWordAbbreviation(String s, String p) {
         if (s == null && p == null) return true;
         if (s == null || p == null) return false;
