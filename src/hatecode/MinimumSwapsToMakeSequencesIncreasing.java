@@ -79,9 +79,6 @@ For i = 3, notice that A[2] >= A[3], which mean the manipulation of A[3] and B[3
          return Math.min(state[n - 1][0], state[n - 1][1]);
      }
      
-     
-     
-     
      /*
      A.... 2 3
      B.... 1 4
