@@ -48,6 +48,39 @@ For i = 3, notice that A[2] >= A[3], which mean the manipulation of A[3] and B[3
         }
         return Math.min(swapRecord, fixRecord);
     }
+     //swap
+     public int minSwap(int[] A, int[] B) {
+         int n = A.length;
+         
+         /* 
+          state[i][0] is min swaps too make A[0..i] and B[0..i] increasing if we do not swap A[i] and B[i]; 
+          state[i][1] is min swaps too make A[0..i] and B[0..i] increasing if we swap A[i] and B[i].
+          */
+         int[][] state = new int[n][2];
+         //even they increase, we still want swap, so we mark the swap move +1
+         state[0][1] = 1;
+         
+         for (int i = 1; i < n; i++) {
+             boolean areBothSelfIncreasing = A[i - 1] < A[i] && B[i - 1] < B[i];
+             boolean areInterchangeIncreasing = A[i - 1] < B[i] && B[i - 1] < A[i];
+             
+             if (areBothSelfIncreasing && areInterchangeIncreasing) {
+                 state[i][0] = Math.min(state[i - 1][0], state[i - 1][1]);
+                 state[i][1] = Math.min(state[i - 1][0], state[i - 1][1]) + 1;
+             } else if (areBothSelfIncreasing) {
+                 state[i][0] = state[i - 1][0];
+                 state[i][1] = state[i - 1][1] + 1;
+             } else { // if (areInterchangeIncreasing)
+                 state[i][0] = state[i - 1][1];
+                 state[i][1] = state[i - 1][0] + 1;
+             }
+         }
+         
+         return Math.min(state[n - 1][0], state[n - 1][1]);
+     }
+     
+     
+     
      
      /*
      A.... 2 3
@@ -56,7 +89,7 @@ For i = 3, notice that A[2] >= A[3], which mean the manipulation of A[3] and B[3
    1.  same as original, nothing to do, so keep[i] = keep[i-1], swap[i] = swap[i-1] + 1
    2. if A[i-1] < B[i] && A[i] > B[i-1], means we can swap i or swap i-1, so swap[i] = min(swap[i], keep[i-1] + 1), keep[i] = min(keep[i], swap[i-1])
   */
-      public int minSwap(int[] A, int[] B) {
+      public int minSwap_1D(int[] A, int[] B) {
           int N = A.length;
           int[] swap = new int[N+1];
           int[] keep = new int[N+1];
@@ -66,6 +99,7 @@ For i = 3, notice that A[2] >= A[3], which mean the manipulation of A[3] and B[3
               keep[i] = swap[i] = N;
               if (A[i - 1] < A[i] && B[i - 1] < B[i]) {
                   keep[i] = keep[i - 1];
+                  //we swap i and i-1, they are still increase, 
                   swap[i] = swap[i - 1] + 1;
               }
               if (A[i - 1] < B[i] && B[i - 1] < A[i]) {
