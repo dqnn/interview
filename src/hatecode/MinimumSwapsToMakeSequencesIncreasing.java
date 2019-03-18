@@ -56,27 +56,27 @@ For i = 3, notice that A[2] >= A[3], which mean the manipulation of A[3] and B[3
           state[i][0] is min swaps too make A[0..i] and B[0..i] increasing if we do not swap A[i] and B[i]; 
           state[i][1] is min swaps too make A[0..i] and B[0..i] increasing if we swap A[i] and B[i].
           */
-         int[][] state = new int[n][2];
+         int[][] dp = new int[n][2];
          //even they increase, we still want swap, so we mark the swap move +1
-         state[0][1] = 1;
+         dp[0][1] = 1;
          
          for (int i = 1; i < n; i++) {
              boolean areBothSelfIncreasing = A[i - 1] < A[i] && B[i - 1] < B[i];
              boolean areInterchangeIncreasing = A[i - 1] < B[i] && B[i - 1] < A[i];
              
              if (areBothSelfIncreasing && areInterchangeIncreasing) {
-                 state[i][0] = Math.min(state[i - 1][0], state[i - 1][1]);
-                 state[i][1] = Math.min(state[i - 1][0], state[i - 1][1]) + 1;
+                 dp[i][0] = Math.min(dp[i - 1][0], dp[i - 1][1]);
+                 dp[i][1] = Math.min(dp[i - 1][0], dp[i - 1][1]) + 1;
              } else if (areBothSelfIncreasing) {
-                 state[i][0] = state[i - 1][0];
-                 state[i][1] = state[i - 1][1] + 1;
+                 dp[i][0] = dp[i - 1][0];
+                 dp[i][1] = dp[i - 1][1] + 1;
              } else { // if (areInterchangeIncreasing)
-                 state[i][0] = state[i - 1][1];
-                 state[i][1] = state[i - 1][0] + 1;
+                 dp[i][0] = dp[i - 1][1];
+                 dp[i][1] = dp[i - 1][0] + 1;
              }
          }
          
-         return Math.min(state[n - 1][0], state[n - 1][1]);
+         return Math.min(dp[n - 1][0], dp[n - 1][1]);
      }
      
      /*
