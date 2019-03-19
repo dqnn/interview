@@ -66,6 +66,16 @@ We made 5 calls to master.guess and one of them was the secret, so we pass the t
     //whose distance from the guess is different. That is, if we know that the secret 
     //is 4 characters away from the guess, then we can eliminate all words whose 
     //distance from the guess is not 4, because they can't be the secret.
+/*
+当一个单词和其他单词match number为0的次数越多，那么这个单词越不好，
+因为match number为0时我们减少搜索空间的速度最慢。
+
+假如现在有无限多长度为6的单词，对于word X，和他match number为0的单词有25^6这么多个，
+然而和X match number为1的单词则减少到了25^5 * 6这么多个，为2时为 C(6, 2) * 25^4，
+以此类推，match number越大我们下一轮的搜索空间会越小，所以这里我们每一轮都挑选出当前搜索空间中和其他
+单词match number为0的次数最少的单词作为guess word来猜，这样minimize了每次猜词的worse case。
+
+ */
 public void findSecretWord2(String[] wordlist, Master master) {
         List<String> words = new ArrayList<>(Arrays.asList(wordlist));
         
