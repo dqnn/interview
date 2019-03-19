@@ -31,7 +31,7 @@ The system have already tracked down the following sentences and their correspon
 Now, the user begins another search: 
 
 Operation: input('i') 
-Output: ["i love you", "island","i love leetcode"] 
+Output: ["i love you", "island","i love amazon"] 
 Explanation: 
 There are four sentences that have prefix "i". Among them, "ironman" and 
 "i love leetcode" have same hot degree. Since ' ' has ASCII code 32 and 'r' 

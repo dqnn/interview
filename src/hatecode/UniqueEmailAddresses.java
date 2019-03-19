@@ -31,6 +31,8 @@ public class UniqueEmailAddresses {
         for (String email : emails) {
             String[] parts = email.split("@"); // split into local and domain parts.
             String[] local = parts[0].split("\\+"); // split local by '+'.
+            //replaceAll is to replace all regex 
+            //str = alias[0].replaceAll("\\.", "") + "@"+parts[1];
             normalized.add(local[0].replace(".", "") + "@" + parts[1]); // remove all '.', and concatenate '@' and domain.        
         }
         return normalized.size();
