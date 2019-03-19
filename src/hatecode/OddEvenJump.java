@@ -1,4 +1,4 @@
-package hatecode;
+    package hatecode;
 import java.util.*;
 public class OddEvenJump {
     /*
@@ -47,17 +47,33 @@ public class OddEvenJump {
             if (higher[i]) res++;
             map.put(A[i], i);
         }
+        
+        /* this is useing ceiling entry, which could aovid O(lgn) query
+         for (int i = n - 2; i >= 0; --i) {
+            Map.Entry hi = map.ceilingEntry(A[i]), lo = map.floorEntry(A[i]);
+            if (hi != null) higher[i] = lower[(int)hi.getValue()];
+            if (lo != null) lower[i] = higher[(int)lo.getValue()];
+            if (higher[i]) res++;
+            map.put(A[i], i);
+        }
+         */
         return res;
     }
 /*
+ * 简单来说就是，从数组的某个index出发，先跳到它后面的比它大的元素中最小的元素
+ * （如果有相同元素则选择最靠左的一个），再跳到它后面的比它小的元素中最大的元素
+ * （相同时仍然选择最靠左的一个），交替采取这两种跳法，直到跳不动了为止。
+ * 问从多少个index出发可以最终跳到最后一个元素。
 First let's create a boolean DP array.
-dp[i][0] stands for you can arrive index n - 1 starting from index i at an odd step.
-dp[i][1] stands for you can arrive index n - 1 starting from index i at an even step.
+note: first jump is up->0. down->1
+dp[i][0] stands for you can arrive index n - 1 starting from index i at an up step.
+dp[i][1] stands for you can arrive index n - 1 starting from index i at an down step.
 Initialization:
 Index n - 1 is always a good start point, regardless it's odd or even step right now. Thus dp[n - 1][0] = dp[n - 1][1] = true.
 DP formula:
-dp[i][0] = dp[index_next_greater_number][1] - because next is even step
-dp[i][1] = dp[index_next_smaller_number][0] - because next is odd step
+so 
+dp[i][0] = dp[index_next_greater_number][1] - because next is odd step
+dp[i][1] = dp[index_next_smaller_number][0] - because next is even step
 Result:
 Since first step is odd step, then result is count of dp[i][0] with value true.
 
@@ -84,7 +100,7 @@ To quickly find the next greater or smaller number and its index: traverse the a
                 dp[i][1] = dp[map.get(nextSmaller)][0];
             }
             map.put(A[i], i);
-
+            //first step we must use odd jump
             res += dp[i][0] ? 1 : 0;
         }
 

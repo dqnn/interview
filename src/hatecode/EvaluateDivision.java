@@ -67,7 +67,7 @@ the reverse link is 1/k. Query is to find a path between two nodes.
         if (equations == null || equations.length < 1 || values == null || queries == null || values.length < 1 || equations.length != values.length) {
             return null;
         }
-        
+        //add a/b and b/a into the map, note, value is List<Node>
         for(int i = 0; i < values.length; i++) {
             String[] equation = equations[i];
             map.computeIfAbsent(equation[0], v->new ArrayList<>());
