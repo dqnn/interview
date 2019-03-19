@@ -95,7 +95,7 @@ public void findSecretWord2(String[] wordlist, Master master) {
         }
         return res;
     }
-    //we want to know for word in wordlist, how many times it has 
+    //we want to know for word in wordlist, the biggest times match 
     private int histogramPeak(String word, List<String> words) {
         //to show for each word, 
         int[] hist = new int[7];
