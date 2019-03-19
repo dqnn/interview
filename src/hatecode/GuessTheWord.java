@@ -67,8 +67,6 @@ We made 5 calls to master.guess and one of them was the secret, so we pass the t
     //is 4 characters away from the guess, then we can eliminate all words whose 
     //distance from the guess is not 4, because they can't be the secret.
 public void findSecretWord2(String[] wordlist, Master master) {
-        
-        
         List<String> words = new ArrayList<>(Arrays.asList(wordlist));
         
         for (int i = 0; i < 10; i++) {
@@ -97,11 +95,13 @@ public void findSecretWord2(String[] wordlist, Master master) {
         }
         return res;
     }
-    
+    //we want to know for word in wordlist, how many times it has 
     private int histogramPeak(String word, List<String> words) {
+        //to show for each word, 
         int[] hist = new int[7];
         int maxPeak = 0;
         for (String s : words) {
+            //to check each word 's biggest overlap
             int match = match(s, word);
             hist[match]++;
             maxPeak = Math.max(maxPeak, hist[match]);
