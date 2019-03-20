@@ -24,6 +24,8 @@ public class MinimumCostToHireKWorkers {
      */
     // note: pay/quality >= wage/quality, so we choose the greatest wage/quality in the 
     //K workers
+    
+    //
     public static double mincostToHireWorkers(int[] q, int[] w, int K) {
         double[][] workers = new double[q.length][2];
         //finish 1 product's wage
@@ -35,8 +37,8 @@ public class MinimumCostToHireKWorkers {
         //min heap, and will always keep K workers in pool and pick smallest quality
         //
         PriorityQueue<Double> pq = new PriorityQueue<>();
-        //workers are sorted by their unit product wage, from small to large, 
-        //so 
+        //the total wag= (q1+q2+q3+...qn) * minRatio, we only hire K, so we kick the biggest
+        //quality in this group
         for (double[] worker: workers) {
             System.out.println(res + "---" + pq);
             //quality sum, you can think about products
