@@ -92,6 +92,8 @@ public class MostStonesRemovedWithSameRowOrColumn {
      * several minutes.
      */
     //O(nlgn)/O(n), union by rank will be a(n), 
+    
+    //so 
     public int removeStones2(int[][] stones) {
         int N = stones.length;
         DSU dsu = new DSU(20000);
