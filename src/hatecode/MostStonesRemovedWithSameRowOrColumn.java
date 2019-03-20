@@ -98,7 +98,7 @@ public class MostStonesRemovedWithSameRowOrColumn {
 
         for (int[] stone: stones)
             dsu.union(stone[0], stone[1] + 10000);
-
+        //here is how to calculate the components
         Set<Integer> seen = new HashSet<>();
         for (int[] stone: stones)
             seen.add(dsu.find(stone[0]));
@@ -141,7 +141,7 @@ class DSU {
         boolean[] seen = new boolean[N];
         for (int i = 0; i < N; ++i) 
             if (!seen[i]) {
-            Stack<Integer> stack = new Stack();
+            Stack<Integer> stack = new Stack<>();
             stack.push(i);
             seen[i] = true;
             ans--;
@@ -163,6 +163,3 @@ class DSU {
     
     
 }
-
-
-
