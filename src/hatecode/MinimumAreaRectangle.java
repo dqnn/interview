@@ -48,7 +48,8 @@ Output: 4
                 if (x1 == x2 || y1 == y2) continue;
                 Point pt3 = new Point(x1,y2);
                 Point pt4 = new Point(x2,y1);
-                if(ptset.contains(pt3) && ptset.contains(pt4)) {   int area= Math.abs(x1-x2)*Math.abs(y1-y2);
+                if(ptset.contains(pt3) && ptset.contains(pt4)) {   
+                    int area= Math.abs(x1-x2)*Math.abs(y1-y2);
                     min = Math.min(min, area);
                 }
             }
