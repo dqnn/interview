@@ -86,7 +86,7 @@ public class CountCompleteTreeNodes {
         }
         if (left == null)
             return (1 << height) - 1;
-        return 1 + countNodes(root.left) + countNodes(root.right);
+        return 1 + countNodes2(root.left) + countNodes2(root.right);
     }
 
     /*
@@ -107,6 +107,27 @@ public class CountCompleteTreeNodes {
      * in every recursive step, I have O(log(n)) steps. Finding a height costs
      * O(log(n)). So overall O(log(n)^2).
      */
+    
+    public int countNodes_logn2(TreeNode root) {
+        if (root == null)
+            return 0;
+        TreeNode left = root, right = root;
+        int height = 0;
+        while (right != null) {
+            left = left.left;
+            right = right.right;
+            height++;
+        }
+        if (left == null)
+            return (1 << height) - 1;
+        return 1 + countNodes_logn2(root.left) + countNodes_logn2(root.right);
+    }
+    
+    public int countNodes_MostSimple(TreeNode root) {
+        if (root == null)
+            return 0;
+        return 1 + countNodes_MostSimple(root.left) + countNodes_MostSimple(root.right);
+    }
     int height(TreeNode root) {
         return root == null ? -1 : 1 + height(root.left);
     }
