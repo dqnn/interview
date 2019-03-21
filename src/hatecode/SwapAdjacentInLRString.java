@@ -62,7 +62,8 @@ XRLXXRRLX
             if (p1 == ch1.length || p2 == ch2.length)
                 return true; // if one reach the end, the other one must reach the end too, since we have
                              // already check their order first.
-            //this means R in ch1 should stop ealier, so if it is P1>P2, means it has more X
+            //this means R in ch1 should stop earlier, so if it is P1>P2, means it has
+            //additional characters, it would not be equal
             
             if (ch1[p1] == 'R' && p1 > p2)
                 return false;
