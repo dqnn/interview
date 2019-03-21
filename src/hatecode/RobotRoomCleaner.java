@@ -121,7 +121,7 @@ class RobotRoomCleaner {
     }
 
     public void cleanRoom(Robot robot) {
-        Set<String> offset = new HashSet<>();
-        find(robot, offset, 0, 0, 0);
+        Set<String> visited = new HashSet<>();
+        find(robot, visited, 0, 0, 0);
     }
 }
