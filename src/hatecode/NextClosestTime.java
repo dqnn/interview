@@ -67,7 +67,7 @@ which occurs 5 minutes later.  It is not 19:33, because this occurs 23 hours and
         }
         //in this templates, all digits are re-usable
         for (int i = 0; i < digits.size(); i++) {
-            //prune some timestamp
+            //prune some timestamp, so this is the t
             if (pos == 0 && digits.get(i) > 2) continue;
             if (pos == 1 && Integer.parseInt(cur) * 10 + digits.get(i) > 23) continue;
             if (pos == 2 && digits.get(i) > 5) continue;

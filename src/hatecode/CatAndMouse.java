@@ -143,7 +143,7 @@ mouse-cat: 0-0
 mouse-cat: 0-2
 mouse-cat: 0-3
   */
-    //correct toplogic solution, colored 
+    //only correct toplogic solution, colored 
     public int catMouseGame2(int[][] graph) {
         int n = graph.length;
         // (cat, mouse, mouseMove = 0)
