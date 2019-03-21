@@ -29,6 +29,7 @@ public class RangeSumQueryMutable {
     int[] nums;
     int[] tree;
     int n;
+//easiest example nums = [1,2,3,4,5,6,7,8], 
 
     // time : O(n * logn)
     public RangeSumQueryMutable(int[] nums) {
