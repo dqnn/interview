@@ -63,18 +63,21 @@ public class CrackingTheSafe {
     //n is total length, k is digits pool
     private static boolean crackSafeFrom(StringBuilder result, int n, int k, 
             int total, Set<String> visited) {
-        //the only way to guarntee we can unlock the case is that we tried every
+        //the only way to guarantee we can unlock the case is that we tried every
         //combinations
         if (visited.size() == total) {
             return true;
         }
-        //here we generate the next node by previous string
+        //n = 2, k =2 
+        //here res = "01", then curNode = "1"
         String curNode = result.substring(result.length() - n + 1);
 
+        //for every possible character, we go through since it can be dup
         for (char c = '0'; c < '0' + k; c++) {
             if (!visited.contains(curNode + c)) {
                 result.append(c);
                 visited.add(curNode + c);
+                //note here n is total digits
                 if (crackSafeFrom(result, n, k, total, visited)) {
                     return true;
                 }
