@@ -58,7 +58,7 @@ read("abc", 1); // returns ""
 
     //  read from buf with max n chars
     // firstly understand read4, this function has an internal pointer to note where we are,
-    // so evert time it will return 1: how much it actually read 2. result in buf
+    // so every time it will return 1: how much it actually read 2. result in buf
     
     // the problem is to say, we want to call read multiple times, and we want n is 
     //how many chars we want to read, but we need to remember last time what we have 
