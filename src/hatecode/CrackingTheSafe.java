@@ -63,6 +63,8 @@ public class CrackingTheSafe {
     //n is total length, k is digits pool
     private static boolean crackSafeFrom(StringBuilder result, int n, int k, 
             int total, Set<String> visited) {
+        //the only way to guarntee we can unlock the case is that we tried every
+        //combinations
         if (visited.size() == total) {
             return true;
         }
