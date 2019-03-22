@@ -60,7 +60,7 @@ public class CrackingTheSafe {
 
         return result.toString();
     }
-
+    //n is total length, k is digits pool
     private static boolean crackSafeFrom(StringBuilder result, int n, int k, 
             int total, Set<String> visited) {
         if (visited.size() == total) {
