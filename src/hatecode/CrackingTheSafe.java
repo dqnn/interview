@@ -69,10 +69,13 @@ public class CrackingTheSafe {
             return true;
         }
         //n = 2, k =2 
-        //here res = "01", then curNode = "1"
+        //here res = "01", then curNode = "1", image we have a fixed window n 
+        //we here to use last char as first char
         String curNode = result.substring(result.length() - n + 1);
 
         //for every possible character, we go through since it can be dup
+        //we go through 10, 11, we resue the last character,if visited all possible
+        //combinations, then it is good
         for (char c = '0'; c < '0' + k; c++) {
             if (!visited.contains(curNode + c)) {
                 result.append(c);
