@@ -52,6 +52,7 @@ public class RangeSumQueryMutable {
     }
 
     // time : O(logn)
+    //we include i and include j
     public int sumRange(int i, int j) {
         return sum(j + 1) - sum(i);
     }
