@@ -77,4 +77,26 @@ sum - k = pre_i. That's why we have sum - k and not k - sum
         }
         return res;
     }
+    
+  //using two pointers
+    public int subarraySum_TwoPointers(int[] nums, int k) {
+        if (nums == null || nums.length < 1) {
+            return 0;
+        }
+        
+        int res = 0;
+        int leftSum = 0;
+        for(int i = 0; i < nums.length; i++) {
+            leftSum = nums[i];
+            if (leftSum == k) res++;
+            for(int j = i + 1; j < nums.length; j++) {
+                //leftSum == k should be the case but the problems does not think so
+                if (leftSum + nums[j] == k) {
+                    res++;
+                } 
+                leftSum += nums[j];
+            }
+        }
+        return res;
+    }
 }
