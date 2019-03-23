@@ -49,9 +49,8 @@ public class Candy {
         }
 
         int len = r.length;
-        if (len < 2) {
-            return 1;
-        }
+        if (len < 2)  return 1;
+
 
         int[] c = new int[len];
         Arrays.fill(c, 1);
@@ -76,11 +75,7 @@ public class Candy {
             }
         }
 
-        int res = 0;
-        for (int t : c) {
-            res += t;
-        }
-        return res;
+        return Arrays.stream(c).sum();
     }
 
     // this is another solution, bruth-force
