@@ -53,7 +53,7 @@ class FindAndReplaceInString {
         StringBuilder sb = new StringBuilder(S);
         TreeMap<Integer, Integer> tm = new TreeMap<>();
         for (int i = 0; i < indexes.length; ++i) { tm.put(indexes[i], i); }
-        //desc sort
+        //desc sort, because if we change from left, then some index will change.
         for (int key : tm.descendingKeySet()) {
             int i = tm.get(key);
             if (S.substring(indexes[i]).startsWith(sources[i])) {
