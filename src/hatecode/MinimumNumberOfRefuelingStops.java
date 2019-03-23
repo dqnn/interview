@@ -59,13 +59,8 @@ Explanation: We can reach the target without refueling.
                 dp[t + 1] = Math.max(dp[t + 1], dp[t] + s[i][1]);
             }
         }
-        
         for (int t = 0; t <= s.length; ++t)
             if (dp[t] >= target) return t;
         return -1;
     }
-    
-   
-    
-    
 }
