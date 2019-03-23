@@ -1,7 +1,6 @@
 package hatecode;
 
-import java.util.Arrays;
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * Project Name : Leetcode
@@ -69,22 +68,70 @@ this graph demonstrated how to solve this problem
     public int minMeetingRooms2(Interval[] schedule) {
         Arrays.sort(schedule, (a, b) -> a.start - b.start);
         //the PQ keeps how many meeting  rooms are needed for current meeting schedule
-        PriorityQueue<Interval> heap = new PriorityQueue<>(schedule.length, (a, b) -> a.end - b.end);
+        PriorityQueue<Interval> pq = new PriorityQueue<>(schedule.length, (a, b) -> a.end - b.end);
         //we add smallest start time into queue
-        heap.offer(schedule[0]);
+        pq.offer(schedule[0]);
         for (int i = 1; i < schedule.length; i++) {
-            Interval interval = heap.poll();
+            Interval interval = pq.poll();
             //we have a new schedule and want to check first room that can we merge the the schedule 
             //with current meeting,if the schedule start time bigger than current meeting room ends time then 
             //we can merge else we need to open another meeting
             if (schedule[i].start >= interval.end) {
                 interval.end = schedule[i].end;
             } else {
-                heap.offer(schedule[i]);
+                pq.offer(schedule[i]);
             }
             //original meeting still there
-            heap.offer(interval);
+            pq.offer(interval);
         }
-        return heap.size();
+        return pq.size();
+    }
+    
+    private static final int START = 1;
+
+    private static final int END = 0;
+    
+    private class Event {
+        int time;
+        int type; // end event is 0; start event is 1
+
+        public Event(int time, int type) {
+            this.time = time;
+            this.type = type;
+        }
+    }
+    
+    public int minMeetingRooms_Simulation(Interval[] intervals) {
+        int rooms = 0; // occupied meeting rooms
+        int res = 0;
+
+        // initialize an event queue based on event's happening time
+        Queue<Event> events = new PriorityQueue<>(new Comparator<Event>() {
+            @Override
+            public int compare(Event e1, Event e2) {
+                // for same time, let END event happens first to save rooms
+                return e1.time != e2.time ? 
+                       e1.time - e2.time : e1.type - e2.type;
+            }
+        });
+
+        // create event and push into event queue
+        for (Interval interval : intervals) {
+            events.offer(new Event(interval.start, START));
+            events.offer(new Event(interval.end, END));
+        }
+        
+        // process events
+        while (!events.isEmpty()) {
+            Event event = events.poll();
+            if (event.type == START) {
+                rooms++;
+                res = Math.max(res, rooms);
+            } else {
+                rooms--; 
+            }
+        }
+        
+        return res;
     }
 }
