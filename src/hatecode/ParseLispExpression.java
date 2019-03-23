@@ -40,7 +40,7 @@ public class ParseLispExpression {
      */
     //thinking process: 
     //this has something similiar with calculator, but this difference is that 
-    // it will output number fianlly while calc IV will output vars
+    // it will output number finally while calc IV will output vars
     
     //
     public static int evaluate(String expression) {
