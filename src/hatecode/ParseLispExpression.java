@@ -48,7 +48,7 @@ public class ParseLispExpression {
     }
 
     private static int eval(String exp, Map<String, Integer> parent) {
-        //list must start with ( or it is just number
+        //lisp must start with ( or it is just number
         if (exp.charAt(0) != '(') {
             // just a number or a symbol
             if (Character.isDigit(exp.charAt(0)) || exp.charAt(0) == '-')
