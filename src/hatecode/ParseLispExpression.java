@@ -75,7 +75,8 @@ public class ParseLispExpression {
         }
     }
 
-    //parse is only to parse the first layer of parentness
+    //parse is only to parse the first layer of parentness,
+    //str = x 2 (mult x (let x 3 y 4 (add x y)))
     private static List<String> parse(String str) {
         // seperate the values between two parentheses
         List<String> res = new ArrayList<>();
