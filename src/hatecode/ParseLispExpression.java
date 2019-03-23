@@ -55,7 +55,8 @@ public class ParseLispExpression {
                 return Integer.parseInt(exp);
             return parent.get(exp);
         }
-        // create a new scope, add add all the previous values to it
+        // create a new scope, add add all the previous values to it,
+        //for example let x 5, then x will be key. 5 is value
         Map<String, Integer> map = new HashMap<>();
         map.putAll(parent);
         //last is ), so exclude last )
@@ -74,10 +75,11 @@ public class ParseLispExpression {
         }
     }
 
+    //parse is only to parse the first layer of parentness
     private static List<String> parse(String str) {
         // seperate the values between two parentheses
         List<String> res = new ArrayList<>();
-        //pareness
+        //pareness count
         int par = 0;
         StringBuilder sb = new StringBuilder();
 
@@ -89,13 +91,14 @@ public class ParseLispExpression {
                 sb = new StringBuilder();
             } else  sb.append(c);
         }
-        if (sb.length() > 0)
-            res.add(new String(sb));
+        if (sb.length() > 0) res.add(new String(sb));
+
         return res;
     }
-    
+    //(let x 2 (mult x (let x 3 y 4 (add x y))))-->
+    //tokens = [x, 2, (mult x (let x 3 y 4 (add x y)))]
     public static void main(String[] args) {
-        String in ="(let x 2)";
+        String in ="(let x 2 (mult x (let x 3 y 4 (add x y))))";
         System.out.print(evaluate(in));
     }
 }
