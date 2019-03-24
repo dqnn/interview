@@ -2,9 +2,10 @@ package hatecode;
 class MaxChunksToMakeSorted {
     
     /*
-    769. Max Chunks To Make Sorted
+    769. Max Chunks To Make Sorted and Max Chunks To Make Sorted II
     
-    Given an array arr that is a permutation of [0, 1, ..., arr.length - 1], we split the array into some number of "chunks" (partitions), and individually sort each chunk.  After concatenating them, the result equals the sorted array.
+    Given an array arr that is a permutation of [0, 1, ..., arr.length - 1], we split the array into some number of "chunks" (partitions), and individually sort each chunk.  
+    After concatenating them, the result equals the sorted array.
 
 What is the most number of chunks we could have made?
 
