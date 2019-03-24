@@ -36,12 +36,7 @@ arr[i] will be a permutation of [0, 1, ..., arr.length - 1].
     so the array is [0, 1,2.... n], we want to know whether 0---k-1 the maxium is k, if it is, then this should be a chunk
     
     */
-    //interview friendly, the problem is to say given an array, distinct value(I), not distinct(II), 
-    //if we can cut the array into several chunks, and sort each and then concated them, whole still sorted
-    //so what's the max chunks can we get?
-    
-    //
-    public int maxChunksToSorted_II(int[] nums) {
+    public int maxChunksToSorted_I(int[] nums) {
         //edge case
         if (nums == null || nums.length < 1) {
             return 0;
@@ -66,26 +61,31 @@ Use two arrays to store the left max and right min to achieve O(n) time complexi
 This algorithm can be used to solve ver2 too.
 
     */
-    public int maxChunksToSorted2(int[] arr) {
+  //interview friendly, the problem is to say given an array, distinct value(I), not distinct(II), 
+    //if we can cut the array into several chunks, and sort each and then concated them, whole still sorted
+    //so what's the max chunks can we get?
+    
+    //so 
+    public int maxChunksToSorted_I_II(int[] arr) {
         int n = arr.length;
-        int[] maxOfLeft = new int[n];
-        int[] minOfRight = new int[n];
+        int[] maxL = new int[n];
+        int[] maxR = new int[n];
 
-        maxOfLeft[0] = arr[0];
+        maxL[0] = arr[0];
         for (int i = 1; i < n; i++) {
-            maxOfLeft[i] = Math.max(maxOfLeft[i-1], arr[i]);
+            maxL[i] = Math.max(maxL[i-1], arr[i]);
         }
 
-        minOfRight[n - 1] = arr[n - 1];
+        maxR[n - 1] = arr[n - 1];
         for (int i = n - 2; i >= 0; i--) {
-            minOfRight[i] = Math.min(minOfRight[i + 1], arr[i]);
+            maxR[i] = Math.min(maxR[i + 1], arr[i]);
         }
 
-        int res = 0;
+        int res = 1;
         for (int i = 0; i < n - 1; i++) {
-            if (maxOfLeft[i] <= minOfRight[i + 1]) res++;
+            if (maxL[i] <= maxR[i + 1]) res++;
         }
 
-        return res + 1;
+        return res;
     }
 }
