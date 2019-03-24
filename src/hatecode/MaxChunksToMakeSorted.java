@@ -65,9 +65,12 @@ This algorithm can be used to solve ver2 too.
     //if we can cut the array into several chunks, and sort each and then concated them, whole still sorted
     //so what's the max chunks can we get?
     
+    //the key is to know whether one digit can be the partition boundary or not.
     //[0,3,2,4,5], maxL =[0,3,3,4,5], 
     //             minR =[0,2,2,4,5]
-    //
+    //for one digit within this array, we can from left, the max value, from the right, 
+    //the min value, if maxL <= minR which means from max(0,i) and min(i, n), 
+    //the i could be the partition boundary, 
     public int maxChunksToSorted_I_II(int[] arr) {
         int n = arr.length;
         int[] maxL = new int[n];
