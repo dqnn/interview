@@ -36,7 +36,12 @@ arr[i] will be a permutation of [0, 1, ..., arr.length - 1].
     so the array is [0, 1,2.... n], we want to know whether 0---k-1 the maxium is k, if it is, then this should be a chunk
     
     */
-    public int maxChunksToSorted(int[] nums) {
+    //interview friendly, the problem is to say given an array, distinct value(I), not distinct(II), 
+    //if we can cut the array into several chunks, and sort each and then concated them, whole still sorted
+    //so what's the max chunks can we get?
+    
+    //
+    public int maxChunksToSorted_II(int[] nums) {
         //edge case
         if (nums == null || nums.length < 1) {
             return 0;
