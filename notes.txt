@@ -21,3 +21,4 @@ outter part
 14. student record II, 552, brute force(O(3^n))->memo(O(n))->O(lgn) with the help of fast matrix
 15. super wash machines, how max of dp array is the answer, the max stream?
 16: lc 801, minimal swap to increase sequence, how to understand the forumla? 
+17. max chunks to be sorted, double scan, how we can prove it?

@@ -65,7 +65,9 @@ This algorithm can be used to solve ver2 too.
     //if we can cut the array into several chunks, and sort each and then concated them, whole still sorted
     //so what's the max chunks can we get?
     
-    //so 
+    //[0,3,2,4,5], maxL =[0,3,3,4,5], 
+    //             minR =[0,2,2,4,5]
+    //
     public int maxChunksToSorted_I_II(int[] arr) {
         int n = arr.length;
         int[] maxL = new int[n];
