@@ -93,4 +93,24 @@ This algorithm can be used to solve ver2 too.
 
         return res;
     }
+    
+    //furthermore, from last loop, we can cut maxL actually, as below:
+    public int maxChunksToSorted_I_II_OneArray(int[] arr) {
+        int n = arr.length;
+        int[] maxR = new int[n];
+
+        maxR[n - 1] = arr[n - 1];
+        for (int i = n - 2; i >= 0; i--) {
+            maxR[i] = Math.min(maxR[i + 1], arr[i]);
+        }
+
+        int res = 1;
+        int maxL = Integer.MIN_VALUE;
+        for (int i = 0; i < n - 1; i++) {
+            maxL = Math.max(maxL, arr[i]);
+            if (maxL <= maxR[i + 1]) res++;
+        }
+
+        return res;
+    }
 }

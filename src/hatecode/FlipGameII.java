@@ -31,7 +31,8 @@ public class FlipGameII {
      * @param s
      * @return
      */
-
+    //if we do not have memo, then it would be O(n!), 
+    //T(n) = (n-2) * T(n-2), 
     public boolean canWin(String s) {
         if (s == null || s.length() == 0) return false;
         HashMap<String, Boolean> map = new HashMap<>();
@@ -56,5 +57,53 @@ public class FlipGameII {
         map.put(s, false);
         return false;
     }
+    
+    //XOR on all sub-games,
+    //s.split("[ ]+")-->"++++--++"->"[++++,++]"
+    public boolean canWin_Grundy(String s) {
+        s = s.replace('-', ' ');
+        int G = 0;
+        List<Integer> g = new ArrayList<>();
+        System.out.println(Arrays.toString(s.split("[ ]+")));
+        for (String t : s.split("[ ]+")) {
+            int p = t.length();
+            if (p == 0) continue;
+            while (g.size() <= p) {
+                char[] x = t.toCharArray();
+                int i = 0, j = g.size() - 2;
+                while (i <= j)
+                    x[g.get(i++) ^ g.get(j--)] = '-';
+                g.add(new String(x).indexOf('+'));
+            }
+            G ^= g.get(p);
+        }
+        return G != 0;
+    }
+        
+        //this is O(n) solution, but needs time to understand it
+        public boolean canWin_Best(String s) {
+            Set<Integer> set = new HashSet<Integer>();
+            int currLen = 0;
+            for (int i = 0; i <= s.length(); i++) {
+                if (i == s.length() || s.charAt(i) == '-') {
+                    if (currLen != 0 && currLen % 4 != 1) {
+                        currLen = currLen | 1;
+                        if (set.contains(currLen)) {
+                            set.remove(currLen);
+                        } else {
+                            set.add(currLen);
+                        }
+                    }
+                    currLen = 0;
+                } else {//find +
+                    currLen++;
+                }
+                System.out.println(set);
+            }
+            if (set.size() == 0) {
+                return false;
+            }
+            return true;
+        }
 }
 
