@@ -28,7 +28,7 @@ We count digit by digit, so it's O(logN)
 
 */
     //
-    public int numDupDigitsAtMostN(int N) {
+    public static int numDupDigitsAtMostN(int N) {
         // Transform N + 1 to arrayList
         List<Integer> list = new ArrayList<Integer>();
         //if N = 1000, then list=[1,0,0,1]
@@ -36,7 +36,8 @@ We count digit by digit, so it's O(logN)
 
         // Count the number with digits < N
         int res = 0, n = list.size();
-        for (int i = 1; i < n; ++i) res += 9 * A(9, i - 1);
+        for (int i = 1; i < n; ++i) 
+            res += 9 * A(9, i - 1);
 
         // Count the number with same prefix
         HashSet<Integer> seen = new HashSet<>();
@@ -51,7 +52,11 @@ We count digit by digit, so it's O(logN)
     }
 
 
-    public int A(int m, int n) {
+    public static int A(int m, int n) {
         return n == 0 ? 1 : A(m, n - 1) * (m - n + 1);
+    }
+    
+    public  static void main(String[] args) {
+        System.out.println(numDupDigitsAtMostN(2500));
     }
 }
