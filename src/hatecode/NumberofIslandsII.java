@@ -121,4 +121,81 @@ public class NumberofIslandsII {
         int[][] in = {{0,0},{0,1},{1,2},{2,1}};
         System.out.println(numIslands2(3,3,in));
     }
+    
+    //interview friendly, 
+    // so the difference between ordinary UF than this one is that 
+    //this one situation changes
+    public List<Integer> numIslands2_UF(int m, int n, int[][] positions) {
+        List<Integer> res = new ArrayList<>();
+        if (positions == null || positions.length < 1) return res;
+        
+        DUS dus = new DUS(m * n);
+        
+        int count = 0;
+        for(int[] p : positions) {
+            int cur = p[0] * n + p[1];
+            dus.set(cur);
+            count++;
+            
+            int[][] dirs = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
+            
+            for(int[] dir: dirs) {
+                int x = p[0] + dir[0];
+                int y = p[1] + dir[1];
+                int key = x * n + y;
+                if (x <0 || x >=m || y<0 ||y>=n || dus.find(key) == -1) continue;
+                //System.out.println(key + "->" + cur);
+                if (dus.union(key, cur)) {
+                    cur = key;
+                    count--;
+                }
+            }
+             res.add(count);
+        }
+        return res;
+        
+    }
+                
+        class DUS {
+            int[] parent;
+            int[] size;
+            int count;
+            public DUS(int cap) {
+                parent = new int[cap];
+                Arrays.fill(parent, -1);
+                size = new int[cap];
+                Arrays.fill(size,1);
+                count = cap;
+            }
+            
+            public int find(int x) {
+                if (parent[x] == -1) return -1;
+                while(x != parent[x]) {
+                    parent[x] = parent[parent[x]];
+                    x = parent[x];
+                }
+                return x;
+            }
+            
+            public void set(int x) {
+                parent[x] = x;
+            }
+            
+            public boolean union(int x, int y) {
+                x = find(x);
+                y = find(y);
+                
+                if (x == y) return false;
+                
+                if(size[x] <= size[y]) {
+                    parent[x] = y;
+                    size[y] += size[x];
+                } else {
+                    parent[y] = x;
+                    size[x] += size[y];
+                }
+                count--;
+                return true;
+            }
+        }
 }
