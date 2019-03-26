@@ -124,7 +124,14 @@ public class NumberofIslandsII {
     
     //interview friendly, 
     // so the difference between ordinary UF than this one is that 
-    //this one situation changes
+    //this one situation changes,here as we traverse the positions array, we will see
+    //more and more islands connected,and isolated will become less, so we need a way to 
+    //1 preserve the visited island, 2. find a way either dfs to find all adjacent islands
+    //but later find we did not need dfs since we only can make sure adjacent are connected. 
+    //this is perfect fit when we traverse the matrix.
+    
+    //another trick point is we made changes to the UF finder class.  we initialized as -1
+    //not i, so we can check whether the position was occupied or not
     public List<Integer> numIslands2_UF(int m, int n, int[][] positions) {
         List<Integer> res = new ArrayList<>();
         if (positions == null || positions.length < 1) return res;
