@@ -27,9 +27,7 @@ Output: 1
         boolean found = false;
         // 1. dfs to find an island, mark it in `visited`
         for (int i = 0; i < r; i++) {
-            if (found) {
-                break;
-            }
+            if (found) break;
             for (int j = 0; j < c; j++) {
                 if (A[i][j] == 1) {
                     dfs(A, visited, q, i, j, dirs);
@@ -42,15 +40,14 @@ Output: 1
         int step = 0;
         while (!q.isEmpty()) {
             int size = q.size();
-            while (size-- > 0) {
+           for(int k = 0; k< size; k++) {
                 int[] cur = q.poll();
                 for (int[] dir : dirs) {
                     int i = cur[0] + dir[0];
                     int j = cur[1] + dir[1];
                     if (i >= 0 && j >= 0 && i < r && j < c && !visited[i][j]) {
-                        if (A[i][j] == 1) {
-                            return step;
-                        }
+                        if (A[i][j] == 1) return step;
+                        
                         q.offer(new int[]{i, j});
                         visited[i][j] = true;
                     }
