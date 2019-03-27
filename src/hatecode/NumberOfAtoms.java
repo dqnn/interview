@@ -18,7 +18,9 @@ The count of elements are {'H': 2, 'Mg': 1, 'O': 2}.
 */
     
     //interview friendly, "K4(ON(SO3)2)2"--> 
-    //
+    //so we use Stack to save current result, like K4, before (
+    //when encounter ), we pop previous map and calcuate the whole result. 
+    
     public String countOfAtoms(String f) {
         if (f == null || f.length() < 1) return "";
         
@@ -32,17 +34,19 @@ The count of elements are {'H': 2, 'Mg': 1, 'O': 2}.
                 stack.push(map);
                 map = new HashMap<>();
             } else if (c == ')') {
+                //calc the number after )
                 int val = 0;
                 while(i < n && Character.isDigit(f.charAt(i))) {
                     val = val * 10 + f.charAt(i) - '0';
                     i++;
                 }
                 if (val == 0) val = 1;
+                
                 Map<String, Integer> temp = map;
                 map = stack.pop();
                 
                 for(String key : temp.keySet()) {
-                    map.put(key, map.getOrDefault(key, 0) + temp.get(key) *val);
+                    map.put(key, map.getOrDefault(key, 0) + temp.get(key) * val);
                 }
             //process Character
             } else {
