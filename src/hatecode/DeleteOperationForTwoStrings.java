@@ -29,7 +29,7 @@ Explanation: You need one step to make "sea" to "ea" and another step to make "e
         return w1.length() + w2.length() - 2* dp[r][c];
     }
     
-    // straight forward DP solution, same as  a lot DP
+    // straight forward DP solution, same as a lot DP
     public int minDistance(String w1, String w2) {
         if (w1 == null && w2 == null || w1.equals(w2)) return 0;
         
@@ -48,6 +48,7 @@ Explanation: You need one step to make "sea" to "ea" and another step to make "e
             for(int j = 1; j<= c; j++) {
                 if(w1.charAt(i-1) == w2.charAt(j-1)) {
                     dp[i][j] = dp[i-1][j-1];
+                //either remove w1 or W2 last char, so choose the min one but +1
                 } else {
                     dp[i][j] = Math.min(dp[i-1][j], dp[i][j-1]) + 1;
                 }
