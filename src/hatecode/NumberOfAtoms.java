@@ -41,10 +41,11 @@ The count of elements are {'H': 2, 'Mg': 1, 'O': 2}.
                     i++;
                 }
                 if (val == 0) val = 1;
-                
+                //we here map is to save the current result inside ()
                 Map<String, Integer> temp = map;
+                //this map is more inner side expressions, so we need to multiple its factor
                 map = stack.pop();
-                
+
                 for(String key : temp.keySet()) {
                     map.put(key, map.getOrDefault(key, 0) + temp.get(key) * val);
                 }
@@ -52,14 +53,14 @@ The count of elements are {'H': 2, 'Mg': 1, 'O': 2}.
             } else {
                 //since i advanced no matter which character
                 int l = i - 1;
-                while(i < n && Character.isLowerCase(f.charAt(i))) {
-                    i++;
-                }
-                
+                while(i < n && Character.isLowerCase(f.charAt(i))) i++;
+
                 String s = f.substring(l, i);
+                
                 int val=0;
                 while(i<n && Character.isDigit(f.charAt(i))) val=val*10+ f.charAt(i++)-'0';
                 if(val==0) val=1;
+                
                 map.put(s,map.getOrDefault(s,0)+val);
             }
         }
