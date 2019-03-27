@@ -33,7 +33,7 @@ public class DiameterofBinaryTree {
             return 0;
         }
         helper(root);
-        return res;
+        return res == Integer.MIN_VALUE? 0 : res;
     }
 
     // the problem it has return value and recursive

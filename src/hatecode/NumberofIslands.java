@@ -1,6 +1,6 @@
 package hatecode;
 
-import java.util.LinkedList;
+import java.util.*;
 import java.util.Queue;
 
 /**
@@ -120,5 +120,69 @@ public class NumberofIslands {
                 grid[i][j + 1] = '0';
             }
         }
+    }
+    
+    //UF with two scan
+    class DUS {
+        int[] parent;
+        int[] size;
+        int count;
+        public DUS(int cap) {
+            parent = new int[cap];
+            size = new int[cap];
+            Arrays.fill(size, 1);
+            for(int i = 0; i<cap; i++) parent[i] = i;
+            count = cap;
+        }
+        
+        public int find(int x) {
+            while(x != parent[x]) {
+                x = parent[x];
+            }
+            return x;
+        }
+        
+        public void union(int x, int y) {
+            x = find(x);
+            y = find(y);
+            if (x == y) return;
+            
+            if(size[x] <= size[y]) {
+                size[y] += size[x];
+                parent[x] = y;
+            } else {
+                size[x] += size[y];
+                parent[y] = x;
+            }
+            count--;
+        }
+        
+        public int getCount() {
+            return count;
+        }
+    }
+    
+    public int numIslands_UF(char[][] g) {
+        if (g == null || g.length < 1 || g[0].length < 1) return 0;
+        
+        int r = g.length, c = g[0].length;
+        int count = 0;
+        DUS dus = new DUS(r *c);
+        for(int i = 0; i < r; i++) {
+            for(int j =0; j< c; j++) {
+                if (g[i][j] == '1') {
+                    int[][] dirs = {{-1, 0}, {1,0}, {0,1}, {0,-1}};
+                    for(int[] dir : dirs) {
+                        int x = i + dir[0];
+                        int y = j + dir[1];
+                        
+                        if (x>=0 && x< r && y>=0 && y<c && g[x][y] == '1') {
+                            dus.union(i * c + j, x *c + y);
+                        }
+                    }
+                } else count++;
+            }
+        }
+        return dus.getCount() - count;
     }
 }
