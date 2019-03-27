@@ -22,11 +22,14 @@ public class IntegertoEnglishWords {
 
 
      */
-    String[] less20={"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
-    String[] tens={"", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
-    String[] thousands={"", "Thousand", "Million", "Billion"};
+    //best and interview friendly
+    //so the solution is carefully insights on how the result string formed. 
+    //thousand is the threshold, it setup 3 arrays to form the low level things
+    static String[] less20={"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+    static String[] tens={"", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
+    static String[] thousands={"", "Thousand", "Million", "Billion"};
 
-    public String numberToWords(int num) {
+    public static String numberToWords(int num) {
         if (num == 0) return "Zero";
         String res = "";
         int i = 0;
@@ -39,7 +42,7 @@ public class IntegertoEnglishWords {
         }
         return res.trim();
     }
-    public String helper(int num) {
+    public static String helper(int num) {
         if (num == 0) return "";
         if (num < 20) {
             return less20[num % 20] + " ";
@@ -71,5 +74,9 @@ public class IntegertoEnglishWords {
         else if (num < 1000000000) result = helper2(num/1000000) + " Million " +  helper2(num % 1000000);
         else result = helper2(num/1000000000) + " Billion " + helper2(num % 1000000000);
         return result.trim();
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(numberToWords(12345678));
     }
 }
