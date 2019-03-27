@@ -47,7 +47,6 @@ Output: 1
                     int j = cur[1] + dir[1];
                     if (i >= 0 && j >= 0 && i < r && j < c && !visited[i][j]) {
                         if (A[i][j] == 1) return step;
-                        
                         q.offer(new int[]{i, j});
                         visited[i][j] = true;
                     }
