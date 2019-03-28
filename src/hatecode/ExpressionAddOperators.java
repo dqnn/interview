@@ -1,4 +1,4 @@
-package hatecode;
+    package hatecode;
 
 import java.util.ArrayList;
 import java.util.List;
