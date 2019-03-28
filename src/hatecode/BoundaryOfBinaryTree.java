@@ -42,7 +42,8 @@ node.right could also be left bound if node is left bound && node has no right c
         }
         return res;
     }
-
+    //pretty trick and elegant code implementations
+    //
     private void getBounds(TreeNode node, List<Integer> res, boolean lb, boolean rb) {
         if (node == null) return;
         if (lb) res.add(node.val);
