@@ -1,12 +1,7 @@
 package hatecode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.Queue;
+
+import java.util.*;
 
 /**
  * Project Name : Leetcode
@@ -161,6 +156,34 @@ public class BinaryTreeVerticalOrderTraversal {
         return res;
     }
     
+    //this way can help to get rid of min/max
+    public List<List<Integer>> verticalOrder_Nominmax(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
+        TreeMap<Integer, List<Integer>> map = new TreeMap<>();
+        Queue<Node2> q = new LinkedList<>();
+        q.offer(new Node2(0,root));
+        while(!q.isEmpty()) {
+            int size = q.size();
+            for(int i = 0; i< size;i++) {
+                Node2 node = q.poll();
+                map.computeIfAbsent(node.idx, v->new ArrayList<>()).add(node.node.val);
+                if (node.node.left != null){
+                    q.offer(new Node2(node.idx - 1, node.node.left));
+                }
+                if (node.node.right != null){
+                    q.offer(new Node2(node.idx + 1, node.node.right));
+                }
+            }
+        }
+        
+        for(int key : map.keySet()) {
+            res.add(map.get(key));
+        }
+        return res;
+    }
     
     
     
