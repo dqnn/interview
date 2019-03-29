@@ -56,6 +56,7 @@ Output: false
         // left == right means the len of the String is odd, if we use left < right, then we will miss the middle 
         //number is strobogrammatic or not.
         while (left <= right) {
+            //if (!(map.containsKey(s.charAt(l) +  ""))  || !map.containsKey(s.charAt(r) + "")) also work
             if (!map.containsKey(num.charAt(left))) {
                 return false;
             }
