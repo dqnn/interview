@@ -16,7 +16,7 @@ Example 1:
 Input: [[0,0,0,0],[1,0,1,0],[0,1,1,0],[0,0,0,0]]
 Output: 3
 */
-    //simple DFS
+    //simple DFS, we climb from boundaries into land
     int N = 0;
     public int numEnclaves(int[][] A) {
         if (A == null || A.length < 1 || A[0].length < 1) return 0;
