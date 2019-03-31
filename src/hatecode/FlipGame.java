@@ -43,4 +43,22 @@ Write a function to compute all possible states of the string after one valid mo
         }
         return res;
     }
+    
+    public List<String> generatePossibleNextMoves_SB(String s) {
+        List<String> res = new ArrayList<>();
+        if (s == null || s.length() < 2) return res;
+        int i = 0;
+        StringBuilder sb = new StringBuilder(s);
+        while(i + 1 < s.length()) {
+            if (s.charAt(i) == '+' && s.charAt(i) == s.charAt(i+1)) {
+                sb.replace(i, i+2,"--");
+                res.add(sb.toString());
+            }
+            sb.setLength(0);
+            sb.append(s);
+            i++;
+        }
+        
+        return res;
+    }
 }
