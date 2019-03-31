@@ -32,7 +32,7 @@ Output: 8
             return key + "" + i + "" + j;
         }
     }
-    
+   //O(RC*2^m),m is count of keys
     public int shortestPathAllKeys(String[] g) {
         if (g == null || g.length< 1) return 0;
         
