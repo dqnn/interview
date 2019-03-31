@@ -19,6 +19,8 @@ T = [73, 74, 75, 71, 69, 72, 76, 73], your output should be
 
 
 */
+    //interview friendly
+    //should remember how we handle the two dimension, value and index
     public int[] dailyTemperatures(int[] T) {
         if (T == null || T.length < 1) {
             return null;
