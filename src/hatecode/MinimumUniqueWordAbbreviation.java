@@ -2,7 +2,7 @@ package hatecode;
 import java.util.*;
 public class MinimumUniqueWordAbbreviation {
 /*
- * tags: trie
+ * tags: Trie
 411. Minimum Unique Word Abbreviation
 
 A string such as "word" contains the following abbreviations:
