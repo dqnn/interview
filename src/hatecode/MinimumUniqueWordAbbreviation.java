@@ -2,6 +2,7 @@ package hatecode;
 import java.util.*;
 public class MinimumUniqueWordAbbreviation {
 /*
+ * tags: trie
 411. Minimum Unique Word Abbreviation
 
 A string such as "word" contains the following abbreviations:
@@ -76,7 +77,9 @@ Examples:
     public static String minAbbreviation(String target, String[] dictionary) {
         n = target.length(); bn = 1 << n; cand = 0; minLen = Integer.MAX_VALUE;
         StringBuilder res = new StringBuilder();
-        //Preprocessing where we convert each string to a "match" binary number
+        //Pre-processing where we convert each string to a "match" binary number
+        
+        //if different character appeared at same position then we want the position to be 1
         for (String s : dictionary){
             int word = 0; //This will be our integer match binary number
             //The only strings that can have conflicting abbr are ones of the same length

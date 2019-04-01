@@ -1,7 +1,7 @@
 package hatecode;
 import java.util.*;
 public class WordAbbreviation {
-    /*
+    /*tags: trie
      * 527. Word Abbreviation Given an array of n distinct non-empty strings, you
      * need to generate minimal possible abbreviations for every word following
      * rules below.
@@ -23,8 +23,8 @@ public class WordAbbreviation {
     //the problem itself is to say abbreivate list of words,if they are the same then we can 
     // try to resolve the conflicting words, the way is to add one new character, until full word
     
-    //this operation is like trie operation, along with character, count means 
-    //how many abbreivated words has same string
+    //this operation is like trie operation, along with character, trie.count means 
+    //how many abbreviated words has same string
     //so if we found one, we re-create the abbrevation string and put into result,
     public static List<String> wordsAbbreviation(List<String> words) {
         Map<String, List<IndexedWord>> groups = new HashMap<>();
@@ -48,12 +48,14 @@ public class WordAbbreviation {
                     cur = cur.children[letter - 'a'];
                 }
             }
-
+            //if we found one trie.count more than 2, so want to find one trie which 
+            //trie.count = 1 and we break, because that position in string is the  
+            //answer
             for (IndexedWord iw: group) {
                 Trie cur = trie;
                 int i = 1;
                 //if count = 1 means there will be only 1 word, so we stop
-                //otherwise we continue, beause we want to know on which character
+                //otherwise we continue, because we want to know on which character
                 //count will be 1 then we can abbreviate  
                 for (char letter: iw.word.substring(1).toCharArray()) {
                     if (cur.count == 1) break;
@@ -67,6 +69,7 @@ public class WordAbbreviation {
         return Arrays.asList(ans);
     }
     // i means i+1 char as prefix will be remain in abbreviated string
+    //if i = 0 means we only keep first and last char
     public static String abbrev(String word, int i) {
         int N = word.length();
         if (N - i <= 3) return word;
