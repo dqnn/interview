@@ -12,7 +12,7 @@ import java.util.List;
  * Description : 320. Generalized Abbreviation
  */
 public class GeneralizedAbbreviation {
-    /**
+    /**tags: dfs, backtracking
      * Write a function to generate the generalized abbreviations of a word.
      * Example:
      Given word = "word", return the following list (order does not matter):
