@@ -66,7 +66,7 @@ Examples:
         if (match){
             minLen = len; //If we have found a proper cover then update the min value
             minab = mask;
-        }else {
+        } else {
             //Bit is a binary number with 1 bit set
             for (int b = bit; b < bn; b <<= 1){
                 if ((cand & b) != 0) dfs(b << 1, mask + b);
@@ -98,13 +98,12 @@ Examples:
             if ((minab & (1 << i)) != 0){
                 //If we have a 1 set, that means to keep this character
                 res.append(target.charAt(i++));
-            }else{//Otherwise we potentially have consecutive 0's so count them and replace it with the numebr
+            } else {//Otherwise we potentially have consecutive 0's so count them and replace it with the numebr
                 int j = i;
                 while (i < n && (minab & (1 << i)) == 0) i++;
                 res.append(i-j);
             }
         }
-        
         return res.toString();
     }
     
