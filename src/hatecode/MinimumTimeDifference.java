@@ -21,6 +21,11 @@ Output: 1
             if (bucket[h * 60 + m]) return 0;
             bucket[h * 60 + m] = true;
         }
+        
+        //prev will record previous value which is hour * 60 + minute
+        //first is record the min minutes value, last is max minutes value
+        //Math.min(min, (24 * 60 - last + first)) is to mean make sure all 
+        //compare is within one cycle
         int prev = 0, min = Integer.MAX_VALUE;
         int first = Integer.MAX_VALUE, last = Integer.MIN_VALUE;
         for(int i = 0; i< 24 * 60; i++) {
@@ -38,6 +43,12 @@ Output: 1
         return min;
     }
     
+    //this one is better because it is 
+    //1 reduce the loop, we get the min and max minutes, reduced the data size
+    //2 for the cycle, we divide by 2 cases, 
+    //a. is cycle overlap, 
+    //b. within one cycle, we minus, 
+    //and iterate on previous i 
     public int findMinDifference_Better(List<String> timePoints) {
         boolean[] mark = new boolean[24 * 60];
         int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
