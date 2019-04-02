@@ -37,6 +37,8 @@ Output: true
         int r = m.length, c=m[0].length;
         if (src[0] < 0 || src[0] >= r || src[1] < 0 || src[1] >= c
             || dst[0] < 0 || dst[0] >= r || dst[1] < 0 || dst[1] >= c) return false;
+        //visited here records the coordination which the ball rolls to the edge of the 
+        //wall
         int[][] visited = new int[r][c];
         return helper(m, src[0], src[1], dst, visited);
     }
