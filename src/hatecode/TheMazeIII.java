@@ -27,7 +27,9 @@ Input 3: hole coordinate (rowHole, colHole) = (0, 1)
 
 Output: "lul"
 */
-    
+    // interview friendly, 
+    //summary Maze 1, II and III
+    //
     public String findShortestWay(int[][] maze, int[] start, int[] hole) {
         int m=maze.length, n=maze[0].length;
         Point[][] points = new Point[m][n]; // record length
