@@ -18,10 +18,13 @@ iterator.next(); // return 'e'
 iterator.hasNext(); // return false
 iterator.next(); // return ' '
 */
-   String res;
+    
+    String res;
+    //idx is index in comparess string, num is how many character left 
     int idx = 0, num = 0;
+    //point to current character
     char ch = ' ';
-    public DesignCompressedStringIterator(String s) {
+    public void StringIterator(String s) {
         res = s;
     }
     public char next() {
@@ -30,20 +33,15 @@ iterator.next(); // return ' '
         if (num == 0) {
             ch = res.charAt(idx++);
             while (idx < res.length() && Character.isDigit(res.charAt(idx))) {
-                num = num * 10 + res.charAt(idx++) - '0';
+                num = num * 10 + res.charAt(idx) - '0';
+                idx++;
             }
         }
         num--;
         return ch;
     }
+    //idx could reach len -1 but cannot len -2 
     public boolean hasNext() {
-        return idx != res.length() || num != 0;
+        return idx < res.length() || num > 0;
     }
 }
-
-/**
- * Your StringIterator object will be instantiated and called as such:
- * StringIterator obj = new StringIterator(compressedString);
- * char param_1 = obj.next();
- * boolean param_2 = obj.hasNext();
- */
