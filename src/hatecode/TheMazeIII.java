@@ -29,7 +29,15 @@ Output: "lul"
 */
     // interview friendly, 
     //summary Maze 1, II and III
-    //
+    //I is to check whether we can rolling from start to end
+    //II is to find the shortest path from start to end
+    //III is to print the shortest path from start to end, the same as II
+    
+    //so about the shortest path in 2D matrix, we can always use BFS, if each step
+    //is the same, we just use step++ in while loop, and if reached the destination, 
+    //just return, if each step is different, like here, rolling style then we can 
+    //use PriorityQueue to prioritize the smallest length first. but we need to remember 
+    //how we note the path we choose
     public String findShortestWay(int[][] maze, int[] start, int[] hole) {
         int m=maze.length, n=maze[0].length;
         Point[][] points = new Point[m][n]; // record length
