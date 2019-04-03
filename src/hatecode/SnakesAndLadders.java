@@ -27,6 +27,7 @@ It can be shown that you need at least 4 moves to reach the N*N-th square, so th
         int n = board.length;
         Queue<Integer> queue = new LinkedList<>();
         queue.offer(1);
+        //since we can visit n*n,so we need len = n*n + 1
         boolean[] visited = new boolean[n * n + 1];
         //new style of bfs loop
         for (int move = 0; !queue.isEmpty(); move++) {
