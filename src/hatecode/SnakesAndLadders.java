@@ -20,51 +20,37 @@ You then decide to move to square 14, and must take the ladder to square 35.
 You then decide to move to square 36, ending the game.
 It can be shown that you need at least 4 moves to reach the N*N-th square, so the answer is 4.
 */
-   public int snakesAndLadders(int[][] board) {
+    
+   //given the graph, note the square number 
+    //we always start from 1
+    public int snakesAndLadders(int[][] board) {
         int n = board.length;
-        Set<String> visited = new HashSet<String>();
-        Queue<int[]> pos = new LinkedList<int[]>();
-        pos.offer(new int[] {n-1, 0});
-        int steps = 0;
-        while(!pos.isEmpty()){
-            int size = pos.size();
-            steps++;
-            for(int p =0;p<size;p++){
-                int[] next = pos.poll();
-                visited.add(next[0] + "->" + next[1]);
-                for (int i = 1; i <= 6; i++){
-                    int[] step = takeStep(board, next[0], next[1], i); 
-                    if (step[0] == n && step[1] == n) return steps;
-                    if(board[step[0]][step[1]] != -1) {
-                        step = getCord(n, board[step[0]][step[1]]);
-                    }
-                    if (step[0] == n && step[1] == n) return steps;
-                    if (!visited.contains(step[0]+"->"+step[1])) pos.offer(step);
-                }                
+        Queue<Integer> queue = new LinkedList<>();
+        queue.offer(1);
+        boolean[] visited = new boolean[n * n + 1];
+        //new style of bfs loop
+        for (int move = 0; !queue.isEmpty(); move++) {
+            for (int size = queue.size(); size > 0; size--) {
+                int num = queue.poll();
+                if (visited[num]) continue;
+                visited[num] = true;
+                if (num == n * n) return move;
+                for (int i = 1; i <= 6 && num + i <= n * n; i++) {
+                    int next = num + i;
+                    int value = getBoardValue(board, next);
+                    if (value > 0) next = value;
+                    if (!visited[next]) queue.offer(next);
+                }
             }
         }
         return -1;
     }
-    /*Take steps at row, col*/
-    public int[] takeStep(int[][] board, int row, int col, int steps){
+
+    private int getBoardValue(int[][] board, int num) {
         int n = board.length;
-        int next = 0;
-        if ( (n + row) % 2 == 0) next = (n - row - 1) * n + n - col + steps;
-        else next = (n - row - 1) * n + col + 1 + steps;
-        return getCord(n, next);
-    }
-    
-    private int[] getCord(int n, int value){
-        if (value >= n * n) return new int[] {n,n} ;
-        int row = n - (value - 1) / n - 1;
-        int col = 0;
-        if ((n + row) % 2 == 0){
-            if (value % n == 0) col = 0;
-            else col = n - ((value - 1) % n) - 1;
-        }else{
-            if (value % n == 0) col = n-1;
-            else col = ((value -1) % n);
-        }
-        return new int[] {row, col};
+        int r = (num - 1) / n;
+        int x = n - 1 - r;
+        int y = r % 2 == 0 ? num - 1 - r * n : n + r * n - num;
+        return board[x][y];
     }
 }
