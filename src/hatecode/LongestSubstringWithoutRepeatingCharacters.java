@@ -63,6 +63,8 @@ public class LongestSubstringWithoutRepeatingCharacters {
         Arrays.fill(count, -1);
         int start = 0, res = 0;
         for(int i = 0; i < s.length(); i++) {
+            //means the charAt(i) existed already since count default is -1, start >=0
+            //and we move start to next position
             if (count[s.charAt(i)] >= start) {
                 start = count[s.charAt(i)] + 1 ;
             }
