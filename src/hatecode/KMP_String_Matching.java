@@ -40,24 +40,27 @@ public class KMP_String_Matching {
         */
        //"abcdabcy"-->[0, 0, 0, 0, 1, 2, 3, 0]
        //if index and i are all distinct then res are all 0. 
-       //suppose we find same as res[index] == res[i] then 
+       //suppose we find same as p[index] == p[i] then next[i] = index + 1;
+       //next[i] means pattern p has same character in i and index,
+       
+       //
        public static int[] computeNextArray(char pattern[]){
-           int [] res = new int[pattern.length];
+           int[] next = new int[pattern.length];
            int index = 0;
            for(int i=1; i < pattern.length;){
                if(pattern[i] == pattern[index]){
-                   res[i] = index + 1;
+                   next[i] = index + 1;
                    index++;
                    i++;
                } else {
-                   if(index != 0) index = res[index-1];
+                   if(index != 0) index = next[index-1];
                    else{
-                       res[i] = 0;
+                       next[i] = 0;
                        i++;
                    }
                }
            }
-           return res;
+           return next;
        }
        
        /**
