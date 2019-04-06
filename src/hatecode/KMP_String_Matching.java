@@ -38,7 +38,7 @@ public class KMP_String_Matching {
         */
        private int[] computeTemporaryArray(char pattern[]){
            int [] lps = new int[pattern.length];
-           int index =0;
+           int index = 0;
            for(int i=1; i < pattern.length;){
                if(pattern[i] == pattern[index]){
                    lps[i] = index + 1;
@@ -47,7 +47,7 @@ public class KMP_String_Matching {
                } else {
                    if(index != 0) index = lps[index-1];
                    else{
-                       lps[i] =0;
+                       lps[i] = 0;
                        i++;
                    }
                }
@@ -63,9 +63,9 @@ public class KMP_String_Matching {
            int lps[] = computeTemporaryArray(pattern);
            int i=0, j=0;
            while(i < text.length && j < pattern.length){
-               if(text[i] == pattern[j]){
+               if (text[i] == pattern[j]) {
                    i++; j++;
-               }else{
+               } else {
                    if(j!=0) j = lps[j-1];
                    else i++;
                }
