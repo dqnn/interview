@@ -61,25 +61,25 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
         return head;
     }
     
-    // interview friendly
-    public ListNode reverseKGroup2(ListNode head, int k) {
-        if (head==null || head.next ==null || k==1)
+    // interview friendly, reverse(s, e), s and e are exclusive
+    public ListNode reverseKGroup_Best(ListNode head, int k) {
+        if (head == null || head.next == null || k == 1) {
             return head;
-        ListNode dummy = new ListNode(-1);
+        }
+        
+        ListNode dummy = new ListNode(0);
         dummy.next = head;
-        ListNode begin = dummy;
-        int i=0;
-        while (head != null){
-            i++;
-            if (i%k == 0){ //i = 0, k, 2k, 3k, etc
-                begin = reverse(begin, head.next);
-                head = begin.next;
-            } else {
-                head = head.next;
-            }
+        ListNode s = dummy, e = head;
+        int idx = 0;
+        while(e != null) {
+            idx++;
+            if (idx % k == 0) {
+                s = reverse(s, e.next);
+                //we need this because e  already point to first node, so we need s here to point to next   
+                e = s.next;
+            } else e = e.next;
         }
         return dummy.next;
-        
     }
     /**
      * Reverse a link list between begin and end exclusively
@@ -89,7 +89,7 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
      * 0->1->2->3->4->5->6
      * |     |     |   
      * begin cur   end
-     * after call begin = reverse(begin, end)
+     * after call begin = reverse(begin, 3)
      * 
      * 0->3->2->1->4->5->6
      *          |  |
@@ -101,6 +101,7 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
         ListNode next, first;
         ListNode prev = begin;
         first = curr;
+        //cur last point to end
         while (curr!=end){
             next = curr.next;
             curr.next = prev;
