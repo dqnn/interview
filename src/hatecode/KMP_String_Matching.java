@@ -41,7 +41,7 @@ public class KMP_String_Matching {
        //"abcdabcy"-->[0, 0, 0, 0, 1, 2, 3, 0]
        //if index and i are all distinct then res are all 0. 
        //suppose we find same as p[index] == p[i] then next[i] = index + 1;
-       //next[i] means pattern p has same character in i and index,
+       //next[i] means how many same succsive characters in string pattern
        
        //
        public static int[] computeNextArray(char pattern[]){
@@ -53,6 +53,7 @@ public class KMP_String_Matching {
                    index++;
                    i++;
                } else {
+                   //suppose here is like a, 
                    if(index != 0) index = next[index-1];
                    else{
                        next[i] = 0;
