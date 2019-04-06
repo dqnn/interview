@@ -98,17 +98,20 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
      */
     public ListNode reverse(ListNode begin, ListNode end){
         ListNode curr = begin.next;
-        ListNode next, first;
+        ListNode first;
         ListNode prev = begin;
         first = curr;
         //cur last point to end
         while (curr!=end){
-            next = curr.next;
+            ListNode next = curr.next;
             curr.next = prev;
             prev = curr;
             curr = next;
         }
+        // cur point to 4, prev = 3, 
+        //but we want 1, so we reset begin, begin is 0, begin point to 3
         begin.next = prev;
+        //this is point to 4, it is the same like 1 but we need external dummy point to 4
         first.next = curr;
         return first;
     }

@@ -24,3 +24,4 @@ outter part
 17. max chunks to be sorted, double scan, how we can prove it?
 18. Minimum Unique Word Abbreviation cannot understand the best solution?
 19. 909. Snakes and Ladders not understand the problem.
+20. 25 reverse() is interesting one about last two lines of code, 0->1->2->3->4->5, remember how we move begin and cur
