@@ -44,16 +44,16 @@ public class GenerateParentheses {
     public void helper(List<String> res, String pre, int left, int right) {
         // this is to avoid that ) is more than (  which is the wrong answer
         if (left > right) return;
-        
+
         if (left == 0 && right == 0) {
             res.add(pre);
             return;
         }
-        
+
         if (left > 0) {
             helper(res, pre + "(", left - 1, right);
         }
-        
+
         if (right > 0) {
             helper(res, pre + ")", left, right - 1);
         }
