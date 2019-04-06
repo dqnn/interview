@@ -1,7 +1,5 @@
 package hatecode;
 
-import java.util.Arrays;
-
 /**
  * Created by duqiang on 25/07/2017.
  */

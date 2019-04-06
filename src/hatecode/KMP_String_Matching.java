@@ -2,77 +2,93 @@ package hatecode;
 // JAVA program for implementation of KMP pattern 
 
 // substring searching algorithm, this is just for being familiar with KMP
-
+//O(n)
 public class KMP_String_Matching {
-    void KMPSearch(String pattern, String txt) {
-        int M = pattern.length();
-        int N = txt.length();
+    /* 
+    * Runtime complexity - O(m + n) where m is length of text and n is length of pattern
+    * Space complexity - O(n)
+    */
 
-        // create lps[] that will hold the longest
-        // prefix suffix values for pattern
-        int lps[] = new int[M];
-        int j = 0; // index for pat[]
-
-        // Preprocess the pattern (calculate lps[]
-        // array)
-        computeLPSArray(pattern, M, lps);
-
-        int i = 0; // index for txt[]
-        while (i < N) {
-            if (pattern.charAt(j) == txt.charAt(i)) {
-                j++;
-                i++;
-            }
-            if (j == M) {
-                System.out.println("Found pattern " + "at index " + (i - j));
-                j = lps[j - 1];
-            }
-
-            // mismatch after j matches
-            else if (i < N && pattern.charAt(j) != txt.charAt(i)) {
-                // Do not match lps[0..lps[j-1]] characters,
-                // they will match anyway
-                if (j != 0)
-                    j = lps[j - 1];
-                else
-                    i = i + 1;
-            }
-        }
-    }
-
-    void computeLPSArray(String pat, int M, int lps[]) {
-        // length of the previous longest prefix suffix
-        int len = 0;
-        int i = 1;
-        lps[0] = 0; // lps[0] is always 0
-
-        // the loop calculates lps[i] for i = 1 to M-1
-        while (i < M) {
-            if (pat.charAt(i) == pat.charAt(len)) {
-                len++;
-                lps[i] = len;
-                i++;
-            } else { // (pat[i] != pat[len])
-                // This is tricky. Consider the example.
-                // AAACAAAA and i = 7. The idea is similar
-                // to search step.
-                if (len != 0) {
-                    len = lps[len - 1];
-
-                    // Also, note that we do not increment
-                    // i here
-                } else {// if (len == 0)
-                    lps[i] = len;
-                    i++;
-                }
-            }
-        }
-    }
-
-    // Driver program to test above function
-    public static void main(String args[]) {
-        String txt = "ABABDABACDABABCABAB";
-        String pat = "ABABCABAB";
-        new KMP_String_Matching().KMPSearch(pat, txt);
-    }
+       /**
+        * brute force
+        */
+       public boolean hasSubstring(char[] text, char[] pattern){
+           int i=0;
+           int j=0;
+           int k = 0;
+           while(i < text.length && j < pattern.length){
+               if(text[i] == pattern[j]){
+                   i++;
+                   j++;
+               }else{
+                   j=0;
+                   k++;
+                   i = k;
+               }
+           }
+           if(j == pattern.length){
+               return true;
+           }
+           return false;
+       }
+       
+       /**
+        * Compute temporary array to maintain size of suffix which is same as prefix
+        * Time/space complexity is O(size of pattern)
+        */
+       private int[] computeTemporaryArray(char pattern[]){
+           int [] lps = new int[pattern.length];
+           int index =0;
+           for(int i=1; i < pattern.length;){
+               if(pattern[i] == pattern[index]){
+                   lps[i] = index + 1;
+                   index++;
+                   i++;
+               }else{
+                   if(index != 0){
+                       index = lps[index-1];
+                   }else{
+                       lps[i] =0;
+                       i++;
+                   }
+               }
+           }
+           return lps;
+       }
+       
+       /**
+        * KMP algorithm of pattern matching.
+        */
+       public boolean KMP(char []text, char []pattern){
+           
+           int lps[] = computeTemporaryArray(pattern);
+           int i=0;
+           int j=0;
+           while(i < text.length && j < pattern.length){
+               if(text[i] == pattern[j]){
+                   i++;
+                   j++;
+               }else{
+                   if(j!=0){
+                       j = lps[j-1];
+                   }else{
+                       i++;
+                   }
+               }
+           }
+           if(j == pattern.length){
+               return true;
+           }
+           return false;
+       }
+           
+       public static void main(String args[]){
+           
+           String str = "abcxabcdabcdabcy";
+           String subString = "abcdabcy";
+           KMP_String_Matching ss = new KMP_String_Matching();
+           boolean result = ss.KMP(str.toCharArray(), subString.toCharArray());
+           System.out.print(result);
+           
+       }
 }
