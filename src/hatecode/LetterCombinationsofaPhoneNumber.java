@@ -18,6 +18,9 @@ import java.util.Queue;
  */
 public class LetterCombinationsofaPhoneNumber {
     /**
+     * 
+     * example: 
+     * 23->[ad,ae,af,bd,be,bf,cd,ce,cf]
      * time : O(3^n)
      * space : O(n)
      */
