@@ -1,6 +1,8 @@
 package hatecode;
 // JAVA program for implementation of KMP pattern 
 
+import java.util.Arrays;
+
 // substring searching algorithm, this is just for being familiar with KMP
 //O(n)
 public class KMP_String_Matching {
@@ -36,7 +38,8 @@ public class KMP_String_Matching {
         * Compute temporary array to maintain size of suffix which is same as prefix
         * Time/space complexity is O(size of pattern)
         */
-       private int[] computeTemporaryArray(char pattern[]){
+       //"abcdabcy"-->[0, 0, 0, 0, 1, 2, 3, 0]
+       public static int[] computeNextArray(char pattern[]){
            int [] lps = new int[pattern.length];
            int index = 0;
            for(int i=1; i < pattern.length;){
@@ -60,13 +63,13 @@ public class KMP_String_Matching {
         */
        public boolean KMP(char []text, char[] pattern){
            
-           int lps[] = computeTemporaryArray(pattern);
+           int[] next = computeNextArray(pattern);
            int i=0, j=0;
            while(i < text.length && j < pattern.length){
                if (text[i] == pattern[j]) {
                    i++; j++;
                } else {
-                   if(j!=0) j = lps[j-1];
+                   if(j!=0) j = next[j-1];
                    else i++;
                }
            }
@@ -75,9 +78,10 @@ public class KMP_String_Matching {
        }
            
        public static void main(String args[]){
-           
            String str = "abcxabcdabcdabcy";
            String subString = "abcdabcy";
+           //[0, 0, 0, 0, 1, 2, 3, 0]
+           System.out.println(Arrays.toString(computeNextArray(subString.toCharArray())));
            KMP_String_Matching ss = new KMP_String_Matching();
            boolean result = ss.KMP(str.toCharArray(), subString.toCharArray());
            System.out.print(result);
