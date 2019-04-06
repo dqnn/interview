@@ -26,7 +26,8 @@ public class ThreeSumClosest {
     //thnking process:
     //the problem is get the closet sum to the target
     
-    //so we need to 
+    //so brute force is O(n^3) then we can improve can sort first then we can 
+    //use two pointers to move the end and start
     public int threeSumClosest(int[] nums, int target) {
         int res = nums[0] + nums[1] + nums[nums.length - 1];
         Arrays.sort(nums);
