@@ -42,7 +42,6 @@ public class KMP_String_Matching {
        //if index and i are all distinct then res are all 0. 
        //suppose we find same as p[index] == p[i] then next[i] = index + 1;
        //next[i] means how many same succsive characters in string pattern
-       
        //
        public static int[] computeNextArray(char pattern[]){
            int[] next = new int[pattern.length];
