@@ -41,7 +41,7 @@ public class KMP_String_Matching {
        //"abcdabcy"-->[0, 0, 0, 0, 1, 2, 3, 0]
        //if index and i are all distinct then res are all 0. 
        //suppose we find same as p[index] == p[i] then next[i] = index + 1;
-       //next[i] means how many same succsive characters in string pattern
+       //next[i] means how many same successive characters in string pattern
        //
        public static int[] computeNextArray(char pattern[]){
            int[] next = new int[pattern.length];
@@ -52,7 +52,7 @@ public class KMP_String_Matching {
                    index++;
                    i++;
                } else {
-                   //suppose here is like a, 
+                   //index = 4, next[4-1] = 0, so it rewind to 0
                    if(index != 0) index = next[index-1];
                    else{
                        next[i] = 0;
@@ -74,6 +74,7 @@ public class KMP_String_Matching {
                if (text[i] == pattern[j]) {
                    i++; j++;
                } else {
+                   //if not equals then j should retreat to which position
                    if(j!=0) j = next[j-1];
                    else i++;
                }
