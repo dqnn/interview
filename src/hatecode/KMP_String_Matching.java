@@ -39,23 +39,25 @@ public class KMP_String_Matching {
         * Time/space complexity is O(size of pattern)
         */
        //"abcdabcy"-->[0, 0, 0, 0, 1, 2, 3, 0]
+       //if index and i are all distinct then res are all 0. 
+       //suppose we find same as res[index] == res[i] then 
        public static int[] computeNextArray(char pattern[]){
-           int [] lps = new int[pattern.length];
+           int [] res = new int[pattern.length];
            int index = 0;
            for(int i=1; i < pattern.length;){
                if(pattern[i] == pattern[index]){
-                   lps[i] = index + 1;
+                   res[i] = index + 1;
                    index++;
                    i++;
                } else {
-                   if(index != 0) index = lps[index-1];
+                   if(index != 0) index = res[index-1];
                    else{
-                       lps[i] = 0;
+                       res[i] = 0;
                        i++;
                    }
                }
            }
-           return lps;
+           return res;
        }
        
        /**
