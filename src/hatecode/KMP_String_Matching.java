@@ -44,10 +44,9 @@ public class KMP_String_Matching {
                    lps[i] = index + 1;
                    index++;
                    i++;
-               }else{
-                   if(index != 0){
-                       index = lps[index-1];
-                   }else{
+               } else {
+                   if(index != 0) index = lps[index-1];
+                   else{
                        lps[i] =0;
                        i++;
                    }
@@ -59,26 +58,19 @@ public class KMP_String_Matching {
        /**
         * KMP algorithm of pattern matching.
         */
-       public boolean KMP(char []text, char []pattern){
+       public boolean KMP(char []text, char[] pattern){
            
            int lps[] = computeTemporaryArray(pattern);
-           int i=0;
-           int j=0;
+           int i=0, j=0;
            while(i < text.length && j < pattern.length){
                if(text[i] == pattern[j]){
-                   i++;
-                   j++;
+                   i++; j++;
                }else{
-                   if(j!=0){
-                       j = lps[j-1];
-                   }else{
-                       i++;
-                   }
+                   if(j!=0) j = lps[j-1];
+                   else i++;
                }
            }
-           if(j == pattern.length){
-               return true;
-           }
+           if(j == pattern.length) return true;
            return false;
        }
            
