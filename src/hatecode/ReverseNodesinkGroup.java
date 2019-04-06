@@ -63,12 +63,11 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
     
     // interview friendly
     public ListNode reverseKGroup2(ListNode head, int k) {
-        ListNode begin;
         if (head==null || head.next ==null || k==1)
             return head;
-        ListNode dummyhead = new ListNode(-1);
-        dummyhead.next = head;
-        begin = dummyhead;
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode begin = dummy;
         int i=0;
         while (head != null){
             i++;
@@ -79,7 +78,7 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
                 head = head.next;
             }
         }
-        return dummyhead.next;
+        return dummy.next;
         
     }
     /**
@@ -88,8 +87,8 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
      * a linked list:
      * cur starts from begin.next
      * 0->1->2->3->4->5->6
-     * |        |      |   
-     * begin    cur   end
+     * |     |     |   
+     * begin cur   end
      * after call begin = reverse(begin, end)
      * 
      * 0->3->2->1->4->5->6
