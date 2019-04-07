@@ -70,7 +70,8 @@ Explanation: The longest valid parentheses substring is "()()"
         return res;
     }
     /*
-     * My solution uses DP. The main idea is as follows: I construct a array longest[], for any longest[i], it stores the longest length of valid parentheses which is end at i.
+     * My solution uses DP. The main idea is as follows: I construct a array longest[], for any longest[i], 
+     * it stores the longest length of valid parentheses which is end at i.
 
 And the DP idea is :
 
@@ -112,6 +113,27 @@ at i = 5, longest array is [0,2,0,0,2,0], longest[5] = longest[4] + 2 + longest[
         }
         System.out.println(Arrays.toString(dp));
         return res;
+    }
+    
+    public int longestValidParentheses_SameDP(String s) {
+        if(s == null || s.length() <= 1) return 0;
+        int max = 0;
+        int[] dp = new int[s.length()];
+        for(int i=1; i < s.length(); i++){
+            if(s.charAt(i) == ')'){
+                if(s.charAt(i-1) == '('){
+                    dp[i] = (i-2) >= 0 ? (dp[i-2] + 2) : 2;
+                    max = Math.max(dp[i],max);
+                } else { // if s[i-1] == ')', combine the previous length.
+                    if(i-dp[i-1]-1 >= 0 && s.charAt(i-dp[i-1]-1) == '('){
+                        dp[i] = dp[i-1] + 2 + ((i-dp[i-1]-2 >= 0)?dp[i-dp[i-1]-2]:0);
+                        max = Math.max(dp[i],max);
+                    }
+                }
+            }
+            //else if s[i] == '(', skip it, because longest[i] must be 0
+        }
+        return max;
     }
     
     public static void main(String[] args) {
