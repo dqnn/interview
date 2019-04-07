@@ -43,34 +43,34 @@ public class SearchinRotatedSortedArray {
     //else move left = mid since we want to narrow down the range
     public int search(int[] nums, int target) {
         if (nums == null || nums.length == 0) return -1;
-        int left = 0;
-        int right = nums.length - 1;
-        while (left + 1 < right) {
-            int mid = (right - left) / 2 + left;
+        int l = 0;
+        int r = nums.length - 1;
+        while (l + 1 < r) {
+            int mid = (r - l) / 2 + l;
             if (nums[mid] == target) return mid;
           //which means we are in ascend sequence maybe in first or second part
-            if (nums[left] < nums[mid]) {
+            if (nums[l] < nums[mid]) {
                 // 5,6,7,8,1,2,3 left = 5 mid = 8, target is 2 so we want to 
                 //make sure target is between left and mid because we want to 
-                if (nums[left] <= target && target <= nums[mid]) {
-                    right = mid;
+                if (nums[l] <= target && target <= nums[mid]) {
+                    r = mid;
                  //not here we only have > or < no equals
                 } else {
-                    left = mid;
+                    l = mid;
                 }
             //which means we are in descend sequence maybe partially 
             // but we examine from mid to end and move start to mid
             //nums[start] >= nums[mid]
             } else {
-                if (nums[mid] <= target && target <= nums[right]) {
-                    left = mid;
+                if (nums[mid] <= target && target <= nums[r]) {
+                    l = mid;
                 } else {
-                    right = mid;
+                    r = mid;
                 }
             }
         }
-        if (nums[left] == target) return left;
-        if (nums[right] == target) return right;
+        if (nums[l] == target) return l;
+        if (nums[r] == target) return r;
         return -1;
     }
     

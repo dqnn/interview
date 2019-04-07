@@ -1,5 +1,7 @@
 package hatecode;
 
+import java.util.Arrays;
+
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
@@ -60,6 +62,30 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
         if (nums[end] == target) return end;
         return -1;
     }
+    //the same as 35
+    public int findFirst_SameAsEqualsGreat(int[] nums, int target) {
+        int start = 0;
+        int end = nums.length - 1;
+        // so when equals fall into each branch then 
+        // it would stop there for example:
+        //[8,8,8,8,8,8,8, 8], 8, 
+        // end will always move forward, start keep still
+        while (start + 1 < end) {
+            int mid = (end - start) / 2 + start;
+            //so we do not have = because we want to move end in more probability 
+            // and move start in a very strict conditions, this can help to make sure 
+            //start will always < target, so mid can get first 8 or end
+            if (nums[mid] < target) {
+                start = mid;
+            } else {
+                end = mid;
+            }
+        }
+        //this is to return correct insert position,
+        if (nums[start] >= target) return start;
+        else if (target <= nums[end]) return end;
+        else return end + 1;
+    }
 
     public int findLast(int[] nums, int target) {
         int start = 0;
@@ -80,7 +106,7 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
     }
     
     
-    public int[] searchRange2(int[] A, int target) {
+    public static int[] searchRange2(int[] A, int target) {
         int start = firstGreaterEqual(A, target);
         if (start == A.length || A[start] != target) {
             return new int[]{-1, -1};
@@ -106,5 +132,9 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
             }
         }
         return low;
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(searchRange2(new int[] {1}, 1)));
     }
 }
