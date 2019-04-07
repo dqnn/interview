@@ -34,7 +34,7 @@ public class FirstMissingPositive {
     //we place the integer to be its correct position 5--> nums[4]
     public int firstMissingPositive(int[] nums) {
         // this return value make sense
-        if (nums == null || nums.length == 0) return 1;
+        if (nums == null || nums.length < 1) return 1;
         // note here two loops, first loop for nums, 
         for (int i = 0; i < nums.length; i++) {
             // this loop is make sure after first switch, we switch position i and nums[i] - 1
@@ -103,31 +103,6 @@ public class FirstMissingPositive {
             return nums[0] == k ? k + 1 : k;
     }
     
-    // this is two loops and use 1 -n integer to look for the integer whether they are in 
-    // the array, if we loop to the end of array, and we cannot find it then that's it.
-    // O(n^2)  O(1)
-    public int firstMissingPositive3(int[] nums) {
-        //edge case
-        if (nums == null || nums.length ==0) {
-            return 1;
-        }
-        
-        int len = nums.length;
-        for(int i =1; i<= len; i++) {
-            for(int j = 0; j< len; j++) {
-                if (i == nums[j]) {
-                    break;
-                } else if (j == len -1){
-                    return i;
-                } else {
-                    continue;
-                }
-            }
-        }
-        
-        return len + 1;
-    }
-    
     // we use a map to store the array, and look for it. 
     // O(n), O(n)
     public int firstMissingPositive4(int[] nums) {
@@ -138,14 +113,14 @@ public class FirstMissingPositive {
         
         int len = nums.length;
         
-        Map<Integer, Integer> arrayMapper = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
  
         for(int j = 0; j< len; j++) {
-            arrayMapper.put(nums[j], j);
+            map.put(nums[j], j);
         }
         
         for(int i =1; i <= len; i++) {
-            if(!arrayMapper.containsKey(i)) {
+            if(!map.containsKey(i)) {
                 return i;
             }
         }
