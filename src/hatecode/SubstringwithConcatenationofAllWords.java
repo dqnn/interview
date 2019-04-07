@@ -82,9 +82,11 @@ Output: []
         //
         for(int i = 0; i <= s.length() - len; i++) {
             Map<String, Integer> copy = new HashMap<>(map);
+            //so we look for possible concating combinations for s
             int j = i, k = 0;
             while(k < n) {
                 String temp = s.substring(j, j + words[k].length());
+                //if we cannot find it or already used it we move s pointer to next position
                 if (!copy.containsKey(temp) || copy.get(temp) <= 0) {
                     break;
                 }
@@ -92,6 +94,7 @@ Output: []
                 j += words[k].length();
                 k++;
             }
+            //if we reached the last word means we find one combinations
             if ( k == n) res.add(i);
         }
         return res;
