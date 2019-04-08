@@ -67,6 +67,7 @@ Output: [1,2,3,4]
         while (l < r) {
             int mid = l + ((r-l) >> 1);
             //means A[mid + 1] ~ A[mid + k] is better than A[mid] ~ A[mid + k - 1],
+            //2x > arr[mid] + arr[mid + k] means most of elements are on x's left
             if (x - temp.get(mid) > temp.get(mid+k) - x)
                 l = mid + 1;
             else
