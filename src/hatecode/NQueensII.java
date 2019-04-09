@@ -57,7 +57,7 @@ public class NQueensII {
             return;
         }
         for (int col = 0; col < n; col++) {
-            // dialgue i -j = 0 always
+            // dialgue i -j = 0 always, dialgue here is not only the longest one but also include others
             int id1 = col - row + n;
             //if it is anti-dialogue, i + j = n - 1, always
             int id2 = col + row;
