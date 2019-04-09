@@ -66,6 +66,7 @@ Explanation: There exist two distinct solutions to the 4-queens puzzle as shown 
             addSolution(res, queens);
             return;
         }
+        //following means if i place queen i in place queen[pos], is that going to be valid?
         for (int i = 0; i < queens.length; i++) {
             queens[pos] = i;
             if (isValid(queens, pos)) {
