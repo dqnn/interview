@@ -50,7 +50,7 @@ public class TextJustification {
     //each word has to be one same line, last line will be left justified
     
     // so first we need to know some edge cases, then return list of "" 
-    // then we use index as pointer to indicate whther we have reached to the end of the string
+    // then we use index as pointer to indicate whether we have reached to the end of the string
     // inside first loop, we have another pointer last to indicate for the result, we have scan from index to last, 
     
     // after inside loop, we want to 
