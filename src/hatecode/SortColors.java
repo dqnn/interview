@@ -44,19 +44,19 @@ Could you come up with a one-pass algorithm using only constant space?
     public void sortColors(int[] nums) {
         if (nums == null || nums.length == 0) return;
         // indicate 0 count
-        int left = 0;
+        int l = 0;
         //indicate 2 count
-        int right = nums.length - 1;
-        int index = 0;
-        while (index <= right) {
+        int r = nums.length - 1;
+        int idx = 0;
+        while (idx <= r) {
             //left move to right only when nums[index] = 0
-            if (nums[index] == 0) {
-                swap(nums, index++, left++);
-            } else if (nums[index] == 1) {
-                index++;
+            if (nums[idx] == 0) {
+                swap(nums, idx++, l++);
+            } else if (nums[idx] == 1) {
+                idx++;
             //right move to left only left when nums[index] = 2
             } else {
-                swap(nums, index, right--);
+                swap(nums, idx, r--);
             }
         }
     }
