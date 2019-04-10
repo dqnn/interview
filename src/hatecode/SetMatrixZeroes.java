@@ -82,12 +82,12 @@ Could you devise a constant space solution?
     
     public void setZeroes2(int[][] matrix) {
         if (matrix == null || matrix.length == 0) return;
-        int m = matrix.length;
-        int n = matrix[0].length;
+        int r = matrix.length;
+        int c = matrix[0].length;
         boolean row = false;
         boolean col = false;
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
                 if (matrix[i][j] == 0) {
                     matrix[0][j] = 0;
                     matrix[i][0] = 0;
@@ -96,27 +96,27 @@ Could you devise a constant space solution?
                 }
             }
         }
-        for (int i = 1; i < m; i++) {
+        for (int i = 1; i < r; i++) {
             if (matrix[i][0] == 0) {
-                for (int j = 1; j < n; j++) {
+                for (int j = 1; j < c; j++) {
                     matrix[i][j] = 0;
                 }
             }
         }
-        for (int j = 1; j < n; j++) {
+        for (int j = 1; j < c; j++) {
             if (matrix[0][j] == 0) {
-                for (int i = 1; i < m; i++) {
+                for (int i = 1; i < r; i++) {
                     matrix[i][j] = 0;
                 }
             }
         }
         if (row) {
-            for (int j = 0; j < n; j++) {
+            for (int j = 0; j < c; j++) {
                 matrix[0][j] = 0;
             }
         }
         if (col) {
-            for (int i = 0; i < m; i++) {
+            for (int i = 0; i < r; i++) {
                 matrix[i][0] = 0;
             }
         }
