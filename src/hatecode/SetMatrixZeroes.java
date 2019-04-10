@@ -59,21 +59,21 @@ Could you devise a constant space solution?
         if (matrix == null || matrix.length < 1 || matrix[0].length < 1) {
             return;
         }
-        int col0 = 1, rows = matrix.length, cols = matrix[0].length;
+        int col0 = 1, r = matrix.length, c = matrix[0].length;
 
-        for (int i = 0; i < rows; i++) {
+        for (int i = 0; i < r; i++) {
             if (matrix[i][0] == 0) col0 = 0;
             //for column, we start from 1 becz we use column 0 as flag, so 
             //it is 0 does not column 0 all have to be 0
-            for (int j = 1; j < cols; j++)
+            for (int j = 1; j < c; j++)
                 //we set first row and first column to 0, 
                 //since we can scan back, so this can help all to be 0 after 2nd 2 lops
                 if (matrix[i][j] == 0)
                     matrix[i][0] = matrix[0][j] = 0;
         }
 
-        for (int i = rows - 1; i >= 0; i--) {
-            for (int j = cols - 1; j >= 1; j--)
+        for (int i = r - 1; i >= 0; i--) {
+            for (int j = c - 1; j >= 1; j--)
                 if (matrix[i][0] == 0 || matrix[0][j] == 0)
                     matrix[i][j] = 0;
             if (col0 == 0) matrix[i][0] = 0;
