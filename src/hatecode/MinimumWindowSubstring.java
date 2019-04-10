@@ -68,20 +68,21 @@ public class MinimumWindowSubstring {
         int from = 0;
         int total = t.length();
         int min = Integer.MAX_VALUE;
-        for (int i = 0, j = 0; i < s.length(); i++) {
+        //templates for all susbstirngs
+        for (int r = 0, l = 0; r < s.length(); r++) {
             //if we found one in map, so we reduce --
-            if (cnt[s.charAt(i)]-- > 0) total--;
+            if (cnt[s.charAt(r)]-- > 0) total--;
             // s if totally == 0 so means we find all chars
             // this while mainly focus on moving j
             while (total == 0) {
                 // the length, form i->j
-                if (i - j + 1 < min) {
-                    min = i - j + 1;
-                    from = j;
+                if (r - l + 1 < min) {
+                    min = r - l + 1;
+                    from = l;
                 }
                 // so if we move j to next position to whether we can find one char in the array 
                 // so we have move from beginning to end, like i to end, so we can get overall shortest one
-                if (++cnt[s.charAt(j++)] > 0) total++;
+                if (++cnt[s.charAt(l++)] > 0) total++;
             }
         }
         // this means there is no such chars in S so we can return ""

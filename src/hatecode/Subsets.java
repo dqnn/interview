@@ -58,14 +58,14 @@ public class Subsets {
     }
     
     //this is too elegant
-    public static void helper(List<List<Integer>> res, List<Integer> list, int[] nums, int index) {
+    public static void helper(List<List<Integer>> res, List<Integer> list, int[] nums, int pos) {
     		// we rely on next visit to add the list into the res, so index > index > nums.length, no =
-    	    if (nums == null || index < 0 || index > nums.length) {
+    	    if (nums == null || pos < 0 || pos > nums.length) {
             return;
         }
     	    if (list.size() > 0)
     	        res.add(new ArrayList<>(list));
-        for (int i = index; i < nums.length; i++) {
+        for (int i = pos; i < nums.length; i++) {
             list.add(nums[i]);
             helper(res, list, nums, i + 1);
             list.remove(list.size() - 1);
