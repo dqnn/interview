@@ -19,7 +19,7 @@ public class RemoveDuplicatesfromSortedListII {
      * @param head
      * @return
      */
-    
+    //interview friendly, 
     public ListNode deleteDuplicates(ListNode head) {
         if(head == null || head.next == null) return head;
         
@@ -31,7 +31,8 @@ public class RemoveDuplicatesfromSortedListII {
         //prev is 2 steps behind cur, 
         while(cur != null) {
             cur = cur.next;
-            //dummy->1->2->3->3->4->4->5, this is to look for start and end sub array which has same 
+            //dummy->1->2->3->3->4->4->5, this is to look for start and end sub array which has same
+            // p     c
             //value, the loop is to identify first and last value, first is prev.next
             while(cur != null && cur.val == prev.next.val) {
                 cur = cur.next;
