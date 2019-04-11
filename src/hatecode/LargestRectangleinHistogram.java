@@ -45,6 +45,7 @@ public class LargestRectangleinHistogram {
       i - 1 - s.peek() uses the starting index where height[s.peek() + 1] >= height[tp], 
       because the index on top of the stack right now is the first index left of tp with height smaller than tp's height.
      */
+    //easy to remember, interview friendly
     public int largestRectangleArea(int[] heights) {
         if (heights == null || heights.length == 0) return 0;
         Stack<Integer> stack = new Stack<>();
@@ -55,6 +56,8 @@ public class LargestRectangleinHistogram {
             int h = i == heights.length ? 0 : heights[i];
             //only when previous is bigger than current h, we will go to pop stack
             // but the are is only from 0 ~ i - 1, if it is ascend array and h[i] < h[i - 1]
+            //beacuse if h is bigger than peek means we should get bigger area, so we continue push,
+            //else we should stop and verify what's the current max value, greedy 
             while (!stack.isEmpty() && h < heights[stack.peek()]) {
                 int height = heights[stack.pop()];
                 int start = stack.isEmpty() ? -1 : stack.peek();
@@ -67,7 +70,7 @@ public class LargestRectangleinHistogram {
         }
         return res;
     }
-    // interview friendly one, TODO: take care about the explanations and complexity
+    //TODO: take care about the explanations and complexity
     public int largestRectangleArea3(int[] heights) {
         // validate input
         if (heights == null || heights.length == 0) {
