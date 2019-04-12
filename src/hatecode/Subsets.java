@@ -110,7 +110,7 @@ Combine them, now we have [ [ ], [1], [2], [1,2], [3], [1,3], [2,3], [1,2,3] ]
     }
     
     public static void main(String[] args) {
-        int[] input = {1,2,3};
+        int[] input = {1,2,2};
         System.out.println(subsets(input));
     }
 }

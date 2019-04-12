@@ -49,11 +49,12 @@ public class SubsetsII {
     //if we did not return after adding to result which means 
     // we would have permuatations
     public static void helper(List<List<Integer>> res, List<Integer> list, int[] nums, int index) {
-        if (nums == null || index < 0 || index >= nums.length) {
+        if (index > nums.length) {
             return;
         }
         res.add(new ArrayList<>(list));
         for (int i = index; i < nums.length; i++) {
+            //first 2 will not considered as duplicated
             if (i != index && nums[i] == nums[i - 1]) continue;
             list.add(nums[i]);
             helper(res, list, nums, i + 1);
@@ -81,5 +82,9 @@ public class SubsetsII {
         Set<List<Integer>> temp = new HashSet<>(res);
         return new ArrayList<>(temp);
         
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(subsetsWithDup(new int[] {1,2,2}));
     }
 }

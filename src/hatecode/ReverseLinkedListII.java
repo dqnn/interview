@@ -21,7 +21,13 @@ Output: 1->4->3->2->5->NULL
 
      1->2->3->4->5
      p  c  t
-
+1. temp point to 3 first,
+2. 2-> 4, 
+3. 3->2, 
+4. 1->3
+so it would be 1->3->2->4->5, 
+               p  t  c
+and then t will change to 4 again, so we continue this process
 
      time : O(n);
      space : O(1);
@@ -31,16 +37,21 @@ Output: 1->4->3->2->5->NULL
      * @param n
      * @return
      */
+    //this is easier than reverseNinGroup, that problem needs to have a 
+    //subs problem is reverse(ListNode begin, ListNode end)
+    
     public ListNode reverseBetween(ListNode head, int m, int n) {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         ListNode pre = dummy;
         ListNode cur = dummy.next;
+        //cur starts from 1 so we only need to move m - 1 steps
         for (int i = 1; i < m; i++) {
             cur = cur.next;
             pre = pre.next;
         }
-        for (int i = 0; i < n - m; i++) {
+        //since cur points to m already, so we walk n-1 - m + 1= n-m steps
+        for(int i =m; i< n;i++) {
             ListNode temp = cur.next;
             cur.next = temp.next;
             temp.next = pre.next;
