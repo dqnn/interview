@@ -71,8 +71,8 @@ public class ClosestBinarySearchTreeValueII {
         List<Integer> res = new ArrayList<>();
         Stack<TreeNode> pred = new Stack<>();
         Stack<TreeNode> succ = new Stack<>();
-        iniPred(root, target, pred);
-        iniSucc(root, target, succ);
+        buildPredStack(root, target, pred);
+        buildSuccStack(root, target, succ);
         if (!pred.isEmpty() && !succ.isEmpty() && succ.peek().val == pred.peek().val) {
             helper(pred, false);
         }
@@ -94,7 +94,7 @@ public class ClosestBinarySearchTreeValueII {
         return res;
     }
 
-    private void iniSucc(TreeNode root, double target, Stack<TreeNode> succ) {
+    private void buildSuccStack(TreeNode root, double target, Stack<TreeNode> succ) {
         while (root != null) {
             if (root.val == target) {
                 succ.push(root);
@@ -108,7 +108,7 @@ public class ClosestBinarySearchTreeValueII {
         }
     }
 
-    private void iniPred(TreeNode root, double target, Stack<TreeNode> pred) {
+    private void buildPredStack(TreeNode root, double target, Stack<TreeNode> pred) {
         while (root != null) {
             if (root.val == target) {
                 pred.push(root);
