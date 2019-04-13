@@ -32,6 +32,7 @@ Example 1:
         System.out.println(map);
         return res;
     }
+
     //print the track since we asked for the pattern, like all left
     public static String postorder(TreeNode cur, Map<String, Integer> map, List<TreeNode> res) {
         if (cur == null) return "#";
