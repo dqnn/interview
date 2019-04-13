@@ -37,7 +37,9 @@ public class SuperUglyNumber {
     //the computation, we use res as array progressively to get result
     //this problems just to remember the for and while loop 
     
-    //also should be small one thats why we use PQ to poll smallest 
+    //for res, every time, we would choose the smallest value in PQ, then we can use a while
+    //which means they have same value, so we can try multiple options--primes, then put them backto 
+    //PQ again, the index in Num means it is the option for res[i] to multiple,
     /*
      * n = 12, primes = [2,7,13,19], 
      * first we add [2,1,2], [7,1,7], [13,1,13], [19,1,19] to pq
