@@ -1,5 +1,6 @@
 package hatecode;
 
+import java.util.Arrays;
 import java.util.PriorityQueue;
 
 /**
@@ -45,7 +46,7 @@ public class SuperUglyNumber {
      * for each res[i], 
      */
     //O( log(k)N ),
-    public int nthSuperUglyNumber(int n, int[] primes) {
+    public static int nthSuperUglyNumber(int n, int[] primes) {
         int[] res = new int[n];
         res[0] = 1;
 
@@ -62,11 +63,11 @@ public class SuperUglyNumber {
                 pq.add(new Num(next.prime * res[next.index], next.index + 1, next.prime));
             }
         }
-
+        System.out.println(Arrays.toString(res));
         return res[n - 1];
     }
 
-    class Num {
+    static class Num {
         //current value
         int val;
         //prime as base, what's the 
@@ -78,5 +79,9 @@ public class SuperUglyNumber {
             this.index = index;
             this.prime = prime;
         }
+    }
+    //would be 5, [1, 2, 3, 4, 5]
+    public static void main(String[] args) {
+        System.out.println(nthSuperUglyNumber(5, new int[] {2,3,5,7}));
     }
 }
