@@ -47,7 +47,7 @@ public class SuperUglyNumber {
      * res[2] = 4, then we will add[16, 3, 2],
      * for each res[i], 
      */
-    //O( log(k)N ),
+    //O(log(k)N),
     public static int nthSuperUglyNumber(int n, int[] primes) {
         int[] res = new int[n];
         res[0] = 1;
