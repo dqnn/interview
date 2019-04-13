@@ -30,7 +30,7 @@ public class SuperUglyNumber {
     //thinking process: so given primes array, we want to find 
     // n-th number which all factors are in the prime array. 
     
-    //so we use a queue to store the super ugly number and sorted natualy
+    //so we use a queue to store the super ugly number and sorted naturaly
     // if a = b ^n * c ^m, and d = a^ k, then d must be b and c combinations 
     // so we do not need to trace back to each prime number so we can accerlerate 
     //the computation, we use res as array progressively to get result
@@ -40,6 +40,7 @@ public class SuperUglyNumber {
         res[0] = 1;
 
         PriorityQueue<Num> pq = new PriorityQueue<>((a, b) -> (a.val - b.val));
+        //
         for (int i = 0; i < primes.length; i++) {
             pq.add(new Num(primes[i], 1, primes[i]));
         }
