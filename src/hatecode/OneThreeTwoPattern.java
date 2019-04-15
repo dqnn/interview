@@ -28,7 +28,7 @@ Output: False
             else {
                 //here nums[i] is the biggest, we would like to pop all smaller in stack until
                 //we the rest in stack are bigger than nums[i], so stack is increase from top to bottom
-                //
+                //this means we already found two numbers, 
                 while (!stack.isEmpty() && nums[i] > stack.peek()) {
                     s3 = stack.pop();
                 }
