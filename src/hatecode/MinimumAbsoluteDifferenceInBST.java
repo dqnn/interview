@@ -37,13 +37,13 @@ Output:
         
         return min;
     }
-    //O(n)/O(1),  the way how we visit the tree is classic, first we visit most left node, 
+    //O(n)/O(n),  the way how we visit the tree is classic, first we visit most left node, 
     //then pop its node, and get its parent and right, 
     public int getMinimumDifference(TreeNode node) {
          int diff = Integer.MAX_VALUE;
         if(node == null) return diff;
         
-        Stack<TreeNode> stk = new Stack();
+        Stack<TreeNode> stk = new Stack<>();
         TreeNode prev = null;
         while(!stk.isEmpty() || node != null){
             while(node != null){
@@ -59,5 +59,22 @@ Output:
         }
         return diff;
     }
+    
+    int minDiff = Integer.MAX_VALUE;
+    TreeNode prev;
+    
+    public int getMinimumDifference_InOrder(TreeNode root) {
+        inorder(root);
+        return minDiff;
+    }
+    
+    public void inorder(TreeNode root) {
+        if (root == null) return;
+        inorder(root.left);
+        if (prev != null) minDiff = Math.min(minDiff, root.val - prev.val);
+        prev = root;
+        inorder(root.right);
+    }
+
     
 }
