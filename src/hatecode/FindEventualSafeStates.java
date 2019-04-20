@@ -35,7 +35,7 @@ Here is a diagram of the above graph.
     //1 safe, 2 unsafe, use dfs to mark each node is safe or not
     public boolean helper(int[][] graph, int pos, int[] color) {
         if (color[pos] !=0) return color[pos] == 1;
-        
+        //the way how we change the color is tricky and classical
         color[pos] = 2;
         for(int next : graph[pos]) {
             if (!helper(graph, next, color)) {
