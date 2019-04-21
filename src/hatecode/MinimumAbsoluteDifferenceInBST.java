@@ -4,6 +4,7 @@ import java.util.*;
 public class MinimumAbsoluteDifferenceInBST {
 /*
 530. Minimum Absolute Difference in BST
+783. Minimum Distance Between BST Nodes
 Given a binary search tree with non-negative values, find the minimum absolute difference between values of any two nodes.
 
 Example:
