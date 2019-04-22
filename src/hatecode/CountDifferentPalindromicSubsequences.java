@@ -109,7 +109,7 @@ I have comment the branches where which kind of test cases are considered.
 
 
  */
-    
+    //just for reference, it is hard to understand when s[i] = s[j]
     public int countPalindromicSubsequences_DP(String s) {
         int len = s.length();
         int[][] dp = new int[len][len];
