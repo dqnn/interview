@@ -49,7 +49,10 @@ Explanation: [0, 1] is the longest contiguous subarray with equal number of 0 an
         }
         return max;
     }
-    
+    /*
+   dp[i][0] means from nums 0->i-1 0 count
+   dp[i][1] means from nums 0->i-1 1 count
+     */
     public int findMaxLength_DP(int[] nums) {
         int n = nums.length, res = 0;
         Map<Integer, Integer> map = new HashMap<>();
@@ -62,14 +65,11 @@ Explanation: [0, 1] is the longest contiguous subarray with equal number of 0 an
                 dp[i][0] = dp[i - 1][0];
                 dp[i][1] = dp[i - 1][1] + 1;
             }
-            if (dp[i][0] == dp[i][1])
-                res = Math.max(res, dp[i][0] * 2);
+            if (dp[i][0] == dp[i][1]) res = Math.max(res, dp[i][0] * 2);
             else {
-                int dif = dp[i][1] - dp[i][0];
-                if (map.containsKey(dif))
-                    res = Math.max(res, 2 * (dp[i][0] - dp[map.get(dif)][0]));
-                else
-                    map.put(dif, i);
+                int diff = dp[i][1] - dp[i][0];
+                if (map.containsKey(diff)) res = Math.max(res, 2 * (dp[i][0] - dp[map.get(diff)][0]));
+                else map.put(diff, i);
             }
         }
         return res;
