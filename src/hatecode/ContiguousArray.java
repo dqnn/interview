@@ -51,24 +51,27 @@ Explanation: [0, 1] is the longest contiguous subarray with equal number of 0 an
     }
     
     public int findMaxLength_DP(int[] nums) {
-	int n = nums.length, res = 0;
-	Map<Integer, Integer> map = new HashMap<>();
-	int[][] dp = new int[n+1][2];
-	for (int i = 1; i < dp.length; i++) {
-		if (nums[i-1] == 0) {
-			dp[i][0] = dp[i-1][0]+1;
-			dp[i][1] = dp[i-1][1];
-		}else {
-			dp[i][0] = dp[i-1][0];
-			dp[i][1] = dp[i-1][1]+1;
-		}
-		if (dp[i][0] == dp[i][1]) res = Math.max(res, dp[i][0]*2);
-		else {
-			int dif = dp[i][1]-dp[i][0];
-			if (map.containsKey(dif)) res = Math.max(res, 2*(dp[i][0]-dp[map.get(dif)][0]));
-			else map.put(dif, i);
-		}
-	}
-	return res;
-}
+        int n = nums.length, res = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        int[][] dp = new int[n + 1][2];
+        for (int i = 1; i < dp.length; i++) {
+            if (nums[i - 1] == 0) {
+                dp[i][0] = dp[i - 1][0] + 1;
+                dp[i][1] = dp[i - 1][1];
+            } else {
+                dp[i][0] = dp[i - 1][0];
+                dp[i][1] = dp[i - 1][1] + 1;
+            }
+            if (dp[i][0] == dp[i][1])
+                res = Math.max(res, dp[i][0] * 2);
+            else {
+                int dif = dp[i][1] - dp[i][0];
+                if (map.containsKey(dif))
+                    res = Math.max(res, 2 * (dp[i][0] - dp[map.get(dif)][0]));
+                else
+                    map.put(dif, i);
+            }
+        }
+        return res;
+    }
 }
