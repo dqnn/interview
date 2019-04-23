@@ -65,6 +65,7 @@ Explanation: [0, 1] is the longest contiguous subarray with equal number of 0 an
                 dp[i][0] = dp[i - 1][0];
                 dp[i][1] = dp[i - 1][1] + 1;
             }
+            //length = count0 * 2
             if (dp[i][0] == dp[i][1]) res = Math.max(res, dp[i][0] * 2);
             else {
                 int diff = dp[i][1] - dp[i][0];
