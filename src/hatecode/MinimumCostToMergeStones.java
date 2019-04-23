@@ -43,7 +43,13 @@ Output: 20
         return dp[1][n];
         
     }
-    //down up
+    //thinking process: 
+    //given [3,2,4,1], K = 2, once a time, we have to mrege two numbers in array, 
+    //[5,4,1]->[5,5]->20, each merge, the sum is the cost, so find the min cost
+    //down up DP
+    
+    //O(K * n^3), like burst bolloons
+    //so above is K = 2, 
     public int mergeStones(int[] stones, int K) {
         if (stones == null || stones.length < 1 || (stones.length - 1) % (K - 1) != 0)
             return -1;
@@ -54,6 +60,7 @@ Output: 20
         
         //here cannot be Int.MAX becz later we have d[i] + dp[j] it would overflow
         int max = 99999999;
+        
         int[][][] dp = new int[n + 1][n + 1][K + 1];
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= n; j++) {
