@@ -33,16 +33,19 @@ Output: 1
     }
    
     private int helper(TreeNode node) {
-        //means we are on next depth of leaf node
+        //means we are on next depth of leaf node which 
         if (node == null) return 1;
+        //leaf child, means we do not want to camera, so not covered
         if (node.left == null && node.right == null) return 0;
         
         int left = helper(node.left), right = helper(node.right);
+        //so if any node from substree no covered, we have to cover them, add one camera on current
+        //node, and return we have a camera in your child
         if (left == 0 || right == 0) { 
            res++;
            return 2;
        }
-
+       //if subtree already have camera, which means for this parent, already covered
        return left == 2 || right == 2 ? 1 : 0;
     }
     
