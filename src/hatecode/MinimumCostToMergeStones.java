@@ -29,7 +29,7 @@ Output: 20
        
         IntStream.range(1, n+1).forEach(e->prefix[e] = prefix[e-1] + stones[e-1]);
         IntStream.range(1, n+1).forEach(e->dp[e][e] = 0);
-        
+      //Function: dp[i][j] = min(sum[i][j] + dp[i][k] + dp[k + 1][j]) (i <= k < j)
         for(int l = 2; l <=n;l++) {
             for(int i =1;i <=n- l +1; i++) {
                 int j = i + l - 1;
@@ -46,7 +46,10 @@ Output: 20
     //thinking process: 
     //given [3,2,4,1], K = 2, once a time, we have to mrege two numbers in array, 
     //[5,4,1]->[5,5]->20, each merge, the sum is the cost, so find the min cost
-    //down up DP
+    //dp[i][j][1] = dp[i][j][K] + sum[i][j] (dp[i][j][K] != max)
+    //dp[i][j][k] = min(dp[i][t][k - 1] + dp[t + 1][j][1]) (t ∈ [i, j) && dp[i][t][k - 1] != max && dp[t+1][j][1] != max && k ∈ [2, K])
+
+    //Init: dp[i][i][1] = 0 (Already a pile) others = max
     
     //O(K * n^3), like burst bolloons
     //so above is K = 2, 
@@ -80,7 +83,6 @@ Output: 20
                         dp[i][j][k] = Math.min(dp[i][j][k], dp[i][t][k - 1] + dp[t + 1][j][1]);
                     }
                 }
-
                 dp[i][j][1] = dp[i][j][K] + prefixSum[j] - prefixSum[i - 1];   
             }
         }
