@@ -33,7 +33,10 @@ Output: 1
     }
    
     private int helper(TreeNode node) {
-        //means we are on next depth of leaf node which 
+        //means we are on next depth of leaf node，return 1 means we do not want camera on 
+        //leaf nodes, that's the not best case, we want to put camera on leaf's parent. 
+        //so to suit for this logic, we require the next depth of this function return 1;
+        //this will called in middle layer of nodes, its left/eight are null, like root only has left 
         if (node == null) return 1;
         //leaf child, means we do not want to camera, so not covered
         if (node.left == null && node.right == null) return 0;
