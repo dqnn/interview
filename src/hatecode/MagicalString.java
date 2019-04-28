@@ -45,9 +45,12 @@ Output: 3
     public static int magicalString(int n) {
         if (n <= 0) return 0;
         if (n <= 3) return 1;
-        
+        //Need to create the array 1 element more than n to avoid overflow because 
+        //the last round head might points to a number 2.
         int[] a = new int[n + 1];
         a[0] = 1; a[1] = 2; a[2] = 2;
+        //tail point to position we need to fill the new number
+        //head points to the number which will be used to generate new numbers
         int head = 2, tail = 3, num = 1, result = 1;
         
         while (tail < n) {
@@ -56,10 +59,10 @@ Output: 3
                 if (num == 1 && tail < n) result++;
                 tail++;
             }
+            //A trick to flip number back and forth between 1 and 2: num = num ^ 3
             num = num ^ 3;
             head++;
         }
-        
         return result;
     }
     
