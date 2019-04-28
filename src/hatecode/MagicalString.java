@@ -26,6 +26,22 @@ Example 1:
 Input: 6
 Output: 3
 */
+    //thinking process:
+    
+    //so the sequence is called Lakoski sequence
+    //first 3 is given as 122, a(1) = 1, a(2) = 2, a(3)=2, since same number are defied 
+    //one group, so a(4) must be 1 if not they should be same as a(3), but they are different
+    //group, so a(4)=1=a(5), then since a(4)=a(5)=1, then it wouldb be 2 and 1, 1 2 2 1 1 2 1 
+/*
+1 2 2 1 1 2 1 2 2 1 2 2 
+
+1  2   2  1  1  2  1  2
+
+  so we can find down is the group, will be slower than top, but we can copy numbers from top to
+  bottoms so we can continue this game
+  then we can know how to use two poiniters below to consutruct the numbers
+  
+ */
     public static int magicalString(int n) {
         if (n <= 0) return 0;
         if (n <= 3) return 1;
