@@ -27,7 +27,7 @@ streamChecker.query('k');          // return false
 streamChecker.query('l');          // return true, because 'kl' is in the wordlist
 
 */
-    
+    //this question is tricky because it use a reversed trie structure, really good one
     class TrieNode {
         Map<Character, TrieNode> children = new HashMap<>();
         boolean isWord;
