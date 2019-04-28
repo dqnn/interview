@@ -51,15 +51,20 @@ Output: 3
         a[0] = 1; a[1] = 2; a[2] = 2;
         //tail point to position we need to fill the new number
         //head points to the number which will be used to generate new numbers
+        //num means the number we want to copy to the position where in tail, note here
+        //1 and 2 are ajacent so we use num ^ 3 to jump betwee 1 and 2 each loop
         int head = 2, tail = 3, num = 1, result = 1;
-        
+        //basically we use the definition of the array
         while (tail < n) {
+            //a[head] means for this group, how many digits we need to fill in tail
             for (int i = 0; i < a[head]; i++) {
                 a[tail] = num;
+                //find one and within correct boundary
                 if (num == 1 && tail < n) result++;
                 tail++;
             }
-            //A trick to flip number back and forth between 1 and 2: num = num ^ 3
+            //A trick to flip number back and forth between 1 and 2: num = num ^ 3 XOR
+            //same  num = num == 1 ? 2 : 1;
             num = num ^ 3;
             head++;
         }
