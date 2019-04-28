@@ -14,6 +14,12 @@ Example 1:
 Input: "aba", "cdc", "eae"
 Output: 3
 */
+   //thinking process: 
+    //the problem is to find the LUS among string arrays, the lUS is one of these strings and 
+    //not the substring of any other strings, so find the longest one
+    
+    //so first sort strings by length, since they appear highly in shorter strings
+    //
    public int findLUSlength(String[] strs) {
         
        Arrays.sort(strs,(a, b)->(b.length() - a.length()));
