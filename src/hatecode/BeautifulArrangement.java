@@ -23,7 +23,8 @@ Output: 2
     //thinking process: 
     //given an array, it contains value 1..N, we need to find how many arrays have such arrangement
     //that each value % i == 0 || i % value == 0
-    //so 
+    //
+    //TODO: O(k)/O(N), k is count of permutation numbers
     int res = 0;
     public int countArrangement_BackTRACKING(int N) {
         if(N == 0) return res;
@@ -66,6 +67,32 @@ Output: 2
             mask<<=1;
         }
         map.put(dp,count);
+        return count;
+    }
+    
+    //use memorization to improve the backtracking since there are many overlap subproblems. For example, 
+    //N = 10, index 1 choose 4 and 2 choose 8 vs 1 choose 8 and 2 choose 4, 
+    //the left subproblems are overlaped.
+    public int countArrangement_MEMO(int N) {
+        char[] currState = new char[N + 1];
+        Arrays.fill(currState, 'f');  // f means not selected, t means selected
+        return helper(new HashMap<String, Integer>(), currState, 1);
+    }
+    
+    public int helper(Map<String, Integer> map, char[] currState, int index) {
+        if(index == currState.length) return 1;
+        //this is one interesting way to construct the index
+        String key = String.valueOf(currState);
+        if(map.containsKey(key)) return map.get(key);
+        int count = 0;
+        for(int i = 1; i < currState.length; i++) {
+            if(currState[i] == 'f' && (i % index == 0 || index % i == 0)) {
+                currState[i] = 't';
+                count += helper(map, currState, index + 1);
+                currState[i] = 'f';
+            }
+        }
+        map.put(key, count);
         return count;
     }
 }
