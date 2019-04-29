@@ -73,6 +73,7 @@ Output: 2
     //use memorization to improve the backtracking since there are many overlap subproblems. For example, 
     //N = 10, index 1 choose 4 and 2 choose 8 vs 1 choose 8 and 2 choose 4, 
     //the left subproblems are overlaped.
+    //this is improvement
     public int countArrangement_MEMO(int N) {
         char[] currState = new char[N + 1];
         Arrays.fill(currState, 'f');  // f means not selected, t means selected
@@ -84,15 +85,15 @@ Output: 2
         //this is one interesting way to construct the index
         String key = String.valueOf(currState);
         if(map.containsKey(key)) return map.get(key);
-        int count = 0;
+        int res = 0;
         for(int i = 1; i < currState.length; i++) {
             if(currState[i] == 'f' && (i % index == 0 || index % i == 0)) {
                 currState[i] = 't';
-                count += helper(map, currState, index + 1);
+                res += helper(map, currState, index + 1);
                 currState[i] = 'f';
             }
         }
-        map.put(key, count);
-        return count;
+        map.put(key, res);
+        return res;
     }
 }
