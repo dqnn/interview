@@ -4,11 +4,14 @@ import java.util.ArrayList;
 
 /*
  * 667
- * Given two integers n and k, you need to construct a list which contains n different positive integers ranging from 1 to n and obeys the following requirement: 
-Suppose this list is [a1, a2, a3, ... , an], then the list [|a1 - a2|, |a2 - a3|, |a3 - a4|, ... , |an-1 - an|] has exactly k distinct integers.
+ * Given two integers n and k, you need to construct a list which contains n different 
+ * positive integers ranging from 1 to n and obeys the following requirement: 
+Suppose this list is [a1, a2, a3, ... , an], then the list [|a1 - a2|, |a2 - a3|, 
+|a3 - a4|, ... , |an-1 - an|] has exactly k distinct integers.
 
 If there are multiple answers, print any of them.
-
+*/
+/*
 Example 1:
 Input: n = 3, k = 1
 Output: [1, 2, 3]
@@ -67,9 +70,8 @@ class BeautifulArrangementII {
 
     public int[] constructArray(int n, int k) {
         int[] nums = new int[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = i+1;
-        }
+        for (int i = 0; i < n; i++)  nums[i] = i+1;
+ 
         for (ArrayList<Integer> cand : permutations(nums)) {
             if (numUniqueDiffs(cand) == k) {
                 int[] ans = new int[n];
