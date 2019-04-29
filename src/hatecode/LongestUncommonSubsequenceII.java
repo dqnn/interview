@@ -38,9 +38,11 @@ public class LongestUncommonSubsequenceII {
        // strs[i].length >= strs[j].length
        for(int i = 0; i < strs.length; i++) {
             if(!duplicates.contains(strs[i])) {
+              //the longest one will be the answer, since longer, the better
                 if(i == 0) return strs[0].length();
                 for(int j = 0; j < i; j++) {
                     if(isSubsequence(strs[j], strs[i])) break;
+                    //greater than i, but the smallest one 
                     if(j == i-1) return strs[i].length();
                 }
             }
