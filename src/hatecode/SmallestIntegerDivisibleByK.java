@@ -16,7 +16,8 @@ Output: 1
     //given a K, find a number which n % K == 0 && N = 1, 11, 111, all are 1 digits
     //1 % K, 11 %K, 1111111%K, so the 0<=remainder <= K -1, if we do not have 0 which means they 
     //have a loop, otherwise return;
-    //if we have loop to K  1s, then we do not need continue, because TODO:
+    //if we have loop to K  1s, then we do not need continue, because we already have a repeated loop,
+    //in this circle, we can double r + 1, but the remainder is the same, so they will repeated again
     
     //learning:
     //1. (a + b) %n = [(a %n) + (b %n)] %n, to use a loop to generate the numbers
