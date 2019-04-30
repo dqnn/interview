@@ -21,6 +21,7 @@ Thus return 12.75.
     //into minimum density segments of longest length [hull[i], hull[i+1]-1], and we discard 
     //these segments as appropriate. That is, for each i in increasing order, hull[i+1] is the 
     //largest index in [hull[i], j-K+1] so that [hull[i], hull[i+1]-1] has minimum density.
+    //TODO: understand this solution
     static int[] preSum;
     public static double findMaxAverage_Best(int[] nums, int k) {
         int len = nums.length;
