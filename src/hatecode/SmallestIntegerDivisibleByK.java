@@ -14,13 +14,21 @@ Output: 1
 */
     //thinking process: 
     //given a K, find a number which n % K == 0 && N = 1, 11, 111, all are 1 digits
-    //so
+    //1 % K, 11 %K, 1111111%K, so the 0<=remainder <= K -1, if we do not have 0 which means they 
+    //have a loop, otherwise return;
+    //if we have loop to K  1s, then we do not need continue, because 
     public int smallestRepunitDivByK(int K) {
        //this line can be removed, just for performance improvement
         Set<Integer> set = new HashSet<>(Arrays.asList(1,3,7,9));
         if (K % 2 == 0 || K % 5 == 0 || !set.contains(K % 10)) return -1;
-        
         int r = 0;
+        //(a + b) %n = [(a %n) + (b %n)] %n
+        /*
+            11%k = (10 % k + 1 % k) % k = ((1 % k) * 10 + 1) % k
+            111%k = (100 % k + 10 % k + 1 % k) % k = ((((1 % k) * 10 + 1) % k) * 10 + 1) % k
+            1111%k = (1000 % k + 100 % k + 10 % k + 1 % k) % k
+        */
+        //r is like 1, 11, 111, 1111,.....
         for (int N = 1; N <= K; ++N) {
             r = (r * 10 + 1) % K;
             if (r == 0) return N;
