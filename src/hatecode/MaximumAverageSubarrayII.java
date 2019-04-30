@@ -30,7 +30,7 @@ Thus return 12.75.
         for(int i=1; i<len; i++){
             preSum[i] =preSum[i-1]+nums[i];
         }
-        // create the list such that for the range (i,j), element in this list would satisfy the following conditon
+        // create the list such that for the range (i,j), element in this list would satisfy the following condition
         // list[m]  list[m+1]-1 would be the smallest density from list[m] j.
         LinkedList<Integer> list = new LinkedList<Integer>();
         double res = -10000.0;
