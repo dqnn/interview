@@ -20,11 +20,10 @@ Input:
 N = 3
 Output: 6
 */
-   public int findBlackPixel(char[][] picture, int N) {
-        int m = picture.length;
-        if (m == 0) return 0;
-        int n = picture[0].length;
-        if (n == 0) return 0;
+   //this problems has no fancy solution, just do as requested
+    public int findBlackPixel(char[][] picture, int N) {
+        int m = picture.length, n = picture[0].length;
+        if (m == 0 || n == 0) return 0;
         
         Map<String, Integer> map = new HashMap<>();
         int[] colCount = new int[n];
