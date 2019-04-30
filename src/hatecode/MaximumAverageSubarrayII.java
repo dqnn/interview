@@ -37,12 +37,13 @@ Thus return 12.75.
         for(int j =k-1; j<len; j++){
             // if the last point does not satisfy the condition, we need to remove it
             while(list.size()>=2 && 
-                 getDensity(list.get(list.size()-2), list.get(list.size()-1)-1) >= getDensity(list.get(list.size()-2),j-k )
-                 ){
-                list.pollLast();
+                 getDensity(list.get(list.size()-2), list.get(list.size()-1)-1) 
+                   >= getDensity(list.get(list.size()-2),j-k ) ){
+                    list.pollLast();
             }
             list.add(j-k+1);
-            // all points are OK. If the first two point satisfy the condition, we need to remove the first point. we need to find the max point
+            // all points are OK. If the first two point satisfy the condition, 
+            //we need to remove the first point. we need to find the max point
             while(list.size()>=2 && 
                  getDensity(list.get(0), list.get(1)-1) <= getDensity(list.get(0),j)
                  ){
