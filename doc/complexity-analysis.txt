@@ -54,7 +54,7 @@ T(n) = T(n-1) + O(1)            O(n)        O(n)        Binary tree traversal vi
 T(n) = T(n-1) + O(n)            O(n^2)      O(n)        quick_sort(worst case)
 T(n) = n * T(n-1)               O(n!)       O(n)        permutation
 T(n) = T(n-1)+T(n-2)+…+T(1)     O(2^n)      O(n)        combination
-
+T(n) = T(n-1)+T(n-2)+…+T(n-k)   O(l^n)      O(n)        combination, l is some number, 1<l<2,special case is k =2
 
 
 
