@@ -70,7 +70,6 @@ Return true.
                         visited.add(k +"#" + (jump -1));
                         q.offer(node1);
                     }
-                    
                 } else if (dis[1] == s[k]) {
                     Node node1 = new Node(k, jump);
                     if (!visited.contains(k +"#" + jump)) {
