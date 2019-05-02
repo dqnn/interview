@@ -32,7 +32,8 @@ Then the 1st smallest distance pair is (1,1), and its distance is 0.
         //max and min diff within this array
         int l = 0;
         int r = nums[n - 1] - nums[0];
-        //2nd template, cnt means 
+        //2nd template, cnt means, every time reset cnt = 0 
+        //
         for (int cnt = 0; l < r; cnt = 0) {
             int mid = l + (r - l) / 2;
             //nums[j] - nums[i] <= mid
