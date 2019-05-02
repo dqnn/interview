@@ -19,8 +19,10 @@ Here are all the pairs:
 Then the 1st smallest distance pair is (1,1), and its distance is 0.
 */
     //this is pretty good question.
-    //thinking process: to find the k-smallest diff by binary search is really impressive
-    //TODO: add more notes
+    //thinking process: 
+    //given an array, to find the k-th smallest diff for all pairs. choose any 2 in this array. 
+    //brute force is O(n^2lgn) which is straightforward
+    //
     public int smallestDistancePair(int[] nums, int k) {
         Arrays.sort(nums);
 
@@ -33,9 +35,7 @@ Then the 1st smallest distance pair is (1,1), and its distance is 0.
             int mid = l + (r - l) / 2;
 
             for (int i = 0, j = 0; i < n; i++) {
-                while (j < n && nums[j] <= nums[i] + mid)
-                    j++;
-                
+                while (j < n && nums[j] <= nums[i] + mid) j++;
                 cnt += j - i - 1;
             }
 
