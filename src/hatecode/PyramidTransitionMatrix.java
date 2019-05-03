@@ -25,6 +25,19 @@ X   Y   Z
 
 This works because ('X', 'Y', 'D'), ('Y', 'Z', 'E'), and ('D', 'E', 'A') are allowed triples.
 */
+    //thinking process:
+    //given the bottom string, we want to traverse the tree by post order, and finally we can form a pyramid,
+    //return true or false with given the string array
+    
+    //there are two levels concepts of string match, one is bottom string for each level, 
+    //the bottom one already fixed, so we need to generate all possible bottom string for the next level
+    //bottom = "XYZ", allowed = ["XYD", "YZE", "DEA", "FFF"]
+    //we can generate next level bottom list=[DE]
+    //from DE we can continue to use the map to generate which is only A
+    //so if we have a large input, then bottom string list will be more than 1,then we need a loop to try each one
+    //since each level;s problem is the same, so this is recursive problem, we have to define two recursive function to solve
+    //each one, first one is to generate next level all possible bottom strings, second one is to validate the pyramid it generated
+    //by this bottom string, and these 2 are nested
     public boolean pyramidTransition(String bottom, List<String> allowed) {
         Map<String, List<String>> map = new HashMap<>();
         for(String s: allowed) {
@@ -37,7 +50,7 @@ This works because ('X', 'Y', 'D'), ('Y', 'Z', 'E'), and ('D', 'E', 'A') are all
     
     private boolean helper(String bottom, Map<String, List<String>> map) {
         if (bottom.length() == 1) return true;
-        
+        //if the string does not contain the bottom string then we cannot form the pyramid, return false
         for(int i = 0;i < bottom.length() - 1; i++) {
             if (!map.containsKey(bottom.substring(i, i+2))) return false;
         }
@@ -50,13 +63,16 @@ This works because ('X', 'Y', 'D'), ('Y', 'Z', 'E'), and ('D', 'E', 'A') are all
         return false;
     }
     
-    
+    //this method is to backtracking from bottom string, the outpu ls is the all possible 
+    //string for the level above bottom
+    //bottom level, then we 
     private void getList(String bottom, int pos, StringBuilder sb, List<String> ls, Map<String, List<String>> map) {
+        //why we stop at last position is because each key is 2 chars, we cannot move on 
         if (pos == bottom.length() - 1) {
             ls.add(sb.toString());
             return;
         }
-        
+        //add each string into sb if we can go to the last position
         for(String s: map.get(bottom.substring(pos, pos + 2))) {
             sb.append(s);
             getList(bottom, pos+1, sb, ls, map);
