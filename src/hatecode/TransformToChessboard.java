@@ -14,7 +14,7 @@ Output: 2
 */
     //thinking process: 
     //given a chess board which only contains 1 and 0, we can swap two columns or rows at one time,make the chess have 
-    //diff value compared to its adjacent chesses, so return the min swaps
+    //diff value compared to its adjacent chess, so return the min swaps
     
     //
     public int movesToChessboard(int[][] b) {
