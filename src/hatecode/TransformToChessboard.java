@@ -16,7 +16,7 @@ Output: 2
     //given a chess board which only contains 1 and 0, we can swap two columns or rows at one time,make the chess have 
     //diff value compared to its adjacent chess, so return the min swaps
     
-    //
+    //TODO: write more comments on this solution
     public int movesToChessboard(int[][] b) {
         int n = b.length, rowSum = 0, colSum = 0, rowSwap = 0, colSwap = 0;
         //this is to verify that 4 edge points can be only 4 0 or 2 1 and  2 0.
