@@ -26,6 +26,7 @@ Output: 2
                 if ((b[0][0] ^ b[i][0] ^ b[0][j] ^ b [i][j]) == 1) return -1;
             }
         }
+        //process each line
         for(int i = 0; i< n; i++) {
             rowSum += b[0][i];
             colSum += b[i][0];
@@ -35,6 +36,7 @@ Output: 2
         
         if (rowSum != n / 2 && rowSum != (n + 1) / 2) return -1;
         if (colSum != n / 2 && colSum != (n + 1) / 2) return -1;
+        
         if (n % 2 == 1) {
             if (colSwap % 2 == 1) colSwap = n - colSwap;
             if (rowSwap % 2 == 1) rowSwap = n - rowSwap;
