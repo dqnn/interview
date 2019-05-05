@@ -15,7 +15,15 @@ Output: 2
     //thinking process: 
     //given a chess board which only contains 1 and 0, we can swap two columns or rows at one time,make the chess have 
     //diff value compared to its adjacent chess, so return the min swaps
-    
+/*
+棋盘的每行的1的个数要么为 n/2，要么为 (n+1)/2，
+只看行，我们发现只有两种情况 0110 和 1001，如果只看列，只有 0011 和 1100，不管棋盘有多长，都只有两种情况。
+任意一个矩形的四个顶点只有三种情况，四个0或四个1或两个0两个1，那么四个顶点亦或在一起一定是0。
+之后我们来统计首行和首列中的1个数，因为我们要让其满足之前提到的规律。统计完了首行首列1的个数，
+先默认跟 10101 比较好了，之后再做优化处理。
+分n的奇偶来讨论。如果n是奇数，需要偶数个错位。如果n是偶数，跟 n - rowDiff 比较取较小值。
+列的处理跟行的处理完全一样。最终把行错位个数跟列错位个数相加，再除以2，得到最小的交换次数
+ */
     //TODO: write more comments on this solution
     public int movesToChessboard(int[][] b) {
         int n = b.length, rowSum = 0, colSum = 0, rowSwap = 0, colSwap = 0;
