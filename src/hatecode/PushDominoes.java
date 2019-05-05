@@ -46,8 +46,10 @@ And d = 'L' + d + 'R' won't change the result.
             
             if (d.charAt(i) == d.charAt(j)) {
                 for(int k =0; k< mid; k++) sb.append(d.charAt(i));
+            //this is special case, chars between L and R they must be all .
             } else if (d.charAt(i) == 'L' && d.charAt(j) == 'R') {
-                for(int k =0; k< mid; k++) sb.append('.');
+                //or  for(int k =0; k< mid; k++) sb.append('.'); will be accepted
+                for(int k =0; k< mid; k++) sb.append(d.charAt(i + k + 1));
             } else {
                 for(int k =0; k < mid/2; k++) sb.append('R');
                 if (mid % 2 == 1) sb.append('.');
