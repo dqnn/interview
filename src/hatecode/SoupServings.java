@@ -24,7 +24,7 @@ Output: 0.625
     //thinking process: given N volumn soup for A and B type, we have 4 operation to distribute soup, 
     //return the probability for A is empty first + B and A are empty at same time
     
-    //
+    //quad tree is the background, 
     public double soupServings(int n) {
         //this is not easy find in interview, just for pass the OJ
         if (n >= 5000) return 1;
@@ -33,21 +33,23 @@ Output: 0.625
     }
     
     private double helper(int A, int B, Double[][] memo) {
-        //case 1
-        if (A<= 0 && B <= 0) return 0.5;
-        //case 2
-        if (A<=0) return 1.0;
-        //case 3
-        if (B<=0) return 0.0;
+        // case 1: empty same time, note:
+        //half the probability that A and B become empty at the same time.
+        if (A <= 0 && B <= 0) return 0.5; 
+        // case 2: A empty first, one instance
+        if (A <= 0) return 1.0;
+        // case 3 A empty first
+        if (B <= 0) return 0.0;
         if (memo[A][B] != null) return memo[A][B];
-        
-        int[] proA = {100, 75,50,25};
-        int[] proB = {0, 25,50,75};
+
+        int[] proA = {100, 75, 50, 25};
+        int[] proB = {0, 25, 50, 75 };
         memo[A][B] = 0.0;
-        for(int i = 0; i< 4; i++) {
-            memo[A][B] += helper(A-proA[i], B - proB[i], memo);
+        for (int i = 0; i < 4; i++) {
+            memo[A][B] += helper(A - proA[i], B - proB[i], memo);
         }
+        //we multiple 0.25 because each operation is 0.25 probability
         return memo[A][B] *= 0.25;
-        
+
     }
 }
