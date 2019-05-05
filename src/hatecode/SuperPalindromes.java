@@ -16,6 +16,10 @@ Input: L = "4", R = "1000"
 Output: 4
 */
     // same as 564
+    //thinking process: give a number interval as stirng [L, R], return the x L <=x <=R, 
+    //which x can satisfy y * y = x and x, y are palindrome
+    
+    //
         public int superpalindromesInRange(String L, String R) {
         Long l = Long.valueOf(L), r = Long.valueOf(R);
         int result = 0;
@@ -28,7 +32,9 @@ Output: 4
         }
         return result;
     }
-    
+    //we use input l return the smallest palindrom which is greater than l, for example 121, then it will return 1221
+    //cands have 3 number, 10^len - 1=99999..., split l into two parts, each one is able to have its own 
+    //palindrom, then we have 3 palindrom, we get the min one
     private long nextP(long l) {
         String s = "" + l;
         int len = s.length();
@@ -48,7 +54,7 @@ Output: 4
         }
         return result;
     }
-    
+    //verify the number is palindrome
     private boolean isP(long l) {
         String s = "" + l;
         int i = 0, j = s.length() - 1;
