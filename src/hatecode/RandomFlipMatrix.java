@@ -19,6 +19,8 @@ Input:
 [[2,3],[],[],[],[]]
 Output: [null,[0,1],[1,2],[1,0],[1,1]]
 */
+    //simple solution, but the way how we remember the changed value is awesome, the improvement on the 
+    //space complexity is cool, another key note is the how we use nextInt
     Map<Integer, Integer> map;
     int rows, cols, total;
     Random rand;
@@ -32,6 +34,7 @@ Output: [null,[0,1],[1,2],[1,0],[1,1]]
     }
     
     public int[] flip() {
+        //we would not flip previous point
         int r = rand.nextInt(total--);
         int x = map.getOrDefault(r, r);
         map.put(r, map.getOrDefault(total, total));
