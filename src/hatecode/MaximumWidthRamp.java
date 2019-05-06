@@ -17,7 +17,7 @@ Output: 4
 */
     //O(nlgn)/O(n)
     
-    //thinking process:
+    //thinking process:for index, find max(j-i), i <j and A[i] <= A[j]
     public int maxWidthRamp_BS(int[] A) {
         List<Integer> s = new ArrayList<>();
         int res = 0, n = A.length;
