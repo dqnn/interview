@@ -52,7 +52,9 @@ And we still need to check all other numbers.
     //thinking process；
     //given an array, find if we reorder the array, we can find for any i, A[2*i + 1] = 2 * A[2*i]
     
-    //we 
+    //we use a treeMap to sort all values, then we start from small to big, 
+    //if 
+    //TODO: write mroe comments on this solution
     public boolean canReorderDoubled(int[] A) {
         Map<Integer, Integer> map = new TreeMap<>();
         for (int a : A) map.put(a, map.getOrDefault(a, 0) + 1);
@@ -60,6 +62,7 @@ And we still need to check all other numbers.
         for (int x : map.keySet()) {
             if (map.get(x) == 0) continue;
             int want = x < 0 ? x / 2 : x * 2;
+            //x frequency bigger than want freq
             if (x < 0 && x % 2 != 0 || map.get(x) > map.getOrDefault(want, 0))
                 return false;
 
