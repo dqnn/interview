@@ -10,6 +10,9 @@ Find the lexicographically smallest string that starts at a leaf of this tree an
 
 (As a reminder, any shorter prefix of a string is lexicographically smaller: for example, "ab" is lexicographically smaller than "aba".  A leaf of a node is a node that has no children.)
 */
+    //thinking process:
+    
+    //
     public String smallestFromLeaf(TreeNode root) {
         return dfs(root, "");
     }
@@ -29,23 +32,22 @@ Find the lexicographically smallest string that starts at a leaf of this tree an
 
         return left.compareTo(right) <= 0 ? left : right;
     }
-
-    private String ans = "~"; // dummy value '~' > 'z'
+    //best performance
+    private String res = "~"; // dummy value '~' > 'z'
 
     public String smallestFromLeaf_Better(TreeNode root) {
         return helper(root, "");
     }
 
-    private String helper(TreeNode n, String str) {
-        if (n == null)
-            return ans;
-        str = (char) ('a' + n.val) + str;
-        if (n.left == null && n.right == null && str.compareTo(ans) < 0) {
-            ans = str;
+    private String helper(TreeNode node, String str) {
+        if (node == null) return res;
+        str = (char) ('a' + node.val) + str;
+        if (node.left == null && node.right == null && str.compareTo(res) < 0) {
+            res = str;
         }
-        dfs(n.left, str);
-        dfs(n.right, str);
-        return ans;
+        dfs(node.left, str);
+        dfs(node.right, str);
+        return res;
     }
     //this is wrong for 4,0,1,1, it would return be, it should be bae
     public String smallestFromLeaf_WrongAnswer(TreeNode root) {
