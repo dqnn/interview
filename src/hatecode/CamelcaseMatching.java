@@ -41,6 +41,7 @@ Explanation:
         for (int i = 0; i < queryArr.length; i++) {
             if (j < patternArr.length && queryArr[i] == patternArr[j]) {
                 j++;
+            //if upper case and not equals then it is wrong
             } else if (queryArr[i] >= 'A' && queryArr[i] <= 'Z') {
                 return false;
             }
