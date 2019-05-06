@@ -49,6 +49,7 @@ Find the lexicographically smallest string that starts at a leaf of this tree an
         dfs(node.right, str);
         return res;
     }
+    
     //this is wrong for 4,0,1,1, it would return be, it should be bae
     public String smallestFromLeaf_WrongAnswer(TreeNode root) {
         if (root == null) return null;
