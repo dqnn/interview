@@ -42,7 +42,7 @@ public class ValidateBinarySearchTree {
     }
     
     
-    //another recursive solutions
+    //another recursive solutions, interview friendly 
     public boolean isValidBST2(TreeNode root) {
         return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
@@ -53,12 +53,14 @@ public class ValidateBinarySearchTree {
         return isValidBST(root.left, minVal, root.val) && isValidBST(root.right, root.val, maxVal);
     }
     
-    // this is using stack to in-order visit the tree
+    // this is using stack to in-order visit the tree,
+    //interview friendly
     public boolean isValidBST3(TreeNode root) {
         if (root == null) return true;
         Stack<TreeNode> stack = new Stack<>();
         TreeNode pre = null;
-        //this templates is pre-visit the tree, so 
+        //this templates is in-order visit the tree,
+        //to remember this templates
         while (root != null || !stack.isEmpty()) {
             //we go to most left
            while (root != null) {
