@@ -16,6 +16,8 @@ Note that [10, 5, 2] is not included as the product of 100 is not strictly less 
     //thinking process: 
     
     //given an array, integer k, find out how many subarray which the product is less than K
+    
+    //arithemtic subarray, the same as that one
     public int numSubarrayProductLessThanK(int[] nums, int k) {
         if (k == 0) return 0;
         
