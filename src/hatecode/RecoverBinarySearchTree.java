@@ -88,7 +88,7 @@ Morris Traversal方法可以做到这两点，与前两种方法的不同在于�
 
         TreeNode cur = root;
         Stack<TreeNode> stack = new Stack<>();
-        //typical in-order visit
+       //
         while (!stack.isEmpty() || cur != null) {
             if (cur != null) {
                 stack.push(cur);
@@ -110,5 +110,45 @@ Morris Traversal方法可以做到这两点，与前两种方法的不同在于�
         int temp = first.val;
         first.val = second.val;
         second.val = temp;
+    }
+    //morris travel, this code keep morrios templates while keeping our logic in a wrapper methods
+    public void recoverTree_Morris(TreeNode root) {
+        TreeNode[] candidates = null;
+        TreeNode prev = null;
+        
+        TreeNode cur = root; ///Morris Begins///
+        while (cur != null) {
+            if (cur.left == null) {
+                candidates = checkSeq(prev, cur, candidates); //visit p
+                prev = cur; //visit cur
+                cur = cur.right;
+            } else { // p.left != null
+                TreeNode r = cur.left;
+                while (r.right != null && r.right != cur) r = r.right;
+                if (r.right == null) { // haven't traversed p's left subtree
+                    r.right = cur;
+                    cur = cur.left;
+                } else { // have traversed all p's left subtree, time to go back to parent
+                    candidates = checkSeq(prev, cur, candidates); //visit p
+                    prev = cur; //visit p
+                    r.right = null;
+                    cur = cur.right;
+                }
+            }
+        } ///Morris Ends///
+        
+        int t = candidates[0].val;
+        candidates[0].val = candidates[1].val;
+        candidates[1].val = t;
+    }
+    
+    private TreeNode[] checkSeq(TreeNode prev, TreeNode p, TreeNode[] candidates) {
+        if (prev == null) return candidates;
+        if (prev.val > p.val) {
+            if (candidates == null) //first occur
+                candidates = new TreeNode[]{prev, p};
+            else candidates[1] = p; //second occur, update new candidate No.2
+        }
+        return candidates;
     }
 }
