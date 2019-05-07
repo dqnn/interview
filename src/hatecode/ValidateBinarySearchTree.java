@@ -75,4 +75,18 @@ public class ValidateBinarySearchTree {
         }
         return true;
      }
+    
+    //this implementation is wrong because we only check each sub bianry tree but not whole tree
+    public boolean isValidBST_Wrong(TreeNode root) {
+        if (root == null) return true;
+        return helper(root);
+     }
+     
+     private boolean helper(TreeNode node) {
+         if (node == null) return true;
+         
+         if(node.left!=null && node.left.val >= node.val
+           ||node.right!=null && node.right.val <= node.val) return false;
+         return helper(node.left) || helper(node.right);
+     }
 }
