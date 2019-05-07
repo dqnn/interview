@@ -2,7 +2,8 @@ package hatecode;
 public class GenerateRandomPoinInACircle {
 /*
 478. Generate Random Point in a Circle
-Given the radius and x-y positions of the center of a circle, write a function randPoint which generates a uniform random point in the circle.
+Given the radius and x-y positions of the center of a circle, 
+write a function randPoint which generates a uniform random point in the circle.
 
 Note:
 
