@@ -23,6 +23,8 @@ Example 1:
 Input: ["a","b","c","a","c","c"]
 Output: 3
 */
+    //thinking process: 
+    //
     public int numSpecialEquivGroups(String[] A) {
         Set<String> visited = new HashSet<>();
         for (String S: A) {
