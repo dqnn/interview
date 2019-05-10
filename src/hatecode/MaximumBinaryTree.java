@@ -74,6 +74,10 @@ than the current number.
 So we pop the stack until the top element of the stack is greater than the current number.
 Then, add the node for the current number to the stack.
  */
+    
+    //thinking process, 
+    //construct a maxium binary tree given an array
+    //
     public TreeNode constructMaximumBinaryTree(int[] nums) {
         Deque<TreeNode> dq = new LinkedList<>();
         for(int i = 0; i < nums.length; i++) {
@@ -91,7 +95,8 @@ Then, add the node for the current number to the stack.
     }
     //[1]--
     //[2,1]--> 
-    //O(n^2)/ O(n), if sorted, O(nlgn)/O(lgn)
+    //O(n^2)/ O(n)--worst case, if sorted, O(nlgn)/O(lgn), note that tree will have lgn depth if sorted
+    //if like a linkedlist tree style then it would have n depth, that's why time complexity is O(n^2)
     public TreeNode constructMaximumBinaryTree2(int[] nums) {
         if (nums == null || nums.length < 1) return null;
         return helper(nums, 0, nums.length -1);
