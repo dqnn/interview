@@ -23,6 +23,11 @@ Explanation: A = [1,4,2,3], B = [1,4,2,3,5]
 */
     //O(n)/O(n)
     //insert a node into a maxium tree
+    
+    //thinking process:
+    
+    //all tree problems can be solved by recursive or iterative with a stack, here first we try 
+    //recursive, 
     public TreeNode insertIntoMaxTree_Recursive(TreeNode root, int val) {
         if (root != null && root.val > val) {
             root.right = insertIntoMaxTree(root.right, val);
