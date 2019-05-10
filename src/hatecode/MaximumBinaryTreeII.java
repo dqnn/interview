@@ -28,17 +28,22 @@ Explanation: A = [1,4,2,3], B = [1,4,2,3,5]
     
     //all tree problems can be solved by recursive or iterative with a stack, here first we try 
     //recursive, 
+    
+    //since last element is appended to the array,so if it is smaller than root, then it should be 
+    //in right subtree, else it should be new root, and previous root should be its left child
     public TreeNode insertIntoMaxTree_Recursive(TreeNode root, int val) {
         if (root != null && root.val > val) {
             root.right = insertIntoMaxTree(root.right, val);
             return root;
         }
+        //if biggest one, then we should mark this node as new root
         TreeNode node = new TreeNode(val);
         node.left = root;
         return node;
     }
     
     //O(n)/O(1)
+    //TODO: why we continue on right branch
     public TreeNode insertIntoMaxTree(TreeNode root, int val) {
         TreeNode node = new TreeNode(val), cur = root;
         if (root.val < val) {
