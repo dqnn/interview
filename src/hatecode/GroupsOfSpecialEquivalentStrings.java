@@ -26,7 +26,7 @@ Output: 3
     //可以对一个字符串的所有奇数位置或者偶数位置进行任意的调换顺序。
     //如果两个字符串在经历了上面的操作之后，可以做到完全相等，那么就属于题目中的一个组。现在就要我们求最终分为几个组。
     
-    
+    //
     public int numSpecialEquivGroups(String[] A) {
         Set<String> visited = new HashSet<>();
         for (String str: A) {
