@@ -77,12 +77,19 @@ Then, add the node for the current number to the stack.
     
     //thinking process, 
     //construct a maxium binary tree given an array
-    //
-    public TreeNode constructMaximumBinaryTree(int[] nums) {
+    //from recursive we know how we can contruct the tree, so iteratively, we can use a Deque, 
+    //the reason why we use deque because we want to return the bottom node of a stack which is the root node
+    //scan the array from left to right, 
+    //if we found peek() < A[i] then we should replace cur.left = pop() until we encounter a bigger one
+    //then we should attach cur to bigger node in stack, peek().right = cur; 
+    //every time, we should push node into stack
+    
+    //last return botton node of the deque
+    public TreeNode constructMaximumBinaryTree(int[] A) {
         Deque<TreeNode> dq = new LinkedList<>();
-        for(int i = 0; i < nums.length; i++) {
-            TreeNode curr = new TreeNode(nums[i]);
-            while(!dq.isEmpty() && dq.peek().val < nums[i]) {
+        for(int i = 0; i < A.length; i++) {
+            TreeNode curr = new TreeNode(A[i]);
+            while(!dq.isEmpty() && dq.peek().val < A[i]) {
                 curr.left = dq.pop();
             }
             if(!dq.isEmpty()) {
