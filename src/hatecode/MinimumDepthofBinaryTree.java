@@ -1,5 +1,7 @@
 package hatecode;
 
+import java.util.*;
+
 /**
  * Created by duqiang on 28/07/2017.
  */
@@ -68,4 +70,25 @@ return its minimum depth = 2.
                 return 1 + Math.min(left, right);
             }
         }
+    
+    //bfs version of tree traverse
+    public int minDepth_BSF(TreeNode root) {
+        if (root == null) return 0;
+        
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        int min = 0;
+        while(!q.isEmpty()) {
+            min++;
+            int size = q.size();
+            while(size-- > 0) {
+                TreeNode node = q.poll();
+                if (node.left == null && node.right == null) return min;
+                if (node.left != null) q.offer(node.left);
+                if (node.right != null) q.offer(node.right);
+            }
+        }
+        
+        return -1;
+    }
 }
