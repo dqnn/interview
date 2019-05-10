@@ -3,7 +3,6 @@ package hatecode;
 import java.util.*;
 public class GroupsOfSpecialEquivalentStrings {
 /*
-可以对一个字符串的所有奇数位置或者偶数位置进行任意的调换顺序。如果两个字符串在经历了上面的操作之后，可以做到完全相等，那么就属于题目中的一个组。现在就要我们求最终分为几个组。
 
 893. Groups of Special-Equivalent Strings
 You are given an array A of strings.
@@ -24,13 +23,15 @@ Input: ["a","b","c","a","c","c"]
 Output: 3
 */
     //thinking process: 
-    //
+    //可以对一个字符串的所有奇数位置或者偶数位置进行任意的调换顺序。
+    //如果两个字符串在经历了上面的操作之后，可以做到完全相等，那么就属于题目中的一个组。现在就要我们求最终分为几个组。
+    
+    
     public int numSpecialEquivGroups(String[] A) {
         Set<String> visited = new HashSet<>();
-        for (String S: A) {
+        for (String str: A) {
             int[] count = new int[52];
-            for (int i = 0; i < S.length(); ++i)
-                count[S.charAt(i) - 'a' + 26 * (i % 2)]++;
+            for (int i = 0; i < str.length(); ++i) count[str.charAt(i) - 'a' + 26 * (i % 2)]++;
             visited.add(Arrays.toString(count));
         }
         return visited.size();
