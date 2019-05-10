@@ -41,17 +41,23 @@ public class BalancedBinaryTree {
      */
 
     public boolean isBalanced(TreeNode root) {
-        if (root == null) return true;
+        //edge case
+        if (null == root) return true;
+        
         return helper(root) != -1;
     }
-
-    public int helper(TreeNode root) {
-        if (root == null) return 0;
-        int l = helper(root.left);
-        int r = helper(root.right);
-        if (l == -1 || r == -1 || Math.abs(l - r) > 1) {
-            return -1;
-        }
+    //return faster than previous version, and return node depth for each node
+    private int helper(TreeNode node) {
+        if (node == null) return 0;
+        
+        int l = helper(node.left);
+        if (l == -1) return -1;
+        
+        int r = helper(node.right);
+        if (r == -1) return -1;
+        
+        if (Math.abs(l - r) > 1) return -1;
+        
         return Math.max(l, r) + 1;
     }
     
