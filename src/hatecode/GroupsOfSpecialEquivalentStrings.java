@@ -26,7 +26,11 @@ Output: 3
     //可以对一个字符串的所有奇数位置或者偶数位置进行任意的调换顺序。
     //如果两个字符串在经历了上面的操作之后，可以做到完全相等，那么就属于题目中的一个组。现在就要我们求最终分为几个组。
     
-    //
+    //so we need find the charateristic of the string, for example, 
+    //we allocate 52 buckets, we use 26 * (i % 2) to make odd are outside of first 26 and even are on 
+    //origial position, which means if they are the same, then the bitmap would be the same
+    
+    //set is used to identify there are dup strings
     public int numSpecialEquivGroups(String[] A) {
         Set<String> visited = new HashSet<>();
         for (String str: A) {
