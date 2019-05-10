@@ -31,6 +31,8 @@ After starting at (r0,c0), we need to walk in spirals, where the length of the s
 The trick here is that we continue to walk in spiral, whether the current (r,c) is valid or not. However, we add (r,c) to the result only if it is valid.
     */
     //thinking processs: 
+    
+    //this is a low priority problem, just for reference
     int idx;
     int[][] ret;
     
