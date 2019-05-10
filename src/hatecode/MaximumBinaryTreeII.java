@@ -43,7 +43,7 @@ Explanation: A = [1,4,2,3], B = [1,4,2,3,5]
     }
     
     //O(n)/O(1)
-    //TODO: why we continue on right branch
+    //
     public TreeNode insertIntoMaxTree(TreeNode root, int val) {
         TreeNode node = new TreeNode(val), cur = root;
         if (root.val < val) {
