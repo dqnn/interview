@@ -54,4 +54,24 @@ public class PathSumII {
         helper(res, list, root.right, sum - root.val);
         list.remove(list.size() - 1);
     }
+    
+    //this is another version: how to remove leaf node if it is satisfied or not satisfied for path sum
+    //this is only for reference
+    private void helper(TreeNode node, List<List<Integer>> res, int sum, List<Integer> list) {
+        if (node == null) return;
+        if (node.left == null && node.right == null) {
+            if (sum == node.val) {
+                list.add(node.val);
+                res.add(new ArrayList<>(list));
+                list.remove(list.size() - 1);
+            }
+            return;
+        }
+        
+        list.add(node.val);
+        helper(node.left, res, sum - node.val, list);
+        
+        helper(node.right, res, sum - node.val, list);
+        list.remove(list.size() - 1);
+    }
 }
