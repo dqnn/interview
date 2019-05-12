@@ -61,7 +61,8 @@ public class BestTimetoBuyandSellStockIV {
         //if k = 1 which means only 1 transaction, what kind of profit we can have, 
         //so dp[i][j] is trying to detect if we only make one transaction, what's the profit. 
         for (int i = 1; i <= k; i++) {
-         // assume we buy stock at the first price, this is like withStock[0] = - prices[0]
+         // assume we buy stock at the first price, this is like withStock[0] = - prices[0]，
+            //is the max Money Before Sell.
             int prevMax = -prices[0];
             for (int j = 1; j < len; j++) {
                 /* dp[i][j] deciding the selling point
