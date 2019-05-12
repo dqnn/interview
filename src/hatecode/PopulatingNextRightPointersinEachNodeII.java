@@ -29,6 +29,8 @@ public class PopulatingNextRightPointersinEachNodeII {
 
      * @param root
      */
+    //thinking process: compare to I, 
+    //I is perfect tree,
     public void connect(TreeLinkNode root) {
         TreeLinkNode head = null;
         TreeLinkNode pre = null;
@@ -54,15 +56,21 @@ public class PopulatingNextRightPointersinEachNodeII {
             head = null;
         }
     }
-    
-public void connect2(TreeLinkNode root) {
-        
-        while(root != null){
+    //with the help of two assist nodes, we connect all nodes on each level, 
+    //
+    public void connect2(TreeLinkNode root) {
+        while (root != null) {
             TreeLinkNode tempChild = new TreeLinkNode(0);
             TreeLinkNode currentChild = tempChild;
-            while(root!=null){
-                if(root.left != null) { currentChild.next = root.left; currentChild = currentChild.next;}
-                if(root.right != null) { currentChild.next = root.right; currentChild = currentChild.next;}
+            while (root != null) {
+                if (root.left != null) {
+                    currentChild.next = root.left;
+                    currentChild = currentChild.next;
+                }
+                if (root.right != null) {
+                    currentChild.next = root.right;
+                    currentChild = currentChild.next;
+                }
                 root = root.next;
             }
             root = tempChild.next;

@@ -64,8 +64,10 @@ parent has two children).
     // 
     public void connect2(TreeLinkNode root) {
         TreeLinkNode levelStart = root;
+        //for each level loop
         while (levelStart != null) {
             TreeLinkNode cur = levelStart;
+            //in each level, we visit from begin to end
             while (cur != null) {
                 //make left next to its right
                 if (cur.left != null) {
