@@ -142,5 +142,18 @@ last we add 2, then it will be res=[11,10,10,3,0]
             helper(in, i+1, j, cur+ in.get(i).get(j));
             helper(in, i+1, j + 1, cur+ in.get(i).get(j));
         }
+        
+        
+        //re-write the array
+        public int minimumTotal_RewriteArray(List<List<Integer>> triangle) {
+            int[] A = new int[triangle.size() + 1];
+            
+            for(int i = triangle.size() - 1; i >= 0; i--) {
+                for(int j = 0; j < triangle.get(i).size(); j++) {
+                    A[j] = Math.min(A[j], A[j+1]) + triangle.get(i).get(j);
+                }
+            }
+            return A[0];
+        }
 
 }
