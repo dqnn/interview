@@ -94,7 +94,7 @@ last we add 2, then it will be res=[11,10,10,3,0]
                 return 0;
             }
             //dp
-            int[] res = new int[triangle.size() + 1];
+            int[] dp = new int[triangle.size() + 1];
             for (int i = triangle.size() - 1; i >= 0; i--) {
                 for (int j = 0; j < triangle.get(i).size(); j++) {
                     //so we start from last level, it will be same as last level
@@ -105,10 +105,10 @@ last we add 2, then it will be res=[11,10,10,3,0]
                     //between to plus current ones
                     
                     // j and j+1 are adjacent numbers
-                    res[j] = Math.min(res[j], res[j + 1]) + triangle.get(i).get(j);
+                    dp[j] = Math.min(dp[j], dp[j + 1]) + triangle.get(i).get(j);
                 }
             }
-            return res[0];
+            return dp[0];
         }
         
         //no extra mem used
@@ -123,7 +123,8 @@ last we add 2, then it will be res=[11,10,10,3,0]
             return triangle.get(0).get(0);
         }
         
-        //backtracking, TLE version
+        //backtracking, TLE version, O(2^n)/O(n)
+        //since every number would have two branches
         int min = Integer.MAX_VALUE;
         public int minimumTotal_BackTracking(List<List<Integer>> in) {
             if (in == null || in.size() < 1) return 0;
