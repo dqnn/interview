@@ -44,7 +44,9 @@ public class BestTimetoBuyandSellStockII {
             return 0;
         }
         
-        //dp[n] to describe  the n integers max--profit, dp[0] = 0, dp[1] = Math.max(nums[1] - nums[0], 0); dp[n] 
+        //dp[n] to describe  the n integers max--profit, dp[0] = 0, 
+        //dp[1] = Math.max(nums[1] - nums[0], 0); 
+        //dp[n] 
         
         int len = prices.length - 1;
         int[] dp = new int[len + 1];
