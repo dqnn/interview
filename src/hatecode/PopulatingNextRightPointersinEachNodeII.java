@@ -59,21 +59,23 @@ public class PopulatingNextRightPointersinEachNodeII {
     //with the help of two assist nodes, we connect all nodes on each level, 
     //
     public void connect2(TreeLinkNode root) {
-        while (root != null) {
-            TreeLinkNode tempChild = new TreeLinkNode(0);
-            TreeLinkNode currentChild = tempChild;
-            while (root != null) {
-                if (root.left != null) {
-                    currentChild.next = root.left;
-                    currentChild = currentChild.next;
+        if (root == null) return;
+        TreeLinkNode cur = root;
+        while (cur != null) {
+            TreeLinkNode dummy = new TreeLinkNode(0);
+            TreeLinkNode levelStart = dummy;
+            while (cur != null) {
+                if (cur.left != null) {
+                    levelStart.next = cur.left;
+                    levelStart = levelStart.next;
                 }
-                if (root.right != null) {
-                    currentChild.next = root.right;
-                    currentChild = currentChild.next;
+                if (cur.right != null) {
+                    levelStart.next = cur.right;
+                    levelStart = levelStart.next;
                 }
-                root = root.next;
+                cur = cur.next;
             }
-            root = tempChild.next;
+            cur = dummy.next;
         }
     }
 }
