@@ -88,7 +88,8 @@ we put the result to res[j] because res[j+1] needs to compare with next, res = [
 then next, we add [3,4], it will be res = [9, 10,10,3,0]
 last we add 2, then it will be res=[11,10,10,3,0]
      */
-    
+        //thinking process, for each row we store all possible resuts in array res, with j-1the row we can
+        //compute the other results
         public int minimumTotal(List<List<Integer>> triangle) {
             if (triangle == null || triangle.size() < 1) {
                 return 0;
