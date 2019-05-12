@@ -122,5 +122,24 @@ last we add 2, then it will be res=[11,10,10,3,0]
             }
             return triangle.get(0).get(0);
         }
+        
+        //backtracking, TLE version
+        int min = Integer.MAX_VALUE;
+        public int minimumTotal_BackTracking(List<List<Integer>> in) {
+            if (in == null || in.size() < 1) return 0;
+            
+            helper(in, 0, 0, 0);
+            return min;
+        }
+        
+        private void helper(List<List<Integer>> in, int i, int j, int cur) {
+            if (i == in.size() - 1) {
+                min = Math.min(min, cur + in.get(i).get(j));
+                return;
+            }
+            
+            helper(in, i+1, j, cur+ in.get(i).get(j));
+            helper(in, i+1, j + 1, cur+ in.get(i).get(j));
+        }
 
 }
