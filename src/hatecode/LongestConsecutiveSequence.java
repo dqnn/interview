@@ -100,7 +100,7 @@ Therefore its length is 4.
             //why res compare to sum?  becz if left or right exists, then 
             //sum should be bigger, 
             res = Math.max(res, sum);
-            //we put m point to sum, so next time,
+            //we put m point to sum, so next time query, this means for integer m was a size = sum sub array
             map.put(m, sum);
             // [100, 4, 200, 1, 3, 2]
             // when reaches to 2 finally, left = map.get(1) = 1, map.get(3) = 2 becz 3,4
