@@ -120,12 +120,12 @@ public class WordLadderII {
             list.remove(0);
             return;
         }
+        if (!map.containsKey(endWord)) return;
+        
         list.add(0, endWord);
-        if (map.get(endWord) != null) {
-            //we search from map's list from one to another
-            for (String s : map.get(endWord)) {
-                dfs(res, list, map, s, startWord);
-            }
+        //we search from map's list from one to another
+        for (String s : map.get(endWord)) {
+            dfs(res, list, map, s, startWord);
         }
         //this removes first element which should be the tail of all these words
         list.remove(0);
@@ -142,15 +142,17 @@ public class WordLadderII {
         if (!dicts.contains(endWord)) {
             return result; 
         }
-        Set<String> start = new HashSet<>();
-        Set<String> end = new HashSet<>();
+        Set<String> beginSet = new HashSet<>();
+        Set<String> endSet = new HashSet<>();
         Map<String, List<String>> map = new HashMap<>();
-        start.add(beginWord);
-        end.add(endWord);
-        bfs(map, start, end, dicts, false);
-        List<String> subList = new ArrayList<>();
-        subList.add(beginWord); 
-        dfs(map, result, subList, beginWord, endWord);
+        //to fill the map  with all possible routes
+        beginSet.add(beginWord);
+        endSet.add(endWord);
+        bfs(map, beginSet, endSet, dicts, false);
+        //get the answer from the map
+        List<String> list = new ArrayList<>();
+        list.add(beginWord); 
+        dfs(map, result, list, beginWord, endWord);
         return result;
     }
     private void bfs(Map<String, List<String>> map, Set<String> start, Set<String> end, Set<String> dicts, boolean reverse) {
@@ -162,15 +164,14 @@ public class WordLadderII {
         Set<String> tmp = new HashSet<>();
         boolean finish = false; 
         for (String str : start) {
-            char[] chars = str.toCharArray();
-            for (int i = 0; i < chars.length; i++) {
-                char old = chars[i];
-                for (char n = 'a' ; n <='z'; n++) {
-                    if(old == n) {
-                        continue; 
-                    }
-                    chars[i] = n;               
-                    String candidate = new String(chars);
+            char[] chs = str.toCharArray();
+            for (int i = 0; i < chs.length; i++) {
+                char old = chs[i];
+                for (char c = 'a' ; c <='z'; c++) {
+                    if(old == c) continue; 
+
+                    chs[i] = c;               
+                    String candidate = new String(chs);
                     if (!dicts.contains(candidate)) {
                         continue;
                     }
@@ -187,32 +188,30 @@ public class WordLadderII {
                     map.get(key).add(value);
                 }
                 // restore after processing
-                chars[i] = old; 
+                chs[i] = old; 
             }
         }
         if (!finish) {
             // Switch the start and end if size from start is bigger;
-            if (tmp.size() > end.size()) {
-                bfs(map, end, tmp, dicts, !reverse);
-            } else {
-                bfs(map, tmp, end, dicts, reverse);
-            }           
+            //since we loop from begin, so we want faster
+            if (tmp.size() > end.size()) bfs(map, end, tmp, dicts, !reverse);
+            else bfs(map, tmp, end, dicts, reverse);
         }
     }
     private void dfs (Map<String, List<String>> map, 
-                      List<List<String>> result , List<String> subList, 
+                      List<List<String>> result , List<String> list, 
                       String beginWord, String endWord) {
         if(beginWord.equals(endWord)) {
-            result.add(new ArrayList<>(subList));
+            result.add(new ArrayList<>(list));
             return; 
         }
         if (!map.containsKey(beginWord)) {
             return; 
         }
         for (String word : map.get(beginWord)) {
-            subList.add(word);
-            dfs(map, result, subList, word, endWord);
-            subList.remove(subList.size() - 1);
+            list.add(word);
+            dfs(map, result, list, word, endWord);
+            list.remove(list.size() - 1);
         }
     }
 }
