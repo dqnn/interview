@@ -111,7 +111,7 @@ public class WordLadderII {
     //then we use dfs to visit the map to get begin to end string,
     //we firstly visit the end word, and from end word to begin word and we always remove first one 
     //as retreat
-    private void dfs(List<List<String>> res, List<String> list, HashMap<String, List<String>> map, String endWord, 
+    private void dfs(List<List<String>> res, List<String> list, Map<String, List<String>> map, String endWord, 
             String startWord) {
         if (endWord.equals(startWord)) {
             list.add(0, startWord);
@@ -133,15 +133,13 @@ public class WordLadderII {
     
     //we use two Sets to both walk from end to middle so this is fastest solution, 
     //
-    public List<List<String>> findLadders_Best(String beginWord, String endWord, List<String> wordList) {
+    public List<List<String>> findLadders_Best(String beginWord, String endWord, List<String> wordsList) {
         List<List<String>> result = new ArrayList<>(); 
-        if (wordList == null) {
-            return result; 
-        }
-        Set<String> dicts = new HashSet<>(wordList);
-        if (!dicts.contains(endWord)) {
-            return result; 
-        }
+        if (wordsList == null || wordsList.size() < 1) return result; 
+
+        Set<String> dicts = new HashSet<>(wordsList);
+        if (!dicts.contains(endWord)) return result; 
+
         Set<String> beginSet = new HashSet<>();
         Set<String> endSet = new HashSet<>();
         Map<String, Set<String>> map = new HashMap<>();
