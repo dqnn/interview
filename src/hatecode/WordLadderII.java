@@ -144,7 +144,7 @@ public class WordLadderII {
         }
         Set<String> beginSet = new HashSet<>();
         Set<String> endSet = new HashSet<>();
-        Map<String, List<String>> map = new HashMap<>();
+        Map<String, Set<String>> map = new HashMap<>();
         //to fill the map  with all possible routes
         beginSet.add(beginWord);
         endSet.add(endWord);
@@ -155,37 +155,30 @@ public class WordLadderII {
         dfs(map, result, list, beginWord, endWord);
         return result;
     }
-    private void bfs(Map<String, List<String>> map, Set<String> start, Set<String> end, Set<String> dicts, boolean reverse) {
+    private void bfs(Map<String, Set<String>> map, Set<String> beginSet, Set<String> endSet, Set<String> dicts, boolean reverse) {
         // Processed all the word in start
-        if (start.size() == 0) {
-            return; 
-        }
-        dicts.removeAll(start);
+        if (beginSet.size() == 0) return; 
+        
+        dicts.removeAll(beginSet);
         Set<String> tmp = new HashSet<>();
         boolean finish = false; 
-        for (String str : start) {
-            char[] chs = str.toCharArray();
+        for (String begin : beginSet) {
+            char[] chs = begin.toCharArray();
             for (int i = 0; i < chs.length; i++) {
                 char old = chs[i];
                 for (char c = 'a' ; c <='z'; c++) {
                     if(old == c) continue; 
 
-                    chs[i] = c;               
-                    String candidate = new String(chs);
-                    if (!dicts.contains(candidate)) {
-                        continue;
-                    }
-                    if (end.contains(candidate)) {
-                        finish = true; 
-                    } else {
-                        tmp.add(candidate);
-                    }
-                    String key = reverse ? candidate : str;
-                    String value = reverse ? str : candidate;
-                    if (! map.containsKey(key)) {
-                        map.put(key, new ArrayList<>());
-                    }
-                    map.get(key).add(value);
+                    chs[i] = c;
+                    String nextStr = new String(chs);
+                    if (!dicts.contains(nextStr)) continue;
+
+                    if (endSet.contains(nextStr)) finish = true; 
+                    else tmp.add(nextStr);
+
+                    String key = reverse ? nextStr : begin;
+                    String value = reverse ? begin : nextStr;
+                    map.computeIfAbsent(key, v->new HashSet<>()).add(value);
                 }
                 // restore after processing
                 chs[i] = old; 
@@ -194,11 +187,11 @@ public class WordLadderII {
         if (!finish) {
             // Switch the start and end if size from start is bigger;
             //since we loop from begin, so we want faster
-            if (tmp.size() > end.size()) bfs(map, end, tmp, dicts, !reverse);
-            else bfs(map, tmp, end, dicts, reverse);
+            if (tmp.size() > endSet.size()) bfs(map, endSet, tmp, dicts, !reverse);
+            else bfs(map, tmp, endSet, dicts, reverse);
         }
     }
-    private void dfs (Map<String, List<String>> map, 
+    private void dfs (Map<String, Set<String>> map, 
                       List<List<String>> result , List<String> list, 
                       String beginWord, String endWord) {
         if(beginWord.equals(endWord)) {
