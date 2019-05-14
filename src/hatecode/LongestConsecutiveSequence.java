@@ -1,9 +1,12 @@
 package hatecode;
 
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Project Name : Leetcode
@@ -37,11 +40,9 @@ Therefore its length is 4.
      */
     public int longestConsecutive(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
-        HashSet<Integer> set = new HashSet<>();
-        int res = 0;
-        for (int num : nums) {
-            set.add(num);
-        }
+        Set<Integer> set = Arrays.stream(nums).boxed().collect(Collectors.toSet());
+        
+        int res = Integer.MIN_VALUE;
         for (int i = 0; i < nums.length; i++) {
             int down = nums[i] - 1;
             while (set.contains(down)) {
