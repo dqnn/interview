@@ -38,6 +38,7 @@ Therefore its length is 4.
      * @param nums
      * @return
      */
+  //O(n)/O(n)
     public int longestConsecutive(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
         Set<Integer> set = Arrays.stream(nums).boxed().collect(Collectors.toSet());
@@ -58,8 +59,23 @@ Therefore its length is 4.
         }
         return res;
     }
-    
-    
+    //O(n)/O(n), think about the two loops, there are not full ones, and second one are always decreased,
+    //
+    //if the array already sorted, then we can climb the ladder in the for while loop, 
+    public int longestConsecutive_SameAsAbove(int[] nums) {
+        Set<Integer> set = Arrays.stream(nums).boxed().collect(Collectors.toSet());
+
+        int res = 0;
+        for(int i = 0; i < nums.length; i++) {
+            if(set.contains(nums[i] - 1)) continue;
+            int next = nums[i] + 1;
+            while(set.contains(next)) {
+                next += 1;
+            }
+            res = Math.max(res, next - nums[i]);
+        }
+        return res;
+    }
     // we are using hashMap to store this
    //thinking process: for each number m, we want to see know its m - 1 and m + 1 whether 
     //existed in the map or not, 
