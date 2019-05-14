@@ -130,4 +130,89 @@ public class WordLadderII {
         //this removes first element which should be the tail of all these words
         list.remove(0);
     }
+    
+    //we use two Sets to both walk from end to middle so this is fastest solution, 
+    //
+    public List<List<String>> findLadders_Best(String beginWord, String endWord, List<String> wordList) {
+        List<List<String>> result = new ArrayList<>(); 
+        if (wordList == null) {
+            return result; 
+        }
+        Set<String> dicts = new HashSet<>(wordList);
+        if (!dicts.contains(endWord)) {
+            return result; 
+        }
+        Set<String> start = new HashSet<>();
+        Set<String> end = new HashSet<>();
+        Map<String, List<String>> map = new HashMap<>();
+        start.add(beginWord);
+        end.add(endWord);
+        bfs(map, start, end, dicts, false);
+        List<String> subList = new ArrayList<>();
+        subList.add(beginWord); 
+        dfs(map, result, subList, beginWord, endWord);
+        return result;
+    }
+    private void bfs(Map<String, List<String>> map, Set<String> start, Set<String> end, Set<String> dicts, boolean reverse) {
+        // Processed all the word in start
+        if (start.size() == 0) {
+            return; 
+        }
+        dicts.removeAll(start);
+        Set<String> tmp = new HashSet<>();
+        boolean finish = false; 
+        for (String str : start) {
+            char[] chars = str.toCharArray();
+            for (int i = 0; i < chars.length; i++) {
+                char old = chars[i];
+                for (char n = 'a' ; n <='z'; n++) {
+                    if(old == n) {
+                        continue; 
+                    }
+                    chars[i] = n;               
+                    String candidate = new String(chars);
+                    if (!dicts.contains(candidate)) {
+                        continue;
+                    }
+                    if (end.contains(candidate)) {
+                        finish = true; 
+                    } else {
+                        tmp.add(candidate);
+                    }
+                    String key = reverse ? candidate : str;
+                    String value = reverse ? str : candidate;
+                    if (! map.containsKey(key)) {
+                        map.put(key, new ArrayList<>());
+                    }
+                    map.get(key).add(value);
+                }
+                // restore after processing
+                chars[i] = old; 
+            }
+        }
+        if (!finish) {
+            // Switch the start and end if size from start is bigger;
+            if (tmp.size() > end.size()) {
+                bfs(map, end, tmp, dicts, !reverse);
+            } else {
+                bfs(map, tmp, end, dicts, reverse);
+            }           
+        }
+    }
+    private void dfs (Map<String, List<String>> map, 
+                      List<List<String>> result , List<String> subList, 
+                      String beginWord, String endWord) {
+        if(beginWord.equals(endWord)) {
+            result.add(new ArrayList<>(subList));
+            return; 
+        }
+        if (!map.containsKey(beginWord)) {
+            return; 
+        }
+        for (String word : map.get(beginWord)) {
+            subList.add(word);
+            dfs(map, result, subList, word, endWord);
+            subList.remove(subList.size() - 1);
+        }
+    }
 }
