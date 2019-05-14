@@ -70,11 +70,9 @@ public class WordLadderII {
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
         List<List<String>> res = new ArrayList<>();
         if (wordList.size() == 0) return res;
-        //this means current how many # of words in current q
-        int curQueNum = 1;
-        int nextQueNum = 0;
+
         boolean found = false;
-        //store the next level nodes
+
         Queue<String> queue = new LinkedList<>();
         HashSet<String> unvisited = new HashSet<>(wordList);
         HashSet<String> visited = new HashSet<>();
@@ -83,46 +81,30 @@ public class WordLadderII {
 
         queue.offer(beginWord);
         while (!queue.isEmpty()) {
-            String word = queue.poll();
-            curQueNum--;
-            //put all possible word transformation for word and put into queue. udated visited and unvisited sets
-            for (int i = 0; i < word.length(); i++) {
-                StringBuilder sb = new StringBuilder(word);
-                for (char ch = 'a'; ch <= 'z'; ch++) {
-                    sb.setCharAt(i, ch);
-                    String newWord = sb.toString();
-                    //this means it is reachable, so we need to record this into visit and remove from
-                    //unvisited set
-                    if (unvisited.contains(newWord)) {
-                        //if visited does not have this word, so it would return true
-                        if (visited.add(newWord)) {
-                            queue.offer(newWord);
-                            nextQueNum++;
-                        }
-                        // map to store all possible transformation, so when we in queue, we can 
-                        //easily know which one can be put into queue, which are not
-                        map.computeIfAbsent(newWord, v->new ArrayList<>()).add(word);
-                        //if found then we don't need to visit again bcause there is 
-                        //no way repeated on same level we need to find another level
-                        if (newWord.equals(endWord)) {
-                            found = true;
+            int size = queue.size();
+            while(size-- > 0) { 
+                String word = queue.poll();
+                for (int i = 0; i < word.length(); i++) {
+                    StringBuilder builder = new StringBuilder(word);
+                    for (char ch = 'a'; ch <= 'z'; ch++) {
+                        builder.setCharAt(i, ch);
+                        String newWord = builder.toString();
+                        if (unvisited.contains(newWord)) {
+                            if (visited.add(newWord)) {
+                                queue.offer(newWord);
+                            }
+                            map.computeIfAbsent(newWord, v->new ArrayList<>()).add(word);
+                            if (newWord.equals(endWord)) {
+                                found = true;
+                            }
                         }
                     }
                 }
             }
-//curNum是指当前queue里面单词的个数，每poll出一个单词时，curNum就减1，当curNum==0时，说明当前level处理完毕，
-            //准备要处理下一个level了，所以才将nextNum赋值给curNum
-            if (curQueNum == 0) {
-                if (found) break;
-                curQueNum = nextQueNum;
-                nextQueNum = 0;
-                unvisited.removeAll(visited);
-                visited.clear();
-            }
+            if (found) break;
+            unvisited.removeAll(visited);
+            visited.clear();
         }
-        //after all done, this would like to be
-        //map-{lot=[hot], log=[lot], dot=[hot], cog=[dog, log], hot=[hit], dog=[dot]}
-        //we always pass new ArrayList
         dfs(res, new ArrayList<>(), map, endWord, beginWord);
         return res;
     }
