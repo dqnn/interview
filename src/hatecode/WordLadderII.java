@@ -87,6 +87,8 @@ public class WordLadderII {
                 for (int i = 0; i < word.length(); i++) {
                     StringBuilder builder = new StringBuilder(word);
                     for (char ch = 'a'; ch <= 'z'; ch++) {
+                        if (ch == builder.charAt(i)) continue;
+                        
                         builder.setCharAt(i, ch);
                         String newWord = builder.toString();
                         if (unvisited.contains(newWord)) {
