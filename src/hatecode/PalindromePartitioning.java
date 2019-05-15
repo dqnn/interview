@@ -71,6 +71,7 @@ Output:
     
     //this is better solutions
     //we use a dp to record which substring is palidrome, so we can greatly reduce the time complexity
+    //dp[j][i] means from  substringj->i, is palindrome or not. 
     //
     public List<List<String>> partition_DP_AND_BackGRACKING(String s) {
         List<List<String>> res = new ArrayList<>();
