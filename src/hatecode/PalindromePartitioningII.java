@@ -73,7 +73,7 @@ public class PalindromePartitioningII {
         boolean[][] isPalindrome = new boolean[n][n];
         
         for(int i = 0; i < n; i++) {
-            //cuts initialize
+            //cuts initialize, each character is one palindrome and this is max for j -> i substring
             int min = i;
             for(int j = 0; j <= i; j++) {
                 // j +1, i - 1. means string between j and i, 
