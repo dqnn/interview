@@ -62,6 +62,7 @@ Therefore its length is 4.
     //O(n)/O(n), think about the two loops, there are not full ones, and second one are always decreased,
     //
     //if the array already sorted, then we can climb the ladder in the for while loop, 
+    //this is more like we look for the consective sequence starting points
     public int longestConsecutive_SameAsAbove(int[] nums) {
         Set<Integer> set = Arrays.stream(nums).boxed().collect(Collectors.toSet());
 
