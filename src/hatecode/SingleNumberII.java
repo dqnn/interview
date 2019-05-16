@@ -68,7 +68,8 @@ b更新为1，a更新为0，就是01的状态；再次遇到1的时候，b更新
         return ones;
     }
     
-    /** There are only 32 bits for a number in Java. We can traverse all numbers and count number of 1's in every 
+    /** There are only 32 bits for a number in Java. We can traverse all numbers and 
+     * count number of 1's in every 
      * bit index (totally 32). If number of 1's in current bit index can be divided by 3, then current bit index 
      * must not be the effective index of that single number. So we only need to find those bit index that have 
      * countBit % 3 != 0, it will be the result single number. */
