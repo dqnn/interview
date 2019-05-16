@@ -43,6 +43,12 @@ public class GasStation {
      * @param cost
      * @return
      */
+    //thinking process:
+    //given an array with each cost as another array. fiind out index which as starting index we can 
+    //travel around the array
+    
+    //for any two points, if the sum >=0, then we always can find a point which can travel whole circle, 
+    //
     public int canCompleteCircuit(int[] gas, int[] cost) {
         if (gas.length == 0 || cost.length == 0 || gas.length != cost.length) return -1;
         int total = 0, sum = 0, start = 0;
