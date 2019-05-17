@@ -60,7 +60,7 @@ public class MaximumProductSubarray {
         
         return res;
     }
-    //this is transiditonal DP
+    //this is transitioal DP
     public int maxProduct_DP(int[] A) {
         if (A == null || A.length == 0) {
             return 0;
