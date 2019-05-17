@@ -20,6 +20,10 @@ public class LinkedListCycleII {
      * @return
      */
 
+    //thinking process:
+    //we still have a fast and slow pointer, if there was a cycle, so they have to meet,  
+    //and when they meet, we start another pointer travel from head with same speed as slow pointer
+    //when they meet again, the node slow point to is the starting node of a cycle
     public ListNode detectCycle(ListNode head) {
         if (head == null || head.next == null) return null;
         ListNode slow = head;

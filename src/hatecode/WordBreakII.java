@@ -74,14 +74,14 @@ Output:
     // start from 0, 
     public static List<String> wordBreak(String s, List<String> wordDict) {
         // last is index
-        return dfs(s, wordDict, 0);
+        return helper(s, wordDict, 0);
     }
     // c a t s a n d d o g
    //        /           \ 
   //    cat|sanddog   cats|anddog
   //      /                 /   
 //   cat|sand|dog       cats|and|dog
-    public static List<String> dfs(String s, List<String> wordDict, int start) {
+    public static List<String> helper(String s, List<String> wordDict, int start) {
         if (map.containsKey(start)) {
             return map.get(start);
         }
@@ -99,7 +99,7 @@ Output:
         // this is more like tree thinking
         for (int end = start + 1; end <= s.length(); end++) {
             if (wordDict.contains(s.substring(start, end))) {
-                List<String> list = dfs(s, wordDict, end);
+                List<String> list = helper(s, wordDict, end);
                 for (String temp : list) {
                     //here, suppose we end at cat, then it will send "sand dog" back
                     res.add(s.substring(start, end) + (temp.equals("") ? "" : " ") + temp);

@@ -66,8 +66,8 @@ public class WordBreak {
     public boolean wordBreak_DFS(String s, List<String> wordDict) {
         if (s == null || s.length() == 0) return false;
         visited = new boolean[s.length()+1];
-        dic = new HashSet<>();
-        wordDict.stream().forEach(e->dic.add(e));
+        dic = new HashSet<>(wordDict);
+        //wordDict.stream().forEach(e->dic.add(e));
         return helper(s,0);
     }
     

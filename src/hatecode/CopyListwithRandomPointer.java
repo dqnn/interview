@@ -32,7 +32,7 @@ public class CopyListwithRandomPointer {
      */
     
     //thinking process: originally this is a list, each node has an additional pointer like
-    // left,right etc, so find the 
+    // left,right etc, so find the, this is the same as deep clone copy
     
     //
     public RandomListNode copyRandomList(RandomListNode head) {
