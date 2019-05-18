@@ -29,6 +29,51 @@ public class LongestSubstringwithAtMostTwoDistinctCharacters {
      * @return
      */
 
+    //interview frinendly: 
+    
+    //notes: 
+    public int lengthOfLongestSubstringTwoDistinct_Best(String s) {
+        if (s == null || s.length() < 1) return 0;
+        
+        int k =2;
+        int j = 0, cnt = 0,res = 0;
+        int[] count =  new int[256];
+        for(int i = 0; i< s.length(); i++) {
+            if (count[s.charAt(i)]++ == 0) cnt++;
+            if (cnt > k) {
+                while(--count[s.charAt(j++)] > 0) {
+                }
+                cnt--;
+            }
+            res = Math.max(res, i-j+1);
+        }
+        return res;
+    }
+    
+    public int lengthOfLongestSubstringTwoDistinct_TP(String s) {
+        if (s == null) return 0;
+        int n = s.length();
+        if (n <= 2) return n;
+        int maxLen = 2, cnt = 0;
+        int[] map = new int[128];
+        int left = 0;
+        for (int right = 0; right < n; right++) {
+            char c = s.charAt(right);
+            map[c]++;
+            if (map[c] == 1) cnt++;
+            while (cnt > 2) {
+                char leftC = s.charAt(left);
+                map[leftC]--;
+                if (map[leftC] == 0) cnt--;
+                left++;
+            }
+            maxLen = Math.max(maxLen, right - left + 1);
+        }
+        return maxLen;
+    }
+    
+    
+    
     public int lengthOfLongestSubstringTwoDistinct(String s) {
         if (s == null || s.length() == 0) return 0;
         HashMap<Character, Integer> map = new HashMap<>();
