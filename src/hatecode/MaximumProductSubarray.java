@@ -32,19 +32,19 @@ public class MaximumProductSubarray {
         }
         return res;
     }
-    
-    public int maxProduct2(int[] nums) {
-        if (nums == null || nums.length < 1) {
+    //interview friendly, so 
+    public int maxProduct2(int[] A) {
+        if (A == null || A.length < 1) {
             return 0;
         }
         // store the result that is the max we have found so far
-        int res = nums[0];
+        int res = A[0];
         // imax/imin stores the max/min product of
         // subarray that ends with the current number A[i]
-        for(int i = 1, imax = res, imin =res; i< nums.length; i++) {
+        for(int i = 1, imax = res, imin =res; i< A.length; i++) {
              // AT this point, nums[i] < 0 means imax will become small, so we exchange them. 
             // remember the max product
-            if (nums[i] < 0) {
+            if (A[i] < 0) {
                 int temp = imax;
                 imax = imin;
                 imin = temp;
@@ -52,8 +52,8 @@ public class MaximumProductSubarray {
              // max/min product for the current number is either the current number itself
         // or the max/min by the previous number times the current one
             
-            imax = Math.max(nums[i], imax * nums[i]);
-            imin = Math.min(nums[i], imin * nums[i]);
+            imax = Math.max(A[i], imax * A[i]);
+            imin = Math.min(A[i], imin * A[i]);
             // the newly computed max value is a candidate for our global result
             res = Math.max(res, imax);
         }

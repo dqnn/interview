@@ -55,6 +55,34 @@ public class BinaryTreeUpsideDown {
         root.right = null;
         return newRoot;
     }
+    /*
+                Input: [1,2,3,4,5]
+
+ pre    1
+       / \
+cur   2   3  temp
+     / \
+next 4   5
+     */
+    //above figure, we can see first cur = root, then 
+    public TreeNode upsideDownBinaryTree_Iterative(TreeNode root) {
+        TreeNode curr = root;
+        TreeNode temp = null;
+        TreeNode prev = null;
+        
+        while(curr != null) {
+            TreeNode next = curr.left;
+            
+            // swapping nodes now, need temp to keep the previous right child
+            curr.left = temp;
+            temp = curr.right;
+            curr.right = prev;
+            
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }  
 
     // non-recursive solution, did not try.
     public TreeNode upsideDownBinaryTree2(TreeNode root) {

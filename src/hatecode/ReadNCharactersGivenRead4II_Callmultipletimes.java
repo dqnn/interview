@@ -112,27 +112,28 @@ read("abc", 1); // returns ""
     
     
     
-    int pointer2 = 0;
-    char[] temp2 = new char[4];
+    //interview friendly version, improved the statement in while loop, but overall thought 
+    //process is the same as above
     int cnt = 0;
-    public int read2(char[] buf, int n) {
+    public int read_2(char[] buf, int n) {
         if (buf == null || buf.length < 1 || n < 1) {
             return 0;
         }
-
+        
+        
         int index = 0;
-        while(true) {
-            if (pointer2 == 0) {
-                cnt = read4(temp2);
+        while(index < n) {
+            if (pointer == 0) {
+                cnt = read4(temp);
             }
-            if (cnt == 0) break;
-            while(index < n && pointer2 < cnt) {
-                buf[index++] = temp2[pointer2++];
+            while(index < n && pointer < cnt) {
+                buf[index++] = temp[pointer++];
             }
-            if(pointer == cnt) pointer2 = 0;
-            if (index == n) {
+            
+            if (index == n || cnt == 0) {
                 return index;
             }
+            if(pointer == cnt) pointer = 0;
         }
         return index;
     }
