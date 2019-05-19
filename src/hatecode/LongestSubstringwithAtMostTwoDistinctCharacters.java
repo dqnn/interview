@@ -31,7 +31,7 @@ public class LongestSubstringwithAtMostTwoDistinctCharacters {
 
     //interview frinendly: 
     
-    //notes: 
+    //notes: two pointers templates, note, this also can apply to K distinct chars
     public int lengthOfLongestSubstringTwoDistinct_Best(String s) {
         if (s == null || s.length() < 1) return 0;
         

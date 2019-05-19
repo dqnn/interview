@@ -34,6 +34,16 @@ For example, given [0, 1, 3, 50, 75], return [“2”, “4->49”, “51->74”
     // when we scan the array, we wil process
     // if lowe < nums[i], we need to append lower-> nums[i] - 1. here we need to differ 
     // on nums[i] and nums[i] - 1
+    
+    //interview friendly, find missing ranges given an array and lower, upper bound
+    
+    //so since nums already sorted, so lets consider what's the relationship between low variable num with num
+    //[0, 1, 3, 50, 75],0, 99, two numbers we have 3 cases, one is equals, then we should continue; 
+    //low < num, low + 1 == num, then we just 1 number
+    //low + 1 < num, then we need a range, low ->nums-1
+    
+    //so we continue this process until over but we need to detect the upper, also two cases same as above. 
+    //if low == upper, just 1 number, if not, it will be a range
     public List<String> findMissingRanges(int[] nums, int lower, int upper) {
         List<String> res = new ArrayList<>();
         long alower = (long)lower, aupper = (long)upper;

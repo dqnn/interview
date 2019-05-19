@@ -70,7 +70,8 @@ Explanation: The array contains less than 2 elements, therefore return 0.
             if (bucketsMin[i] == Integer.MAX_VALUE && bucketsMax[i] == Integer.MIN_VALUE) {
                 continue;
             }
-            //suppose q = bucketMax, p = bucketMin, we use q.min - p.max since they are adjacent in the array after 
+            //suppose q = bucketMax, p = bucketMin, we use q.min - p.max since 
+            //they are adjacent in the array after 
             //sort
             res = Math.max(res, bucketsMin[i] - pre);
             pre = bucketsMax[i];
