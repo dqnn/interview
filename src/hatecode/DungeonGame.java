@@ -123,7 +123,7 @@ if(dp[i][j] <= 0) dp[i][j] = 1;
         int r = m.length;
         int c = m[0].length;
         int[][] dp = new int[r][c];
-
+        //suppose we only have 1 cell, so if it is threat, then we need more HP
         dp[r - 1][c - 1] = Math.max(1 - m[r - 1][c - 1], 1);
 
         //initialize last column, starting from second last
