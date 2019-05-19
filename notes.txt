@@ -25,3 +25,6 @@ outter part
 18. Minimum Unique Word Abbreviation cannot understand the best solution?
 19. 909. Snakes and Ladders not understand the problem.
 20. 25 reverse() is interesting one about last two lines of code, 0->1->2->3->4->5, remember how we move begin and cur
+21： https://www.cs.usfca.edu/~galles/visualization/BTree.html this has a lot visualize graph
+22: 163, the bucket sort, did not understand the last step, how we can get the max gap from gap?
+23: 

@@ -48,9 +48,7 @@ public class FractiontoRecurringDecimal {
 
         res.append(num / den);
         num %= den;
-        if (num == 0) {
-            return res.toString();
-        }
+        if (num == 0) return res.toString();
 
         res.append(".");
         HashMap<Long, Integer> map = new HashMap<>();

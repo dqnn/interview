@@ -52,18 +52,18 @@ public class MajorityElement {
     // 不难证明，如果存在元素e出现频率超过半数，那么数组中最后剩下的就只有e。
     // [1,2,3,3,3]
     // time : O(n) space : O(1)
+    //interview friendly
+    //核心思想就是对坪消耗
+    //virtual array,  find a element in nums which can be 
     public int majorityElement3(int[] nums) {
         int count = 0;
-        int res = 0;
+        int major = 0;
         for (int num : nums) {
-            if (count == 0) {
-                res = num;
-            }
-            if (num != res) {
-                count--;
-            } else count++;
+            if (count == 0) major = num;
+            if (num != major) count--;
+            else count++;
         }
-        return res;
+        return major;
     }
     
     // using maps to store the num->count
