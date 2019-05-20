@@ -41,20 +41,18 @@ Output: 84
         return dp[n];
     }
     //this is Memo solution, 
-    //
     public int maxSumAfterPartitioning(int[] A, int K) {
-        if(A==null || K == 0) {
-            return 0;
-        }
+        if(A==null || K == 0) return 0;
+
         Map<Integer, Integer> dp = new HashMap<>();
         return helper(A, K, 0, dp);
     }
-    
-    private int helper(int[] A, int K, int pos,  Map<Integer, Integer> dp ) {
-        if(dp.containsKey(pos)) return dp.get(pos);
+    //1 we always put pos as first line in recursive function
+    //2 note the loop conditions
+    private int helper(int[] A, int K, int pos, Map<Integer, Integer> dp) {
+        if (pos == A.length) return 0;
+        if (dp.containsKey(pos)) return dp.get(pos);
 
-        if(pos == A.length) return 0;
-        
         int max = Integer.MIN_VALUE;
         int res = Integer.MIN_VALUE;
         for (int i = pos; i <= K + pos - 1 && i < A.length; i++) {
