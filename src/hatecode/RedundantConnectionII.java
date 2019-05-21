@@ -3,13 +3,19 @@ import java.util.*;
 public class RedundantConnectionII {
 /*
 685. Redundant Connection II
-In this problem, a rooted tree is a directed graph such that, there is exactly one node (the root) for which all other nodes are descendants of this node, plus every node has exactly one parent, except for the root node which has no parents.
+In this problem, a rooted tree is a directed graph such that, 
+there is exactly one node (the root) for which all other nodes are descendants of this node, 
+plus every node has exactly one parent, except for the root node which has no parents.
 
-The given input is a directed graph that started as a rooted tree with N nodes (with distinct values 1, 2, ..., N), with one additional directed edge added. The added edge has two different vertices chosen from 1 to N, and was not an edge that already existed.
+The given input is a directed graph that started as a rooted tree with N nodes (with distinct 
+values 1, 2, ..., N), with one additional directed edge added. The added edge has two different 
+vertices chosen from 1 to N, and was not an edge that already existed.
 
-The resulting graph is given as a 2D-array of edges. Each element of edges is a pair [u, v] that represents a directed edge connecting nodes u and v, where u is a parent of child v.
+The resulting graph is given as a 2D-array of edges. Each element of edges is a pair [u, v] 
+that represents a directed edge connecting nodes u and v, where u is a parent of child v.
 
-Return an edge that can be removed so that the resulting graph is a rooted tree of N nodes. If there are multiple answers, return the answer that occurs last in the given 2D-array.
+Return an edge that can be removed so that the resulting graph is a rooted tree of N nodes. 
+If there are multiple answers, return the answer that occurs last in the given 2D-array.
 
 Example 1:
 Input: [[1,2], [1,3], [2,3]]
@@ -57,15 +63,10 @@ v   v
     //graph will become tree which has N child, so this means, two nodes can only have 1 
     //directed edge and there should be no cycle in graph
     //there are 3 cases: 
-    //1 same as RCI, no  >=2 parent nodes, in this case, we just use UF to find out
-    //2 we have >=2 parent node but no cycle, like  follow, 2-->3, 1->3, so 3 has 2 parent
-/*
-           1
-         /   \
-        2---->3
- */
-    // 3 >=2 parent node with cycle, 3->1->4->2->1, here has a cycle 1 4 2 1 
-    //and 1 has two parents
+    //1 {[1,2],[1,3],[2,4],[3,4]} 2 parents, and no cycle, note: direct graph, return candidate2
+    //2 3->1->4->2->1, 1 has two parents, and it has a cycle, we need to remove 2->1, return candidate2
+    //3 1->2->3->4->1, a valid tree with importing multiple additional edges make the tree invalid. 
+    // return edge, if we put 1->2 as last then we return candidate1
     public int[] findRedundantDirectedConnection(int[][] edges) {
         if (edges == null || edges.length < 1) return new int[]{};
         // 因为可能有节点存在两个父亲节点，此时答案必定在这两条边之中
@@ -74,20 +75,27 @@ v   v
         int N = edges.length;
         // 记录各个节点的父亲节点
         int[] parent = new int[N + 1];
+        //we may have multiple answers and we will keep the last
         for (int[] edge : edges) {
+            //direct graph, u->v
             int u = edge[0], v = edge[1];
-            // 如果节点 v 的父亲不唯一，则记录下两个可能的答案
+            // this means v has two parents, one is u, another is parent[v], we remember first, 
+            //this loop will keep the last one
             if (parent[v] != 0) {
                 candidate1 = new int[]{parent[v], v};
                 candidate2 = new int[]{u, v};
-                // 无效化第二条边 (trick)
+                // void the second edge (trick), 1->2->3->4->5->3, 5->1, so this will void 5->3 only
                 edge[0] = -1;
                 edge[1] = -1;
             }
             parent[v] = u;
         }
 
-        // Do Union Find
+        // Do Union Find,if already voided edge, just continue,
+        //if after void, we still have a circle, this means
+        //example 1->2->3->4->5->3, 5->1, 5 point to 1 and 3, so will mark
+        //candidate 1= [2,3] candidate 2=[5,3], so we will find 5 still connect to the network, 
+        //in this case, we will return 
         DUS dus = new DUS(N + 1);
         for (int[] edge : edges) {
             // 如果遇到被无效化的边直接跳过
@@ -96,15 +104,14 @@ v   v
             }
             if (!dus.union(edge[0], edge[1])) {
                 // 如果在无效化了第二条边之后（存在的话）
-                // 仍然遇到了环，那么要么是无重复父亲节点，由该条边产生
-                // 要么是 存在重复父亲节点，并且由 第一条边 产生
+                // 仍然遇到了环，那么要么是无重复父亲节点，由该条边产生, like 1->2->3->4->5->3, 5->1, 5->1 here
+                //candidate1[0] = -1, so we return the edge, 
+                // 要么是 存在重复父亲节点，并且由 第一条边 产生, example 1, 
                 return candidate1[0] == -1 ? edge : candidate1;
             }
         }
-        // 对应 Case2.1 与 Case2.2
         return candidate2;
-            
-        }
+    }
     
     //O(n) one pass
     public int[] findRedundantDirectedConnection2(int[][] edges) {
