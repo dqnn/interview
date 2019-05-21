@@ -38,24 +38,24 @@ Round 2
 1. 给定一个二维数组，从(0,0)出发到第一行最后一个位置，每次只能向右，向右上或右下(对角线)走一格，问有多少种走法
 2. Follow up: 如果给你一些点，要求你必须经过这些点，有多少种走法
 3. Follow up: 如果指定一个高度(row number)，你的路径必须经过至少一次这个高度，有多少种走法
-     * @param obstacleGrid
+     * @param m
      * @return
      */
 
-    public int uniquePathsWithObstacles(int[][] obstacleGrid) {
-        int length = obstacleGrid[0].length;
-        int[] res = new int[length];
+    public int uniquePathsWithObstacles(int[][] m) {
+        int c = m[0].length;
+        int[] res = new int[c];
         res[0] = 1;
-        for (int i = 0; i < obstacleGrid.length; i++) {
-            for (int j = 0; j < obstacleGrid[0].length; j++) {
-                if (obstacleGrid[i][j] == 1) {
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m[0].length; j++) {
+                if (m[i][j] == 1) {
                     res[j] = 0;
                 } else if (j > 0) {
                     res[j] += res[j - 1];
                 }
             }
         }
-        return res[length - 1];
+        return res[c - 1];
     }
     
     //easy to understand version, 
@@ -63,16 +63,16 @@ Round 2
     //so from top left to right bottom, typical back tracking, 
     // so i j is controlled by i-1, j and i j -1 so we want to 
     // have dp foruma to carry on
-    public int uniquePathsWithObstacles2(int[][] obstacleGrid) {
-        int rowLen = obstacleGrid.length;
-        int colLen = obstacleGrid[0].length;
-        if (obstacleGrid[0][0] == 1 || obstacleGrid[rowLen - 1][colLen - 1] == 1)
+    public int uniquePathsWithObstacles2(int[][] m) {
+        int r = m.length;
+        int c = m[0].length;
+        if (m[0][0] == 1 || m[r - 1][c - 1] == 1)
             return 0;
-        int[][] dp = new int[rowLen + 1][colLen + 1];
+        int[][] dp = new int[r + 1][c + 1];
         dp[1][1] = 1;
-        for (int i = 0; i < rowLen; i++) {
-            for (int j = 0; j < colLen; j++) {
-                if (obstacleGrid[i][j] == 1) {
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                if (m[i][j] == 1) {
                     dp[i + 1][j + 1] = 0;
                     continue;
                 }
@@ -81,7 +81,7 @@ Round 2
                 }
             }
         }
-        return dp[rowLen][colLen];
+        return dp[r][c];
     }
     
     //so this version is the heritance of V1, we continue to use 2D DP and 
