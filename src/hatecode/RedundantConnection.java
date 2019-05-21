@@ -72,6 +72,11 @@ Explanation: The given undirected graph will be like this:
 2 - 3
 */  //O(Nα(N))≈O(N)/O(n)
     //thinking process: 
+    //given a 2D matrix which represents that a undirect tree, we need to 
+    //find the redundant connection between these nodes
+    
+    //we can use UF to have a set of nodes which are connected, for union function, if already 
+    //connected, return false, if not, just union these two nodes
     public int[] findRedundantConnection(int[][] edges) {
         DUS dus = new DUS(edges.length);
         
@@ -84,7 +89,7 @@ Explanation: The given undirected graph will be like this:
     
     
     //DFS, O(n^2)/O(n)
-    Set<Integer> seen = new HashSet();
+    Set<Integer> seen = new HashSet<>();
     int MAX_EDGE_VAL = 1000;
 
     public int[] findRedundantConnection2(int[][] edges) {
