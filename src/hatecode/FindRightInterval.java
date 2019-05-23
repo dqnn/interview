@@ -29,7 +29,7 @@ public class FindRightInterval {
      */
   //thinking process:
     //given an array of interval, for each interval if we can find another interval starts from its end (inclusive),
-    //then outout the index on that position.
+    //then output the index on that position.
     
     //treeMap is nature solution for this problem
     public int[] findRightInterval(int[][] intervals) {
