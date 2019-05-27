@@ -80,6 +80,9 @@ public class RemoveInvalidParentheses {
     
     //the key is isFound， the reason why we have isFound is becz 1 we want minimal ops on removing elements, if we can find one string is valid with same length in a tree level, so that's it, in one tree 
     //level, the pattern should be the same, so we just need to stop adding more into the queue. 
+   
+    //for time & space complextiy:
+    //Time: n = s.length(), so isValidParentheses is O(n), 
     public List<String> removeInvalidParentheses2(String s) {
         List<String> res = new ArrayList<>();
         if (s == null) {
@@ -98,6 +101,7 @@ public class RemoveInvalidParentheses {
             }
             // this is the key, so we cannot use break since queue may have more qualified strings,
             //for that level, because if we go deeper, that;s not minial removal of ( or )
+            //stop adding more into queue
             if (isFound) {
                 continue;
             }
@@ -116,6 +120,8 @@ public class RemoveInvalidParentheses {
         return res;
         
     }
+    
+    //verify the s is valid parentheses or not
     public boolean isValidParentheses(String s) {
         int cnt = 0;
         for(char ch : s.toCharArray()) {
@@ -125,6 +131,39 @@ public class RemoveInvalidParentheses {
         }
         return cnt == 0;
     }
+    //This is the best Time Complexity solution, need to present this one, O(nk)
+    //
+    public static List<String> removeInvalidParentheses_Best(String s) {
+        List<String> res = new ArrayList<>();
+        helper(s, res, 0, 0, new char[]{'(', ')'});
+        return res;
+    }
+//last_i, last_j process redundant ")" from left to right, process redundant "(" from right to left
+
+/*
+())()) as example
+
+ */
+    public static void helper(String s, List<String> res, int last_i, int last_j,  char[] par) {
+        for (int open = 0, i = last_i; i < s.length(); ++i) {
+            //
+            if (s.charAt(i) == par[0]) open++;
+            if (s.charAt(i) == par[1]) open--;
+            if (open >= 0) continue;
+            
+            for (int j = last_j; j <= i; ++j)
+                if (s.charAt(j) == par[1] && (j == last_j || s.charAt(j - 1) != par[1]))
+                    helper(s.substring(0, j) + s.substring(j + 1, s.length()), res, i, j, par);
+            return;
+        }
+        String reversed = new StringBuilder(s).reverse().toString();
+        if (par[0] == '(') // finished left to right
+            helper(reversed, res, 0, 0, new char[]{')', '('});
+        else // finished right to left
+            res.add(reversed);
+    }
+    
+    
     
     //this is for just reference, but this solution remove some duplicates 
     //case 1: "())" ---> "()"  only remove the first one of '))'
@@ -200,7 +239,8 @@ public class RemoveInvalidParentheses {
     
     public static void main(String[] args) {
         RemoveInvalidParentheses tt =new RemoveInvalidParentheses();
-        List<String> res = tt.removeInvalidParentheses("(()()((()");
+        //List<String> res = tt.removeInvalidParentheses_Best("(()()((()");
+        List<String> res = tt.removeInvalidParentheses_Best("())())");
         System.out.println(res);
     }
 }
