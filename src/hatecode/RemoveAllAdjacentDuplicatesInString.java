@@ -47,6 +47,13 @@ Output: "ca"
                 stack.pop();
             } else stack.push(s.charAt(i));
         }
+        /* this also works
+         for(char ch : s.toCharArray()) {
+            if(!stack.isEmpty() && ch == stack.peek()) {
+                stack.pop();
+            } else stack.push(ch);
+        }
+         */
         StringBuilder sb = new StringBuilder();
         while(!stack.isEmpty()) sb.append(stack.pop());
         return sb.reverse().toString();
