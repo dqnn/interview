@@ -17,7 +17,14 @@ Example 1:
 Input: "abbaca"
 Output: "ca"
 */
+    //thinking process:
+    //given a string, remove duplicate character and then formed a new string, continue this 
+    //and return last string
     
+    //from the description that recursive should help to solve the problem, but recusive, each time the 
+    //string changes, the pos number will different, like aaac, pos will have no meaningless. 
+    
+    //so we use stack to store all visited chars
     //two pointers
     public String removeDuplicates(String s) {
         if (s == null || s.length() < 1) return "";
