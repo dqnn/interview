@@ -32,9 +32,8 @@ Output: "ca"
         int i =0; 
         //i will 
         for(int j= 0; j< s.length(); j++) {
-            if (i > 0 && chs[i-1] == s.charAt(j)) {
-                i--;
-            } else chs[i++] = s.charAt(j);
+            if (i > 0 && chs[i-1] == s.charAt(j)) i--;
+            else chs[i++] = s.charAt(j);
         }
         return new String(chs, 0, i);
     }
