@@ -143,6 +143,8 @@ public class RemoveInvalidParentheses {
 /*
 ())()) as example
 
+first iteration when j =1, i = 2, 
+
  */
     public static void helper(String s, List<String> res, int last_i, int last_j,  char[] par) {
         for (int open = 0, i = last_i; i < s.length(); ++i) {
