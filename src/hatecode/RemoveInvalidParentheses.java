@@ -38,31 +38,56 @@ public class RemoveInvalidParentheses {
      * @param s
      * @return
      */
-    public List<String> removeInvalidParentheses(String s) {
+    //Best solution, O(nk), k is the leaves count, or means number of recursive calls, 
+    //worst case, k = n
+/*
+Greedy thinking. 
+from 0->i substring, we can only have two cases
+1. valid, means opened >=0 means each position >=0, then it is valid, add to result
+ another case is opened > 0, means we have extra (, 
+((), this will be first valid case, and we will reverse the string to )((, note par also change,
+so it will remove middle (, and become )(, last it will reverse again to become the answer
+
+() valid case, it will be reversed again and get correct results
+
+2.invalid cases
+()), 
+()()), we can remove s[1] or s[3], 
+
+ */
+    public static List<String> removeInvalidParentheses_Best(String s) {
         List<String> res = new ArrayList<>();
-        helper(res, s, 0, 0, new char[]{'(', ')'});
+        char[] par = new char[]{'(', ')'};
+        helper(s, res, par, 0, 0);
         return res;
     }
-    public void helper(List<String> res, String s, int last_i, int last_j, char[] pair) {
-        for (int count = 0, i = last_i; i < s.length(); i++) {
-            if (s.charAt(i) == pair[0]) count++;
-            if (s.charAt(i) == pair[1]) count--;
-            if (count >= 0) continue;
-            for (int j = last_j; j <= i; j++) {
-                // if s[j] = ')' and first character or one before not equals )
-                if (s.charAt(j) == pair[1] && (j == last_j || s.charAt(j - 1) != pair[1])) {
-                    // we remove ')' and use left chars from [j, i] to 
-                    helper(res, s.substring(0, j) + s.substring(j + 1), i, j, pair);
+
+    public static void helper(String s, List<String> res, char[] par, int last_r, int last_l) {
+        int opened = 0;
+        int r = last_r;
+        while (r < s.length() && opened >= 0) {
+            if (s.charAt(r) == par[0]) opened++;
+            if (s.charAt(r) == par[1]) opened--;
+            r++;
+        }
+
+        if (opened >= 0)  {
+            // no extra ')' is detected. We now have to detect extra '(' by reversing the string.
+            String reversed = new StringBuffer(s).reverse().toString();
+            //(() case, first recursive
+            if (par[0] == '(') helper(reversed, res, new char[]{')', '('}, 0, 0);
+            //)( with ) (, after reverse, then it would be ()
+            else res.add(reversed);
+        } else {  // extra ')' is detected and for substring 0->r, we greedy to get correct string
+            r -= 1; // 'i-1' is the index of abnormal ')' which makes count<0
+            // to_del is the character to be removed
+            for (int l = last_l; l<= r; l++) {
+                //()()), for last 2 )), we only want to remove first ), and no dup in results
+                //
+                if (s.charAt(l) == par[1] && (l == last_l || s.charAt(l-1) != par[1])) {
+                    helper(s.substring(0, l) + s.substring(l+1, s.length()), res, par, r, l);
                 }
             }
-            return;
-        }
-        // 
-        String reversed = new StringBuilder(s).reverse().toString();
-        if (pair[0] == '(') {
-            helper(res, reversed, 0, 0, new char[]{')', '('});
-        } else {
-            res.add(reversed);
         }
     }
     
@@ -131,42 +156,7 @@ public class RemoveInvalidParentheses {
         }
         return cnt == 0;
     }
-    //This is the best Time Complexity solution, need to present this one, O(nk)
-    //
-    public static List<String> removeInvalidParentheses_Best(String s) {
-        List<String> res = new ArrayList<>();
-        helper(s, res, 0, 0, new char[]{'(', ')'});
-        return res;
-    }
-//last_i, last_j process redundant ")" from left to right, process redundant "(" from right to left
-
-/*
-())()) as example
-
-first iteration when j =1, i = 2, 
-
- */
-    public static void helper(String s, List<String> res, int last_i, int last_j,  char[] par) {
-        for (int open = 0, i = last_i; i < s.length(); ++i) {
-            //
-            if (s.charAt(i) == par[0]) open++;
-            if (s.charAt(i) == par[1]) open--;
-            if (open >= 0) continue;
-            
-            for (int j = last_j; j <= i; ++j)
-                if (s.charAt(j) == par[1] && (j == last_j || s.charAt(j - 1) != par[1]))
-                    helper(s.substring(0, j) + s.substring(j + 1, s.length()), res, i, j, par);
-            return;
-        }
-        String reversed = new StringBuilder(s).reverse().toString();
-        if (par[0] == '(') // finished left to right
-            helper(reversed, res, 0, 0, new char[]{')', '('});
-        else // finished right to left
-            res.add(reversed);
-    }
-    
-    
-    
+   
     //this is for just reference, but this solution remove some duplicates 
     //case 1: "())" ---> "()"  only remove the first one of '))'
     /*case 2: 
@@ -242,7 +232,7 @@ first iteration when j =1, i = 2,
     public static void main(String[] args) {
         RemoveInvalidParentheses tt =new RemoveInvalidParentheses();
         //List<String> res = tt.removeInvalidParentheses_Best("(()()((()");
-        List<String> res = tt.removeInvalidParentheses_Best("())())");
+        List<String> res = tt.removeInvalidParentheses_Best("(()");
         System.out.println(res);
     }
 }
