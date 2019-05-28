@@ -26,7 +26,7 @@ public class IntegertoEnglishWords {
     //so the solution is carefully insights on how the result string formed. 
     //thousand is the threshold, it setup 3 arrays to form the low level things
     
-    
+    //the trick needs to be remembered
     static String[] less20={"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", 
             "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", 
             "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
@@ -40,6 +40,7 @@ public class IntegertoEnglishWords {
         int i = 0;
         while (num > 0) {
             if (num % 1000 != 0) {
+                // i = 0 it is ""
                 res = helper(num % 1000) + thousands[i] + " " + res;
             }
             num /= 1000;
@@ -82,6 +83,6 @@ public class IntegertoEnglishWords {
     }
     
     public static void main(String[] args) {
-        System.out.println(numberToWords(12345678));
+        System.out.println(numberToWords(12));
     }
 }
