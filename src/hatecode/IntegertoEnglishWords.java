@@ -25,8 +25,13 @@ public class IntegertoEnglishWords {
     //best and interview friendly
     //so the solution is carefully insights on how the result string formed. 
     //thousand is the threshold, it setup 3 arrays to form the low level things
-    static String[] less20={"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
-    static String[] tens={"", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
+    
+    
+    static String[] less20={"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", 
+            "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", 
+            "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+    static String[] tens={"", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", 
+            "Seventy", "Eighty", "Ninety"};
     static String[] thousands={"", "Thousand", "Million", "Billion"};
 
     public static String numberToWords(int num) {

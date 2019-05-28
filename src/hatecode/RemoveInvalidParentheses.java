@@ -90,9 +90,9 @@ so it will remove middle (, and become )(, last it will reverse again to become 
                 //s.charAt(l) == par[1] is to make sure we want to remove ) 
                 //l == last_l, for case )(, r = 0, l =0 s.charAt(l-1) will throw error, l >=1
                 //s.charAt(l-1) != par[1] this is to make sure ()()), for every range of l and r
-                //we always remove the first ), second iteration string will become (())
+                //we always remove the FIRST ), second iteration string will become (())
+                //if we do not have s.charAt(l-1) != par[1], then it would never success unless l = last_l
                 if (s.charAt(l) == par[1] && (l == last_l || s.charAt(l-1) != par[1])) {
-                   
                     String newStr = s.substring(0, l) + s.substring(l+1, s.length());
                     helper(newStr, res, par, l, r);
                 }
