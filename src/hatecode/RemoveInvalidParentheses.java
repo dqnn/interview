@@ -62,7 +62,7 @@ so it will remove middle (, and become )(, last it will reverse again to become 
         return res;
     }
 
-    public static void helper(String s, List<String> res, char[] par, int last_r, int last_l) {
+    public static void helper(String s, List<String> res, char[] par, int last_l, int last_r) {
         int opened = 0;
         int r = last_r;
         while (r < s.length() && opened >= 0) {
@@ -83,9 +83,11 @@ so it will remove middle (, and become )(, last it will reverse again to become 
             // to_del is the character to be removed
             for (int l = last_l; l<= r; l++) {
                 //()()), for last 2 )), we only want to remove first ), and no dup in results
-                //
+                //Key is here, 
                 if (s.charAt(l) == par[1] && (l == last_l || s.charAt(l-1) != par[1])) {
-                    helper(s.substring(0, l) + s.substring(l+1, s.length()), res, par, r, l);
+                   
+                    String newStr = s.substring(0, l) + s.substring(l+1, s.length());
+                    helper(newStr, res, par, l, r);
                 }
             }
         }
@@ -232,7 +234,7 @@ so it will remove middle (, and become )(, last it will reverse again to become 
     public static void main(String[] args) {
         RemoveInvalidParentheses tt =new RemoveInvalidParentheses();
         //List<String> res = tt.removeInvalidParentheses_Best("(()()((()");
-        List<String> res = tt.removeInvalidParentheses_Best("(()");
+        List<String> res = tt.removeInvalidParentheses_Best("()())");
         System.out.println(res);
     }
 }
