@@ -55,6 +55,9 @@ so it will remove middle (, and become )(, last it will reverse again to become 
 ()()), we can remove s[1] or s[3], 
 
  */
+    //Time Complexity: every time we only remove only 1 character, and have new range to check
+    //this algo has greedy and dfs, we only examine first r characters which is not valid and we 
+    //try to remove first invalid character
     public static List<String> removeInvalidParentheses_Best(String s) {
         List<String> res = new ArrayList<>();
         char[] par = new char[]{'(', ')'};
