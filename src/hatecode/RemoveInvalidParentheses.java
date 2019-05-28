@@ -84,6 +84,10 @@ so it will remove middle (, and become )(, last it will reverse again to become 
             for (int l = last_l; l<= r; l++) {
                 //()()), for last 2 )), we only want to remove first ), and no dup in results
                 //Key is here, 
+                //s.charAt(l) == par[1] is to make sure we want to remove ) 
+                //l == last_l, for case )(, r = 0, l =0 s.charAt(l-1) will throw error, l >=1
+                //s.charAt(l-1) != par[1] this is to make sure ()()), for every range of l and r
+                //we always remove the first ), second iteration string will become (())
                 if (s.charAt(l) == par[1] && (l == last_l || s.charAt(l-1) != par[1])) {
                    
                     String newStr = s.substring(0, l) + s.substring(l+1, s.length());
@@ -234,7 +238,7 @@ so it will remove middle (, and become )(, last it will reverse again to become 
     public static void main(String[] args) {
         RemoveInvalidParentheses tt =new RemoveInvalidParentheses();
         //List<String> res = tt.removeInvalidParentheses_Best("(()()((()");
-        List<String> res = tt.removeInvalidParentheses_Best("()())");
+        List<String> res = tt.removeInvalidParentheses_Best(")");
         System.out.println(res);
     }
 }
