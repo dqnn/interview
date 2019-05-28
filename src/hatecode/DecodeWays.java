@@ -52,7 +52,7 @@ public class DecodeWays {
         for (int i = 2; i <= len; i++) {
             // 226--> first is [2,6)-->2
             // 226--> second is 22, so to get positon 2
-            // we have two way possibe, 1 is one way to postion i, another is 2 step to
+            // we have two way possible, 1 is one way to postion i, another is 2 step to
             // position i
             // but we have to check whether each is valid, if not, then there would be only
             // one way.
@@ -127,10 +127,10 @@ public class DecodeWays {
         memo[n - 1] = s.charAt(n - 1) != '0' ? 1 : 0;
 
         for (int i = n - 2; i >= 0; i--)
-            if (s.charAt(i) == '0')
-                continue;
+            if (s.charAt(i) == '0') continue;
             else
-                memo[i] = (Integer.parseInt(s.substring(i, i + 2)) <= 26) ? memo[i + 1] + memo[i + 2] : memo[i + 1];
+                memo[i] = (Integer.parseInt(s.substring(i, i + 2)) <= 26) ?
+                        memo[i + 1] + memo[i + 2] : memo[i + 1];
 
         return memo[0];
     }
