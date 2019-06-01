@@ -24,7 +24,7 @@ Output: false
         
         return helper(map, src, dst, new HashSet<>());
     }
-    
+    //so each time we mark src as visited, if we can go to dst here, then it is true otherwise false
     private boolean helper(Map<Integer, Set<Integer>> map, int src, int dst, Set<Integer> set) {
         if (!map.containsKey(src)) return src == dst;
         
