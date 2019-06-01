@@ -14,7 +14,9 @@ Input: n = 3, edges = [[0,1],[0,2]], source = 0, destination = 2
 Output: false
 */
     //thinking process:
-    //
+    //given a DAG, return true if src go through all nodes can reach destination
+    
+    //so we start from src but put all connected dots into next level
     public boolean leadsToDestination(int n, int[][] g, int src, int dst) {
         if (g == null || g.length < 1 || g[0].length < 1) return true;
         Map<Integer, Set<Integer>> map = new HashMap<>();
