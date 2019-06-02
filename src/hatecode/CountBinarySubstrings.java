@@ -43,10 +43,10 @@ Output: 6
                 cur = 1;
             }
             //The last if statement is for checking how many valid substrings you have seen 
-            //so far in the iteration. For any value of prevRunLength > 1, we can only have prevRunLength 
-            //valid substrings up until prevRunLength is manipulated (this happens when we see 
+            //so far in the iteration. For any value of pre > 1, we can only have pre 
+            //valid substrings up until pre is manipulated (this happens when we see 
             //mismatching digits)
-            //like previous group, but why add +1 when pre> cur
+            //TODO: how to understand this? 
             if (pre >= cur) res++;
          }
         return res;
