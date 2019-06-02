@@ -9,9 +9,6 @@ public class ShortestWayToFormString {
      * Given two strings source and target, return the minimum number of
      * subsequences of source such that their concatenation equals target. If the
      * task is impossible, return -1.
-     * 
-     * 
-     * 
      * Example 1:
      * 
      * Input: source = "abc", target = "abcbc" Output: 2
