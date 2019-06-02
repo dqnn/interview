@@ -35,20 +35,19 @@ Output: 6
         if (s == null || s.length() < 1) return 0;
         int n = s.length();
         int pre = 0, cur = 1, res = 0;
-         for(int i =1; i < n; i++) {
-            if (s.charAt(i-1) == s.charAt(i)) {
-                cur++;
-            }else {
+        for (int i = 1; i < n; i++) {
+            if (s.charAt(i - 1) == s.charAt(i)) cur++;
+            else {
                 pre = cur;
                 cur = 1;
             }
-            //The last if statement is for checking how many valid substrings you have seen 
-            //so far in the iteration. For any value of pre > 1, we can only have pre 
-            //valid substrings up until pre is manipulated (this happens when we see 
-            //mismatching digits)
-            //TODO: how to understand this? 
+            // The last if statement is for checking how many valid substrings you have seen
+            // so far in the iteration. For any value of pre > 1, we can only have pre
+            // valid substrings up until pre is manipulated (this happens when we see
+            // mismatching digits)
+            // TODO: how to understand this?
             if (pre >= cur) res++;
-         }
+        }
         return res;
     }
     
