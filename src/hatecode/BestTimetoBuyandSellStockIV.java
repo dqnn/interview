@@ -113,8 +113,10 @@ DP
         //1. length is k + 1
         //2. k transaction is inner loop for each price
         //3. transaction j > 0,no =, because we have to use j-1 in as index
-        //4. the formula, ownStock->noStock, we use same index j, not j-1, but for 
-        //ownstock, the formula is noStock->ownStock
+        //4. the formula, noStock->ownStock[j], we use same index j, not j-1, but for 
+        //ownstock, the formula is noStock->ownStock[j-1]
+        //because when state from ownStock to noStock, because we sell stocks at current price
+        //
         int[] ownStock = new int[k+1];
         int[] noStock = new int[k+1];
         Arrays.fill(ownStock, Integer.MIN_VALUE);
@@ -124,7 +126,6 @@ DP
                 ownStock[j]= Math.max(ownStock[j], noStock[j-1] - price);
             }
         }
-        
         return noStock[k];
     }
 }
