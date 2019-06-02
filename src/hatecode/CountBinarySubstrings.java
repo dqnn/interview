@@ -41,11 +41,13 @@ Output: 6
                 pre = cur;
                 cur = 1;
             }
-            // The last if statement is for checking how many valid substrings you have seen
-            // so far in the iteration. For any value of pre > 1, we can only have pre
-            // valid substrings up until pre is manipulated (this happens when we see
-            // mismatching digits)
-            // TODO: how to understand this?
+/*
+Every time pre >= cur means there are more 0s before 1s, so could do count++ . 
+(This was the tricky one, ex. 0011 when you hit the first '1', curRun = 1, preRun = 2, 
+means 0s number is larger than 1s number, so we could form "01" at this time, count++ . 
+When you hit the second '1', curRun = 2, preRun = 2, means 0s' number equals to 1s' number, 
+so we could form "0011" at this time, that is why count++)
+ */
             if (pre >= cur) res++;
         }
         return res;
