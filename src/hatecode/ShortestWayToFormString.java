@@ -41,7 +41,6 @@ public class ShortestWayToFormString {
             }
         }
         return res;
-        
     }
     
     // next el largest than target
