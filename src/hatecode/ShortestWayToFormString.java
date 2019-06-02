@@ -72,7 +72,6 @@ public class ShortestWayToFormString {
                 i--;
             } else {
                 lastIndex = index + 1;
-                //output++;
             }
         }
         return res+1;
