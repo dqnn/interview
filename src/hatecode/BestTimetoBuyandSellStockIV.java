@@ -99,30 +99,32 @@ DP
     }
     //another solution. k >= len/2 means you can sell/buy every day since "at most", this 
     // become the infinite use case
-    public int maxProfit2(int k, int[] prices) {
-        if (k >= prices.length >>> 1) {
-            int T_ik0 = 0, T_ik1 = Integer.MIN_VALUE;
-        
-            for (int price : prices) {
-                int T_ik0_old = T_ik0;
-                T_ik0 = Math.max(T_ik0, T_ik1 + price);
-                T_ik1 = Math.max(T_ik1, T_ik0_old - price);
+    public int maxProfit_SimpleDP(int k, int[] p) {
+        if (p == null) return 0;
+        int n = p.length;
+        int res = 0;
+        if (k >= n/2){
+            for(int i=1; i< n;i++){
+                if (p[i] > p[i-1]) res += p[i] -p[i-1];
             }
-            
-            return T_ik0;
+            return res;
         }
-            
-        int[] noStock = new int[k + 1];
-        int[] ownStock = new int[k + 1];
+        //this is the key here:
+        //1. length is k + 1
+        //2. k transaction is inner loop for each price
+        //3. transaction j > 0,no =, because we have to use j-1 in as index
+        //4. the formula, ownStock->noStock, we use same index j, not j-1, but for 
+        //ownstock, the formula is noStock->ownStock
+        int[] ownStock = new int[k+1];
+        int[] noStock = new int[k+1];
         Arrays.fill(ownStock, Integer.MIN_VALUE);
-            
-        for (int price : prices) {
-            for (int j = k; j > 0; j--) {
-                noStock[j] = Math.max(noStock[j], ownStock[j] + price);
-                ownStock[j] = Math.max(ownStock[j], noStock[j - 1] - price);
+        for(int price:p) {
+            for(int j = k; j >0;j--) {
+                noStock[j]= Math.max(noStock[j], ownStock[j] + price);
+                ownStock[j]= Math.max(ownStock[j], noStock[j-1] - price);
             }
         }
-            
+        
         return noStock[k];
     }
 }
