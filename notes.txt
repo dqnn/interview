@@ -27,4 +27,5 @@ outter part
 20. 25 reverse() is interesting one about last two lines of code, 0->1->2->3->4->5, remember how we move begin and cur
 21： https://www.cs.usfca.edu/~galles/visualization/BTree.html this has a lot visualize graph
 22: 163, the bucket sort, did not understand the last step, how we can get the max gap from gap?
-23: 
+23: 1055, for the greedy solution, why res++ could work if we cannot find the index char, also for binary
+search solution, if we get at < 0, why we ~ at? 
