@@ -77,6 +77,9 @@ v   v
         int[] parent = new int[N + 1];
         //we may have multiple answers and we will keep the last
         //this only find out the last 2 candidate which has double parents for  node v
+        //like 1->2->3->4->5, 5->3, then first parent[3] = 2, then next we found parent[3] =5, 
+        //then can1 ={2,3}, can2={5,3} and we void edge 5->3,then chane to 1->2->3->4->5
+        //
         for (int[] edge : edges) {
             //direct graph, u->v
             int u = edge[0], v = edge[1];
