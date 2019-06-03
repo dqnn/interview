@@ -1,5 +1,7 @@
 package hatecode;
 
+import java.util.*;
+
 //this is not in LC, but google interview has similiar question, 
 //
 public class UniquePathsIV {
@@ -58,11 +60,13 @@ Rules：
     //from point to point, to see the count > 0 or not
     
     //followup3: 给定矩形里的三个点，找到遍历这三个点的所有路径数量
+    //cut the retangel int seveal ones
     
     //followup4: 给定一个下界(x == H)，找到能经过给定下界的所有从左上到右上的路径数量 (x >= H)
+    //cut the rectangle into two, first height = r - H
     
     //followup5: 起点和终点改成从左上到左下，每一步只能 ↓↘↙，求所有可能的路径数量
-    
+    //same
     //variations:
     /*
 Given a N*N matrix with random amount of money in each cell, you start from top-left, 
@@ -83,6 +87,41 @@ v
 
      */
     //Follow up 1：要求重建从end 到 start的路径
-    //Follow up 2: 现在要求空间复杂度为O（1），dp且重建路径
+    //Follow up 2: 现在要求空间复杂度为O（1），dp且重建路径， edit origin array
     
+    public List<List<Integer>> maxMoney(int[][] moneys) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (moneys == null || moneys.length < 1 || moneys[0].length < 1) return res;
+        // assume: moneys is not null, width and length are equal
+        int n = moneys.length;
+        // initialize the boundary, we change the cell value , if comes from 
+        //top, keep the same, if comes from the left, we change to -sum
+        for (int j = 1; j < n; j++) {
+            moneys[0][j] = -(Math.abs(moneys[0][j-1]) + moneys[0][j]);
+        }
+        for (int i = 1 ; i < n ; i++) {
+            moneys[i][0] = moneys[i-1][0] + moneys[i][0];
+        }
+        for(int i = 1; i < n ; i++) {
+            for(int j = 1; j < n ; j++) {
+                int top = Math.abs(moneys[i-1][j]) + moneys[i][j];
+                int left = Math.abs(moneys[i][j-1]) + moneys[i][j];
+                if(top >= left) moneys[i][j] = top;
+                else moneys[i][j] = -left;
+            } 
+        }
+        System.out.println("Max path sum = " + Math.abs(moneys[n - 1][n - 1]));
+        int curri = n-1;
+        int currj = n-1;
+        while (curri > 0 || currj > 0) {
+            res.add(Arrays.asList(curri, currj));
+            if(moneys[curri][currj] < 0) {
+                currj -= 1;
+            } else {
+                curri -=1;
+            }
+        }
+        res.add(Arrays.asList(0, 0));
+        return res;
+    }
 }
