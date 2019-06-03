@@ -63,11 +63,9 @@ v   v
     //graph will become tree which has N child, so this means, two nodes can only have 1 
     //directed edge and there should be no cycle in graph
     //there are 3 cases: 
-    //1 {[1,2],[1,3],[2,4],[3,4]} 2 parents, and no cycle, note: direct graph, return candidate2
-    //2 3->1->4->2->1, 1 has two parents, and it has a cycle, we need to remove 2->1, return candidate2
-    //3 1->2->3->4->1, a valid tree with importing multiple additional edges make the tree invalid. 
-    // return edge, if we put 1->2 as last then we return candidate1
-    public int[] findRedundantDirectedConnection(int[][] edges) {
+    //1 double parents, see case 1
+
+    public  int[] findRedundantDirectedConnection(int[][] edges) {
         if (edges == null || edges.length < 1) return new int[]{};
         // 因为可能有节点存在两个父亲节点，此时答案必定在这两条边之中
         int[] candidate1 = new int[]{-1, -1};
@@ -77,8 +75,8 @@ v   v
         int[] parent = new int[N + 1];
         //we may have multiple answers and we will keep the last
         //this only find out the last 2 candidate which has double parents for  node v
-        //like 1->2->3->4->5, 5->3, then first parent[3] = 2, then next we found parent[3] =5, 
-        //then can1 ={2,3}, can2={5,3} and we void edge 5->3,then chane to 1->2->3->4->5
+        //like 1->2->3->4->5, 5->3, 5->1 then first parent[3] = 2, then next we found parent[3] =5, 
+        //then can1 ={2,3}, can2={5,3} and we void edge 5->3,then change to 1->2->3->4->5->1
         //
         for (int[] edge : edges) {
             //direct graph, u->v
@@ -89,6 +87,7 @@ v   v
                 candidate1 = new int[]{parent[v], v};
                 candidate2 = new int[]{u, v};
                 // void the second edge (trick), 1->2->3->4->5->3, 5->1, so this will void 5->3 only
+                //[[1, 2], [2, 3], [3, 4], [4, 5], [-1, -1], [5, 1]]
                 edge[0] = -1;
                 edge[1] = -1;
             }
@@ -106,14 +105,36 @@ v   v
             if (edge[0] == -1 && edge[1] == -1) {
                 continue;
             }
-            if (!dus.union(edge[0], edge[1])) {
-                // 如果在无效化了第二条边之后（存在的话）
-                // 仍然遇到了环，那么要么是无重复父亲节点，由该条边产生, like 1->2->3->4->5->3, 5->1, 5->1 here
-                //candidate1[0] = -1, so we return the edge, 
-                // 要么是 存在重复父亲节点，并且由 第一条边 产生, example 1, 
+/*
+case 1: cycle with no double parents
+5 <- 1 -> 2
+     ^    |
+     |    v
+     4 <- 3
+ the previous loop cannot find anything because there was no double parent
+candidate1={-1,-1}, it will return [4,1]
+case 2: [[2,1],[3,1],[4,2],[1,4]]  cycle with double parents
+  <-----
+  |     |
+  4->2->1
+       /
+      3
+ candidate1={2,1}, candidate2={3,1}, then it will become [[2,1],[-1,-1],[4,2],[1,4]]
+ when go into second loop we find the cycle, finally will return candidate1
+ */         //case 1 will return edge, case 2 will return candidate1
+            if (!dus.union(edge[0], edge[1])) { 
                 return candidate1[0] == -1 ? edge : candidate1;
             }
         }
+/*
+ * case: just double parents, no cycle
+    1
+  /   \
+ 2     3
+ \     /
+    4
+ this will return candidate2={3,4}
+ */
         return candidate2;
     }
     
@@ -144,5 +165,11 @@ v   v
     
     private int find(int[] ds, int i) {
         return ds[i] == 0 ? i : (ds[i] = find(ds, ds[i]));
+    }
+    
+    
+    public static void main(String[] args) {
+        int[][] g = new int[][] {{1,2},{2,3},{3,4},{5,3},{5,1}};
+        System.out.println(Arrays.toString(new RedundantConnectionII().findRedundantDirectedConnection(g)));
     }
 }
