@@ -29,3 +29,5 @@ outter part
 22: 163, the bucket sort, did not understand the last step, how we can get the max gap from gap?
 23: 1055, for the greedy solution, why res++ could work if we cannot find the index char, also for binary
 search solution, if we get at < 0, why we ~ at? 
+24: stock IV, why noStock[j] = Math.max(noStock[j], ownStock[j] + price), why j -1 not j, ownStock 
+actually is j-1 from noStock to ownStock state change, 

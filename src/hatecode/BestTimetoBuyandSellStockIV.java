@@ -116,7 +116,8 @@ DP
         //4. the formula, noStock->ownStock[j], we use same index j, not j-1, but for 
         //ownstock, the formula is noStock->ownStock[j-1]
         //because when state from ownStock to noStock, because we sell stocks at current price
-        //
+        //but when we buy the stock, our moneday did not change from last time, so we use 
+        //noStock[j-1] - price
         int[] ownStock = new int[k+1];
         int[] noStock = new int[k+1];
         Arrays.fill(ownStock, Integer.MIN_VALUE);
