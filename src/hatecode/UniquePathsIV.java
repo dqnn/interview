@@ -115,11 +115,8 @@ v
         int currj = n-1;
         while (curri > 0 || currj > 0) {
             res.add(Arrays.asList(curri, currj));
-            if(moneys[curri][currj] < 0) {
-                currj -= 1;
-            } else {
-                curri -=1;
-            }
+            if(moneys[curri][currj] < 0) currj -= 1;
+            else curri -=1;
         }
         res.add(Arrays.asList(0, 0));
         return res;

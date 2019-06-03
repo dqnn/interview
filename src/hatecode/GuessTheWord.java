@@ -43,15 +43,19 @@ We made 5 calls to master.guess and one of them was the secret, so we pass the t
     interface Master {
       public int guess(String word);
   }
-    //random guess
+    //random guess，we tried max=10 times to random choose one in the wordList, 
+    //each time, we only call 1 time to get x, how many chars are on same position + same character
+    //when we get x, then we will try to scan all words in wordsList, and if other words are have same 
+    //'x' mapping then we add to the list and replace the dictionary
+    
+    //so each time the size of dictionary will become smaller and smaller
     public void findSecretWord(String[] wordlist, Master master) {
         for (int i = 0, x = 0; i < 10 && x < 6; ++i) {
             String guess = wordlist[new Random().nextInt(wordlist.length)];
             x = master.guess(guess);
             List<String> wordlist2 = new ArrayList<>();
             for (String w : wordlist)
-                if (match(guess, w) == x)
-                    wordlist2.add(w);
+                if (match(guess, w) == x) wordlist2.add(w);
             wordlist = wordlist2.toArray(new String[wordlist2.size()]);
         }
     }
