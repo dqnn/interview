@@ -1,5 +1,6 @@
 package hatecode;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 /**
@@ -91,4 +92,57 @@ public class ValidateBinarySearchTree {
            ||node.right!=null && node.right.val <= node.val) return false;
          return helper(node.left) || helper(node.right);
      }
+     
+     //there was follow up in Google interviewe that if 
+     //in BST tree, there was one more error linked parent-child, correct them, and if you have to find it
+     //thinking process:
+     //1. we can use this problem's thinking, to validate each subtree by min and max,if we find one just return
+     //2. if not BST tree, we just try to use Set<TreeNode> to record the nodes we have visited, so when we 
+     //pre_order visit the tree, note: each node will only be visited once, so we add the visited nodes into the set
+     //but if we find the ones we have visited before, then we find it
+     public static int[] findEdge(TreeNode root) {
+         if (root == null) return new int[] {};
+         return helper_findEdge(null, root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+     }
+     
+     private static int[] helper_findEdge(TreeNode parent, TreeNode cur, int min, int max) {
+         if (cur == null) return new int[] {};
+         if (cur.val < min || cur.val > max) return new int[] {parent.val, cur.val};
+         int[] l = helper_findEdge(cur, cur.left, min, cur.val);
+         int[] r = helper_findEdge(cur, cur.right, cur.val, max);
+         if (l !=null && l.length > 0) return l;
+         else return r;
+     }
+
+     
+     
+/*
+     4
+    / \
+   2   5
+  /\  /
+ 1   3
+ we should return [3,5]
+ */
+     public static void main(String[] args) {
+         TreeNode root = new TreeNode(4);
+         root.left = new TreeNode(2);
+         root.right = new TreeNode(5);
+         root.left.left = new TreeNode(1);
+         root.left.right = new TreeNode(3);
+         
+         root.right.left = root.left.right;
+         System.out.println(Arrays.toString(findEdge(root)));
+     }
+     
+     //another is to correct the BST tree, we can simply to use helper_findEdge to
+     private TreeNode helper_Correct_BST(TreeNode root, int left, int right) {
+         if(root == null) return null;
+         if(root.val <= left || root.val >= right) return null;
+         root.left = helper_Correct_BST(root.left, left, root.val);
+         root.right = helper_Correct_BST(root.right, root.val, right);
+         return root;
+     }
+
+     
 }
