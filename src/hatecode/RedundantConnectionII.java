@@ -76,6 +76,7 @@ v   v
         // 记录各个节点的父亲节点
         int[] parent = new int[N + 1];
         //we may have multiple answers and we will keep the last
+        //this only find out the last 2 candidate which has double parents for  node v
         for (int[] edge : edges) {
             //direct graph, u->v
             int u = edge[0], v = edge[1];

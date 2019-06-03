@@ -31,3 +31,5 @@ outter part
 search solution, if we get at < 0, why we ~ at? 
 24: stock IV, why noStock[j] = Math.max(noStock[j], ownStock[j] + price), why j -1 not j, ownStock 
 actually is j-1 from noStock to ownStock state change, 
+25: hungary algorithms, how to use it? Campus Bike II, this could reduce the complexity O(n^2), also note
+that workers > Bikes
