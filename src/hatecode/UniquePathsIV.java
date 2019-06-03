@@ -33,28 +33,29 @@ Rules：
     public static void main(String[] args) {
         //2，2->1, 3,3->2
         System.out.println(uniquePath(3,3));
+        System.out.println(uniquePaths_Space_On(3,3));
      }
     //follow up1: reduce space to O(n)
-    public int uniquePaths_Space_On(int r, int c) {
+    public static int uniquePaths_Space_On(int r, int c) {
         int[] dp = new int[c];
         int[] tmp = new int[c];
         dp[0] = 1;
-        for(int i = 1 ; i  < r ; i++) {
+        for(int i = 0 ; i  < r ; i++) {
             for(int j = 0 ; j < c ; j++) {
                 int val1 = j - 1 >= 0 ? dp[j - 1] : 0;
                 int val2 = dp[j];
                 int val3 = j + 1 < c ? dp[j + 1] : 0;
                 tmp[i] = val1 + val2 + val3;
             }
-            System.arraycopy(tmp, 0, dp, 0, tmp.length);
+            System.arraycopy(tmp, 0, dp, 0, c);
         }
-        return dp[0];
+        return dp[c-1];
     }
 
 
     
     //follow up2: 给定矩形里的三个点，判断是否存在遍历这三个点的路径
-    
+    //from point to point, to see the count > 0 or not
     
     //followup3: 给定矩形里的三个点，找到遍历这三个点的所有路径数量
     
@@ -81,8 +82,7 @@ v
 思路：LC 64 最小路径和，思路差不多，只是求和变成求相加后的最大值: LC 64. Minimum Path Sum -> Maximum
 
      */
-    
     //Follow up 1：要求重建从end 到 start的路径
     //Follow up 2: 现在要求空间复杂度为O（1），dp且重建路径
-
+    
 }
