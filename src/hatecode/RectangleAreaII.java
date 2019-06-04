@@ -21,7 +21,8 @@ public class RectangleAreaII {
     //Rectangle has 3 type questions
     //1. given a list of coordinations, whether they have overlap or not
     //2 .calc the area no matter there were overalp or not
-    //3. random choose coordinations in these rectangles and output
+    //3. random choose coordinations in these rectangles and output, same as 528. Random Pick with Weight
+    //and 497. Random Point in Non-overlapping Rectangles
     //thinking process:
     
     //first we sort the 4 rectangle points, if same x, the bigger one will come first then 

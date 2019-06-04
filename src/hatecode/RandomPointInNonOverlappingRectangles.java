@@ -17,6 +17,9 @@ public class RandomPointInNonOverlappingRectangles {
     int tot = 0;
     Random rand;
 
+    //interview friendly version: 
+    //we stored accumulated area into prefix sum array, and use BS to find the target rectangle, 
+    //
     public RandomPointInNonOverlappingRectangles(int[][] rects) {
         this.rects = rects;
         this.rand = new Random();
@@ -32,16 +35,22 @@ public class RandomPointInNonOverlappingRectangles {
 
         int l = 0;
         int r = rects.length - 1;
-        while (l != r) {
-            int mid = (l + r) / 2;
+        while (l < r) {
+            int mid = l + (r-l) / 2;
             if (targ >= psum.get(mid)) l = mid + 1;
             else r = mid;
         }
-
+        // l =r, so just 1 element left
         int[] x = rects[l];
         int width = x[2] - x[0] + 1;
         int height = x[3] - x[1] + 1;
         int base = psum.get(l) - width * height;
+/*
+我们要按照rectangle整数点的数量所占的权重来分配对应的概率。注意这里我们是找rectangle中所有的整数坐标，
+整数点的数量并不等于矩形的面积。比如对于矩形[0,0,1,1]其面积只有1，但是却有四个整数点(0, 0), (0, 1), (1, 0), (1, 1)，
+所以实际整数点的数量是(width + 1) * (height + 1)。
+我们可以按照之前presum的做法确定一个矩形，然后在矩形里取随机点即可
+ */
         return new int[]{x[0] + (targ - base) % width, x[1] + (targ - base) / width};
     }
     //this is better solution, we don't need to write binary search
