@@ -34,9 +34,13 @@ public class RectangleAreaII {
         List<Point> data = new ArrayList<>();
         //1 means rectangle starts and -1 means rectangle ends
         for (int[] r : rectangles) {
+            //left bottom
             data.add(new Point(r[0], r[1], 1));
+            //left top
             data.add(new Point(r[0], r[3], -1));
+            //right bottom
             data.add(new Point(r[2], r[1], -1));
+            //right top
             data.add(new Point(r[2], r[3], 1));
         }
         //Collections.sort(data, (a, b) -> (a.x - b.x)); also works
