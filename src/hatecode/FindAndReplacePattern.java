@@ -13,6 +13,8 @@ Explanation: "mee" matches the pattern because there is a permutation {a -> m, b
 "ccc" does not match the pattern because {a -> c, b -> c, ...} is not a permutation,
 since a and b map to the same letter.
 */
+    //this is to find the pattern for each string, we use a map to store how many unique chars now in 
+    //the string, this will be the character value of the string
     public List<String> findAndReplacePattern(String[] words, String pattern) {
         int[] p = getPattern(pattern);
         return Arrays.stream(words).filter(e->Arrays.equals(getPattern(e), p)).collect(Collectors.toList());
@@ -26,6 +28,27 @@ since a and b map to the same letter.
         for (int i = 0; i < n; i++) {
             map.putIfAbsent(in.charAt(i), map.size());
             res[i] = map.get(in.charAt(i));
+        }
+        return res;
+    }
+    //another solution, so we compare each character, 
+    //this cleverly use i as position index or use it as how many unique characters in the strings so far
+    //so first p and s are all 0, then if they are the same, maybe 0 or same character, but if not the same
+    //definitely will be no match
+    public List<String> findAndReplacePattern_compare(String[] words, String pattern) {
+        List<String> res= new LinkedList<>();
+        for (String w: words){
+            int[] p= new int[26], s= new int[26];
+            boolean same=true;
+            for (int i=0; i<w.length(); i++){
+                if (s[w.charAt(i)-'a']!=p[pattern.charAt(i)-'a']){
+                    same=false;
+                    break;
+                }else{
+                    s[w.charAt(i)-'a']=p[pattern.charAt(i)-'a']=i+1;
+                }
+            }
+            if (same) res.add(w);
         }
         return res;
     }
