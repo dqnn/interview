@@ -15,6 +15,8 @@ since a and b map to the same letter.
 */
     //this is to find the pattern for each string, we use a map to store how many unique chars now in 
     //the string, this will be the character value of the string
+    
+    //they key of the problem is to find how many unique characters for same length
     public List<String> findAndReplacePattern(String[] words, String pattern) {
         int[] p = getPattern(pattern);
         return Arrays.stream(words).filter(e->Arrays.equals(getPattern(e), p)).collect(Collectors.toList());
