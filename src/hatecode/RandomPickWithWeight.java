@@ -1,29 +1,22 @@
 package hatecode;
 import java.util.*;
 public class RandomPickWithWeight {
-/*
- * 528. Random Pick with Weight
-Given an array w of positive integers, where w[i] describes the weight of index i, 
-write a function pickIndex which randomly picks an index in proportion to its weight.
-
-Note:
-
-1 <= w.length <= 10000
-1 <= w[i] <= 10^5
-pickIndex will be called at most 10000 times.
-Example 1:
-
-Input: 
-["Solution","pickIndex"]
-[[[1]],[]]
-Output: [null,0]
-Example 2:
-
-Input: 
-["Solution","pickIndex","pickIndex","pickIndex","pickIndex","pickIndex"]
-[[[1,3]],[],[],[],[],[]]
-Output: [null,0,1,1,1,0]
- */
+    /*
+     * 528. Random Pick with Weight Given an array w of positive integers, where
+     * w[i] describes the weight of index i, write a function pickIndex which
+     * randomly picks an index in proportion to its weight.
+     * 
+     * Note:
+     * 
+     * 1 <= w.length <= 10000 1 <= w[i] <= 10^5 pickIndex will be called at most
+     * 10000 times. Example 1:
+     * 
+     * Input: ["Solution","pickIndex"] [[[1]],[]] Output: [null,0] Example 2:
+     * 
+     * Input:
+     * ["Solution","pickIndex","pickIndex","pickIndex","pickIndex","pickIndex"]
+     * [[[1,3]],[],[],[],[],[]] Output: [null,0,1,1,1,0]
+     */
     //Standard solution
     Random random;
     int[] sum;
@@ -52,21 +45,21 @@ so we can directly search for idx in sum array using templates 2
     //BS final result left = right, so no matter sum[left] idx 
     public int pickIndex() {
         int len = sum.length;
-        // why idx + 1? becasue originally it would be 0 - sum[len-1] -1, 
-        //but the value spectrum is 1-> sum[len-1],so we want to bianry search in
+        // why idx + 1? because originally it would be 0 - sum[len-1] -1, 
+        //but the value spectrum is 1-> sum[len-1],so we want to binary search in
         //this value interval
         int idx = random.nextInt(sum[len - 1]) + 1;
-        int left = 0, right = len;
+        int l = 0, r = len;
         // search position
-        while (left < right) {
-            int mid = left + (right - left) / 2;
+        while (l < r) {
+            int mid = l + (r - l) / 2;
             if (sum[mid] == idx)
                 return mid;
             else if (sum[mid] < idx)
-                left = mid + 1;
+                l = mid + 1;
             else
-                right = mid;
+                r = mid;
         }
-        return left;
+        return l;
     }
 }

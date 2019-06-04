@@ -37,21 +37,21 @@ public class RectangleAreaII {
         //Collections.sort(data, (a, b) -> (a.x - b.x)); also works
         Collections.sort(data, (a, b) -> (a.x == b.x ? b.y -a.y : a.x - b.x));
         //store each node y value, and rec starts or end summary
-        TreeMap<Integer, Integer> map = new TreeMap<>();
+        TreeMap<Integer, Integer> tree = new TreeMap<>();
         //some points 0 are valid value, so we use -1
         int preX = -1;
         int preY = -1;
         int result = 0;
         for (int i = 0; i < data.size(); i++) {
             Point p = data.get(i);
-            map.put(p.y, map.getOrDefault(p.y, 0) + p.val);
+            tree.put(p.y, tree.getOrDefault(p.y, 0) + p.val);
             //we get next point to compare to current x,
             if (i == data.size() - 1 || data.get(i + 1).x > p.x) {
                 if (preX > -1) {
                     result += ((long)preY * (p.x - preX)) % M;
                     result %= M;
                 }
-                preY = calcY(map);
+                preY = calcY(tree);
                 preX = p.x;
             }
 /*
@@ -68,7 +68,7 @@ preX:2, preY: 1, result: 5, map:{0=1, 1=-1, 2=0, 3=0}
 preX:2, preY: 1, result: 5, map:{0=1, 1=0, 2=0, 3=0}
 preX:3, preY: 0, result: 6, map:{0=0, 1=0, 2=0, 3=0}
  */
-            System.out.println(String.format("preX:%s, preY: %s, result: %s, map:%s", preX, preY, result, map));
+            System.out.println(String.format("preX:%s, preY: %s, result: %s, map:%s", preX, preY, result, tree));
         }
         return result;
     }

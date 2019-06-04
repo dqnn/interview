@@ -1,16 +1,16 @@
 package hatecode;
 import java.util.*;
 public class RandomPointInNonOverlappingRectangles {
-/*
-497. Random Point in Non-overlapping Rectangles
-Given a list of non-overlapping axis-aligned rectangles rects, write a function pick which randomly and uniformily picks an integer point in the space covered by the rectangles.
-
-Input: 
-["Solution","pick","pick","pick","pick","pick"]
-[[[[-2,-2,-1,-1],[1,0,3,0]]],[],[],[],[],[]]
-Output: 
-[null,[-1,-2],[2,0],[-2,-1],[3,0],[-2,-2]]
-*/
+    /*
+     * 497. Random Point in Non-overlapping Rectangles Given a list of
+     * non-overlapping axis-aligned rectangles rects, write a function pick which
+     * randomly and uniformily picks an integer point in the space covered by the
+     * rectangles.
+     * 
+     * Input: ["Solution","pick","pick","pick","pick","pick"]
+     * [[[[-2,-2,-1,-1],[1,0,3,0]]],[],[],[],[],[]] Output:
+     * [null,[-1,-2],[2,0],[-2,-1],[3,0],[-2,-2]]
+     */
     int[][] rects;
     //prefix sum
     List<Integer> psum;
@@ -48,29 +48,28 @@ Output:
     class RandomPointInNonOverlappingRectangles_TreeMap {
         private int[][]                   rects;
         private Random                    r;
-        private TreeMap<Integer, Integer> map;
-        private int                       area;
+        private TreeMap<Integer, Integer> tree;
+        private int                       totalArea;
 
         public RandomPointInNonOverlappingRectangles_TreeMap(int[][] rects) {
             this.rects = rects;
             r = new Random();
-            map = new TreeMap<>();
-            area = 0;
+            tree = new TreeMap<>();
+            totalArea = 0;
             for (int i = 0; i < rects.length; i++) {
-                area += (rects[i][2] - rects[i][0] + 1) * (rects[i][3] - rects[i][1] + 1);
-                map.put(area, i);
+                totalArea += (rects[i][2] - rects[i][0] + 1) * (rects[i][3] - rects[i][1] + 1);
+                tree.put(totalArea, i);
             }
         }
 
         public int[] pick() {
-            int randInt = r.nextInt(area);
+            int randInt = r.nextInt(totalArea);
             //return 
-            int key = map.higherKey(randInt); //ceilingKey() + 1 == higherKey
-            int[] rect = rects[map.get(key)];
+            int key = tree.higherKey(randInt); //ceilingKey() + 1 == higherKey
+            int[] rect = rects[tree.get(key)];
             int x = rect[0] + (key - randInt - 1) % (rect[2] - rect[0] + 1);
             int y = rect[1] + (key - randInt - 1) / (rect[2] - rect[0] + 1);
-            return new int[] {
-                    x, y };
+            return new int[] {x, y};
         }
     }
 }
