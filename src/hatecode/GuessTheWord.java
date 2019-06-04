@@ -1,9 +1,6 @@
 package hatecode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class GuessTheWord {
 /*
@@ -121,4 +118,55 @@ public void findSecretWord2(String[] wordlist, Master master) {
         }
         return maxPeak;
     }
+    //O(n)/O(n)
+    //thinking process:
+    //we want to reduce the guess time, so every time we need to pick the string which has highest 
+    //probability the secret. 
+    //so we pre-process the wordlist, we translate the list into dictionary of chars
+    //we build the dictionary with all chars, the value is the count of 'a', 'b' like..
+    
+    //the key is to reduce the search space: first it will be 26^6 strings, after one guess, suppose 
+    //we have a number 2, C(6,2) * 26^4, 
+    //and we believe the higer character count, the higher probability showed up in strings
+    
+    //then start with full set of strings, pick() always pick the best string, the best string is:
+    //same match count with previous guess, and with highest character count among all these strings. 
+    public void findSecretWord_Best(String[] wordlist, Master master) {
+        int[] dict = new int[26];
+          Set<String> set = new HashSet<>();
+          for(String str: wordlist) {
+              set.add(str);
+              for(char c: str.toCharArray()) {
+                  dict[c-'a']++;
+              }
+          }
+
+          for(int i=0; i<10; i++) {
+              String guess = pick(set, dict);
+              int x = master.guess(guess);
+              if (x == 6) return;
+              
+              Iterator<String> it = set.iterator();
+              while(it.hasNext()) {
+                  if(match(guess, it.next()) != x) it.remove();
+              }
+          }
+   }
+   
+    private String pick(Set<String> list, int[] dict) {
+        int max = 0;
+        String res = null;
+        for(String str: list) {
+            int temp = 0;
+            for(char c: str.toCharArray()) {
+                temp += dict[c-'a'];
+            }
+            if(temp>max) {
+                max = temp;
+                res = str;
+            }
+        }
+        return res;
+    }
+    
 }
