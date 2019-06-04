@@ -55,6 +55,7 @@ public class RectangleAreaII {
             Point p = data.get(i);
             tree.put(p.y, tree.getOrDefault(p.y, 0) + p.val);
             //we get next point to compare to current x,
+            //data.get(i + 1).x > p.x means not on same x points
             if (i == data.size() - 1 || data.get(i + 1).x > p.x) {
                 if (preX > -1) {
                     result += ((long)preY * (p.x - preX)) % M;
@@ -81,7 +82,17 @@ preX:3, preY: 0, result: 6, map:{0=0, 1=0, 2=0, 3=0}
         }
         return result;
     }
-    //calculate left line length of y
+    //calculate left line length of y, this is pretty tricky usage of treeMap, 
+/*
+  2 ________4
+   |        |
+   |        |
+   |        |
+ 1 |________|3
+ 
+  data will save 4 Points as above graph,   calcY will only be called when we at 2 and 4 --even nodes
+  each time calcY will go through all entries in treeMap 
+ */
     private static int calcY(TreeMap<Integer, Integer> map) {
         int recYLen = 0, prePointY = -1, recStartsCount = 0;
         //for rectangle starts here then we need to count, but if some ends here then we should 
