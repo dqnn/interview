@@ -24,4 +24,36 @@ Output: 4
         
         return -1;
     }
+    //search template 2
+    public int search_Template2(int[] nums, int target) {
+        if (nums == null || nums.length < 1) return -1;
+        
+        int l = 0, r = nums.length -1;
+        
+        while(l + 1 < r) {
+            int mid = l + ((r- l) >> 1);
+            if (nums[mid] == target) return mid;
+            else if (nums[mid] > target) r = mid;
+            else l = mid;
+        }
+        
+        return -1;
+    }
+    
+    
+  //search template 3
+    public int search_Template3(int[] nums, int target) {
+        if (nums == null || nums.length < 1) return -1;
+        //note, this r = nums.length not nums.length -1
+        int l = 0, r = nums.length;
+        
+        while(l < r) {
+            int mid = l + ((r- l) >> 1);
+            if (nums[mid] == target) return mid;
+            else if (nums[mid] > target) r = mid;
+            else l = mid + 1;
+        }
+        
+        return -1;
+    }
 }

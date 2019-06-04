@@ -43,19 +43,15 @@ so we can directly search for idx in sum array using templates 2
 
  */
     //BS final result left = right, so no matter sum[left] idx 
+    //we use template 2 to find the correct results
     public int pickIndex() {
-        int len = sum.length;
-        // why idx + 1? because originally it would be 0 - sum[len-1] -1, 
-        //but the value spectrum is 1-> sum[len-1],so we want to binary search in
-        //this value interval
-        int idx = random.nextInt(sum[len - 1]) + 1;
+        int len = sum.length  - 1;
+        int target = random.nextInt(sum[len]);
         int l = 0, r = len;
-        // search position
-        while (l < r) {
-            int mid = l + (r - l) / 2;
-            if (sum[mid] == idx)
-                return mid;
-            else if (sum[mid] < idx)
+        // search position 
+        while(l < r){
+            int mid = l + ((r-l)>>2);
+            if(sum[mid] <= target)
                 l = mid + 1;
             else
                 r = mid;
