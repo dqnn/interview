@@ -34,6 +34,6 @@ actually is j-1 from noStock to ownStock state change,
 25: hungary algorithms, how to use it? Campus Bike II, this could reduce the complexity O(n^2), also note
 that workers > Bikes
 26: LC 855, seat() is eaily O(lgn), how to make leave() also O(lgn)? there is TreeMap<Len, TreeSet> treeset stored
-all starting index, len is the interval length.
-
+all starting index, len is the interval length, already have the solution, but needs to change the code 
+27: ExpiredHashMap.java, 1 to understand more about concurrentHashMap, 2 to remeber the code
 
