@@ -86,30 +86,32 @@ class RobotRoomCleaner {
 
     }
 
-    final int[][] directions = new int[][] {
-            {-1, 0 },
-            {0, 1 },
-            {1, 0 },
-            {0, -1 } };
+    //interview friendly:
+    //thinking process:
+    //so provide 4 APIs for the robot, try to clean the room which is represented as map
+    //
+    //O(4^(n-m))/O(n-m), n is the cells=r*c, m is obstacles,
+    final int[][] dirs = new int[][] {
+        {-1, 0}, //turn up
+        {0, 1},//right
+        {1, 0},//down
+        {0, -1}};//left
 
-    private void find(Robot robot, Set<String> visited, int curDirection, int row, int col) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(row);
-        sb.append(">");
-        sb.append(col);
-        visited.add(sb.toString());
+    private void helper(Robot robot, Set<String> visited, int curDirection, int i, int j) {
+        visited.add(i + "->" + j);
         robot.clean();
-        for (int i = 0; i < 4; ++i) {
-            int direction = (curDirection + i) % 4;
-            int[] next = directions[direction];
-            int nextRow = row + next[0];
-            int nextCol = col + next[1];
-            sb = new StringBuilder();
-            sb.append(nextRow);
-            sb.append(">");
-            sb.append(nextCol);
-            if (!visited.contains(sb.toString()) && robot.move()) {
-                find(robot, visited, direction, nextRow, nextCol);
+        for (int d = 0; d < 4; ++d) {
+            int nextDir = (curDirection + d) % 4;
+            int[] next = dirs[nextDir];
+            int ni = i + next[0];
+            int nj = j + next[1];
+            //so if we have not visited (ni, nj) then we move to this cell, 
+            //first visit, then we should back to previous cell, since we would like to try other directions
+            //first 2 turn left will reverse our direction, move() will move back to original position, 
+            //then 2 turn left will make our direction the same when we would like go into (ni, nj),
+            //we last we turn right, so we can proceed
+            if (!visited.contains(ni + "->" + nj) && robot.move()) {
+                helper(robot, visited, nextDir, ni, nj);
                 robot.turnLeft();
                 robot.turnLeft();
                 robot.move();
@@ -122,6 +124,6 @@ class RobotRoomCleaner {
 
     public void cleanRoom(Robot robot) {
         Set<String> visited = new HashSet<>();
-        find(robot, visited, 0, 0, 0);
+        helper(robot, visited, 0, 0, 0);
     }
 }

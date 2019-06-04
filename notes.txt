@@ -33,3 +33,5 @@ search solution, if we get at < 0, why we ~ at?
 actually is j-1 from noStock to ownStock state change, 
 25: hungary algorithms, how to use it? Campus Bike II, this could reduce the complexity O(n^2), also note
 that workers > Bikes
+26：LC 489, why we have to remember the turn direction every time, int dir = (cur + d) % 4, d=[0,4)?
+
