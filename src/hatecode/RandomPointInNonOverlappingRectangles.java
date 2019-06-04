@@ -51,6 +51,11 @@ public class RandomPointInNonOverlappingRectangles {
 所以实际整数点的数量是(width + 1) * (height + 1)。
 我们可以按照之前presum的做法确定一个矩形，然后在矩形里取随机点即可
  */
+        //thinking about this way, targ - base = targ - psum.get(l)  + height * width. 
+        // psum(l-1) <= targ <= psum(l), so targ - psum.get(l)  + height * width means the point will 
+        //fall into the rectangle l, but will not exceed the rectangle l
+        
+        //width is like matrix c, so if we want a cell in matrix, we could know its x is %c, y = /c
         return new int[]{x[0] + (targ - base) % width, x[1] + (targ - base) / width};
     }
     //this is better solution, we don't need to write binary search
