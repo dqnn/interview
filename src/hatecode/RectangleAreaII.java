@@ -86,12 +86,22 @@ preX:3, preY: 0, result: 6, map:{0=0, 1=0, 2=0, 3=0}
 /*
   2 ________4
    |        |
-   |        |
-   |        |
- 1 |________|3
- 
-  data will save 4 Points as above graph,   calcY will only be called when we at 2 and 4 --even nodes
-  each time calcY will go through all entries in treeMap 
+   |   6 ___|_____ 8
+   |    |   |     |
+ 1 |____|___|3    |
+        |         |
+       5|_________|7
+
+
+  data will save 8 Points as above graph as 1, 2, 5, 6, 3, 4, 7 ,8
+     calcY will only be called when we at 2, 4, 6, 8 --even nodes
+  each time calcY will go through all entries in treeMap, because if we have same p.y which will be overwritten,
+  
+  so the solution will be 
+  1. calculate 1,2,5,6 area, when we visit 2, we calculate preY = 2.y-1.y, when we at 4, we got the area
+  2. calculate 5,6,3,4 area, same as above
+  3. calculate 3,4,7,8 area
+  
  */
     private static int calcY(TreeMap<Integer, Integer> map) {
         int recYLen = 0, prePointY = -1, recStartsCount = 0;
