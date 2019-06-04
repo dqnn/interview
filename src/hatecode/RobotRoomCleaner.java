@@ -89,7 +89,10 @@ class RobotRoomCleaner {
     //interview friendly:
     //thinking process:
     //so provide 4 APIs for the robot, try to clean the room which is represented as map
-    //
+    //why we need for(d=0; d<4;d++) this and have a curDirection as recursive parameter because 
+    //1. when we enter a new cell, we need to which direction we are, if we do not know, then we do not know
+    //how to call API, turn left or turn right, how can we avoid visited ones? 
+    //2. the dirs have dedicated order thats why after if, we always turn right, clockwise to scan the 4 nighbours
     //O(4^(n-m))/O(n-m), n is the cells=r*c, m is obstacles,
     final int[][] dirs = new int[][] {
         {-1, 0}, //turn up
