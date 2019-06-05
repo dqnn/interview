@@ -1,5 +1,6 @@
 package hatecode;
 
+import java.util.*;
 public class CokeBeverageMachine {
     /*
      * from Goole interview doc: https://docs.google.com/document/d/
@@ -17,10 +18,19 @@ public class CokeBeverageMachine {
      * 假设目标是[1,9999999999]，那答案是可以。随便按一个都确定满足此范围
      * 
      */
-    //so the problem is to say
+    class Soda{
+        int lo;
+        int hi;
+    }
+    //so the problem is to say given 
+    public boolean isPossible(List<Soda> list, int lower, int upper) {
+        
+    }
+    
+    
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-
+            
     }
 
 }
