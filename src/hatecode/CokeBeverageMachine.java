@@ -52,7 +52,7 @@ public class CokeBeverageMachine {
         int n = target.get(1);
         boolean[][] dp = new boolean[m + 1][n + 1];
         
-        //Init
+        //Init, if target-(lo and hi) are in the range, then dp[i][j] are true
         for (int i = 0; i <= m; ++i) {
           for (int j = 0; j <= n; ++j) {
             for (List<Integer> button: buttons) {
