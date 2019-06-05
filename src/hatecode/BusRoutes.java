@@ -89,6 +89,8 @@ Output: 2
         //System.out.println(map);
         Queue<Node> q =new LinkedList<>();
         Set<Integer> visited = new HashSet<>();
+        //node.bus means how many bus routine has been travelled, Node structure can be 
+        //bus and stop should be enough
         q.offer(new Node(S, -1, 0));
         while(!q.isEmpty()) {
             Node node = q.poll();
@@ -104,6 +106,100 @@ Output: 2
     }
     return -1;
 }
+    //performance the best
+    public int numBusesToDestination_BestInLC(int[][] routes, int S, int T) {
+        //count total # of stop point
+        int maxPoint = 0;
+        for (int [] r : routes) {
+            for (int sp: r){
+                maxPoint = Math.max(sp, maxPoint);
+            }
+        }
+        
+        int [] counts = new int [maxPoint+1];
+        Arrays.fill(counts, maxPoint);
+        counts[S] = 0;
+        boolean stopMinimize = true;
+        for (int i=0; stopMinimize & i < routes.length; i++) {
+            stopMinimize = false;
+            for (int [] r : routes) {
+                int min = maxPoint;
+                for (int sp : r) { //sp -> stop Point
+                    if(counts[sp] < min) {
+                        min = counts[sp];
+                    }
+                }
+                min = min+1; //for rest of bus stop point you need to take at least one more bus to get reach if the Stoppoint 
+                //is on the current route
+                for (int sp : r) {
+                    if(counts[sp] > min) {
+                        counts[sp] = min;
+                        stopMinimize = true;
+                    }
+                }
+            }
+        }
+        return counts[T] == maxPoint ? -1 : counts[T];
+    }
+    
+    //this solution is more like use two sets, to apprache to each other, the performance should be 
+    //better than any others, this is extended from Word path 1, start and end set
+    public int numBusesToDestination_Liked(int[][] routes, int S, int T) {
+        if(S == T) return 0;
+        int n = routes.length;
+        Set<Integer> visited = new HashSet<>();
+        Set<Integer> targets = new HashSet<>();
+        List<Integer> map[] = new ArrayList[n];
+        for(int i = 0; i < n; i++) map[i] = new ArrayList<>();
+        for(int i = 0; i < n; i++) {
+            for(int j = i+1; j < n; j++) {
+                if(hasCommonStop(routes[i], routes[j])) {
+                    map[i].add(j);
+                    map[j].add(i);
+                }
+            }
+        }
+        Queue<int[]> queue = new LinkedList<>();
+        for(int i = 0; i < n; i++) {
+           for(int j : routes[i]) {
+               if(j == S) {
+                   visited.add(i);
+                   queue.offer(new int[]{i, 1});
+               }        
+               if(j == T) {
+                   targets.add(i);
+               }
+           }
+        }
+        
+        while(!queue.isEmpty()) {
+            int[] cur = queue.poll();
+            int curBus = cur[0], busNum = cur[1];
+            if(targets.contains(curBus)) return busNum;
+            for(int nextBus : map[curBus]) {
+                if(visited.add(nextBus)) {
+                    queue.offer(new int[]{nextBus, busNum + 1});
+                }
+            }
+        }
+        return -1;
+     }
+    
+    
+    private boolean hasCommonStop(int[] bus1, int[] bus2) {
+        int i = 0, j = 0;
+        while(i < bus1.length && j < bus2.length) {
+            if(bus1[i] == bus2[j]) return true;
+            if(bus1[i] < bus2[j]) {
+                i++;
+            }
+            else {
+                j++;
+            }
+            
+        }
+        return false;
+    }
     
     public static void main(String[] args) {
         int[][] in = {{7,12},{4,5,15},{6},{15,19},{9,12,13}};
