@@ -34,7 +34,7 @@ public class MinimumCostToHireKWorkers {
         double res = Double.MAX_VALUE, qsum = 0;
         //min heap, and will always keep K workers in pool and pick smallest quality
         //
-        PriorityQueue<Double> pq = new PriorityQueue<>();
+        PriorityQueue<Double> pq = new PriorityQueue<>((a, b)->Double.compare(b, a));
         //the total wag= (q1+q2+q3+...qn) * minRatio, we only hire K, so we kick the biggest
         //quality in this group
         for (double[] worker: workers) {
@@ -42,9 +42,9 @@ public class MinimumCostToHireKWorkers {
             //quality sum, you can think about products
             qsum += worker[1];
             //how much quality we need, this sort asc
-            pq.add(-worker[1]);
+            pq.add(worker[1]);
             //maybe we need cheapest guy more time to pay 
-            if (pq.size() > K) qsum += pq.poll();
+            if (pq.size() > K) qsum -= pq.poll();
             // this is 
             if (pq.size() == K) res = Math.min(res, qsum * worker[0]);
         }
