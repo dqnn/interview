@@ -14,17 +14,23 @@ You can split them into two consecutive subsequences :
 3, 4, 5
 */
     //thinking process: the problem is to say given a list of integer, whether we can split into 
-    //consective sub array, each subarray length >=3, the array is asc sorted
+    //consecutive sub sequence, each subsequence length >=3, the array is asc sorted
     //[1,2,3,3,4,4,5,5]
     //1->1, 2->1, 3->2, 4->2, 5->2
     
-    //for each subarray, we can have two formats, one is like 3 consective numbers, another is more than 3, so 
-    //when we visit the array we can remember what we have visited and according to current array status, we add possible 
-    //qualified candidate number and frequency into the map, so later when we visit the candidate, we can know previous sequence
-    //need this number, each visit will produce this number
+    // for each subarray, we can have two formats, one is like 3 consecutive
+    // numbers, another is more than 3, so
+    // when we visit the array we can remember what we have visited and according to
+    // current array status, we add possible
+    // qualified candidate number and frequency into the map, so later when we visit
+    // the candidate, we can know previous sequence
+    // need this number, each visit will produce this number
     
     //so for the problem specifically, we use one map to store number->fre, another map is to store the possible append number->freq, 
-    // when we visit the array, we detect whether its fre == 0, yes then we continue, if not we will try to find whther it is possible to append previous consective sequence, if not, whether it is start a new sequence. this is greedy thinking, we want to move as many numbers as we can in one sequence
+    // when we visit the array, we detect whether its fre == 0, yes then we continue, if not we will try 
+    //to find whther it is possible to append previous consective sequence, if not, whether 
+    //it is start a new sequence. this is greedy thinking, we want to move as many numbers as we can 
+    //in one sequence
     //append priority is higher than starting new sequence, since greedy algorithms, 
     //example like [1,2,3,3,4,4,5,6,7,7,8,9]
     //if we change the order, it would be false actually it can split into 
@@ -36,10 +42,10 @@ You can split them into two consecutive subsequences :
         if (nums == null || nums.length < 1) return false;
         //keep how many numbers are there
         Map<Integer, Integer> num2FreMap = new HashMap<>();
-        
+        for(int num : nums) num2FreMap.put(num, num2FreMap.getOrDefault(num, 0) + 1);
         //candidateToAppendPreSeqMap means the possible that qualified numbers and frequency we need for previous sequence
         Map<Integer, Integer> candidateToAppendPreSeqMap = new HashMap<>();
-        for(int num : nums) num2FreMap.put(num, num2FreMap.getOrDefault(num, 0) + 1);
+        
         //second pass, 
         for(int i : nums) {
             if (num2FreMap.get(i) == 0) continue;
