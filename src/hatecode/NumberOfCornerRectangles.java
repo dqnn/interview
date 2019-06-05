@@ -43,21 +43,27 @@ Explanation: There is only one corner rectangle, with corners grid[1][2], grid[1
     //      loop 0 -> col g[0].length, we try to find row 0 and row 1 have i in same column
     //suppse we find n points like this, so pick two of them can be formed one rectangles
     public int countCornerRectangles1(int[][] grid) {
-        int ans = 0;
+        int res = 0;
         //same row
         for (int i = 0; i < grid.length - 1; i++) {
             //next row
             for (int j = i + 1; j < grid.length; j++) {
+/*
+   1    1
+   1    1
+so we count same column, 1 and 1 as 1 pair, this is like C(count, 2)
+ */
+                //how many paris which could form the a rectangle
                 int counter = 0;
                 //from col 0->C
                 for (int k = 0; k < grid[0].length; k++) {
                     //same column, if previous row and current row are 1, then yes
                     if (grid[i][k] == 1 && grid[j][k] == 1) counter++;
                 }
-                if (counter > 0) ans += counter * (counter - 1) / 2;
+                if (counter > 0) res += counter * (counter - 1) / 2;
             }
         }
-        return ans;
+        return res;
     }
     //O(N*sqrt(N) *+ RC)/O(N+R+C^2), N is number of 1 in grid
     public int countCornerRectangles(int[][] grid) {
