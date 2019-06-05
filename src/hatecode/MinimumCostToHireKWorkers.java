@@ -13,9 +13,6 @@ public class MinimumCostToHireKWorkers {
      * compared to other workers in the paid group. Every worker in the paid group
      * must be paid at least their minimum wage expectation. Return the least amount
      * of money needed to form a paid group satisfying the above conditions.
-     * 
-     * 
-     * 
      * Example 1:
      * 
      * Input: quality = [10,20,5], wage = [70,50,30], K = 2 Output: 105.00000
@@ -25,6 +22,7 @@ public class MinimumCostToHireKWorkers {
     // note: pay/quality >= wage/quality, so we choose the greatest wage/quality in the 
     //K workers
     
+    //interview friendly: 
     //
     public static double mincostToHireWorkers(int[] q, int[] w, int K) {
         double[][] workers = new double[q.length][2];
@@ -32,7 +30,7 @@ public class MinimumCostToHireKWorkers {
         for (int i = 0; i < q.length; ++i)
             workers[i] = new double[]{(double)(w[i]) / q[i], (double)q[i]};
         Arrays.sort(workers, (a, b) -> Double.compare(a[0], b[0]));
-         System.out.println("workers-" + Arrays.toString(workers[1]));
+        System.out.println("workers-" + Arrays.toString(workers[1]));
         double res = Double.MAX_VALUE, qsum = 0;
         //min heap, and will always keep K workers in pool and pick smallest quality
         //
