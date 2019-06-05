@@ -36,4 +36,6 @@ that workers > Bikes
 26: LC 855, seat() is eaily O(lgn), how to make leave() also O(lgn)? there is TreeMap<Len, TreeSet> treeset stored
 all starting index, len is the interval length, already have the solution, but needs to change the code 
 27: ExpiredHashMap.java, 1 to understand more about concurrentHashMap, 2 to remeber the code
+28: RetainAllRoots.java, why we can add to result if !node.isRed? 
+29: 
 

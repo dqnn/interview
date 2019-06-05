@@ -25,19 +25,22 @@ public class RetainAllRoots {
         helper(root, res);
         return res;
     }
-    
-    private static void helper(ColorNode node, List<ColorNode> res) {
-        if (node == null) return;
-        if (node.isRed) {
-            for(ColorNode child: node.children) {
+    //each node passed to recursive function could be considered as root
+    //we check the root, it is red or it is not red,discuss 
+    //
+    private static void helper(ColorNode root, List<ColorNode> res) {
+        if (root == null) return;
+        if (root.isRed) {
+            for(ColorNode child: root.children) {
                 if (!child.isRed) res.add(child);
                 helper(child, res);
             }
         } else {
-            res.add(node);
-            Iterator<ColorNode> it = node.children.iterator();
+            res.add(root);
+            Iterator<ColorNode> it = root.children.iterator();
             while(it.hasNext()) {
                 ColorNode child = it.next();
+                //we have to remove the child nodes who are red
                 if (child.isRed) it.remove();
                 helper(child, res);
             }
@@ -46,8 +49,6 @@ public class RetainAllRoots {
     
     public static void main(String[] args) {
         ColorNode root = new ColorNode(1, true);
-        
-    
     }
 
 }
