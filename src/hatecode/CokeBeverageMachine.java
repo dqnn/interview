@@ -63,7 +63,6 @@ public class CokeBeverageMachine {
             }
           }
         }
-      
         for (int i = 0; i <= m; ++i) {
           for (int j = 0; j <= n; ++j) {
             for (List<Integer> button: buttons) {
@@ -76,7 +75,6 @@ public class CokeBeverageMachine {
             }
           }
         }
-        
         return dp[m][n];
       }
 
