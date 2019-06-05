@@ -22,28 +22,23 @@ public class RetainAllRoots {
     //
     public static List<ColorNode> find(ColorNode root){
         List<ColorNode> res = new ArrayList<>();
-        helper(root, res);
+        helper(null, root, res);
         return res;
     }
     //each node passed to recursive function could be considered as root
     //we check the root, it is red or it is not red,discuss 
-    //
-    private static void helper(ColorNode root, List<ColorNode> res) {
+    //root can only be root when 
+    //1. it is root node
+    //2. parent is red, current root is not red. 
+    //others will not be root
+    private static void helper(ColorNode parent, ColorNode root, List<ColorNode> res) {
         if (root == null) return;
-        if (root.isRed) {
-            for(ColorNode child: root.children) {
-                if (!child.isRed) res.add(child);
-                helper(child, res);
-            }
-        } else {
+        
+        if((parent == null || parent.isRed) && !root.isRed) {
             res.add(root);
-            Iterator<ColorNode> it = root.children.iterator();
-            while(it.hasNext()) {
-                ColorNode child = it.next();
-                //we have to remove the child nodes who are red
-                if (child.isRed) it.remove();
-                helper(child, res);
-            }
+        }
+        for(ColorNode child: root.children) {
+            helper(root, child, res);
         }
     }
     
