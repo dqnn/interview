@@ -23,7 +23,14 @@ public class MinimumCostToHireKWorkers {
     //K workers
     
     //interview friendly: 
-    //
+    //this question is to ask for minimal cost to hire K workers, the key point for the problem 
+    //is to look for minimal cost, no matter how many products we produced, like minimal cost for unit time
+    //so we just compare each hour products for K workers, we can move more products to more efficient worker
+    //so first we sort all workers by their efficiency(wage/product), the minimal is best, so sort asc
+    //second we setup a PQ, when we go through the workers array, note workers array already sorted
+    //we add each quality into pq and accumulate the quality
+    //if our workers more than k, we kicked out the the worker who has most quality, 
+    //this is to assign this part products to other workers
     public static double mincostToHireWorkers(int[] q, int[] w, int K) {
         double[][] workers = new double[q.length][2];
         //finish 1 product's wage
