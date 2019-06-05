@@ -24,12 +24,14 @@ Note that no other cars meet these fleets before the destination, so the answer 
     
     //this is sort by position desc, int[]->[0]= index, [1]= position, each time, we add to queue and sort
     //we scan from nearest car, caculate the time and comapre to next car, if they are the same, then good, if not, then count++;
+    
+    //the fact is that this is group question, time need to reach to target is the group critirial
     public int carFleet3(int target, int[] position, int[] speed) {
         //sort the int[] by position desc
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> {
-            return b[1] - a[1]; 
-        });
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> (b[1] - a[1]));
+        
         for (int i = 0; i < position.length; i++)  pq.offer(new int[]{ i, position[i] });
+        
         double time = 0;
         int count = 0;
         while (!pq.isEmpty()) {
@@ -51,6 +53,7 @@ Note that no other cars meet these fleets before the destination, so the answer 
     public int carFleet(int target, int[] pos, int[] speed) {
         TreeMap<Integer, Double> m = new TreeMap<>();
         for (int i = 0; i < pos.length; ++i) m.put(-pos[i], (double)(target - pos[i]) / speed[i]);
+        
         int res = 0; double cur = 0;
         for (double time : m.values()) {
             if (time > cur) {
