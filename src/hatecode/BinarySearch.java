@@ -21,8 +21,8 @@ Output: 4
             else if (nums[mid] > target) r = mid - 1;
             else l = mid + 1;
         }
-        
-        return -1;
+        if (nums[l] == target) return l;
+        else return -1;
     }
     //search template 2
     public int search_Template2(int[] nums, int target) {
@@ -36,8 +36,10 @@ Output: 4
             else if (nums[mid] > target) r = mid;
             else l = mid;
         }
-        
-        return -1;
+        //process l and r, return one of them 
+        if (nums[l] == target) return l;
+        else if (nums[r] == target) return r;
+        else  return -1;
     }
     
     
