@@ -36,6 +36,10 @@ public class FindtheCelebrity {
         //the possible is only chance to be celebrity
         //but we not sure celebirty is true becasue this loop also ignore a lot info, like 
         //when we compare, some number may not know celebrity but we missed
+        
+        //this is a tricky loop, i  will replace pre i, so last one is definitely highest probability 
+        //celebrity, so next step is to verify this, because this loop just provide the highest probability
+        //candidate
         for (int i = 1; i < n; i++) {
             if (!knows(i, celebrity)) {
                 celebrity = i;

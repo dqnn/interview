@@ -28,6 +28,11 @@ public class FindTheTownJudge {
     //so everyone trust the judge but judge did not trust anyone so from DAG perspective, 
     //so judge must be node which has most in degree and its degree must equal N - 1, if not means 
     //judge knows someone
+    
+    //it is quite similar compared to 227, Find the Celebrity
+    //the difference: celebrity is harder because it didnot provide the trust array, it just has 
+    //a API to tell who knows who, so we need to find the highest probability celebrity and then 
+    //verify, but this one already provide full list so we can know more than 227
     public int findJudge(int N, int[][] t) {
         if (t == null || t.length < 1) return N;
         int[] cnt = new int[N + 1];
