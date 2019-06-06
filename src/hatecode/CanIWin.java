@@ -36,16 +36,21 @@ public class CanIWin {
             /|\ ..../ | \
 player1 -> 2 3...  1  2 ..max-1
            ...                \
-player1 ->   /      |     \   loose
-player2 -> loose   win   loose
+player1 ->   /      |     \   lose
+player2 -> lose    win   lose
      */
-    //O(n2^n)/O()
+    //O(n2^n)/O(),if no memo, will be O(n * n!)
     //another version is  Map<String, Boolean> map; 
     //string is to dump the boolean[] visited array, Arrays.toString(visited)
     
     //TODO: compare this to first or last digit game, another is to compare the new 21 game.
     //how we can have a template for all the games, Cats and mouse, candy crush, etc
-    Map<Integer, Boolean> map;
+    
+    //so this problem demonstrated the keys in backtracking type problems, 
+    //how to choose the visited structure and memorization structure, here we use boolean array as 
+    //visited, and use Map as memo, key of memo is the dump of the visited array, this means when at this
+    //state,what's the result
+    Map<String, Boolean> map;
     boolean[] visited;
     public boolean canIWin(int n, int target) {
         // 1+2..+maxChoosableInteger = sum
@@ -60,28 +65,26 @@ player2 -> loose   win   loose
     }
     
     public boolean helper(int desired) {
-        //10,11, here we needs = 0, 
+        //case 10,11, here we needs = 0, 
         if (desired <= 0) return false;
-        
+        String key = Arrays.toString(visited);
+        if (map.containsKey(key)) return map.get(key);
         //another way to do:  String key = Arrays.toString(visited); [true, false,]
         //using string to boolean map 
-        int key = format(visited);
-        if (!map.containsKey(key)) {
-            //used.length = 1 + maxChoosableInteger
-            for(int i = 1; i< visited.length; i++) {
-                if (!visited[i]) {
-                    visited[i] = true;
-                    //if we can find second player false which means first are winner
-                    if (!helper(desired - i)) {
-                        map.put(key, true);
-                        visited[i] = false;
-                        return true;
-                    }
+        //visited.length = 1 + maxChoosableInteger
+        for(int i = 1; i< visited.length; i++) {
+            if (!visited[i]) {
+                visited[i] = true;
+                //if we can find second player false which means first are winner
+                if (!helper(desired - i)) {
+                    map.put(key, true);
                     visited[i] = false;
+                    return true;
                 }
+                visited[i] = false;
             }
-            map.put(key, false);
         }
+        map.put(key, false);
         return map.get(key); 
     }
      // transfer boolean[] to an Integer 
