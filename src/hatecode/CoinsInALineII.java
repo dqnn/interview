@@ -7,8 +7,8 @@ public class CoinsInALineII {
      * 464. Can I Win
      * 348. Design Tic-Tac-Toe
      * 486. Predict the Winner
-     * 294. Flip Game II
-     * 293. Flip Game
+     * 294. Flip Game II -- same as Can I Win 
+     * 293. Flip Game-- just output all possible states, "++"->"--"
      * 292. Nim Game
      * 877. Stone Game
      * 1025. Divisor Game

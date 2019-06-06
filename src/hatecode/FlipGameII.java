@@ -26,7 +26,7 @@ public class FlipGameII {
      HashMap<String, Boolean>
 
 
-     * time : O(2^N) 不确定
+     * time : O(2^N)
      * space : O(2^N)
      * @param s
      * @return
@@ -39,6 +39,10 @@ public class FlipGameII {
         return helper(s, map);
     }
     //how we play games, using recursive, map is to store results
+    //we do not additional visited array because the "base" already changed to another string
+    //but Can I win we have to have a visited array because in Can i Win, visited array just store
+    //which numbers has been fetched, it does not mean the who win or lose, it changed the base
+    //but flip Game II we already have a base or "board" the opponent string
     private boolean helper(String s, HashMap<String, Boolean> map) {
         if (map.containsKey(s)) return map.get(s);
         // for loop here make sure to visit all possible starting status

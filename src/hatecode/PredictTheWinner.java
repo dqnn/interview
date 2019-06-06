@@ -48,12 +48,14 @@ Hence, player 1 will never be the winner and you need to return False.
     
     //memo is to remember given nums, [i, j] subarray, what's the score diff between player 1 and play2
     //top down way
-    //O(n^2)/O(n^2), memo as 2D array, it can only be filled once
+    //O(n^2)/O(n^2), memo as 2D array, it can only be filled once, it means for subarray i,j, the max
+    //score first play could get, substract second player's score
     public boolean PredictTheWinner2(int[] nums) {
         Integer[][] memo = new Integer[nums.length][nums.length];
         return helper(nums, 0, nums.length - 1, memo) >= 0;
     }
-    //helper means one play can get the max score from the sub array, from s to e
+    //helper means first player can get the max score from the sub array, from s to e, and substract
+    //second player's score
     public int helper(int[] nums, int s, int e, Integer[][] memo) {
         if (s == e) return nums[s];
         if (memo[s][e] != null) return memo[s][e];

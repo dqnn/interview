@@ -8,6 +8,8 @@ Explanation:
 Alex starts first, and can only take the first 5 or the last 5.
 Say he takes the first 5, so that the row becomes [3, 4, 5].
 */
+    
+    //same as 486. Predict the Winner
     public boolean stoneGame(int[] piles) {
         int N = piles.length;
         int[][] memo = new int[N][N];
