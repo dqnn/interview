@@ -43,5 +43,9 @@ use i - button.get(0)?
 31：GoBoundaryDectection.java, the problem is simple, but two question: 1. does the problem require the rival 
 cannot place a new card on the board? 2. the card color, it must be different color. i need to think about later this week
 thinking about helper(1) || helper(2) || helper(3) || helper(4) vs for(x-1,4){helper(x)}
-32:
+32: n层map，每层m个node，node和edge都有值，问第一层到最后的minimum cost 
+https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=434363  记录这里是因为没有找到准确题目描述， but it should be 
+highly similiar to minimal path sum
+
+
 
