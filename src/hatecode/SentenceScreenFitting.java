@@ -207,5 +207,23 @@ is accumulated results
      * ，可以得到每个character在不同fontSize下的高和宽。和面试官交流后，确认string可以拆分成几行显示在screen中
      * 
      */
+      public int findBestFontSize(int screen_W, int screen_H, int num_chars, int fontSize) {
+          int l = 0, r = fontSize + 1;
+          while(l < r) {
+              int mid = l + (r-l)/2;
+              if (num_chars > calcFontCapacity(screen_W, screen_H, API_W(mid), API_H(mid))) {
+                  r = mid;
+              } else  l = mid + 1;
+          }
+          return l;
+      }
       
+      private int API_W(int fontSize) {return 0;}
+      private int API_H(int fontSize) {return 0;}
+      
+      private int calcFontCapacity(int screen_W, int screen_H, int font_W, int font_H) {
+          int chars_per_row = screen_W/font_W;
+          int chars_per_col = screen_H/font_H;
+          return chars_per_row * chars_per_col;
+      }
 }
