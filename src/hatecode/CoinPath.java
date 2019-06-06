@@ -66,16 +66,6 @@ Output: [1,3,5]
         return res;
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     //TLE back tracking, O(a ^(n-B))/O(n) a is not decided yet
     //T(n) = T(n-1)+T(n-2)+...T(n-B)---> if B = 2, we can know it is T(n)= ((sqrt(5)) + 1) /2) ^n 
     //for 1 it has B children, and it has n layers, the top we have n elements

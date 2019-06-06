@@ -37,6 +37,11 @@ that workers > Bikes
 all starting index, len is the interval length, already have the solution, but needs to change the code 
 27: ExpiredHashMap.java, 1 to understand more about concurrentHashMap, 2 to remeber the code
 28: RetainAllRoots.java, why we can add to result if !node.isRed? 
-29: CokeBeverageMachine.java, why we did not detect the lower boundary to make it false? 
-
+29: CokeBeverageMachine.java, why we did not detect the lower boundary to make it false? the dp solution, why
+use i - button.get(0)?
+30: 19. 生成随机迷宫  have to look back the statement is pretty stupid? totally not understand the problem
+31：GoBoundaryDectection.java, the problem is simple, but two question: 1. does the problem require the rival 
+cannot place a new card on the board? 2. the card color, it must be different color. i need to think about later this week
+thinking about helper(1) || helper(2) || helper(3) || helper(4) vs for(x-1,4){helper(x)}
+32:
 

@@ -65,6 +65,7 @@ public class CokeBeverageMachine {
         }
         for (int i = 0; i <= m; ++i) {
           for (int j = 0; j <= n; ++j) {
+            //like knapsacks problem? 
             for (List<Integer> button: buttons) {
               int preL = i - button.get(0);
               int preR = j - button.get(1);
