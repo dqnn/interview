@@ -23,7 +23,6 @@ public class CanIWin {
      * Example:
      * 
      * Input: maxChoosableInteger = 10 desiredTotal = 11
-     * 
      * Output: false 
      * Explanation: No matter which integer the first player choose,
      * the first player will lose. The first player can choose an integer from 1 up
