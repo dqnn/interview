@@ -115,6 +115,7 @@ is accumulated results
     //cols is like a ruler, we use a ruler to measure the times of the sentence show times,
     //if we detect the end is " " then we continue, if not, then means we measure too much, the 
     //word is truncated, so we retreat back until we meet the space
+    //interview friendly
     public int wordsTyping3(String[] sentence, int rows, int cols) {
         String s = String.join(" ", sentence) + " ";
         int start = 0, l = s.length();
@@ -124,6 +125,9 @@ is accumulated results
             if (s.charAt(start % l) == ' ') {
                 start++;
             } else {
+                //this means start point to a character, start should retreat back to a space,
+                //note here, s.charAt((start-1) % l) == ' ' will out from loop, 
+                //but start point to next line, this exactly same as above start ++ case
                 while (start > 0 && s.charAt((start-1) % l) != ' ') {
                     start--;
                 }
