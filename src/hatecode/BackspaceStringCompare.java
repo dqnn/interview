@@ -86,7 +86,7 @@ Can you solve it in O(N) time and O(1) space?
     }
 
     //we want a O(n + m) $$ O(1) solution, so we can only use varibale and one loop, so one trick is that: 
-    //
+    //interview friendly
     public boolean backspaceCompare3(String S, String T) {
         if (S == null && T == null) {
             return true;
@@ -122,16 +122,40 @@ Can you solve it in O(N) time and O(1) space?
     }
 
     public String build(String S) {
-        Stack<Character> ans = new Stack<>();
+        Stack<Character> stack = new Stack<>();
         for (char c: S.toCharArray()) {
             if (c != '#')
-                ans.push(c);
-            else if (!ans.empty())
-                ans.pop();
+                stack.push(c);
+            else if (!stack.empty())
+                stack.pop();
         }
-        return String.valueOf(ans);
+        return String.valueOf(stack);
     }
     
     //two pointer solutions
-    
+    public boolean backspaceCompare_TP(String S, String T) {
+        int i = S.length()-1;
+        int j = T.length()-1;
+        //number of # from back to front
+        int countS = 0;
+        int countT = 0;
+        while (i >= 0 || j >= 0) {
+            while (i >= 0 && (countS > 0 || S.charAt(i) == '#')) {
+                if (S.charAt(i) == '#') countS++;
+                else countS--;
+                i--;
+            }
+            char left = i < 0 ? '@' : S.charAt(i);
+            while (j >= 0 && (countT > 0 || T.charAt(j) == '#')) {
+                if (T.charAt(j) == '#') countT++;
+                else countT--;
+                j--;
+            }
+            char right = j < 0 ? '@' : T.charAt(j);
+            if (left != right) return false;
+            i--;
+            j--;
+        }
+        return true;
+    }
 }
