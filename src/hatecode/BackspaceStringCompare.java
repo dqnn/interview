@@ -133,6 +133,9 @@ Can you solve it in O(N) time and O(1) space?
     }
     
     //two pointer solutions
+    //i point to S back to front, j point to T back to front, 
+    //if we meet #, i or j move countS or countT steps to front, 
+    //so we check each character in their correct position
     public boolean backspaceCompare_TP(String S, String T) {
         int i = S.length()-1;
         int j = T.length()-1;
