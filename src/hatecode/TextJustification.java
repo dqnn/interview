@@ -108,7 +108,7 @@ public class TextJustification {
         int idx = 0;
         while(idx < w.length) {
             int count = w[idx].length();
-            //we suppose each line will be smaller than maxWidth, so last starts from next, 
+            //last word in same line with idx
             int last = idx + 1;
             while(last < w.length) {
                 // we want to detect the count first so 
