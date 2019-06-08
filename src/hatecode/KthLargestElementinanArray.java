@@ -181,9 +181,6 @@ Now let's briefly write down the algorithm before writing our codes.
         return minHeap.poll(); //minHeap.peek() also work
     }
     
-    
-    
-    
     //brute-force
     public int findKthLargest3(int[] nums, int k) {
         //edge case
