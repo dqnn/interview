@@ -46,6 +46,8 @@ thinking about helper(1) || helper(2) || helper(3) || helper(4) vs for(x-1,4){he
 32: n层map，每层m个node，node和edge都有值，问第一层到最后的minimum cost 
 https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=434363  记录这里是因为没有找到准确题目描述， but it should be 
 highly similiar to minimal path sum
+33: LC 774, to understand the DP solutions, 
+34: 
 
 
 

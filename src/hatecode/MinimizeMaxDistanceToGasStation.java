@@ -150,6 +150,7 @@ Answers within 10^-6 of the true value will be accepted as correct.
      * minimum of these over all x.
      */
     //O(nK^2)/O(NK)
+    //TODO: 
     public double minmaxGasDist_DP(int[] stations, int K) {
         int N = stations.length;
         double[] deltas = new double[N-1];
@@ -157,8 +158,7 @@ Answers within 10^-6 of the true value will be accepted as correct.
         //dp[i][j] for i stations with j more stations the smallest distance
         double[][] dp = new double[N-1][K+1];
         //dp[i][j] = answer for deltas[:i+1] when adding j gas stations
-        for (int i = 0; i <= K; ++i)
-            dp[0][i] = deltas[0] / (i+1);
+        for (int i = 0; i <= K; ++i) dp[0][i] = deltas[0] / (i+1);
 
         for (int p = 1; p < N-1; ++p)
             for (int k = 0; k <= K; ++k) {
