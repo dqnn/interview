@@ -88,8 +88,7 @@ Answers within 10^-6 of the true value will be accepted as correct.
             interval.numberInsertion ++;
             q.add(interval);
             remaining --;
-        }                                             
-                         
+        }
         return q.poll().distance();
     }
     //binary search, this is log(n) 
