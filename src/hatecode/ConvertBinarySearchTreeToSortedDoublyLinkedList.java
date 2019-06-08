@@ -37,7 +37,7 @@ dashed line means the predecessor relationship.
     //BST, sorted, so we want to try inorder visit, 
     //the inorder visit: we find most left leaf which will be head of the double linked list
     // so we use dummy.next = node, node.prev = dummy, and we move  prev  point to this node
-    Node prev = null;
+    Node prev = null; //this is the key to rememebr previous node
     public Node treeToDoublyList(Node root) {
         if (root == null) return null;
         
