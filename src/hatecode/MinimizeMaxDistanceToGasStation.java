@@ -55,8 +55,16 @@ Answers within 10^-6 of the true value will be accepted as correct.
     //into data structure
     
     //we the max distance between two adjacent nodes, so we want to minimized the distance
-    // so if we can put K into these slots to make every distance is the same that will be 
-    // the answer if not we will get a longer distance
+    // the idea is to we use every interval (st[i+1] - st[i])/len, len is whole length, so 
+    //we proportionally add K * (st[i+1] - st[i])/len into this interval to shorter the distance between
+    //adjacent nodes.
+    
+    //after first round, we need to do some small modification, for example if we have more stations need to 
+    //use, we repeat same thing, that's why i say it is same like TextJustification
+    
+    //TODO: proof:
+    
+    //
     
     //so if we cannot, it does not matter where we put the rest nodes, so we can use a 
     //PriorityQUeue to store all nodes distance. last we just return the longest one
@@ -103,7 +111,9 @@ Answers within 10^-6 of the true value will be accepted as correct.
     //the max distance between adjacent ones are minimal, so each adjacent must placed same equal distance 
     //to others, if not, we can make it shorter!!!!
     
-    //so our goal is to 
+    //so starting from 0 to max distance between nodes, which is len = st[N - 1] - st[0]
+    //we want to find the min of max distance between any 2 adjacent nodes, so 
+    // 
     
     //count: the number of gas station we need to make it possible.
     //l, r:  the distance between the first and the last station
@@ -115,7 +125,7 @@ Answers within 10^-6 of the true value will be accepted as correct.
         while (l + 1e-6 < r) {
             double mid = l + (r - l) / 2;
             count = 0;
-            for (int i = 0; i < N - 1; ++i)
+            for (int i = 0; i < N - 1; i++)
                 count += Math.ceil((st[i + 1] - st[i]) / mid) - 1;
             //if count > K, means mid is too small to realize using only K more stations.
             if (count > K) l = mid;
@@ -139,12 +149,11 @@ Answers within 10^-6 of the true value will be accepted as correct.
      * intervals can be solved with an answer of dp[n][k-x]. The answer is the
      * minimum of these over all x.
      */
-    
+    //O(nK^2)/O(NK)
     public double minmaxGasDist_DP(int[] stations, int K) {
         int N = stations.length;
         double[] deltas = new double[N-1];
-        for (int i = 0; i < N-1; ++i)
-            deltas[i] = stations[i+1] - stations[i];
+        for (int i = 0; i < N-1; ++i) deltas[i] = stations[i+1] - stations[i];
 
         double[][] dp = new double[N-1][K+1];
         //dp[i][j] = answer for deltas[:i+1] when adding j gas stations
