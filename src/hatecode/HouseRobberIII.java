@@ -43,16 +43,18 @@ Determine the maximum amount of money the thief can rob tonight without alerting
      * @param root
      * @return
      */
+    //the problem itself is similiar to 968. Binary Tree Cameras
+    //
     public int rob(TreeNode root) {
         if (root == null) return 0;
-        int val = 0;
+        int res = 0;
         if (root.left != null) {
-            val += rob(root.left.left) + rob(root.left.right);
+            res += rob(root.left.left) + rob(root.left.right);
         }
         if (root.right != null) {
-            val += rob(root.right.left) + rob(root.right.right);
+            res += rob(root.right.left) + rob(root.right.right);
         }
-        return Math.max(val + root.val, rob(root.left) + rob(root.right));
+        return Math.max(res + root.val, rob(root.left) + rob(root.right));
     }
     
     
