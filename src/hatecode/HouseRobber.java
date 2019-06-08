@@ -34,6 +34,7 @@ public class HouseRobber {
      * @param nums
      * @return
      */
+    //two states change to each other
     public int rob(int[] nums) {
         int prevNo = 0;
         int prevYes = 0;
