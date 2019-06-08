@@ -62,8 +62,7 @@ Output: 1
     // 1: Normal Substree; All nodes below and incl this are covered - no camera
     // 2: Placed camera; All nodes below this are covered, plus camera here
     public int[] helper_DP(TreeNode node) {
-        if (node == null)
-            return new int[]{0, 0, 99999};
+        if (node == null) return new int[]{0, 0, 99999};
 
         int[] L = helper_DP(node.left);
         int[] R = helper_DP(node.right);
