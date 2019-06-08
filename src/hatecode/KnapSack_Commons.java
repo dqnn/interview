@@ -22,7 +22,7 @@ if we want to output the numbers as a list, how?
 1. back tracking is doable but with high complexity.
 2.
 
-thiking about this way:
+thinking about this way:
 11 bags, it can hold 1,2...11 weight objects, so we if bag 8 already have its max posssible 
 combination, we just use it. 
 as we loop on the numbers, because of the number distribution, we can only have some  bags can be 

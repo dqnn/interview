@@ -103,7 +103,6 @@ Once you figure out all these, it's easy to write out the code:
         return dp[a];
     }
     
-    
     public int change(int a, int[] c) {
         //this is just for compatible with result in lc
         if (a <=0) return 1;
