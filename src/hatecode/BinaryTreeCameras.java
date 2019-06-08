@@ -36,7 +36,7 @@ Output: 1
         //means we are on next depth of leaf node，return 1 means we do not want camera on 
         //leaf nodes, that's the not best case, we want to put camera on leaf's parent. 
         //so to suit for this logic, we require the next depth of this function return 1;
-        //this will called in middle layer of nodes, its left/eight are null, like root only has left 
+        //this will be called in middle layer of nodes, its left/eight are null, like root only has left 
         if (node == null) return 1;
         //leaf child, means we do not want to camera, so not covered
         if (node.left == null && node.right == null) return 0;
@@ -54,19 +54,19 @@ Output: 1
     
     //O(n)/O(h)
      public int minCameraCover_DP(TreeNode root) {
-        int[] ans = solve(root);
+        int[] ans = helper_DP(root);
         return Math.min(ans[1], ans[2]);
     }
 
     // 0: Strict Substree; All nodes below this are covered, but not this one
     // 1: Normal Substree; All nodes below and incl this are covered - no camera
     // 2: Placed camera; All nodes below this are covered, plus camera here
-    public int[] solve(TreeNode node) {
+    public int[] helper_DP(TreeNode node) {
         if (node == null)
             return new int[]{0, 0, 99999};
 
-        int[] L = solve(node.left);
-        int[] R = solve(node.right);
+        int[] L = helper_DP(node.left);
+        int[] R = helper_DP(node.right);
         int mL12 = Math.min(L[1], L[2]);
         int mR12 = Math.min(R[1], R[2]);
 
@@ -104,9 +104,6 @@ Output: 1
             }
         }
     }
-    
-    
-    
     private void helper(Map<TreeNode, Set<TreeNode>> map, TreeNode root) {
         if (root == null || map == null) return;
         if (root.left != null) {
