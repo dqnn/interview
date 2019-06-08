@@ -165,7 +165,7 @@ Now let's briefly write down the algorithm before writing our codes.
   and its left child can be accessed by Ar[ 2 * i  + 1] and its right child can be accessed by Ar[ 2 * i +2 ]. 
  *
  */
-    
+    //brute force solutions
     public int findKthLargest2(int[] nums, int k) {
         if (nums == null || nums.length == 0) return 0;
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
