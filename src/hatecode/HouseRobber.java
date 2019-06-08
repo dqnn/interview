@@ -35,6 +35,7 @@ public class HouseRobber {
      * @return
      */
     //two states change to each other
+    //means for current house i, rob or not rob. 
     public int rob(int[] nums) {
         int prevNo = 0;
         int prevYes = 0;
