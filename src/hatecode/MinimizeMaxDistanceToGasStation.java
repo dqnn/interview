@@ -154,7 +154,7 @@ Answers within 10^-6 of the true value will be accepted as correct.
         int N = stations.length;
         double[] deltas = new double[N-1];
         for (int i = 0; i < N-1; ++i) deltas[i] = stations[i+1] - stations[i];
-
+        //dp[i][j] for i stations with j more stations the smallest distance
         double[][] dp = new double[N-1][K+1];
         //dp[i][j] = answer for deltas[:i+1] when adding j gas stations
         for (int i = 0; i <= K; ++i)
