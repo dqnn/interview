@@ -120,6 +120,7 @@ is accumulated results
         String s = String.join(" ", sentence) + " ";
         int start = 0, l = s.length();
         for (int i = 0; i < rows; i++) {
+            //every new line starts index in s, maybe bigger than l, but after % it is still in s
             start += cols;
             //
             if (s.charAt(start % l) == ' ') {
