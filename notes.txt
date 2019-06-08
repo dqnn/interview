@@ -47,7 +47,7 @@ thinking about helper(1) || helper(2) || helper(3) || helper(4) vs for(x-1,4){he
 https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=434363  记录这里是因为没有找到准确题目描述， but it should be 
 highly similiar to minimal path sum
 33: LC 774, to understand the DP solutions, 
-34: 
-
+34: among all these binary tree questions, i can find we focus on subtree(at least 90% questions could be solved)
+but LC robHouse III is not among this, because the requirement is not adjacent. 
 
 

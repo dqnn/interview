@@ -91,7 +91,8 @@ Output: 1
         if (node != null) {
             dfs(node.left, node);
             dfs(node.right, node);
-
+            //if node == root || left not covered || right child is not covered, then we should add 
+            //one camera on this node
             if (par == null && !covered.contains(node) ||
                     !covered.contains(node.left) ||
                     !covered.contains(node.right)) {
