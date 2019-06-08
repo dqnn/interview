@@ -56,9 +56,8 @@ public class DecodeString {
     // to res, so finally res should be get all strings
 
     public String decodeString(String s) {
-        if (s == null || s.length() < 1) {
-            return "";
-        }
+        if (s == null || s.length() < 1)  return "";
+
         String res = "";
         Stack<Integer> cntStack = new Stack<>();
         Stack<String> resStack = new Stack<>();

@@ -116,6 +116,11 @@ is accumulated results
     //if we detect the end is " " then we continue, if not, then means we measure too much, the 
     //word is truncated, so we retreat back until we meet the space
     //interview friendly
+
+    //the difference between 418 and 68:
+    //two problem are all asking to arrange words in a screen, TextJustification main purpose is to 
+    //place blanks between words evenly, but SentenceScreen fit is more to ask how many times the whole 
+    //sentence is displayed in screen, it does not require the how to place blanks
     public int wordsTyping3(String[] sentence, int rows, int cols) {
         String s = String.join(" ", sentence) + " ";
         int start = 0, l = s.length();
