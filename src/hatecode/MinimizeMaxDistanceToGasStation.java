@@ -50,7 +50,7 @@ Answers within 10^-6 of the true value will be accepted as correct.
     //coordination on x axis, so if we want to add K stations in this set, and we want minimized
     //distance between two adjacent gas stations, return the distance. 
     
-    //so this problem is to say we want the max distance between two adjacent gas stations with 
+    //so this problem is to say we want the min the max distance between two adjacent gas stations with 
     // new K stations, so thinking about the TextJustification, how can we model the problem
     //into data structure
     
@@ -79,7 +79,9 @@ Answers within 10^-6 of the true value will be accepted as correct.
         });
         int remaining = K;
         for(int i = 0; i < s.length - 1; i++) {
-            int num = (int) (K * ((double)(s[i + 1] - s[i]) / len));
+            //unit: 
+            double unit = ((double)(s[i + 1] - s[i]) / len);
+            int num = (int) (K * unit);
             q.add(new Interval(s[i], s[i + 1], num));
             remaining -= num;
         }
@@ -91,19 +93,72 @@ Answers within 10^-6 of the true value will be accepted as correct.
         }
         return q.poll().distance();
     }
-    //binary search, this is log(n) 
+    //binary search, this is log(nlgM)/O(1), M = st[n-1] - st[0]
+    //--> already sorted, log(lgn)/O(1)
+    
+    //thinking process: 
+    //so first we need to make sure all stations sorted, because input may not sorted. 
+    //thinking about from this perspective, the first status and last status, 
+    //first we have N stations and sorted on a line, last we have put K more stations into among N stations 
+    //the max distance between adjacent ones are minimal, so each adjacent must placed same equal distance 
+    //to others, if not, we can make it shorter!!!!
+    
+    //so our goal is to 
+    
+    //count: the number of gas station we need to make it possible.
+    //l, r:  the distance between the first and the last station
     public double minmaxGasDist2(int[] st, int K) {
+        Arrays.sort(st);
         int count, N = st.length;
-        double left = 0, right = st[N - 1] - st[0], mid;
-
-        while (left +1e-6 < right) {
-            mid = (left + right) / 2;
+        double l = 0, r = st[N - 1] - st[0];
+        // it means the answer within 10^-6 of the true value and it will be accepted.
+        while (l + 1e-6 < r) {
+            double mid = l + (r - l) / 2;
             count = 0;
             for (int i = 0; i < N - 1; ++i)
                 count += Math.ceil((st[i + 1] - st[i]) / mid) - 1;
-            if (count > K) left = mid;
-            else right = mid;
+            //if count > K, means mid is too small to realize using only K more stations.
+            if (count > K) l = mid;
+            //count <= K, it means mid is possible and we can continue to find a bigger one.
+            else r = mid;
         }
-        return right;
+        return r;
+    }
+    /* this is only for interviewing brute force solution
+     * Intuition
+     * 
+     * Let dp[n][k] be the answer for adding k more gas stations to the first n
+     * intervals of stations. We can develop a recurrence expressing dp[n][k] in
+     * terms of dp[x][y] with smaller (x, y).
+     * 
+     * Algorithm
+     * 
+     * Say the ith interval is deltas[i] = stations[i+1] - stations[i]. We want to
+     * find dp[n+1][k] as a recursion. We can put x gas stations in the n+1th
+     * interval for a best distance of deltas[n+1] / (x+1), then the rest of the
+     * intervals can be solved with an answer of dp[n][k-x]. The answer is the
+     * minimum of these over all x.
+     */
+    
+    public double minmaxGasDist_DP(int[] stations, int K) {
+        int N = stations.length;
+        double[] deltas = new double[N-1];
+        for (int i = 0; i < N-1; ++i)
+            deltas[i] = stations[i+1] - stations[i];
+
+        double[][] dp = new double[N-1][K+1];
+        //dp[i][j] = answer for deltas[:i+1] when adding j gas stations
+        for (int i = 0; i <= K; ++i)
+            dp[0][i] = deltas[0] / (i+1);
+
+        for (int p = 1; p < N-1; ++p)
+            for (int k = 0; k <= K; ++k) {
+                double bns = 999999999;
+                for (int x = 0; x <= k; ++x)
+                    bns = Math.min(bns, Math.max(deltas[p] / (x+1), dp[p-1][k-x]));
+                dp[p][k] = bns;
+            }
+
+        return dp[N-2][K];
     }
 }
