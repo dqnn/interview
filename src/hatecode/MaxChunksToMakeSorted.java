@@ -32,10 +32,12 @@ arr[i] will be a permutation of [0, 1, ..., arr.length - 1].
     */
     
     /*
-   
-    so the array is [0, 1,2.... n], we want to know whether 0---k-1 the maxium is k, if it is, then this should be a chunk
-    
-    */
+     * 
+     * so the array is [0, 1,2.... n], we want to know whether 0---k-1 the maxium is
+     * k, if it is, then this should be a chunk
+     * 
+     */
+    //this is pretty trick solution, just for reference
     public int maxChunksToSorted_I(int[] nums) {
         //edge case
         if (nums == null || nums.length < 1) {
