@@ -99,7 +99,8 @@ This algorithm can be used to solve ver2 too.
 
         //so here is greedy thinking, so from right, we know the minimal number, from left, we know the 
         //max number, then at position i, 
-        //
+        //each element can be an array, that is most ideal situation, 
+        //so 
         int res = 1;
         for (int i = 0; i < n - 1; i++) {
             if (maxL[i] <= minR[i + 1]) res++;
