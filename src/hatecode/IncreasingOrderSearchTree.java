@@ -1,4 +1,6 @@
 package hatecode;
+
+import java.util.*;
 public class IncreasingOrderSearchTree {
 /*
 897. Increasing Order Search Tree
@@ -58,5 +60,24 @@ Output: [1,null,2,null,3,null,4,null,5,null,6,null,7,null,8,null,9]
         prev=root; //keep track of the prev node
         increasingBST(root.right); 
         return head;
+    }
+    
+    
+    public TreeNode increasingBST_Iterative(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode dummy = new TreeNode(0), p = dummy; 
+        while (root != null || !stack.empty()) {
+            if (root != null) {
+                stack.push(root);
+                root = root.left;
+            } else {
+                TreeNode cur = stack.pop();
+                root = cur.right;
+                cur.left = null;
+                p.right = cur;
+                p = p.right;
+            }
+        }
+        return dummy.right; 
     }
 }
