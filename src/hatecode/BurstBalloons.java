@@ -134,27 +134,32 @@ public class BurstBalloons {
      * from the 3 loops in dp solution.
      */
     //interview friendly O(n ^ 3)
-    public int maxCoins2(int[] iNums) {
-        int len = iNums.length;
+    //brute force we can try each one, T(n) = n * T(n-1), 
+    //then we 
+    public int maxCoins2(int[] nums) {
+        int len = nums.length;
         int n = len + 2;
-       int[] nums = new int[n];
-       for (int i = 0; i< len;i++)
-            //if (iNums[i] > 0)//we can remove this
-                nums[i+1] = iNums[i];
-        nums[0] = nums[len+1] = 1;
+       int[] A = new int[n];
+       //copy original array into new arrays
+       System.arraycopy(nums, 0, A, 1, len);
+       
+       A[0] = A[len+1] = 1;
         System.out.println(n);
         //dp[1][len] will be the result
         int[][] dp = new int[n][n];
         
         //dp[i][j] means new array nums, from i to j, max coins
         //it has 3 parts, suppose k is last to burst, so we walk 1 balloon, 2 balloons, etc 
+        //from the formula, we should know how to initialize the array
+        //
          for(int l=1;l<=len;++l)
             //i and j is the sub array, l is the length of the sub array
             for(int i=1;i<=len-l+1;++i) {
                 int j=i+l-1;
                 //k is the index between i and j
                 for(int k=i;k<=j;++k) {
-                    dp[i][j] = Math.max(dp[i][j], dp[i][k-1] + nums[i-1] * nums[k] * nums[j+1] + dp[k+1][j]);
+                    dp[i][j] = Math.max(dp[i][j], 
+                               dp[i][k-1] + A[i-1] * A[k] * A[j+1] + dp[k+1][j]);
                 }
             }
         
@@ -162,4 +167,28 @@ public class BurstBalloons {
         
     }
 
+    
+    
+    //memo solution
+    public int maxCoins_memo(int[] A) {
+        int[] nums = new int[A.length + 2];
+        int n = 1;
+        for (int x : A) if (x > 0) nums[n++] = x;
+        nums[0] = nums[n++] = 1;
+
+
+        int[][] memo = new int[n][n];
+        return burst(memo, nums, 0, n - 1);
+    }
+
+    public int burst(int[][] memo, int[] nums, int left, int right) {
+        if (left + 1 == right) return 0;
+        if (memo[left][right] > 0) return memo[left][right];
+        int res = 0;
+        for (int i = left + 1; i < right; ++i)
+            res = Math.max(res, nums[left] * nums[i] * nums[right] 
+            + burst(memo, nums, left, i) + burst(memo, nums, i, right));
+        memo[left][right] = res;
+        return res;
+    }
 }
