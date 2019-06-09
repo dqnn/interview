@@ -151,17 +151,26 @@ public class BurstBalloons {
         //dp[i][j] means new array nums, from i to j, max coins
         //it has 3 parts, suppose k is last to burst, so we walk 1 balloon, 2 balloons, etc 
         //from the formula, we should know how to initialize the array
-        //
-         for(int l=1;l<=len;++l)
+        
+        //first loop w is like window, from 1,A.length,
+        //conceptually speaking, dp[i][j] 2 layers of for loop should be good enough, why we need 
+        //3 for loop here,
+        //because two layer can only help to locate any sub array for parent array but it cannot help to
+        //choose any number inside a subarray, 
+        
+        //why we did not choose  first loop as i, second as j, 
+        //current implementation is better because every time
+         for(int w=1;w<=len;++w) {
             //i and j is the sub array, l is the length of the sub array
-            for(int i=1;i<=len-l+1;++i) {
-                int j=i+l-1;
+            for(int i=1;i<=len-w+1;++i) {
+                int j=i+w-1;
                 //k is the index between i and j
                 for(int k=i;k<=j;++k) {
                     dp[i][j] = Math.max(dp[i][j], 
                                dp[i][k-1] + A[i-1] * A[k] * A[j+1] + dp[k+1][j]);
                 }
             }
+        }   
         
         return dp[1][len];
         
