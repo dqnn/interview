@@ -100,7 +100,9 @@ This algorithm can be used to solve ver2 too.
         //so here is greedy thinking, so from right, we know the minimal number, from left, we know the 
         //max number, then at position i, 
         //each element can be an array, that is most ideal situation, 
-        //so 
+        //so if left max smaller than right min, which means we can break at point i, because no matter what exact
+        //value it is ,it is smaller than our right min, so it can concatted to be sorted
+        
         int res = 1;
         for (int i = 0; i < n - 1; i++) {
             if (maxL[i] <= minR[i + 1]) res++;
