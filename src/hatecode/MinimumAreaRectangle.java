@@ -1,19 +1,19 @@
 package hatecode;
 import java.util.*;
 class MinimumAreaRectangle {
-/*
-939. Minimum Area Rectangle
-Given a set of points in the xy-plane, determine the minimum area of a rectangle formed from these points, with sides parallel to the x and y axes.
-
-If there isn't any rectangle, return 0.
-
- 
-
-Example 1:
-
-Input: [[1,1],[1,3],[3,1],[3,3],[2,2]]
-Output: 4
-*/
+    /*
+     * 939. Minimum Area Rectangle Given a set of points in the xy-plane, determine
+     * the minimum area of a rectangle formed from these points, with sides parallel
+     * to the x and y axes.
+     * 
+     * If there isn't any rectangle, return 0.
+     * 
+     * 
+     * 
+     * Example 1:
+     * 
+     * Input: [[1,1],[1,3],[3,1],[3,3],[2,2]] Output: 4
+     */
     public class Point{
         int x;
         int y;
@@ -34,9 +34,13 @@ Output: 4
     //O(N^2)/O(N) 
     //thinking process, image P1 and P2 are dialoug, so we just want find out 
     //another two points which is has some x or y value. 
+    
     public int minAreaRect(int[][] points) {
         int min=Integer.MAX_VALUE;
         Set<Point> ptset = new HashSet<>();
+       
+        // also String can be replaced with x+ "->" + y
+        //Set<String> ptset = new HashSet<>();
         for(int i=0;i<points.length;i++)
             ptset.add(new Point(points[i][0],points[i][1]));
         for(int i=0;i<points.length;i++)
