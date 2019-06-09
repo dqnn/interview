@@ -97,6 +97,9 @@ This algorithm can be used to solve ver2 too.
             minR[i] = Math.min(minR[i + 1], arr[i]);
         }
 
+        //so here is greedy thinking, so from right, we know the minimal number, from left, we know the 
+        //max number, then at position i, 
+        //
         int res = 1;
         for (int i = 0; i < n - 1; i++) {
             if (maxL[i] <= minR[i + 1]) res++;
