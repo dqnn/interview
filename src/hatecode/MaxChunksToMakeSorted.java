@@ -103,6 +103,7 @@ This algorithm can be used to solve ver2 too.
         //so if left max smaller than right min, which means we can break at point i, because no matter what exact
         //value it is ,it is smaller than our right min, so it can concatted to be sorted
         
+        //so we compare current position and its right elements, 
         int res = 1;
         for (int i = 0; i < n - 1; i++) {
             if (maxL[i] <= minR[i + 1]) res++;
