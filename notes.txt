@@ -49,5 +49,6 @@ highly similiar to minimal path sum
 33: LC 774, to understand the DP solutions, 
 34: among all these binary tree questions, i can find we focus on subtree(at least 90% questions could be solved)
 but LC robHouse III is not among this, because the requirement is not adjacent. 
+35: burst ballons, for the 3 layers loop, why we have to use width as outtest loop, can we change to i, j, such ?
 
 
