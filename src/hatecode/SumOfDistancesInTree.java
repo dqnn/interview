@@ -60,7 +60,7 @@ dfs2: O(N)
     }
 
     
-    
+    //easier to understand but higher complexity on space
     public int[] sumOfDistancesInTree2(int N, int[][] edges) {
         if (N <= 0 || edges == null || edges.length < 1 || edges[0].length < 1) return new int[0];
         
