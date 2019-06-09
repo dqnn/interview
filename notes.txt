@@ -53,4 +53,7 @@ but LC robHouse III is not among this, because the requirement is not adjacent.
 36: think again for LC 769. Max Chunks To Make Sorted, why we compare to different position instead of same position?
 and if i change to same position, it is wrong answer. 
 37: 95. Unique Binary Search Trees II needs to take a look 
+38：LC 834. Sum of Distances in Tree, res[root] += res[i] + count[i] in dfs, in dfs2, res[i] = res[root] - count[i] + n - count[i];
+1 why in this way? 2. time and space complexity?
+39:
 
