@@ -169,26 +169,31 @@ public class BurstBalloons {
 
     
     
-    //memo solution
-    public int maxCoins_memo(int[] A) {
-        int[] nums = new int[A.length + 2];
-        int n = 1;
-        for (int x : A) if (x > 0) nums[n++] = x;
-        nums[0] = nums[n++] = 1;
-
+    //memo solution,
+    //this is template for memo, it was used widely in game type problems,
+    //easier to understand
+    public int maxCoins_memo(int[] nums) {
+        //edge case ignored
+        
+        int n = nums.length + 2;
+        int[] A = new int[n];
+        System.arraycopy(nums, 0, A, 1, nums.length);
+        
+        //both ends are 1 
+        A[0] = A[n-1] = 1;
 
         int[][] memo = new int[n][n];
-        return burst(memo, nums, 0, n - 1);
+        return burst(memo, A, 0, n - 1);
     }
 
-    public int burst(int[][] memo, int[] nums, int left, int right) {
-        if (left + 1 == right) return 0;
-        if (memo[left][right] > 0) return memo[left][right];
+    public int burst(int[][] memo, int[] nums, int l, int r) {
+        if (l + 1 == r) return 0;
+        if (memo[l][r] > 0) return memo[l][r];
         int res = 0;
-        for (int i = left + 1; i < right; ++i)
-            res = Math.max(res, nums[left] * nums[i] * nums[right] 
-            + burst(memo, nums, left, i) + burst(memo, nums, i, right));
-        memo[left][right] = res;
+        for (int i = l + 1; i < r; ++i)
+            res = Math.max(res, nums[l] * nums[i] * nums[r] 
+            + burst(memo, nums, l, i) + burst(memo, nums, i, r));
+        memo[l][r] = res;
         return res;
     }
 }
