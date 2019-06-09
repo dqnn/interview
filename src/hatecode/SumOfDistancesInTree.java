@@ -36,6 +36,8 @@ dfs2: O(N)
  for example, 0 has 2 child, also means total path sum = 2, if  0 has parent, so it continue same process
  
  */
+    //{{0,1},{0,2}}->[2,3,3]
+    //
     static int[] res, count; 
     static ArrayList<HashSet<Integer>> tree; 
     static int n;
@@ -48,6 +50,7 @@ dfs2: O(N)
         count = new int[N];
         n = N;
         for (int i = 0; i < N ; ++i ) tree.add(new HashSet<Integer>());
+        //this is non-directed graph, they are parent-child each
         for (int[] e : edges) {
             tree.get(e[0]).add(e[1]); 
             tree.get(e[1]).add(e[0]);
@@ -68,21 +71,23 @@ dfs2: O(N)
         count[root]++;
     }
 
-
     public static void dfs2(int root, HashSet<Integer> seen) {
         seen.add(root);
-        for (int i : tree.get(root))
+        for (int i : tree.get(root)) {
             if (!seen.contains(i)) {
                 res[i] = res[root] - count[i] + n - count[i];
                 dfs2(i, seen);
-            };
+            }
+        }
     }
 
     public static void main(String[] args) {
-        
+        int[][] edges = {{0,1}, {0,2}};
+        System.out.println(Arrays.toString(sumOfDistancesInTree(3, edges)));
     }
     
     //easier to understand but higher complexity on space
+    //
     public int[] sumOfDistancesInTree2(int N, int[][] edges) {
         if (N <= 0 || edges == null || edges.length < 1 || edges[0].length < 1) return new int[0];
         
