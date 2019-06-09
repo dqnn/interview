@@ -104,6 +104,7 @@ This algorithm can be used to solve ver2 too.
         //value it is ,it is smaller than our right min, so it can concatted to be sorted
         
         //so we compare current position and its right elements, 
+        //then for this type of thinking, we still need to use it flexibility, like compare to left or right
         int res = 1;
         for (int i = 0; i < n - 1; i++) {
             if (maxL[i] <= minR[i + 1]) res++;
