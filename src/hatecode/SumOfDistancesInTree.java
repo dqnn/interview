@@ -32,7 +32,10 @@ dfs2: O(N)
         count = new int[N];
         n = N;
         for (int i = 0; i < N ; ++i ) tree.add(new HashSet<Integer>());
-        for (int[] e : edges) {tree.get(e[0]).add(e[1]); tree.get(e[1]).add(e[0]);}
+        for (int[] e : edges) {
+            tree.get(e[0]).add(e[1]); 
+            tree.get(e[1]).add(e[0]);
+        }
         dfs(0, new HashSet<Integer>());
         dfs2(0, new HashSet<Integer>());
         return res;
