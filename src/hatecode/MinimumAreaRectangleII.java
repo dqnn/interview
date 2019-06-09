@@ -20,6 +20,10 @@ Explanation: The minimum area rectangle occurs at [1,2],[2,1],[1,0],[0,1], with 
     //then we use Map<String, List<int[]>> to store the dist + x + y as key, 
     //dist is the two points length, x,y middle point center
     //according to above pdf, the possible recangle is n^2lgn, upper is n^2sqrt(n)
+    
+    //so the process is to we find C(n,2) combinations middle points, and their distance to all
+    //possible points
+    //then next, for each possible distance,we calculate the 
     public double minAreaFreeRect(int[][] p) {
         if (p == null || p.length < 4) return 0.0;
         int len = p.length;
