@@ -25,10 +25,26 @@ Time Complexity:
 dfs: O(N)
 dfs2: O(N)
 */
-    int[] res, count; ArrayList<HashSet<Integer>> tree; int n;
-    public int[] sumOfDistancesInTree(int N, int[][] edges) {
+    
+    //this solution is more like nestedIntger problem,
+    //convert a sum path problem to a node sum problem, 
+/*
+     0
+   /  \
+  1    2
+  
+ for example, 0 has 2 child, also means total path sum = 2, if  0 has parent, so it continue same process
+ 
+ */
+    static int[] res, count; 
+    static ArrayList<HashSet<Integer>> tree; 
+    static int n;
+    public static int[] sumOfDistancesInTree(int N, int[][] edges) {
+        //each index means parent node, the set means child nodes
         tree = new ArrayList<HashSet<Integer>>();
+        //result array
         res = new int[N];
+        //count[i]: how many child does node i have
         count = new int[N];
         n = N;
         for (int i = 0; i < N ; ++i ) tree.add(new HashSet<Integer>());
@@ -41,7 +57,7 @@ dfs2: O(N)
         return res;
     }
 
-    public void dfs(int root, HashSet<Integer> seen) {
+    public static void dfs(int root, HashSet<Integer> seen) {
         seen.add(root);
         for (int i : tree.get(root))
             if (!seen.contains(i)) {
@@ -53,7 +69,7 @@ dfs2: O(N)
     }
 
 
-    public void dfs2(int root, HashSet<Integer> seen) {
+    public static void dfs2(int root, HashSet<Integer> seen) {
         seen.add(root);
         for (int i : tree.get(root))
             if (!seen.contains(i)) {
@@ -62,6 +78,9 @@ dfs2: O(N)
             };
     }
 
+    public static void main(String[] args) {
+        
+    }
     
     //easier to understand but higher complexity on space
     public int[] sumOfDistancesInTree2(int N, int[][] edges) {
