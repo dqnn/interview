@@ -8,7 +8,8 @@ import java.util.Stack;
 public class KthSmallestElementinaBST {
     /**
      * 230. Kth Smallest Element in a BST
-     * Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.
+     * Given a binary search tree, write a function 
+     * kthSmallest to find the kth smallest element in it.
 
 Note: 
 You may assume k is always valid, 1 ≤ k ≤ BST's total elements.
@@ -34,7 +35,8 @@ Input: root = [5,3,6,2,4,null,null,1], k = 3
  1
 Output: 3
 Follow up:
-What if the BST is modified (insert/delete operations) often and you need to find the kth smallest frequently? How would you optimize the kthSmallest routine?
+What if the BST is modified (insert/delete operations) often and you need to 
+find the kth smallest frequently? How would you optimize the kthSmallest routine?
      *
      *
      * time : O(n)
@@ -85,7 +87,6 @@ What if the BST is modified (insert/delete operations) often and you need to fin
         if (node == null) return 0;
         return 1 + countNodes(node.left) + countNodes(node.right);
     }
-    
     
     public int kthSmallest3(TreeNode root, int k) {
         Stack<TreeNode> stack = new Stack<>();
