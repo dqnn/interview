@@ -58,9 +58,9 @@ public class SmallestRectangleEnclosingBlackPixels {
     // so still same as above, we want to get 4 coordinations, 
     // but we find a way faster than above, since one point is given, 
     // horizonte or vertical, so we can try to leverage Binary search, 
-    //for left, we want to find from 0, y whether there is mid != black then
+    //for left, we want to find from [0, y] whether there is mid != black then
     //move end = mid, 
-    //for right, y， col -1, so mid != black, we move end = mid
+    //for right, [y， col -1], so mid != black, we move end = mid
     //same for up and down
     public int minArea(char[][] image, int x, int y) {
         if (image == null || image.length < 1 || image[0].length < 1) {
