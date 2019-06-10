@@ -3,10 +3,11 @@ package hatecode;
 import java.util.*;
 public class SplitArrayLargestSum {
 /*
-1014. Capacity To Ship Packages Within D Days
+1011. Capacity To Ship Packages Within D Days
 410. Split Array Largest Sum
 
-tags: backtracking->memo->DP->binary search
+tags: backtracking->memo->DP->binary search, cut-arrays
+
 
 Given the number of bags,
 return the minimum capacity of each bag,
