@@ -16,7 +16,9 @@ Similar as
 875. Koko Eating Bananas
 774. Minimize Max Distance to Gas Station
 
-Given an array which consists of non-negative integers and an integer m, you can split the array into m non-empty continuous subarrays. Write an algorithm to minimize the largest sum among these m subarrays.
+Given an array which consists of non-negative integers and an integer m, you can 
+split the array into m non-empty continuous subarrays. Write an algorithm to minimize 
+the largest sum among these m subarrays.
 
 Note:
 If n is the length of array, assume the following constraints are satisfied:
