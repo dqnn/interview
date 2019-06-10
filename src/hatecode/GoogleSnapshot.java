@@ -25,8 +25,37 @@ int get(1, 0)  // 返回9
     
     //naive implementation can be use List<List<Integer>>, outter list is used to indicate sid, 
     //the innter list is used as index depends on a snapshot
-    //
+    //2. is to use TreeMap<Integer, List<Integer>>, key is sid, 
     
+    //depends on the content, if it is only integer/string, use diff, string can be 
+    
+    class SnapShotWithIntegerList implements SnapShot {
+
+        @Override
+        public int set(int sid, int index) {
+            // TODO Auto-generated method stub
+            return 0;
+        }
+
+        @Override
+        public int get(int sid, int index) {
+            // TODO Auto-generated method stub
+            return 0;
+        }
+
+        @Override
+        public int take() {
+            // TODO Auto-generated method stub
+            return 0;
+        }
+        
+    }
+    
+    interface SnapShotWithString {
+        public int set(String key, String value);
+        public int get(String key);
+        public int take();
+    }
     
     public static void main(String[] args) {
         // TODO Auto-generated method stub

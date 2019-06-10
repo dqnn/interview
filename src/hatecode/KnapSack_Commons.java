@@ -172,7 +172,7 @@ target = 7
 nums = [2, 2, 3]
 return 2
 
-LC 518. coin chang II is this type of question
+LC 518. coin change II is this type of question
  */
     public static int backPackIV(int[] nums, int w) {
         int[] dp = new int[w+1];
@@ -189,7 +189,7 @@ LC 518. coin chang II is this type of question
     public static int backPackIV_2DDP(int[] nums, int w) {
         int n = nums.length;
         int[][] dp = new int[n+1][w+1];
-        dp[0][0] = 1;
+        dp[0][0] = 1; 
         for (int i = 1; i <= n; i++) {
             dp[i][0] = 1;
             for (int j = 0; j <= w; j++) {
