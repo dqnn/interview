@@ -41,7 +41,7 @@ public class MyCalendarII {
             //we use the contraverse side to calculate this,so >=
             if (!(end <= lap[0] || start >= lap[1])) return false;
         }
-        
+        //figure out which 
         for(int[] cal : cals) {
             if (!(end <= cal[0] || start >= cal[1])) {
                 overlaps.add(new int[]{Math.max(start, cal[0]), Math.min(end, cal[1])});
