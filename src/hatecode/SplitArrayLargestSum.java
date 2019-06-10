@@ -1,4 +1,6 @@
 package hatecode;
+
+import java.util.*;
 public class SplitArrayLargestSum {
 /*
 1014. Capacity To Ship Packages Within D Days
@@ -153,19 +155,21 @@ so we use visited[start][m] as mem to record which we have visited
         }
         return dp[0];
     }
-    //same time/space complexity as above, but it is more concise
+    //O(n^2m)/O(nm)
     //dp[i][j] to be the minimum largest subarray sum for splitting nums[0..i] into j parts
     //Consider the jth subarray. We can split the array from a smaller index k to i to form it. 
     //Thus f[i][j] can be derived from max(f[k][j - 1], nums[k + 1] + ... + nums[i])
+    
+    //one learn from this perspective is that we can work on A[0---i] into j parts which is really 
+    //unique perspective
     public int splitArray_DP(int[] nums, int m) {
         int n = nums.length;
         int[][] dp = new int[n + 1][m + 1];
         int[] pSum = new int[n + 1];
         for (int i = 0; i <= n; i++) {
-            for (int j = 0; j <= m; j++) {
-                dp[i][j] = Integer.MAX_VALUE;
-            }
+            Arrays.fill(dp[i], Integer.MAX_VALUE);
         }
+        
         for (int i = 0; i < n; i++) {
             pSum[i + 1] = pSum[i] + nums[i];
         }
