@@ -153,4 +153,30 @@ so we use visited[start][m] as mem to record which we have visited
         }
         return dp[0];
     }
+    //same time/space complexity as above, but it is more concise
+    //dp[i][j] to be the minimum largest subarray sum for splitting nums[0..i] into j parts
+    //Consider the jth subarray. We can split the array from a smaller index k to i to form it. 
+    //Thus f[i][j] can be derived from max(f[k][j - 1], nums[k + 1] + ... + nums[i])
+    public int splitArray_DP(int[] nums, int m) {
+        int n = nums.length;
+        int[][] dp = new int[n + 1][m + 1];
+        int[] pSum = new int[n + 1];
+        for (int i = 0; i <= n; i++) {
+            for (int j = 0; j <= m; j++) {
+                dp[i][j] = Integer.MAX_VALUE;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            pSum[i + 1] = pSum[i] + nums[i];
+        }
+        dp[0][0] = 0;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                for (int k = 0; k < i; k++) {
+                    dp[i][j] = Math.min(dp[i][j], Math.max(dp[k][j - 1], pSum[i] - pSum[k]));
+                }
+            }
+        }
+        return dp[n][m];
+    }
 }
