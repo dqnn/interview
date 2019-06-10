@@ -114,7 +114,7 @@ public class DifferentWaystoAddParentheses {
 
         for (int i = 1; i < n; i++) {  
             dp[i] = Math.max(dp[i - 1] * A[i], (i >= 2 ? dp[i - 2] : 1) * (A[i - 1] + A[i]));  
-      
+
             if (i >= 2) {  
                 dp[i] = Math.max(dp[i], (i >= 3 ? dp[i - 3] : 1) * (A[i - 2] + A[i - 1] + A[i]));  
             }  
@@ -122,7 +122,7 @@ public class DifferentWaystoAddParentheses {
         return dp[n-1];  
     }  
     public static void main(String[] args) {
-        int[] in = {2,2,2};
+        int[] in = {2,2,-2};
         System.out.println(maxExprResult_Better(in));
         System.out.println(maxExprResult(in));
     }
