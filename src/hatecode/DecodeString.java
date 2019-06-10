@@ -103,11 +103,37 @@ public class DecodeString {
      * followup 怎么处理 nested case:    a{b{c, d}e{f}}
      */
     public static List<String> decode(String s) {
+        if (s == null || s.length() < 1) return new ArrayList<>();
+        
+        return helper(s, 0, new HashMap<>());
+    }
+    
+    private static List<String> helper(String s, int pos, Map<Integer, List<String>> map) {
+        if(map.containsKey(pos)) return map.get(pos);
+        
         List<String> res = new ArrayList<>();
-        if (s == null || s.length() < 1) return res;
-        
-        
+        if (pos == s.length()) {
+            res.add("");
+        }
+        List<String> left = new ArrayList<>();
+        for(int i = pos; i<s.length(); i++) {
+            char ch = s.charAt(i);
+            if (ch == '}' || ch == ',' || ch == ' ') continue;
+            if (ch == '{') {
+                List<String> right = helper(s, i+1, map);
+                for(String r : right) {
+                    for(String l : left) {
+                        res.add(l + r);
+                    }
+                }
+            } else if (Character.isLetter(ch)) left.add(ch + "");
+            else;//should not come here
+        }
         
         return res;
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(decode("a{c,d}"));
     }
 }
