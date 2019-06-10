@@ -49,7 +49,7 @@ public class BinaryTreeVisit {
         if (root == null)
             return;
 
-        Stack<TreeNode> s = new Stack<TreeNode>();
+        Stack<TreeNode> s = new Stack<>();
         TreeNode curNode = root;
 
         while (!s.empty() || curNode != null) {
