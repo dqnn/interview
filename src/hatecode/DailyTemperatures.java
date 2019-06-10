@@ -36,6 +36,9 @@ T = [73, 74, 75, 71, 69, 72, 76, 73], your output should be
         //i = len -1, stack: len-1
         //i= len- 2,stack: 76 > 73, so stack pop there is null, then res = 0
         //stack is used to store the max number
+        
+        //stack with index, we always scan from back to front, here
+        //should be minstack, if we found a bigger in array, then we should pop(), 
         for(int i = res.length - 1; i>=0;i--) {
             //look for idx in stack which is smaller than current T[i]
             while(!stack.isEmpty() && T[i] >= T[stack.peek()]) {
