@@ -96,8 +96,25 @@ find the kth smallest frequently? How would you optimize the kthSmallest routine
                 root = root.left;   
             } 
             root = stack.pop();
+            //this is one way to detect threshold, like meeting a new unique character
             if(--k == 0) break;
             root = root.right;
+        }
+        return root.val;
+    }
+    //this is standard iterative solution, remove while loop inside while
+    public int kthSmallest_Standard_Iterative(TreeNode root, int k) {
+        Stack<TreeNode> stack = new Stack<>();
+        while(root != null || !stack.isEmpty()) {
+            if(root != null) {
+                stack.push(root);    
+                root = root.left;   
+            } else {
+                 root = stack.pop();
+               if(--k == 0) break;
+               root = root.right;
+            } 
+           
         }
         return root.val;
     }
