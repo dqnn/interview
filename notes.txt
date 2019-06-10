@@ -58,6 +58,6 @@ and if i change to same position, it is wrong answer.
 39: Binary Tree post order iterative solution, need to remember, 
 40 UF with map based, how to solve the path compression, components, and each component size?
 41: DifferentWaystoAddParentheses.java, the follow up, how about negative number and get the expressions?
-42: 
+42: 736. Parse Lisp Expression this de-prioritize 
 
 
