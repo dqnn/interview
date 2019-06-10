@@ -90,9 +90,13 @@ public class MostStonesRemovedWithSameRowOrColumn {
      */
     //O(nlgn)/O(n), union by rank will be a(n), 
     
-    //so 
+/*
+是应该用什么顺序拿，才能保证能拿最多 (这个follow up应该怎么解呢)尽量先把一个component里的都去掉？
+answer: 优先拿掉不导致component数量增加的棋子。
+ */
     public int removeStones2(int[][] stones) {
         int N = stones.length;
+        //20000 is from notes, max 20K 
         DSU dsu = new DSU(20000);
 
         for (int[] stone: stones)
