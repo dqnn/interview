@@ -6,6 +6,8 @@ public class SplitArrayLargestSum {
 1014. Capacity To Ship Packages Within D Days
 410. Split Array Largest Sum
 
+tags: backtracking->memo->DP->binary search
+
 Given the number of bags,
 return the minimum capacity of each bag,
 so that we can put items one by one into all bags.
