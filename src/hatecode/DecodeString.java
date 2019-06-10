@@ -1,6 +1,6 @@
 package hatecode;
 
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Project Name : Leetcode
@@ -94,6 +94,20 @@ public class DecodeString {
                 idx++;
             }
         }
+        return res;
+    }
+    
+    //this is from goog interview question:
+    /*
+     * {a, b}c{d,e}f 需要return 所有可能的组合，acdf，acef，bcdf，bcef。
+     * followup 怎么处理 nested case:    a{b{c, d}e{f}}
+     */
+    public static List<String> decode(String s) {
+        List<String> res = new ArrayList<>();
+        if (s == null || s.length() < 1) return res;
+        
+        
+        
         return res;
     }
 }
