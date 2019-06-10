@@ -79,38 +79,38 @@ public class SmallestRectangleEnclosingBlackPixels {
         return (right - left + 1) * (bottom - top + 1);
     }
 
-    private int binarySearchLeft(char[][] image, int left, int right, boolean isHor) {
-        while (left + 1 < right) {
-            int mid = (right - left) / 2 + left;
-            // this means there was black point in this straight line, 
-            //isHor means isHorizonte
+    private int binarySearchLeft(char[][] image, int l, int r, boolean isHor) {
+        while (l + 1 < r) {
+            int mid = (r - l) / 2 + l;
+            // this means there was black point in this vertical straight line, 
+            //isHor means isHorizonte, width
             if (hasBlack(image, mid, isHor)) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid;
+                l = mid;
             }
         }
         // we pre process left because 
-        if (hasBlack(image, left, isHor)) {
-            return left;
+        if (hasBlack(image, l, isHor)) {
+            return l;
         }
-        return right;
+        return r;
     }
 
-    private int binarySearchRight(char[][] image, int left, int right, boolean isHor) {
-        while (left + 1 < right) {
-            int mid = (right - left) / 2 + left;
+    private int binarySearchRight(char[][] image, int l, int r, boolean isHor) {
+        while (l + 1 < r) {
+            int mid = (r - l) / 2 + l;
             //means we have black points
             if (hasBlack(image, mid, isHor)) {
-                left = mid;
+                l = mid;
             } else {
-                right = mid;
+                r = mid;
             }
         }
-        if (hasBlack(image, right, isHor)) {
-            return right;
+        if (hasBlack(image, r, isHor)) {
+            return r;
         }
-        return left;
+        return l;
     }
 
     private boolean hasBlack(char[][] image, int x, boolean isHor) {
@@ -124,6 +124,25 @@ public class SmallestRectangleEnclosingBlackPixels {
             }
         }
         return false;
+    }
+    
+    //this implementation only has 1 bianrySearch function
+    public int minArea_OneBS(char[][] img, int x, int y) {
+        int minx = binarySearch(img, 0, x, true, true);
+        int miny = binarySearch(img, 0, y, false, true);
+        int maxx = binarySearch(img, x + 1, img.length, true, false);
+        int maxy = binarySearch(img, y + 1, img[0].length, false, false);
+        return (maxx - minx) * (maxy - miny);
+    }
+
+    private int binarySearch(char[][] img, int lo, int hi, boolean row, boolean forMin) {
+        if (lo == hi) return lo;
+
+        int mid = lo + (hi - lo) / 2;
+        if (hasBlack(img, mid, row) == forMin)
+            return binarySearch(img, lo, mid, row, forMin);
+        else
+            return binarySearch(img, mid + 1, hi, row, forMin);
     }
     
     //brute force O(mn)
