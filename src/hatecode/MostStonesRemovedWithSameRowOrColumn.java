@@ -109,7 +109,6 @@ answer: 优先拿掉不导致component数量增加的棋子。
     //DSU then, so we need to use Map<Integer, Integer>, 
     //here is a trick that since we use Map to do union find, then we has no worry about the size,the example 
     //is following
-    
     public int removeStones(int[][] stones) {
         int N = stones.length;
         DSU dsu = new DSU();
