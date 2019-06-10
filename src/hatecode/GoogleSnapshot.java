@@ -50,7 +50,7 @@ int get(1, 0)  // 返回9
         }
         
     }
-    
+    //for this one, will go to string diff, update, new, remove
     interface SnapShotWithString {
         public int set(String key, String value);
         public int get(String key);
