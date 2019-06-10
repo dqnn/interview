@@ -129,9 +129,10 @@ public class SmallestRectangleEnclosingBlackPixels {
     //this implementation only has 1 bianrySearch function
     public int minArea_OneBS(char[][] img, int x, int y) {
         int minx = binarySearch(img, 0, x, true, true);
-        int miny = binarySearch(img, 0, y, false, true);
         int maxx = binarySearch(img, x + 1, img.length, true, false);
+        int miny = binarySearch(img, 0, y, false, true);
         int maxy = binarySearch(img, y + 1, img[0].length, false, false);
+        
         return (maxx - minx) * (maxy - miny);
     }
 
