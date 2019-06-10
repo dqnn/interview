@@ -23,7 +23,9 @@ int get(1, 0)  // 返回9
         public int take();
     }
     
-    
+    //naive implementation can be use List<List<Integer>>, outter list is used to indicate sid, 
+    //the innter list is used as index depends on a snapshot
+    //
     
     
     public static void main(String[] args) {

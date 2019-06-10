@@ -165,12 +165,14 @@ m =  10. return 15
 backPackIV 重复选择+唯一排列+装满可能性总数
 Given n items with size nums[i] which an integer array and all 
 positive numbers, no duplicates. An integer target denotes the size of a 
-backpack. Find the number of possible fill the backpack.
+backpack. Find the number of possible combinations to fill the backpack.
 
 Each item may be chosen unlimited number of times
 target = 7
 nums = [2, 2, 3]
 return 2
+
+LC 518. coin chang II is this type of question
  */
     public static int backPackIV(int[] nums, int w) {
         int[] dp = new int[w+1];
@@ -187,6 +189,7 @@ return 2
     public static int backPackIV_2DDP(int[] nums, int w) {
         int n = nums.length;
         int[][] dp = new int[n+1][w+1];
+        dp[0][0] = 1;
         for (int i = 1; i <= n; i++) {
             dp[i][0] = 1;
             for (int j = 0; j <= w; j++) {
