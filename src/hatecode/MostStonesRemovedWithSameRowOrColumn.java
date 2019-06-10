@@ -119,7 +119,6 @@ answer: 优先拿掉不导致component数量增加的棋子。
         return N - dsu.getComponents();
     }
 
-
 class DSU {
     private Map<Integer, Integer> f;
     private int components = 0;
