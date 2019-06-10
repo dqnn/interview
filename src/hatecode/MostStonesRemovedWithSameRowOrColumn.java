@@ -2,16 +2,14 @@ package hatecode;
 import java.util.*;
 public class MostStonesRemovedWithSameRowOrColumn {
     /*
-     * 947. Most Stones Removed with Same Row or Column On a 2D plane, we place
-     * stones at some integer coordinate points. Each coordinate point may have at
-     * most one stone.
+     * 947. Most Stones Removed with Same Row or Column 
+     * On a 2D plane, we place stones at some integer coordinate points. Each coordinate 
+     * point may have at most one stone.
      * 
      * Now, a move consists of removing a stone that shares a column or row with
      * another stone on the grid.
      * 
      * What is the largest possible number of moves we can make?
-     * 
-     * 
      * 
      * Example 1:
      * 
@@ -20,7 +18,6 @@ public class MostStonesRemovedWithSameRowOrColumn {
      * Problem: we can remove a stone if and only if, there is another stone in the
      * same column OR row. We try to remove as many as stones as possible.
      * 
-     * Find more details in chinese on the jianshu
      * 
      * One sentence to solve: Connected stones can be reduced to 1 stone, the
      * maximum stones can be removed = stones number - islands number. so just count
