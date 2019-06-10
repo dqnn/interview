@@ -104,11 +104,52 @@ answer: 优先拿掉不导致component数量增加的棋子。
     //another follow up for this solution is the DSU size, suppose the 2D is infinite, how can we deal
     //with it? 
     
-    //for this question, 
-    public int removeStones2(int[][] stones) {
+    //interview friendly and best
+    //for this question, because DSU traditionally needs N, so we cannot directly use array based 
+    //DSU then, so we need to use Map<Integer, Integer>, 
+    //here is a trick that since we use Map to do union find, then we has no worry about the size,the example 
+    //is following
+    
+    public int removeStones(int[][] stones) {
+        int N = stones.length;
+        DSU dsu = new DSU();
+
+        for (int[] stone: stones)
+            dsu.union(stone[0], ~stone[1]);
+
+        return N - dsu.getComponents();
+    }
+
+
+class DSU {
+    private Map<Integer, Integer> f;
+    private int components = 0;
+    public DSU(){
+        this.f = new HashMap<>();
+    }
+    public int find(int x) {
+        if (f.putIfAbsent(x, x) == null) components++;
+        if (x != f.get(x))
+            f.put(x, find(f.get(x)));
+        return f.get(x);
+    }
+
+    public void union(int x, int y) {
+        x = find(x);
+        y = find(y);
+        if (x != y) {
+            f.put(x, y);
+            components--;
+        }
+    }
+    
+    public int getComponents(){return components;}
+}
+    
+    public int removeStones_REference_OLD(int[][] stones) {
         int N = stones.length;
         //20000 is from notes, max 20K 
-        DSU dsu = new DSU(20000);
+        DSU_OLD dsu = new DSU_OLD(20000);
 
         for (int[] stone: stones)
             dsu.union(stone[0], stone[1] + 10000);
@@ -121,9 +162,9 @@ answer: 优先拿掉不导致component数量增加的棋子。
     }
 
 
-class DSU {
+class DSU_OLD {
     int[] parent;
-    public DSU(int N) {
+    public DSU_OLD(int N) {
         parent = new int[N];
         for (int i = 0; i < N; ++i)
             parent[i] = i;
@@ -139,7 +180,7 @@ class DSU {
     
     
     //DFS
-    public int removeStones(int[][] stones) {
+    public int removeStones_DFS(int[][] stones) {
         int N = stones.length;
 
         // graph[i][0] = the length of the 'list' graph[i][1:]
