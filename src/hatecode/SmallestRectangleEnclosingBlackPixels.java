@@ -49,7 +49,11 @@ public class SmallestRectangleEnclosingBlackPixels {
     // so our width left, right, height is bottom and top
     // left is min of j and right is max of j
     // height top is min of i and bottom is max of i since y --> down
-
+/*    left = min(left, x)
+            right = max(right, x)
+            top = min(top, y)
+            bottom = max(bottom, y)
+            Return (right - left + 1) * (bottom - top + 1) */
     // how can we improve this, 
     // so still same as above, we want to get 4 coordinations, 
     // but we find a way faster than above, since one point is given, 
