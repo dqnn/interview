@@ -87,7 +87,7 @@ public class MostStonesRemovedWithSameRowOrColumn {
      * template of union-find, write 2 lines above, you can solve this problem in
      * several minutes.
      */
-    //O(nlgn)/O(n), union by rank will be a(n), 
+    //O(nlgn)/O(n), union by rank will be a(n), Inverse-Ackermann function
     
 /*
 是应该用什么顺序拿，才能保证能拿最多 (这个follow up应该怎么解呢)尽量先把一个component里的都去掉？
@@ -99,6 +99,12 @@ answer: 优先拿掉不导致component数量增加的棋子。
     //a move action is just to remove a stone which share same col or row with other stones
     //so one move can only remove one stone, and if we want most moves, then the strategy is we did
     //not increase the components count
+    
+    
+    //another follow up for this solution is the DSU size, suppose the 2D is infinite, how can we deal
+    //with it? 
+    
+    //for this question, 
     public int removeStones2(int[][] stones) {
         int N = stones.length;
         //20000 is from notes, max 20K 
