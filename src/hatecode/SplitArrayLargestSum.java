@@ -95,7 +95,7 @@ so we use visited[start][m] as mem to record which we have visited
         //binary search
         long l = max; long r = sum;
         while (l <= r) {
-            long mid = (l + r)/ 2;
+            long mid = l + (r - l) /2;
             if (valid(mid, nums, m)) {
                 r = mid - 1;
             } else {
@@ -125,7 +125,7 @@ so we use visited[start][m] as mem to record which we have visited
         return true;
     }
 
-    //DP, 
+    //DP, O(n^2m)/O(n)
     /*
     dp[s,j] is the solution for splitting subarray n[j]...n[L-1] into s parts.
      dp[s+1,i] = min{ max(dp[s,j], n[i]+...+n[j-1]) }, i+1 <= j <= L-s
