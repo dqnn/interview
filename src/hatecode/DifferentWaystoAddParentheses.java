@@ -1,7 +1,6 @@
 package hatecode;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Project Name : Leetcode Package Name : leetcode File Name :
