@@ -97,7 +97,8 @@ answer: 优先拿掉不导致component数量增加的棋子。
     
     //on a big grid, we placed stone on coordinate in stones as 2D array
     //a move action is just to remove a stone which share same col or row with other stones
-    //
+    //so one move can only remove one stone, and if we want most moves, then the strategy is we did
+    //not increase the components count
     public int removeStones2(int[][] stones) {
         int N = stones.length;
         //20000 is from notes, max 20K 
