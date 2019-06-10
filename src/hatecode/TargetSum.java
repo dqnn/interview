@@ -2,7 +2,7 @@ package hatecode;
 import java.util.*;
 public class TargetSum {
 /*
- tag: DP
+ tag: DP, operators
 494. Target Sum
 You are given a list of non-negative integers, a1, a2, ..., an, and a target, S. Now you have 2 symbols + and -. For each integer, you should choose one from + and - as its new symbol.
 
