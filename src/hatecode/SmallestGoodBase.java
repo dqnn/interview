@@ -59,7 +59,6 @@ Explanation: 4681 base 8 is 11111.
                 }
             }
         }
-
         return String.valueOf(num - 1);
     }
 
