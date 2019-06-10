@@ -135,14 +135,14 @@ public class SmallestRectangleEnclosingBlackPixels {
         return (maxx - minx) * (maxy - miny);
     }
 
-    private int binarySearch(char[][] img, int lo, int hi, boolean row, boolean forMin) {
-        if (lo == hi) return lo;
+    private int binarySearch(char[][] img, int l, int r, boolean row, boolean forMin) {
+        if (l == r) return l;
 
-        int mid = lo + (hi - lo) / 2;
+        int mid = l + (r - l) / 2;
         if (hasBlack(img, mid, row) == forMin)
-            return binarySearch(img, lo, mid, row, forMin);
+            return binarySearch(img, l, mid, row, forMin);
         else
-            return binarySearch(img, mid + 1, hi, row, forMin);
+            return binarySearch(img, mid + 1, r, row, forMin);
     }
     
     //brute force O(mn)
