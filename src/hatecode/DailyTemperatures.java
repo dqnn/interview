@@ -24,7 +24,8 @@ T = [73, 74, 75, 71, 69, 72, 76, 73], your output should be
     //thinking process:
     
     //given an int array, each value means the temperature of i-th day, 
-    //
+    //you need to output an array which for i-th elment, the value indicates how many days need to wait
+    //until a warmer day
     public int[] dailyTemperatures(int[] T) {
         if (T == null || T.length < 1) {
             return null;
