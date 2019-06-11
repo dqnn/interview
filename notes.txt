@@ -69,7 +69,7 @@ B表示当前comment实际显示在正文对应的哪一行。要求实现用户
 
 国王住在King's Landing, 他手下有很多的信使，他要发布一项消息给所有的kingdoms，派信使去送信。
 问通知完所有的kingdoms所需要花费的最长时间。
-47
+47 GoogleExportPath.java  没做， 没理解题目意义
 
 
 
