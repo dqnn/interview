@@ -180,42 +180,42 @@ class DSU_OLD {
 }
     
     
-    //DFS
-    public int removeStones_DFS(int[][] stones) {
-        int N = stones.length;
+    //DFS, this is a bit different compared to this question, but it is a reference for fast code writing
+    int     count;
+    int     totalCount;
+    int     rows;
+    int     cols;
+    int[][] graph;
 
-        // graph[i][0] = the length of the 'list' graph[i][1:]
-        int[][] graph = new int[N][N];
-        for (int i = 0; i < N; ++i)
-            for (int j = i+1; j < N; ++j)
-                if (stones[i][0] == stones[j][0] || stones[i][1] == stones[j][1]) {
-                    graph[i][++graph[i][0]] = j;
-                    graph[j][++graph[j][0]] = i;
-                }
-
-        int ans = 0;
-        boolean[] seen = new boolean[N];
-        for (int i = 0; i < N; ++i) 
-            if (!seen[i]) {
-            Stack<Integer> stack = new Stack<>();
-            stack.push(i);
-            seen[i] = true;
-            ans--;
-            while (!stack.isEmpty()) {
-                int node = stack.pop();
-                ans++;
-                for (int k = 1; k <= graph[node][0]; ++k) {
-                    int nei = graph[node][k];
-                    if (!seen[nei]) {
-                        stack.push(nei);
-                        seen[nei] = true;
-                    }
+    // 0是空格，1是marble
+    int removeMarble(int[][] graph) {
+        // sanity check, 这里只是说了下corner case，面试官说不用写
+        rows = graph.length;
+        cols = graph[0].length;
+        this.graph = graph;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (graph[i][j] == 1) {
+                    dfs(i, j);
+                    count++;
                 }
             }
         }
-
-        return ans;
+        return totalCount - count;
     }
-    
-    
+
+    void dfs(int row, int col) {
+        totalCount++;
+        graph[row][col] = 0;
+        for (int i = 0; i < rows; i++) {
+            if (graph[i][col] == 1) {
+                dfs(i, col);
+            }
+        }
+        for (int j = 0; j < cols; j++) {
+            if (graph[row][j] == 1) {
+                dfs(row, j);
+            }
+        }
+    }
 }
