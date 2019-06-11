@@ -30,7 +30,6 @@ follow up是生成n张这种棋盘，保证n张棋盘中的同一行没有完全
         return board;
     }
     
-    
     //generate n bingo game, one line should not have same line, so we need a
     //Map<Integer, Set<String>>, 0=[2, 3, 4, 5, 6] so same linie in different bingo game 
     //will be different
