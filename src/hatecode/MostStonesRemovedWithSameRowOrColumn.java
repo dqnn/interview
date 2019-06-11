@@ -105,6 +105,9 @@ answer: 优先拿掉不导致component数量增加的棋子。
     //with it? 
     
     //interview friendly and best
+    //one move can only remove the stones which connect to a island as problem statement
+    //so we have to make sure there was no components increase when we remove, make sure every island last remove
+    //is two stones
     //for this question, because DSU traditionally needs N, so we cannot directly use array based 
     //DSU then, so we need to use Map<Integer, Integer>, 
     //here is a trick that since we use Map to do union find, then we has no worry about the size,the example 
