@@ -100,10 +100,11 @@ public class DecodeString {
     //this is from goog interview question:
     /*
      * {a, b}c{d,e}f 需要return 所有可能的组合，acdf，acef，bcdf，bcef。
-     * followup 怎么处理 nested case:    a{b{c, d}e{f}}
+     * follow-up 怎么处理 nested case:    a{b{c, d}e{f}}
      */
-    
-    //TODO: not finished yet, this return incorrect answer
+    //thinking process:
+    //so ',' can only be in {}, outside are only characters and only 1 single character or strings
+    //
     public static List<String> decode(String s) {
         System.out.println("decode string: " + s);
         List<String> res = new ArrayList<>();
@@ -118,15 +119,15 @@ public class DecodeString {
             } else {
                 List<String> res2 = new ArrayList<>();
                 int opened = 0;
-                while(!(s.charAt(idx) == '}' && opened == 0)) {
+                while (s.charAt(idx) != '}' || opened != 0) {
                     int j = idx+1;
-                    while(!(opened == 0 && (s.charAt(j) == ',' || s.charAt(j) == '}'))) {
+                    while(opened != 0 || (s.charAt(j) != ',' && s.charAt(j) == '}')) {
                         if (s.charAt(j) == '{') opened++;
                         if (s.charAt(j) == '}') opened--;
                         j++;
                     }
                     
-                    List<String> right = decode(s.substring(idx+1, j-1));
+                    List<String> right = decode(s.substring(idx, j));
                     for(String l: res) {
                         for(String str : right) {
                             res2.add(l + str);
