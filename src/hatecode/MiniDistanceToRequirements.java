@@ -29,21 +29,26 @@ public class MiniDistanceToRequirements {
     //thinking process:
     
     //given a list of roads, find the min path sum of mini distance
-    //
-    public int findBestLocationn(List<Set<String>> road, List<String> requires) {
+    //small improvement to use TreeSet instead of arraylist
+    //O(nk)/O(n)
+    public static int findBestLocationn(List<Set<String>> road, List<String> requires) {
         
-        Map<String, List<Integer>> roadMap = new HashMap<>();
+        Map<String, TreeSet<Integer>> roadMap = new HashMap<>();
         for (int i = 0; i < road.size(); i++) {
             for (String facility : road.get(i)) {
-                roadMap.computeIfAbsent(facility, v->new ArrayList<>()).add(i);
+                roadMap.computeIfAbsent(facility, v->new TreeSet<>()).add(i);
             }
         }
         
         int minSum = Integer.MAX_VALUE, index = 0;
         for (int i = 0; i < road.size(); i++) {
             int sum = 0;
-            for (int j = 0; j < requires.size(); j++) {
-                sum += getMinLen(roadMap, requires.get(j), i);
+            for (String facility: requires) {
+                TreeSet<Integer> tree = roadMap.get(facility);
+                Integer floor = tree.floor(i), ceiling = tree.ceiling(i);//log(frequency)
+                if (floor == null) sum += ceiling - i;
+                else if (ceiling == null) sum += i - floor;
+                else sum += Math.min(ceiling - i, i - floor);
             }
             if (sum < minSum) {
                 minSum = sum;
@@ -53,12 +58,25 @@ public class MiniDistanceToRequirements {
         return index;
     }
 
-    private int getMinLen(Map<String, List<Integer>> roadMap, String require, int index) {
-        List<Integer> list = roadMap.get(require);
+    private static int getMinLen(Map<String, TreeSet<Integer>> roadMap, String require, int index) {
+        TreeSet<Integer> list = roadMap.get(require);
         int minLen = Integer.MAX_VALUE;
         for (int pos : list) {
             minLen = Math.min(minLen, Math.abs(pos - index));
         }
         return minLen;
+    }
+    
+    public static void main(String[] args) {
+        List<Set<String>> in = new ArrayList<>();
+        in.add(new HashSet<>(Arrays.asList("bookstore", "school")));
+        in.add(new HashSet<>(Arrays.asList("grocery")));
+        in.add(new HashSet<>());
+        in.add(new HashSet<>());
+        in.add(new HashSet<>(Arrays.asList("bookstore", "lib")));
+        in.add(new HashSet<>());
+        in.add(new HashSet<>(Arrays.asList("grocery")));
+        
+        System.out.println(findBestLocationn(in, Arrays.asList("bookstore", "lib", "grocery")));
     }
 }
