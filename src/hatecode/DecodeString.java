@@ -105,40 +105,34 @@ public class DecodeString {
     
     //TODO: not finished yet, this return incorrect answer
     public static List<String> decode(String s) {
-        if (s == null || s.length() < 1) return new ArrayList<>();
-        
-        return helper(s, 0, new HashMap<>());
-    }
-    
-    private static List<String> helper(String s, int pos, Map<Integer, List<String>> map) {
-        if(map.containsKey(pos)) return map.get(pos);
-        
         List<String> res = new ArrayList<>();
-        if (pos >= s.length()) {
-            res.add("");
-            return res;
-        }
-        Stack<String> cur = new Stack<>();
-        //cur.push("");
-        for(int i = pos; i<s.length(); i++) {
-            char ch = s.charAt(i);
-            if (ch == ' ') continue;
-            if (ch == '{') {
-                int end = s.indexOf("}", i);
-                String[] parts = s.substring(i+1, end).split(",");
-                List<String> right = helper(s, end, map);
-                for(String l : parts) {
-                    for(String r: right) {
-                        res.add(l.trim() + r.trim());
-                    }
-                }
-            } else if (Character.isLetter(ch)) cur.push(ch + "");
-        }
-        map.put(pos, res);
+        if (s == null || s.length() < 1) return res;
+        helper("", s, res);
         return res;
     }
     
+    private static void helper(String cur, String s, List<String> res) {
+        if (s == null || s.length() < 1) {
+            res.add(cur);
+            return;
+        }
+
+       StringBuilder sb = new StringBuilder(cur);
+       for(int i = 0; i< s.length(); i++) {
+           if (s.charAt(i) != '{') {
+               sb.append(s.charAt(i));
+           } else {
+               int end = s.indexOf('}', i);
+               String[] parts = s.substring(i+1, end).split(",");
+               for(String part: parts) {
+                   helper(sb.toString()+part, s.substring(end + 1), res);
+               }
+               break;
+           }
+       }
+    }
+    
     public static void main(String[] args) {
-        System.out.println(decode("a{c,d}"));
+        System.out.println(decode("a{c,d{e,f}}"));
     }
 }
