@@ -171,5 +171,78 @@ https://web.stanford.edu/class/cs97si/04-dynamic-programming.pdf
         return (int)dp[N][0];
     }
     //follow up: m*n board
-    
+    /*二分图的最大匹配,匈牙利算法
+    对于一张二维矩阵，我们可以将所有cell分为两个点集，(x, y), x+y为奇数，x+y为偶数。
+    其中x+y为奇数被4个x+y为偶数包围，x+y为偶数被4个x+y为奇数包围，所以一条多米诺骨牌其实就是链接两个点集中的一条匹配边，
+    这个题目就可以转化为删除两个点集中的一些点，求剩下点集的最大匹配，用匈牙利算法。
+
+    code
+    */
+        // board[i][j] = 1 -> blocked, 0 -> unblocked
+        List<List<Integer>>point;
+        int rows;
+        int cols;
+        int[][] board;
+        int[] link;
+        boolean[] used;
+        public int chessBoard(int[][] board) {
+        // init parameters
+            this.board = board;
+            rows = board.length;
+            cols = board[0].length;
+            point = new ArrayList<>();
+            link = new int[rows * cols];
+            used = new boolean[rows * cols];
+            for(int i = 0 ; i < rows * cols ; i++) {
+                point.add(new ArrayList<>());
+            }
+            for(int i = 0 ; i < rows ; i++) {
+                for(int j = 0 ; j < cols ; j++) {
+                    if(i - 1 >= 0 && board[i-1][j] == 0) {
+                        point.get(i * cols + j).add((i - 1) * cols + j);
+                    }
+                    if(i + 1 < rows && board[i + 1][j] == 0) {
+                        point.get(i * cols + j).add((i + 1) * cols + j);
+                    }
+                    if(j + 1 < cols && board[i][j + 1] == 0) {
+                        point.get(i * cols + j).add(i * cols + (j + 1));
+                    }
+                    if(j - 1 >= 0 && board[i][j - 1] == 0) {
+                        point.get(i * cols + j).add(i * cols + (j - 1));
+                    }
+                }
+            }
+            Arrays.fill(link, -1);
+            // hangary algorithm
+            return hangary();
+        }
+        boolean find(int x) {
+            for(int i = 0 ; i < point.get(x).size() ; i++) {
+                int vertex = point.get(x).get(i);
+                if(used[vertex]) continue;
+                else {
+                    used[vertex] = true;
+                    if(link[vertex] == -1 || find(link[vertex])) {
+                        link[vertex] = x;
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        int hangary() {
+            int ans = 0;
+            for(int i = 0 ; i < rows ; i++) {
+                for(int j = 0 ; j < cols ; j++) {
+                    if(board[i][j] == 0) {
+                        Arrays.fill(used, false);
+                        if(find(i * cols + j)) {
+                            ans++;
+                        }
+                    }
+                }
+            }
+            return ans;
+        }
+
 }
