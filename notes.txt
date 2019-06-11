@@ -71,7 +71,22 @@ B表示当前comment实际显示在正文对应的哪一行。要求实现用户
 问通知完所有的kingdoms所需要花费的最长时间。
 47 GoogleExportPath.java  没做， 没理解题目意义
 48. Domino and Tromino Tiling.java, LC 790 and follow up, de-prioritize
-49
+49 LegalExpressions.java not finished. 
+50:
+第四轮 直接扔给我一张纸，一开始看到题目是懵逼的 ，输入是一堆线段，找所有可以形成的正方形的数量，
+自己设计数据结构和算法。clarify之后如下，平面无限大，线段都是水平或者竖直，不会cross，但端点可能在另一个线段上。
+解法大概是枚举对角线，然后check四条边，但是不能直接check每一条边是不是在input 的线段当中，
+因为可能正方形的一条边是由多个input线段组成的，或者完全被包含在某一个线段当中，所以需要对所有x和y值建segment tree，
+然后每一个查四条边是不是完全被当前坐标的segment tree cover
+
+有没有同学可以分享一下思路,如何用线段树判断一段距离都被cover了
+
+思路：不用线段树的操作，建立两个并查集来merge水平和垂直方向上坐标相同的点。 
+初始状态是一堆输入的线段就可以认为是并查集的初始状态。
+51: 
+
+
+
 
 
 
