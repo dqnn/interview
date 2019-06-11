@@ -107,32 +107,40 @@ public class DecodeString {
     public static List<String> decode(String s) {
         List<String> res = new ArrayList<>();
         if (s == null || s.length() < 1) return res;
-        helper("", s, res);
+        
+        res.add("");//for bootstrap
+        int idx = 0;
+        while(idx < s.length()) {
+            char ch = s.charAt(idx);
+            if (ch != '{') {
+                for(int i= 0; i< res.size();i++) res.set(i, res.get(i) + ch);
+            } else {
+                List<String> temp = new ArrayList<>();
+                int opened = 1;
+                while(ch != '}' || opened > 0) {
+                    int j = idx+1;
+                    char r = s.charAt(j);
+                    while(j < s.length() && opened > 0) {
+                        if (r == '{') opened++;
+                        if (r == '}') opened--;
+                        r++;
+                    }
+                    List<String> right = decode(s.substring(idx+1, r));
+                    for(String l: res) {
+                        for(String str : right) {
+                            temp.add(l + str);
+                        }
+                    }
+                    idx = r;
+                }
+                res = temp;
+            }
+            idx++;
+        }
         return res;
     }
     
-    private static void helper(String cur, String s, List<String> res) {
-        if (s == null || s.length() < 1) {
-            res.add(cur);
-            return;
-        }
-
-       StringBuilder sb = new StringBuilder(cur);
-       for(int i = 0; i< s.length(); i++) {
-           if (s.charAt(i) != '{') {
-               sb.append(s.charAt(i));
-           } else {
-               int end = s.indexOf('}', i);
-               String[] parts = s.substring(i+1, end).split(",");
-               for(String part: parts) {
-                   helper(sb.toString()+part, s.substring(end + 1), res);
-               }
-               break;
-           }
-       }
-    }
-    
     public static void main(String[] args) {
-        System.out.println(decode("a{c,d{e,f}}"));
+        System.out.println(decode("a{b,c}"));
     }
 }
