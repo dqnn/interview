@@ -37,7 +37,7 @@ Output: "ca"
         }
         return new String(chs, 0, i);
     }
-    //interview, goog interview question: but just need to check upperCase or lowerCase
+    //interview, goole interview question: but just need to check upperCase or lowerCase
     public String removeDuplicates_Stack(String s) {
         if (s == null || s.length() < 1) return "";
         
