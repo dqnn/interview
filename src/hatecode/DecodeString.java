@@ -102,6 +102,8 @@ public class DecodeString {
      * {a, b}c{d,e}f 需要return 所有可能的组合，acdf，acef，bcdf，bcef。
      * followup 怎么处理 nested case:    a{b{c, d}e{f}}
      */
+    
+    //TODO: not finished yet, this return incorrect answer
     public static List<String> decode(String s) {
         if (s == null || s.length() < 1) return new ArrayList<>();
         
@@ -112,24 +114,27 @@ public class DecodeString {
         if(map.containsKey(pos)) return map.get(pos);
         
         List<String> res = new ArrayList<>();
-        if (pos == s.length()) {
+        if (pos >= s.length()) {
             res.add("");
+            return res;
         }
-        List<String> left = new ArrayList<>();
+        Stack<String> cur = new Stack<>();
+        //cur.push("");
         for(int i = pos; i<s.length(); i++) {
             char ch = s.charAt(i);
-            if (ch == '}' || ch == ',' || ch == ' ') continue;
+            if (ch == ' ') continue;
             if (ch == '{') {
-                List<String> right = helper(s, i+1, map);
-                for(String r : right) {
-                    for(String l : left) {
-                        res.add(l + r);
+                int end = s.indexOf("}", i);
+                String[] parts = s.substring(i+1, end).split(",");
+                List<String> right = helper(s, end, map);
+                for(String l : parts) {
+                    for(String r: right) {
+                        res.add(l.trim() + r.trim());
                     }
                 }
-            } else if (Character.isLetter(ch)) left.add(ch + "");
-            else;//should not come here
+            } else if (Character.isLetter(ch)) cur.push(ch + "");
         }
-        
+        map.put(pos, res);
         return res;
     }
     
