@@ -63,7 +63,7 @@ public class MiniDistanceToRequirements {
         }
         return index;
     }
-
+    //this methods is disgarded here, i di not remove just for reference to know the bad way
     private static int getMinLen(Map<String, TreeSet<Integer>> roadMap, String require, int index) {
         TreeSet<Integer> list = roadMap.get(require);
         int minLen = Integer.MAX_VALUE;
