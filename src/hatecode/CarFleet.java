@@ -26,7 +26,10 @@ Note that no other cars meet these fleets before the destination, so the answer 
     //we scan from nearest car, caculate the time and comapre to next car, if they are the same, then good, if not, then count++;
     
     //the fact is that this is group question, time need to reach to target is the group critirial
-    //foolow up： 是在原List<Integer>插入n+1，然后返回所有的车队车数可能性。最后问了算法复杂度
+    //foolow up： 是在原List<Integer>插入n+1，然后返回所有的车队车数可能性。最后问了算法复杂度,
+    //因为新加入的这个是n+1，那么他一定是可以和任何他前面的数组成一组的，所以我们每次只需要对插入的位置前后，判断一下原来这个位置的前后
+    //是否是同一个cluster，然后split就行，剩下的那些不会受到影响。复杂度看算不算上把结果存下来，
+    //如果只是split 其实可以做到O(1)的
     public int carFleet3(int target, int[] position, int[] speed) {
         //sort the int[] by position desc
         PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> (b[1] - a[1]));
