@@ -25,15 +25,7 @@ follow up：char比空字符多
                 }
             }
         }
-        int[][] dirs = new int[][] {
-                {
-                        0, 1 },
-                {
-                        0, -1 },
-                {
-                        1, 0 },
-                {
-                        -1, 0 } };
+        int[][] dirs = new int[][] {{0, 1},{0, -1},{1, 0},{-1, 0}};
         while (!pq.isEmpty()) {
             Node curr = pq.poll();
             if (matrix[curr.i][curr.j] == ' ') {
