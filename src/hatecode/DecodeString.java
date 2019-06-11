@@ -116,13 +116,12 @@ public class DecodeString {
                 for(int i= 0; i< res.size();i++) res.set(i, res.get(i) + ch);
             } else {
                 List<String> res2 = new ArrayList<>();
-                int opened = 1;
-                while(ch != '}' || opened > 0) {
+                int opened = 0;
+                while(!(ch == '}' && opened == 0)) {
                     int j = idx+1;
-                    while(j < s.length() && opened > 0) {
-                        char r = s.charAt(j);
-                        if (r == '{') opened++;
-                        if (r == '}') opened--;
+                    while(!(opened == 0 && (s.charAt(j) == ',' || s.charAt(j) == '}'))) {
+                        if (s.charAt(j) == '{') opened++;
+                        if (s.charAt(j) == '}') opened--;
                         j++;
                     }
                     List<String> right = decode(s.substring(idx+1, j-1));
