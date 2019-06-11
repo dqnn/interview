@@ -108,7 +108,7 @@ public class DecodeString {
     public static List<String> decode(String s) {
         System.out.println("decode string: " + s);
         List<String> res = new ArrayList<>();
-        if (s == null || s.length() < 1) return res;
+        //if (s == null || s.length() < 1) return res;
         
         res.add("");//for bootstrap
         
@@ -127,7 +127,7 @@ public class DecodeString {
                         j++;
                     }
                     
-                    List<String> right = decode(s.substring(idx, j));
+                    List<String> right = decode(s.substring(idx + 1, j-1));
                     for(String l: res) {
                         for(String str : right) {
                             res2.add(l + str);
@@ -145,6 +145,47 @@ public class DecodeString {
     }
     
     public static void main(String[] args) {
-        System.out.println(decode("a{b,c{f,e}}"));
+        System.out.println(decode("a{b,c}"));
     }
+    //workable cpp code, from https://leetcode.com/playground/s62NfCyy 
+    /*
+     vector<string> braceExpansion(string a) {
+    cout<<"decode new " + a<<endl;
+    vector<string> ans={""};
+    int i=0;
+    while(i<a.size()) {
+        if(a[i]!='{') for(string &s:ans) s+=a[i];
+        else {
+            vector<string> ans2;
+            int depth = 0;
+            while(!(a[i]=='}' && depth==0)) {
+                int j = i+1;
+                while(!(depth==0 && (a[j]==',' || a[j]=='}'))) {
+                    if(a[j]=='}') depth--;
+                    if(a[j]=='{') depth++;
+                    j++;
+                }
+                string tt = a.substr(i+1,j-i-1);
+                
+                auto ret = braceExpansion(tt);
+                for(string &s:ans) for(string &r:ret) {
+                    cout<<"l =" + s << " r=" + r << endl;
+                    ans2.push_back(s+r);
+                }
+                i=j;
+            }
+            swap(ans,ans2);
+        }
+        i++;
+    }
+    return ans;
+}
+
+int main() {
+    auto ret = braceExpansion("b{a,c}");
+    for(auto r:ret)cout<<r<<endl;
+
+    return 0;
+}
+     */
 }
