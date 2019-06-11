@@ -149,6 +149,9 @@ dp[i][1]:  ways to cover i cols, only top row of i-th col is covered
 dp[i][2]:  ways to cover i cols, only bottom row of i-th col is covered
 here is the graph explanations:
 it is in doc/domino*.pdf
+more doc: 
+https://swarajk7.github.io/2018-02-25/tilecombinationcountingleetcode
+https://web.stanford.edu/class/cs97si/04-dynamic-programming.pdf
  */
     
     public static int numTilings(int N) {
@@ -167,4 +170,6 @@ it is in doc/domino*.pdf
         }
         return (int)dp[N][0];
     }
+    //follow up: m*n board
+    
 }
