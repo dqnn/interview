@@ -31,6 +31,12 @@ public class MiniDistanceToRequirements {
     //given a list of roads, find the min path sum of mini distance
     //small improvement to use TreeSet instead of arraylist
     //O(nk)/O(n)
+    
+    //another improvement is to setup 2D matrix, which row i means road block, row j means facility,
+    //so g[i][j] means on block i it has facility j, each column represent a facility
+    
+    //so the problem turns the problem into a best meeting point LC. 296, not exactly the same, 
+    //296 requires the middle point on x and y, here just needs x
     public static int findBestLocationn(List<Set<String>> road, List<String> requires) {
         
         Map<String, TreeSet<Integer>> roadMap = new HashMap<>();
