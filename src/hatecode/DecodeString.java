@@ -115,24 +115,26 @@ public class DecodeString {
             if (ch != '{') {
                 for(int i= 0; i< res.size();i++) res.set(i, res.get(i) + ch);
             } else {
-                List<String> temp = new ArrayList<>();
+                List<String> res2 = new ArrayList<>();
                 int opened = 1;
                 while(ch != '}' || opened > 0) {
                     int j = idx+1;
-                    char r = s.charAt(j);
                     while(j < s.length() && opened > 0) {
+                        char r = s.charAt(j);
                         if (r == '{') opened++;
                         if (r == '}') opened--;
-                        r++;
+                        j++;
                     }
-                    List<String> right = decode(s.substring(idx+1, r));
+                    List<String> right = decode(s.substring(idx+1, j-1));
                     for(String l: res) {
                         for(String str : right) {
-                            temp.add(l + str);
+                            res2.add(l + str);
                         }
                     }
-                    idx = r;
+                    idx = j;
                 }
+                List<String>  temp = res2;
+                res2 = res;
                 res = temp;
             }
             idx++;
