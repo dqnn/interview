@@ -105,25 +105,27 @@ public class DecodeString {
     
     //TODO: not finished yet, this return incorrect answer
     public static List<String> decode(String s) {
+        System.out.println("decode string: " + s);
         List<String> res = new ArrayList<>();
         if (s == null || s.length() < 1) return res;
         
         res.add("");//for bootstrap
+        
         int idx = 0;
         while(idx < s.length()) {
-            char ch = s.charAt(idx);
-            if (ch != '{') {
-                for(int i= 0; i< res.size();i++) res.set(i, res.get(i) + ch);
+            if (s.charAt(idx) != '{') {
+                for(int i= 0; i< res.size();i++) res.set(i, res.get(i) + s.charAt(idx));
             } else {
                 List<String> res2 = new ArrayList<>();
                 int opened = 0;
-                while(!(ch == '}' && opened == 0)) {
+                while(!(s.charAt(idx) == '}' && opened == 0)) {
                     int j = idx+1;
                     while(!(opened == 0 && (s.charAt(j) == ',' || s.charAt(j) == '}'))) {
                         if (s.charAt(j) == '{') opened++;
                         if (s.charAt(j) == '}') opened--;
                         j++;
                     }
+                    
                     List<String> right = decode(s.substring(idx+1, j-1));
                     for(String l: res) {
                         for(String str : right) {
@@ -142,6 +144,6 @@ public class DecodeString {
     }
     
     public static void main(String[] args) {
-        System.out.println(decode("a{b,c}"));
+        System.out.println(decode("a{b,c{f,e}}"));
     }
 }
