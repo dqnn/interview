@@ -62,4 +62,14 @@ and if i change to same position, it is wrong answer.
 43: knapSnack_Common.java, dp[0][0] = 1;  needs to in backPackIV_2DDP?
 44: google snapshot question, need to review how 's the data structure for string diff looks like? 
 45: DecodeString.java, needs to solve the nested version, and remember the calculator one
+46: not fully understood the below 2 questions:
+google doc 有个comment 功能，每个comment是个tuple（int A，int B）。A表示是指向正文中哪一行的comment, 
+B表示当前comment实际显示在正文对应的哪一行。要求实现用户在前一行插入一个comment后如果space不够了，
+后面的comment自动下移。
+
+国王住在King's Landing, 他手下有很多的信使，他要发布一项消息给所有的kingdoms，派信使去送信。
+问通知完所有的kingdoms所需要花费的最长时间。
+47
+
+
 
