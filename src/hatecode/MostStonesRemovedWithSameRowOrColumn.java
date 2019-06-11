@@ -178,8 +178,6 @@ class DSU_OLD {
         parent[find(x)] = find(y);
     }
 }
-    
-    
     //DFS, this is a bit different compared to this question, but it is a reference for fast code writing
     int     count;
     int     totalCount;
