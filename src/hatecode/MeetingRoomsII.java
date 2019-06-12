@@ -88,6 +88,22 @@ this graph demonstrated how to solve this problem
         }
         return pq.size();
     }
+    //latest LC change to array
+    public int minMeetingRooms(int[][] in) {
+        if (in == null || in.length < 1) return 0;
+        Arrays.sort(in, (a, b)->(a[0] - b[0]));
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b)->(a[1] - b[1]));
+        pq.offer(in[0]);
+        for(int i =1; i< in.length;i++) {
+            int[] cur = pq.poll();
+            if (in[i][0] >= cur[1]) {
+                cur[1] = in[i][1];
+            } else pq.offer(in[i]);
+            pq.offer(cur);
+        }
+        
+        return pq.size();
+    }
     
     private static final int START = 1;
 
