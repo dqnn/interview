@@ -1,10 +1,13 @@
 package hatecode;
 public class LongestLineOfConsecutiveOneInMatrix {
 /*
+ * tags: google
 562. Longest Line of Consecutive One in Matrix
-Given a 01 matrix M, find the longest line of consecutive one in the matrix. The line could be horizontal, vertical, diagonal or anti-diagonal.
+Given a 01 matrix M, find the longest line of consecutive one in the matrix. 
+The line could be horizontal, vertical, diagonal or anti-diagonal.
 Example:
 Input:
+
 [[0,1,1,0],
  [0,1,1,0],
  [0,0,0,1]]
@@ -44,7 +47,7 @@ Output: 3
         }
         return max;        
     }
-    //O(mn)/O(mn)
+    //O(mn)/O(mn), interview friendly
     public int longestLine3(int[][] M) {
         if (M == null || M.length < 1 || M[0].length < 1) return 0;
         int r = M.length, c = M[0].length, max = 0;
