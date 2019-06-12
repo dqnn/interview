@@ -16,6 +16,24 @@
               3. design review and meeting minutes
               4. launch and ops documentations
               5. give them suggestions to improve
+              
+              understand dependency team 1-2 year plan 
+              understand the metrics
            5) give me an example you push back 
+              feature launch
+              the new team the would like to launch new feature, author follow, they increase 
+              latency by 20ms, 
               
            6) example you regret your design
+              there should be standard answer if you dive deep
+              we have some features in Cart to show to some customers, like no-rush promotion in cart, 
+              but it has some threshold,  when the features was launched, PMs requested to change this 
+              frequently,  so we use a Retail Storage called sable,  so PM can update the value by themselves, 
+              pros: 1. short the time to Prod, previous was 1 week, now 15m, 
+                    2. no more code change
+              Cons 1. PM still request us to update. still cause SDE efforts
+                   2. add sable dependency 
+                   3. got some tickets request us to do a lot of paper work, ops work
+                   4. later actually there was no more request to change it. 
+                   
+              
