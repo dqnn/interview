@@ -84,7 +84,7 @@ B表示当前comment实际显示在正文对应的哪一行。要求实现用户
 思路：不用线段树的操作，建立两个并查集来merge水平和垂直方向上坐标相同的点。 
 初始状态是一堆输入的线段就可以认为是并查集的初始状态。
 51: cutMatrix.java
-52: 
+52: FindtheDuplicateNumber.java to understand how many eleemtns cannt be found in array by BS?
 
 
 
