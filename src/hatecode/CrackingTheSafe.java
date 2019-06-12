@@ -3,6 +3,8 @@ import java.util.*;
 public class CrackingTheSafe {
     /*
      * 753. Cracking the Safe 
+     * 
+     * tags: google
      * There is a box protected by a password. The password
      * is n digits, where each letter can be one of the first k digits 0, 1, ...,
      * k-1.

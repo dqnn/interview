@@ -175,7 +175,6 @@ public class WildcardMatching {
         Node left, right;
         char ch;
     }
-    
     //thinking process:
     //so the root node here means the instructions, it means when we meet here, 
     //we need to compare according to this node type, 
