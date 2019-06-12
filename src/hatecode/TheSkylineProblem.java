@@ -199,11 +199,8 @@ firstKey()
                 map.put(-h[1], map.getOrDefault(-h[1], 0) + 1);
             } else {
                 int cnt = map.get(h[1]);
-                if (cnt == 1) {
-                    map.remove(h[1]);
-                } else {
-                    map.put(h[1], cnt - 1);
-                }
+                if (cnt == 1) map.remove(h[1]);
+                else map.put(h[1], cnt - 1);
             }
             int cur = map.firstKey();//lowest key, which means the biggest height here, first one
             if (prev != cur) {
