@@ -65,6 +65,8 @@ or you may find the target number from the x+1...j, because you don't know which
 so to guarantee you have enough money to find the target, you need to prepare the more, which is
  max(dp[i][x-1], dp[x+1][j]).
  */
+    ////thinking process: interview friendly
+    //so we need to guarteen that we can guess the number, so 
     private int helper(int i, int j) {
         if (i > j) return 0;
         if (dp[i][j] != 0) return dp[i][j];
@@ -86,7 +88,6 @@ so to guarantee you have enough money to find the target, you need to prepare th
     //i +1, n
     
     //and k has to be [i,j-1]
-    //thinking process: interview friendly
     //
     public int getMoneyAmount2(int n) {
         //dp[i][j] means from range(i...j) the minimal cost,
