@@ -47,4 +47,20 @@ public class EvaluateReversePolishNotation {
         }
         return stack.pop();
     }
+    
+    //one question from google interview doc, not from LC,
+    //given two noes, return their result is same or not
+    /* root A,    root B, same as A
+       +
+     /    \
+    a      -
+         /   \
+        c     d
+     */
+    //follow up is *, / with ()
+    
+    //if it only has + and -,then we just use hashmap to calcuate the frequency
+    public boolean evaluateTree(TreeNode A, TreeNode B) {
+        return false;
+    }
 }
