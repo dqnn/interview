@@ -1,8 +1,9 @@
 package hatecode;
 import java.util.*;
 public class WordAbbreviation {
-    /*tags: trie
-     * 527. Word Abbreviation Given an array of n distinct non-empty strings, you
+    /*tags: trie, google
+     * 527. Word Abbreviation 
+     * Given an array of n distinct non-empty strings, you
      * need to generate minimal possible abbreviations for every word following
      * rules below.
      * 
@@ -15,6 +16,9 @@ public class WordAbbreviation {
      * keep it as original. Example: Input: ["like", "god", "internal", "me",
      * "internet", "interval", "intension", "face", "intrusion"] Output:
      * ["l2e","god","internal","me","i6t","interval","inte4n","f2e","intr4n"]
+     * Simiar Problem,
+     * 408. Valid word abbreviation
+     * 288. Unique Word Abbreviation
      */
     //O(C)/O(C) C is number of all chars
     
