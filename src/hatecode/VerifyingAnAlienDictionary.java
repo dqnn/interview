@@ -25,6 +25,8 @@ public class VerifyingAnAlienDictionary {
     //1 is we compare each chaacter as in dictionary, each of them should be = or < next one
     //2: this is the key, like "apple" vs "app", if they are all the same, then shorter 
     //should appear first
+    
+    //acually this is to verify the lexi order
     int[] mapping = new int[26];
     public boolean isAlienSorted(String[] words, String order) {
         for (int i = 0; i < order.length(); i++)
