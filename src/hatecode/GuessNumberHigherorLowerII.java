@@ -69,6 +69,8 @@ so to guarantee you have enough money to find the target, you need to prepare th
     ////thinking process: interview friendly
     //so we need to guarantee that we can guess the number, so we need to try every x, the real answer
     //maybe higher than x or maybe lower than x
+    
+    //one requirement is we have to guess intelligent, binary seach guess
     private static int helper(int i, int j) {
         if (i >= j) return 0;
         if (dp[i][j] != 0) return dp[i][j];
