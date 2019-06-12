@@ -36,6 +36,5 @@ public class GoogleLyricsToWords {
             }
         }
         return res;
-
     }
 }
