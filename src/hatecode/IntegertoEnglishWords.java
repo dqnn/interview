@@ -63,6 +63,7 @@ public class IntegertoEnglishWords {
         } else if (num < 100) {
             return tens[num / 10] + " " + helper(num % 10);
         } else {
+            //for above 100, it has same character like less20, 
             return less20[num / 100] + " Hundred " + helper(num % 100);
         }
     }
