@@ -52,10 +52,12 @@ Output: 3
         if (M == null || M.length < 1 || M[0].length < 1) return 0;
         int r = M.length, c = M[0].length, max = 0;
         //0 is horizonte, 1 is anti-dialog, 2 is vertical, 3 is dialog
+        //dp[i][j][0], means (0,0)->(i,j) the longest horizonte line
         int[][][] dp = new int[r][c][4];
         for (int i = 0; i < r; i++)
             for (int j = 0; j < c; j++) {
                 if (M[i][j] == 0) continue;
+                //initialize
                 for (int k = 0; k < 4; k++) dp[i][j][k] = 1;
                 // horizontal line
                 if (j > 0) dp[i][j][0] += dp[i][j - 1][0]; 
