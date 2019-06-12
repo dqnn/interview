@@ -10,6 +10,7 @@ package hatecode;
  */
 public class GuessNumberHigherorLowerII {
     /**
+     * tags: google, game
      * We are playing the Guess Game. The game is as follows:
 
      I pick a number from 1 to n. You have to guess which number I picked.

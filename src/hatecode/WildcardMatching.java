@@ -10,6 +10,7 @@ package hatecode;
  */
 public class WildcardMatching {
     /**
+     * tags: google
      * Implement wildcard pattern matching with support for '?' and '*'.
 
      '?' Matches any single character.
