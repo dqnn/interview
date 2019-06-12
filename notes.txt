@@ -86,7 +86,9 @@ B表示当前comment实际显示在正文对应的哪一行。要求实现用户
 51: cutMatrix.java
 52: FindtheDuplicateNumber.java to understand how many eleemtns cannt be found in array by BS?
 53.RainDrop.java，not fully understood it
-54：
+54：527. Word Abbreviation， needs to understand the recursive function
+55. GoogleGoBoundaryDectection.java Go on binary tree. need to understand
+56 
 
 
 
