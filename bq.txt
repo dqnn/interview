@@ -4,4 +4,4 @@
            3) describe most favorite day in your current company（呵呵）  
            4) how to work across team 
            5) give me an example you push back 
-           6) example you regret your design 
+           6) example you regret your design
