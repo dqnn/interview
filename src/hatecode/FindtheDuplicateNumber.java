@@ -29,10 +29,10 @@ public class FindtheDuplicateNumber {
 
     // time : O(nlogn) space : O(1)
     public int findDuplicate(int[] nums) {
-        int min = 0;
-        int max = nums.length - 1;
-        while (min <= max) {
-            int mid = (max - min) / 2 + min;
+        int l = 0;
+        int r = nums.length - 1;
+        while (l <= r) {
+            int mid = (r - l) / 2 + l;
             int count = 0;
             // here count how many numbers are small than mid, 
             for (int i = 0; i < nums.length; i++) {
@@ -42,13 +42,13 @@ public class FindtheDuplicateNumber {
             }
             // here means the duplicate number is on the left side
             if (count > mid) {
-                max = mid - 1;
+                r = mid - 1;
             // here means on the right side
             } else {
-                min = mid + 1;
+                l = mid + 1;
             }
         }
-        return min;
+        return l;
     }
 
     // time : O(n) space : O(1)
