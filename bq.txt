@@ -1,6 +1,6 @@
 1. describe one project you could have done better?
 2. FB -BQ: 1) dive deep into most recent project 
-           2) most intestering debug/bug 
+           2) most interesting debug/bug 
            3) describe most favorite day in your current company（呵呵）  
            4) how to work across team 
            5) give me an example you push back 
