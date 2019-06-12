@@ -155,7 +155,7 @@ public class WildcardMatching {
            Node left, right;
            char c;
        } 
-       {a|(b+c)*} in BT is like 
+       {a|(b+c)*} in BT is like , "a" , "bcbc", "bcbcbc"
               DISJ
             /     \ 
       Char(c='a')   REP
