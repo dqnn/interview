@@ -155,7 +155,7 @@ public class WildcardMatching {
            Node left, right;
            char c;
        } 
-       {a|(b+c)*} in BT is like , "a" , "bcbc", "bcbcbc"
+       {a|(bc)*} in BT is like , "a" , "bcbc", "bcbcbc"
               DISJ
             /     \ 
       Char(c='a')   REP
@@ -175,6 +175,11 @@ public class WildcardMatching {
         Node left, right;
         char ch;
     }
+    
+    //thinking process:
+    //so the root node here means the instructions, it means when we meet here, 
+    //we need to compare according to this node type, 
+    //please note here CONCAT and REP, the implementation is tricky
     public boolean isMatch(Node node, String s) {
         if (node.type == Type.CHAR) {
             return (s.length() == 0 && s.charAt(0) == node.ch);
@@ -187,8 +192,11 @@ public class WildcardMatching {
                 }
             }
         }else if (node.type == Type.REP) {
+            //note, we here use node itself, not right, because we need to compare the left strings
             for(int i = 0; i< s.length();i++) {
-                
+                if (isMatch(node.left, s.substring(0, i)) && isMatch(node, s.substring(i))) {
+                    return true;
+                }
             }
         }
         
