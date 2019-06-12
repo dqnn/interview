@@ -22,7 +22,8 @@
            5) give me an example you push back 
               feature launch
               the new team the would like to launch new feature, author follow, they increase 
-              latency by 20ms, 
+              latency by 20ms, i asked them to do another latency reduction project at the same time and 
+              wrap in same weblab....
               
            6) example you regret your design
               there should be standard answer if you dive deep
