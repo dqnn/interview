@@ -88,7 +88,7 @@ this graph demonstrated how to solve this problem
         }
         return pq.size();
     }
-    //latest LC change to array
+    //latest LC change to array, but logic is the same
     public int minMeetingRooms(int[][] in) {
         if (in == null || in.length < 1) return 0;
         Arrays.sort(in, (a, b)->(a[0] - b[0]));
