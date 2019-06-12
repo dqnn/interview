@@ -65,6 +65,8 @@ this graph demonstrated how to solve this problem
     }
 
     // this is to use pq to merge intervals
+    //there are two types of such kind question, one is merge interval, another one is to see how many 
+    //intervals to occupy space, like this problem
     public int minMeetingRooms2(Interval[] schedule) {
         Arrays.sort(schedule, (a, b) -> a.start - b.start);
         //the PQ keeps how many meeting  rooms are needed for current meeting schedule
@@ -81,7 +83,7 @@ this graph demonstrated how to solve this problem
             } else {
                 pq.offer(schedule[i]);
             }
-            //original meeting still there
+            //original meeting still being pop put, and we need to put it back.
             pq.offer(interval);
         }
         return pq.size();
