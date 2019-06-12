@@ -1,7 +1,21 @@
 1. describe one project you could have done better?
 2. FB -BQ: 1) dive deep into most recent project 
+             Latency, metrics, improvements
            2) most interesting debug/bug 
-           3) describe most favorite day in your current company（呵呵）  
+             HTTP Cache, enable the cache for Kindle for android
+           3) describe most favorite day in your current company（呵呵)
+             we have interns come, 
            4) how to work across team 
+             trivial
+              1. understand the away team model, protocol between teams, 
+              2. search the team wiki, to see their documents, find the answer or understand their 
+              3. contact their oncall.  
+             Project
+              1. ask their manager to allocate POC 
+              2. weekly sync up 
+              3. design review and meeting minutes
+              4. launch and ops documentations
+              5. give them suggestions to improve
            5) give me an example you push back 
+              
            6) example you regret your design
