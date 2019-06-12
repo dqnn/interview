@@ -92,9 +92,7 @@ the reverse link is 1/k. Query is to find a path between two nodes.
         if (!map.containsKey(ld)) {
             return -1;
         }
-        if (ld.equals(d)) {
-            return value;
-        }
+        if (ld.equals(d)) return value;
         
         visited.add(ld);
         for(Node node : map.get(ld)) {
