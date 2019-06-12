@@ -146,5 +146,53 @@ public class WildcardMatching {
         }
         return dp[r][c];
     }
+    
+    
+    //this is from google interview doc, as below:
+    /*
+     * class Node{
+           enum{CHAR, DISJ, CONCAT, REP}; // 1. char(Character), 2. Or(DISJ) 3. +(concat)  4. * rep
+           Node left, right;
+           char c;
+       } 
+       {a|(b+c)*} in BT is like 
+              DISJ
+            /     \ 
+      Char(c='a')   REP
+                   /
+               CONCAT
+              /      \ 
+          Char(c='b')   Char(c='c')  
+     * 
+     * 
+     * implement API 
+     * public boolean isMatch(Node node, String s)
+     */
+    // 1. char(Character), 2. Or(DISJ) 3. +(concat)  4. * rep
+    enum Type{CHAR, DISJ, CONCAT, REP;}
+    class Node{
+        Type type;
+        Node left, right;
+        char ch;
+    }
+    public boolean isMatch(Node node, String s) {
+        if (node.type == Type.CHAR) {
+            return (s.length() == 0 && s.charAt(0) == node.ch);
+        } else if (node.type == Type.DISJ) {
+            return isMatch(node.left, s) || isMatch(node.right, s);
+        } else if (node.type == Type.CONCAT) {
+            for(int i = 0; i< s.length();i++) {
+                if (isMatch(node.left, s.substring(0, i)) && isMatch(node.right, s.substring(i))) {
+                    return true;
+                }
+            }
+        }else if (node.type == Type.REP) {
+            for(int i = 0; i< s.length();i++) {
+                
+            }
+        }
+        
+        return false;
+    }
 
 }
