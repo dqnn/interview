@@ -152,7 +152,6 @@ so it will remove middle (, and become )(, last it will reverse again to become 
             }
         }
         return res;
-        
     }
     
     //verify the s is valid parentheses or not
