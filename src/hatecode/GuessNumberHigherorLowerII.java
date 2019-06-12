@@ -86,6 +86,8 @@ so to guarantee you have enough money to find the target, you need to prepare th
     //i +1, n
     
     //and k has to be [i,j-1]
+    //thinking process: interview friendly
+    //
     public int getMoneyAmount2(int n) {
         //dp[i][j] means from range(i...j) the minimal cost,
         //so if we guess k, then we need to try to 
