@@ -136,9 +136,7 @@ so it will remove middle (, and become )(, last it will reverse again to become 
             // this is the key, so we cannot use break since queue may have more qualified strings,
             //for that level, because if we go deeper, that;s not minial removal of ( or )
             //stop adding more into queue
-            if (isFound) {
-                continue;
-            }
+            if (isFound) continue;
             // for loop we would like to make it simple
             for(int i = 0; i < temp.length(); i++) {
                 //we will ignore other chars since we only focus on ( )
