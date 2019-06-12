@@ -38,6 +38,7 @@ public class SerializeandDeserializeBinaryTree {
     // BFS on tree, we use Queue to store the node and it can be null to be added into queue
     // we can use space or "," to split string please note when decode we has no case on node from queue
     // is null because we never add null into queue because we node is initlized as null. 
+    //O(n)/O(n)
     public String serialize(TreeNode root) {
        if (root == null) return "";
        StringBuilder res = new StringBuilder();
@@ -59,6 +60,7 @@ public class SerializeandDeserializeBinaryTree {
     // Decodes your encoded data to tree.
     //note we use a queue to go along with a for loop, the way how we preserve the 
     //tree is straightforward
+    ////O(n)/O(n)
     public TreeNode deserialize(String data) {
         if (data == "") return null;
         String[] str = data.split(" ");
