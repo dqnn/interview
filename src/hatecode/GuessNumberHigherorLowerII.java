@@ -52,9 +52,9 @@ public class GuessNumberHigherorLowerII {
      * @return
      */
 
-    int[][] dp;
+    static int[][] dp;
 
-    public int getMoneyAmount(int n) {
+    public static int getMoneyAmount(int n) {
         dp = new int[n + 1][n + 1];
         return helper(1, n);
     }
@@ -66,8 +66,9 @@ so to guarantee you have enough money to find the target, you need to prepare th
  max(dp[i][x-1], dp[x+1][j]).
  */
     ////thinking process: interview friendly
-    //so we need to guarteen that we can guess the number, so 
-    private int helper(int i, int j) {
+    //so we need to guarantee that we can guess the number, so we need to try every x, the real answer
+    //maybe higher than x or maybe lower than x
+    private static int helper(int i, int j) {
         if (i > j) return 0;
         if (dp[i][j] != 0) return dp[i][j];
         int res = Integer.MAX_VALUE;
@@ -106,5 +107,9 @@ so to guarantee you have enough money to find the target, you need to prepare th
             }
         }
         return dp[1][n];
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(getMoneyAmount(10));
     }
 }
