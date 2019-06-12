@@ -28,6 +28,11 @@ public class IntegertoEnglishWords {
     
     //the trick needs to be remembered
     //example, 12345->"Twelve Thousand Three Hundred Forty Five"
+    //Twelve|  Thousand | Three | Hundred | Forty | Five
+    
+    //first we break the number by 1000, then we will have above 1000 and below 1000 part
+    //why we "" at first because if it is 20 like, it is less than 1000, so we should not follow 
+    //thousands, so we use "" to skip it
     static String[] less20={"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", 
             "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", 
             "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
@@ -47,6 +52,7 @@ public class IntegertoEnglishWords {
             num /= 1000;
             i++;
         }
+        //do not forget trim(), we need to remove some spaces we added in coding
         return res.trim();
     }
     public static String helper(int num) {
