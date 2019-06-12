@@ -1,6 +1,6 @@
 package hatecode;
 
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
 
 /**
@@ -175,4 +175,107 @@ Note for the right side we have to clone the nodes as the value will be offsette
         }
         return list;
     }
+    
+    /*
+     * from google interview doc,  not from LC
+     * 
+     * generate a random tree, value from 1->N
+     * 
+     */
+    class TreeNodeV2 {
+        int            val;
+        List<TreeNodeV2> children;
+
+        public TreeNodeV2(int x) {
+            val = x;
+            children = new ArrayList<>();
+        }
+    }
+    //O(n^2)
+    public TreeNodeV2 getTree(int N) {
+        if (N == 0)
+            return null;
+        List<TreeNodeV2> pool = new ArrayList<>();
+        for (int i = 0; i < N; i++) pool.add(new TreeNodeV2(i));
+
+        List<TreeNodeV2> tree = new ArrayList<>();
+        Random rand = new Random();
+        while (pool.size() > 0) {
+            int idx = rand.nextInt(pool.size());
+            TreeNodeV2 curr = pool.get(idx);
+            if (tree.size() == 0) {
+                tree.add(curr);
+                pool.remove(idx);
+            } else {
+                int parent = rand.nextInt(tree.size());
+                tree.get(parent).children.add(curr);
+                tree.add(curr);
+                pool.remove(idx);
+            }
+        }
+        return tree.get(0);
+    }
+    //follow up: 构造一棵无根的label tree
+    public Map<Integer, List<Integer>> getRandomTree(int n) {
+        if (n <= 2) {
+            Map<Integer, List<Integer>> tree = new HashMap<>();
+            for (int i = 0; i < n; i++) {
+                tree.put(i, new ArrayList<>());
+            }
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (i != j) {
+                        tree.get(i).add(j);
+                        tree.get(j).add(i);
+                    }
+                }
+            }
+            return tree;
+        }
+        int[] prufer = new int[n - 2];
+        Random rand = new Random();
+        for (int i = 0; i < prufer.length; i++) {
+            prufer[i] = rand.nextInt(n);
+        }
+        return getTree(prufer);
+    }
+
+    public Map<Integer, List<Integer>> getTree(int[] prufer) {
+        int n = prufer.length + 2;
+        Map<Integer, List<Integer>> tree = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            tree.put(i, new ArrayList<>());
+        }
+        int[] vertices = new int[n];
+        for (int x : prufer) {
+            vertices[x]++;
+        }
+        for (int i = 0; i < prufer.length; i++) {
+            for (int j = 0; j < vertices.length; j++) {
+                if (vertices[j] == 0) {
+                    // connect j <--> prufer[i]
+                    tree.get(j).add(prufer[i]);
+                    tree.get(prufer[i]).add(j);
+                    vertices[j] = -1; // delete from vertex set
+                    vertices[prufer[i]]--; // delete from prufer set
+                    break;
+                }
+            }
+        }
+        // connect the last two vertex with vertices[i] == 0
+        Integer first = null;
+        for (int i = 0; i < vertices.length; i++) {
+            if (vertices[i] == 0) {
+                if (first == null)
+                    first = i;
+                else {
+                    tree.get(first).add(i);
+                    tree.get(i).add(first);
+                    break;
+                }
+            }
+        }
+        return tree;
+    }
+
 }

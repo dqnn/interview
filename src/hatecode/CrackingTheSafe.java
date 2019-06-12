@@ -53,17 +53,16 @@ public class CrackingTheSafe {
      public static String crackSafe2(int n, int k) {
         if (n < 1 || k < 1) return "";
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < n; i++) {
-            result.append("0");
-        }
+        for (int i = 0; i < n; i++)  result.append("0");
+
         Set<String> visited = new HashSet<>();
         visited.add(result.toString());
-        crackSafeFrom(result, n, k, (int) Math.pow(k, n), visited);
+        helper(result, n, k, (int) Math.pow(k, n), visited);
 
         return result.toString();
     }
     //n is total length, k is digits pool
-    private static boolean crackSafeFrom(StringBuilder result, int n, int k, 
+    private static boolean helper(StringBuilder result, int n, int k, 
             int total, Set<String> visited) {
         //the only way to guarantee we can unlock the case is that we tried every
         //combinations
@@ -83,7 +82,7 @@ public class CrackingTheSafe {
                 result.append(c);
                 visited.add(curNode + c);
                 //note here n is total digits
-                if (crackSafeFrom(result, n, k, total, visited)) {
+                if (helper(result, n, k, total, visited)) {
                     return true;
                 }
                 result.deleteCharAt(result.length() - 1);
