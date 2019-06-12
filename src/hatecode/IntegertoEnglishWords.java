@@ -27,6 +27,7 @@ public class IntegertoEnglishWords {
     //thousand is the threshold, it setup 3 arrays to form the low level things
     
     //the trick needs to be remembered
+    //example, 12345->"Twelve Thousand Three Hundred Forty Five"
     static String[] less20={"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", 
             "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", 
             "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
@@ -51,6 +52,7 @@ public class IntegertoEnglishWords {
     public static String helper(int num) {
         if (num == 0) return "";
         if (num < 20) {
+            //leave a space for concatting
             return less20[num % 20] + " ";
         } else if (num < 100) {
             return tens[num / 10] + " " + helper(num % 10);
