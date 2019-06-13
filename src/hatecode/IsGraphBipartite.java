@@ -42,7 +42,9 @@ We cannot find a way to divide the set of nodes into two independent subsets.
     //thinking process: 
     //the problem is to say, given a graph, find two set of nodes, which they did not have any intersections
     
-    //the problem is to mark visited nodes, it they directed connected mark as 
+    //the problem is to mark visited nodes, 
+    //when we visit current node, we mark the i as 1
+    //then it is connected directed nodes, it they previously visited before, we mark 
     public boolean isBipartite(int[][] g) {
         if (g == null || g.length < 1) {
             return true;
@@ -62,16 +64,16 @@ We cannot find a way to divide the set of nodes into two independent subsets.
                 //
                 while(!q.isEmpty()) {
                     int current = q.poll();
-                    for(int c: g[current]){
+                    for(int next: g[current]){
                         //here means c and current may not know, if they know we should move 
                         // c to another box as 2
-                        if (visited[c] == 0) {
-                            visited[c] = (visited[current] == 1) ? 2 : 1;
-                            q.offer(c);
+                        if (visited[next] == 0) {
+                            visited[next] = (visited[current] == 1) ? 2 : 1;
+                            q.offer(next);
                         } else {
                             // here means c and current in one box and are connected. find cone 
                             //conflicts
-                            if (visited[c] == visited[current]) return false;
+                            if (visited[next] == visited[current]) return false;
                         }
                     }
                 }
