@@ -56,7 +56,7 @@ public class ExpressionAddOperators {
     // num is the original number, string
     // target is the target value
     //pos is current index when recursive functionality happens, 
-    //val is current total integer results 
+    //val is current total integer results from 0 to pos
     // pre is previous integer number when we parse the string num, 
     //not eval number, must be with signed
     private void helper(List<String> res, String path, String num, int target, int pos, long val, long pre) {
@@ -71,7 +71,13 @@ public class ExpressionAddOperators {
         for(int i = pos; i < num.length(); i++) {
             // if pos starts as 0 which means we don't need to process this position 0,
             //and from whole context perspective, this means for that position, the helper() function 
-            //did not run.
+            //did not run
+            //and we cannot remove i != pos, "105"->1*0 + 5 or 10-5, if we remove i != pos, then we can only
+            //have 10-5, i!=pos means we cannot make 0 as first character as integer
+            
+            //another point, can we remove whole line? 
+            //if we remove whole line, "105"->1*0 + 5,  10-5 and 1 * 5, we have a new result 1* 5, but we miss 
+            //0 because 
             if (i != pos && num.charAt(pos) == '0') break;
             // note the starting is pos, so 123 will be calculated by here
             long cur = Long.valueOf(num.substring(pos, i+1));
