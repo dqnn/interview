@@ -116,10 +116,7 @@ read("abc", 1); // returns ""
     //process is the same as above
     int cnt = 0;
     public int read_2(char[] buf, int n) {
-        if (buf == null || buf.length < 1 || n < 1) {
-            return 0;
-        }
-        
+        if (buf == null || buf.length < 1 || n < 1) return 0;
         
         int index = 0;
         while(index < n) {
