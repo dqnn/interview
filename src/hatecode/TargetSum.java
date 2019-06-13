@@ -65,11 +65,11 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
         
         return calculate(nums, 0, 0, target, memo);
     }
-
+    //top-down solution, 
+    //so when we 
     public int calculate(int[] nums, int i, int curSum, int target, int[][] memo) {
-        if (i == nums.length) {
-            return curSum == target ? 1 : 0;
-        }
+        if (i == nums.length) return curSum == target ? 1 : 0;
+
         if (memo[i][curSum + 1000] != Integer.MIN_VALUE) {
             return memo[i][curSum + 1000];
         }
