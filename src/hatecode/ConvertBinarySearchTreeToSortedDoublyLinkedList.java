@@ -53,6 +53,7 @@ dashed line means the predecessor relationship.
         return dummy.right;
     }
     //we use inOrder visit so the access order is the order of the sorted double link list
+    //we did not use return value in recursive functions
     private void helper(Node node) {
         if (node == null) return;
         helper(node.left);
