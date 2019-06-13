@@ -49,7 +49,7 @@ public class ShortestDistancefromAllBuildings {
     //thinking process:
     
     //the problem is to say we want to know the shortest distance in a given 2D matrix, 
-    // to all buildings, 0 is empty, 1 is building cannot pass and 2 is obstacle. 
+    // to all buildings 1, 0 is empty, 1 is building cannot pass and 2 is obstacle. 
     
     //we start from each 1 building, we use nums to store when cell = 0, what's the building
     //number it could reach. dist is used to store the distance from 1 cell. 
