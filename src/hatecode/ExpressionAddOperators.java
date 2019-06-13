@@ -41,7 +41,8 @@ public class ExpressionAddOperators {
      * @return
      */
 
-    // pic to demonstrate how code process: 
+    // pic to demonstrate how code process
+    //interview friendly: 
     public List<String> addOperators(String num, int target) {
         List<String> res = new ArrayList<>();
         if (num == null || num.length() < 1) {
@@ -67,7 +68,9 @@ public class ExpressionAddOperators {
         // this is permutation templates, for loop visit each position which we can 
         // use for + - * or space to form integer or binary expressions
         for(int i = pos; i < num.length(); i++) {
-            // if pos starts as 0 which means we don't need to process this position 0
+            // if pos starts as 0 which means we don't need to process this position 0,
+            //and from whole context perspective, this means for that position, the helper() function 
+            //did not run.
             if (i != pos && num.charAt(pos) == '0') break;
             // note the starting is pos, so 123 will be calculated by here
             long cur = Long.valueOf(num.substring(pos, i+1));
