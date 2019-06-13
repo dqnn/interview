@@ -84,6 +84,7 @@ public class MinimumWindowSubstring {
                 if(map.containsKey(lc)) {
                     map.put(lc, map.getOrDefault(lc, 0) + 1);
                     //the character we removed is what we need
+                    //because this is in while(count == 0), which means lc must be new
                     if(map.get(lc) > 0) count++;
                 }
                 //this part is where we add our customerlize code

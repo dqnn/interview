@@ -95,12 +95,16 @@ https://leetcode.com/problems/find-all-anagrams-in-a-string/
             //increase begin pointer to make it invalid/valid again
             /* counter condition. different question may have different condition */
             //we only move left when counter ==0 because we have to move l
+            //we need to remove one char from left, so count should increase and map should increase
+            //
             while(counter == 0 ){
               //***be careful here: choose the char at begin pointer, NOT the end pointer
-                char tempc = s.charAt(l);
-                if(map.containsKey(tempc)){
-                    map.put(tempc, map.get(tempc) + 1);//plus or minus one
-                    if(map.get(tempc) > 0) counter++;//modify the counter according the requirement(different condition).
+                char lc = s.charAt(l);
+                if(map.containsKey(lc)){
+                    map.put(lc, map.get(lc) + 1);//plus or minus one
+                  //modify the counter according the requirement(different condition).
+                  //because this is in while(count == 0), which means lc must be new
+                    if(map.get(lc) > 0) counter++;
                 }
                 
                 /* save / update(min/max) the result if find a target*/
