@@ -51,6 +51,11 @@ public class FindAllAnagramsinaString {
         // we change change to templates which use two while and get the answer, 
     //but here is more elegant version,
      //this is pretty good TP code questions
+    
+    //How we move l and r
+    //1.first in while(r < len)
+    //2. we move r every time in while loop, 
+    //3. we only move l to right when the substring length = p.length(), 
         public List<Integer> findAnagrams(String s, String p) {
             List<Integer> res = new ArrayList<>();
             //edge case
