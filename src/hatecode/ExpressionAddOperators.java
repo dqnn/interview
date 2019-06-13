@@ -52,12 +52,13 @@ public class ExpressionAddOperators {
         helper(res, "", num, target, 0, 0, 0);
         return res;
     }
-     // path: str needed to be in reset set
+     // path: str needed to be in res set
     // num is the original number, string
     // target is the target value
     //pos is current index when recursive functionality happens, 
-    //val is curent total expressions 
-    // pre is previous integer number, not eval number, must be with signed
+    //val is current total integer results 
+    // pre is previous integer number when we parse the string num, 
+    //not eval number, must be with signed
     private void helper(List<String> res, String path, String num, int target, int pos, long val, long pre) {
         if (pos == num.length()) {
             if (target == val) {
