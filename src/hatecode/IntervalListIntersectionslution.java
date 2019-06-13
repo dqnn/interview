@@ -15,7 +15,7 @@ public class IntervalListIntersectionslution {
      */
     
     //thinking process: 
-    
+    //
     public Interval[] intervalIntersection_Standard(Interval[] A, Interval[] B) {
         if (A == null || A.length == 0 || B == null || B.length == 0) {
             return new Interval[] {};
