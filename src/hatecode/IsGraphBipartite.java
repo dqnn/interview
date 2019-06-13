@@ -42,6 +42,7 @@ We cannot find a way to divide the set of nodes into two independent subsets.
     //thinking process: 
     //the problem is to say, given a graph, find two set of nodes, which they did not have any intersections
     
+    //
     public boolean isBipartite(int[][] g) {
         if (g == null || g.length < 1) {
             return true;
