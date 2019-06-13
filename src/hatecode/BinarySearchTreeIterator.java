@@ -42,15 +42,14 @@ public class BinarySearchTreeIterator {
     /** @return the next smallest number */
     // we use Stack to store all left nodes and we use current to store the current
     // node
-    //
+    //this piece is from inOrder visit
     public int next() {
         while (cur != null) {
             stack.push(cur);
             cur = cur.left;
         }
-        cur = stack.pop();
-        int val = cur.val;
-        cur = cur.right; // set to right because
-        return val;
+        TreeNode next = stack.pop();
+        cur = next.right;
+        return next.val;
     }
 }
