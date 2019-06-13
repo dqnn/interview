@@ -110,7 +110,7 @@ public class MinimumWindowSubstring {
                     d = end - begin;
                     head = begin;
                 }
-                if (map[s.charAt(begin)] == 0) count++;
+                if (map[s.charAt(begin)] == 0)count++;
                 map[s.charAt(begin)]++;
                 begin++;
             }

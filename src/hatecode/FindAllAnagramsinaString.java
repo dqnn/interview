@@ -1,6 +1,6 @@
 package hatecode;
 
-import java.util.ArrayList;
+import java.util.*;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -51,94 +51,56 @@ public class FindAllAnagramsinaString {
         // we change change to templates which use two while and get the answer, 
     //but here is more elegant version,
      //this is pretty good TP code questions
-    
-    //How we move l and r
-    //1.first in while(r < len)
-    //2. we move r every time in while loop, 
-    //3. we only move l to right when the substring length = p.length(), 
-        public List<Integer> findAnagrams(String s, String p) {
-            List<Integer> res = new ArrayList<>();
-            //edge case
-            if (s == null || p == null || s.length() < 1 || p.length() < 1 || s.length() < p.length()) {
-                return res;
-            }
+    //TP templates
+    public List<Integer> findAnagrams(String s, String t) {
+        //init a collection or int value to save the result according the question.
+        List<Integer> res = new ArrayList<>();
+        if(t.length()> s.length()) return res;
+        
+        //create a hashmap to save the Characters of the target substring.
+        //(K, V) = (Character, Frequence of the Characters)
+        Map<Character, Integer> map = new HashMap<>();
+        for(char c : t.toCharArray()){
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+        //maintain a counter to check whether match the target string.
+        int counter = map.size();//must be the map size, NOT the string size because the char may be duplicate.
+        
+        //Two Pointers: begin - left pointer of the window; end - right pointer of the window
+        int l = 0, r = 0;
+        
+        //the length of the substring which match the target string.
+        int len = Integer.MAX_VALUE; 
+        
+        //loop at the begining of the source string
+        while(r < s.length()){
             
-            int[] visited = new int[26];
-            for(char ch : p.toCharArray()) {
-                visited[ch - 'a'] ++;
+            char c = s.charAt(r);//get a character
+            
+            if( map.containsKey(c) ){
+                map.put(c, map.get(c)-1);// plus or minus one
+                if(map.get(c) == 0) counter--;//modify the counter according the requirement(different condition).
             }
-            int l = 0, r = 0;
-            int count = p.length();
-            while(r < s.length()) {
-                // end here means idx = p.length() + 1 position,  
-                // s: "cbaebabacd" p: "abc",
-                // 0-3, end -> e but we need to move the window to right, 
-                // so start->a, this element must be removed from the window, the count here means how many elements are not the same,
-                // so count has been count++, because we find this element in p and will be removed from the window.  
+            r++;
+            
+            //increase begin pointer to make it invalid/valid again
+            while(counter == 0 /* counter condition. different question may have different condition */){
                 
-                if (r - l == p.length()) {
-                    if (visited[s.charAt(l) - 'a'] >= 0) {
-                        count++;
-                    }
-                    //we need remove the side effect from removing start-> a in the moving window. 
-                    //visited array need to ++1 no matter p contains it or not because we have done to start->a, so visited needs to be reset for this index
-                    visited[s.charAt(l) - 'a']++;
-                    //last start needs ++, becasue  start move to next element
-                    l++;   
+                char tempc = s.charAt(l);//***be careful here: choose the char at begin pointer, NOT the end pointer
+                if(map.containsKey(tempc)){
+                    map.put(tempc, map.get(tempc) + 1);//plus or minus one
+                    if(map.get(tempc) > 0) counter++;//modify the counter according the requirement(different condition).
                 }
-                // count -- because we find the element in P, and so diff has to decrease 1
-                if (visited[s.charAt(r++) - 'a']-- >= 1) {//if (--visited[s.charAt(end++) - 'a']-- >= 0) also works
-                    count--;
-                }
-                if (count == 0) {
+                
+                /* save / update(min/max) the result if find a target*/
+                // result collections or result int value
+                if(r-l == t.length()){
                     res.add(l);
                 }
-            }
-        
-            return res;
-        }
-    
-    //another TLE solution
-    public List<Integer> findAnagrams2(String s, String p) {
-        List<Integer> res = new ArrayList<>();
-        if (s == null || p == null || s.length() < 1 || p.length() < 1 || p.length() > s.length()) {
-            return res;
-        }
-        int idx = 0;
-        Set<Integer> set = new HashSet<>();
-        for(int i = 0; i < p.length(); i++) {
-            char ch = p.charAt(i);
-            idx = s.indexOf(ch, idx);
-            
-            while(idx > -1) {
-                if (isSame(s, p, idx)) {
-                    set.add(idx);
-                }
-                idx = s.indexOf(ch, idx + 1);
+                
+                l++;
             }
         }
-        res.addAll(set);
         return res;
-    }
-    
-    private boolean isSame(String s, String t, int start) {
-        if (start + t.length() > s.length()) {
-            return false;
-        }
- 
-        List<String> list = new ArrayList<>();
-        for(int i =0; i < t.length(); i++) {
-            list.add(String.valueOf(t.charAt(i)));
-        }
-        
-        for(int i = start; i < start + t.length(); i++) {
-            String x = s.substring(i, i+1);
-            if (list.indexOf(x) == -1) {
-                return false;
-            } else {
-                list.remove(x);
-            }
-        }
-        return true;
     }
  }
