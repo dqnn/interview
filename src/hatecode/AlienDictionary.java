@@ -78,7 +78,6 @@ public class AlienDictionary {
     //and we have a degree to store each node in degree, like above f indegree + 1
     
     public static String alienOrder(String[] words) {
-
         if (words == null || words.length == 0) return "";
         //store each character next characters, we use set to avoid dup
         HashMap<Character, Set<Character>> map = new HashMap<>();
