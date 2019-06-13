@@ -44,7 +44,10 @@ We cannot find a way to divide the set of nodes into two independent subsets.
     
     //the problem is to mark visited nodes, 
     //when we visit current node, we mark the i as 1
-    //then it is connected directed nodes, it they previously visited before, we mark 
+    //we start from each node i, if they already visited, then we skip, 
+    //so basically it means if they are connected, we put them into different boxes, i is in 1, so its 
+    //next is in box 2, so if i can want to mark one node into 2 boxes, then we have a conflct, then we 
+    // need to fix that
     public boolean isBipartite(int[][] g) {
         if (g == null || g.length < 1) {
             return true;
