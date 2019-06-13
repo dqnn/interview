@@ -60,6 +60,8 @@ public class BinaryTreeMaximumPathSum {
         int left = Math.max(0, helper(root.left));
         int right = Math.max(0, helper(root.right));
         res = Math.max(res, left + right + root.val);
+        //for a root node return value, we we only consider one branch + root, because another possible
+        //result always filered in above line code
         return Math.max(left, right) + root.val;
     }
 
