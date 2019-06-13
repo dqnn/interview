@@ -105,6 +105,7 @@ https://leetcode.com/problems/find-all-anagrams-in-a-string/
                 
                 /* save / update(min/max) the result if find a target*/
                 // result collections or result int value
+                //although we saved unique character but still we use length, so it is fine
                 if(r-l == t.length()){
                     res.add(l);
                 }
