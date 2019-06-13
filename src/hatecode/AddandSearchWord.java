@@ -1,5 +1,6 @@
 package hatecode;
 
+import java.util.*;
 /**
  * Project Name : Leetcode 
  * Package Name : leetcode 
@@ -8,18 +9,6 @@ package hatecode;
  * Date : Sep, 2018 
  * Description : TODO
  */
-class TrieNode {
-
-    TrieNode[] children;
-    boolean isWord;
-    String word;
-
-    public TrieNode() {
-        children = new TrieNode[26];
-        isWord = false;
-        word = "";
-    }
-}
 public class AddandSearchWord {
     /**
      * 211. Add and Search Word - Data structure design
@@ -41,46 +30,61 @@ public class AddandSearchWord {
      search("b..") -> true
 
      */
-    private TrieNode root;
-
-
     /** Initialize your data structure here. */
-    public AddandSearchWord() {
-        root = new TrieNode();
-    }
-
-    /** Adds a word into the data structure. */
-    // time : O(n)  n: word.length();
-    // O(num of TrieNode * 26) = O(num of Words * word.length() * 26)
-    public void addWord(String word) {
-        TrieNode node = root;
-        for (int i = 0; i < word.length(); i++) {
-            int j = word.charAt(i) - 'a';
-            if (node.children[j] == null) {
-                node.children[j] = new TrieNode();
-            }
-            node = node.children[j];
+    //this is better DS,because we did not waste any mem as use a map instead char[26]
+    private class Trie{
+        char c;
+        Map<Character, Trie> map;
+        boolean isWord;
+        String word;
+        public Trie() {
+            this.map = new HashMap<>();
+            this.isWord = false;
+            this.word= "";
         }
-        node.isWord = true;
-        node.word = word;
     }
-
+    
+    Trie root;
+    public AddandSearchWord() {
+        this.root = new Trie();
+    }
+    
+    /** Adds a word into the data structure. */
+    public void addWord(String word) {
+        if(word == null || word.length() < 1) return;
+        
+        Trie cur = root;
+        for(char ch: word.toCharArray()) {
+            if(!cur.map.containsKey(ch)) {
+                cur.map.put(ch, new Trie());
+            }
+            cur = cur.map.get(ch);
+        }
+        cur.isWord = true;
+        cur.word = word;
+    }
+    
     /** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
+    //better
     public boolean search(String word) {
-        return find(word, root, 0);
+        if(word == null || word.length() < 1) return false;
+        
+        return helper(word, root, 0);
     }
-
-    public boolean find(String word, TrieNode node, int index) {
-        if (index == word.length()) return node.isWord;//!node.word.equals("");
-        if (word.charAt(index) == '.') {
-            for (TrieNode temp : node.children) {
-                if (temp != null && find(word, temp, index + 1)) return true;
+    
+    private boolean helper(String w, Trie root, int pos) {
+        if(pos == w.length()) return root.isWord;
+        
+        char cur = w.charAt(pos);
+        if(cur == '.') {
+            for(Trie node:  root.map.values()) {
+                if(node == null) continue;
+                if (helper(w, node, pos+1)) return true;
             }
             return false;
         } else {
-            int j = word.charAt(index) - 'a';
-            TrieNode temp = node.children[j];
-            return temp != null && find(word, temp, index + 1);
+            if(root.map.get(cur) == null) return false;
+            else return helper(w, root.map.get(cur), pos+1);
         }
     }
 }
