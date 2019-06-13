@@ -62,7 +62,9 @@ public class ShortestDistancefromAllBuildings {
     
     //as for bfs, we use a queue to store the elements around the elements
     //and each time, we use a visits array to store visited elments in bfs arrays. 
-    //
+    
+    //one point: 296. Best Meeting Point, because there are obstacles and building we cannot pass,so
+    //we cannot use manhantan distance to quickly get the results
     public int shortestDistance(int[][] grid) {
         if (grid == null || grid.length == 0) return -1;
         int m = grid.length;
