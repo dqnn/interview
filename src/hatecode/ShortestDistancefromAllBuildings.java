@@ -71,13 +71,14 @@ public class ShortestDistancefromAllBuildings {
         int n = grid[0].length;
         //dist store the distance to nearest 1 elements
         int[][] dist = new int[m][n];
-        //nums store the building numbers
+        //nums store the building numbers, which means how many buildings can reach this cell
         int[][] nums = new int[m][n];
         int buildingNum = 0;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == 1) {
                     buildingNum++;
+                    //we start from this point, 
                     bfs(grid, i, j, dist, nums);
                 }
             }
@@ -132,7 +133,8 @@ public class ShortestDistancefromAllBuildings {
      * @param dist
      * @param nums
      */
-
+    //the reason why we need a bfs function because we have to start each cell in matrix and 
+    //update the nums
     private void bfs(int[][] grid, int row, int col, int[][] dist, int[][] nums) {
         int m = grid.length;
         int n = grid[0].length;
