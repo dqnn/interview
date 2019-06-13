@@ -36,7 +36,9 @@ as extra space for the purpose of space complexity analysis.)
     //then second scan, we multiple the right part.
     public int[] productExceptSelf(int[] nums) {
         if (nums == null || nums.length == 0) return nums;
+        //res[i] = A[i-1]*...* A[0], res[0] = 1, res[1] = res[0] * A[1-1] 
         int[] res = new int[nums.length];
+        
         res[0] = 1;
         for (int i = 1; i < nums.length; i++) {
             res[i] = res[i - 1] * nums[i - 1];
@@ -44,6 +46,7 @@ as extra space for the purpose of space complexity analysis.)
         int right = 1;
         //[1,2,3,4]-> [1, 1, 2, 6],so here we did not change last number, 
         //from len -2, we can see ,right = nums[i+1]...nums[len - 1]
+        //right = all product from i + 1->len
         for (int i = nums.length - 1; i >= 0; i--) {
             res[i] *= right;
             right *= nums[i];
