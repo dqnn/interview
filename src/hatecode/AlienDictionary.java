@@ -77,6 +77,10 @@ public class AlienDictionary {
     
     //and we have a degree to store each node in degree, like above f indegree + 1
     
+    //this problems shows how to leverage degree in graph, also it showed
+    //1. how to build graph using map
+    //2. how to use indegree to indicate there are roots node
+    //3. toplogic sort by PQ
     public static String alienOrder(String[] words) {
         if (words == null || words.length == 0) return "";
         //store each character next characters, we use set to avoid dup
