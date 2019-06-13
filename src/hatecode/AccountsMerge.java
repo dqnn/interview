@@ -75,16 +75,16 @@ be accepted.
             }
         }
 
-        Map<Integer, List<String>> ans = new HashMap();
+        Map<Integer, List<String>> ans = new HashMap<>();
         for (String email: emailToName.keySet()) {
             int index = dsu.find(emailToID.get(email));
-            ans.computeIfAbsent(index, x-> new ArrayList()).add(email);
+            ans.computeIfAbsent(index, x-> new ArrayList<>()).add(email);
         }
         for (List<String> component: ans.values()) {
             Collections.sort(component);
             component.add(0, emailToName.get(component.get(0)));
         }
-        return new ArrayList(ans.values());
+        return new ArrayList<>(ans.values());
     }
 class Unionhelper {
     int[] parent;
