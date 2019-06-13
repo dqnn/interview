@@ -36,6 +36,26 @@ public class ValidPalindrome {
     //and if right not, we can right--.
     //so we compare each character if they are not equals, we return false, if true, we continue
     //at last, left++ and right--;
+    //simplifed version, but they are the same, note if we want to use while we need to add 
+    //while(l < r)
+    public boolean isPalindrome_simplifed(String s) {
+        if (s == null || s.length() < 1) return true;
+        int l = 0, r = s.length() -1;
+        while(l < r) {
+            if (!Character.isLetterOrDigit(s.charAt(l))) {
+                l++;
+                continue;
+            }
+            if (!Character.isLetterOrDigit(s.charAt(r))) {
+                r--;
+                continue;
+            }
+            if (Character.toLowerCase(s.charAt(l++)) != Character.toLowerCase(s.charAt(r--))) return false;
+        }
+        return true;
+    }
+    
+    
     public static boolean isPalindrome(String s) {
         if (s == null || s.length() == 0) return true;
         int left = 0;
