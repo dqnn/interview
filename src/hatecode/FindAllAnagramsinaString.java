@@ -61,31 +61,31 @@ public class FindAllAnagramsinaString {
             for(char ch : p.toCharArray()) {
                 visited[ch - 'a'] ++;
             }
-            int start = 0, end = 0;
+            int l = 0, r = 0;
             int count = p.length();
-            while(end < s.length()) {
+            while(r < s.length()) {
                 // end here means idx = p.length() + 1 position,  
                 // s: "cbaebabacd" p: "abc",
                 // 0-3, end -> e but we need to move the window to right, 
                 // so start->a, this element must be removed from the window, the count here means how many elements are not the same,
                 // so count has been count++, because we find this element in p and will be removed from the window.  
                 
-                if (end - start == p.length()) {
-                    if (visited[s.charAt(start) - 'a'] >= 0) {
+                if (r - l == p.length()) {
+                    if (visited[s.charAt(l) - 'a'] >= 0) {
                         count++;
                     }
                     //we need remove the side effect from removing start-> a in the moving window. 
                     //visited array need to ++1 no matter p contains it or not because we have done to start->a, so visited needs to be reset for this index
-                    visited[s.charAt(start) - 'a']++;
+                    visited[s.charAt(l) - 'a']++;
                     //last start needs ++, becasue  start move to next element
-                    start++;   
+                    l++;   
                 }
                 // count -- because we find the element in P, and so diff has to decrease 1
-                if (visited[s.charAt(end++) - 'a']-- >= 1) {//if (--visited[s.charAt(end++) - 'a']-- >= 0) also works
+                if (visited[s.charAt(r++) - 'a']-- >= 1) {//if (--visited[s.charAt(end++) - 'a']-- >= 0) also works
                     count--;
                 }
                 if (count == 0) {
-                    res.add(start);
+                    res.add(l);
                 }
             }
         
