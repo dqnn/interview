@@ -89,6 +89,7 @@ public class AlienDictionary {
         int[] degree = new int[26];
         int count = 0;
         //save all possible roots, here if it already showed up then continue;
+        //every node has at least 1 degree, let's say
         for (String word : words) {
             for (char c : word.toCharArray()) {
                 //we only +1 for each char, initialized as 1 for all words
@@ -102,7 +103,10 @@ public class AlienDictionary {
         //this finally will process: w->e->r->t->f. plus line 92, f in degree = 2
         //[wrt, wrf, er, ett, rftt]- > compare wrt, wrf, w->{r, f}, r->{w, f}, 
         //wrf->er, w->{r,f,e}, r->{w,f,e},f->{e, r}, and we update all 
-        // possible paths to previous to next word
+        // possible paths to previous to next word,
+        //the order of the words showed the character order,we extract all possible info into the maps
+        //and degree, the map only will save from previous character to next different ones. it will only
+        //contains part of all characters
         for (int i = 0; i < words.length - 1; i++) {
             char[] cur = words[i].toCharArray();
             char[] next = words[i + 1].toCharArray();
@@ -116,6 +120,9 @@ public class AlienDictionary {
                     if (map.get(cur[j]).add(next[j])) {
                         degree[next[j] - 'a']++;
                     }
+                    //we need break here because in a string compare program, if we already find a 
+                    //different character, that will decide its order, the character after this will be 
+                    //no impact on the order, like abc, baa, a should be before b, so even it has a after, no use
                     break;
                 }
             }
