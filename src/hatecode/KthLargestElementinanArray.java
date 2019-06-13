@@ -48,9 +48,11 @@ Now let's briefly write down the algorithm before writing our codes.
         int left = 0;
         int right = nums.length - 1;
         while (true) {
+            //it retutned the index which left are bigger and right are smallers
             int pos = partition(nums, left, right);
             if (pos + 1 == k) {
                 return nums[pos];
+            //means left we have too many bigger numbers,then we move sort upper bound to smaller 
             } else if (pos + 1 > k) {
                 right = pos - 1;
             } else {
