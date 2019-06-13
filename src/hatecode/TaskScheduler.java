@@ -65,11 +65,14 @@ class TaskScheduler {
         }
         //n + 1 positions for count - 1 units,  
         int res = (n + 1) * (count - 1);
+        //because if we have other characters have same count, it has be outside count-1, so we need to add
+        //them as 1 more position
         for(int temp : cnt) {
             if (temp == count) {
                 res +=1;
             }
         }
+        //this is for AAABCDEFG case
         return Math.max(tasks.length, res);
     }
     
