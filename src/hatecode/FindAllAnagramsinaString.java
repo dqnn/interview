@@ -81,7 +81,7 @@ https://leetcode.com/problems/find-all-anagrams-in-a-string/
         //the length of the substring which match the target string.
         int len = Integer.MAX_VALUE; 
         
-        //loop at the begining of the source string
+        //loop at the begining of the source string, default we always move r to right
         while(r < s.length()){
             
             char c = s.charAt(r);//get a character
@@ -93,9 +93,11 @@ https://leetcode.com/problems/find-all-anagrams-in-a-string/
             r++;
             
             //increase begin pointer to make it invalid/valid again
-            while(counter == 0 /* counter condition. different question may have different condition */){
-                
-                char tempc = s.charAt(l);//***be careful here: choose the char at begin pointer, NOT the end pointer
+            /* counter condition. different question may have different condition */
+            //we only move left when counter ==0 because we have to move l
+            while(counter == 0 ){
+              //***be careful here: choose the char at begin pointer, NOT the end pointer
+                char tempc = s.charAt(l);
                 if(map.containsKey(tempc)){
                     map.put(tempc, map.get(tempc) + 1);//plus or minus one
                     if(map.get(tempc) > 0) counter++;//modify the counter according the requirement(different condition).
@@ -106,7 +108,6 @@ https://leetcode.com/problems/find-all-anagrams-in-a-string/
                 if(r-l == t.length()){
                     res.add(l);
                 }
-                
                 l++;
             }
         }

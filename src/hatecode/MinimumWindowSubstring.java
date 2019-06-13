@@ -1,5 +1,6 @@
 package hatecode;
 
+import java.util.*;
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
@@ -57,37 +58,41 @@ public class MinimumWindowSubstring {
      * @return
      */
     //thinking process: this is the same as 438. Find All Anagrams in a String 
-    //
+    //best templates, all TP should use this
     public static String minWindow(String s, String t) {
-        if (s == null || t == null) {
-            return null;
-        }
-        int[] cnt = new int[128];
-        for (char c : t.toCharArray()) {
-            cnt[c]++;
-        }
-        int from = 0;
-        int total = t.length();
-        int min = Integer.MAX_VALUE;
-        //templates for all susbstirngs
-        for (int r = 0, l = 0; r < s.length(); r++) {
-            //if we found one in map, so we reduce --
-            if (cnt[s.charAt(r)]-- > 0) total--;
-            // s if totally == 0 so means we find all chars
-            // this while mainly focus on moving j
-            while (total == 0) {
-                // the length, form i->j
-                if (r - l + 1 < min) {
-                    min = r - l + 1;
-                    from = l;
+        if(s == null && t == null) return "";
+        if(s == null || t == null) return "";
+        
+        Map<Character, Integer> map = new HashMap<>();
+        for(char c: t.toCharArray()) map.put(c, map.getOrDefault(c,0) + 1);
+        //unique distinct character
+        int count = map.size();
+        int l =0, r =0;
+        int len = Integer.MAX_VALUE;
+        String res = "";
+        while(r < s.length()) {
+            char c = s.charAt(r);
+            if(map.containsKey(c)) {
+                map.put(c, map.getOrDefault(c, 0) - 1);
+                if(map.get(c) == 0) count--;
+            }
+            r++;
+            //only move left when condition satisfied
+            while(count == 0) {
+                char lc = s.charAt(l);
+                if(map.containsKey(lc)) {
+                    map.put(lc, map.getOrDefault(lc, 0) + 1);
+                    if(map.get(lc) > 0) count++;
                 }
-                // so if we move j to next position to whether we can find one char in the array 
-                // so we have move from beginning to end, like i to end, so we can get overall shortest one
-                if (++cnt[s.charAt(l++)] > 0) total++;
+                
+                if(r -l < len) {
+                    len = r-l;
+                    res = s.substring(l, r);
+                }
+                l++;
             }
         }
-        // this means there is no such chars in S so we can return ""
-        return (min == Integer.MAX_VALUE) ? "" : s.substring(from, from + min);
+        return res;
     }
     
     //this is template code for all substring ,sub array, and related sliding window questions
