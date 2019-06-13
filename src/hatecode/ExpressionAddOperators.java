@@ -43,7 +43,7 @@ public class ExpressionAddOperators {
 
     // pic to demonstrate how code process
     //interview friendly: 
-    public List<String> addOperators(String num, int target) {
+    public static List<String> addOperators(String num, int target) {
         List<String> res = new ArrayList<>();
         if (num == null || num.length() < 1) {
             return res;
@@ -57,9 +57,9 @@ public class ExpressionAddOperators {
     // target is the target value
     //pos is current index when recursive functionality happens, 
     //val is current total integer results from 0 to pos
-    // pre is previous integer number when we parse the string num, 
-    //not eval number, must be with signed
-    private void helper(List<String> res, String path, String num, int target, int pos, long val, long pre) {
+    // pre is previous integer result when we parse the string num, 
+    //not eval number, must be with signed, for example, 1+2, 2 is pre number, 1+2*3, pre = 6
+    private static void helper(List<String> res, String path, String num, int target, int pos, long val, long pre) {
         if (pos == num.length()) {
             if (target == val) {
                 res.add(path);
@@ -69,18 +69,14 @@ public class ExpressionAddOperators {
         // this is permutation templates, for loop visit each position which we can 
         // use for + - * or space to form integer or binary expressions
         for(int i = pos; i < num.length(); i++) {
-            // if pos starts as 0 which means we don't need to process this position 0,
-            //and from whole context perspective, this means for that position, the helper() function 
-            //did not run
-            //and we cannot remove i != pos, "105"->1*0 + 5 or 10-5, if we remove i != pos, then we can only
-            //have 10-5, i!=pos means we cannot make 0 as first character as integer
+            // this is to remove digit like 0X, like 05, 06, for example 105,5 as input
+            //if we remove this line, then we will get 1*0 + 5, 1*5, 10-5, but 1*5 is incorrect,
+            //because we this line will have 05-5, cur = 5. so we will cut all nodes from the runtime
+            //tree
+            String str = num.substring(pos, i+1);
+            if (str.startsWith("0") && str.length() > 1) break;
             
-            //another point, can we remove whole line? 
-            //if we remove whole line, "105"->1*0 + 5,  10-5 and 1 * 5, we have a new result 1* 5, but we miss 
-            //0 because 
-            if (i != pos && num.charAt(pos) == '0') break;
-            // note the starting is pos, so 123 will be calculated by here
-            long cur = Long.valueOf(num.substring(pos, i+1));
+            Long cur = Long.valueOf(str);
             if (pos == 0) {
                 // here cur changed to pre-evaluation results
                 helper(res, path + cur, num, target, i+1, cur, cur);
@@ -96,5 +92,9 @@ public class ExpressionAddOperators {
             }
             
         }
+    }
+    
+    public static void main(String[] args) {
+        System.out.print(addOperators("105", 5));
     }
 }
