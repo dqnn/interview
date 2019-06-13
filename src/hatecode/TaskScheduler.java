@@ -63,6 +63,7 @@ class TaskScheduler {
             cnt[ch - 'A'] +=1; 
             count = Math.max(count, cnt[ch-'A']);
         }
+        //n + 1 positions for count - 1 units,  
         int res = (n + 1) * (count - 1);
         for(int temp : cnt) {
             if (temp == count) {
