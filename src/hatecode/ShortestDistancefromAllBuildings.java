@@ -149,9 +149,9 @@ public class ShortestDistancefromAllBuildings {
             for (int i = 0; i < size; i++) {
                 int[] cur = queue.poll();
                 //four directions dfs
-                for (int k = 0; k < dirs.length; k++) {
-                    int x = cur[0] + dirs[k][0];
-                    int y = cur[1] + dirs[k][1];
+                for (int[] dir: dirs) {
+                    int x = cur[0] + dir[0];
+                    int y = cur[1] + dir[1];
                     if (x >= 0 && x < m && y >= 0 && y < n 
                             && !visited[x][y] && grid[x][y] == 0) {
                         visited[x][y] = true;
