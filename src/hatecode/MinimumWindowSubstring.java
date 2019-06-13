@@ -66,6 +66,7 @@ public class MinimumWindowSubstring {
         Map<Character, Integer> map = new HashMap<>();
         for(char c: t.toCharArray()) map.put(c, map.getOrDefault(c,0) + 1);
         //unique distinct character
+        //this means s still needs count distinct character
         int count = map.size();
         int l =0, r =0;
         int len = Integer.MAX_VALUE;
@@ -82,9 +83,10 @@ public class MinimumWindowSubstring {
                 char lc = s.charAt(l);
                 if(map.containsKey(lc)) {
                     map.put(lc, map.getOrDefault(lc, 0) + 1);
+                    //the character we removed is what we need
                     if(map.get(lc) > 0) count++;
                 }
-                
+                //this part is where we add our customerlize code
                 if(r -l < len) {
                     len = r-l;
                     res = s.substring(l, r);
