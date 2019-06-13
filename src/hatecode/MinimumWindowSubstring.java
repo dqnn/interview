@@ -56,7 +56,8 @@ public class MinimumWindowSubstring {
      * @param t
      * @return
      */
-    //thinking process: 
+    //thinking process: this is the same as 438. Find All Anagrams in a String 
+    //
     public static String minWindow(String s, String t) {
         if (s == null || t == null) {
             return null;
