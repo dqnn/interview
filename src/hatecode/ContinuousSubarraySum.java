@@ -30,6 +30,10 @@ previous one: sum_j = n*k + modk
 Thus,
 sum_i - sum_j = (m - n) *k
     */
+    //thinking process:
+    
+    //interview friendly: 
+    //
     public boolean checkSubarraySum(int[] nums, int k) {
         if (nums == null || nums.length < 1) {
             return false;
