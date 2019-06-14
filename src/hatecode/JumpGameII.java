@@ -119,6 +119,11 @@ Explanation: The minimum number of jumps to reach the last index is 2.
         return step;
     }
     //O(n)/O(1) 
+    //curFarthest = [curBegin, curEnd] all points could jump to curFarthest,
+    //this is pretty smart move, so for every element in [curBegin, curEnd], we can calculate 
+    //the max distance we can curFarthest = Math.max(curFarthest, i + A[i]);
+    
+    //then if we pointer reached to curEnd, then we need jump++, and we mark our curEnd to farthest point
     //
     public int jump_Best(int[] A) {
         int jumps = 0, curEnd = 0, curFarthest = 0;
