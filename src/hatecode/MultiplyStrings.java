@@ -26,6 +26,8 @@ public class MultiplyStrings {
      * @param num2
      * @return
      */
+    //thinking process:
+    //the key is A[i] * B[j] will be placed into [i+j, i+j+1]
     public String multiply(String num1, String num2) {
         if (num1 == null || num2 == null) return "0";
         int[] digits = new int[num1.length() + num2.length()];
