@@ -83,4 +83,24 @@ public class LongestPalindromicSubsequence {
         return memo[start][end];
     }
     
+    //another interview friendly solution
+    //boolean dp[i][j] is to state whether substring(i,j) is palindrom or not, 
+    //
+    public String longestPalindrome(String s) {
+        if (s == null || s.length() < 1) return "";
+        int n = s.length();
+        boolean[][] dp = new boolean[n][n];
+        int start=0, end=0;
+        for(int j =0; j< n; j++) {
+            for(int i = 0; i <= j;i++) {
+                dp[i][j] = s.charAt(i) == s.charAt(j) && ((j - i<=2) || dp[i+1][j-1]);
+                if (dp[i][j] && (j-i+1>(end - start + 1))) {
+                    start = i;
+                    end = j;
+                }
+            }
+        }
+        return n == 0 ? "" : s.substring(start, end + 1);
+    }
+    
 }
