@@ -39,6 +39,9 @@ public class MaximumSubarray {
     }
 
     // time : O(n) space : O(1);
+    //interview friendly, so every time, we get max number by two ways:
+    //1 current number 
+    //2. A[i]  + previous sum
     public int maxSubArray2(int[] nums) {
         int res = nums[0];
         int sum = nums[0];
