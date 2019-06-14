@@ -34,8 +34,19 @@ public class MultiplyStrings {
         for (int i = num1.length() - 1; i >= 0; i--) {
             for (int j = num2.length() - 1; j >= 0; j--) {
                 int product = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
-                //this is the key
+                //this is the key,
+ /*
+  *    1   2   3   A[i]
+  *        4   5   B[j]
+  * --------------------
+  *        1  5
+  *     1  0
+  *  0  5
+  *  ------------
+  *  we can see A[1] = 2, B[0] = 5, so the product  1 0 will start 1(i + j), the remainder will be 2(i + j + 1)
+  */
                 int p1 = i + j, p2 = i + j + 1;
+                //add previous value of digits[p2]
                 int sum = product + digits[p2];
                 // incremental 
                 digits[p1] += sum / 10;
