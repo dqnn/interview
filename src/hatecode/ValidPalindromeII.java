@@ -30,14 +30,14 @@ public class ValidPalindromeII {
        return true;
    }
    public boolean validPalindrome2(String s) {
-       int right = s.length() - 1, left = 0;
-       while(left <= right) {
-           if (s.charAt(left) != s.charAt(right)) {
-               return (isPalindromeRange(s, left) ||
-                       isPalindromeRange(s, right));
+       int r = s.length() - 1, l = 0;
+       while(l <= r) {
+           if (s.charAt(l) != s.charAt(r)) {
+               return (isPalindromeRange(s, l) ||
+                       isPalindromeRange(s, r));
            } else {
-               left++;
-               right--;
+               l++;
+               r--;
            }
        }
        return true;
