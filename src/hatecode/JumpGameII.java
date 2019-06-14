@@ -101,21 +101,34 @@ Explanation: The minimum number of jumps to reach the last index is 2.
     public int jump3(int[] A) {
         if (A == null || A.length < 2) return 0;
         int step = 0;
-        int low = 0;
-        int high = 0;
+        int l = 0;
+        int r = 0;
         // high can only reached to A.length - 2, not last one
-        while(high < A.length-1){
-            int preLow = low;
-            int preHigh = high;
+        while(r < A.length-1){
+            int preLow = l;
+            int preHigh = r;
             // we use [preLow, preHigh] to calculate the possible max  by this loop, 
             //which means how far we can go in this range
             for(int t = preLow;t <= preHigh;t++)
-                high = Math.max(t+A[t], high);
+                r = Math.max(t+A[t], r);
             // next loop, our band start position increments 1
-            low = preHigh+1;
+            l = preHigh+1;
             // get the result,so our step increased 1
             step++;
         }
         return step;
+    }
+    //O(n)/O(1) 
+    //
+    public int jump_Best(int[] A) {
+        int jumps = 0, curEnd = 0, curFarthest = 0;
+        for (int i = 0; i < A.length - 1; i++) {
+            curFarthest = Math.max(curFarthest, i + A[i]);
+            if (i == curEnd) {
+                jumps++;
+                curEnd = curFarthest;
+            }
+        }
+        return jumps;
     }
 }
