@@ -32,7 +32,7 @@ public class FindPeakElement {
      * @param nums
      * @return
      */
-
+    //since it is peak, which means left is increase while right is decrease so we can use BS
     public int findPeakElement(int[] nums) {
         int start = 0;
         int end = nums.length - 1;
@@ -41,6 +41,8 @@ public class FindPeakElement {
             if (nums[mid] > nums[mid + 1]) {
                 end = mid;
             } else {
+                //from the templates, this should be mid, but we move to mid + 1, because
+                //
                 start = mid + 1;
             }
         }
