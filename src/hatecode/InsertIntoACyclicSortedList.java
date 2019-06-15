@@ -1,5 +1,5 @@
 package hatecode;
-public class InserIntoACyclicSortedList {
+public class InsertIntoACyclicSortedList {
 /*
  * 708. Insert into a Cyclic Sorted List
 Given a node from a cyclic linked list which is sorted in ascending order, 
