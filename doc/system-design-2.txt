@@ -10,3 +10,7 @@ https://segmentfault.com/a/1190000006025876
 另一个系统给你东西 那个系统只能提供到0.999 问你在这个情况下你这个服务怎么做才能满足上面
 调用你的系统的那个9999的要求
 
+no more than 53m per year if we want to achieve 99.99% avilability
+but if we have 5 dpedency, each of them are 0.001% avilability, then it will be 
+27m, 0.001% * 5 = 
+ 
