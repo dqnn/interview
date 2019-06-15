@@ -34,9 +34,6 @@ public class NextPermutation {
      space : O(1);
      * @param nums
      */
-    //thinking process: the problem is to find next permutation if they all sorted, if last one
-    //return first permutation
-    //so 
     public static void nextPermutation(int[] nums) {
         if (nums == null || nums.length == 0) return;
 
@@ -76,7 +73,10 @@ public class NextPermutation {
             swap(nums, i++, j--);
         }
     }
-    
+    //interview friendly: 
+    //thinking process: the problem is to find next permutation if they all sorted, if last one
+    //return first permutation
+    //so 
     public static void nextPermutation2(int[] nums) {
         //edge case
         if (nums == null || nums.length == 1) {
