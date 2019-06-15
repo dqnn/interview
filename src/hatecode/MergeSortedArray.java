@@ -34,6 +34,8 @@ Output: [1,2,2,3,5,6]
      * @param n
      */
     // suppose we have enough storage, so we don'y need to have edge case
+    //thinking process: 
+    //scan from right is the key, because from left we need to re-arrange the array
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int i = m - 1;
         int j = n - 1;
