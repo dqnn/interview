@@ -55,6 +55,10 @@ you should return the original given node.
     //interview friendly
     //thinking process: the problem is to say given a circle single list as a head
     // and a value, the list is ascend, but head may not point to smallest value
+    
+    //it is like you may start any element in a sorted array so you need to decode which phrase where you
+    //are
+    //to insert this value into the list and return head
     //so we have 3 cases:
     //a point to middle point, next is still bigger, then i need to find a place is in middle until 
     // last one
