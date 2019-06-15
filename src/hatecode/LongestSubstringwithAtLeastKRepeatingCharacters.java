@@ -1,6 +1,6 @@
 package hatecode;
 
-import java.util.Arrays;
+import java.util.*;
 import java.util.HashMap;
 
 /**
@@ -42,7 +42,7 @@ public class LongestSubstringwithAtLeastKRepeatingCharacters {
      */
 
     // time : O(n) space : O(1)
-    /*
+    /* interview friendly, thinking process: 
      * For h=1:26, we are going to use sliding window (left i, right j) to 
      * find the "longest window which contains exactly h unique characters 
      * and for each character, there are at least K repeating ones".
@@ -50,49 +50,41 @@ For example, when h=3, K=5, we are going to find the longest window contains exa
 characters and each repeating 5 times.
      */
     public int longestSubstring(String s, int k) {
-        if (s == null || s.length() < 1 || k < 1) {
-            return 0;
-        }
+        if (s == null || s.length() == 0) return 0;
         int res = 0;
-        for(int i = 1; i <= 26; i++) {
+        for(int i =1; i<=26; i++) {
             res = Math.max(res, helper(s, k, i));
         }
-        
         return res;
     }
-     // numUniqueTareget = 3, means we want to find 3 unique char in S which has longest length and each of them
-    // occurrency no less than k
-    public int helper(String s, int k, int targetUniqueNum) {
-        int[] count = new int[128];
-        int start = 0, end = 0;
-        int numUnique = 0, numNoLessThanK = 0;
-        int res = 0;
-        
-        while(end < s.length()) {
-            if (count[s.charAt(end)] ++ == 0) {
-                numUnique ++;
-            }
+    
+    private int helper(String s, int k, int target) {
+        Map<Character, Integer> map = new HashMap<>();
+        int l =0, r = 0;
+        int nolessThank = 0;
+        int res = Integer.MIN_VALUE;
+        while(r < s.length()) {
+            char rc = s.charAt(r);
+            map.put(rc, map.getOrDefault(rc, 0) + 1);
+            //means at least we have one character repeated k times, so we count character repeating time++
+            if(map.get(rc) == k) nolessThank++;
+            r++;
             
-            if (count[s.charAt(end++)] == k) {
-                numNoLessThanK++;
+            while(map.size() > target) {
+                char lc = s.charAt(l);
+                //we are going to move l to l++,so lc repeating k time character count in this window will decrease by 1
+                int cnt = map.get(lc);
+                if(cnt == k) nolessThank--;
+                //remove this char from TP window
+                if(cnt == 1) map.remove(lc);
+                else map.put(lc, cnt - 1);
+                
+                l++;
             }
-            //if the unique number more than we want, so we want to re-find the length of the string
-            // until unique number equals to the target we want to find
-            while(numUnique > targetUniqueNum) {
-                // if we find one char 's count more than k, then we count down
-                if (count[s.charAt(start)]-- == k) {
-                    numNoLessThanK--;
-                }
-                // if we have one new char count still 0 which means it is unqiue one, so we count down
-                if (count[s.charAt(start++)] == 0) {
-                    numUnique --;
-                }
-            }
-            if (numUnique == targetUniqueNum && numUnique == numNoLessThanK) {
-                res = Math.max(res, end - start);
+            if(map.size() == target && map.size() == nolessThank) {
+                res = Math.max(res, r-l);
             }
         }
-        
         return res;
     }
     
