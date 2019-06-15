@@ -11,5 +11,4 @@ https://segmentfault.com/a/1190000006025876
 调用你的系统的那个9999的要求
 
 no more than 53m per year if we want to achieve 99.99% avilability
-but if we have 5 dpedency, each of them are 0.001% avilability, then it will be 
-27m, 0.001% * 5 = 
+see docs under doc/
