@@ -29,7 +29,7 @@ public class SubarraysWithKDifferentIntegers {
     
     //so r -l + 1 means how many elements in current sub array, and the subarray they have k distinct integers
     //but 1,2,1, we have 3 subarray in this K =2, but we will have 3 accorinding to r - l + 1. so 
-    //we decide to subtract k = 1, which is 
+    //we decide to subtract k = 1
     public int subarraysWithKDistinct(int[] A, int k) {
         if (A == null ||A.length < 1 || k < 1) return 0; 
         return helper(A, k) - helper(A, k -1);
