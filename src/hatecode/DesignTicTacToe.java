@@ -54,7 +54,7 @@ public class DesignTicTacToe {
 
      * @param n
      */
-
+    //rows adn cols will record how many cards for one play on row[i]
     private int[] rows;
     private int[] cols;
     private int diagonal;
