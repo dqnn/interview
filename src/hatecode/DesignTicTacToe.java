@@ -68,18 +68,22 @@ public class DesignTicTacToe {
     }
 
     //time : O(1)
-    public int move(int row, int col, int player) {
+    //interview friendly: 
+    //we use player 1 as +1, player 2 as -1, on rows and cols, diagonal, and antiDiagonal
+    
+    //we do not check whether the cell was occupied before, this will leave to the play to decide. 
+    public int move(int i, int j, int player) {
         int toAdd = player == 1 ? 1 : -1;
 
-        rows[row] += toAdd;
-        cols[col] += toAdd;
-        if (row == col) {
+        rows[i] += toAdd;
+        cols[j] += toAdd;
+        if (i == j) {
             diagonal += toAdd;
         }
-        if (col == (cols.length - row - 1)) {
+        if (i + j == (cols.length - 1)) {
             antiDiagonal += toAdd;
         }
-        if (Math.abs(rows[row]) == size || Math.abs(cols[col]) == size
+        if (Math.abs(rows[i]) == size || Math.abs(cols[j]) == size
                 || Math.abs(diagonal) == size || Math.abs(antiDiagonal) == size) {
             return player;
         }
