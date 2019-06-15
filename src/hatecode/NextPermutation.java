@@ -79,10 +79,8 @@ public class NextPermutation {
     //so 
     public static void nextPermutation2(int[] nums) {
         //edge case
-        if (nums == null || nums.length == 1) {
-            return;
-        }
-        
+        if (nums == null || nums.length == 1) return;
+
         int end = nums.length -2;
         int j = end;
         //we find the the pattern like 1,2,3, note j point to 2 and stop
