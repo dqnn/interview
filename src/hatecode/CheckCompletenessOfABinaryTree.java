@@ -10,6 +10,7 @@ In a complete binary tree every level, except possibly the last, is completely f
 Input: [1,2,3,4,5,null,7]
 Output: false
 */
+    //interview friendly and thinking process
     //given complete BT definition, we want to detect whther one given tree is BT, if we take close look on the tree,
     //we can find that if we level scan the tree, there should not be null, if there are then it must be last one. 
     //or if not, it is not as left as possible or not previous node must not be filled. 
