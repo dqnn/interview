@@ -9,8 +9,6 @@ Given words first and second, consider occurrences in some text of the form "fir
 
 For each such occurrence, add "third" to the answer, and return the answer.
 
- 
-
 Example 1:
 
 Input: text = "alice is a good girl she is a good student", first = "a", second = "good"
