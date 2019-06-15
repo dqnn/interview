@@ -11,8 +11,8 @@ Input: [1,2,3,4,5,null,7]
 Output: false
 */
     //interview friendly and thinking process
-    //given complete BT definition, we want to detect whther one given tree is BT, if we take close look on the tree,
-    //we can find that if we level scan the tree, there should not be null, if there are then it must be last one. 
+    //given complete BT definition, we want to detect whther one given tree is complete BT, if we take close look on the tree,
+    //we can find that if we level scan the tree, there should not be null, if there are then it must be last and only one. 
     //or if not, it is not as left as possible or not previous node must not be filled. 
     public boolean isCompleteTree_BEST(TreeNode root) {
         if (root == null) return true;
@@ -25,6 +25,7 @@ Output: false
                 if (!isFound) isFound = true;
                 continue;
             } else if (isFound) return false;
+            //no matter it is null or not
             q.offer(node.left);
             q.offer(node.right);
         }
