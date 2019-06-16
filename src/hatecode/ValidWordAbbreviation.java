@@ -27,7 +27,8 @@ Any other string is not a valid abbreviation of "word".
                 j++;
                 continue;
             }
-            if(p.charAt(j) <= '0' || p.charAt(j) >= '9') return false;
+            //first character could not be 0
+            if(p.charAt(j) <= '0' || p.charAt(j) > '9') return false;
             int start = j;
             while(j < n && p.charAt(j) >='0' && p.charAt(j) <= '9') j++;
             
