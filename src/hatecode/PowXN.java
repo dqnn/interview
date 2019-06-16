@@ -3,7 +3,7 @@ package hatecode;
 /**
  * Created by duqiang on 27/07/2017.
  */
-public class Pow {
+public class PowXN {
     /**
      * 50. Pow(x, n)
      * Implement pow(x, n).
