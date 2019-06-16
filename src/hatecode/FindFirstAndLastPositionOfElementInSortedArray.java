@@ -30,6 +30,8 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
      * @param target
      * @return
      */
+    //thinking process:
+    //given a sorted array which contains dup elements, 
     public int[] searchRange(int[] nums, int target) {
         if (nums == null || nums.length == 0) return new int[]{-1, -1};
         int start = findFirst(nums, target);
@@ -50,6 +52,7 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
             //so we do not have = because we want to move end in more probability 
             // and move start in a very strict conditions, this can help to make sure 
             //start will always < target, so mid can get first 8 or end
+            
             if (nums[mid] < target) {
                 start = mid;
             } else {
