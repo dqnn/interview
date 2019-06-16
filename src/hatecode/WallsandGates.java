@@ -58,33 +58,34 @@ Fill each empty room with the distance to its nearest gate. If it is impossible 
     //dfs exit condition: rooms[i][j] < dis , dis start value is 0. and we set room value 
     //in dfs function
 
-    public void wallsAndGates2(int[][] rooms) {
-        Queue<int[]> queue = new LinkedList<>();
-        for (int i = 0; i < rooms.length; i++) {
-            for (int j = 0; j < rooms[0].length; j++) {
+    public void wallsAndGates_BFS(int[][] rooms) {
+        if(rooms == null || rooms.length < 1 || rooms[0].length < 1) return;
+        int r = rooms.length, c = rooms[0].length;
+        Queue<int[]> q = new LinkedList<>();
+        for(int i =0; i<r;i++) {
+            for(int j =0; j<c;j++) {
                 if (rooms[i][j] == 0) {
-                    queue.add(new int[]{i, j});
+                  q.offer(new int[]{i, j});
                 }
             }
         }
-        while (!queue.isEmpty()) {
-            int[] top = queue.remove();
-            int row = top[0], col = top[1];
-            if (row > 0 && rooms[row - 1][col] == Integer.MAX_VALUE) {
-                rooms[row - 1][col] = rooms[row][col] + 1;
-                queue.add(new int[]{row - 1, col});
-            }
-            if (row < rooms.length - 1 && rooms[row + 1][col] == Integer.MAX_VALUE) {
-                rooms[row + 1][col] = rooms[row][col] + 1;
-                queue.add(new int[]{row + 1, col});
-            }
-            if (col > 0 && rooms[row][col - 1] == Integer.MAX_VALUE) {
-                rooms[row][col - 1] = rooms[row][col] + 1;
-                queue.add(new int[]{row, col - 1});
-            }
-            if (col < rooms[0].length - 1 && rooms[row][col + 1] == Integer.MAX_VALUE) {
-                rooms[row][col + 1] = rooms[row][col] + 1;
-                queue.add(new int[]{row, col + 1});
+        
+        int d = 0;
+        int[][] dirs = {{-1,0},{1, 0}, {0,1}, {0,-1}};
+        while(!q.isEmpty()) {
+            d++;
+            int size = q.size();
+            while(size-- > 0) {
+                int[] p = q.poll();
+                for(int[] dir : dirs) {
+                    int x = p[0] + dir[0];
+                    int y = p[1] + dir[1];
+                    if(x >=0 && x<r && y >=0 &&y < c && rooms[x][y] != -1 && rooms[x][y] != 0 && rooms[x][y] > d) {
+                        q.offer(new int[]{x, y});
+                        rooms[x][y] = Math.min(rooms[x][y], d);
+                        
+                    }
+                }
             }
         }
     }
