@@ -72,7 +72,7 @@ class SmallestRange {
             }
         }
 
-        return new int[] {start, end };
+        return new int[] {start, end};
     }
 
     class Node {
