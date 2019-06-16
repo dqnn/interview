@@ -55,8 +55,8 @@ Output:[3, 4]
                 //last function childTime is 0; and we have duplicate one
                 //here is the key, need to update current object time, 
                 
-                //we need to use startLog childTime object, because logObj now is actually 
-                //0 
+                //we have to += because one process can be start multiple times, like 
+                //0:s:0, 0:e:2, 0:s:3, 0:e:5
                 res[logObj.id] += time - startLog.childTime;
             }
         }
