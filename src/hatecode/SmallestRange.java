@@ -71,7 +71,6 @@ class SmallestRange {
                 }
             }
         }
-
         return new int[] {start, end};
     }
 
