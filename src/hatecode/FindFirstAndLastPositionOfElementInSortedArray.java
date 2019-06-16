@@ -31,7 +31,12 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
      * @return
      */
     //thinking process:
-    //given a sorted array which contains dup elements, 
+    //given a sorted array which contains dup elements, we want to find an element which starts and end 
+    //position in array. 
+    
+    //the key of dup binary search is where we put = condition in if clause
+    //if = condition is on l(followed by) which means we want to find last(biggest), move to right
+    //if = condition is on r(followed by) which means we want to find first(smallest, move to left 
     public int[] searchRange(int[] nums, int target) {
         if (nums == null || nums.length == 0) return new int[]{-1, -1};
         int start = findFirst(nums, target);
