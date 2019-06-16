@@ -114,7 +114,7 @@ Explanation: There exist two distinct solutions to the 4-queens puzzle as shown 
     //design toe is more clever on how to calculate the cards on sameline or not  with two players, 
     //use two arrays and +1, -1 for player1 and player2
     
-    //
+    //we use 3 sets to store which column or row already occupied
     private Set<Integer> col = new HashSet<Integer>();
     private Set<Integer> diag1 = new HashSet<Integer>();
     private Set<Integer> diag2 = new HashSet<Integer>();
