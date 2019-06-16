@@ -41,6 +41,9 @@ public class SearchinRotatedSortedArray {
     //one is in 5,6,7,8 another one is in 1,2,4 if it is in 5,6,7,8, 
     //we need to move end = mid
     //else move left = mid since we want to narrow down the range
+    
+    //the reason why we have to use two && condition to check which range is the target because since
+    //it is roated, we have to make sure it is in one single asc/desc range
     public int search(int[] nums, int target) {
         if (nums == null || nums.length == 0) return -1;
         int l = 0;
