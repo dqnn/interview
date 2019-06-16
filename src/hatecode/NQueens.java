@@ -124,30 +124,30 @@ Explanation: There exist two distinct solutions to the 4-queens puzzle as shown 
         dfs(res,new ArrayList<String>(), 0, n);
         return res;
     }
-    private void dfs(List<List<String>> res, List<String> list, int row, int n){
-        if (row == n){
+    private void dfs(List<List<String>> res, List<String> list, int i, int n){
+        if (i == n){
             res.add(new ArrayList<String>(list));
             return;
         }
-        for (int i = 0; i < n; i++){
-            if (col.contains(i) || diag1.contains(row + i) || diag2.contains(row - i)) continue;
+        for (int j = 0; j < n; j++){
+            if (col.contains(j) || diag1.contains(i + j) || diag2.contains(i - j)) continue;
             
             char[] charArray = new char[n];
             Arrays.fill(charArray, '.');
-            charArray[i] = 'Q';
+            charArray[j] = 'Q';
             String rowString = new String(charArray);
             
             list.add(rowString);
-            col.add(i);
-            diag1.add(row + i);
-            diag2.add(row - i);
+            col.add(j);
+            diag1.add(i + j);
+            diag2.add(i - j);
             
-            dfs(res, list, row + 1, n);
+            dfs(res, list, i + 1, n);
             
             list.remove(list.size() - 1);
-            col.remove(i);
-            diag1.remove(row + i);
-            diag2.remove(row - i);
+            col.remove(j);
+            diag1.remove(i + j);
+            diag2.remove(i - j);
         }
     }
 }
