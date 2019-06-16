@@ -51,13 +51,11 @@ Output:[3, 4]
                 Log startLog = stack.pop();
                 int time = logObj.time- startLog.time + 1; //endtime-starttime
                 //like (()()), parent has 2 child, so it has add 2 childTime
-                if(!stack.isEmpty()){
-                    stack.peek().childTime += time;
-                }
+                if(!stack.isEmpty()) stack.peek().childTime += time;
                 //last function childTime is 0; and we have duplicate one
                 //here is the key, need to update current object time, 
                 
-                //we need to use startLog childTime object, because logObj now is acutally 
+                //we need to use startLog childTime object, because logObj now is actually 
                 //0 
                 res[logObj.id] += time - startLog.childTime;
             }
