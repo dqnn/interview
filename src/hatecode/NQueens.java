@@ -112,7 +112,7 @@ Explanation: There exist two distinct solutions to the 4-queens puzzle as shown 
     
     //this is like Design toe and tie, we do not/do want cards/queue on same line, 
     //design toe is more clever on how to calculate the cards on sameline or not  with two players, 
-    //ues two arrays and +1, -1 for player1 and player2
+    //use two arrays and +1, -1 for player1 and player2
     
     //
     private Set<Integer> col = new HashSet<Integer>();
