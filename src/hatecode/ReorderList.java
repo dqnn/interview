@@ -30,8 +30,6 @@ public class ReorderList {
     //3 merge left and right side one node by one node
     public void reorderList(ListNode head) {
         if (head == null || head.next == null) return;
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
         ListNode temp = null;
         ListNode slow = head, fast = head;
         ListNode l1 = head;
@@ -56,7 +54,7 @@ public class ReorderList {
         }
         return prev;
     }
-
+    //merge two list, l1 was first, then comes with l2 nodes
     private void merge(ListNode l1, ListNode l2) {
         while (l1 != l2) {
             ListNode n1 = l1.next;
@@ -64,6 +62,7 @@ public class ReorderList {
             l1.next = l2;
             if (n1 == null) break;
             l2.next = n1;
+            //pass to next
             l1 = n1;
             l2 = n2;
         }
