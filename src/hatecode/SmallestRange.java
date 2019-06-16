@@ -17,10 +17,10 @@ class SmallestRange {
      * [20,24].
      */
     //thinking process: given K sorted array, find smallest range which satisfy: 1: range 
-    //is smallest, 2: the range at least contain one elment from K lists
+    //is smallest, 2: the range at least contain one element from K lists
     
     //so the range is smallest means it has fewest number,also means the diff between last and 
-    //first elment is smallest
+    //first element is smallest
     // so suppose we get each element from the list, and we compare smallest to largest, then 
     //we can have 1 range could satisfy 2, for 1 we need a loop to make sure we always 
     //sort the list easily
