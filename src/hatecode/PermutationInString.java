@@ -1,6 +1,6 @@
 package hatecode;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class PermutationInString {
 /*
@@ -17,6 +17,34 @@ Note:
 The input strings only contain lower case letters.
 The length of both given strings is in range [1, 10,000].
 */
+    //interview friendly version, use a map to store the unqiue character, 
+    public boolean checkInclusion_Map(String s1, String s2) {
+        if(s1 == null && s2 == null) return true;
+        if(s1 == null || s2 ==null || s2.length() < s1.length()) return false;
+        Map<Character, Integer> map = new HashMap<>();
+        for(char ch : s1.toCharArray()) map.put(ch, map.getOrDefault(ch, 0) + 1);
+        
+        int l = 0;
+        while(l <= s2.length() - s1.length()) {
+           Map<Character, Integer> cmap = new HashMap<>(map);
+           for(int i = l; i < l + s1.length(); i++) {
+               
+               char ch = s2.charAt(i);
+               //System.out.println(ch + "---" + i);
+               int cnt = cmap.getOrDefault(ch, 0);
+               if(cnt == 1) cmap.remove(ch);
+               else cmap.put(ch, cnt - 1);
+           }
+           if(cmap.size() == 0) return true;
+           l++;
+           
+        }
+        return false;
+    }
+    
+    
+    
+    
     public boolean checkInclusion2(String s1, String s2) {
         if (s1 == null) return true;
         if (s2 == null || s2.length() < s1.length()) return false;
