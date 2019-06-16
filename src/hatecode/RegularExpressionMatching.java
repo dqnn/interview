@@ -89,7 +89,7 @@ c 0  0  0  0  0  0  1
                 }
                 // common longest sequence
                 if (p.charAt(j) == '*') {
-                    // since * can be 0 or multiple times
+                    // since * can be 0 or multiple times, which means we can remove this char,
                     if (p.charAt(j - 1) != s.charAt(i) && p.charAt(j-1) != '.') {
                         dp[i+1][j+1] = dp[i+1][j -1]; 
                     } else {
