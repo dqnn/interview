@@ -40,6 +40,7 @@ You may assume that A's column number is equal to B's row number.
      */
     // this is matrix calculations, so just know how to use
     // 3 loops to calculate the sum
+    //one small trick is res[i][j] +=...
     public int[][] multiply(int[][] A, int[][] B) {
         int m = A.length, n = A[0].length;
         int nB = B[0].length;
