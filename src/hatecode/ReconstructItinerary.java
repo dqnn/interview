@@ -47,32 +47,36 @@ public class ReconstructItinerary {
      space : O(n)
 
      */
-
-    HashMap<String, PriorityQueue<String>> map;
-    List<String> res;
-
     // so the whole problem is we want to find one possible routine which starts from "JFK"
     // given array which [start, end] format, sometimes the guy will fly back and again so it 
     //is not smooth as we expect, like 1->2->1->3->2, etc, we cannot use map simply to get a linked
     //list, we need to retreat back and try next route that's backtracking
     
+    //how to understand this problem：
+    //this is not a typical graph problems, the graph acutally is always changing, because we always use 
+    //poll to change the graph, another reason to use PQ is smallest lexi order
+    
+    //so the follow up question is if we want all of possible itinerary, how to change the code
     //
-    public List<String> findItinerary(String[][] tickets) {
-        map = new HashMap<>();
-        res = new LinkedList<>();
-        for (String[] ticket : tickets) {
-            map.computeIfAbsent(ticket[0], k -> new PriorityQueue<>()).add(ticket[1]);
+    public List<String> findItinerary(List<List<String>> tickets) {
+        List<String> res = new ArrayList<>();
+        if(tickets == null || tickets.size() < 1) return res;
+        
+        Map<String, PriorityQueue<String>> map = new HashMap<>();
+        for(List<String> list: tickets) {
+            map.computeIfAbsent(list.get(0), v->new PriorityQueue<>()).add(list.get(1));
         }
-        helper("JFK");
+        helper("JFK", res, map);
+       
         return res;
     }
-
-    private void helper(String airport) {
-        // this is back tracking to find one possible routings and templates
-        while (map.containsKey(airport) && !map.get(airport).isEmpty()) {
-            helper(map.get(airport).poll());
+    //this is back tracking problems, so then sub problems done, last we will add to head as starting
+    //top down solutions
+    private void helper(String s, List<String> res, Map<String, PriorityQueue<String>> map) {
+        while(map.containsKey(s) && !map.get(s).isEmpty()) {
+            helper(map.get(s).poll(), res, map);
         }
-        res.add(0, airport);
+        res.add(0, s);
     }
 
     public List<String> findItinerary2(String[][] tickets) {
