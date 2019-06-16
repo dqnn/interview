@@ -4,6 +4,15 @@ public class TotalHammingDistance {
 477. Total Hamming Distance
 For each bit position 1-32 in a 32-bit integer, we count the number of integers in the array which have that bit set. Then, if there are n integers in the array and k of them have a particular bit set and (n-k) do not, then that bit contributes k*(n-k) hamming distance to the total.
 */
+    
+    //thinking process:
+    //given an array, find all of the Hamming distance, the distance definition is one element to all others
+    //how many bits are different on same position, 
+    
+    //C(n,2), 
+    
+    //for every number bits on position j, suppose m has 1, so n-m does not have, the distance will be 
+    //m *(n-m). so we add 32 positions
     public int totalHammingDistance(int[] nums) {
         int total = 0, n = nums.length;
         for (int j=0;j<32;j++) {
