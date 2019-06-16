@@ -25,7 +25,8 @@ Output: return the tree root node representing the following tree:
             char c = s.charAt(i);
             //this is faster version of parsing the string, the most complete one is decode strings and reverseStrings, 
             if (c == ')') stack.pop();
-            //'-' may like 1_000 this is accepted number in java
+            //'-' may like 1_000 this is accepted number in java,but not here
+            //here '-' means -9, negative number
             else if (c >= '0' && c <= '9' || c == '-') {
                 while(i + 1 < s.length() && s.charAt(i+1) >= '0' && s.charAt(i+1) <= '9') i++;
                 TreeNode cur = new TreeNode(Integer.valueOf(s.substring(j, i+1)));
