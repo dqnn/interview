@@ -34,13 +34,13 @@ class SmallestRange {
     //max always offer elements in while it always keep max element no matter how many added into 
     //min heap, we use max element to compare first element in min heap, so we can know for 
     //each range, it is bigger or smaller
-    public int[] smallestRange(List<List<Integer>> nums) {
+    public int[] smallestRange(List<List<Integer>> lists) {
         PriorityQueue<Node> pq = new PriorityQueue<>((a, b)->(a.val - b.val));
         //max indicate the max value in current heap
         int max = Integer.MIN_VALUE;
         //add each row head into the min heap
-        for (int row = 0; row < nums.size(); row++) {
-            int val = nums.get(row).get(0);
+        for (int row = 0; row < lists.size(); row++) {
+            int val = lists.get(row).get(0);
             Node node = new Node(row, 0, val);
             pq.offer(node);
             max = Math.max(max, val);
@@ -51,8 +51,8 @@ class SmallestRange {
         //this is like sliding window, the size is list size,which means each sorted 
         //would only have 1 element in the heap, we always choose min one and comarpe the 
         //max in this heap, and we update the range, and we will add rest of the array into 
-        //this heap unti we get all possible ranges
-        while (pq.size() == nums.size()) {
+        //this heap until we get all possible ranges
+        while (pq.size() == lists.size()) {
             Node curr = pq.poll();
             //if new range smaller than previous one, update it
             if (max - curr.val < range) {
@@ -61,9 +61,9 @@ class SmallestRange {
                 end = max;
             }
             //if the list has more elements after this index, then add to queue
-            if (curr.idx + 1 < nums.get(curr.row).size()) {
+            if (curr.idx + 1 < lists.get(curr.row).size()) {
                 curr.idx = curr.idx + 1;
-                curr.val = nums.get(curr.row).get(curr.idx);
+                curr.val = lists.get(curr.row).get(curr.idx);
                 pq.offer(curr);
                 //
                 if (curr.val > max) {
