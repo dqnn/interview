@@ -53,7 +53,13 @@ class SmallestRange {
         //max in this heap, and we update the range, and we will add rest of the array into 
         //this heap until we get all possible ranges
         
-        //for that column, we always choose the range
+        //so, we always process the first column of the pq, it is more like pq auto sort the elements
+        //from the lists, and we assume each element in lists 
+        
+        //if we poll one element, which means it is smallest one, then we need to add one, which means 
+        //same row,we add next into pq, and pq will sort, and we again get the min, do the same proces, 
+        //basically start = min, and end = max, but when (max - cur.val < range) which means we found a 
+        //new smaller range
         while (pq.size() == lists.size()) {
             Node curr = pq.poll();
             //if new range smaller than previous one, update it
