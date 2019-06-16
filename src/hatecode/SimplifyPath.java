@@ -14,6 +14,7 @@ import java.util.Stack;
  */
 public class SimplifyPath {
     /**
+     * tags: facebook
      * Given an absolute path for a file (Unix-style), simplify it.
 
      For example,
@@ -38,6 +39,9 @@ public class SimplifyPath {
     
     //so we parse the text into a stack
     //and we form the correct path from stack
+    
+    //The key is the result of the stack is only part of the string, 
+    //why we think about stack because it has .. which will erase some characters
     public String simplifyPath(String path) {
         if (path == null || path.length() < 1) {
             return "";
