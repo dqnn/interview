@@ -30,9 +30,9 @@ class SmallestRange {
     //the heap help us to maintain each element from one list, if one list is done, then we 
     //should end the loop because we need to satisfy 2. 
     
-    //the easier understanding solution is to have min and max heap, min always pop the elment
-    //max always offer elements in while it always keep max elment no matter how many added into 
-    //min heap, we use max elment to compare first elment in min heap, so we can know for 
+    //the easier understanding solution is to have min and max heap, min always pop the element
+    //max always offer elements in while it always keep max element no matter how many added into 
+    //min heap, we use max element to compare first element in min heap, so we can know for 
     //each range, it is bigger or smaller
     public int[] smallestRange(List<List<Integer>> nums) {
         PriorityQueue<Node> pq = new PriorityQueue<>((a, b)->(a.val - b.val));
