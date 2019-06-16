@@ -87,6 +87,11 @@ Explanation: We can replace '0' with '1' to get t.
     //then we compare the rest, since it is one edit distance, so that;s the last chance, left
     //must be the same to be true. one thing need to note is the longer should be i + 1 while 
     //shorter keeps i
+    
+    //the reason why we focus on length of s and t because the problem is only ask whether s and t 
+    //is one edit distance or not. 
+    
+    //similiar to LC. 72. Edit Distance
     public static boolean isOneEditDistance(String s, String t) {
         if (s == null || t == null || s.equals(t) || Math.abs(s.length() - t.length()) > 1) {
             return false;
@@ -107,6 +112,8 @@ Explanation: We can replace '0' with '1' to get t.
                 }
             }
         }
+      //All previous chars are the same, the only possibility 
+        //is deleting the end char in the longer one of s and t 
         return Math.abs(s.length() - t.length()) == 1;
     }
 }
