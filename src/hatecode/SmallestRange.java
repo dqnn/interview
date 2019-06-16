@@ -48,10 +48,12 @@ class SmallestRange {
         int range = Integer.MAX_VALUE;
         //output
         int start = -1, end = -1;
-        //this is like sliding window, the size is list size,which means each sorted 
+        //this is like sliding window, the size is list size,which means each sorted row
         //would only have 1 element in the heap, we always choose min one and comarpe the 
         //max in this heap, and we update the range, and we will add rest of the array into 
         //this heap until we get all possible ranges
+        
+        //for that column, we always choose the range
         while (pq.size() == lists.size()) {
             Node curr = pq.poll();
             //if new range smaller than previous one, update it
