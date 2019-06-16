@@ -1,6 +1,6 @@
 package hatecode;
 
-import java.util.LinkedList;
+import java.util.*;
 import java.util.Queue;
 
 /**
@@ -45,7 +45,8 @@ Fill each empty room with the distance to its nearest gate. If it is impossible 
     // space : O(n)
     // thinking process:
     
-    //this problem is to say in a 2D array, 
+    //this problem is to say in a 2D array,  we cannot have visited for this question, because later 
+    //the cell has to be changed
     //we have 3 types of elements, INF empty room, -1 means wall, 0 means gate
     // so we need to find for each room, the smallest steps to gate, 
     // each move(4 directions) will be 1. and mark each room with steps to nearest gate
@@ -56,27 +57,6 @@ Fill each empty room with the distance to its nearest gate. If it is impossible 
     
     //dfs exit condition: rooms[i][j] < dis , dis start value is 0. and we set room value 
     //in dfs function
-    public void wallsAndGates(int[][] rooms) {
-        for (int i = 0; i < rooms.length; i++) {
-            for (int j = 0; j < rooms[0].length; j++) {
-                if (rooms[i][j] == 0) {
-                    dfs(rooms, i, j, 0);
-                }
-            }
-        }
-    }
-
-    private void dfs(int[][] rooms, int i, int j, int dis) {
-        if (i < 0 || i >= rooms.length || j < 0 || j >= rooms[0].length 
-                // gate is -1, dis is at least 0 so it is good
-                || rooms[i][j] < dis) return;
-        //we set the distance first
-        rooms[i][j] = dis;
-        dfs(rooms, i - 1, j, dis + 1);
-        dfs(rooms, i + 1, j, dis + 1);
-        dfs(rooms, i, j + 1, dis + 1);
-        dfs(rooms, i, j - 1, dis + 1);
-    }
 
     public void wallsAndGates2(int[][] rooms) {
         Queue<int[]> queue = new LinkedList<>();
@@ -105,6 +85,48 @@ Fill each empty room with the distance to its nearest gate. If it is impossible 
             if (col < rooms[0].length - 1 && rooms[row][col + 1] == Integer.MAX_VALUE) {
                 rooms[row][col + 1] = rooms[row][col] + 1;
                 queue.add(new int[]{row, col + 1});
+            }
+        }
+    }
+    
+    
+    public void wallsAndGates_Naive_BFS(int[][] rooms) {
+        if(rooms == null || rooms.length < 1 || rooms[0].length < 1) return;
+        int r = rooms.length, c = rooms[0].length;
+        
+        for(int i =0; i<r;i++) {
+            for(int j =0; j<c;j++) {
+                if (rooms[i][j] == 0) {
+                  helper(rooms, i, j);
+                }
+            }
+        }
+    }
+    
+    private void helper(int[][] g, int i, int j) {
+        Queue<int[]> q = new LinkedList<>();
+        Set<String> visited = new HashSet<>();
+        q.offer(new int[]{i, j});
+        visited.add(i +"->" + j);
+        int r= g.length, c =g[0].length;
+        int d = 0;
+        int[][] dirs = {{-1,0},{1, 0}, {0,1}, {0,-1}};
+        while(!q.isEmpty()) {
+            d++;
+            int size = q.size();
+            while(size-- > 0) {
+                int[] p = q.poll();
+                for(int[] dir : dirs) {
+                    int x = p[0] + dir[0];
+                    int y = p[1] + dir[1];
+                    if(x >=0 && x<r && y >=0 &&y < c && g[x][y] != -1 
+                            && g[x][y] !=0 && !visited.contains(x +"->" + y)) {
+                        q.offer(new int[]{x, y});
+                        visited.add(x + "->" + y);
+                        g[x][y] = Math.min(g[x][y], d);
+                        
+                    }
+                }
             }
         }
     }
