@@ -61,32 +61,24 @@ public class SearchinRotatedSortedArrayII {
         if (nums == null || nums.length < 1) {
             return false;
         }
-        int left = 0, right = nums.length - 1;
-        while(left + 1 < right) {
-            int mid = left + (right -left) / 2;
-            if (nums[left] == target) {
+        int l = 0, r = nums.length - 1;
+        while(l + 1 < r) {
+            int mid = l + (r -l) / 2;
+            if (nums[l] == target) {
                 return true;
             }
             // handle previous same situation, 
-            if(nums[left] < nums[mid]) {
-                if (nums[left] <= target && target <= nums[mid]) {
-                    right = mid;
-                } else {
-                    left = mid;
-                }
+            if(nums[l] < nums[mid]) {
+                if (nums[l] <= target && target <= nums[mid]) r = mid;
+                else l = mid;
             // this handles the case 2, mid fall into second ascend list
-            } else if (nums[left] > nums[mid]) {
-                if (nums[right] >= target && target >= nums[mid]) {
-                    left = mid;
-                } else {
-                    right = mid;
-                }
+            } else if (nums[l] > nums[mid]) {
+                if (nums[r] >= target && target >= nums[mid]) l = mid;
+                else r = mid;
             //nums[left] == nums[mid], so we move left one step
-            } else {
-                left++;
-            }
+            } else l++;
         }
-        if (nums[left] == target || nums[right] == target) {
+        if (nums[l] == target || nums[r] == target) {
                 return true;
             }
        return false;
