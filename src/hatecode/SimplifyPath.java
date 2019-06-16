@@ -47,6 +47,7 @@ public class SimplifyPath {
             return "";
         }
         Stack<String> stack = new Stack<>();
+        //here is the key, we may have dup / but it is able to process this case
         String[] paths = path.split("/+");
         for (String s : paths) {
             if (s.equals("..")) {
