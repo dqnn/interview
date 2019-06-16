@@ -14,6 +14,7 @@ Output: return the tree root node representing the following tree:
    / \   / 
   3   1 5   
 */
+    //thinking process:
     //so the difference between this question and decode string is decode string requires the output of string and here
     //we only need to return the root node, 
     public TreeNode str2tree(String s) {
