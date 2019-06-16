@@ -61,22 +61,19 @@ class SmallestRange {
         //basically start = min, and end = max, but when (max - cur.val < range) which means we found a 
         //new smaller range
         while (pq.size() == lists.size()) {
-            Node curr = pq.poll();
+            Node cur = pq.poll();
             //if new range smaller than previous one, update it
-            if (max - curr.val < range) {
-                range = max - curr.val;
-                start = curr.val;
+            if (max - cur.val < range) {
+                range = max - cur.val;
+                start = cur.val;
                 end = max;
             }
             //if the list has more elements after this index, then add to queue
-            if (curr.idx + 1 < lists.get(curr.row).size()) {
-                curr.idx = curr.idx + 1;
-                curr.val = lists.get(curr.row).get(curr.idx);
-                pq.offer(curr);
-                //
-                if (curr.val > max) {
-                    max = curr.val;
-                }
+            if (cur.idx + 1 < lists.get(cur.row).size()) {
+                cur.idx = cur.idx + 1;
+                cur.val = lists.get(cur.row).get(cur.idx);
+                pq.offer(cur);
+                max = Math.max(max, cur.val);
             }
         }
         return new int[] {start, end};
