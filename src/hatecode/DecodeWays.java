@@ -50,6 +50,8 @@ public class DecodeWays {
         dp[0] = 1;
         //edge case check always make sure no '0' startswith
         dp[1] = 1;
+        //we do not have overlap because we consider one digit and two digits, they are totally 
+        //differently
         for (int i = 2; i <= len; i++) {
             // 226--> first is [2,6)-->2
             // 226--> second is 22, so to get positon 2
