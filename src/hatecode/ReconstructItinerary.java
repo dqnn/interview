@@ -57,7 +57,7 @@ public class ReconstructItinerary {
     //poll to change the graph, another reason to use PQ is smallest lexi order
     
     //so the follow up question is if we want all of possible itinerary, how to change the code
-    //
+    //one quick answer to copu the PQ every time, :-) need time to think about other solutions
     public List<String> findItinerary(List<List<String>> tickets) {
         List<String> res = new ArrayList<>();
         if(tickets == null || tickets.size() < 1) return res;
