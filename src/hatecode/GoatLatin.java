@@ -30,7 +30,7 @@ public class GoatLatin {
      * Input: "I speak Goat Latin" Output: "Imaa peaksmaaa oatGmaaaa atinLmaaaaa"
      */
     //thinking process:
-    //
+    //given a string, 
     public String toGoatLatin(String s) {
         if (s == null || s.length() < 1) return s;
         
