@@ -30,11 +30,6 @@ Example 2:
 Input: s = "cab", t = "ad"
 Output: false
 Explanation: We cannot get t from s by only one step.
-Example 3:
-
-Input: s = "1203", t = "1213"
-Output: true
-Explanation: We can replace '0' with '1' to get t.
 
      1, abcre abere
      2, abdc abc
@@ -83,6 +78,7 @@ Explanation: We can replace '0' with '1' to get t.
         return diffCount > 1 ? false: true;
     }
     
+    //interview friendly and O(n)/O(1)
     //this solution is more straightforward that we find the character not equals.
     //then we compare the rest, since it is one edit distance, so that;s the last chance, left
     //must be the same to be true. one thing need to note is the longer should be i + 1 while 
