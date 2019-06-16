@@ -48,7 +48,8 @@ public class DecodeWays {
         //"12" this case, we have 2 ways of decoding, so default every character would have 1
         //way to decode
         dp[0] = 1;
-        dp[1] = s.charAt(0) != '0' ? 1 : 0;
+        //edge case check always make sure no '0' startswith
+        dp[1] = 1;
         for (int i = 2; i <= len; i++) {
             // 226--> first is [2,6)-->2
             // 226--> second is 22, so to get positon 2
