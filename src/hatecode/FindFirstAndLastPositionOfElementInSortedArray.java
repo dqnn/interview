@@ -37,6 +37,8 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
     //the key of dup binary search is where we put = condition in if clause
     //if = condition is on l(followed by) which means we want to find last(biggest), move to right
     //if = condition is on r(followed by) which means we want to find first(smallest, move to left 
+    
+    //one exception case for BS is that if cannot find it, return -1
     public int[] searchRange(int[] nums, int target) {
         if (nums == null || nums.length == 0) return new int[]{-1, -1};
         int start = findFirst(nums, target);
