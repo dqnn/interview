@@ -115,8 +115,11 @@ Explanation: There exist two distinct solutions to the 4-queens puzzle as shown 
     //use two arrays and +1, -1 for player1 and player2
     
     //we use 3 sets to store which column or row already occupied
+    
     private Set<Integer> col = new HashSet<Integer>();
+    // anti-dialg, /
     private Set<Integer> diag1 = new HashSet<Integer>();
+    //  \ this dialoug, if i =j, then it would be 0
     private Set<Integer> diag2 = new HashSet<Integer>();
     
     public List<List<String>> solveNQueens_DFS(int n) {
@@ -129,6 +132,7 @@ Explanation: There exist two distinct solutions to the 4-queens puzzle as shown 
             res.add(new ArrayList<String>(list));
             return;
         }
+        //this templates is used to solve the problem like same line is not allowed situations
         for (int j = 0; j < n; j++){
             if (col.contains(j) || diag1.contains(i + j) || diag2.contains(i - j)) continue;
             
