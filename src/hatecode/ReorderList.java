@@ -23,6 +23,11 @@ public class ReorderList {
 
      * @param head
      */
+    //thinking process:
+    //3 steps: 
+    //1 find the middle node
+    //2 reverse the right side
+    //3 merge left and right side one node by one node
     public void reorderList(ListNode head) {
         if (head == null || head.next == null) return;
         ListNode dummy = new ListNode(0);
@@ -36,6 +41,7 @@ public class ReorderList {
             fast = fast.next.next;
         }
         temp.next = null;
+        //reverse the right side
         ListNode l2 = reverse(slow);
         merge(l1, l2);
     }
