@@ -110,6 +110,7 @@ Explanation: There exist two distinct solutions to the 4-queens puzzle as shown 
     //so the question is to say to place n queues in a nxn matrix, so same row, column, dial and anti-dial
     //cannot have two queues
     
+    //this is like Design toe and tie, we do not/do want cards/queue on same line, 
     //
     private Set<Integer> col = new HashSet<Integer>();
     private Set<Integer> diag1 = new HashSet<Integer>();
