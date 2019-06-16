@@ -38,18 +38,18 @@ public class PowXN {
             return y * y * x;
         }
     }
-
+    //tricky to use x = x * x, so it will be come lgn times multiple
     public static double myPow2(double x, int n) {
         if (n == 0) return 1;
         double res = 1;
         // int : -6.. ~ +6..  -2^32 ~ 2 ^32-1 Integer.MIN_VALUE
-        long abs = Math.abs((long)n);
-        while (abs > 0) {
-            if (abs % 2 != 0) {
+        long times = Math.abs((long)n);
+        while (times > 0) {
+            if (times % 2 != 0) {
                 res *= x;
             }
             x *= x;
-            abs /= 2;
+            times /= 2;
         }
         if (n < 0) {
             return 1.0 / res;
