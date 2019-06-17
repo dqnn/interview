@@ -113,6 +113,9 @@ class RobotRoomCleaner {
             //first 2 turn left will reverse our direction, move() will move back to original position, 
             //then 2 turn left will make our direction the same when we would like go into (ni, nj),
             //we last we turn right, so we can proceed
+            
+            //robot.move() means we successful move to this position,so we need first detect and take actions
+            //
             if (!visited.contains(ni + "->" + nj) && robot.move()) {
                 helper(robot, visited, nextDir, ni, nj);
                 robot.turnLeft();
@@ -127,6 +130,7 @@ class RobotRoomCleaner {
 
     public void cleanRoom(Robot robot) {
         Set<String> visited = new HashSet<>();
+        //first we think we turn up
         helper(robot, visited, 0, 0, 0);
     }
 }
