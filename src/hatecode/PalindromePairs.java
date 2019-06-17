@@ -47,7 +47,9 @@ public class PalindromePairs {
     //2. str2.length() != 0 this is to say, we cut the string into two parts, one maybe the whole string,
     //we just need to make sure we try to use whole string once, we can add the condition for check str1 or 
     //str2, current we add to str1
-    //3. the model is to say, we break the string into two parts, one is 
+    //3. the model is to say, we break the string into two parts, one is  
+    // Str1 Str2 ---> Str2RvS Str1 Str2, so we want to check whether we can find str2 reversed string
+    // Str1 Str2 ---> Str1 Str2 Str1Rvs so we want to check whethter we can find str2 reversed string in map  
     public List<List<Integer>> palindromePairs(String[] words) {
         List<List<Integer>> res = new ArrayList<>();
         if (words == null || words.length < 2) return res;
