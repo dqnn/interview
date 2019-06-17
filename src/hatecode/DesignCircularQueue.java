@@ -100,46 +100,51 @@ circularQueue.Rear();  // return 4
     //the key is to (write - count + K) % K means front
     //(write - 1 + K) % K means tail
     //third key is write starts 0, and always point to last element's next
+    
+    //interview friendly
+    
+    //we can think this is a stack, write point to stack bottom, which is not filled yet. 
+    //count means how many elements in stack. 
+    //so if elements being ejected, we will count--. 
+    //
     class MyCircularQueue {
-        private int[] array;
-        private int count;  //used count
-        private int write;
+        private int[] A;
+        private int count;  //how many elements are in queue
+        private int write; //this actually means tail, next slot for inserting
 
         /** Initialize your data structure here. Set the size of the queue to be k. */
         public MyCircularQueue(int k) {
-            array = new int[k];
+            A = new int[k];
             count = 0;
             write = 0;
         }
         
         /** Insert an element into the circular queue. Return true if the operation is successful. */
         public boolean enQueue(int value) {
-            if (count == array.length) {
-                return false;
-            }
-            array[write] = value;
+            if (isFull()) return false;
+
+            A[write] = value;
             count++;
-            write = (write + 1) % array.length;
+            write = (write + 1) % A.length;
             return true;
         }
         
         /** Delete an element from the circular queue. Return true if the operation is successful. */
         public boolean deQueue() {
-            if (count == 0) {
-                return false;
-            }
+            if (isEmpty()) return false;
+
             count--;
             return true;
         }
         
         /** Get the front item from the queue. */
         public int Front() {
-            return count == 0 ? -1 : array[(write - count + array.length) % array.length];
+            return count == 0 ? -1 : A[(write - count + A.length) % A.length];
         }
         
         /** Get the last item from the queue. */
         public int Rear() {
-            return count == 0 ? -1 : array[(write - 1 + array.length) % array.length];
+            return count == 0 ? -1 : A[(write - 1 + A.length) % A.length];
         }
         
         /** Checks whether the circular queue is empty or not. */
@@ -149,7 +154,7 @@ circularQueue.Rear();  // return 4
         
         /** Checks whether the circular queue is full or not. */
         public boolean isFull() {
-            return count == array.length;
+            return count == A.length;
         }
     }
 }
