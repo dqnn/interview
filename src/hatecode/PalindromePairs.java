@@ -43,6 +43,7 @@ public class PalindromePairs {
     //given a string array, we want to know whether their permutation of any 2 string concatting can be 
     //a palindrome
     
+    //we add all strings into a map<String, index>
     //
     public List<List<Integer>> palindromePairs(String[] words) {
         List<List<Integer>> res = new ArrayList<>();
