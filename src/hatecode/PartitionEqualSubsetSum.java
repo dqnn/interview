@@ -55,19 +55,12 @@ talking is cheap:
  */
 public class PartitionEqualSubsetSum {
     public boolean canPartition(int[] nums) {
-        int sum = 0;
-        
-        for (int num : nums) {
-            sum += num;
-        }
-        
-        if ((sum & 1) == 1) {
-            return false;
-        }
+        int sum = Arrays.stream(nums).sum();
+        if (sum % 2 != 0) return false;
+
         sum /= 2;
-        
         boolean[] dp = new boolean[sum+1];
-        Arrays.fill(dp, false);
+
         dp[0] = true;
         
         for (int num : nums) {
