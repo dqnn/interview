@@ -50,7 +50,7 @@ The input string length won't exceed 1000.
 
     int count = 0;
 
-    // space : O(1)/O(n^2)
+    // space : O(n^2)/O(1)
     //thinking process: we want to know how many substirng are palindromic in s 
     
     //we start from any position in s, l move left while r move right
