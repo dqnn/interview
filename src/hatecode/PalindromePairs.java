@@ -44,9 +44,7 @@ public class PalindromePairs {
         List<List<Integer>> res = new ArrayList<>();
         if (words == null || words.length < 2) return res;
         HashMap<String, Integer> map = new HashMap<>();
-        for (int i = 0; i < words.length; i++) {
-            map.put(words[i], i);
-        }
+        for (int i = 0; i < words.length; i++) map.put(words[i], i);
      // we break down the current w[i] string into 2 parts, if each one can be palind, and we will add them to map and 
         // compare the index, if it is not i which means other string is palind
         for (int i = 0; i < words.length; i++) {
