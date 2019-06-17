@@ -31,10 +31,8 @@ public class BasicCalculatorII {
      */
     //time : O(n)  space : O(n)
 	public int calculate(String s) {
-        if (s == null || s.length() < 1) {
-            return 0;
-        }
-        
+        if (s == null || s.length() < 1) return 0;
+
         int res = 0, num = 0;
         Character sign = '+';
         Stack<Integer> stack = new Stack<>();
