@@ -61,6 +61,7 @@ public class PartitionEqualSubsetSum {
         sum /= 2;
         boolean[] dp = new boolean[sum+1];
         dp[0] = true;
+        //for each number, we pick or not pick, we need to know whether these number can form sum
         for (int num : nums) {
             for (int i = sum; i > 0; i--) {
                 if (i >= num) {
