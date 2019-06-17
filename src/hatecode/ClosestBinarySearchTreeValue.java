@@ -30,6 +30,7 @@ Input: root = [4,2,5,1,3], target = 3.714286
 
 Output: 4
  */
+    //standard solutions
     double min = Double.MAX_VALUE;
     int res = -1;
     public int closestValue(TreeNode root, double target) {
