@@ -38,4 +38,16 @@ public class MeetingRooms {
         }
         return true;
     }
+    //LC changed the DS
+    public boolean canAttendMeetings(int[][] ins) {
+        if(ins == null || ins.length < 1) return true;;
+        Arrays.sort(ins, (a, b)->(a[0] - b[0]));
+        
+        int s = ins[0][0], e = ins[0][1];
+        for(int i = 1; i< ins.length;i++) {
+            if(e > ins[i][0]) return false;
+            else e = ins[i][1];
+        }
+        return true;
+    }
 }
