@@ -51,6 +51,10 @@ The input string length won't exceed 1000.
     int count = 0;
 
     // space : O(1)/O(n^2)
+    //thinking process: we want to know how many substirng are palindromic in s 
+    
+    //we start from any position in s, l move left while r move right
+    //but needs to consider the even and odd case, it is like expand both ends
     int res = 1;
     public int countSubstrings_Recursive(String s) {
         if (s.length() == 0) return 0;
