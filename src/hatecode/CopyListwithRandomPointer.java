@@ -34,8 +34,10 @@ public class CopyListwithRandomPointer {
     //thinking process: originally this is a list, each node has an additional pointer like
     // left,right etc, so find the, this is the same as deep clone copy
     
-    //
+    //one edge case is that only 1 node and random point self, so in 
+    // condition check, we can only check head, not head.next
     public RandomListNode copyRandomList(RandomListNode head) {
+        if(head == null) return null;
         HashMap<RandomListNode, RandomListNode> map = new HashMap<>();
         RandomListNode cur = head;
         // so for linkedlist, we need to visit from head, the condition is node != null,
