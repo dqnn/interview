@@ -58,7 +58,7 @@ public class MultiplyStrings {
         StringBuilder sb = new StringBuilder();
         for (int digit : digits) {
             //skip leading 0
-            //
+            //"12" x "34" = "0408", skip first 0 only
             if(digit !=0 ||sb.length() != 0) sb.append(digit);
         }
         return sb.length() == 0 ? "0" : sb.toString();
