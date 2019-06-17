@@ -26,7 +26,7 @@ Output: 4
 
         int n = A.length;
         int res = 2;
-        // key is diff, value is A[j] as last elment Arithmetic sequence length
+        // key is diff, value is A[j] as last element Arithmetic sequence length
         Map<Integer, Integer>[] map = new HashMap[n];
         for (int i = 0; i < n; i++)
             map[i] = new HashMap<>();
