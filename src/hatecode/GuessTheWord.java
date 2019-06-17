@@ -133,24 +133,25 @@ public void findSecretWord2(String[] wordlist, Master master) {
     //same match count with previous guess, and with highest character count among all these strings. 
     public void findSecretWord_Best(String[] wordlist, Master master) {
         int[] dict = new int[26];
-          Set<String> set = new HashSet<>();
-          for(String str: wordlist) {
-              set.add(str);
-              for(char c: str.toCharArray()) {
-                  dict[c-'a']++;
-              }
-          }
+        Set<String> set = new HashSet<>();
+        for(String str: wordlist) {
+            set.add(str);
+            for(char c: str.toCharArray()) {
+                dict[c-'a']++;
+            }
+        }
 
-          for(int i=0; i<10; i++) {
-              String guess = pick(set, dict);
-              int x = master.guess(guess);
-              if (x == 6) return;
-              
-              Iterator<String> it = set.iterator();
-              while(it.hasNext()) {
-                  if(match(guess, it.next()) != x) it.remove();
-              }
-          }
+        for (int i = 0; i < 10; i++) {
+            String guess = pick(set, dict);
+            int x = master.guess(guess);
+            if (x == 6) return;
+
+            Iterator<String> it = set.iterator();
+            while (it.hasNext()) {
+                if (match(guess, it.next()) != x)
+                    it.remove();
+            }
+        }
    }
    
     private String pick(Set<String> list, int[] dict) {
