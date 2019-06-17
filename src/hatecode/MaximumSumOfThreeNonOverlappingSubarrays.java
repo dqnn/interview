@@ -222,4 +222,30 @@ i=4
         
         return result;
     }
+    //this is used to solve the n segments as follow up, still not understand this. 
+    //reference: 
+    //https://www.jiuzhang.com/solution/maximum-sum-of-3-non-overlapping-subarrays/#tag-highlight
+    public int[] helper(int[] A, int k, int seg) {
+        int n = A.length;
+        int[] presum = new int[n+1], sum = new int[n];
+        for (int i = 1 ;i<= n ;i++ ) {
+            presum[i] = presum[i-1]+A[i-1];
+            if( i>=k) sum[i-1] = presum[i]-presum[i-k];
+        }
+        int[][] f = new int[n+1][2];
+        int[][][] g = new int[n+1][2][seg];
+        int cur = 0 , pre =0;
+        for(int j = 1; j <= seg; j++){
+            cur = 1-cur;    
+            pre = 1-cur;
+            for(int i = k*j ; i <= n; i++){
+                boolean flag = i == k*j || f[i-k][pre]+sum[i-1]>f[i-1][cur];
+                f[i][cur] = flag? f[i-k][pre]+sum[i-1]:f[i-1][cur];
+                for(int p = 0; p<j-1; p++)
+                    g[i][cur][p]= flag?g[i-k][pre][p]:g[i-1][cur][p];
+                g[i][cur][j-1] = flag? i-k : g[i-1][cur][j-1];    
+            }
+        }
+        return g[n][cur];
+    }
 }
