@@ -16,8 +16,9 @@ Explanation:
 [1,1,1,0,0,1,1,1,1,1,1]
 */
     
-    //two pointers,so there are a lot of two pointers templates, the most important is to understand how to move left and 
-    //right pointers, here we first move right to farthest then start to move left. 
+    //two pointers
+    //first we try best to move right, then get the max length,
+    //then we will try to recover 
     public int longestOnes(int[] A, int K) {
         if (A == null || A.length < 1) return 0;
         
@@ -38,7 +39,8 @@ Explanation:
         }
         return res;
     }
-    //best but not interview friendly, it is not easy to understand how left and right pointers move
+    //best but not interview friendly, 
+    //it is not easy to understand how left and right pointers move
     public int longestOnes_Best(int[] A, int K) {
         int i = 0, j = 0;
         for (; j < A.length; ++j) {
