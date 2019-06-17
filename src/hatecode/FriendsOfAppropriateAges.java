@@ -28,10 +28,13 @@ Explanation: 2 people friend request each other.
     //thinking process: given an array which represents age, and we have rules on these ages,
     // like above, so one person will make friend request to another,so how many request totally?
     
-    //first it is bruth-force, but would be O(N^2)/O(n), so how can we reduce the time complexity?
+    //first it is brute-force, but would be O(N^2)/O(n), so how can we reduce the time complexity?
     //for person i, we want to know how many people before i he can make friends, and we can sum 
     //them up. 
     
+    //so the key point is we need to find how many at age i-- countInAge[i], next is to find for this 
+    //how many people this group can send request to. which is calcuated by age, 
+    //sumInAge[i] - sumInAge[i / 2 + 7]; they will not include themselves
     //
     public int numFriendRequests(int[] ages) {
         if (ages == null || ages.length < 1) return 0;
@@ -39,8 +42,7 @@ Explanation: 2 people friend request each other.
         //sumInAge means how many people ages <= i
         int[] countInAge = new int[121], sumInAge = new int[121];
         //frequency on age, like 36, 36, countInAge[36] = 2
-        for(int i : ages) 
-            countInAge[i] ++;
+        for(int i : ages)  countInAge[i] ++;
         ////In order to get at least 1 valid age value from (0.5 * A + 7, A], 
         //A has to be at lease 15.
        //age[B] <= 0.5 * age[A] + 7 this means if anyone under 15, like 14, no one would send 
@@ -52,6 +54,8 @@ Explanation: 2 people friend request each other.
             //we need this to assign value to sumInAge
             sum += countInAge[i];
             sumInAge[i] = sum;
+            //this can only be here, 
+            //[20,30,100,110,120], count[31] = 0. but sumInAge[31] will not be 0
             if(countInAge[i] == 0) continue;
             // [16,16]->countInAge, countInAge[16] = 2, sumInAge[16] = 2
             //so here count = 2 - sumInAge[15] = 2
