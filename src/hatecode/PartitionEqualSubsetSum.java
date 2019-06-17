@@ -60,9 +60,7 @@ public class PartitionEqualSubsetSum {
 
         sum /= 2;
         boolean[] dp = new boolean[sum+1];
-
         dp[0] = true;
-        
         for (int num : nums) {
             for (int i = sum; i > 0; i--) {
                 if (i >= num) {
