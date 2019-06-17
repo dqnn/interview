@@ -65,6 +65,9 @@ public class BasicCalculator {
                 stack.push(sign);
                 res = 0;
                 sign = 1;
+            //here is the key, when we 1-(2-3), here means res = 0, sign = 1, 
+                //stack will 1 and -1,  and we process res = -1, so here it will be 
+                // -1 * -1 + 1 = 2
             } else if(c == ')') {
                 res = res * stack.pop() + stack.pop();
             }
