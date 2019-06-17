@@ -26,6 +26,8 @@ Output: [[0,0],[0,1],[0,2],[0,3]]
     
     //interview friendly:
     //thinking process:
+    //this is pretty elegant code, we run same direction for len steps and we chagne steps after change 2
+    //directions
     //
     public int[][] spiralMatrixIII_Best(int R, int C, int r0, int c0) {
         int[][] dirt = new int[][]{{0, 1}, {1, 0}, {0, -1}, {-1, 0}}; // east, south, west, north
@@ -44,12 +46,7 @@ Output: [[0,0],[0,1],[0,2],[0,3]]
         }
         return res.toArray(new int[R * C][2]);
     }
-    
-    
-    
-    
-    
-    
+
     /*thinking process: 
      * The idea here is that once we start at (r=r0, c=c0), we walk along the east,
      * then south, then west, and then north.
@@ -68,11 +65,6 @@ Output: [[0,0],[0,1],[0,2],[0,3]]
      * valid.
      */
     //
-    
-    
-    
-    
-    
     //1 every circle our len will, realize how we traverse the matrix, 
     //every approach two steps, we will change our direction
     int idx;
