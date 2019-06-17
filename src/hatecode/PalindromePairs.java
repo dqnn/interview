@@ -38,13 +38,13 @@ public class PalindromePairs {
      * @param words
      * @return
      */
-    //thinking process:
-    //
     public List<List<Integer>> palindromePairs(String[] words) {
         List<List<Integer>> res = new ArrayList<>();
         if (words == null || words.length < 2) return res;
         HashMap<String, Integer> map = new HashMap<>();
-        for (int i = 0; i < words.length; i++) map.put(words[i], i);
+        for (int i = 0; i < words.length; i++) {
+            map.put(words[i], i);
+        }
      // we break down the current w[i] string into 2 parts, if each one can be palind, and we will add them to map and 
         // compare the index, if it is not i which means other string is palind
         for (int i = 0; i < words.length; i++) {
@@ -69,14 +69,14 @@ public class PalindromePairs {
     }
 
     private boolean isPalindrome(String s) {
-        int left = 0;
-        int right = s.length() - 1;
-        while (left <= right) {
-            if (s.charAt(left) != s.charAt(right)) {
+        int l = 0;
+        int r = s.length() - 1;
+        while (l <= r) {
+            if (s.charAt(l) != s.charAt(r)) {
                 return false;
             }
-            left++;
-            right--;
+            l++;
+            r--;
         }
         return true;
     }
