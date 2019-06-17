@@ -16,7 +16,7 @@ Output: 4
     
     */
     // O(n^2)/O(n), 
-    //thinking process: given an array, find the longesy Arithmetic sequence length
+    //thinking process: given an array, find the longest Arithmetic sequence length
     //we used a map to store diff<->length of arithmetic sequence, so we use two pointers i and j, (j < i, i =1,2..n-1), 
     //map[i] means as A[i] the end of the sequence, the length, so each i we will have a map, for each j from 0, i-1, we would 
     //check each diff, for each j compare, we would get length as A[i],so for position i, it would have two possible options, 
