@@ -31,6 +31,8 @@ Explanation: 2 people friend request each other.
     //first it is bruth-force, but would be O(N^2)/O(n), so how can we reduce the time complexity?
     //for person i, we want to know how many people before i he can make friends, and we can sum 
     //them up. 
+    
+    //
     public int numFriendRequests(int[] ages) {
         if (ages == null || ages.length < 1) return 0;
        //countInAge means how many peope in age i
