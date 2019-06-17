@@ -21,16 +21,24 @@ Example 1:
 Input: R = 1, C = 4, r0 = 0, c0 = 0
 Output: [[0,0],[0,1],[0,2],[0,3]]
 */
-    /*
-The idea here is that once we start at (r=r0, c=c0), we walk along the east, then south, then west, and then north.
-
-When we go east, we do c++ (column increases), when we go west, we do c--, when we go south, we do r++ (row increases), and when we go north, we do r--.
-
-After starting at (r0,c0), we need to walk in spirals, where the length of the spiral increases after every two directions. For example 2, we start at (r0=1, c0=4), then we go east by one length, we go south by one length. Following that, we go west by 2 length and then, go north by 2 length. After that, we go in next directions by 3 lengths, and so on.
-
-The trick here is that we continue to walk in spiral, whether the current (r,c) is valid or not. However, we add (r,c) to the result only if it is valid.
-    */
-    //thinking processs: 
+    /*thinking process: 
+     * The idea here is that once we start at (r=r0, c=c0), we walk along the east,
+     * then south, then west, and then north.
+     * 
+     * When we go east, we do c++ (column increases), when we go west, we do c--,
+     * when we go south, we do r++ (row increases), and when we go north, we do r--.
+     * 
+     * After starting at (r0,c0), we need to walk in spirals, where the length of
+     * the spiral increases after every two directions. For example 2, we start at
+     * (r0=1, c0=4), then we go east by one length, we go south by one length.
+     * Following that, we go west by 2 length and then, go north by 2 length. After
+     * that, we go in next directions by 3 lengths, and so on.
+     * 
+     * The trick here is that we continue to walk in spiral, whether the current
+     * (r,c) is valid or not. However, we add (r,c) to the result only if it is
+     * valid.
+     */
+    //
     
     //this is a low priority problem, just for reference
     int idx;
