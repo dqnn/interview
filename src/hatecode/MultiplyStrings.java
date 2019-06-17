@@ -47,7 +47,7 @@ public class MultiplyStrings {
   *  the remainder will be 2(i + j + 1)
   */
                 int p1 = i + j, p2 = i + j + 1;
-                //add previous value of digits[p2]
+                //add previous value of digits[p2], p2 is smaller significant position, so sum here is real
                 int sum = product + digits[p2];
                 // incremental 
                 digits[p1] += sum / 10;
@@ -55,12 +55,12 @@ public class MultiplyStrings {
                 digits[p2] = sum % 10;
             }
         }
-        StringBuilder res = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         for (int digit : digits) {
-            if (!(digit == 0 && res.length() == 0)) {
-                res.append(digit);
-            }
+            //skip leading 0
+            //
+            if(digit !=0 ||sb.length() != 0) sb.append(digit);
         }
-        return res.length() == 0 ? "0" : res.toString();
+        return sb.length() == 0 ? "0" : sb.toString();
     }
 }
