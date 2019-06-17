@@ -39,9 +39,8 @@ public class LongestArithmeticSequence {
                 if (map[j].containsKey(diff)) {
                     len = map[j].get(diff) + 1;
                 }
-
-                int cur = map[i].getOrDefault(diff, 0);
-                map[i].put(diff, Math.max(len, cur));
+                //same diff for i and j, position on j will always be longer
+                map[i].put(diff, len);
                 res = Math.max(res, map[i].get(diff));
             }
         }
