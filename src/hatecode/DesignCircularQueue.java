@@ -31,6 +31,7 @@ circularQueue.enQueue(4);  // return true
 circularQueue.Rear();  // return 4
 */
 
+    //interview friendly
     //thinking process: the problem is want us to implement the ds to have O(1)
     //so i come up with an array, head, tail pointer and size, 
     //first idea is to use head and tail to guard the array, but then problem came as we 
@@ -44,9 +45,10 @@ circularQueue.Rear();  // return 4
     public DesignCircularQueue(int k) {
         this.a = new int[k];
         this.head = 0;
-        //here is the key, we tail will always point to last element in array. 
+        //here is the key, we tail will always point to last element in array.
+        //-1 means for adapting the 0
         this.tail = -1;
-        //this is the key to indicate how many elments in curent array
+        //this is the key to indicate how many elements in current array
         this.size = 0;
     }
     
@@ -63,11 +65,9 @@ circularQueue.Rear();  // return 4
     /** Delete an element from the circular queue. Return true if the operation is successful. */
     public boolean deQueue() {
         if (isEmpty()) return false;
-        else {
-            head = (head + 1) % a.length;
-            size--;
-            return true;
-        }
+        head = (head + 1) % a.length;
+        size--;
+        return true;
     }
     
     /** Get the front item from the queue. */
@@ -101,11 +101,11 @@ circularQueue.Rear();  // return 4
     //(write - 1 + K) % K means tail
     //third key is write starts 0, and always point to last element's next
     
-    //interview friendly
-    
     //we can think this is a stack, write point to stack bottom, which is not filled yet. 
     //count means how many elements in stack. 
     //so if elements being ejected, we will count--. 
+    // if there no dequeue, and not full, count = write
+    //if not full, and it has dequeue, then write - count means how many elements are being ejected
     //
     class MyCircularQueue {
         private int[] A;
