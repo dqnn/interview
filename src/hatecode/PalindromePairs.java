@@ -38,6 +38,8 @@ public class PalindromePairs {
      * @param words
      * @return
      */
+    //thinking process:
+    //
     public List<List<Integer>> palindromePairs(String[] words) {
         List<List<Integer>> res = new ArrayList<>();
         if (words == null || words.length < 2) return res;
