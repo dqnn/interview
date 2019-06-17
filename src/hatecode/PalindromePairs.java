@@ -53,7 +53,7 @@ public class PalindromePairs {
             map.put(words[i], i);
         }
      // we break down the current w[i] string into 2 parts, if each one can be palind, and we will add them to map and 
-        // compare the index, if it is not i which means other string is palind
+        // compare the index, if it is not i which means other string is palindrome
         for (int i = 0; i < words.length; i++) {
             for (int j = 0; j <= words[i].length(); j++) {
                 String str1 = words[i].substring(0, j);
