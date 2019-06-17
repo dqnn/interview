@@ -20,7 +20,7 @@ Output: 4
     //we used a map to store diff<->length of arithmetic sequence, so we use two pointers i and j, (j < i, i =1,2..n-1), 
     //map[i] means as A[i] the end of the sequence, the length, so each i we will have a map, for each j from 0, i-1, we would 
     //check each diff, for each j compare, we would get length as A[i],so for position i, it would have two possible options, 
-    //one is previos compared length, another is compare to current j which is like dp[diff][i] = max(dp[diff][i], dp[diff][j] + 1)
+    //one is previous compared length, another is compare to current j which is like dp[diff][i] = max(dp[diff][i], dp[diff][j] + 1)
     //[20,1,15,3,10,5,8], 
     public int longestArithSeqLength(int[] A) {
 
@@ -28,8 +28,7 @@ Output: 4
         int res = 2;
         // key is diff, value is A[j] as last element Arithmetic sequence length
         Map<Integer, Integer>[] map = new HashMap[n];
-        for (int i = 0; i < n; i++)
-            map[i] = new HashMap<>();
+        for (int i = 0; i < n; i++) map[i] = new HashMap<>();
 
         for (int i = 1; i < n; i++) {
             for (int j = 0; j < i; j++) {
