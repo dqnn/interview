@@ -29,7 +29,7 @@ public class BasicCalculatorII {
      * @param s
      * @return
      */
-    //time : O(n)  space : O(n)
+    //time : O(n)/O(n)
 	public int calculate(String s) {
         if (s == null || s.length() < 1) return 0;
 
