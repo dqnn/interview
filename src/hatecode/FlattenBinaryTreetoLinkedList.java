@@ -43,7 +43,8 @@ public class FlattenBinaryTreetoLinkedList {
     // reverse of preOrder visit
     public void flatten(TreeNode root) {
         if (root == null) return;
-        //first visit right child
+        //first visit right child,because prev will have to save the previos visit, 
+        //if we first visit left, then right side will come before left side
         flatten(root.right);
         // left child
         flatten(root.left);
@@ -53,7 +54,7 @@ public class FlattenBinaryTreetoLinkedList {
         // here we use this way to store the previous root of right child
         prev = root;
     }
-    
+    //this is top down, the tree grow from top down and first process the left child, then left child's child...
     public void flatten2(TreeNode root) {
         if (root == null) {
             return;
