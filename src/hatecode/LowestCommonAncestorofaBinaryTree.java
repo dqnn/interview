@@ -26,7 +26,7 @@ public class LowestCommonAncestorofaBinaryTree {
     //so we visit from top by this recursive function, if we find it equals p or q, then we 
     //just return
     
-    //and 
+    //this needs to be remembered
     public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
        // please note here root ==p and root == q
         if (root == null || root == p || root == q) {
