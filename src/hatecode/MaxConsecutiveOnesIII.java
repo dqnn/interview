@@ -16,26 +16,24 @@ Explanation:
 [1,1,1,0,0,1,1,1,1,1,1]
 */
     
-    //two pointers
+    //two pointers templates
     //first we try best to move right, then get the max length,
-    //then we will try to recover 
-    public int longestOnes(int[] A, int K) {
+    //then we will try to recover, we move to right as right as possible
+    //if we played 0->1 too many then we will recover from left, 
+    //"remove" 0 from the window by moving l. 
+    public int longestOnes(int[] A, int k) {
         if (A == null || A.length < 1) return 0;
         
-        int n = A.length, l = 0, r = -1;
-        int res = Integer.MIN_VALUE;
-        while(r + 1 < n) {
-            while (r + 1 < n && (A[r + 1] == 1 || A[r + 1] == 0 && K > 0)) {
-                if (A[r + 1] == 0 && K > 0) K--;
-                r++; 
-            }
-            
-            res = Math.max(res, r - l + 1);
-            while(l < n && K <= 0) {
-                if (A[l] == 0) K++;
+        int res = 0, l =0, r =0;
+        int count = 0;
+        while(r < A.length) {
+            if(A[r] == 0) count++;
+            r++;
+            while(count > k) {
+                if(A[l] == 0) count--;
                 l++;
             }
-            
+            res = Math.max(res, r- l);
         }
         return res;
     }
