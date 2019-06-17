@@ -38,6 +38,12 @@ public class PalindromePairs {
      * @param words
      * @return
      */
+    //thinking process:
+    
+    //given a string array, we want to know whether their permutation of any 2 string concatting can be 
+    //a palindrome
+    
+    //
     public List<List<Integer>> palindromePairs(String[] words) {
         List<List<Integer>> res = new ArrayList<>();
         if (words == null || words.length < 2) return res;
