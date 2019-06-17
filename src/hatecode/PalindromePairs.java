@@ -43,8 +43,8 @@ public class PalindromePairs {
     //given a string array, we want to know whether their permutation of any 2 string concatting can be 
     //a palindrome
     
-    //we add all strings into a map<String, index>
-    //
+    //1. we add all strings into a map<String, index>
+    //2. 
     public List<List<Integer>> palindromePairs(String[] words) {
         List<List<Integer>> res = new ArrayList<>();
         if (words == null || words.length < 2) return res;
@@ -79,9 +79,7 @@ public class PalindromePairs {
         int l = 0;
         int r = s.length() - 1;
         while (l <= r) {
-            if (s.charAt(l) != s.charAt(r)) {
-                return false;
-            }
+            if (s.charAt(l) != s.charAt(r)) return false;
             l++;
             r--;
         }
