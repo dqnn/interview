@@ -43,7 +43,8 @@ public class MultiplyStrings {
   *     1  0
   *  0  5
   *  ------------
-  *  we can see A[1] = 2, B[0] = 5, so the product  1 0 will start 1(i + j), the remainder will be 2(i + j + 1)
+  *  we can see A[1] = 2, B[0] = 5, so the product  1 0 will start 1(i + j), 
+  *  the remainder will be 2(i + j + 1)
   */
                 int p1 = i + j, p2 = i + j + 1;
                 //add previous value of digits[p2]
