@@ -122,50 +122,104 @@ id[i][j] stands for in i th sum, the first starting index for that sum.
 /*
 
  */     //interview friendly
-        //
-        public int[] maxSumOfThreeSubarrays3(int[] nums, int K) {
-            //W is an array of sums of windows
-            //note: W is sliding window size = k
-            int[] W = new int[nums.length - K + 1];
-            int sum = 0;
-            for (int i = 0; i < nums.length; i++) {
-                sum += nums[i];
-                //nums[i-k] needs to be removed from sum since sliding window
-                if (i >= K) sum -= nums[i-K];
-                // from k-1, assign the value to w, w[0] = nums[0] ... nums[k-1]
-                //w[1] = nums[0]+..nums[k] - nums[0] = nums[1]+..nums[k]
-                if (i >= K-1) W[i-K+1] = sum;
-            }
-            //scan from left to right,left will become left increase array, 
-            int[] left = new int[W.length];
-            int best = 0;
-            for (int i = 0; i < W.length; i++) {
-                if (W[i] > W[best]) best = i;
-                left[i] = best;
-            }
-          
-            //scan from right, and to record the results
-            int[] right = new int[W.length];
-            best = W.length - 1;
-            for (int i = W.length - 1; i >= 0; i--) {
-                if (W[i] >= W[best]) best = i;
-                right[i] = best;
-            }
-             
-            int[] ans = new int[]{-1, -1, -1};
-          //merge the results, so i and k are all largest value if from left or right
-            //so we just iterator,since at j, we always know past and future info
-            //
-            for (int j = K; j < W.length - K; j++) {
-                int i = left[j - K], k = right[j + K];
-                //in case initialize 
-                if (ans[0] == -1 || W[i] + W[j] + W[k] >
-                        W[ans[0]] + W[ans[1]] + W[ans[2]]) {
-                    ans[0] = i;
-                    ans[1] = j;
-                    ans[2] = k;
-                }
-            }
-            return ans;
+/*
+Trace details:
+
+nums=[1,2,1,2,6,7,5,1], k=2
+
+preSum = [1, 3, 4, 6, 12, 19, 24, 25]
+
+leftMaxPos = [0, 0, 0, 0, 3, 4, 4, 4]
+
+rightMaxPos = [4, 4, 4, 4, 4, 5, 6, 0]
+
+for i=2, i<=4
+i=2
+    0 1 2 3 4 5 6 7
+    - - ^ - - - - -
+
+    curLeftMaxPos = leftMaxPos[2-1]  = 0
+    curRightMaxPos= rightMaxPos[2+2] = 4
+
+    cur3Sum = 3 + 3 + 13 = 19
+    maxSum = 19
+    results[0] = 0;
+    results[1] = 2;
+    results[2] = 4; 
+
+i=3     
+    0 1 2 3 4 5 6 7
+    - - - ^ - - - -
+
+    curLeftMaxPos = leftMaxPos[3-1]  = 0
+    curRightMaxPos= rightMaxPos[2+2] = 5
+
+    cur3Sum = 3 + 8 + 12 = 23
+    maxSum = 23
+    results[0] = 0;
+    results[1] = 3;
+    results[2] = 5; 
+
+i=4 
+    0 1 2 3 4 5 6 7
+    - - - - ^ - - -
+
+    curLeftMaxPos = leftMaxPos[4-1]  = 0
+    curRightMaxPos= rightMaxPos[4+2] = 6
+
+    cur3Sum = 3 + 13 + 6 = 22
+    maxSum = 23 
+ */
+    public int[] maxSumOfThreeSubarrays_Non_DP(int[] nums, int k) {
+        int[] result = new int[3]; 
+        if(nums == null || nums.length == 0) {
+            return result;
         }
+        
+        int n = nums.length;
+        //preKSum[i] means i as last index, window = K sum
+        int[] preKSum = new int[n];
+        
+        // k prefix
+        preKSum[0] = nums[0];
+        for (int i = 1; i < n; i++) {
+            preKSum[i] = preKSum[i - 1] + nums[i];
+            //clever subtract
+            if (i >= k) preKSum[i] -= nums[i - k];
+        }
+        
+        // scan from left to right, starting from k - 1, because left[i] means the for k -1->i index, 
+        //the max window sum size end index is left[i]
+        int[] left = new int[n];
+        int leftMaxIndex = k - 1;
+        for (int i = k - 1; i < n; i++) {
+            left[i] = preKSum[i] > preKSum[leftMaxIndex] ? i : leftMaxIndex;
+            leftMaxIndex = left[i];
+        }
+        
+     // scan from left to right, starting from n - 1, because right[i] means the for n-1-> k -1 index, 
+        //the max window sum size end index is right[i]
+        int[] right = new int[n];
+        int rightMaxIndex = n - 1;
+        for (int i = n - 1; i >= k - 1; i--) {
+            right[i] = preKSum[i] >= preKSum[rightMaxIndex] ? i : rightMaxIndex;
+            rightMaxIndex = right[i];
+        }
+        
+        int max = Integer.MIN_VALUE;
+        // scan all possible intervals, i means the middle index starting point, which means 
+        //left at least have one, right at least have one, so 2k - 1 - k means the left point starting 
+        //from k - 1
+        for (int i = 2 * k - 1; i < n - k; i++) {
+            int sum3 = preKSum[left[i - k]] + preKSum[i] + preKSum[right[i + k]];
+            if (sum3 > max) {
+                max = sum3;
+                result[0] = left[i - k] - k + 1;
+                result[1] = i - k + 1;
+                result[2] = right[i + k] -k + 1;
+            }
+        }
+        
+        return result;
+    }
 }
