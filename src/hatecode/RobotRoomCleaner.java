@@ -93,6 +93,7 @@ class RobotRoomCleaner {
     //1. when we enter a new cell, we need to which direction we are, if we do not know, then we do not know
     //how to call API, turn left or turn right, how can we avoid visited ones? 
     //2. the dirs have dedicated order thats why after if, we always turn right, clockwise to scan the 4 nighbours
+    //3. we need visited because we have to skip the cell where we visited
     //O(4^(n-m))/O(n-m), n is the cells=r*c, m is obstacles,
     final int[][] dirs = new int[][] {
         {-1, 0}, //turn up
@@ -130,7 +131,7 @@ class RobotRoomCleaner {
 
     public void cleanRoom(Robot robot) {
         Set<String> visited = new HashSet<>();
-        //first we think we turn up
+        //we clock wise turn
         helper(robot, visited, 0, 0, 0);
     }
 }
