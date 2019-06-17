@@ -28,7 +28,6 @@ Output: [[0,0],[0,1],[0,2],[0,3]]
     //thinking process:
     //this is pretty elegant code, we run same direction for len steps and we chagne steps after change 2
     //directions
-    //
     public int[][] spiralMatrixIII_Best(int R, int C, int r0, int c0) {
         int[][] dirt = new int[][]{{0, 1}, {1, 0}, {0, -1}, {-1, 0}}; // east, south, west, north
         List<int[]> res = new ArrayList<>();
