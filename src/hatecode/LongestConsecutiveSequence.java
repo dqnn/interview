@@ -59,7 +59,7 @@ Therefore its length is 4.
         }
         return res;
     }
-    //O(n)/O(n), think about the two loops, there are not full ones, and second one are always decreased,
+    //O(n)/O(n), worst is O(n^2)/O(n), think about the two loops, there are not full ones, and second one are always decreased,
     //
     //if the array already sorted, then we can climb the ladder in the for while loop, 
     //this is more like we look for the consective sequence starting points
@@ -68,6 +68,7 @@ Therefore its length is 4.
 
         int res = 0;
         for(int i = 0; i < nums.length; i++) {
+            //because we have to go through every one
             if(set.contains(nums[i] - 1)) continue;
             int next = nums[i] + 1;
             while(set.contains(next)) {
