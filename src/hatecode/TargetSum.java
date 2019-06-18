@@ -121,4 +121,22 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
         }
         return dp[n][sum + target];
     }
+    //the same knapSack problems
+    public int findTargetSumWays_1D(int[] A, int target) {
+        int sum = Arrays.stream(A).sum();
+        //we check (sum + S) % 2 == 1 is to exclude sum + S == odd number
+        if(target > sum || (sum + target) % 2 == 1)   return 0;
+        return subsetSum(A, (sum + target) / 2);
+    }
+
+    private int subsetSum(int[] nums, int S){
+        int[] dp = new int[S + 1];
+        dp[0] = 1;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = S; j >= nums[i]; j--) {
+                dp[j] += dp[j - nums[i]];
+            }
+        }
+        return dp[S];
+    }
 }
