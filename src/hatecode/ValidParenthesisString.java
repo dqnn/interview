@@ -29,7 +29,33 @@ Output: True
 Note:
 The string size will be in the range [1, 100].
 */
-/*
+
+    //interview friendly:
+    //cmax max number of ( could be paired,
+    //cmin min number of ( must be paired
+    
+    //a string is valid: 1: cmax >=0, 2 cmin = 0 in the end for every position
+    public boolean checkValidString_Interviewe_Friendly(String s) {
+        int cmin = 0, cmax = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (c == '(') {
+                cmax++;cmin++;
+            } else if (c == ')') {
+                cmax--;
+                cmin = Math.max(cmin - 1, 0);
+            } else {
+                cmax++;
+                cmin = Math.max(cmin - 1, 0);
+            }
+            if (cmax < 0) return false;
+        }
+        return cmin == 0;
+    }   
+    
+    
+    
+ /*
  The idea is to similar to validate a string only contains '(' and ')'. 
  But extend it to tracking the lower and upper bound of valid '(' counts. 
  My thinking process is as following.
