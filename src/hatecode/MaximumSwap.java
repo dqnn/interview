@@ -28,9 +28,6 @@ Output: 7236
                 }
             }
         }
-        
         return n;
-        
-        
     }
 }
