@@ -20,7 +20,8 @@ Output: 7236
         for(int i = 0; i <chs.length; i++) {
             buckets[chs[i] - '0'] = i;
         }
-        
+        //the loop is to say, scan chs from left to right, 
+        //
         for(int i = 0; i< chs.length; i++) {
             for(int k = 9; k > chs[i] - '0'; k--) {
                 if (buckets[k] > i) {
