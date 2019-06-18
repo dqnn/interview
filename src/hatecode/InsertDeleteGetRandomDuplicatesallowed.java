@@ -73,7 +73,8 @@ collection.getRandom();
     }
 
     /** Removes a value from the collection. Returns true if the collection contained the specified element. */
-    // so if duplicated one here remains so we only want to remove one no matter where they are and which index
+    // so if duplicated one here remains so we only want to remove 
+    //one no matter where they are and which index
     public boolean remove(int val) {
         if (!map.containsKey(val)) return false;
         
