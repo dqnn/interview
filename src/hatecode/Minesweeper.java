@@ -74,7 +74,12 @@ Output:
         return board;
     }
     //interview friendly: 
-    //given an board, with one coordination, we need to 
+    //given an board, with one coordination, we need update the board with the area around the 
+        //click, dfs/bfs to update the board, if always M, then we put X there. 
+        //BFS: 
+        //1.update the count, how many M/X in adjacent 8 cells
+        //2. update the cell to be revealed
+        //3.if always revealed, then stop
     public char[][] updateBoard(char[][] board, int[] click) {
         int m = board.length, n = board[0].length;
         Queue<int[]> queue = new LinkedList<>();
