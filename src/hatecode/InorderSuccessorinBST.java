@@ -30,6 +30,7 @@ public class InorderSuccessorinBST {
     //and our loop should be exit
     //edge case: thinking about this way if we visit the tree and put into a list, so we just need to find P and 
     //return its next. so it maybe last one, for this case, we just return null, the previous loop still works
+    //rememeber this solutions
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
         TreeNode res = null;
         // it must be its right branch
