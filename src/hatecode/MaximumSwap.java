@@ -21,6 +21,7 @@ Output: 7236
             buckets[chs[i] - '0'] = i;
         }
         //the loop is to say, scan chs from left to right, 
+        //left is significant, for position i, we are able to find a bigger digit 
         //
         for(int i = 0; i< chs.length; i++) {
             for(int k = 9; k > chs[i] - '0'; k--) {
