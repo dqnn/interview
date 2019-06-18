@@ -50,7 +50,7 @@ public class StrobogrammaticNumberII {
         if (n == 0) return new ArrayList<>(Arrays.asList(""));
         if (n == 1) return new ArrayList<>(Arrays.asList("0", "1", "8"));
 
-        // n - 2 because 
+        // n - 2 because we will add two digits(before and after) for each string
         List<String> list = helper(n - 2, m);
         List<String> res = new ArrayList<>();
         //note: list at least has 1 size, "" 
