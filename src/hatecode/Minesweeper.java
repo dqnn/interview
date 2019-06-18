@@ -73,7 +73,8 @@ Output:
         
         return board;
     }
-    
+    //interview friendly: 
+    //
     public char[][] updateBoard(char[][] board, int[] click) {
         int m = board.length, n = board[0].length;
         Queue<int[]> queue = new LinkedList<>();
