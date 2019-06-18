@@ -69,6 +69,8 @@ this is the index tree example, index is from 0- 12
 parent(i) = i - (i & (-i))
 so we always reserve first element in tree as the root(0) above, when tree initialized, all values are 
 0, so we update each element by climbing the tree
+
+in update function, we use i += i &(-i), 
 */
     public void update(int row, int col, int val) {
         if (m == 0 || n == 0) return;
