@@ -66,13 +66,10 @@ collection.getRandom();
 
     /** Inserts a value to the collection. Returns true if the collection did not already contain the specified element. */
     public boolean insert(int val) {
-        boolean contain = map.containsKey(val);
-        if (!contain) {
-            map.put(val, new HashSet<>());
-        }
-        map.get(val).add(list.size());
+        boolean ret = map.containsKey(val);
+        map.computeIfAbsent(val, v->new LinkedHashSet<>()).add(list.size());
         list.add(val);
-        return !contain;
+        return !ret;
     }
 
     /** Removes a value from the collection. Returns true if the collection contained the specified element. */
