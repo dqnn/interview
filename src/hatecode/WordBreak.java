@@ -45,13 +45,17 @@ public class WordBreak {
     //2 i < i cannot be =
     // for last char we have to access, we always use dp[n +1]
     public boolean wordBreak(String s, List<String> wordDict) {
+        if(s == null || s.length() < 1) return false;
+        Set<String> set = new HashSet<>(wordDict);
+        
         boolean[] dp = new boolean[s.length() + 1];
         dp[0] = true;
         for (int i = 1; i <= s.length(); i++) {
             //we break because already find it, so we skip to next i
             // this for loop is mainly to verify j, i is in the dict or not
             for (int j = 0; j < i; j++) {
-                if (dp[j] && wordDict.contains(s.substring(j, i))) {
+                String str = s.substring(j, i);
+                if(dp[j] && set.contains(str)) {
                     dp[i] = true;
                     break;
                 }
