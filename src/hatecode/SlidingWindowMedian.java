@@ -19,6 +19,64 @@ Window position                Median
 
 Given an array nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position. Your job is to output the median array for each window in the original array.
 */
+    //store right part
+    Queue<Integer> minHeap = new PriorityQueue<>();
+    //store left part
+    //(a,b)->(b-a) cannot pass the Integer.MAX or MIN, but this could
+    Queue<Integer> maxHeap = new PriorityQueue<>(1, (a, b)->(b.compareTo(a)));
+    
+    public double[] medianSlidingWindow_PQ(int[] nums, int k) {
+        int n = nums.length;
+        double[] medians = new double[n - k + 1];
+        
+        for(int i = 0; i < nums.length; ++i) {
+            addNum(nums[i]);
+            if (i - k >= 0) {
+                removeNum(nums[i - k]);
+            }
+            if (i - k + 1 >=0) {
+                medians[i- k + 1] = getMedian();
+            }
+        }
+        
+        return medians;
+    }
+    
+    private void addNum(int n) {
+        if (minHeap.isEmpty() || minHeap.peek() <= n) {
+            minHeap.offer(n);
+        } else {
+            maxHeap.offer(n);
+        }
+        rebalance();
+    }
+    
+    private void removeNum(int n) {
+        if (minHeap.peek() <= n) {
+            minHeap.remove(n);
+        } else {
+            maxHeap.remove(n);
+        }
+        rebalance();
+    }
+    
+    private void rebalance() {
+        if (minHeap.size() - maxHeap.size() > 1) {
+            maxHeap.offer(minHeap.poll());
+        } else if (maxHeap.size() > minHeap.size()) {
+            minHeap.offer(maxHeap.poll());
+        }
+    }
+    
+    private double getMedian() {
+        return minHeap.size() == maxHeap.size() ? (0.0 + minHeap.peek() + maxHeap.peek()) / 2 : minHeap.peek();
+    }
+    
+    
+    
+    
+    
+    
     //O(Nlgk)/O(N)
     //thinking process: 
     //so given a int array and integer k, return for each window size K in array, the median
