@@ -74,7 +74,7 @@ Output:
         return board;
     }
     //interview friendly: 
-    //
+    //given an board, with one coordination, we need to 
     public char[][] updateBoard(char[][] board, int[] click) {
         int m = board.length, n = board[0].length;
         Queue<int[]> queue = new LinkedList<>();
