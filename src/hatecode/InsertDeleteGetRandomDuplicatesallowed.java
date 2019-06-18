@@ -84,8 +84,7 @@ collection.getRandom();
         if (map.get(val).size() == 0) {
             map.remove(val);
         }
-        
-        
+
         //now process the list then
         int lastVal = list.remove(list.size() - 1);
      // menas lastVal is not the value we want to remove
