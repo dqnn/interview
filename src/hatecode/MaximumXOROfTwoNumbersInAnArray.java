@@ -79,6 +79,7 @@ Explanation: The maximum result is 5 ^ 25 = 28.
                    }
                }
            }
+           
            max = max > XOR ? max : XOR;
        }
 
