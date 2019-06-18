@@ -56,6 +56,20 @@ public class RangeSumQuery2DMutable {
     }
 
     // time : O(logm * logn)
+    //this method is the key of the solution
+/*
+                      0
+              /    /    \        \
+            1     2     4         8
+                 /    /   \    /  |   \
+                3     5    6  9   10   12 
+                           |      |
+                           7      11
+this is the index tree example, index is from 0- 12
+parent(i) = i - (i & (-i))
+so we always reserve first element in tree as the root(0) above, when tree initialized, all values are 
+0, so we update each element by climbing the tree
+*/
     public void update(int row, int col, int val) {
         if (m == 0 || n == 0) return;
         int diff = val - nums[row][col];
