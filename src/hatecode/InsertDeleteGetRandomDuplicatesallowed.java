@@ -55,7 +55,13 @@ collection.getRandom();
 
     // since we use iterator, so linkedHashSet should be better theoretically 
     //thinking process:
-    //the problem is to say: 
+    //the problem is to say: implement a getRandom() and insert() function, getRandom will return us a 
+    //value which equally possiblity to be picked up by their value frequency in list
+    
+    //map will record the value and the index of the value in list, 
+    //if no deletion, the world is good, but if we have remove(val), we can easily remove one var element in 
+    //list, but the problem for others are incorrect, we need to correct, 
+    //
     HashMap<Integer, HashSet<Integer>> map;
     ArrayList<Integer> list;
     Random rmd;
