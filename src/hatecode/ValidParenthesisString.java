@@ -143,8 +143,6 @@ that we can have exactly 0 open left brackets.
        return lo == 0;
     }
     
-    
-    
     //DP version, O(n^3)/O(n^2)
 /*
 Let dp[i][j] be true if and only if the interval s[i], s[i+1], ..., s[j] 
