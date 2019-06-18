@@ -32,12 +32,14 @@ public class StrobogrammaticNumberII {
      */
     //thinking process:
     //the problem is to output list of strobogrammatic numbers 
-    //which is length less than n
+    //which the length less than n
     
     //so from I we can know there will two pointers, but here if we continue to use two pointers, 
-    //we need several for loop and base n = 1 to solve this problem, TODO: why we use recursive instead of for loop
+    //we need several for loop and base n = 1 to solve this problem, 
+    //TODO: why we use recursive instead of for loop
     
-    //here we use different way to solve this problem, we use f(n) = 4 * f(n - 2), the anonying part is to handle 
+    //here we use different way to solve this problem, we use f(n) = 4 * f(n - 2), 
+    //the anonying part is to handle 
     // "0" case, so if it is not the outest loop, then we need to add "0" as valid case, if it is, then we do not need 
     public List<String> findStrobogrammatic(int n) {
         return helper(n, n);
