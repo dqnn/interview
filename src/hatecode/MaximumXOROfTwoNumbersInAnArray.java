@@ -20,6 +20,7 @@ Explanation: The maximum result is 5 ^ 25 = 28.
    //interview friendly: 
    
    //follow up: return distance less than K, the pairs
+   // XOR, diff can be 1, so we always look for different digits
    public int findMaximumXOR_Interview(int[] nums) {
        if (nums.length == 0) {
            return 0;
