@@ -44,6 +44,8 @@ public class StrobogrammaticNumberII {
     public List<String> findStrobogrammatic(int n) {
         return helper(n, n);
     }
+    //m is just to make sure whether we are at outtest loop or not. 
+    //if n == m, then yes, if not, no
     public List<String> helper(int n, int m) {
         if (n == 0) return new ArrayList<>(Arrays.asList(""));
         if (n == 1) return new ArrayList<>(Arrays.asList("0", "1", "8"));
