@@ -33,12 +33,10 @@ Given an array nums, there is a sliding window of size k which is moving from th
         
         for(int i = 0; i < nums.length; ++i) {
             addNum(nums[i]);
-            if (i - k >= 0) {
-                removeNum(nums[i - k]);
-            }
-            if (i - k + 1 >=0) {
-                medians[i- k + 1] = getMedian();
-            }
+            // we have more number in both q, we need remove most left one
+            if (i - k >= 0) removeNum(nums[i - k]);
+            //just k elements, get the median
+            if (i - k + 1 >=0) medians[i- k + 1] = getMedian();
         }
         
         return medians;
