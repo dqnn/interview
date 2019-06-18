@@ -47,6 +47,7 @@ public class RangeSumQueryMutable {
         int diff = val - nums[i];
         nums[i] = val;
         for (int j = i + 1; j <= n; j += j & (-j)) {
+            System.out.println("going to update j=" + j);
             tree[j] += diff;
         }
     }
@@ -63,6 +64,13 @@ public class RangeSumQueryMutable {
             sum += tree[i];
         }
         return sum;
+    }
+    
+    public static void main(String[] args) {
+        int[] in = {1,2,3,4,5,6,7,8};
+        RangeSumQueryMutable range = new RangeSumQueryMutable(in);
+        System.out.println(Arrays.toString(range.tree));
+        System.out.println(range.sumRange(0, 2));
     }
 
     /**
