@@ -83,7 +83,8 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
         return memo[i][curSum + sum];
     }
     
-    /** solution 2: DP (0/1 knapsack) - Time: O(n^2), Space: O(n^2) */
+    /** how many ways we pick these elements which their sum = S
+     * solution 2: DP (0/1 knapsack) - Time: O(n^2), Space: O(n^2) */
     /**
      * sub-problem: dp[i][j] represents number of possible ways to reach sum j by using first ith items
      * base case: dp[0][sum], position sum represents sum 0
@@ -94,13 +95,13 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
      * explanation: if j + nums[i - 1] or j - nums[i - 1] is in correct range, we can use the number nums[i - 1]
      * to generate next state of dp array
      * */
-    public int findTargetSumWays_2D(int[] A, int S) {
+    public int findTargetSumWays_2D(int[] A, int target) {
         if (A.length == 0 || A.length < 1) return 0;
 
         int sum = Arrays.stream(A).sum();
 
         // corner case: when S is out of range [-sum, sum]
-        if (S < -sum || S > sum) return 0;
+        if (target < -sum || target > sum) return 0;
         int n = A.length;
         int[][] dp = new int[n + 1][sum * 2 + 1];
         dp[0][sum] = 1;
@@ -118,6 +119,6 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
                 }
             }
         }
-        return dp[n][sum + S];
+        return dp[n][sum + target];
     }
 }
