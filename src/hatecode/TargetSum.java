@@ -127,7 +127,9 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
         //we check (sum + S) % 2 == 1 is to exclude sum + S == odd number
         //sum means all positive choice for all elements, 
         //if target require some elements to be negative, then we will have either 0 or even number, because
-        //the left numbers will be twice frquency. 
+        //the left numbers will be twice frequency
+        
+        //
         if(target > sum || (sum + target) % 2 == 1)   return 0;
         return subsetSum(A, (sum + target) / 2);
     }
