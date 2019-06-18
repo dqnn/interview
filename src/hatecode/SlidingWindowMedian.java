@@ -29,9 +29,10 @@ Given an array nums, there is a sliding window of size k which is moving from th
     //treeSet and BST cannot handle the unique elements
     public double[] medianSlidingWindow_PQ(int[] nums, int k) {
         int n = nums.length;
+        //note,  we need n -k + 1 windows
         double[] medians = new double[n - k + 1];
         
-        for(int i = 0; i < nums.length; ++i) {
+        for(int i = 0; i < n; ++i) {
             addNum(nums[i]);
             // we have more number in both q, we need remove most left one
             if (i - k >= 0) removeNum(nums[i - k]);
