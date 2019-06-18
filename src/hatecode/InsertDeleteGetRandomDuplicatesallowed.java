@@ -62,7 +62,11 @@ collection.getRandom();
     //if no deletion, the world is good, but if we have remove(val), we can easily remove one var element in 
     //list, but the problem for others are incorrect, we need to correct, 
     //How we fix this: 
-    //
+    //we just choose last element in list, so we want to insert this elment into a correct position, so that
+    //each one elemnt will be correct position again,
+    
+    //we can always pick last one in list, it is O(1), then we replce the idx with this value, and update
+    //the index in map, so everyone is happy~
     HashMap<Integer, HashSet<Integer>> map;
     ArrayList<Integer> list;
     Random rmd;
@@ -99,6 +103,7 @@ collection.getRandom();
         int lastVal = list.remove(list.size() - 1);
      // menas lastVal is not the value we want to remove
         if (index != list.size()) {
+            //replace O(1)
             list.set(index, lastVal);
          // remove lastVal original last one, list.size() here already decreased 1 because we removed last one
             map.get(lastVal).remove(list.size());
