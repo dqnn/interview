@@ -25,6 +25,8 @@ Given an array nums, there is a sliding window of size k which is moving from th
     //(a,b)->(b-a) cannot pass the Integer.MAX or MIN, but this could
     Queue<Integer> maxHeap = new PriorityQueue<>(1, (a, b)->(b.compareTo(a)));
     
+    //O(nk)/O(k), we can improve the remove() from O(k * (n -k)) O(1) by map A[i] to index
+    //treeSet and BST cannot handle the unique elements
     public double[] medianSlidingWindow_PQ(int[] nums, int k) {
         int n = nums.length;
         double[] medians = new double[n - k + 1];
@@ -71,11 +73,7 @@ Given an array nums, there is a sliding window of size k which is moving from th
     private double getMedian() {
         return minHeap.size() == maxHeap.size() ? (0.0 + minHeap.peek() + maxHeap.peek()) / 2 : minHeap.peek();
     }
-    
-    
-    
-    
-    
+
     
     //O(Nlgk)/O(N)
     //thinking process: 
