@@ -45,10 +45,13 @@ public class ConvertaNumbertoHexadecimal {
 
     char[] map = {'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};
     //this is not easy to think about, 
+    //
     public String toHex(int num) {
         if (num == 0) return "0";
         StringBuilder res = new StringBuilder();
         while (num != 0) {
+            //we get first 15 bit mask to know how many 1s are there, and mapping to the string
+            //this is really clever
             res.append(map[num & 15]);
             num = num >>> 4;
         }
