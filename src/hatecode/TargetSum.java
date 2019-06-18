@@ -82,4 +82,42 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
         memo[i][curSum + sum] = add + subtract;
         return memo[i][curSum + sum];
     }
+    
+    /** solution 2: DP (0/1 knapsack) - Time: O(n^2), Space: O(n^2) */
+    /**
+     * sub-problem: dp[i][j] represents number of possible ways to reach sum j by using first ith items
+     * base case: dp[0][sum], position sum represents sum 0
+     * recurrence relation:
+     * dp[i][j] += dp[i - 1][j + nums[i - 1]] if j + nums[i - 1] <= sum * 2
+     * dp[i][j] += dp[i - 1][j - nums[i - 1]] if j - nums[i - 1] >= 0
+     * 
+     * explanation: if j + nums[i - 1] or j - nums[i - 1] is in correct range, we can use the number nums[i - 1]
+     * to generate next state of dp array
+     * */
+    public int findTargetSumWays_2D(int[] A, int S) {
+        if (A.length == 0 || A.length < 1) return 0;
+
+        int sum = Arrays.stream(A).sum();
+
+        // corner case: when S is out of range [-sum, sum]
+        if (S < -sum || S > sum) return 0;
+        int n = A.length;
+        int[][] dp = new int[n + 1][sum * 2 + 1];
+        dp[0][sum] = 1;
+        int leftBound = 0;
+        int rightBound = sum * 2;
+        for (int i = 1; i <= n; i++) {
+            for (int j = leftBound; j < rightBound + 1; j++) {
+                // try all possible sum of (previous sum j + current number nums[i - 1]) and all possible difference of
+                // (previous sum j - current number nums[i - 1])
+                if (j + A[i - 1] <= rightBound) {
+                    dp[i][j] += dp[i - 1][j + A[i - 1]];
+                }
+                if (j - A[i - 1] >= leftBound) {
+                    dp[i][j] += dp[i - 1][j - A[i - 1]];
+                }
+            }
+        }
+        return dp[n][sum + S];
+    }
 }
