@@ -83,10 +83,8 @@ Output:
         while (!queue.isEmpty()) {
             int[] cell = queue.poll();
             int row = cell[0], col = cell[1];
-            
-            if (board[row][col] == 'M') { // Mine
-                board[row][col] = 'X';
-            }
+            // Mine
+            if (board[row][col] == 'M') board[row][col] = 'X';
             else { // Empty
                 // Get number of mines first.
                 int count = 0;
