@@ -54,6 +54,8 @@ collection.getRandom();
      */
 
     // since we use iterator, so linkedHashSet should be better theoretically 
+    //thinking process:
+    //the problem is to say: 
     HashMap<Integer, HashSet<Integer>> map;
     ArrayList<Integer> list;
     Random rmd;
@@ -86,7 +88,7 @@ collection.getRandom();
             map.remove(val);
         }
 
-        //now process the list then
+        //now process the list then, recover
         int lastVal = list.remove(list.size() - 1);
      // menas lastVal is not the value we want to remove
         if (index != list.size()) {
