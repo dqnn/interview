@@ -61,6 +61,7 @@ collection.getRandom();
     //map will record the value and the index of the value in list, 
     //if no deletion, the world is good, but if we have remove(val), we can easily remove one var element in 
     //list, but the problem for others are incorrect, we need to correct, 
+    //How we fix this: 
     //
     HashMap<Integer, HashSet<Integer>> map;
     ArrayList<Integer> list;
