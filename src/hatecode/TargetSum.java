@@ -129,7 +129,8 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
         //if target require some elements to be negative, then we will have either 0 or even number, because
         //the left numbers will be twice frequency
         
-        //
+        //so this become a find some elements in array which sum can equals to a target this problem
+        //subset sum
         if(target > sum || (sum + target) % 2 == 1)   return 0;
         return subsetSum(A, (sum + target) / 2);
     }
