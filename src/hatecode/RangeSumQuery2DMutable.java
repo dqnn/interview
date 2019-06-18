@@ -70,7 +70,14 @@ parent(i) = i - (i & (-i))
 so we always reserve first element in tree as the root(0) above, when tree initialized, all values are 
 0, so we update each element by climbing the tree
 
-in update function, we use i += i &(-i), 
+in update function, we use i += i &(-i),  so pattern: 
+1->2->4->8->2^n, 
+3->4, 5->8, 7->8, 6->8, all index point to next 2^n. 
+so update means for each elment in original array, if there was an update to position i(assume 1D), 
+we need to roll up this change to next 2^n index node
+1D as example:
+//                                 0, 1  2  3   4  5  6   7   8
+//nums = [1,2,3,4,5,6,7,8]->tree: [0, 1, 3, 3, 10, 5, 11, 7, 36]
 */
     public void update(int row, int col, int val) {
         if (m == 0 || n == 0) return;

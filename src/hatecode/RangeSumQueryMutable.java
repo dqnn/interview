@@ -28,8 +28,10 @@ public class RangeSumQueryMutable {
 
     int[] nums;
     int[] tree;
-    int n;
-//easiest example nums = [1,2,3,4,5,6,7,8], 
+    int n;                                  
+//easiest example 
+//                                 0, 1  2  3   4  5  6   7   8
+//nums = [1,2,3,4,5,6,7,8]->tree: [0, 1, 3, 3, 10, 5, 11, 7, 36]
 
     // time : O(n * logn)
     public RangeSumQueryMutable(int[] nums) {
@@ -49,6 +51,7 @@ public class RangeSumQueryMutable {
         for (int j = i + 1; j <= n; j += j & (-j)) {
             System.out.println("going to update j=" + j);
             tree[j] += diff;
+            System.out.println(Arrays.toString(tree));
         }
     }
 
@@ -58,7 +61,7 @@ public class RangeSumQueryMutable {
         return sum(j + 1) - sum(i);
     }
 
-    private int sum(int k) {
+    public int sum(int k) {
         int sum = 0;
         for (int i = k; i > 0; i -= i & (-i)) {
             sum += tree[i];
@@ -69,7 +72,7 @@ public class RangeSumQueryMutable {
     public static void main(String[] args) {
         int[] in = {1,2,3,4,5,6,7,8};
         RangeSumQueryMutable range = new RangeSumQueryMutable(in);
-        System.out.println(Arrays.toString(range.tree));
+        
         System.out.println(range.sumRange(0, 2));
     }
 
