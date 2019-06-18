@@ -12,7 +12,9 @@ Output: 7236
     //O(n)/O(1)
     
     //so only 1 swap, so we need to find the significant digit, and to see whether it is possible or not
-    //
+    //so we use bucket to record last index of digit chs[i]
+    //when we scan from left to right, inner loop is from 9 to j > chs[i]-'0' because we do not need to 
+    //check the digit which are smaller, since left is more significant, so find once and return
     public int maximumSwap(int n) {
         char[] chs = Integer.toString(n).toCharArray();
         
