@@ -26,6 +26,8 @@ Given an array nums, there is a sliding window of size k which is moving from th
     //we mainly use two priorityQueue to store the results, we cut the array into two parts 
     //and sort all in asc order, so for right, first is smallest while for left, last is biggest
     //then median is middle or left.last or last.first
+    
+    //if the array has dup number, then we may not be able to use this
     public double[] medianSlidingWindow(int[] nums, int k) {
         double[] res = new double[nums.length - k + 1];
         
