@@ -9,7 +9,10 @@ Input: 2736
 Output: 7236
 */
     //interview friendly and a little tricky solution,
-    //O(n)
+    //O(n)/O(1)
+    
+    //so only 1 swap, so we need to find the sigficant digit, and to see whether it is possible or not
+    //
     public int maximumSwap(int n) {
         char[] chs = Integer.toString(n).toCharArray();
         
