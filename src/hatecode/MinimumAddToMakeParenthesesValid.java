@@ -20,19 +20,17 @@ Input: "())"
 Output: 1
 */
     //interview friendly:
-    //
+    //left mean ( we need to add
+    //right means current opened, ( not matched
     public int minAddToMakeValid(String S) {
-        int ans = 0, bal = 0;
-        for (int i = 0; i < S.length(); ++i) {
-            bal += S.charAt(i) == '(' ? 1 : -1;
-            // It is guaranteed bal >= -1
-            if (bal == -1) {
-                ans++;
-                bal++;
-            }
+        int left = 0, right = 0;
+        for (char i : S.toCharArray()) {
+            if (right == 0 && i == ')')
+                left++;
+            else
+                right += i == '(' ? 1 : -1;
         }
-
-        return ans + bal;
+        return left + right;
     }
 /*
 1. if encounter '(', push '(' into stack;
