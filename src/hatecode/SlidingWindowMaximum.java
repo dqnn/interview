@@ -94,6 +94,8 @@ Could you solve it in linear time?
     
     //this is interview friendly,scan from left and scan from right, then 
     // left most and right most to get max one
+    
+    //the left and right max only record the window local max, not global one
     public  int[] maxSlidingWindow3(final int[] A, final int k) {
         if (A == null || A.length < 1) {
            return A;
