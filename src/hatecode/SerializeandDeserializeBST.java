@@ -77,6 +77,8 @@ Note: Do not use class member/global/static variables to store states. Your seri
     }
     //we use BST tree characteristic left < root < right, so we split the 
     //queue into 2 left and right and recursive to setup the tree
+    
+    //getNode(Queue) input is a queue, output is a TreeNode which is root of the deserialized tree
     public TreeNode getNode(Queue<Integer> queue) {
         if (queue.isEmpty()) return null;
         TreeNode root = new TreeNode(queue.poll());
