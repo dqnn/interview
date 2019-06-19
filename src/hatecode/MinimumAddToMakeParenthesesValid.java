@@ -19,6 +19,8 @@ Example 1:
 Input: "())"
 Output: 1
 */
+    //interview friendly:
+    //
     public int minAddToMakeValid(String S) {
         int ans = 0, bal = 0;
         for (int i = 0; i < S.length(); ++i) {
