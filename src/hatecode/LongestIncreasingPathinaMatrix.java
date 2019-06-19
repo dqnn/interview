@@ -43,7 +43,11 @@ public class LongestIncreasingPathinaMatrix {
     
     //thinking process: 
     //Given a 2D matrix, we want to find the longest increasing path, return how many numbers in this path.
-    //so 
+    //so we need to go through each element in matrix, we used a cache 2D array to cache each element max path
+    //if start from this elment, the max path.
+    
+    //so each element will just once even we have to try every element, which means helper() will be finish in 
+    //constant time
     public int longestIncreasingPath(int[][] m) {
         if(m == null || m.length < 1 || m[0].length < 1) return 0;
         
