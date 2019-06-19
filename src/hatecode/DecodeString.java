@@ -42,7 +42,7 @@ public class DecodeString {
      * @return
      */
 
-    //interview fridendly: 
+    //interview friendly: 
     //similiar to caculator pattern: 
     // the whole process:
     // we get each character from the string, it has 4 cases,
