@@ -41,8 +41,8 @@ public class BattleshipsinaBoard {
     //given a 2D board, count how many islands which on same row or column, and one row or column could 
     //only have 1 island, return how many are there. 
     
-    //so we want to check if current cell is x, then we want to check its left or right are blank,
-    //if it yes, then 
+    //one battle ship may be horizonte placed or vertically placed, we would like to
+    //
     //由于board中的战舰之间确保有'.'隔开，因此遍历board，若某单元格为'X'，
     // 只需判断其左边和上边的相邻单元格是否也是'X'。
 //如果左邻居或者上邻居单元格是'X'，则说明当前单元格是左边或者上边战舰的一部分；
