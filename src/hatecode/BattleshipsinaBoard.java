@@ -38,7 +38,10 @@ public class BattleshipsinaBoard {
     
      //interview friendly, 
     //thinking process:
-    //given a 2D board, 
+    //given a 2D board, count how many islands which on same row or column, and one row or column could 
+    //only have 1 island, return how many are there. 
+    
+    //
     //由于board中的战舰之间确保有'.'隔开，因此遍历board，若某单元格为'X'，
     // 只需判断其左边和上边的相邻单元格是否也是'X'。
 //如果左邻居或者上邻居单元格是'X'，则说明当前单元格是左边或者上边战舰的一部分；
