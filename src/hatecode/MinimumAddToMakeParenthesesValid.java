@@ -19,18 +19,18 @@ Example 1:
 Input: "())"
 Output: 1
 */
-    public int minAddToMakeValid(String S) {
-        int ans = 0, bal = 0;
-        for (int i = 0; i < S.length(); ++i) {
-            bal += S.charAt(i) == '(' ? 1 : -1;
-            // It is guaranteed bal >= -1
-            if (bal == -1) {
-                ans++;
-                bal++;
+    public int minAddToMakeValid(String s) {
+        int left = 0, right = 0;
+        for (char ch: s.toCharArray()) {
+            if(right == 0 && ch == ')') left++;
+            else {
+                if(ch == '(') {
+                    left++;
+                } else left--;
             }
         }
 
-        return ans + bal;
+        return left + right;
     }
 /*
 1. if encounter '(', push '(' into stack;
