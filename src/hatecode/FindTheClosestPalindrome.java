@@ -19,10 +19,14 @@ Output: "121"
     // smaller = mirror(12300 - 1) = mirror(12299)->12221
     
     //then noChange = 12321, so smaller = 12321, much closer to 12345 than 12421 so this is the answer
+    //the key is to have a mirror function, what 's mirror doing is replica left to right
+    
+    //so for original number, so cut them into two parts, large 
     public String nearestPalindromic_Interview(String n) {
         int order = (int) Math.pow(10, n.length() / 2);
         Long ans = Long.valueOf(new String(n));
         Long noChange = mirror(ans);
+        //not understand this, why add order?
         Long larger = mirror((ans / order) * order + order + 1);
         Long smaller = mirror((ans / order) * order - 1);
         if (noChange > ans) {
