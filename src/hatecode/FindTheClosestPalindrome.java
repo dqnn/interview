@@ -12,6 +12,34 @@ Input: "123"
 Output: "121"
 */
 
+    //shorter solution, 
+    //
+    public String nearestPalindromic_Interview(String n) {
+        int order = (int) Math.pow(10, n.length() / 2);
+        Long ans = Long.valueOf(new String(n));
+        Long noChange = mirror(ans);
+        Long larger = mirror((ans / order) * order + order + 1);
+        Long smaller = mirror((ans / order) * order - 1);
+        if (noChange > ans) {
+            larger = (long) Math.min(noChange, larger);
+        } else if (noChange < ans) {
+            smaller = (long) Math.max(noChange, smaller);
+        }
+        return String.valueOf(ans - smaller <= larger - ans ? smaller : larger);
+    }
+
+    Long mirror(Long ans) {
+        char[] a = String.valueOf(ans).toCharArray();
+        int i = 0;
+        int j = a.length - 1;
+        while (i < j) {
+            a[j--] = a[i++];
+        }
+        return Long.valueOf(new String(a));
+    }
+    
+    
+    
     public String nearestPalindromic(String n) {
         Long number = Long.parseLong(n);
         Long big = findHigherPalindrome(number + 1);
