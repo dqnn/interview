@@ -48,6 +48,9 @@ Note: Do not use class member/global/static variables to store states. Your seri
     // it will be 3,1,4,2, but when we deserialize using getNode() we use recursive way to 
     // get left and right tree, which means left tree should be together, so we use queue
     // it will lost node 2 to right tree
+    
+    //we do not want to use null to use more space, we just use level traverse to add each node value. 
+    //from left to right
     public String serialize(TreeNode root) {
         if (root == null) return "";
         StringBuilder res = new StringBuilder();
@@ -67,6 +70,7 @@ Note: Do not use class member/global/static variables to store states. Your seri
         if (data == "") return null;
         String[] str = data.split(" ");
         Queue<Integer> queue = new LinkedList<>();
+        //add all of then into queue
         for (String s : str) {
             queue.offer(Integer.parseInt(s));
         }
