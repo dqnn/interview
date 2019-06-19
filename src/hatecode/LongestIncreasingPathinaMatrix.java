@@ -39,39 +39,40 @@ public class LongestIncreasingPathinaMatrix {
      space : O(m * n)
 
      */
-    // typical backtracing and dfs
+    // interview friendly, O(mn)/O(mn) each cell will be visiting once and only once
+    
+    //thinking process: 
+    //Given a 2D matrix, we want to find the longest increasing path, return how many numbers in this path.
+    //so 
     public int longestIncreasingPath(int[][] m) {
-        if (m == null || m.length < 1) {
-            return 0;
-        }
+        if(m == null || m.length < 1 || m[0].length < 1) return 0;
         
-        int r = m.length, c = m[0].length, max = 0;
-        int[][] visited = new int[r][c];
-        for(int i = 0; i < r; i++) {
-            for(int j = 0; j < c; j++) {
-                max = Math.max(max, dfs(m, i, j, visited, Integer.MIN_VALUE));
+        int r = m.length, c=m[0].length;
+        int res = Integer.MIN_VALUE;
+        int[][] memo = new int[r][c];
+        for(int i = 0; i< r; i++) {
+            for(int j = 0; j< c; j++) {
+                res = Math.max(res, helper(m, i, j, memo));
             }
         }
-        
-        return max;
+        return res;
     }
     
-    public int dfs(int[][] m, int i, int j, int[][] visited, int min) {
-        if (i < 0 || j < 0 || i >= m.length || j >= m[0].length || m[i][j] <= min) {
-            return 0;
+    private int helper(int[][] m, int i, int j, int[][] memo) {
+        if(memo[i][j] > 0) return memo[i][j];
+        int[][] dirs = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
+        int r = m.length, c = m[0].length;
+        int max = 1;
+        for(int[] dir : dirs) {
+            int x = i + dir[0];
+            int y = j + dir[1];
+            if(x < 0 || x >= r || y < 0 ||  y  >= c  ||  m[x][y] <= m[i][j]) continue;
+
+            int dis = helper(m, x, y, memo) + 1;
+            //System.out.println(i + "," + j + "->" + x + "," + y + "=" + dis);
+            max = Math.max(max, dis);  
         }
-        
-        if (visited[i][j] != 0) {
-            return visited[i][j];
-        }
-        // we replace min because it is increasing path
-        min = m[i][j];
-        int up = dfs(m, i - 1, j, visited, min) + 1;
-        int down = dfs(m, i + 1, j, visited, min) + 1;
-        int left = dfs(m, i, j - 1, visited, min) + 1;
-        int right = dfs(m, i, j + 1, visited, min) + 1;
-        visited[i][j] = Math.max(up, Math.max(down, Math.max(left, right)));
-        
-        return visited[i][j];
+        memo[i][j] = max;
+        return memo[i][j];
     }
 }
