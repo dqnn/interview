@@ -75,7 +75,8 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
         while(e != null) {
             idx++;
             //first idx % k is when idx = k, which means e point k-th node, head as 1st
-            //
+            //so k =2, 0->1->2->3->4, s->0, e->2, we want reverse 1 and 2, but keep 0 there, 
+            //so our reverse() function is to reverse the nodes between 0 and 3, 1 and 2 are reversed.
             if (idx % k == 0) {
                 s = reverse(s, e.next);
                 //we need this because e already point to first node, 
@@ -92,12 +93,12 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
      * cur starts from begin.next
      * 0->1->2->3->4->5->6
      * |     |     |   
-     * begin cur   end
-     * after call begin = reverse(begin, 3)
+     * start cur   end
+     * after call begin = reverse(start, 3)
      * 
      * 0->3->2->1->4->5->6
      *          |  |
-     *      begin end
+     *      start end
      * @return the reversed list's 'begin' node, which is the precedence of node end
      */
     public ListNode reverse(ListNode start, ListNode end){
