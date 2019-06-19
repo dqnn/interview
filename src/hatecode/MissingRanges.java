@@ -47,6 +47,8 @@ For example, given [0, 1, 3, 50, 75], return [“2”, “4->49”, “51->74”
     //if low == upper, just 1 number, if not, it will be a range
     public List<String> findMissingRanges(int[] nums, int lower, int upper) {
         List<String> res = new ArrayList<>();
+        //convert to long because we may need to care about the edge case, like num = Integer.MAX_VALUE, it 
+        //will have overflow
         long alower = (long)lower, aupper = (long)upper;
         for (int num : nums) {
             if (num == alower) {
