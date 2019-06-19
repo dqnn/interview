@@ -141,7 +141,7 @@ public class WildcardMatching {
                 //two or cases:
                 //1. we can ask  * to be empty, so it would be dp[i][j-1]
                 //2. we can ask s removed last char, and * can be any sequence, adceb vs a*b, so dp[i-1][j]
-                //means 
+                //means a vs a*, means * can be any sequence,we will just wait
                 if (p.charAt(j-1) == '*') {
                     dp[i][j] = dp[i][j-1] || dp[i-1][j];
                 }
