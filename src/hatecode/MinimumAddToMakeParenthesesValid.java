@@ -21,6 +21,8 @@ Output: 1
 */
   //left mean ( we need to add
   //right means current opened, ( not matched
+    
+    //LC 
     public int minAddToMakeValid(String s) {
         int left = 0, right = 0;
         for (char ch: s.toCharArray()) {
