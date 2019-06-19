@@ -24,11 +24,12 @@ Output: 1
     //right means current opened, ( not matched
     public int minAddToMakeValid(String S) {
         int left = 0, right = 0;
-        for (char i : S.toCharArray()) {
-            if (right == 0 && i == ')')
-                left++;
+        for (char ch : S.toCharArray()) {
+            //this means 0->i-1 are valid and matched, now we find one extra ), so we need left ++;
+            if (right == 0 && ch == ')') left++;
+            //if not, right !=0 or ch != )
             else
-                right += i == '(' ? 1 : -1;
+                right += ch == '(' ? 1 : -1;
         }
         return left + right;
     }
