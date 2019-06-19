@@ -77,7 +77,7 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
             //first idx % k is when idx = k, which means e point k-th node, head as 1st
             //so k =2, 0->1->2->3->4, s->0, e->2, we want reverse 1 and 2, but keep 0 there, 
             //so our reverse() function is to reverse the nodes between 0 and 3, 1 and 2 are reversed.
-            //return 0->2->1->3->4, return 1
+            //return 0->2->1->3->4, return 1 and e->3
             if (idx % k == 0) {
                 s = reverse(s, e.next);
                 //we need this because e already point to first node, 
@@ -89,6 +89,7 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
     }
     /**
      * Reverse a link list between begin and end exclusively return the node which point to end
+     * return last node reference in this window, which is end prior
      * an example:
      * a linked list:
      * cur starts from begin.next
