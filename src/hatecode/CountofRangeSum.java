@@ -59,6 +59,9 @@ public class CountofRangeSum {
      * lower_bound是找数组中第一个不小于给定值的数(包括等于情况)， 而upper_bound是找数组中第一个大于给定值的数，那么两者相减，
      * 就是j的个数，参见代码如下：
      */
+    //avg(O(nlgn))/O(n), worst is O(n^2) 
+    
+    //
     public int countRangeSum(int[] nums, int lower, int upper) {
         if (nums == null || nums.length == 0) return 0;
         TreeMap<Long, Long> treeMap = new TreeMap<>();
@@ -162,20 +165,6 @@ public class CountofRangeSum {
             helper[idx++] = sum[right++];
 
         System.arraycopy(helper, low, sum, low, high + 1 - low);
-    }
-
-    // this is naive soltuion but it is working
-    public int countRangeSum3(int[] nums, int lower, int upper) {
-        int n = nums.length;
-        long[] sums = new long[n + 1];
-        for (int i = 0; i < n; ++i)
-            sums[i + 1] = sums[i] + nums[i];
-        int ans = 0;
-        for (int i = 0; i < n; ++i)
-            for (int j = i + 1; j <= n; ++j)
-                if (sums[j] - sums[i] >= lower && sums[j] - sums[i] <= upper)
-                    ans++;
-        return ans;
     }
     /*
      * 
