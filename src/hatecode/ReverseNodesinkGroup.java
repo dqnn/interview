@@ -76,7 +76,8 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
             idx++;
             if (idx % k == 0) {
                 s = reverse(s, e.next);
-                //we need this because e  already point to first node, so we need s here to point to next   
+                //we need this because e already point to first node, 
+                //so we need s here to point to next   
                 e = s.next;
             } else e = e.next;
         }
