@@ -118,32 +118,32 @@ public class WildcardMatching {
         //we initialize first row first
         
         //also this is for detecting the s = "" case, we also need initilaize dp[i][0] for p = "" case
-        for (int i = 0; i < c; i++) {
+        for (int i = 1; i <= c; i++) {
             // we always use i+ 1 = i since our end is len + 1
-            if (p.charAt(i) == '*' && dp[0][i]) {
-                dp[0][i + 1] = true;
+            if (p.charAt(i-1) == '*' && dp[0][i]) {
+                dp[0][i] = true;
             }
         }
         //we also should initialize the dp[r][0] but since if p is not "" then s should dp[i][0] default to false
         //but i will write whole templates as below: 
-        for (int i = 0; i < r; i++) {
-                dp[i+1][0] = false;
+        for (int i = 1; i <= r; i++) {
+                dp[i][0] = false;
         }
         //we loop two strings, row by row,  our len is 0-N, so our initialization 
-        for(int i = 0; i< r; i++){
-            for(int j = 0; j < c; j++) {
+        for(int i = 1; i<= r; i++){
+            for(int j = 1; j <= c; j++) {
                 //case 1 and 2
-                if (p.charAt(j) == s.charAt(i) || p.charAt(j) == '?') {
-                    dp[i+1][j+1] = dp[i][j];
+                if (p.charAt(j-1) == s.charAt(i-1) || p.charAt(j-1) == '?') {
+                    dp[i][j] = dp[i-1][j-1];
                 }
                 // the same as common longest sequence because * here can not remove previous char but to any sequence chars
                 //previous problem which it could remove previous char so it has to be with dp[i+1][j-2]
                 //two or cases:
-                //1. we can ask  * = s.charAt(i), so it would be dp[i][j-1]
+                //1. we can ask  * to be empty, so it would be dp[i][j-1]
                 //2. we can ask s removed last char, and * can be any sequence, aa vs *
                 //
-                if (p.charAt(j) == '*') {
-                        dp[i+1][j+1] = dp[i+1][j] || dp[i][j+1];
+                if (p.charAt(j-1) == '*') {
+                        dp[i][j] = dp[i][j-1] || dp[i-1][j];
                 }
             }
         }
