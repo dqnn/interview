@@ -94,31 +94,31 @@ Could you solve it in linear time?
     
     //this is interview friendly,scan from left and scan from right, then 
     // left most and right most to get max one
-    public  int[] maxSlidingWindow3(final int[] in, final int w) {
-        if (in == null || in.length < 1) {
-           return in;
+    public  int[] maxSlidingWindow3(final int[] A, final int k) {
+        if (A == null || A.length < 1) {
+           return A;
        }
-        int[] max_left = new int[in.length];
-        int[] max_right = new int[in.length];
-
-       max_left[0] = in[0];
-       max_right[in.length - 1] = in[in.length - 1];
+        int n = A.length;
+        int[] lmax = new int[n], rmax = new int[n];
+        lmax[0] = A[0];
+        rmax[n-1] = A[n-1];
 
        //scan from left and right in one pass
        //we use i % w == 0 to detect boundary of the sliding window
-       for (int i = 1; i < in.length; i++) {
-           max_left[i] = (i % w == 0) ? in[i] : Math.max(max_left[i - 1], in[i]);
+       for (int i = 1; i < A.length; i++) {
+           lmax[i] = (i % k == 0) ? A[i] : Math.max(lmax[i - 1], A[i]);
 
-           // scan from right
-           final int j = in.length - i - 1;
-           max_right[j] = (j % w == 0) ? in[j] : Math.max(max_right[j + 1], in[j]);
+           // scan from right, note the first window starts index= n - 2, because we do not need to 
+           //consider the last element
+           final int j = A.length - i - 1;
+           rmax[j] = (j % k == 0) ? A[j] : Math.max(rmax[j + 1], A[j]);
        }
 
-       final int[] sliding_max = new int[in.length - w + 1];
-       for (int i = 0, j = 0; i + w <= in.length; i++) {
-           sliding_max[j++] = Math.max(max_right[i], max_left[i + w - 1]);
+       int[] res = new int[n - k + 1];
+       for(int i =0; i< n-k + 1; i++) {
+           res[i] = Math.max(rmax[i], lmax[i + k - 1]);
        }
-
-       return sliding_max;
+       
+       return res;
    }
 }
