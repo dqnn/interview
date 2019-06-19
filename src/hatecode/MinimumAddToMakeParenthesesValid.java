@@ -26,9 +26,7 @@ Output: 1
         for (char ch: s.toCharArray()) {
             if(right == 0 && ch == ')') left++;
             else {
-                if(ch == '(') {
-                    left++;
-                } else left--;
+                right += ch == '(' ? 1 : -1;
             }
         }
 
