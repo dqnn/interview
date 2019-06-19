@@ -58,22 +58,21 @@ Output:  [1,2,4,7,5,3,6,8,9]
     //thinking process: so the problem is to print a matrix as dialgue, so we use flag to say up or down, 
     // 1. decide direction  2. process the col and row edge case,
     //first is up, then if it is row = 0 or col = m -1, 
-    public int[] findDiagonalOrder3(int[][] matrix) {
-        if(matrix == null || matrix.length < 0 || matrix[0].length < 0) return new int[0];
+    public int[] findDiagonalOrder3(int[][] m) {
+        if(m == null || m.length < 0 || m[0].length < 0) return new int[0];
         
-        int r = matrix.length;
-        int c = matrix[0].length;
+        int r = m.length, c = m[0].length;
         
         int[] res = new int[r * c];
+        //variable to generate res
         int idx = 0;
-        
-        int i = 0;
-        int j = 0;
+        int i = 0, j = 0;//coordinations
         
         boolean up = true;
         while(idx < r * c) {
-            res[idx++] = matrix[i][j];
+            res[idx++] = m[i][j];
             if(up) {
+                //turn direction on edge
                 if(i == 0 || j == c - 1) {
                     up = !up;
                     if(j == c - 1) i++;
