@@ -79,6 +79,10 @@ Note: Do not use class member/global/static variables to store states. Your seri
     //queue into 2 left and right and recursive to setup the tree
     
     //getNode(Queue) input is a queue, output is a TreeNode which is root of the deserialized tree
+    
+    //so key points: 1. first character must be root, then for all left characters, we dive them into two
+    //parts, one is left tree, another is right tree, 
+    //so we convert this problem 
     public TreeNode getNode(Queue<Integer> queue) {
         if (queue.isEmpty()) return null;
         TreeNode root = new TreeNode(queue.poll());
