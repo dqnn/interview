@@ -47,7 +47,7 @@ public class LongestIncreasingPathinaMatrix {
     //if start from this elment, the max path.
     
     //so each element will just once even we have to try every element, which means helper() will be finish in 
-    //constant time
+    //constant time mn + 1....+ 1(mn) = 2 mn
     public int longestIncreasingPath(int[][] m) {
         if(m == null || m.length < 1 || m[0].length < 1) return 0;
         
