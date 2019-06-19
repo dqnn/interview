@@ -26,7 +26,8 @@ Output: "121"
         int order = (int) Math.pow(10, n.length() / 2);
         Long ans = Long.valueOf(new String(n));
         Long noChange = mirror(ans);
-        //not understand this, why add order?
+        //plus  100, will make sure it is bigger than previous, smallest one, no matter how big the right
+        //part it is 
         Long larger = mirror((ans / order) * order + order + 1);
         Long smaller = mirror((ans / order) * order - 1);
         if (noChange > ans) {
