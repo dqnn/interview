@@ -102,7 +102,6 @@ public class ConstructBinaryTreefromPreorderandInorderTraversal {
             }
             stack.push(node);
         }
-        
         return root;
     }
 }
