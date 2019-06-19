@@ -61,35 +61,35 @@ Output:  [1,2,4,7,5,3,6,8,9]
     public int[] findDiagonalOrder3(int[][] matrix) {
         if(matrix == null || matrix.length < 0 || matrix[0].length < 0) return new int[0];
         
-        int m = matrix.length;
-        int n = matrix[0].length;
+        int r = matrix.length;
+        int c = matrix[0].length;
         
-        int[] res = new int[m * n];
+        int[] res = new int[r * c];
         int idx = 0;
         
-        int row = 0;
-        int col = 0;
+        int i = 0;
+        int j = 0;
         
         boolean up = true;
-        while(idx < m * n) {
-            res[idx++] = matrix[row][col];
+        while(idx < r * c) {
+            res[idx++] = matrix[i][j];
             if(up) {
-                if(row == 0 || col == n - 1) {
+                if(i == 0 || j == c - 1) {
                     up = !up;
-                    if(col == n - 1) row++;
-                    else col++;
+                    if(j == c - 1) i++;
+                    else j++;
                 } else {
                     //normal case
-                    row--;col++;
+                    i--;j++;
                 }
             //moving down
-            }else{
-                if(col == 0 || row == m - 1) {
+            } else {
+                if(j == 0 || i == r - 1) {
                     up = !up;
-                    if(row == m - 1) col++;
-                    else row++;
+                    if(i == r - 1) j++;
+                    else i++;
                 } else {
-                    row++;col--;
+                    i++;j--;
                 }
             }
         }
