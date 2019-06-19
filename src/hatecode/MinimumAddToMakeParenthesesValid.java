@@ -28,8 +28,7 @@ Output: 1
             //this means 0->i-1 are valid and matched, now we find one extra ), so we need left ++;
             if (right == 0 && ch == ')') left++;
             //if not, right !=0 or ch != )
-            else
-                right += ch == '(' ? 1 : -1;
+            else right += ch == '(' ? 1 : -1;
         }
         return left + right;
     }
