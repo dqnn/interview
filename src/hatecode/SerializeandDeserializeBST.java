@@ -71,9 +71,8 @@ Note: Do not use class member/global/static variables to store states. Your seri
         String[] str = data.split(" ");
         Queue<Integer> queue = new LinkedList<>();
         //add all of then into queue
-        for (String s : str) {
-            queue.offer(Integer.parseInt(s));
-        }
+        for (String s : str)  queue.offer(Integer.parseInt(s));
+
         return getNode(queue);
     }
     //we use BST tree characteristic left < root < right, so we split the 
