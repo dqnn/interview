@@ -140,10 +140,10 @@ public class WildcardMatching {
                 //previous problem which it could remove previous char so it has to be with dp[i+1][j-2]
                 //two or cases:
                 //1. we can ask  * to be empty, so it would be dp[i][j-1]
-                //2. we can ask s removed last char, and * can be any sequence, aa vs *
-                //
+                //2. we can ask s removed last char, and * can be any sequence, adceb vs a*b, so dp[i-1][j]
+                //means 
                 if (p.charAt(j-1) == '*') {
-                        dp[i][j] = dp[i][j-1] || dp[i-1][j];
+                    dp[i][j] = dp[i][j-1] || dp[i-1][j];
                 }
             }
         }
