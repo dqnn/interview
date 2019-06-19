@@ -97,11 +97,11 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
      *      begin end
      * @return the reversed list's 'begin' node, which is the precedence of node end
      */
-    public ListNode reverse(ListNode begin, ListNode end){
-        ListNode curr = begin.next;
-        ListNode first;
-        ListNode prev = begin;
-        first = curr;
+    public ListNode reverse(ListNode start, ListNode end){
+        ListNode curr = start.next;
+        ListNode res;
+        ListNode prev = start;
+        res = curr;
         //cur last point to end
         while (curr!=end){
             ListNode next = curr.next;
@@ -111,9 +111,9 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
         }
         // cur point to 4, prev = 3, 
         //but we want 1, so we reset begin, begin is 0, begin point to 3
-        begin.next = prev;
+        start.next = prev;
         //this is point to 4, it is the same like 1 but we need external dummy point to 4
-        first.next = curr;
-        return first;
+        res.next = curr;
+        return res;
     }
 }
