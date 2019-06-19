@@ -55,6 +55,7 @@ public class GroupAnagrams {
     }
     
     //also using sort and hashmap to 
+    //interview friendly, just sort to make sure they are the same
     public List<List<String>> groupAnagrams3(String[] strs) {
         List<List<String>> res = new ArrayList<>();
         if (strs == null || strs.length < 1) {
