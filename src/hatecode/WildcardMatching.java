@@ -138,7 +138,10 @@ public class WildcardMatching {
                 }
                 // the same as common longest sequence because * here can not remove previous char but to any sequence chars
                 //previous problem which it could remove previous char so it has to be with dp[i+1][j-2]
-                //so we 
+                //two or cases:
+                //1. we can ask  * = s.charAt(i), so it would be dp[i][j-1]
+                //2. we can ask s removed last char, and * can be any sequence, aa vs *
+                //
                 if (p.charAt(j) == '*') {
                         dp[i+1][j+1] = dp[i+1][j] || dp[i][j+1];
                 }
