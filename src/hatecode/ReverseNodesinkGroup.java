@@ -113,7 +113,7 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
             prev = cur;
             cur = next;
         }
-        // cur point to 4, prev = 3, 
+        //cur point to 4, prev = 3, 
         //but we want 1, so we reset begin, begin is 0, begin point to 3
         start.next = prev;
         //this is point to 4, it is the same like 1 but we need external dummy point to 4
