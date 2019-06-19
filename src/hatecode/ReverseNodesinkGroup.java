@@ -74,6 +74,8 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
         int idx = 0;
         while(e != null) {
             idx++;
+            //first idx % k is when idx = k, which means e point k-th node, head as 1st
+            //
             if (idx % k == 0) {
                 s = reverse(s, e.next);
                 //we need this because e already point to first node, 
