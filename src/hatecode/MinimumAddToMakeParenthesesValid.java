@@ -19,18 +19,18 @@ Example 1:
 Input: "())"
 Output: 1
 */
-    //interview friendly:
-    //left mean ( we need to add
-    //right means current opened, ( not matched
     public int minAddToMakeValid(String S) {
-        int left = 0, right = 0;
-        for (char ch : S.toCharArray()) {
-            //this means 0->i-1 are valid and matched, now we find one extra ), so we need left ++;
-            if (right == 0 && ch == ')') left++;
-            //if not, right !=0 or ch != )
-            else right += ch == '(' ? 1 : -1;
+        int ans = 0, bal = 0;
+        for (int i = 0; i < S.length(); ++i) {
+            bal += S.charAt(i) == '(' ? 1 : -1;
+            // It is guaranteed bal >= -1
+            if (bal == -1) {
+                ans++;
+                bal++;
+            }
         }
-        return left + right;
+
+        return ans + bal;
     }
 /*
 1. if encounter '(', push '(' into stack;
@@ -40,15 +40,15 @@ if no, increase the counter by 1; if yes, pop it out;
  */
     public int minAddToMakeValid2(String S) {
         //only store "("
-        Deque<Character> stk = new ArrayDeque<>();
+        Deque<Character> stack = new ArrayDeque<>();
         //count )
         int count = 0;
         for (char c : S.toCharArray()) {
-            if (c == '(') { stk.push(c); }
-            else if (stk.isEmpty()) { ++count; }
+            if (c == '(') { stack.push(c); }
+            else if (stack.isEmpty()) { ++count; }
             //if we find good mapping then pop(), like ()
-            else { stk.pop(); }
+            else { stack.pop(); }
         }
-        return count + stk.size();
+        return count + stack.size();
     }
 }
