@@ -48,8 +48,7 @@ public class ConstructBinaryTreefromPreorderandInorderTraversal {
                 break;
             }
         }
-        if (index == -1)
-            return null;
+        if (index == -1) return null;
 
         TreeNode root = new TreeNode(pre[pres]);
         // pre, start from index 1, end 0 + index
