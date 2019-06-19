@@ -82,7 +82,8 @@ Note: Do not use class member/global/static variables to store states. Your seri
     
     //so key points: 1. first character must be root, then for all left characters, we dive them into two
     //parts, one is left tree, another is right tree, 
-    //so we convert this problem 
+    //so root is fixed, left tree elments in queue, first are alaways root, actually the node of next level
+    //start, thats why we could always recursive to finish the job
     public TreeNode getNode(Queue<Integer> queue) {
         if (queue.isEmpty()) return null;
         TreeNode root = new TreeNode(queue.poll());
