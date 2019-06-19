@@ -53,7 +53,7 @@ Output:  [1,2,4,7,5,3,6,8,9]
         }   
         return arr;
     }
-    //one easy understand way
+    //one easy understand way, interview friendly: 
     
     //thinking process: so the problem is to print a matrix as dialgue, so we use flag to say up or down, 
     // 1. decide direction  2. process the col and row edge case,
