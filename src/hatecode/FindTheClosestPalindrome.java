@@ -13,7 +13,12 @@ Output: "121"
 */
 
     //shorter solution, 
-    //
+    //interview friendly: 
+    //thinking process: 
+    //12345, order = 100, and larger is mirror(12300 + 100 + 1) = mirror(12401) = 12421
+    // smaller = mirror(12300 - 1) = mirror(12299)->12221
+    
+    //then noChange = 12321, so smaller = 12321, much closer to 12345 than 12421 so this is the answer
     public String nearestPalindromic_Interview(String n) {
         int order = (int) Math.pow(10, n.length() / 2);
         Long ans = Long.valueOf(new String(n));
@@ -27,13 +32,13 @@ Output: "121"
         }
         return String.valueOf(ans - smaller <= larger - ans ? smaller : larger);
     }
-
-    Long mirror(Long ans) {
+    //we exchange the digits, 12 ->21
+    private Long mirror(Long ans) {
         char[] a = String.valueOf(ans).toCharArray();
-        int i = 0;
-        int j = a.length - 1;
-        while (i < j) {
-            a[j--] = a[i++];
+        int l = 0;
+        int r = a.length - 1;
+        while (l < r) {
+            a[r--] = a[l++];
         }
         return Long.valueOf(new String(a));
     }
