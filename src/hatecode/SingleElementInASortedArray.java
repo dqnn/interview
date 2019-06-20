@@ -11,6 +11,8 @@ Example 2:
 Input: [3,3,7,7,10,11,11]
 Output: 10
 */
+    //thinking process: 
+    //
     public int singleNonDuplicate_Standard(int[] nums) {
         if (nums == null || nums.length < 1)
             return 0;
@@ -45,5 +47,12 @@ Output: 10
             else l = m+1;
         }
         return nums[2*l];
+    }
+    //XOR solutions
+    public int singleNonDuplicate_XOR(int[] nums) {
+        int res = 0;
+        for(int i : nums) res = res ^ i;
+        
+        return res;
     }
 }
