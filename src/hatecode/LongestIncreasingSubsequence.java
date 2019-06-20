@@ -125,7 +125,7 @@ Clearly len + 1 = 4 is our result : )
         return res;
     }
     
-    // this is interview friendly for O(n^2)
+    // this is interview friendly for O(n^2)， brute force Only
     public int lengthOfLIS2(int[] n) {
         if (n == null || n.length < 1) {
             return 0;
