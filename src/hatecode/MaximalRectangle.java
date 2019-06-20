@@ -51,7 +51,7 @@ public class MaximalRectangle {
      time : O(m * n)
      space : O(n)
 
-     * @param matrix
+     * @param m
      * @return
      */
     /*

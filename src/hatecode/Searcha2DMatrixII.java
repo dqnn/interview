@@ -71,10 +71,14 @@ public class Searcha2DMatrixII {
  
  so when we do binary search, the search is on coordinations not on on single number
  */
-    int[][] matrix;
+    //the key is to understand the binary search on i and j, 
+    //since the matrix is asc on x and y,  suppose top left: (x1, y1), (x2, y2) right bottom
+    //the middle point is nx = (x1+x2)/2, ny = (y1+y2)/2,  suppose target is on right
+    //but we cannot guarantee that (x1, ny+1), (nx+1, y1) also possible to have the number
+    int[][] m;
     int target;
     public boolean searchMatrix2(int[][] matrix, int target) {
-        this.matrix = matrix;
+        this.m = matrix;
         this.target = target;
         if(matrix.length==0)
             return false;
@@ -87,10 +91,10 @@ public class Searcha2DMatrixII {
     * @param y2, column coordinate of bottom right element of the matrix
     */
     private boolean helper(int x1, int y1, int x2, int y2){
-        if(x2<x1 || y2<y1 || x1>=matrix.length || y1>=matrix[0].length || x2<0 || y2<0)
+        if(x2<x1 || y2<y1 || x1>=m.length || y1>=m[0].length || x2<0 || y2<0)
             return false;
-        int mx = (x2-x1)/2+x1;
-        int my = (y2-y1)/2+y1;
+        int nx = (x2-x1)/2+x1;
+        int ny = (y2-y1)/2+y1;
         // Check the middle element of the matrix, if not found, 
         // recursively call on sub matrices where
         // the value could still exist. 
@@ -98,14 +102,14 @@ public class Searcha2DMatrixII {
         // form a L shape on the original matrix.
         // This L shape can be broken down into 2 matrices.
         // If number found in any of the 2 matrices, we return true.
-        if(matrix[mx][my]==target)
+        if(m[nx][ny]==target)
             return true;
         //so it is in (mid, end), so we left to mid
-        else if(matrix[mx][my]<target){
-            return helper(x1,my+1,x2,y2) || helper(mx+1,y1,x2,my);
+        else if(m[nx][ny]<target){
+            return helper(x1,ny+1,x2,y2) || helper(nx+1,y1,x2,ny);
         //so it is in (left, mid). so we move to left
-        }else if(matrix[mx][my]>target){
-            return helper(x1,y1,x2,my-1) || helper(x1,my,mx-1,y2);
+        }else if(m[nx][ny]>target){
+            return helper(x1,y1,x2,ny-1) || helper(x1,ny,nx-1,y2);
         //return
         }else
             return false;
