@@ -56,9 +56,7 @@ public class GroupShiftedStrings {
             String key = "";
             for (int i = 0; i < str.length(); i++) {
                 char c = (char)(str.charAt(i) - offset);
-                if (c < 'a') {
-                    c += 26;
-                }
+                if (c < 'a') c += 26;
                 key += c;
             }
             if (!map.containsKey(key)) {
