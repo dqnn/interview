@@ -39,18 +39,19 @@ Return false.
 
 */
     //interview friendly
+    //O(mn)/O(n), m = t nodes size, n =  t nodes size
     //
     public boolean isSubtree(TreeNode s, TreeNode t) {
         return visit(s,t);
     }
-    public boolean equals(TreeNode x,TreeNode y) {
+    public boolean isSame(TreeNode x,TreeNode y) {
         if(x==null && y==null) return true;
         if(x==null || y==null) return false;
         
-        return x.val==y.val && equals(x.left,y.left) && equals(x.right,y.right);
+        return x.val==y.val && isSame(x.left,y.left) && isSame(x.right,y.right);
     }
     public boolean visit(TreeNode s,TreeNode t) {
-        return  s!=null && ( equals(s,t) || visit(s.left,t) || visit(s.right,t));
+        return  s!=null && ( isSame(s,t) || visit(s.left,t) || visit(s.right,t));
     }
     
     //this is using String IndexOf to judge
