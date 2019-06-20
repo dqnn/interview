@@ -76,8 +76,7 @@ public class MedianofTwoSortedArrays {
         int m = A.length;
         int n = B.length;
         if (m > n) { // to ensure m<=n
-            int[] temp = A; A = B; B = temp;
-            int tmp = m; m = n; n = tmp;
+            return findMedianSortedArrays(B,A);
         }
         int iMin = 0, iMax = m, halfLen = (m + n + 1) / 2;
         while (iMin <= iMax) {
@@ -106,9 +105,7 @@ public class MedianofTwoSortedArrays {
         }
         return 0.0;
     }
-    
-    
-    //best performance:
+
     // so this problem is thinking from different perspective, we cut one array into two parts l-> L1 and L2
     // L1 <= L2, so the median is avg ( max(L1) + min(L2) ) and we do not need to care about the order of the
     // elements in L1 and L2. so if we sort, will be O((m + n)lg(m + n)), O(1)
