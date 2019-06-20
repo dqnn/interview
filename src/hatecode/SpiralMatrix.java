@@ -1,6 +1,6 @@
 package hatecode;
 
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
 
 /**
@@ -29,6 +29,35 @@ public class SpiralMatrix {
      * @param matrix
      * @return
      */
+    
+    
+    //interview friendly, 
+    //this is much simpler solution, up means top start point, down means bottom start point, 
+    // this means direction, same to left and right
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> res = new LinkedList<>(); 
+        if (matrix == null || matrix.length == 0) return res;
+        int n = matrix.length, m = matrix[0].length;
+        int up = 0,  down = n - 1;
+        int left = 0, right = m - 1;
+        while (res.size() < n * m) {
+            for (int j = left; j <= right && res.size() < n * m; j++)
+                res.add(matrix[up][j]);
+            
+            for (int i = up + 1; i <= down - 1 && res.size() < n * m; i++)
+                res.add(matrix[i][right]);
+                     
+            for (int j = right; j >= left && res.size() < n * m; j--)
+                res.add(matrix[down][j]);
+                        
+            for (int i = down - 1; i >= up + 1 && res.size() < n * m; i--) 
+                res.add(matrix[i][left]);
+                
+            left++; right--; up++; down--; 
+        }
+        return res;
+    }
+    
     //thinking process:
     
     //the problem is to add element in a 2D matrix to a list by a 
@@ -44,7 +73,7 @@ public class SpiralMatrix {
     
     //there is one exception case that rowBegin, rowEnd, colBegin, colEnd
     //will overlap, so if equals, we still need to print.
-    public List<Integer> spiralOrder(int[][] matrix) {
+    public List<Integer> spiralOrder_Old(int[][] matrix) {
         List<Integer> res = new ArrayList<>();
         if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) {
             return res;
