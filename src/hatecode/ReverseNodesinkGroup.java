@@ -91,6 +91,7 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
      * Reverse a link list between begin and end exclusively return the node which point to end
      * return last node reference in this window, which is end prior
      * an example:
+     * 
      * a linked list:
      * cur starts from begin.next
      * 0->1->2->3->4->5->6

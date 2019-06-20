@@ -34,7 +34,7 @@ following height balanced BST:
      [1,2,3,4,5]
 
      time : O(n);
-     space : O(n);
+     space : O(lgn), the tree height is lgn since it is balanced
      * @param nums
      * @return
      */
