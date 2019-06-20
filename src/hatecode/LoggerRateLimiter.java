@@ -97,6 +97,7 @@ Examples:
         /** Returns true if the message should be printed in the given timestamp, otherwise returns false.
             If this method returns false, the message will not be printed.
             The timestamp is in seconds granularity. */
+        //here this implementation helped to remove the messages in the queue
         public boolean shouldPrintMessage(int timestamp, String message) {
             while (recentLogs.size() > 0)   {
                 Log log = recentLogs.peek();
