@@ -71,7 +71,45 @@ public class MedianofTwoSortedArrays {
      * @param n2
      * @return
      */
-   // so this problem is thinking from different perspective, we cut one array into two parts l-> L1 and L2
+    //shorter Binary search solution
+    public double findMedianSortedArrays(int[] A, int[] B) {
+        int m = A.length;
+        int n = B.length;
+        if (m > n) { // to ensure m<=n
+            int[] temp = A; A = B; B = temp;
+            int tmp = m; m = n; n = tmp;
+        }
+        int iMin = 0, iMax = m, halfLen = (m + n + 1) / 2;
+        while (iMin <= iMax) {
+            int i = (iMin + iMax) / 2;
+            int j = halfLen - i;
+            if (i < iMax && B[j-1] > A[i]){
+                iMin = i + 1; // i is too small
+            }
+            else if (i > iMin && A[i-1] > B[j]) {
+                iMax = i - 1; // i is too big
+            }
+            else { // i is perfect
+                int maxLeft = 0;
+                if (i == 0) { maxLeft = B[j-1]; }
+                else if (j == 0) { maxLeft = A[i-1]; }
+                else { maxLeft = Math.max(A[i-1], B[j-1]); }
+                if ( (m + n) % 2 == 1 ) { return maxLeft; }
+
+                int minRight = 0;
+                if (i == m) { minRight = B[j]; }
+                else if (j == n) { minRight = A[i]; }
+                else { minRight = Math.min(B[j], A[i]); }
+
+                return (maxLeft + minRight) / 2.0;
+            }
+        }
+        return 0.0;
+    }
+    
+    
+    //best performance:
+    // so this problem is thinking from different perspective, we cut one array into two parts l-> L1 and L2
     // L1 <= L2, so the median is avg ( max(L1) + min(L2) ) and we do not need to care about the order of the
     // elements in L1 and L2. so if we sort, will be O((m + n)lg(m + n)), O(1)
     // so we want to get rid of sorting and get the median of the two arrays. 
@@ -85,7 +123,7 @@ public class MedianofTwoSortedArrays {
     // so we use binary search to find the correct position, we virtually setup a situation to visit each element in array1
     //since it is smaller, why?
     // we add Integer.MIN_VALUE and integer.MAX_VALUE to be placed beginning and end of two arrays
-    public double findMedianSortedArrays(int[] n1, int[] n2) {
+    public double findMedianSortedArrays2(int[] n1, int[] n2) {
       //edge case
         if (n1 == null && n2 == null) {
             return -1.0;
