@@ -71,22 +71,25 @@ public class MedianofTwoSortedArrays {
      * @param n2
      * @return
      */
-    //shorter Binary search solution
+    //shorter Binary search solution, 
+    //A is cut L1 | R1,
+    //B is cut  L2 | R2 
     public double findMedianSortedArrays(int[] A, int[] B) {
         int m = A.length;
         int n = B.length;
         if (m > n) { // to ensure m<=n
             return findMedianSortedArrays(B,A);
         }
-        int iMin = 0, iMax = m, halfLen = (m + n + 1) / 2;
-        while (iMin <= iMax) {
-            int i = (iMin + iMax) / 2;
+        //Binary search on A to find the correct cut
+        int l = 0, r = m, halfLen = (m + n + 1) / 2;
+        while (l <= r) {
+            int i = (l + r) / 2;//L1
             int j = halfLen - i;
-            if (i < iMax && B[j-1] > A[i]){
-                iMin = i + 1; // i is too small
-            }
-            else if (i > iMin && A[i-1] > B[j]) {
-                iMax = i - 1; // i is too big
+            //we found that L2 > R1, that means we need to move l to right, L2 has too many elements
+            if (i < r && B[j-1] > A[i]){
+                l = i + 1; // i is too small
+            } else if (i > l && A[i-1] > B[j]) {
+                r = i - 1; // i is too big
             }
             else { // i is perfect
                 int maxLeft = 0;
