@@ -83,7 +83,7 @@ and then t will change to 4 again, so we continue this process
         ListNode res;
         ListNode prev = s;
         res = cur;
-        
+        //this will reverse the list, classical 3 pointers 
         while(cur != e) {
             ListNode next = cur.next;
             cur.next = prev;
