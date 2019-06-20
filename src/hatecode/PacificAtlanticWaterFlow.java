@@ -30,11 +30,7 @@ Return:
     //it detect all points while we should only detect border ones
     //so the problem is to focus on memorize the 
     List<int[]> res;
-    int[][]     dirs = {
-            {-1, 0},
-            {1, 0},
-            {0, -1},
-            {0, 1}};
+    int[][] dirs = {{-1, 0},{1, 0},{0, -1},{0, 1}};
 
     public List<int[]> pacificAtlantic(int[][] m) {
         res = new ArrayList<>();
@@ -56,10 +52,7 @@ Return:
 
         for (int i = 0; i < r; i++) {
             for (int j = 0; j < c; j++) {
-                if (left[i][j] && right[i][j]) {
-                    res.add(new int[] {
-                            i, j });
-                }
+                if (left[i][j] && right[i][j]) res.add(new int[] {i, j });
             }
         }
         return res;
