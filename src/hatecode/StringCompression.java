@@ -65,7 +65,7 @@ public class StringCompression {
      */
     //thinking process:
     //the problem is to compress chars in array which char is 
-    //duplicate 
+    //duplicate, return the length of optimal compressed strings
     
     //we use a two while to locate where we can stop, note, this way, 
     //index will point to next char
