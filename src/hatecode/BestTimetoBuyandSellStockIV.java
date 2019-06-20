@@ -119,7 +119,7 @@ DP
         //but when we buy the stock, our moneday did not change from last time, so we use 
         //noStock[j-1] - price
         int[] ownStock = new int[k+1];
-        int[] noStock = new int[k+1];
+        int[] noStock = new int[k+1]; //profit at k transactions
         //Arrays.fill(ownStock, -p[0]); also works
         Arrays.fill(ownStock, Integer.MIN_VALUE);
         for(int price:p) {
