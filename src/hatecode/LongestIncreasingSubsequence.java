@@ -90,7 +90,7 @@ Clearly len + 1 = 4 is our result : )
     //the tail means, if we want to find nums[i] as the last elment in LIS, then how it would like
     //LIS(5) = LIS(4) + 1,
     
-    //so the length means if we want to find the if last elment is nums[i], what's the max
+    //so the length means if we want to find the if last element is nums[i], what's the max
     //LIS length, O(nlgn)/O(n)
     public static int lengthOfLIS(int[] nums) {
         if (nums == null || nums.length < 1) {
@@ -101,26 +101,26 @@ Clearly len + 1 = 4 is our result : )
         int[] tails = new int[nums.length];
         int res = 0;
         for (int num : nums) {
-            //we search from i->j, j is last iteration result
-            int i = 0, j = res;
+            //we search from l->r, r is last iteration result
+            int l = 0, r = res;
             // binary search on tails here can help to find which position for num
             // this templates is while(left < start), 2# template, we have one element left for 
             //post processing
             //binary search 2nd templates
-            while (i < j) {
-                int mid = i + (j - i) /2;
+            while (l < r) {
+                int mid = l + (r - l) /2;
                 if (tails[mid] < num) {
-                    i = mid + 1;
+                    l = mid + 1;
                 } else {// here is  >=
-                    j = mid;
+                    r = mid;
                 }
             }
             // this is to update or insert a new value in tails, 
             // 2 4 9 3 7 8, when res = 3, num = 3, we finally will updates tail[1] = 4
             // to tail[1] = 3, and for this time, res will keep previous value
-            tails[i] = num;
+            tails[l] = num;
             // so if i == res, which means num is a correct in last longest sequence
-            if (i == res) ++res;
+            if (l == res) ++res;
         }
         return res;
     }
