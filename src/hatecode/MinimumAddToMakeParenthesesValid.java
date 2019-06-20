@@ -22,7 +22,8 @@ Output: 1
   //left mean ( we need to add
   //right means current opened, ( not matched
     
-    //LC 
+    //there was one similiar problem in LC which is to say with K add/replace/delete, it could be 
+    //valid parenthese, forget the problem number....WTF
     public int minAddToMakeValid(String s) {
         int left = 0, right = 0;
         for (char ch: s.toCharArray()) {
