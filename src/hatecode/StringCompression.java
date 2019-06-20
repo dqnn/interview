@@ -60,7 +60,7 @@ public class StringCompression {
      time : O(n)
      space : O(1)
 
-     * @param chars
+     * @param chs
      * @return
      */
     //thinking process:
@@ -69,20 +69,20 @@ public class StringCompression {
     
     //we use a two while to locate where we can stop, note, this way, 
     //index will point to next char
-    public int compress(char[] chars) {
-        int res = 0, index = 0;
-        while (index < chars.length) {
-            char cur = chars[index];
+    public int compress(char[] chs) {
+        int res = 0, idx = 0;
+        while (idx < chs.length) {
+            char cur = chs[idx];
             int count = 0;
-            while (index < chars.length && chars[index] == cur) {
-                index++;
+            while (idx < chs.length && chs[idx] == cur) {
+                idx++;
                 count++;
             }
-            chars[res++] = cur;
+            chs[res++] = cur;
             //handle not 1 case
             if (count != 1) {
                 for (char c : String.valueOf(count).toCharArray()) {
-                    chars[res++] = c;
+                    chs[res++] = c;
                 }
             }
         }
