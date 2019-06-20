@@ -123,7 +123,7 @@ DP
         Arrays.fill(ownStock, Integer.MIN_VALUE);
         for(int price:p) {
             for(int j = k; j >0;j--) {
-                //compare to other problems, here is ownStock[j] and is not ownStock[j - 1]
+                //compare to other problems, here is ownStock[j] and IS not ownStock[j - 1]
                 noStock[j]= Math.max(noStock[j], ownStock[j] + price);
                 ownStock[j]= Math.max(ownStock[j], noStock[j-1] - price);
             }
