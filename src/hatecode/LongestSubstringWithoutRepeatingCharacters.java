@@ -47,7 +47,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
         }
         return res;
     }
-   //this is TP sliding window templates
+   //this is TP sliding window templates, interview friendly
     
     //so r would advanced to right always but also when we want to move left, 
     //the key is if we find the map.size() is smaller than substring length which means 
