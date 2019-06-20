@@ -48,6 +48,7 @@ Could you come up with a one-pass algorithm using only constant space?
     //want to compare
     //another paritition method is always choosing the first element in array, and 
     //paritition values by this array value
+    //and this is the same method we re-arrange numbers zero, non-zero but keeping them in original order
     public void sortColors(int[] nums) {
         if (nums == null || nums.length == 0) return;
         // indicate 0 count
