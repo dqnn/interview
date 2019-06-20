@@ -19,6 +19,8 @@ Output: 10
             return 0;
 
         int n = nums.length;
+        //this binary search templates is tricky, traditionally this should be r = n as 2nd template,
+        //but since our 
         int l = 0, r = n - 1;
 
         while (l < r) {
