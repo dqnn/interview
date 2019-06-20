@@ -125,6 +125,8 @@ DP
         for(int price:p) {
             for(int j = 1; j <=k;j++) {
                 //so if we did not buy, we cannot sell, so noStock
+                //most of the expressions, we do not rely on j - 1 because we used 1D array, so
+                //for each price we want to compare all possible previous results
                 noStock[j]= Math.max(noStock[j], ownStock[j] + price);
                 ownStock[j]= Math.max(ownStock[j], noStock[j-1] - price);
             }
