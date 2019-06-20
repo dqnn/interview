@@ -86,12 +86,13 @@ public class LongestIncreasingSubsequence {
                 }
             }
             // this is to update or insert a new value in tails, 
-            // 2 4 9 3 7 8, when res = 3, num = 3, we finally will updates tail[1] = 4
+            // 2 4 9 3 7 8, when res = 3, num = 3, we finally will find and replace tail[1] = 4
             // to tail[1] = 3, and for this time, res will keep previous value
             tails[l] = num;
             // so if i == res, which means num is a correct in last longest sequence
             if (l == res) ++res;
         }
+        System.out.println(Arrays.toString(tails));
         return res;
     }
     
@@ -127,7 +128,7 @@ public class LongestIncreasingSubsequence {
         return max;
     }
     public static void main(String[] args) {
-        int[] in= {3,5,4,7,1};
+        int[] in= {1, 3,5,4,7};
         System.out.println(lengthOfLIS(in));
     }
 }
