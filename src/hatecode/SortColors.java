@@ -41,6 +41,7 @@ Could you come up with a one-pass algorithm using only constant space?
     // 1 still there
     
     //this is like partition sort， 3 pointer templates，partition. 
+    //we also have another partition templates, 
     public void sortColors(int[] nums) {
         if (nums == null || nums.length == 0) return;
         // indicate 0 count
