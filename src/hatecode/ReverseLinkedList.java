@@ -25,19 +25,31 @@ public class ReverseLinkedList {
         }
         return pre;
     }
-    //another version but same things
-    public ListNode reverseList2(ListNode head) {
-        if (head == null) {
-            return head;
+    //reverse the whole function, this function also used in many other places
+    public ListNode reverseList_ByReverse_Exclusive_Func(ListNode head) {
+        if(head == null || head.next == null) return head;
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        reverse(dummy, null);
+        return dummy.next;
+    }
+    
+    private ListNode reverse(ListNode s, ListNode e) {
+        ListNode cur = s.next;
+        ListNode res = cur;
+        ListNode prev = s;
+        
+        while(cur != e) {
+            ListNode next = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = next;
         }
-        ListNode first = head.next, sec = head;
-        while(first != null) {
-            ListNode temp = first.next;
-            first.next = sec;
-            sec = first;
-            first = temp;
-        }
-        head.next = null;
-        return sec;
+        
+        res.next = cur;
+        s.next = prev;
+        
+        return res;
+        
     }
 }
