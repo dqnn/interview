@@ -17,6 +17,8 @@ S = "cba"
 T = "abcd"
 Output: "cbad"
  */
+    //interview friendly, O(n)/O(1), since they are lower case letters only
+    //thinking process, bucket sort
     public String customSortString2(String S, String T) {
         if (S == null || T == null) return "";
         Map<Character, Integer> map = new HashMap<>();
