@@ -33,7 +33,7 @@ public class ReverseLinkedList {
         reverse(dummy, null);
         return dummy.next;
     }
-    
+    //see LC 25. Reverse Nodes in k-Group, it has detailed explanations
     private ListNode reverse(ListNode s, ListNode e) {
         ListNode cur = s.next;
         ListNode res = cur;
