@@ -16,6 +16,7 @@ If there are no values, it returns the empty string ("").
 */
 
    //interview friendly solution, easy one
+    //but it does not solve the problem of removing expiring elements
    private Map<String,TreeMap<Integer,String>> map;
 
     /** Initialize your data structure here. */
