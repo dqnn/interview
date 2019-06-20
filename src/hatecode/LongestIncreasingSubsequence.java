@@ -49,7 +49,12 @@ public class LongestIncreasingSubsequence {
     //res is the variable to maintain the insert position for each element
 
     //another thinking process:
-    //we have an array tail which stored the 
+    //we have an array tail which stored the tail[i] means for len = i + 1 sub array, the smallest 
+    //element = tail[i], so if we meet a bigger value than tail[last], then just append it, if 
+    //we meet a value less than tail[i], which means we meet a smaller value in array compared to previous 
+    //ones, then we find the correct position and update by binary search, so the key idea here is to keep
+    //tracking of the for sub array 0->i, the smallest last element sequence = len +1, the reason why
+    //we like smallest becasue it is greedy to have longest sequence
     
     //
     //LIS length, O(nlgn)/O(n)
