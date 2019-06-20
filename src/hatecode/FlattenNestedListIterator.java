@@ -46,6 +46,9 @@ public class FlattenNestedListIterator {
         *     public List<NestedInteger> getList();
         * }
 */
+    //we have to use Stack, because we need to make sure the elements order, 
+    //[1,[1,1],2]->[1,1,1,2], when we get 2nd element out, we need to make sure we can put it back into 
+    //queue/stack without changing their original order
     Stack<NestedInteger> stack;
 
     // so similiar question like this requires to understand the problem correctly, like this 
