@@ -120,10 +120,11 @@ DP
         //noStock[j-1] - price
         int[] ownStock = new int[k+1];
         int[] noStock = new int[k+1];
+        //Arrays.fill(ownStock, -p[0]); also works
         Arrays.fill(ownStock, Integer.MIN_VALUE);
         for(int price:p) {
-            for(int j = k; j >0;j--) {
-                //compare to other problems, here is ownStock[j] and IS not ownStock[j - 1]
+            for(int j = 1; j <=k;j++) {
+                //so if we did not buy, we cannot sell, so noStock
                 noStock[j]= Math.max(noStock[j], ownStock[j] + price);
                 ownStock[j]= Math.max(ownStock[j], noStock[j-1] - price);
             }
