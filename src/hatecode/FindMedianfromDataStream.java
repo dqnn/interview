@@ -1,6 +1,6 @@
 package hatecode;
 
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * Project Name : Leetcode
@@ -75,9 +75,36 @@ public class FindMedianfromDataStream {
         return large.size() > small.size() ? large.peek() : (large.peek() - small.peek()) / 2.0;
     }
     
-    // the more bruth-force way to find the data structure which can sort the list when added and get the median easily, but 
-    // TreeSet and PriorityQueue, they do not have such interface to get the index of each element, we need a sortedList. 
-    // they key of this problem is to ask for the sortedList.
-    // merge sort or insert sort is wanted here. 
+    //interview friendly:
+    private Queue<Integer> min;
+    private Queue<Integer> max;
+
+    //so for the right, we always add the big number in minStack, this can help to 
+    //keep the bigger number
+    public void MedianFinder() {
+        this.min = new PriorityQueue<>((a, b)->(a-b));
+        this.max = new PriorityQueue<>((a, b)->(b-a));
+    }
     
+    public void addNum2(int num) {
+        if(min.isEmpty()) min.offer(num);
+        else if(min.peek() <= num) min.offer(num);
+        else max.offer(num);
+        
+        rebalance();
+    }
+    //here is the key, min is on right side of the sorted array, so i prefer it has one more elment
+    //than left, so this case will be normal, it will only rebalance is two cases:
+    //1, right is 2 more elements than left
+    //2 left has more elements than right
+    private void rebalance() {
+        if(min.size() > max.size() + 1) {
+            max.offer(min.poll());
+        } else if(max.size() > min.size()) min.offer(max.poll());
+    }
+    
+    public double findMedian2() {
+        if(min.size() == max.size()) return (min.peek() + max.peek()) / 2d;
+        else return min.peek() * 1d;
+    }
 }
