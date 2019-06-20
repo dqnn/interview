@@ -58,7 +58,8 @@ public class RestoreIPAddresses {
         helper2(res, s, "", 0, 4);
         return res;
     }
-    //templates
+    //templates,
+    //backtracking is a way of trying different opportunities
     public void helper2(List<String> res, String s, String cur, int index, int dim) {
         // dim means dimension, 4 parts for ip address
         if (dim < 0 || s.length() - index > dim * 3 || s.length() - index < dim) {
