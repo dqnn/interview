@@ -106,9 +106,8 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
      */
     public ListNode reverse(ListNode start, ListNode end){
         ListNode cur = start.next;
-        ListNode res;
+        ListNode res = cur;
         ListNode prev = start;
-        res = cur;
         //cur last point to end
         while (cur != end){
             ListNode next = cur.next;
