@@ -59,4 +59,41 @@ and then t will change to 4 again, so we continue this process
         }
         return dummy.next;
     }
+    //we re-use the reverse(s, e) function which was created in LC 25. Reverse Nodes in k-Group
+    //which reverse a group of ListNode, the reverse() function will reverse the nodes between the 
+    //two input parameters(exclusive), and return the new head of this group, note: all links already created
+    //well
+    public ListNode reverseBetween_better(ListNode head, int m, int n) {
+        if(head == null || head.next == null) return head;
+        
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+
+        ListNode s = dummy, e = dummy;
+        m--;
+        while ( m-- >0) s = s.next;
+        while ( n-- >0) e = e.next;
+        reverse(s, e.next);
+        return dummy.next;
+    }
+    
+    private ListNode reverse(ListNode s, ListNode e) {
+        if(s == e || s.next == e) return s;
+        ListNode cur = s.next;
+        ListNode res;
+        ListNode prev = s;
+        res = cur;
+        
+        while(cur != e) {
+            ListNode next = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+        }
+        
+        s.next = prev;
+        res.next = cur;
+        
+        return res;
+    }
 }
