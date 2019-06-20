@@ -43,7 +43,11 @@ Could you come up with a one-pass algorithm using only constant space?
     //this is like partition sort， 3 pointer templates，partition. 
     //we also have another partition templates, 
     
-    //
+    //so the two different 3-way partition mainly difference is:
+    //1. current this one is that we always the value we want to partition, so we 
+    //want to compare
+    //another paritition method is always choosing the first element in array, and 
+    //paritition values by this array value
     public void sortColors(int[] nums) {
         if (nums == null || nums.length == 0) return;
         // indicate 0 count
