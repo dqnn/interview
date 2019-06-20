@@ -50,28 +50,5 @@ public class LongestSubstringWithoutRepeatingCharacters {
         return res;
     }
    
-    // we use array as map to store the char in the string, count[ch] = idx,
-    // so basical principal is the same as previous one.
-    //very important is we compare to start using equals and count initialized as -1 not 0.
-    //because array starts from 0 and 
-    public int lengthOfLongestSubstring2(String s) {
-        if (s == null || s.length() < 1) {
-            return 0;
-        }
-        
-        int[] count = new int[256];
-        Arrays.fill(count, -1);
-        int start = 0, res = 0;
-        for(int i = 0; i < s.length(); i++) {
-            //means the charAt(i) existed already since count default is -1, start >=0
-            //and we move start to next position
-            if (count[s.charAt(i)] >= start) {
-                start = count[s.charAt(i)] + 1 ;
-            }
-            
-            count[s.charAt(i)] = i ;
-            res = Math.max(res, i - start + 1);
-        }
-        return res;
-    }
+    
 }
