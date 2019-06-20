@@ -1,8 +1,6 @@
 package hatecode;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 /**
  * Project Name : Leetcode
@@ -49,6 +47,29 @@ public class LongestSubstringWithoutRepeatingCharacters {
         }
         return res;
     }
-   
+   //this is TP sliding window templates
     
+    //
+    public int lengthOfLongestSubstring_SlidingWindow(String s) {
+        if (s == null || s.length() < 1) return 0;
+        
+        int l = 0, r =0;
+        int res = Integer.MIN_VALUE;
+        Map<Character, Integer> map = new HashMap<>();
+        while(r < s.length()) {
+            char rc = s.charAt(r++);
+            map.put(rc, map.getOrDefault(rc, 0) + 1);
+            System.out.println(map.size() + "---" + (r- l));
+            while(map.size() < (r - l)) {
+                char lc = s.charAt(l);
+                //System.out.println(l +"--" + r + "  lc=" + lc);
+                int cnt = map.get(lc);
+                if(cnt > 1) map.put(lc,cnt - 1);
+                else map.remove(lc);
+                l++;
+            }
+            res = Math.max(res, r - l);
+        }
+        return res;
+    }
 }
