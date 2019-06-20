@@ -31,14 +31,12 @@ Output: ""
         while(q.size() >= 2) {
             Map.Entry<Character, Integer> entry1 = q.poll(), entry2 = q.poll();
             sb.append(entry1.getKey() +""+ entry2.getKey());
-            int count = entry1.getValue();
-            if (count > 1) {
-                entry1.setValue(count - 1);
+            if(entry1.getValue() > 1) {
+                entry1.setValue(entry1.getValue()-1);
                 q.offer(entry1);
             }
-            count = entry2.getValue();
-            if (count > 1) {
-                entry2.setValue(count - 1);
+            if(entry2.getValue() > 1) {
+                entry2.setValue(entry2.getValue()-1);
                 q.offer(entry2);
             }
             
