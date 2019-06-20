@@ -46,7 +46,7 @@ public class LongestIncreasingSubsequence {
     //// the idea  is to maintain a list, and for each element in n, we want to find a position in 
     // tail to insert, it is more like insert sort, 
     // the way to identify the element which should be longest increasing sequence is the position for 
-    //res is the variabe to maintain the insert position for each element
+    //res is the variable to maintain the insert position for each element
 
     //the tail means, if we want to find nums[i] as the last elment in LIS, then how it would like
     //LIS(5) = LIS(4) + 1,
@@ -57,8 +57,15 @@ public class LongestIncreasingSubsequence {
         if (nums == null || nums.length < 1) {
             return 0;
         }
-        //to store the LIS last elements in array
-        //[1,3,5,4,7]->[1, 3, 4, 7, 0]
+        /** we do not care about what elements are in each subsequence, 
+         * we only care about tails of them,
+         * because every time we only compare with their tails to decide which subsequence 
+         * could we add new item and update the entire structure */
+        //[1,3,5,4,7]->[1, 3, 4, 5, 0]
+        // len = 1, tail[0] = 1;
+        //len = 2, 1, 3
+        //len = 3: 1, 3, 4, 
+        //len = 4, 1,3,4,5
        /**(1) if x is larger than all tails, append it, increase the size by 1
         * (2) if tails[i-1] < x <= tails[i], update tails[i] */
         int[] tails = new int[nums.length];
