@@ -50,6 +50,8 @@ because the wheels of the lock become stuck after the display becomes the dead e
                 //each chance will have 2 move directions, so we will have 8 new string each time
                 for (int i = 0; i < 4; i++) {
                     char c = sb.charAt(i);
+                    //this either 0 or "0", we cannot write as '0' because it will considered as 
+                    //add not strings
                     String s1 = sb.substring(0, i) + (c == '9' ? 0 : c - '0' + 1) + sb.substring(i + 1);
                     String s2 = sb.substring(0, i) + (c == '0' ? 9 : c - '0' - 1) + sb.substring(i + 1);
 
