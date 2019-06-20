@@ -15,6 +15,7 @@ If there are multiple such values, it returns the one with the largest timestamp
 If there are no values, it returns the empty string ("").
 */
 
+   //interview friendly solution, easy one
    private Map<String,TreeMap<Integer,String>> map;
 
     /** Initialize your data structure here. */
