@@ -39,14 +39,14 @@ Return false.
 
 */
     //interview friendly
+    //
     public boolean isSubtree(TreeNode s, TreeNode t) {
         return visit(s,t);
     }
     public boolean equals(TreeNode x,TreeNode y) {
-        if(x==null && y==null)
-            return true;
-        if(x==null || y==null)
-            return false;
+        if(x==null && y==null) return true;
+        if(x==null || y==null) return false;
+        
         return x.val==y.val && equals(x.left,y.left) && equals(x.right,y.right);
     }
     public boolean visit(TreeNode s,TreeNode t) {
