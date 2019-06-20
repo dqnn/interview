@@ -79,7 +79,7 @@ public class StringCompression {
                 count++;
             }
             chs[res++] = cur;
-            //handle not 1 case
+            //handle not 1 case, this is edge case
             if (count != 1) {
                 for (char c : String.valueOf(count).toCharArray()) {
                     chs[res++] = c;
