@@ -49,7 +49,10 @@ public class LongestSubstringWithoutRepeatingCharacters {
     }
    //this is TP sliding window templates
     
-    //
+    //so r would advanced to right always but also when we want to move left, 
+    //the key is if we find the map.size() is smaller than substring length which means 
+    //we have dup character in the susbtring, so we want to move the l to right
+    //after each adjustment, we would like to see the substring length
     public int lengthOfLongestSubstring_SlidingWindow(String s) {
         if (s == null || s.length() < 1) return 0;
         
