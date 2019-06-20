@@ -3,6 +3,7 @@ public class SubtreeOfAnotherTree {
 /*
  * 
 572  Subtree of Another Tree
+Similar question: LC 100. Same Tree
 Given two non-empty binary trees s and t, check whether tree t has exactly the same 
 structure and node values with a subtree of s. A subtree of s is a tree consists of 
 a node in s and all of this node's descendants. The tree s could also be considered 
@@ -40,6 +41,8 @@ Return false.
 */
     //interview friendly
     //O(mn)/O(n), m = t nodes size, n =  t nodes size
+    //we need to for each node will try to compare m times
+    
     //
     public boolean isSubtree(TreeNode s, TreeNode t) {
         return visit(s,t);
@@ -51,7 +54,7 @@ Return false.
         return x.val==y.val && isSame(x.left,y.left) && isSame(x.right,y.right);
     }
     public boolean visit(TreeNode s,TreeNode t) {
-        return  s!=null && ( isSame(s,t) || visit(s.left,t) || visit(s.right,t));
+        return  s!=null && (isSame(s,t) || visit(s.left,t) || visit(s.right,t));
     }
     
     //this is using String IndexOf to judge
