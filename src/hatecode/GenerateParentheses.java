@@ -20,10 +20,6 @@ public class GenerateParentheses {
      "()()()"
      ]
 
-
-     time : O(n!) (2^n)
-     space : O(n)
-
      卡特兰数：
      (0,n-1) (1,n-2) (2,n-3) ... (n-1,0)
 
@@ -32,7 +28,7 @@ public class GenerateParentheses {
      */
 
     //interview friendly:
-    //so 
+    //O(4^n/n^1/2)/O(4^n/n^1/2) see LC solution
     public List<String> generateParenthesis(int n) {
         List<String> res = new ArrayList<>();
         if (n < 1) return res;
@@ -44,14 +40,12 @@ public class GenerateParentheses {
     public void helper(List<String> res, String pre, int left, int right) {
         // this is to avoid that ) is more than (  which is the wrong answer
        // if (left > right) return;
-        
         if (left == 0 && right == 0) {
             res.add(pre);
             return;
         }
         
         if (left > 0) helper(res, pre + "(", left - 1, right + 1);
-        
         if (right > 0) helper(res, pre + ")", left, right - 1);
     }
     
