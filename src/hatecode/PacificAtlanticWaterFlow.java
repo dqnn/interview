@@ -28,7 +28,12 @@ Return:
 */
     //it is stack overflow solution, but most cases will pass, the reason why overflow because 
     //it detect all points while we should only detect border ones
-    //so the problem is to focus on memorize the 
+    
+    //the more effective way is to starting from borders, looking for increasing path(>=), and we memorize
+    //the result when we dfs. 
+    
+    //since two ocean, so we would like to use two 2D matrix left and right to record the result of each cell,
+    //last is to check whether we can flow to both side
     List<int[]> res;
     int[][] dirs = {{-1, 0},{1, 0},{0, -1},{0, 1}};
 
