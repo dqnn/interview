@@ -31,32 +31,28 @@ public class GenerateParentheses {
      * @return
      */
 
+    //interview friendly:
+    //so 
     public List<String> generateParenthesis(int n) {
         List<String> res = new ArrayList<>();
-        if (n < 1) {
-            return res;
-        }
+        if (n < 1) return res;
         
-        helper(res, "", n, n);
+        helper(res, "", n, 0);
         return res;
     }
-    // left means num of ( while right means num of )
+    
     public void helper(List<String> res, String pre, int left, int right) {
         // this is to avoid that ) is more than (  which is the wrong answer
-        if (left > right) return;
-
+       // if (left > right) return;
+        
         if (left == 0 && right == 0) {
             res.add(pre);
             return;
         }
-
-        if (left > 0) {
-            helper(res, pre + "(", left - 1, right);
-        }
-
-        if (right > 0) {
-            helper(res, pre + ")", left, right - 1);
-        }
+        
+        if (left > 0) helper(res, pre + "(", left - 1, right + 1);
+        
+        if (right > 0) helper(res, pre + ")", left, right - 1);
     }
     
     public List<String> generateParenthesis2(int n) {
@@ -72,10 +68,8 @@ public class GenerateParentheses {
             return;
         }
         
-        if(open < max)
-            backtrack(list, str+"(", open+1, close, max);
-        if(close < open)
-            backtrack(list, str+")", open, close+1, max);
+        if(open < max) backtrack(list, str+"(", open+1, close, max);
+        if(close < open) backtrack(list, str+")", open, close+1, max);
     }
     
     
