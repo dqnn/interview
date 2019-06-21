@@ -46,7 +46,6 @@ Output: [1,null,2,null,3,null,4,null,5,null,6,null,7,null,8,null,9]
         root.right = helper(root.right, tail);
         return res;
     }
-    
     //another version, recursive solution
     TreeNode prev=null, head=null;
     public TreeNode increasingBST_2nd(TreeNode root) {
