@@ -42,7 +42,7 @@ public class LongestPalindromicSubsequence {
         */
     public int longestPalindromeSubseq(String s) {
         int[][] dp = new int[s.length()][s.length()];
-        //i from last to 0, 
+        //i from last to 0, because i depends on i + 1
         for (int i = s.length() - 1; i >= 0; i--) {
             dp[i][i] = 1;
             // j after i but point to the end
