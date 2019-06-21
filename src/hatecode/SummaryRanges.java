@@ -53,9 +53,8 @@ continuous range.
                 end++;
             }
             // here should pick up last element 
-            if (end == start || start == nums.length - 1) {
-                res.add(String.valueOf(nums[start]));
-            } else {
+            if (end == start || start == nums.length - 1) res.add(String.valueOf(nums[start]));
+            else {
                 res.add(String.valueOf(nums[start])
                      +"->" + String.valueOf(nums[end]));
             }
