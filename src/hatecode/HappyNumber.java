@@ -1,6 +1,6 @@
 package hatecode;
 
-import java.util.HashSet;
+import java.util.*;
 
 /**
  * Project Name : Leetcode
@@ -39,24 +39,23 @@ Explanation:
      * @return
      */
     //this is simulation to the problem,we use a set to determine whether we tried this number before or
-    //not
+    //it is really neat
     public boolean isHappy(int n) {
-        HashSet<Integer> set = new HashSet<>();
-        int squareSum, remain;
-        // two loops to 
-        while (set.add(n)) {
-            squareSum = 0;
-            while (n > 0) {
+        if(n == 1) return true;
+        Set<Integer> set = new HashSet<>();
+        int sum = 0, remain = 0;
+        
+        while(set.add(n)) {
+            while(n > 0) {
                 remain = n % 10;
-                squareSum += remain * remain;
-                n /= 10;
+                sum += remain * remain;
+                n /=10;
             }
-            if (squareSum == 1) {
-                return true;
-            } else {
-                n = squareSum;
-            }
+            if(sum == 1) return true;
+            n = sum;
+            sum = 0;
         }
         return false;
+        
     }
 }
