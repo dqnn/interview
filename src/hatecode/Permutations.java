@@ -37,7 +37,8 @@ public class Permutations {
         helper(res, new ArrayList<>(), nums);
         return res;
     }
-
+    //permutation does not need pos becuase we do not care where we are, and we return if we found
+    //enough elements in array
     public static void helper(List<List<Integer>> res, List<Integer> list, int[] nums) {
         if (list.size() == nums.length) {
             res.add(new ArrayList<>(list));
