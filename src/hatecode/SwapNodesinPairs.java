@@ -52,4 +52,39 @@ public class SwapNodesinPairs {
         }
         return dummy.next;
     }
+    
+    //reverse templates
+    public ListNode swapPairs_Templates(ListNode head) {
+        if (head == null || head.next == null) return head;
+        
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode s = dummy, e = head;
+        int idx = 0;
+        while(e != null) {
+            idx++;
+            if (idx % 2 == 0) {
+                s = reverse(s, e.next);
+                e= s.next;
+            } else e = e.next;
+        }
+        return dummy.next;
+    }
+    
+    private ListNode reverse(ListNode s, ListNode e) {
+        ListNode cur = s.next;
+        ListNode res = cur;
+        ListNode prev = s;
+        
+        while(cur != e) {
+            ListNode next = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+        }
+        res.next = cur;
+        s.next = prev;
+        
+        return res;
+    }
 }
