@@ -78,9 +78,7 @@ public class SearchinRotatedSortedArrayII {
             //nums[left] == nums[mid], so we move left one step
             } else l++;
         }
-        if (nums[l] == target || nums[r] == target) {
-                return true;
-            }
-       return false;
+        if (nums[l] == target || nums[r] == target) return true;
+        return false;
     }
 }
