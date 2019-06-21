@@ -92,18 +92,15 @@ public class LetterCombinationsofaPhoneNumber {
         return res;
     }
     
-    private void helper(List<String> res, StringBuilder temp, String origin, Map<String, List<String>> map, int index) {
-        if (index == origin.length()) {
-            res.add(temp.toString());
+    private void helper(List<String> res, StringBuilder sb, String str, Map<String, List<String>> map, int pos) {
+        if(pos == str.length()) {
+            res.add(sb.toString());
             return;
         }
-        // 2-> a,b,c  3-> d,e,f
-        //
-        List<String> charStr = map.get(String.valueOf(origin.charAt(index)));
-        for(String str : charStr) {
-                temp.append(str);
-                helper(res, temp, origin, map, index + 1);
-                temp.deleteCharAt(temp.length() - 1);
+        for(String c : map.get("" + str.charAt(pos))) {
+            sb.append(c);
+            helper(res, sb, str, map, pos+1);
+            sb.deleteCharAt(sb.length() -1);
         }
     }
 
