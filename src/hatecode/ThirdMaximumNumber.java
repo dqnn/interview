@@ -46,6 +46,8 @@ public class ThirdMaximumNumber {
      * @param nums
      * @return
      */
+    //interview friendly:
+    //
     public int thirdMax(int[] nums) {
         Integer max1 = null;
         Integer max2 = null;
