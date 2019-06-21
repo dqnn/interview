@@ -31,11 +31,22 @@ public class MaximumProductofThreeNumbers {
 
     // time : O(nlogn) space : O(nlogn)
     public int maximumProduct(int[] nums) {
+        if (nums == null || nums.length < 3) {
+            return 0;
+        }
         Arrays.sort(nums);
-        return Math.max(nums[nums.length - 1] * nums[nums.length - 2] * nums[nums.length - 3], nums[0] * nums[1] * nums[nums.length - 1]);
+        int len = nums.length - 1;
+        int max = nums[len] * nums[len - 1] * nums[len - 2];
+        if (nums[0] < 0 && nums[1] < 0 && nums[len] > 0) {
+            max = Math.max(max, nums[0] * nums[1] * nums[len]);
+        }
+        return max;
     }
 
     // time : O(n) space : O(1)
+    //the same logic like 3rd max number, but the core is the same, we only have two cases
+    //1. last 3 biggest number. 
+    //2. two smallest number and one biggest number
     public int maximumProduct2(int[] nums) {
         int min1 = Integer.MAX_VALUE;
         int min2 = Integer.MAX_VALUE;
