@@ -44,7 +44,6 @@ kthLargest.add(4);   // returns 8
             pq.poll();
             pq.offer(val);
         }
-        
         return pq.peek();  
     }
 }
