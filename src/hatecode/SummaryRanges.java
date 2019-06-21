@@ -65,27 +65,4 @@ continuous range.
         }
         return res;
     }
-    
-    
-    public List<String> summaryRanges(int[] nums) {
-        List<String> res = new ArrayList<>();
-        if (nums == null || nums.length == 0) return res;
-        for (int i = 0; i < nums.length; i++) {
-            //this is start value
-            int num = nums[i];
-            //i stop at nums.length - 2 since we use i + 1
-            //but i stopped at every old one, but for loop has ++ 
-            while ((i < nums.length - 1) 
-                    && nums[i] + 1 == nums[i + 1]) {
-                i++;
-            }
-            //start not equals 
-            if (num != nums[i]) {
-                res.add(num + "->" + nums[i]);
-            } else {
-                res.add(num + "");
-            }
-        }
-        return res;
-    }
 }
