@@ -19,31 +19,31 @@ public class SearchinRotatedSortedArrayII {
 
      time : O(logn) (worst : O(n))
      space : O(1);
-     * @param nums
+     * @param A
      * @param target
      * @return
      */
 
-    public boolean search(int[] nums, int target) {
-        if (nums == null || nums.length == 0) return false;
-        int start = 0;
-        int end = nums.length - 1;
-        while (start + 1 < end) {
-            int mid = (end - start) / 2 + start;
-            if (nums[mid] == target) return true;
-            if (nums[start] == nums[mid] && nums[mid] == nums[end]) {
-                start++;
-                end--;
-            } else if (nums[start] <= nums[mid]) {
-                if (nums[start] <= target && target <= nums[mid]) end = mid;
-                else start = mid;
+    public boolean search(int[] A, int target) {
+        if (A == null || A.length == 0) return false;
+        int l = 0;
+        int r = A.length - 1;
+        while (l + 1 < r) {
+            int mid = (r - l) / 2 + l;
+            if (A[mid] == target) return true;
+            if (A[l] == A[mid] && A[mid] == A[r]) {
+                l++;
+                r--;
+            } else if (A[l] <= A[mid]) {
+                if (A[l] <= target && target <= A[mid]) r = mid;
+                else l = mid;
             } else {
-                if (nums[mid] <= target && target <= nums[end]) start = mid;
-                else end = mid;
+                if (A[mid] <= target && target <= A[r]) l = mid;
+                else r = mid;
             }
         }
-        if (nums[start] == target) return true;
-        if (nums[end] == target) return true;
+        if (A[l] == target) return true;
+        if (A[r] == target) return true;
         return false;
     }
     //this is interview frinendly
