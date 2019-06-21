@@ -56,6 +56,5 @@ Explanation:
             sum = 0;
         }
         return false;
-        
     }
 }
