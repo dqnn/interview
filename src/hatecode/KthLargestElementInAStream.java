@@ -32,8 +32,6 @@ kthLargest.add(4);   // returns 8
                 pq.offer(num);
             }
         }
-        
-        
     }
     // very common trick, how to keep k largest number in q
     public int add(int val) {
