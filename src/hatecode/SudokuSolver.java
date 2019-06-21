@@ -28,7 +28,10 @@ unique solution.
 The given board size is always 9x9.
  */
     // time : 不知道 space : 不知道
-
+    //thinking process: this is typical backtracking with trying, we rely on changing the graph elements
+    //values to reflect our algorithms, 
+    
+    //recursive means validate, changing the graph value, if not correct,then change it back
     public void solveSudoku(char[][] board) {
         if (board == null || board.length == 0) return;
         solve(board);
