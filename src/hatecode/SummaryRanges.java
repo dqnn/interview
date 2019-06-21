@@ -51,7 +51,7 @@ continuous range.
             while(r < (nums.length - 1) && (nums[r + 1] - nums[r] == 1)) r++;
 
             // here should pick up last element 
-            if (r == l || l == nums.length - 1) res.add(String.valueOf(nums[l]));
+            if (r == l || l == nums.length - 1) res.add("" + nums[l]);
             else res.add(nums[l]+"->" + nums[r]);
             
             //start and end pointer should always start together
