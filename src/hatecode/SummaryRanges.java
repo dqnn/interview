@@ -37,8 +37,8 @@ continuous range.
     //thinking process:
     //problem is output range sum with different format
     
-    // so straightforward is to detect continous numbers
-    //use two loops then is able to get contious range
+    // so straightforward is to detect continuous numbers
+    //use two loops then is able to get continuous range
     
     //
     public List<String> summaryRanges2(int[] nums) {
