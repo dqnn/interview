@@ -32,6 +32,7 @@ The given board size is always 9x9.
     //values to reflect our algorithms, 
     
     //recursive means validate, changing the graph value, if not correct,then change it back
+    //one general key here is to boardx and boardy calculations
     public void solveSudoku(char[][] board) {
         if (board == null || board.length == 0) return;
         solve(board);
