@@ -53,6 +53,7 @@ public class ThirdMaximumNumber {
         Integer max2 = null;
         Integer max3 = null;
         for (Integer num : nums) {
+            //we have to keep this line here, 2,2,3,1
             if (num.equals(max1) || num.equals(max2) || num.equals(max3)) continue;
             if (max1 == null || num > max1) {
                 max3 = max2;
