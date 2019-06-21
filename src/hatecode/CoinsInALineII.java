@@ -16,6 +16,7 @@ public class CoinsInALineII {
      * 723. Candy Crush
      * 837. New 21 Game
      * 488  Zuma Game
+     * 37.  Sudoku Solver --a bit different but main part is recursive
      * 
      * There are n coins with different value in a line. Two players take turns to
      * take one or two coins from left side until there are no more coins left. The
