@@ -38,6 +38,8 @@ Explanation:
      * @param n
      * @return
      */
+    //this is simulation to the problem,we use a set to determine whether we tried this number before or
+    //not
     public boolean isHappy(int n) {
         HashSet<Integer> set = new HashSet<>();
         int squareSum, remain;
