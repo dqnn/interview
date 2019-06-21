@@ -36,14 +36,14 @@ Output: [1,null,2,null,3,null,4,null,5,null,6,null,7,null,8,null,9]
                  9  
 */
     public TreeNode increasingBST(TreeNode root) {
-        return increasingBST(root, null);
+        return helper(root, null);
     }
-
-    public TreeNode increasingBST(TreeNode root, TreeNode tail) {
+    //the 
+    public TreeNode helper(TreeNode root, TreeNode tail) {
         if (root == null) return tail;
-        TreeNode res = increasingBST(root.left, root);
+        TreeNode res = helper(root.left, root);
         root.left = null;
-        root.right = increasingBST(root.right, tail);
+        root.right = helper(root.right, tail);
         return res;
     }
     
