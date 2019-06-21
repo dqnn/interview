@@ -70,6 +70,7 @@ The length of both nums1 and nums2 would not exceed 1000.
         //so if it is 5,3,4,6--> stack: 5,3 and num = 3, so map: 3->4, stack:4/5 next 
         //num = 6, map: 3->4, 4->6, 5->6, stack is empty. so 
         //this template aimed to find in one array, the closest greater/smaller number
+        //these two are perfect match for element relationship
         for (int num : nums2) {
             // we are using stack to find next great 
             while (!stack.isEmpty() && stack.peek() < num) {
