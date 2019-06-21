@@ -60,7 +60,7 @@ The length of both nums1 and nums2 would not exceed 1000.
     //thinking process: the problem is to find the next greater element for each element in nums1
     //for example 1 in above
     
-    //
+    //the solution is another thinking of how to store the element relationship, increasing sequence
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
         // the map is used to store the number relationship in nums2, and from left 
         //to right, only two closest number can have such relation if first < second
