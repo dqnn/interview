@@ -46,21 +46,18 @@ continuous range.
         if (nums == null || nums.length < 1) {
             return res;
         }
-        int end = 0, start = 0;
-        for(;end < nums.length;) {
+        int r = 0, l = 0;
+        while(r < nums.length) {
             // we use end + 1 so end should stop at nums.length - 2
-            while(end < (nums.length - 1) && (nums[end + 1] - nums[end] == 1)) {
-                end++;
-            }
+            while(r < (nums.length - 1) && (nums[r + 1] - nums[r] == 1)) r++;
+
             // here should pick up last element 
-            if (end == start || start == nums.length - 1) res.add(String.valueOf(nums[start]));
-            else {
-                res.add(String.valueOf(nums[start])
-                     +"->" + String.valueOf(nums[end]));
-            }
+            if (r == l || l == nums.length - 1) res.add(String.valueOf(nums[l]));
+            else res.add(nums[l]+"->" + nums[r]);
+            
             //start and end pointer should always start together
-            end++;
-            start = end;
+            r++;
+            l = r;
         }
         return res;
     }
