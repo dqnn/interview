@@ -38,7 +38,7 @@ Output: [1,null,2,null,3,null,4,null,5,null,6,null,7,null,8,null,9]
     public TreeNode increasingBST(TreeNode root) {
         return helper(root, null);
     }
-    //the 
+    //the recursive function
     public TreeNode helper(TreeNode root, TreeNode tail) {
         if (root == null) return tail;
         TreeNode res = helper(root.left, root);
