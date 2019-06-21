@@ -55,12 +55,9 @@ public class SearchinRotatedSortedArray {
             if (nums[l] < nums[mid]) {
                 // 5,6,7,8,1,2,3 left = 5 mid = 8, target is 2 so we want to 
                 //make sure target is between left and mid because we want to 
-                if (nums[l] <= target && target <= nums[mid]) {
-                    r = mid;
+                if (nums[l] <= target && target <= nums[mid]) r = mid;
                  //not here we only have > or < no equals
-                } else {
-                    l = mid;
-                }
+                else l = mid;
             //which means we are in descend sequence maybe partially 
             // but we examine from mid to end and move start to mid
             //nums[start] >= nums[mid]

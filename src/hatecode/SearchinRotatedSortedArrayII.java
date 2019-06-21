@@ -54,7 +54,7 @@ public class SearchinRotatedSortedArrayII {
     //draw two lines then it is easy to fiure out
     
     //the if/else logic mainly is to narrow down the search scope,
-    // we mainly want to know whther we need to move left or right, so one quick
+    // we mainly want to know whether we need to move left or right, so one quick
     //way is to detect target is in one trend, like start <= target <= mid, or 
     //mid <= target <= right
     public boolean search2(int[] nums, int target) {
@@ -64,9 +64,7 @@ public class SearchinRotatedSortedArrayII {
         int l = 0, r = nums.length - 1;
         while(l + 1 < r) {
             int mid = l + (r -l) / 2;
-            if (nums[l] == target) {
-                return true;
-            }
+            if (nums[l] == target) return true;
             // handle previous same situation, 
             if(nums[l] < nums[mid]) {
                 if (nums[l] <= target && target <= nums[mid]) r = mid;
