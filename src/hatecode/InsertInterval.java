@@ -98,12 +98,30 @@ Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
                 result.add(newInterval);
                 // we use interval to replace newInterval
                 newInterval = interval;
-            }else if(interval.end >= newInterval.start || interval.start <= newInterval.end){
+            }else{
                 newInterval = new Interval(Math.min(interval.start, newInterval.start), Math.max(newInterval.end, interval.end));
             }
         }
   
         result.add(newInterval); 
         return result;
+    }
+    
+    //change to new input, but the code logic is totally the same
+    public int[][] insert(int[][] ins, int[] newInterval) {
+        if(ins == null || ins.length < 1 && newInterval. length < 1) return ins;
+        List<int[]> res = new ArrayList<>();
+        
+        for(int[] in : ins) {
+            if(in[1] < newInterval[0]) res.add(in);
+            else if(in[0] > newInterval[1]) {
+                res.add(newInterval);
+                newInterval = in;
+            } else {
+               newInterval = new int[]{Math.min(in[0], newInterval[0]), Math.max(in[1], newInterval[1])};
+            }
+        }
+        res.add(newInterval);
+        return res.toArray(new int[res.size()][res.size()]);
     }
 }
