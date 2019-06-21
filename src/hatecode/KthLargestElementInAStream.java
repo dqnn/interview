@@ -18,7 +18,7 @@ kthLargest.add(10);  // returns 5
 kthLargest.add(9);   // returns 8
 kthLargest.add(4);   // returns 8
 */
-    
+    //actually we always keeping k + 1 size PQ and always poll
     final PriorityQueue<Integer> pq; 
     final int k; 
     public KthLargestElementInAStream(int k, int[] nums) {
