@@ -43,9 +43,8 @@ continuous range.
     //
     public List<String> summaryRanges2(int[] nums) {
         List<String> res = new ArrayList<>();
-        if (nums == null || nums.length < 1) {
-            return res;
-        }
+        if (nums == null || nums.length < 1) return res;
+
         int r = 0, l = 0;
         while(r < nums.length) {
             // we use end + 1 so end should stop at nums.length - 2
