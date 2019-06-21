@@ -22,24 +22,20 @@ public class Sqrt {
     
     //please note we use bianry search first templates, low <=high
     //and last we handle high + 1 = low
+    //refactor the code
     public int mySqrt(int x) {
-        if (x <= 0) return 0;
-        int low = 1, high = x;
-        while (low <= high) {
-            long mid = (high - low) / 2 + low;
-            if (mid * mid == x) {
-                return (int) mid;
-            } else if (mid * mid < x) {
-                low = (int) mid + 1;
-            } else {
-                high = (int) mid - 1;
-            }
+        if(x < 0) return -1;
+        long l = 0, r = x;
+        while(l + 1 < r) {
+            long mid = l + (r-l)/ 2;
+            long cur = mid * mid;
+            if( cur == x) return (int)mid;
+            else if(mid * mid > x) r =  mid;
+            else l = mid;
         }
-        if (high * high < x) {
-            return (int) high;
-        } else {
-            return (int) low;
-        }
+        
+        if(r * r <= x) return (int)r;
+        else return (int)l;
     }
 
     // Newton Method time : 不知道 space : O(1);
