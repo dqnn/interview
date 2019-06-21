@@ -50,7 +50,8 @@ continuous range.
             // we use end + 1 so end should stop at nums.length - 2
             while(r < (nums.length - 1) && (nums[r + 1] - nums[r] == 1)) r++;
 
-            // here should pick up last element 
+            //this means r is not successive, l and r point to same element, another is l point to 
+            //last element
             if (r == l || l == nums.length - 1) res.add("" + nums[l]);
             else res.add(nums[l]+"->" + nums[r]);
             
