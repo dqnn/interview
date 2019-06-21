@@ -41,6 +41,12 @@ public class FindMinimuminRotatedSortedArray {
                 // or mid should be in first part, so narrow down the search scope
                 start = mid + 1;
             }
+            
+            /* this also works
+             * if(A[l] < A[mid] && A[mid] > A[r]) {
+                l = mid;
+            } else r = mid;
+             */
         }
         // the position returned is start, 
         if (nums[start] < nums[end]) return nums[start];
