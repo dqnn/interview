@@ -50,6 +50,8 @@ Output:
         }
         for (int i = 0; i < nums.length; i++) {
             //so this means 
+            //1. already used skip.
+            //2. if it is same as pervious and previous was used then we can use it
             if (used[i] || i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) continue;
             used[i] = true;
             list.add(nums[i]);
