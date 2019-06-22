@@ -57,29 +57,29 @@ fastPointer distance before meeting =(x+y+z)+y = x + 2y + z
 actually fast point is running x + k * y + (k-1) * z, set k =2 
 
 2x+2y=x+2y+z => x = z
-|---->x<----|----->y<------|
--------------
-            |----->Z<------| meet here
+|---->x<----|----->y------>|
+-------------              |
+            |----->Z<------|meeting point 
      */
-    public int findDuplicate2(int[] nums) {
+    public int findDuplicate2(int[] A) {
         //edge case
-        if (nums == null || nums.length < 1) {
+        if (A == null || A.length < 1) {
             return - 1;
         }
         
-        int slow = nums[0];
-        int fast = nums[nums[0]];
+        int slow = A[0];
+        int fast = A[A[0]];
         // 1,3,2,4,5,2 so 2,4,5,2 will be a circle, and if they are circle so fast will finally meet slow. 
         // 
         while(slow != fast) {
-            slow = nums[slow];
-            fast = nums[nums[fast]];
+            slow = A[slow];
+            fast = A[A[fast]];
         }
         fast = 0;
         // so fast have same pace with slow, then slow continue the another half of the circle, they will meet at the circl start again. 
         while (slow != fast) {
-            slow = nums[slow];
-            fast = nums[fast];
+            slow = A[slow];
+            fast = A[fast];
         }
         return slow;
     }
