@@ -35,7 +35,9 @@ Output:
     // time : O(n!) space : O(n);
     
     //the difference compared to first one here asked no same entry in result set. 
-    //so 
+    //so we would like to sort them first, so same value will grouped together, then 
+    //we would consider same value should be result set together, like 
+    //
     public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         if (nums == null || nums.length == 0) return  res;
