@@ -13,6 +13,8 @@ public class NonDecreasingArray {
     //interview friendly:
     //thinking process: if the question has the word "most 1", then we should think about use variable
     //prev to record what we done past. 
+    //the problem is to say the array is non decreasing which means it should be smaller than previous one
+    //the question is if we meet a big one, what kind of value we should set it to? 
     //
     public boolean checkPossibility(int[] a) {
         int modified = 0;
