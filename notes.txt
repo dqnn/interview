@@ -84,7 +84,7 @@ B表示当前comment实际显示在正文对应的哪一行。要求实现用户
 思路：不用线段树的操作，建立两个并查集来merge水平和垂直方向上坐标相同的点。 
 初始状态是一堆输入的线段就可以认为是并查集的初始状态。
 51: cutMatrix.java
-52: FindtheDuplicateNumber.java to understand how many eleemtns cannt be found in array by BS?
+52: FindtheDuplicateNumber.java to understand how many elements cannt be found in array by BS?
 53.RainDrop.java，not fully understood it
 54：527. Word Abbreviation， needs to understand the recursive function
 55. GoogleGoBoundaryDectection.java Go on binary tree. need to understand
@@ -94,6 +94,7 @@ B表示当前comment实际显示在正文对应的哪一行。要求实现用户
 59: doc on page-113
 60:reconstruct itinerary, how about output all possible itinerary? note it could visit twice(cycle) on answers
 61: Maximum Sum of 3 Non-Overlapping Subarrays follow up, n segments?
+62: edit distance 
 
 
 
