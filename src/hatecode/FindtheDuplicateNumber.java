@@ -28,6 +28,8 @@ public class FindtheDuplicateNumber {
      */
 
     // time : O(nlogn) space : O(1)
+    //the array is from 1->n, contious, some number will be dup, may or may not be once, 
+    //
     public int findDuplicate(int[] nums) {
         int l = 0;
         int r = nums.length - 1;
