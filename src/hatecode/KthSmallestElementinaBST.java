@@ -60,6 +60,7 @@ find the kth smallest frequently? How would you optimize the kthSmallest routine
         count--;
         if (count == 0) {
             res = root.val;
+            return;
         }
         helper(root.right);
     }
