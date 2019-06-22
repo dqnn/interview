@@ -41,12 +41,9 @@ public class FindtheDuplicateNumber {
                 }
             }
             // here means the duplicate number is on the left side
-            if (count > mid) {
-                r = mid - 1;
+            if (count > mid) r = mid - 1;
             // here means on the right side
-            } else {
-                l = mid + 1;
-            }
+            else l = mid + 1;
         }
         return l;
     }
