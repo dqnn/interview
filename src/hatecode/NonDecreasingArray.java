@@ -21,7 +21,8 @@ Output: True
         for (int i = 1; i < a.length; i++) {
             if (a[i] < prev) {
                 if (modified++ > 0) return false;
-                //this is first change
+                //this is first change, note in this case, prev = a[i-2], 
+                //a[i-2], a[i-1], a[i], 
                 if (i - 2 >= 0 && a[i - 2] > a[i]) continue;
             }
             prev = a[i];
