@@ -59,7 +59,8 @@ Output:
             //2. if it is same as pervious and previous was used then we can use it
             
             //if we change the !used[i - 1] to used[i - 1], it also works but this will introduce more
-            //branches in the recursive tree because because it means we will use previous not used, 
+            //branches in the recursive tree because because it means we will use previous not used,  the 
+            //tree has deeper tree height, higher on time and space complexity
             //see !used[i - 1]: https://ibb.co/k4zv00 
             //see used[i - 1]: https://ibb.co/ncMm7f
             if (used[i] || i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) continue;
