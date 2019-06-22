@@ -78,6 +78,9 @@ public class CourseSchedule {
         while(!q.isEmpty()) {
             res--;
             int course = q.poll();
+            //here we cannot break, because the map we use here only collects the courses which has 
+            //parents, some isolated nodes may not need pre-courses, which means they can finish immediately
+            //so just let the loop go
             if(!map.containsKey(course)) continue;
             for(int parent : map.get(course)) {
                 indegree[parent]--;
