@@ -57,6 +57,9 @@ Output:
             //so this means 
             //1. already used skip.
             //2. if it is same as pervious and previous was used then we can use it
+            
+            //if we change the !used[i - 1] to used[i - 1], it also works but this will introduce more
+            //branches in the recursive tree because 
             if (used[i] || i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) continue;
             //below also works, the only difference is that above is asc order, below is desc order
             //if(used[i] || i > 0 && nums[i]== nums[i-1] && !used[i-1]) continue;
