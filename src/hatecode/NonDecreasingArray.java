@@ -16,7 +16,7 @@ public class NonDecreasingArray {
     //the problem is to say the array is non decreasing which means it should be smaller than previous one
     //the question is if we meet a big one, what kind of value we should set it to? 
     //5,4,5, this example, we can see the best is to change 4->5 instead of 5,4,4
-    //
+    //prev means place
     public boolean checkPossibility(int[] a) {
         int modified = 0;
         int prev = a[0];
