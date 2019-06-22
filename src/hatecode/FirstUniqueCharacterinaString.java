@@ -26,6 +26,8 @@ public class FirstUniqueCharacterinaString {
      * @param s
      * @return
      */
+    //thinking process:
+    //
     public int firstUniqChar(String s) {
         int[] count = new int[26];
         for (int i = 0; i < s.length(); i++) {
