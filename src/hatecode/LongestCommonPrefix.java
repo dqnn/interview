@@ -1,5 +1,6 @@
 package hatecode;
 
+import java.util.*;
 /**
  * Created by duqiang on 25/07/2017.
  */
@@ -16,11 +17,16 @@ public class LongestCommonPrefix {
      * @param strs
      * @return
      */
-    public static String longestCommonPrefix(String[] strs) {
-        if (strs == null || strs.length == 0) return "";
-        String res = strs[0];
-        for (int i = 1; i < strs.length; i++) {
-            while (strs[i].indexOf(res) != 0) {
+    //thinking process: interview friendly
+    //given an array of stirngs, so we would like to find the longest common prefix for all strings
+    //so the problem is to say to find the longest prefix, we can just start from the shortest, and run the same code
+    //to find the longest common prefix.
+    public String longestCommonPrefix(String[] A) {
+        if(A == null || A.length < 1) return "";
+        //Arrays.sort(A, (a, b)->(a.length() - b.length()));
+        String res = A[0];
+        for(int i =1; i< A.length;i++) {
+            while (res.length() > 0 && A[i].indexOf(res) != 0) {
                 res = res.substring(0, res.length() - 1);
             }
         }
