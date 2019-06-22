@@ -54,6 +54,7 @@ public class FindtheDuplicateNumber {
     /* interview friendly: 
 slowPointer distance before meeting =x+y
 fastPointer distance before meeting =(x+y+z)+y = x + 2y + z
+actually fast point is running x + k * y + (k-1) * z, set k =2 
 
 2x+2y=x+2y+z => x = z
 |---->x<----|----->y<------|
