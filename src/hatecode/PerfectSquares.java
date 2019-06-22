@@ -59,4 +59,21 @@ dp[n] = Min{ dp[n - i*i] + 1 },  n - i*i >=0 && i >= 1
         }
         return dp[n];
     }
+    //same solution, but we transformed the problem to a standard knap sack questions
+    public int numSquares2(int n) {
+        if (n <= 0) return 0;
+        
+        int[] dp = new int[n+1];
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        int m = (int)Math.sqrt(n) + 1;
+        dp[0] = 0;
+        for(int j = 1; j < m; j++) {
+        for(int i =1; i <= n;i++) {
+              if(i >= j * j)        
+                dp[i] = Math.min(dp[i], dp[i- j* j] + 1);
+            }
+        }
+        
+        return dp[n];
+    }
 }
