@@ -115,37 +115,6 @@ Explanation: The endWord "cog" is not in wordList, therefore no possible transfo
         }
         return 0;
     }
-    //DFS way, using a map to record the level, this would consume a lot mem
-    public int ladderLength2(String beginWord, String endWord, List<String> wordList) {
-        HashSet<String> set = new HashSet<>(wordList);
-        if (set.contains(beginWord)) {
-            set.remove(beginWord);
-        }
-        Queue<String> queue = new LinkedList<>();
-        HashMap<String, Integer> map = new HashMap<>();
-        map.put(beginWord, 1);
-        queue.offer(beginWord);
-        while (!queue.isEmpty()) {
-            String word = queue.poll();
-            int curLevel = map.get(word);
-            for (int i = 0; i < word.length(); i++) {
-                char[] wordUnit = word.toCharArray();
-                for (char j = 'a'; j <= 'z'; j++) {
-                    wordUnit[i] = j;
-                    String temp = new String(wordUnit);
-                    if (set.contains(temp)) {
-                        if (temp.equals(endWord)) {
-                            return curLevel + 1;
-                        }
-                        map.put(temp, curLevel + 1);
-                        queue.offer(temp);
-                        set.remove(temp);
-                    }
-                }
-            }
-        }
-        return 0;
-    }
     
     // two end, this is the best
 /*
@@ -179,7 +148,7 @@ shortSet-[cog]--q--[log, cog, dog]--dic-[]
                 endSet = tmp;
             }
 
-            Set<String> bRepSet = new HashSet<>();
+            Set<String> newBeginSet = new HashSet<>();
             for (String w : beginSet) {
                 char[] chs = w.toCharArray();
                 for (int i = 0; i < chs.length; ++i) {
@@ -191,18 +160,17 @@ shortSet-[cog]--q--[log, cog, dog]--dic-[]
                         // we are trying to connecting two Sets, so 
                         //from abov eg, we can see dict will be empty since 
                         //all came to endSet. so we need to check endSet first
-                        if (endSet.contains(t))
-                            return steps;
-                        if (!dict.contains(t))
-                            continue;
+                        if (endSet.contains(t)) return steps;
+                        
+                        if (!dict.contains(t)) continue;
                         dict.remove(t);
-                        bRepSet.add(t);
+                        newBeginSet.add(t);
                     }
                     chs[i] = ch;
                 }
             }
-            System.out.println(String.format("beginSet-%s--q--%s--dic-%s", beginSet, bRepSet, dict));
-            beginSet = bRepSet;
+            System.out.println(String.format("beginSet-%s--q--%s--dic-%s", beginSet, newBeginSet, dict));
+            beginSet = newBeginSet;
         }
         return 0;
     }
