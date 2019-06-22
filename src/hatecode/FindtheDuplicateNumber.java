@@ -51,7 +51,7 @@ public class FindtheDuplicateNumber {
     }
 
     // time : O(n) space : O(1)
-    /*
+    /* interview friendly: 
 slowPointer distance before meeting =x+y
 fastPointer distance before meeting =(x+y+z)+y = x + 2y + z
 
@@ -111,7 +111,7 @@ fastPointer distance before meeting =(x+y+z)+y = x + 2y + z
  * 允许的值域是(lo, A[mid])；同理右侧的值域是(A[mid], hi)。如果任何时刻发现值域R已经不包含任何整数，
  * 那就表示[i, j]这个下标范围内没有任何能找到的数字
  */
-    private int find(int[] nums) {
+    public int find(int[] nums) {
         // do some sanity check operations
         return dfs(nums, 0, nums.length - 1, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
