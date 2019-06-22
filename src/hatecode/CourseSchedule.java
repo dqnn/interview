@@ -65,7 +65,7 @@ public class CourseSchedule {
 
     public boolean canFinish_Improved(int courses, int[][] deps) {
         if(courses <= 1) return true;
-        
+
         int[] indegree = new int[courses];
         Map<Integer, Set<Integer>> map = new HashMap<>();
         for(int[] dep :deps) {
