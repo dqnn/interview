@@ -78,7 +78,7 @@ actually fast point is running x + k * y + (k-1) * z, set k =2
         //fast reset to start
         fast = 0;
         // so fast have same pace with slow, then slow continue the another half of the circle, 
-        //they will meet at the circl start again. 
+        //they will meet at the circle start again. 
         while (slow != fast) {
             slow = A[slow];
             fast = A[fast];
