@@ -23,26 +23,23 @@ public class TwoSumII {
      * @param target
      * @return
      */
-
-    public static int[] twoSum(int[] numbers, int target) {
-
-        if (numbers == null || numbers.length < 2) {
-            return new int[]{-1, -1};
+    //interview friendly:
+    
+    //TP templates, simple ones
+    public int[] twoSum(int[] A, int target) {
+        //edge case
+        if (A == null || A.length <= 1) return new int[] {-1, -1};
+        
+        int l = 0, r = A.length -1;
+        while(l < r) {
+            int sum = A[l] + A[r];
+            if (sum == target) return new int[]{l+1, r+1};
+            else if(sum < target) l++;
+            else r--;
         }
-
-        int left = 0;
-        int right = numbers.length - 1;
-        while (left < right) {
-            int sum = numbers[left] + numbers[right];
-            if (target == sum) {
-                return new int[]{left + 1, right + 1};
-            } else if (sum > target) {
-                right--;
-            } else {
-                left++;
-            }
-        }
-
-        return new int[]{-1, -1};
+        
+        return new int[]{-1,-1};
+        
+       
     }
 }
