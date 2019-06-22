@@ -84,7 +84,6 @@ public class CourseSchedule {
                 if(indegree[parent] == 0) q.offer(parent);
             }
         }
-        
         return res == 0? true: false;
     }
     
