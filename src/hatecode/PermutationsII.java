@@ -49,6 +49,7 @@ Output:
             res.add(new ArrayList<>(list));
         }
         for (int i = 0; i < nums.length; i++) {
+            //so this means 
             if (used[i] || i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) continue;
             used[i] = true;
             list.add(nums[i]);
