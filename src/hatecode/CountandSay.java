@@ -51,70 +51,34 @@ public class CountandSay {
      * @param n
      * @return
      */
-    public String countAndSay(int n) {
-        int i = 1;
-        String res = "1";
-        while (i < n) {
-            int count = 0;
-            StringBuilder sb = new StringBuilder();
-            char c = res.charAt(0);
-            for (int j = 0; j <= res.length(); j++) {
-                if (j != res.length() && res.charAt(j) == c) {
-                    count++;
-                } else {
-                    sb.append(count);
-                    sb.append(c);
-                    if (j != res.length()) {
-                        count = 1;
-                        c = res.charAt(j);
-                    }
-                }
-            }
-            res = sb.toString();
-            i++;
-        }
-        return res;
-    }
-
     // so this problem essentially:
     // you need to understand countAndSay2(n) is the readoff to countAndSay2(n -1).
     // from example we can see
     // 3 is 21,
     // so 4 is the "read off" to 3, 1211. 12--> 2, 11-->1, we can split the problem
     // 1 get the previous number digits and then read off again, and return.
-    public String countAndSay2(int n) {
-        if (n <= 0)
-            return "";
-        if (n == 1)
-            return "1";
-        if (n == 2)
-            return "11";
-
-        String temp = countAndSay2(n - 1);
-        int len = temp.length() - 1;
+    public String countAndSay(int n) {
+        if(n < 1) return "";
+        if(n == 1) return "1";
+        else if(n == 2) return "11";
+        else if(n == 3) return "21";
+        else if(n == 4) return "1211";
+        else if(n == 5) return "111221";
+        
+        String prev = countAndSay(n-1);
+        //for 111221 case, if we do not append F, then last 11 wil be missed
+        prev += "F";
+        int count = 1;
+        char ch = prev.charAt(0);
         StringBuilder sb = new StringBuilder();
-        int counter = 1;
-        for (int i = 0; i <= len; i++) {
-            // last digit only one.
-            if (counter == 1 && i == len) {
-                sb.append(counter + String.valueOf(temp.charAt(i)));
-                break;
-            }
-
-            if (temp.charAt(i) == temp.charAt(i + 1)) {
-                counter++;
-                // reach last element
-                if (i == len - 1) {
-                    sb.append(counter + String.valueOf(temp.charAt(i)));
-                    break;
-                }
-                continue;
-            } else {
-                sb.append(counter + String.valueOf(temp.charAt(i)));
-                counter = 1;
-            }
+        for(int i =1; i<prev.length(); i++) {
+            if (prev.charAt(i-1) != prev.charAt(i)) {
+                sb.append(count + "" + ch);
+                count = 1;
+                ch =  prev.charAt(i);
+            } else count++;
         }
+        
         return sb.toString();
-
     }
 }
