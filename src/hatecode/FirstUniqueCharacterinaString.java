@@ -27,7 +27,8 @@ public class FirstUniqueCharacterinaString {
      * @return
      */
     //thinking process:
-    //
+    //interview friendly: 
+    //use char count to whether this char is unqiue or not
     public int firstUniqChar(String s) {
         int[] count = new int[26];
         for (int i = 0; i < s.length(); i++) {
