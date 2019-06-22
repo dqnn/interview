@@ -56,7 +56,11 @@ public class CourseSchedule {
      * @return
      */
 
-    // BFS
+    // interview friendly. 
+    //So the question is to ask given how many classes, and their depdency, to test whether we can 
+    //pass all courses
+    
+    //
     public boolean canFinish(int num, int[][] prereq) {
         // edge case
         if (num < 1) {
