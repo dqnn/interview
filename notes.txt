@@ -94,7 +94,8 @@ B表示当前comment实际显示在正文对应的哪一行。要求实现用户
 59: doc on page-113
 60:reconstruct itinerary, how about output all possible itinerary? note it could visit twice(cycle) on answers
 61: Maximum Sum of 3 Non-Overlapping Subarrays follow up, n segments?
-62: edit distance 
+62: edit distance add is fxc->fad, fxcd->fad + 1->fxc->fa
+
 
 
 
