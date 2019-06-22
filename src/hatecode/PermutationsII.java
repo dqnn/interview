@@ -33,6 +33,9 @@ Output:
      * @return
      */
     // time : O(n!) space : O(n);
+    
+    //the difference compared to first one here asked no same entry in result set. 
+    //so 
     public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         if (nums == null || nums.length == 0) return  res;
