@@ -1,7 +1,7 @@
 package hatecode;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
+import java.util.stream.*;
 
 /**
  * Project Name : Leetcode
@@ -57,26 +57,52 @@ public class CourseSchedule {
      */
 
     // interview friendly. 
+    
+    
+    
     //So the question is to ask given how many classes, and their depdency, to test whether we can 
     //pass all courses
-    
-    //
-    public boolean canFinish(int num, int[][] prereq) {
-        // edge case
-        if (num < 1) {
-            return false;
+
+    public boolean canFinish_Improved(int courses, int[][] deps) {
+        if(courses <= 1) return true;
+        
+        int[] indegree = new int[courses];
+        Map<Integer, Set<Integer>> map = new HashMap<>();
+        for(int[] dep :deps) {
+            indegree[dep[0]]++;
+            map.computeIfAbsent(dep[1], v->new HashSet<>()).add(dep[0]);
         }
+        Queue<Integer> q = new LinkedList<>();
+        IntStream.range(0, courses).filter(e->indegree[e] == 0).forEach(e->q.offer(e));
+        int res = courses;
+        while(!q.isEmpty()) {
+            res--;
+            int course = q.poll();
+            if(!map.containsKey(course)) continue;
+            for(int parent : map.get(course)) {
+                indegree[parent]--;
+                if(indegree[parent] == 0) q.offer(parent);
+            }
+        }
+        
+        return res == 0? true: false;
+    }
+    
+    //for reference
+    public boolean canFinish(int courses, int[][] dependencies) {
+        // edge case
+        if (courses < 1) return false;
 
-        int[] indegree = new int[num];
+        int[] indegree = new int[courses];
         // courses number
-        int res = num;
+        int res = courses;
 
-        for (int[] pair : prereq) {
+        for (int[] dep : dependencies) {
             // here the end of each pair degree+, if
             // one node has more "end", which means this node has several depenencies.
             // indegree here
             // means the dependency number
-            indegree[pair[0]]++;
+            indegree[dep[0]]++;
         }
 
         // so we here add any node which has no dependency, which means there is no
@@ -92,7 +118,7 @@ public class CourseSchedule {
         while (!queue.isEmpty()) {
             int pre = queue.poll();
             res--;
-            for (int[] pair : prereq) {
+            for (int[] pair : dependencies) {
                 // here means these pairs are good to ignore, [2,[1,0]]-->[2,1]
                 if (pair[1] == pre) {// this means the one who has dependency
                     // degree decrease because we have done this operation on 1 [2,[1,0]]-->[2,1]
@@ -107,4 +133,5 @@ public class CourseSchedule {
         return res == 0 ? true : false;
 
     }
+    
 }
