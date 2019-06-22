@@ -49,6 +49,7 @@ public class CombinationSum {
         }
         for (int i = start; i < candidates.length; i++) {
             list.add(candidates[i]);
+            //note last index is i so we can re-pick the index
             helper(res, list, candidates, target - candidates[i], i);
             list.remove(list.size() - 1); 
             //this is to remove last one so we can add next to the list, like 2, 2, 2-->2,2-->2,2,3
