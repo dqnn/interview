@@ -46,7 +46,7 @@ dp[13] = Min{ dp[13-1*1]+1, dp[13-2*2]+1, dp[13-3*3]+1 }
 dp[n] = Min{ dp[n - i*i] + 1 },  n - i*i >=0 && i >= 1
      */
     
-    //back pack extention, size is n, we have stones like 1, 2^2, 3^3, to find the fewest 
+    //back pack extension, size is n, we have stones like 1, 2^2, 3^3, to find the fewest 
     //stones to fill it
     public int numSquares(int n) {
         int[] dp = new int[n + 1];
