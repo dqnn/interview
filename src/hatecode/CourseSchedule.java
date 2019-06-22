@@ -134,7 +134,6 @@ public class CourseSchedule {
             }
         }
         return res == 0 ? true : false;
-
     }
     
 }
