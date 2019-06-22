@@ -63,16 +63,14 @@ Delete     Here
         
         int[][] dp = new int[r+1][c+1];
         dp[0][0] = 0;
-        for(int i = 0; i <r; i++) dp[i+1][0] = i + 1;
-        for(int j = 0; j < c; j++) dp[0][j+1] = j + 1;
-        
-        for(int i = 0; i < r; i++) {
-            for( int j = 0; j < c; j++) {
-                //same char
-                if (s.charAt(i) == t.charAt(j)) dp[i+1][j+1] = dp[i][j];
-                //compare to those steps count + 1
+        for(int i =1; i<=r;i++) dp[i][0] = dp[i-1][0] + 1;
+        for(int i =1; i<=c;i++) dp[0][i] = dp[0][i-1] + 1;
+        //how to fill the 2D matrix
+        for(int i =1; i<=r;i++) {
+            for(int j = 1; j<=c;j++) {
+                if(s.charAt(i-1) == t.charAt(j-1)) dp[i][j] = dp[i-1][j-1];
                 else {
-                    dp[i+1][j+1] = Math.min(dp[i][j] + 1, Math.min(dp[i+1][j] + 1, dp[i][j+1] + 1));
+                    dp[i][j]=Math.min(Math.min(dp[i-1][j-1] + 1, dp[i][j-1] + 1), dp[i-1][j] + 1);
                 }
             }
         }
