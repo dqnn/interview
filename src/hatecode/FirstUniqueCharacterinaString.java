@@ -28,7 +28,7 @@ public class FirstUniqueCharacterinaString {
      */
     //thinking process:
     //interview friendly: 
-    //use char count to whether this char is unqiue or not
+    //use char count to whether this char is unique or not
     public int firstUniqChar(String s) {
         int[] count = new int[26];
         for (int i = 0; i < s.length(); i++) {
@@ -40,31 +40,5 @@ public class FirstUniqueCharacterinaString {
             }
         }
         return -1;
-    }
-    
-    // so we first create a visited table and store the char we visited
-    // and then we loop again to find the chat in original string index
-    // but as we can see the indexOf is redundant, this solution should be abandoned
-    public int firstUniqChar2(String s) {
-        if (s == null || s.length() < 1) {
-            return -1;
-        }
-        
-        int[] visited = new int[26];
-        for(int i = 0; i < s.length(); i++) {
-            visited[s.charAt(i) - 'a']++;
-        }
-        
-        int min = Integer.MAX_VALUE;
-        for(int i = 0; i < visited.length; i++) {
-            if (visited[i] == 1) {
-                int idx = s.indexOf(i + 'a');
-                if (idx >= 0) {
-                    min = Math.min(min, idx);
-                } 
-            }
-        }
-        
-        return min == Integer.MAX_VALUE ? -1 : min;
     }
 }
