@@ -33,9 +33,6 @@ public class LongestCommonPrefix {
         return res;
     }
     
-    
-    
-    
     // this is just for reference
     public int findMaxPreFixStrLen(String str1, String str2) {
         //edge case
