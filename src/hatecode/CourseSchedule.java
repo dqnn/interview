@@ -96,9 +96,7 @@ public class CourseSchedule {
                     // [1,5], so 1 still have 1 dependency, here like 1 degree --
                     indegree[pair[0]]--;
                     // this one means course 1 has no dependency, and 1 has passed test
-                    if (indegree[pair[0]] == 0) {
-                        queue.offer(pair[0]);
-                    }
+                    if (indegree[pair[0]] == 0) queue.offer(pair[0]);
                 }
             }
         }
