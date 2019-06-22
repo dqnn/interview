@@ -73,7 +73,6 @@ dp[n] = Min{ dp[n - i*i] + 1 },  n - i*i >=0 && i >= 1
                 dp[i] = Math.min(dp[i], dp[i- j* j] + 1);
             }
         }
-        
         return dp[n];
     }
 }
