@@ -47,7 +47,8 @@
                 he did not asked a lot of questions but he spent some time on it, 2); work proacitve although i requested him 
                 3): did not show enough data on the delivery, big lesson, should choose suitable project for beginners
                 
-                for myself, i made some aggressive assumptions on the 
+                for myself, i made some assumptions about the dependency, i thought they should be regioanlized but actually
+                they are not
           9) what are you strengths and weaknesses
          10) did you work with someone who was not performing well and if so what action did you take
          11)  did you have difficulty convincing someone about you ideas
