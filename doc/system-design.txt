@@ -1,11 +1,11 @@
 Key Milestones
 Understand requirements and asked questions to reduce problem space.
 
-Designing an API / Storage
+Designing an API / Storage   S3/KV or graph database
 
 High-level Design (Big boxes)
 
-Handling Scale 
+Handling Scale --- sharding and cache
 
 Fault Handling 
 
