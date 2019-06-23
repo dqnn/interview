@@ -15,9 +15,9 @@ Cost Management  ---- look for cheaper depdency but with higher rate
 
 Metrics & KPIs  -----
 
-Operations
+Operations ---------alarms and SOP
 
-Improvements
+Improvements -------
 
 system design:
 1. ask interviewer the design tenets, like 
