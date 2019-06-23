@@ -7,13 +7,13 @@ High-level Design (Big boxes)
 
 Handling Scale --- sharding and cache
 
-Fault Handling 
+Fault Handling ---- dependency failure, error message
 
-Latency Handling
+Latency Handling ---- 
 
-Cost Management
+Cost Management  ---- look for cheaper depdency but with higher rate
 
-Metrics & KPIs
+Metrics & KPIs  -----
 
 Operations
 
