@@ -40,6 +40,7 @@
           
           8) Tell me about a time you failed 
                -- mentor young engineers, intern, at that time i was on latency,  he was very 
+                interested in latency but in the end he did not get the offer, and he feel pretty frustrated
           9) what are you strengths and weaknesses
          10) did you work with someone who was not performing well and if so what action did you take
          11)  did you have difficulty convincing someone about you ideas
