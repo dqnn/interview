@@ -34,7 +34,7 @@ Output: ["acd","ace","bcd","bce"]
         groups.add(new ArrayList<>());
         int level = 0;
         int start = -1;
-        
+        //we only have 4 types of character, {, }, ',' and letter
         for (int i = 0; i < expression.length(); i++) {
             char c = expression.charAt(i);
             if (c == '{') {
@@ -51,6 +51,7 @@ Output: ["acd","ace","bcd","bce"]
                 }
             } else if (c == ',' && level == 0) {
                 groups.add(new ArrayList<>());
+            //process letter
             } else if (level == 0) {
                 groups.get(groups.size() - 1).add(Arrays.asList(String.valueOf(c)));
             }
