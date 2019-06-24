@@ -22,8 +22,6 @@ Operations ---------alarms and SOP
 Improvements -------
 
 
-
-
 system design:
 1. ask interviewer the design tenets, like 
 2. finalize features we want to design
