@@ -9,7 +9,7 @@ Handling Scale --- sharding and cache
 
 Fault Handling ---- dependency failure, error message
 
-Reliability and Redundancy--
+Reliability and Redundancy--avilability, data and service replica
 
 Latency Handling ---- 
 
