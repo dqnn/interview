@@ -19,6 +19,8 @@ Example 1:
 Input: "{a,b}c{d,e}f"
 Output: ["acdf","acef","bcdf","bcef"]
 */
+    //thinking process: 
+    //we parse the string and using a backtracking thoughts
     public String[] expand(String S) {
         TreeSet<String> set=new TreeSet<>();
         backtracking(S,0,"",set);
