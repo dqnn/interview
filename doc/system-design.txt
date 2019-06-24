@@ -9,6 +9,8 @@ Handling Scale --- sharding and cache
 
 Fault Handling ---- dependency failure, error message
 
+Reliability and Redundancy--
+
 Latency Handling ---- 
 
 Cost Management  ---- look for cheaper depdency but with higher rate
@@ -18,6 +20,9 @@ Metrics & KPIs  -----
 Operations ---------alarms and SOP
 
 Improvements -------
+
+
+
 
 system design:
 1. ask interviewer the design tenets, like 
