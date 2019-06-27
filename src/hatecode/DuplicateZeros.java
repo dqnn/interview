@@ -14,6 +14,8 @@ public class DuplicateZeros {
      * 
      * Input: [1,0,2,3,0,4,5,0]
      */
+    //thinking process: 
+    //this is same as re-arrange the arrays
     public void duplicateZeros(int[] A) {
         if(A == null || A.length< 1) return;
         int n = A.length, count = 0;
