@@ -28,6 +28,7 @@ public class MultiplyStrings {
      * @return
      */
     //thinking process:
+    //we cannot use convert * to +, 
     //the key is A[i] * B[j] will be placed into [i+j, i+j+1]
     public String multiply(String num1, String num2) {
         if (num1 == null || num2 == null) return "0";
