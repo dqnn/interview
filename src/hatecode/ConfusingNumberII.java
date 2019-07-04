@@ -27,6 +27,7 @@ The confusing numbers are [6,9,10,16,18,19].
 19 converts to 61.
 */
     
+    //O(5^n)/O()
     Map<Integer, Integer> map = new HashMap<>();
     int N = -1;
     int res = 0;
