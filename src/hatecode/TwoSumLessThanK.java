@@ -2,9 +2,8 @@ package hatecode;
 public class TwoSumLessThanK {
 /*
 1099. Two Sum Less Than K
-Given an array A of integers and integer K, return the maximum S such that there exists i < j with A[i] + A[j] = S and S < K. If no i, j exist satisfying this equation, return -1.
-
- 
+Given an array A of integers and integer K, return the maximum S such that there 
+exists i < j with A[i] + A[j] = S and S < K. If no i, j exist satisfying this equation, return -1.
 
 Example 1:
 
