@@ -15,19 +15,21 @@ public class YelpRandomPairs {
         if (list == null || list.length < 1 || list.length % 2 == 1) return res;
         
         int n = list.length;
-        TreeSet<Integer> visited = new TreeSet<>();
+        Set<Integer> visited = new HashSet<>();
+        Queue<Integer> q = new LinkedList<>();
         Random rnd = new Random();
         int cnt = 0;
         while(cnt < n) {
             int idx = rnd.nextInt(n);
             if(visited.contains(idx)) continue;
             visited.add(idx);
+            q.offer(idx);
             cnt++;
         }
-        System.out.println(visited);
-        while(!visited.isEmpty()) {
-            int f = visited.pollFirst();
-            int s = visited.pollFirst();
+        System.out.println(q);
+        while(!q.isEmpty()) {
+            int f = q.poll();
+            int s = q.poll();
             res.add(new String[] {list[f], list[s]});
         }
         
