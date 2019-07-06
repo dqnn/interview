@@ -6,7 +6,7 @@ public class YelpRandomPairs {
  * Just Yelp interview questions, not from LC
  */
     public static void main(String[] args) {
-        String[] in = {"David", "LILI", "HANMEI", "LiLEI"};
+        String[] in = {"David", "LILI", "HANMEI", "XILEI"};
         randomPair(in).stream().forEach(e->System.out.println(Arrays.toString(e)));
     }
     
