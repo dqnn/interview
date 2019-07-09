@@ -47,7 +47,7 @@ public class SubsetsII {
         return res;
     }
     //if we did not return after adding to result which means 
-    // we would have permuatations
+    // we would have permutations
     public static void helper(List<List<Integer>> res, List<Integer> list, int[] nums, int index) {
         if (index > nums.length) {
             return;
