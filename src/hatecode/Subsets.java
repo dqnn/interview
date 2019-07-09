@@ -45,7 +45,7 @@ public class Subsets {
 
 
 
-     time : O(2^n);
+     time : O(n * 2^n), see subset II Time complexity analysis
      space : O(n);
      * @param nums
      * @return
