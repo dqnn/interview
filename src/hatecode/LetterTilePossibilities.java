@@ -52,15 +52,15 @@ public class LetterTilePossibilities {
     
     // a/b is the number of unique permutations given characters in counts.
     // m is sum(counts).
-    static int helper(char[] chars, int i, int n, int a, int b, int m, int[] counts) {
+    static int helper(char[] chs, int pos, int n, int a, int b, int m, int[] counts) {
         int result = 0;
         a *= (++m); // add one to m, and update a == m!.
-        for(int j = i; j < n; ++j) {
-            int index = chars[j] - 'A';
-            if (j == i || chars[j] != chars[j-1]) { // generate unique subset.
+        for(int j = pos; j < n; ++j) {
+            int index = chs[j] - 'A';
+            if (j == pos || chs[j] != chs[j-1]) { // generate unique subset.
                 // b maintains the product of counts[i]! for each counts[i] != 0.
                 b *= (++counts[index]);
-                result += a / b + helper(chars, j + 1, n, a, b, m, counts);
+                result += a / b + helper(chs, j + 1, n, a, b, m, counts);
                 b /= (counts[index]--);
             }
         }
