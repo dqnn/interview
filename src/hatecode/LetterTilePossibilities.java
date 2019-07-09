@@ -15,6 +15,7 @@ public class LetterTilePossibilities {
      * "AA", "AB", "BA", "AAB", "ABA", "BAA".
      */
     //interview friendly, really brilliant solution
+    //O(26 * 2^n)/O(n)
     public int numTilePossibilities(String t) {
         if(t == null || t.length() < 1) return 0;
         
@@ -24,7 +25,11 @@ public class LetterTilePossibilities {
         }
         return helper(count);
     }
-    
+    //suppose T(n) is recursive itself Time, n means the string length
+    //T(n) = T(n-1) + T(n-2) + T(0), n means the unique number, this is the tricky part, 
+    //so even we have unique number count, but we still have to make count[i] = 0 which means we have to 
+    //count down until 0, that is same thing like we read each character from beginning like SubsetI or subsetII, 
+    //so it is same like subset II, which has detail proof there, here it is 
     private int helper(int[] count) {
         int sum = 0;
         for(int i = 0; i< 26; i++) {
