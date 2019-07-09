@@ -48,6 +48,7 @@ public class SubsetsII {
     }
     //if we did not return after adding to result which means 
     // we would have permutations
+    //T(n) is for each recursive itself Time
     //T(n) = T(n-1) + T(n-2)....T(0) = 2 (T(n-2) + T(n-3) + T(n-4)...) = 2^2 * (T(n-3) + T(n-4)...T(0))
     // T(n) = O(2^n), since we have n call in each T(n), so it would be O(n * 2^n) 
     public static void helper(List<List<Integer>> res, List<Integer> list, int[] nums, int index) {
