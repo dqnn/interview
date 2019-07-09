@@ -38,7 +38,7 @@ public class LetterTilePossibilities {
         return sum;
     }
     
-    //  subsetII solution
+    //  subsetII solution, still not fully understood the time complexity
     //   the number of unique permutations n!/a!b!...
     // ----------------
     // in discussion a lot of people just generate and count all the unique permutations.
