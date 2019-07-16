@@ -31,7 +31,38 @@ class FindAndReplaceInString {
      * it's replaced by "eee". "cd" starts at index 2 in S, so it's replaced by
      * "ffff".
      */
-     //from right to left, we wont worry about the start index wil change, 
+
+    //better part of this solution is much more better O(n) compare to others but startsWith is not O(1), this is to ignore
+    //the startsWith complexity
+    public static String findReplaceString2(String s, int[] indexes, String[] sources, String[] targets) {
+        if(s == null || s.length() < 1) return "";
+
+        Map<Integer, Integer> table = new HashMap<>();
+        for (int i=0; i<indexes.length; i++) {
+            // if a match is found in the original string, record it
+            if (S.startsWith(sources[i], indexes[i])) {
+                table.put(indexes[i], i);
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i=0; i<S.length(); ) {
+            if (table.containsKey(i)) {
+                // if a replacement was recorded before
+                sb.append(targets[table.get(i)]);
+                i+=sources[table.get(i)].length();
+            } else {
+                // if no replacement happened at this index
+                sb.append(S.charAt(i));
+                i++;
+            }
+        }
+        return sb.toString();
+    }
+
+
+
+
+    //from right to left, we wont worry about the start index wil change,
     //becasue we only change the latter part
     //O(SN)/O(S) n = len(S)
      public static String findReplaceString2(String S, int[] indexes, String[] sources, String[] targets) {
