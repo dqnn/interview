@@ -37,4 +37,49 @@ Output: 10
     public int newInteger_Best(int n) {
         return Integer.parseInt(Integer.toString(n, 9));
     }
+
+    //like this better, because it showed how we can process it.  and it applies to other digits, like 7 or 4,
+    //
+    int[] dp;
+    public int newInteger_BruteForce(int n) {
+        if (n < 9) return n;
+        dp = new int[10];
+        //dp[n] corresponds to range[10^(n - 1), 10^n - 1], e.g. dp[2] is the number of 9 within [10, 99]
+        dp[0] = 0;
+        dp[1] = 1;
+        int p = 10;
+        for (int i = 2; i < 10; i++) {
+            dp[i] = dp[i - 1] * 9 + p;
+            p *= 10;
+        }
+        int left = n;
+        int right = Integer.MAX_VALUE;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (mid - numOf9(mid) >= n) {  // make sure the result does not contains 9
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+    private int numOf9(int x) {  // 10 <= x <= MAX_INT
+        int res = 0;
+        int num = x;
+        int i = 0;
+        int p = 1;
+        while (num != 0) {
+            int lastdigit = num % 10;
+            if (lastdigit == 9) {
+                res = 9 * dp[i] + x % p + 1;
+            } else {
+                res += lastdigit * dp[i];
+            }
+            i++;
+            p *= 10;
+            num /= 10;
+        }
+        return res;
+    }
 }
