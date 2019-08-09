@@ -52,17 +52,17 @@ Output: 10
             dp[i] = dp[i - 1] * 9 + p;
             p *= 10;
         }
-        int left = n;
-        int right = Integer.MAX_VALUE;
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
+        int l = n;
+        int r = Integer.MAX_VALUE;
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
             if (mid - numOf9(mid) >= n) {  // make sure the result does not contains 9
-                right = mid - 1;
+                r = mid - 1;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
     private int numOf9(int x) {  // 10 <= x <= MAX_INT
         int res = 0;
