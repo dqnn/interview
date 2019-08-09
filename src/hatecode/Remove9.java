@@ -21,10 +21,20 @@ Output: 10
     
     //the key is to calculate how many numbers which contains 9 from 1-> n, 
     //
-    public int newInteger2(int n) {
-        return 0;
-    }
+    //O(logn)/O(1)
     public int newInteger(int n) {
+        int ans = 0;
+        int base = 1;
+
+        while (n > 0){
+            ans += n % 9 * base;
+            n /= 9;
+            base *= 10;
+        }
+        return ans;
+    }
+    //O(1)/O(1)
+    public int newInteger_Best(int n) {
         return Integer.parseInt(Integer.toString(n, 9));
     }
 }
