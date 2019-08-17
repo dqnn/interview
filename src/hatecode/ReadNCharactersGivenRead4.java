@@ -1,6 +1,6 @@
 package hatecode;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * Project Name : Leetcode

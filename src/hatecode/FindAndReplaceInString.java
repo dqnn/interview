@@ -34,8 +34,8 @@ class FindAndReplaceInString {
 
     //better part of this solution is much more better O(n) compare to others but startsWith is not O(1), this is to ignore
     //the startsWith complexity
-    public static String findReplaceString3(String s, int[] indexes, String[] sources, String[] targets) {
-        if(s == null || s.length() < 1) return "";
+    public static String findReplaceString4(String S, int[] indexes, String[] sources, String[] targets) {
+        if(S == null || S.length() < 1) return "";
 
         Map<Integer, Integer> table = new HashMap<>();
         for (int i=0; i<indexes.length; i++) {
