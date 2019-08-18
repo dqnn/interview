@@ -32,7 +32,13 @@ Output: [[1,2,null,4],[6],[7]]
     //there was no dup value in the tree, and it is a tree problem, so
     //we suppose we use 3 ways of visiting to see whether we can find a way
     
-    //
+    //when we visiting the tree, we need to do some cutting on the tree,
+    //so 1. if the node is in the remove set, then we need to visit the tree like a new one
+    
+    // 2. if the node is not in the remove set, then it must be a node in a new forest,but 
+    //we only want the root node of that forest, so we need a flag to pass from context this is root, 
+    //if the previous stack is in removed set, then this one must be root, else not
+    //last difficulty one is the remove the leaf node but we need return null
     public List<TreeNode> delNodes(TreeNode root, int[] to_del) {
         List<TreeNode> res = new ArrayList<>();
         if(root == null) return res;
