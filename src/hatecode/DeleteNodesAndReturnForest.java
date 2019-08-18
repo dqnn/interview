@@ -12,7 +12,11 @@ After deleting all nodes with a value in to_delete, we are left with a forest (a
 Return the roots of the trees in the remaining forest.  You may return the result in any order
 
 Example 1:
-
+           1
+        /    \ 
+       2      3
+      / \    / \
+     4   5  6   7
 Input: root = [1,2,3,4,5,6,7], to_delete = [3,5]
 Output: [[1,2,null,4],[6],[7]]
 */
@@ -21,6 +25,12 @@ Output: [[1,2,null,4],[6],[7]]
     //thinking process:
     //given a binary tree with a set of values, node needs to remove,
     //return the set of nodes which become a alone forest
+    
+    //from the above example, we can see 1, 2, 4, null. 6.  7. they become 
+    //the forest, first set has a null because the parent still there
+    
+    //there was no dup value in the tree, and it is a tree problem, so
+    //we suppose we use 3 ways of visiting to see whether we can find a way
     
     //
     public List<TreeNode> delNodes(TreeNode root, int[] to_del) {
