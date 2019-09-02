@@ -77,13 +77,15 @@ Day 7: [0, 0, 1, 1, 0, 0, 0, 0]
     //a map
     //O(2^n)/O(n), n = c.length
     public int[] prisonAfterNDays_NoMem(int[] c, int N) {
-        int[] f_c = new int[c.length], next_cycle = new int[c.length];
+        //
+        int[] first_cells = new int[c.length], next_cycle = new int[c.length];
         for (int cycle = 0; N-- > 0; c = next_cycle.clone(), ++cycle) {
+          //compute the result
           for (int i = 1; i < c.length - 1; ++i) 
               next_cycle[i] = (c[i - 1] == c[i + 1] ? 1 : 0);
           
-          if (cycle == 0) f_c = next_cycle.clone();
-          else if (Arrays.equals(next_cycle, f_c)) N %= cycle;
+          if (cycle == 0) first_cells = next_cycle.clone();
+          else if (Arrays.equals(next_cycle, first_cells)) N %= cycle;
         }
         return c;
       }
