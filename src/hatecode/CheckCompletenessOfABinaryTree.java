@@ -18,6 +18,7 @@ Output: false
         if (root == null) return true;
         Queue<TreeNode> q = new LinkedList<>();
         q.offer(root);
+        //this is to indicate we have found null node same level
         boolean isFound = false;
         while(!q.isEmpty()) {
             TreeNode node = q.poll();
