@@ -63,7 +63,10 @@ Day 7: [0, 0, 1, 1, 0, 0, 0, 0]
             }
             
             cells = another;
-            N--;
+            N--;//so we come to next iterate of cells, 
+            
+            //note we find the period and we need to get the last 
+            //cycle integer and N is current N
             if(visited.containsKey(Arrays.toString(cells))) {
                 N %= visited.get(Arrays.toString(cells)) - N;
             }
@@ -72,6 +75,7 @@ Day 7: [0, 0, 1, 1, 0, 0, 0, 0]
     }
     //this applies dynamic arrays of cells,and we get the cycle without
     //a map
+    //O(2^n)/O(n), n = c.length
     public int[] prisonAfterNDays_NoMem(int[] c, int N) {
         int[] f_c = new int[c.length], next_cycle = new int[c.length];
         for (int cycle = 0; N-- > 0; c = next_cycle.clone(), ++cycle) {
