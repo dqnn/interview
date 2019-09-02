@@ -70,7 +70,8 @@ Day 7: [0, 0, 1, 1, 0, 0, 0, 0]
         }
         return cells;
     }
-    //
+    //this applies dynamic arrays of cells,and we get the cycle without
+    //a map
     public int[] prisonAfterNDays_NoMem(int[] c, int N) {
         int[] f_c = new int[c.length], next_cycle = new int[c.length];
         for (int cycle = 0; N-- > 0; c = next_cycle.clone(), ++cycle) {
