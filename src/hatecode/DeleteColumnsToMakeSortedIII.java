@@ -48,7 +48,9 @@ Note that A[0] > A[1] - the array A isn't necessarily in lexicographic order.
         Arrays.fill(dp, 1);
         //each row or each character
         for (int i = 0; i < c; ++i) {
-            //0 - i chars
+            //0 - i chars, we use j compare to i, if we can find two
+            //chars from row 0 -> r means we find one increase sequence among all
+            //rows for 0-i columns
             for (int j = 0; j < i; ++j) {
                 //we check all rows before column j, if we find 
                 //one column not increase then we exit the row loop
