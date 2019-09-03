@@ -35,11 +35,11 @@ Note that A[0] > A[1] - the array A isn't necessarily in lexicographic order.
     //is max length and increasing lex
     //each column is an element,
     
-    //
+    //so for only 1 string, we want to 
     public int minDeletionSize(String[] A) {
         if (A == null || A.length < 1) return 0;
         int r = A.length, c = A[0].length(), res = c - 1, k;
-        //dp[i] means for 0-i strings, the max increase sub sequence length, 
+        //dp[i] means for 0-i strings, the max len increase sub sequence length, 
         //For all j < i, if A[][j] < A[][i], 
         //then dp[j] = max(dp[j], dp[i] + 1)
         int[] dp = new int[c];
