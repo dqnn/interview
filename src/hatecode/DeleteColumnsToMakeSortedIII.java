@@ -36,7 +36,8 @@ Note that A[0] > A[1] - the array A isn't necessarily in lexicographic order.
     //each column is an element,
     
     //first to know how many chars can be kept, 
-    //we scan column by column,
+    //for example, babca, bbazb, 
+    //
     public int minDeletionSize(String[] A) {
         if (A == null || A.length < 1) return 0;
         int r = A.length, c = A[0].length(), res = c - 1, k;
@@ -49,9 +50,13 @@ Note that A[0] > A[1] - the array A isn't necessarily in lexicographic order.
         for (int i = 0; i < c; ++i) {
             //0 - i chars
             for (int j = 0; j < i; ++j) {
+                //we check all rows before column j, if we find 
+                //one column not increase then we exit the row loop
                 for (k = 0; k < r; ++k) {
                     if (A[k].charAt(j) > A[k].charAt(i)) break;
                 }
+                //if we loop to last row which means current situation,
+                //all chars (0, j) are increasing chars
                 if (k == r && dp[j] + 1 > dp[i])
                     dp[i] = dp[j] + 1;
             }
