@@ -36,7 +36,7 @@ Note that A[0] > A[1] - the array A isn't necessarily in lexicographic order.
     //each column is an element,
     
     //first to know how many chars can be kept, 
-    //for example, babca, bbazb, 
+    //for example, babca, bbazb, TODO: need to understand the loop
     //
     public int minDeletionSize(String[] A) {
         if (A == null || A.length < 1) return 0;
