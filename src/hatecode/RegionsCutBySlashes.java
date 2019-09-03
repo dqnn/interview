@@ -23,11 +23,28 @@ Input:
 Output: 2
 */
   
-    //thinking process:
+    //thinking process:O(n^2)/O(n^2)
     //so given array of string, we want to how many area are divided by these string
     // so each character in string is like 1x1 square, / means dialogue, \ means anti-
     //dialgoue, so one square can only have 3 types, / / or blank, when we put them together
-    //it will have a nxn square, 
+    //it will have a n x n square, so return how many areas are not connected?
+    
+    //the difficulty is how to setup correct model, to modelize these squares to 
+    //leverage Union find, so what we done is :
+/*
+ *   ------
+ *  |   0  |
+ *  |3    1|
+ *  |___2__|
+ *  the 2 dialogues will divide the square into 4 areas, the reasons why we doing this 
+ *  way is to use integer number to represent each small square and leverage union find to 
+ *  connect them with various cases
+ *  for example:
+ *  dialgoue, we need to union(0,1) and union(3,2)
+ *  anti-dia, union(3,0), union(1,2)
+ *  but if we add this 1x1 square into the big square, we also have to consider the neighours
+ *  so union(previous row && same column) and union(previous cooumn && same row)
+ */
     public int regionsBySlashes(String[] g) {
         if(g == null || g.length < 1) return 0;
         
