@@ -35,7 +35,8 @@ Note that A[0] > A[1] - the array A isn't necessarily in lexicographic order.
     //is max length and increasing lex
     //each column is an element,
     
-    //so for only 1 string, we want to 
+    //first to know how many chars can be kept, 
+    //we scan column by column,
     public int minDeletionSize(String[] A) {
         if (A == null || A.length < 1) return 0;
         int r = A.length, c = A[0].length(), res = c - 1, k;
@@ -44,15 +45,18 @@ Note that A[0] > A[1] - the array A isn't necessarily in lexicographic order.
         //then dp[j] = max(dp[j], dp[i] + 1)
         int[] dp = new int[c];
         Arrays.fill(dp, 1);
-        for (int j = 0; j < c; ++j) {
-            for (int i = 0; i < j; ++i) {
+        //each row or each character
+        for (int i = 0; i < c; ++i) {
+            //0 - i chars
+            for (int j = 0; j < i; ++j) {
                 for (k = 0; k < r; ++k) {
-                    if (A[k].charAt(i) > A[k].charAt(j)) break;
+                    if (A[k].charAt(j) > A[k].charAt(i)) break;
                 }
-                if (k == r && dp[i] + 1 > dp[j])
-                    dp[j] = dp[i] + 1;
+                if (k == r && dp[j] + 1 > dp[i])
+                    dp[i] = dp[j] + 1;
             }
-            res = Math.min(res, c - dp[j]);
+            //covert to chars to delete
+            res = Math.min(res, c - dp[i]);
         }
         return res;
     }
