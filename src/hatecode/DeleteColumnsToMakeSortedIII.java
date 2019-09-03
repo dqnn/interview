@@ -27,6 +27,12 @@ Both these rows are individually in lexicographic order (ie. A[0][0] <= A[0][1] 
 Note that A[0] > A[1] - the array A isn't necessarily in lexicographic order.
 */
     //thinking process: 
+    //the original problem is to say given array of strings, we want to
+    //remove some chars so after these deletion movements, the rest strings are all
+    //lex ordered. 
+    
+    //max increasing sequence, if we see only 1 string, after deletion, we want rest string
+    //is max length and increasing lex
     //
     public int minDeletionSize(String[] A) {
         if (A == null || A.length < 1) return 0;
