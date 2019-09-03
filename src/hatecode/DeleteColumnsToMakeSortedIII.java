@@ -44,15 +44,15 @@ Note that A[0] > A[1] - the array A isn't necessarily in lexicographic order.
         //then dp[j] = max(dp[j], dp[i] + 1)
         int[] dp = new int[c];
         Arrays.fill(dp, 1);
-        for (int j = 0; j < c; ++j) {
-            for (int i = 0; i < j; ++i) {
-                for (k = 0; k < r; ++k) {
-                    if (A[k].charAt(i) > A[k].charAt(j)) break;
+        for (int i = 0; i < r; ++i) {
+            for (int j = 0; j < i; ++j) {
+                for (k = 0; k < c; ++k) {
+                    if (A[k].charAt(j) > A[k].charAt(i)) break;
                 }
-                if (k == r && dp[i] + 1 > dp[j])
-                    dp[j] = dp[i] + 1;
+                if (k == c && dp[j] + 1 > dp[i])
+                    dp[i] = dp[j] + 1;
             }
-            res = Math.min(res, c - dp[j]);
+            res = Math.min(res, r - dp[i]);
         }
         return res;
     }
