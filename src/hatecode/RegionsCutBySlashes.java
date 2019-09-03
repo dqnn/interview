@@ -24,7 +24,10 @@ Output: 2
 */
   
     //thinking process:
-    //
+    //so given array of string, we want to how many area are divided by these string
+    // so each character in string is like 1x1 square, / means dialogue, \ means anti-
+    //dialgoue, so one square can only have 3 types, / / or blank, when we put them together
+    //it will have a nxn square, 
     public int regionsBySlashes(String[] g) {
         if(g == null || g.length < 1) return 0;
         
