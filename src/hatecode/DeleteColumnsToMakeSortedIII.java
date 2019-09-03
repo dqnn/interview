@@ -26,28 +26,33 @@ Explanation: After deleting columns 0, 1, and 4, the final array is A = ["bc", "
 Both these rows are individually in lexicographic order (ie. A[0][0] <= A[0][1] and A[1][0] <= A[1][1]).
 Note that A[0] > A[1] - the array A isn't necessarily in lexicographic order.
 */
-    //thinking process: 
+    //thinking process: O(mn^2)/O(n), n=A.length, m =A[0].length()
     //the original problem is to say given array of strings, we want to
     //remove some chars so after these deletion movements, the rest strings are all
     //lex ordered. 
     
     //max increasing sequence, if we see only 1 string, after deletion, we want rest string
     //is max length and increasing lex
+    //each column is an element,
+    
     //
     public int minDeletionSize(String[] A) {
         if (A == null || A.length < 1) return 0;
-        int m = A.length, n = A[0].length(), res = n - 1, k;
-        int[] dp = new int[n];
+        int r = A.length, c = A[0].length(), res = c - 1, k;
+        //dp[i] means for 0-i strings, the max increase sub sequence length, 
+        //For all j < i, if A[][j] < A[][i], 
+        //then dp[j] = max(dp[j], dp[i] + 1)
+        int[] dp = new int[c];
         Arrays.fill(dp, 1);
-        for (int j = 0; j < n; ++j) {
+        for (int j = 0; j < c; ++j) {
             for (int i = 0; i < j; ++i) {
-                for (k = 0; k < m; ++k) {
+                for (k = 0; k < r; ++k) {
                     if (A[k].charAt(i) > A[k].charAt(j)) break;
                 }
-                if (k == m && dp[i] + 1 > dp[j])
+                if (k == r && dp[i] + 1 > dp[j])
                     dp[j] = dp[i] + 1;
             }
-            res = Math.min(res, n - dp[j]);
+            res = Math.min(res, c - dp[j]);
         }
         return res;
     }
