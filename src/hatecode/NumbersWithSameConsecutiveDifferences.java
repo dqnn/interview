@@ -17,7 +17,13 @@ Example 1:
 Input: N = 3, K = 7
 Output: [181,292,707,818,929]
 */
-    //thinking process: 
+    //thinking process: given N as length of digits, K as diff between 2 digits in a number
+    //return all possible numbers, see above examples, 181->1,8,1->|1-8| = |8-1|
+    
+    //O(2^n)/O(2^n) every number we have most 2 choices for that 
+    //digit
+    
+    //brute force solution
     public int[] numsSameConsecDiff(int N, int K) {
         if(N <= 0) return new int[0];
         
@@ -44,4 +50,8 @@ Output: [181,292,707,818,929]
         return cur.stream().mapToInt(e->e).toArray();
         
     }
+    
+    
+    
+    
 }
