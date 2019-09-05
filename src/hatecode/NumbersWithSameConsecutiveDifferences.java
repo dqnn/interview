@@ -70,10 +70,12 @@ Output: [181,292,707,818,929]
         helper(N, K, list, 0);
         return list.stream().mapToInt(i->i).toArray();   //list.toArray(new int[list.size()]); doesn't work for primitives
     }
+    // number is the number we want to +k or -K, 
+    //N indicate how many levels we need to forward
     public void helper(int N, int K, List<Integer> list, int number){
         if(N == 0){   // base case, if you have added enough number of integers then append it to list; Here N is used as the total digits in temporary number 
             list.add(number);
-            return ;
+            return;
         }
         for(int i=0; i<10; ++i){
              // no leading 0
@@ -83,7 +85,7 @@ Output: [181,292,707,818,929]
                 helper(N-1, K, list, i);
             } else{
                 if(Math.abs((number%10) - i )==K){
-                    // General dfs to add the digit at the units place and reducing the number of digits by 1.
+                  // General dfs to add the digit at the units place and reducing the number of digits by 1.
                     helper(N-1, K, list, number*10+i); 
                 }
             }
