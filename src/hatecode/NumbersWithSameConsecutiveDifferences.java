@@ -10,8 +10,6 @@ Note that every number in the answer must not have leading zeros except for the 
 
 You may return the answer in any order.
 
- 
-
 Example 1:
 
 Input: N = 3, K = 7
