@@ -18,7 +18,8 @@ Output: true
     private boolean helper(TreeNode node, int val) {
         if (node == null) return true;
         if (node.val == val) {
-            return helper(node.left, node.val) && helper(node.right, node.val);
+            return helper(node.left, node.val) 
+                    && helper(node.right, node.val);
         } else return false;
     }
 }
