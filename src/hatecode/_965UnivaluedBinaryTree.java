@@ -1,6 +1,6 @@
 package hatecode;
 
-public class UnivaluedBinaryTree {
+public class _965UnivaluedBinaryTree {
 /*
 965. Univalued Binary Tree
 A binary tree is univalued if every node in the tree has the same value.
