@@ -12,7 +12,7 @@ import java.util.*;
  * }
  */
 
-public class BinaryTreeCameras {
+public class _968BinaryTreeCameras {
 /*
 968. Binary Tree Cameras
 Given a binary tree, we install cameras on the nodes of the tree. 
