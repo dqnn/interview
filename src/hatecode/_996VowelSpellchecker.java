@@ -24,7 +24,7 @@ Output: ["kite","KiTe","KiTe","Hare","hare","","","KiTe","","KiTe"]
     
     
     //just logic, no algortithms,
-    //another thing is we can try bloom filter
+    //another thing is we can try bloom filter in search
     public String[] spellchecker(String[] wordlist, String[] queries) {
         if(wordlist == null || wordlist.length < 1 || queries == null || queries.length < 1) {
             return new String[0];
