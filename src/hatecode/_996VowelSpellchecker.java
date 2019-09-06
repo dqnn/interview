@@ -16,7 +16,7 @@ Vowel Errors: If after replacing the vowels ('a', 'e', 'i', 'o', 'u') of the que
 Input: wordlist = ["KiTe","kite","hare","Hare"], queries = ["kite","Kite","KiTe","Hare","HARE","Hear","hear","keti","keet","keto"]
 Output: ["kite","KiTe","KiTe","Hare","hare","","","KiTe","","KiTe"]
 */
-    //thinking process: 
+    //thinking process: O(n+m)/O(m) n = queries.length, m =wordlist.length
     //given a dictionary, with some queries, rules:
     //1 if match with query and all character case match, returns that
     //2. if character match while case not match,  return first
