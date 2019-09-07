@@ -1,6 +1,6 @@
 package hatecode;
 
-public class BinaryTreeLongestConsecutiveSequenceII {
+public class _549BinaryTreeLongestConsecutiveSequenceII {
 /*
 549. Binary Tree Longest Consecutive Sequence II
 Given a binary tree, you need to find the length of Longest Consecutive Path in Binary Tree.

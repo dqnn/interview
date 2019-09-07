@@ -8,7 +8,7 @@ import java.util.Queue;
 /**
  * Created by duqiang on 24/07/2017.
  */
-public class BinaryTreeLevelOrderTraversal {
+public class _102BinaryTreeLevelOrderTraversal {
 
     /**
      * 102. Binary Tree Level Order Traversal

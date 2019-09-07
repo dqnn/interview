@@ -8,7 +8,7 @@ package hatecode;
  * Date : Aug, 2017
  * Description : 298. Binary Tree Longest Consecutive Sequence
  */
-public class BinaryTreeLongestConsecutiveSequence {
+public class _298BinaryTreeLongestConsecutiveSequence {
 
     /**
      * Given a binary tree, find the length of the longest consecutive sequence path.

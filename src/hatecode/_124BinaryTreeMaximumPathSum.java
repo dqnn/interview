@@ -8,7 +8,7 @@ package hatecode;
  * Date : Nov, 2017
  * Description : 124. Binary Tree Maximum Path Sum
  */
-public class BinaryTreeMaximumPathSum {
+public class _124BinaryTreeMaximumPathSum {
     /**
      * Given a binary tree, find the maximum path sum.
 
