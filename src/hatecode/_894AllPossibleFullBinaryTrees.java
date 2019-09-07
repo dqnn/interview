@@ -9,7 +9,7 @@ import java.util.*;
  *     TreeNode(int x) { val = x; }
  * }
  */
-class AllPossibleFullBinaryTrees {
+public class _894AllPossibleFullBinaryTrees {
 /*
 894. All Possible Full Binary Trees
 A full binary tree is a binary tree where each node has exactly 0 or 2 children.

@@ -43,7 +43,7 @@ Line 1 - 9 is valid because it passes through key 5, which had been selected in 
 
 
  */
-public class AndroidUnlockPatterns {
+public class _351AndroidUnlockPatterns {
     /**
      * 这道题乍一看题目这么长以为是一个设计题，其实不是，这道题还是比较有意思的，
      * 起码跟实际结合的比较紧密。这道题说的是安卓机子的解锁方法，有9个数字键，

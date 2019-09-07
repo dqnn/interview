@@ -1,7 +1,7 @@
 package hatecode;
 
 import java.util.*;
-public class AllPathsFromSourceLeadToDestination {
+public class _1059AllPathsFromSourceLeadToDestination {
 /*
 1059. All Paths from Source Lead to Destination
 Given the edges of a directed graph, and two nodes source and destination of this graph, determine whether or not all paths starting from source eventually end at destination, that is:

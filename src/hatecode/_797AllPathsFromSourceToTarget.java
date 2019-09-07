@@ -3,7 +3,7 @@ package hatecode;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllPathsFromSourceToTarget {
+public class _797AllPathsFromSourceToTarget {
 /*
  * 797. All Paths From Source to Target
 Given a directed, acyclic graph of N nodes.  Find all possible paths from 

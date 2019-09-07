@@ -2,7 +2,7 @@ package hatecode;
 
 import java.util.*;
 
-public class AmbiguousCoordinates {
+public class _816AmbiguousCoordinates {
 /*
 816. Ambiguous Coordinates
 We had some 2-dimensional coordinates, like "(1, 3)" or "(2, 0.5)".  

@@ -1,6 +1,6 @@
 package hatecode;
 import java.util.*;
-public class AllOOneDataStructure {
+public class _432AllOOneDataStructure {
 /*
  * tag: double linked list, bucket sort, lfu, lru, AllOne
 432. All O`one Data Structure
@@ -41,7 +41,7 @@ Mainly to use double linked list, each node is bucket, it contains count-> strin
     }
 
     /** Initialize your data structure here. */
-    public AllOOneDataStructure() {
+    public _432AllOOneDataStructure() {
         head = new Bucket(Integer.MIN_VALUE);
         tail = new Bucket(Integer.MAX_VALUE);
         head.next = tail;
