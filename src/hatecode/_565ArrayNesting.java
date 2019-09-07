@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class ArrayNesting {
+public class _565ArrayNesting {
     
     /*
     565. Array Nesting

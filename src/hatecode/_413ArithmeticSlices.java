@@ -29,7 +29,7 @@ this means that P + 1 < Q.
 
 The function should return the number of arithmetic slices in the array A.
  */
-public class ArithmeticSlices {
+public class _413ArithmeticSlices {
     /**
      * Example:
 

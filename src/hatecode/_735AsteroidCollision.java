@@ -3,7 +3,7 @@ package hatecode;
 import java.util.Arrays;
 import java.util.Stack;
 
-public class AsteroidCollision {
+public class _735AsteroidCollision {
 /*
  * 735. Asteroid Collision
 We are given an array asteroids of integers representing asteroids in a row.

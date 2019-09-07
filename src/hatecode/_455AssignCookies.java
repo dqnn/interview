@@ -20,7 +20,7 @@ Note:
 You may assume the greed factor is always positive. 
 You cannot assign more than one cookie to one child.
  */
-public class AssignCookies {
+public class _455AssignCookies {
     /**
      * Example 1:
      Input: [1,2,3], [1,1]
