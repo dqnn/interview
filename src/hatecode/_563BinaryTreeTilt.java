@@ -8,7 +8,7 @@ package hatecode;
  * Date : Oct, 2017
  * Description : 563. Binary Tree Tilt
  */
-public class BinaryTreeTilt {
+public class _563BinaryTreeTilt {
     /**
      * Given a binary tree, return the tilt of the whole tree.
 
