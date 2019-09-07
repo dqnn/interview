@@ -1,6 +1,6 @@
 package hatecode;
 import java.util.*;
-public class PancakeSorting {
+public class _969PancakeSorting {
     /*969. Pancake Sorting
      * Given an array A, we can perform a pancake flip: We choose some positive
      * integer k <= A.length, then reverse the order of the first k elements of A.
