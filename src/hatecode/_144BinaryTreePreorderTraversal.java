@@ -7,7 +7,7 @@ import java.util.Stack;
 /**
  * Created by duqiang on 25/07/2017.
  */
-public class BinaryTreePreorderTraversal {
+public class _144BinaryTreePreorderTraversal {
 
     /**
      * 144. Binary Tree Preorder Traversal

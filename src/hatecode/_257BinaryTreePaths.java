@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by duqiang on 25/07/2017.
  */
-public class BinaryTreePaths {
+public class _257BinaryTreePaths {
     /**
      * 257. Binary Tree Paths
      * Given a binary tree, return all root-to-leaf paths.

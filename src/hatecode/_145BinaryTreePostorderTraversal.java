@@ -8,7 +8,7 @@ import java.util.Stack;
 /**
  * Created by duqiang on 28/07/2017.
  */
-public class BinaryTreePostorderTraversal {
+public class _145BinaryTreePostorderTraversal {
     /**
      * 145. Binary Tree Postorder Traversal
      * Given a binary tree, return the postorder traversal of its nodes' values.
