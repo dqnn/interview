@@ -7,8 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AccountsMerge {
+public class _721AccountsMerge {
 /*
+ * 721 Account Merge
 Given a list accounts, each element accounts[i] is a list of strings, where the first element 
 accounts[i][0] is a name, and the rest of the elements are emails representing emails of 
 the account.
@@ -117,7 +118,7 @@ class Unionhelper {
       temp[2] = new ArrayList<>(Arrays.asList("John", "johnsmith@mail.com", "john_newyork@mail.com"));
       temp[3] = new ArrayList<>(Arrays.asList("Mary", "mary@mail.com"));
       List<List<String>> input = new ArrayList<>(Arrays.asList(temp));
-      AccountsMerge t= new AccountsMerge();
+      _721AccountsMerge t= new _721AccountsMerge();
       t.accountsMerge(input);
       
   }
