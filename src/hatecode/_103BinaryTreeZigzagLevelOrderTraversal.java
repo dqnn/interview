@@ -9,7 +9,7 @@ import java.util.Queue;
 /**
  * Created by duqiang on 28/07/2017.
  */
-public class BinaryTreeZigzagLevelOrderTraversal {
+public class _103BinaryTreeZigzagLevelOrderTraversal {
     /**
      * 103. Binary Tree Zigzag Level Order Traversal
      * Given a binary tree, return the zigzag level order traversal of its nodes' values. (ie, from left to right, then right to left for the next level and alternate between).
