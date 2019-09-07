@@ -17,7 +17,7 @@ Calling next() will return the next smallest number in the BST.
 Note: next() and hasNext() should run in average O(1) time and uses O(h) memory, 
 where h is the height of the tree.
  */
-public class BinarySearchTreeIterator {
+public class _173BinarySearchTreeIterator {
     /**
      * 173. Binary Search Tree Iterator
      *
@@ -28,7 +28,7 @@ public class BinarySearchTreeIterator {
     private TreeNode cur;
     private Stack<TreeNode> stack;
 
-    public BinarySearchTreeIterator(TreeNode root) {
+    public _173BinarySearchTreeIterator(TreeNode root) {
         cur = root;
         stack = new Stack<>();
     }

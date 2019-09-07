@@ -1,6 +1,6 @@
 package hatecode;
 import java.util.*;
-class BinaryPrefixDivisibleByFive {
+public class _1029BinaryPrefixDivisibleByFive {
 /*
 1029. Binary Prefix Divisible By 5
 Given an array A of 0s and 1s, consider N_i: the i-th subarray from A[0] to A[i] interpreted as a binary number (from most-significant-bit to least-significant-bit.)
