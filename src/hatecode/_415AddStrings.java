@@ -8,7 +8,7 @@ package hatecode;
  * Date : Nov, 2017
  * Description : 415. Add Strings
  */
-public class AddStrings {
+public class _415AddStrings {
     /**
      * Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
 

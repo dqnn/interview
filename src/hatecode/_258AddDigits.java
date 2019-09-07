@@ -3,7 +3,7 @@ package hatecode;
 /**
  * Created by duqiang on 25/07/2017.
  */
-public class AddDigits {
+public class _258AddDigits {
     /**
      * 258. Add Digits
      * Given a non-negative integer num, repeatedly add all its digits until the 

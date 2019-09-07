@@ -8,7 +8,7 @@ package hatecode;
  * Date : Jan, 2018
  * Description : 306. Additive Number
  */
-public class AdditiveNumber {
+public class _306AdditiveNumber {
     /**
      * Additive number is a string whose digits can form additive sequence.
 

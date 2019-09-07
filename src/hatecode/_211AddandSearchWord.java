@@ -9,7 +9,7 @@ import java.util.*;
  * Date : Sep, 2018 
  * Description : TODO
  */
-public class AddandSearchWord {
+public class _211AddandSearchWord {
     /**
      * 211. Add and Search Word - Data structure design
      * Design a data structure that supports the following two operations:
@@ -45,7 +45,7 @@ public class AddandSearchWord {
     }
     
     Trie root;
-    public AddandSearchWord() {
+    public _211AddandSearchWord() {
         this.root = new Trie();
     }
     

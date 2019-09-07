@@ -1,6 +1,6 @@
 package hatecode;
 import java.util.*;
-public class AddBoldTagInString {
+public class _616AddBoldTagInString {
 /*
 616. Add Bold Tag in String
 758. Bold Words in String
