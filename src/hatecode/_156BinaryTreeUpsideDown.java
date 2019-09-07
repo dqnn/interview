@@ -8,7 +8,7 @@ package hatecode;
  * Date : Aug, 2017
  * Description : TODO
  */
-public class BinaryTreeUpsideDown {
+public class _156BinaryTreeUpsideDown {
     /**
      * 156. Binary Tree Upside Down
      * Given a binary tree where all the right nodes are either leaf nodes with a

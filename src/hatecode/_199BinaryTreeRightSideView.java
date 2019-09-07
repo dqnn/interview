@@ -10,7 +10,7 @@ import java.util.Queue;
  * BinaryTreeRightSideView Creator : duqiang Date : July, 2018 Description :
  * TODO
  */
-public class BinaryTreeRightSideView {
+public class _199BinaryTreeRightSideView {
 
     /**
      * 199. Binary Tree Right Side View
