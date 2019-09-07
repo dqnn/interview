@@ -27,7 +27,7 @@ Note:
 0 < prices[i] < 50000.
 0 <= fee < 50000.
  */
-public class BestTimetoBuyandSellStockIII {
+public class _123BestTimetoBuyandSellStockIII {
 
     /**
      * time : O(n)

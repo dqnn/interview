@@ -3,7 +3,7 @@ package hatecode;
 /**
  * Created by duqiang on 28/07/2017.
  */
-public class BestTimetoBuyandSellStockII {
+public class _122BestTimetoBuyandSellStockII {
     /**
      * 122. Best Time to Buy and Sell Stock II
      * Say you have an array for which the ith element is the price of a given stock on day i.

@@ -1,5 +1,5 @@
 package hatecode;
-class BestTimetoBuyandSellStockwithTransactionFee {
+public class _714BestTimetoBuyandSellStockwithTransactionFee {
     /*
      * 
 

@@ -10,7 +10,7 @@ import java.util.Arrays;
  * Date : Dec, 2017
  * Description : 188. Best Time to Buy and Sell Stock IV
  */
-public class BestTimetoBuyandSellStockIV {
+public class _188BestTimetoBuyandSellStockIV {
     /**
      * Say you have an array for which the ith element is the price of a given stock on day i.
 

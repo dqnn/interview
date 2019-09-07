@@ -8,7 +8,7 @@ package hatecode;
  * Date : Oct, 2017
  * Description : 309. Best Time to Buy and Sell Stock with Cooldown
  */
-public class BestTimetoBuyandSellStockwithCooldown {
+public class _309BestTimetoBuyandSellStockwithCooldown {
     /**
      * buy[i]表示在第i天之前最后一个操作是买，此时的最大收益。
 

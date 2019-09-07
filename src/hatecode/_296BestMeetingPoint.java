@@ -5,7 +5,7 @@ import java.util.*;
  * Project Name : Leetcode Package Name : leetcode File Name : BestMeetingPoint
  * Creator : duqiang Date : July, 2018 Description : 296. Best Meeting Point
  */
-public class BestMeetingPoint {
+public class _296BestMeetingPoint {
 
     /**
 296. Best Meeting Point

@@ -54,7 +54,7 @@ Note:
  */
 
 
-class BinaryGap {
+public class _868BinaryGap {
     public int binaryGap(int N) {
         //edge case
         if (N <= 0) {
