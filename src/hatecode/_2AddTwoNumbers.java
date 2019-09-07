@@ -8,7 +8,7 @@ package hatecode;
  * Date : Sep, 2017
  * Description : 2. Add Two Numbers
  */
-public class AddTwoNumbers {
+public class _2AddTwoNumbers {
     /**
 
      Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)

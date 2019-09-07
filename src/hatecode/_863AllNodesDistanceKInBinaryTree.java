@@ -66,7 +66,7 @@ The target node is a node in the tree.
  *     TreeNode(int x) { val = x; }
  * }
  */
-class AllNodesDistanceKInBinaryTree {
+public class _863AllNodesDistanceKInBinaryTree {
 /*
 We are given a binary tree (with root node root), a target node, and an integer value K.
 

@@ -11,7 +11,7 @@ import java.util.Stack;
  * Date : Sep, 2017
  * Description : 445. Add Two Numbers II
  */
-public class AddTwoNumbersII {
+public class _445AddTwoNumbersII {
     /**
 
      Input: (7 -> 2 -> 4 -> 3) + (5 -> 6 -> 4)
