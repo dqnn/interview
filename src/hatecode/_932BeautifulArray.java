@@ -1,7 +1,7 @@
 package hatecode;
 
 import java.util.*;
-public class BeautifulArray {
+public class _932BeautifulArray {
 /*
 932. Beautiful Array
 For some fixed N, an array A is beautiful if it is a permutation of the integers 1, 2, ..., N, such that:
