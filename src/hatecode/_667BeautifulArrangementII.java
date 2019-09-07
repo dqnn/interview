@@ -24,7 +24,7 @@ Note:
 The n and k are in the range 1 <= k < n <= 104.
  */
 
-class BeautifulArrangementII {
+public class _667BeautifulArrangementII {
     
     
     // TL;DR, Time Exceed
