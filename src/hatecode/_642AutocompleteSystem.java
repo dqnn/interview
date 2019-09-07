@@ -56,7 +56,7 @@ historical sentence in system. And the following input will be counted
 as a new search. 
 
  */
-class AutocompleteSystem {
+public class _642AutocompleteSystem {
     //mapping setup, sentence, times, arr index is first character offset on 'a'
     HashMap <String, Integer> [] arr;
     class Node {
@@ -68,7 +68,7 @@ class AutocompleteSystem {
         int times;
     }
     //setup the mapping 
-    public AutocompleteSystem(String[] sentences, int[] times) {
+    public _642AutocompleteSystem(String[] sentences, int[] times) {
         arr = new HashMap[26];
         for (int i = 0; i < 26; i++)
             arr[i] = new HashMap<>();
@@ -189,7 +189,7 @@ class AutocompleteSystem {
         }
         public void main(String[] args) {
             String[] in = {"are", "as"};
-            AutocompleteSystemV2 V2 = new AutocompleteSystem.AutocompleteSystemV2(in, new int[] {1,2});
+            AutocompleteSystemV2 V2 = new _642AutocompleteSystem.AutocompleteSystemV2(in, new int[] {1,2});
         }
     }
     

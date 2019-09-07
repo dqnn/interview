@@ -1,6 +1,6 @@
 package hatecode;
 import java.util.*;
-public class BasicCalculatorIV {
+public class _770BasicCalculatorIV {
 /*
 770. Basic Calculator IV
 Given an expression such as expression = "e + 8 - a + 5" and an evaluation map such as 
@@ -304,7 +304,7 @@ Example: Ex1 = C1 * Term1  + C2 * Term2 + C3 * Term3,
     }
     
     public static void main(String[] args) {
-        BasicCalculatorIV s= new BasicCalculatorIV();
+        _770BasicCalculatorIV s= new _770BasicCalculatorIV();
         String in = "e * 8 - a * 5";
         String[] evalvars = {"e"};
         int[] evalints = {1};

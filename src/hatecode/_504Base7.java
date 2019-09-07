@@ -8,7 +8,7 @@ package hatecode;
  * Date : Nov, 2017
  * Description : 504. Base 7
  */
-public class Base7 {
+public class _504Base7 {
     /**
      * Given an integer, return its base 7 string representation.
 

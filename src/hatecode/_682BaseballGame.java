@@ -1,6 +1,6 @@
 package hatecode;
 import java.util.*;
-public class BaseballGame {
+public class _682BaseballGame {
 /*
 682. Baseball Game
 You're now a baseball game point recorder.

@@ -15,7 +15,7 @@ import java.util.Queue;
  * Given a non-empty binary tree, return the average value of the nodes on each level 
  * in the form of an array.
  */
-public class AverageofLevelsinBinaryTree {
+public class _637AverageofLevelsinBinaryTree {
 
     /**
 

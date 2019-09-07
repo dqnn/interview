@@ -1,7 +1,7 @@
 package hatecode;
 
 import java.util.*;
-public class BagOfTokens {
+public class _948BagOfTokens {
 /*
 948. Bag of Tokens
 You have an initial power P, an initial score of 0 points, and a bag of tokens.

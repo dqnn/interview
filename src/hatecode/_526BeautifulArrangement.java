@@ -1,7 +1,7 @@
 package hatecode;
 
 import java.util.*;
-public class BeautifulArrangement {
+public class _526BeautifulArrangement {
 /*
 526. Beautiful Arrangement
 Suppose you have N integers from 1 to N. 

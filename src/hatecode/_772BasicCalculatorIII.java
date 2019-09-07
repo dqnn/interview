@@ -35,7 +35,7 @@ Do not use the eval built-in library function.
 
  follow up: how could we extend to + - * / and () and empty spaces: 
  */
-public class BasicCalculatorIII {
+public class _772BasicCalculatorIII {
 /*
 In this section, I will specify the general rules for carrying out the actual 
 evaluations of the expression.
@@ -223,7 +223,7 @@ following calculations.
 
     public static void main(String[] args) {
         String temp = "3*(2+1+2)";
-        System.out.println(BasicCalculatorIII.calculate4(temp));
+        System.out.println(_772BasicCalculatorIII.calculate4(temp));
     }
 
 }

@@ -11,7 +11,7 @@ import java.util.Queue;
  * Date : Aug, 2018
  * Description : TODO
  */
-public class BalancedBinaryTree {
+public class _110BalancedBinaryTree {
 
     /**
      * 110. Balanced Binary Tree

@@ -2,7 +2,7 @@ package hatecode;
 
 import java.util.Stack;
 
-public class BackspaceStringCompare {
+public class _844BackspaceStringCompare {
 /*
 844： Back space String Compare
 Given two strings S and T, return if they are equal when both are typed into empty text editors. 
