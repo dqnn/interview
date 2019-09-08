@@ -10,7 +10,10 @@ Because "0.(52)" represents 0.52525252..., and "0.5(25)" represents 0.5252525252
 */
     //thinking process: O(1)/O(1)
     
-    //we turn 
+    //0.(12)->12/100 + 12/10^4 + 12/10^6 + 12/10^8 .....
+    //0.(12) = 12 * r/(1-r)
+    //another solution is to turn this number to 1/3, like this, so we can
+    //compare its upper and lower
     public boolean isRationalEqual(String S, String T) {
         Fraction f1 = convert(S);
         Fraction f2 = convert(T);
@@ -27,12 +30,14 @@ Because "0.(52)" represents 0.52525252..., and "0.5(25)" represents 0.5252525252
             if (part.isEmpty()) continue;
             long x = Long.valueOf(part);
             int sz = part.length();
-
+            //digits before .
             if (state == 1) { // whole
                  ans.iadd(new Fraction(x, 1));
+            //digits beween . (
             } else if (state == 2) { // decimal
                  ans.iadd(new Fraction(x, (long) Math.pow(10, sz)));
                  decimal_size = sz;
+            //digits between ( )
             } else { // repeating
                  long denom = (long) Math.pow(10, decimal_size);
                  denom *= (long) (Math.pow(10, sz) - 1);
@@ -42,7 +47,7 @@ Because "0.(52)" represents 0.52525252..., and "0.5(25)" represents 0.5252525252
         return ans;
     }
 }
-
+//
 class Fraction {
     long n, d;
     Fraction(long n, long d) {
