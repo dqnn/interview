@@ -30,9 +30,11 @@ Output: [1]
   //the pre-order travels sequence, return an array which each element means if switch
   //its left and right child, will match the sequence in voyage
   
-    //so we want to 
+    //so we want to consider each node as a new tree, the root node
+    //
     public List<Integer> flipMatchVoyage(TreeNode root, int[] voyage) {
         List<Integer> res = new ArrayList<>();
+        //if we cannot find unmatch, just return from deep dfs
         if (!dfs(root, voyage, new int[]{0}, res)) {
             res = new ArrayList<>();
             res.add(-1);
@@ -50,7 +52,8 @@ Output: [1]
         return dfs(node.left, v, i, res) && dfs(node.right, v, i, res);
     }
     
-    //iterative solution
+    //iterative solution, interview friendly. 
+    //since pre-order visit, see comments among the code 
     public List<Integer> flipMatchVoyage_Iterative(TreeNode root, int[] voyage) {
         List<Integer> res = new ArrayList<>();
         if(root == null || voyage == null || root.left == null && root.right == null || voyage.length < 1) return res;
@@ -60,14 +63,24 @@ Output: [1]
         s.push(root);
         while (s.size() > 0) {
             TreeNode node = s.pop();
-            
+            //common that one node is null, like child of a leaf
             if (node == null) continue;
+            //impossible to be the same as voyage, i++ can move to next line
             if (node.val != voyage[i++]) return Arrays.asList(-1);
+            //if current = its right child value means we need switch, note after i++,
+            //here voyage[i] actually means its left
+            
+            //we also have to keep node.right != null because node.right = null is common
+            //like [1,2,3],[1,3,2], when node = 2 or 3
             if (node.right != null && node.right.val == voyage[i]) {
+                //if left is null, we do not need to do anything, like 
+                //[1, null, 2], [1, 2], the pre-order is the same, but we should do nothing
                 if (node.left != null) res.add(node.val);
+                //since we switched its right and left here,and we use Stack, so 
+                //we push left first
                 s.push(node.left);
                 s.push(node.right);
-            } else {
+            } else {//we do not need switch, just push right first
                 s.push(node.right);
                 s.push(node.left);
             }
