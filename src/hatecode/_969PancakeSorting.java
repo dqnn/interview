@@ -72,5 +72,20 @@ After 4th flip (k=3): A = [1, 2, 3, 4], which is sorted.
                 A[len- 1 -i] = temp;
             }
         }
+        //O(n^2)/O(n)
+        //this is leveraging the elements are 1---n, 
+        //so for each element in A[i] != x which means correct max
+        //number is not correct position, so we sort each once a time
+        public List<Integer> pancakeSort_Best(int[] A) {
+            List<Integer> res = new ArrayList<>();
+            for (int x = A.length, i; x > 0; --x) {
+                for (i = 0; A[i] != x; ++i);
+                flip(A, i + 1);
+                res.add(i + 1);
+                flip(A, x);
+                res.add(x);
+            }
+            return res;
+        }
 }
 
