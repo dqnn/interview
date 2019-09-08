@@ -26,15 +26,22 @@ After 2nd flip (k=2): A = [4, 1, 2, 3]
 After 3rd flip (k=4): A = [3, 2, 1, 4]
 After 4th flip (k=3): A = [1, 2, 3, 4], which is sorted. 
  */
-    //thinking process, first max number, put first, then flip, then find second 
+    //thinking process, the problem is to say if we have pancake sort,
+    //change position from back to front, so return an array which each integer
+    //in the array is the length of each pancake sort, after we done, 
+    //the input is sorted
+    //first max number, put first, then flip, then find second 
     //largest and so on
+    
+    //the key is how to use recursive to solve the problem, how to figure out 
+    //the way to solve
     public List<Integer> pancakeSort(int[] A) {
             List<Integer> res = new ArrayList<>();
             if (A == null || A.length < 1) return res;
             helper(A, res, A.length);
             return res;
         }
-        
+        //sort len integers function
         private void helper(int[] A, List<Integer> list, int len) {
             if (len == 0) return;
             int maxIdx = len - 1;
@@ -43,6 +50,7 @@ After 4th flip (k=3): A = [1, 2, 3, 4], which is sorted.
                     maxIdx = i;
                 }
             }
+            //exclude last one and sort len - 1 integers
             if (maxIdx == len - 1)  {
                 helper(A, list, len -1);
             } else if (maxIdx == 0) {
@@ -55,7 +63,7 @@ After 4th flip (k=3): A = [1, 2, 3, 4], which is sorted.
                 helper(A, list, len);
             }
         }
-        //flip A from 0 to len-1
+        //flip A from 0 to len-1, pancake sort
         private void flip(int[] A, int len) {
             for(int i = 0; i< len /2; i++) {
                 int temp = A[i];
