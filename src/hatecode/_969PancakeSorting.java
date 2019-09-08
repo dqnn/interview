@@ -26,7 +26,8 @@ After 2nd flip (k=2): A = [4, 1, 2, 3]
 After 3rd flip (k=4): A = [3, 2, 1, 4]
 After 4th flip (k=3): A = [1, 2, 3, 4], which is sorted. 
  */
-    //thinking process, the problem is to say if we have pancake sort,
+    //thinking process, O(n^2)/O(n) n = A.length
+    //the problem is to say if we have pancake sort,
     //change position from back to front, so return an array which each integer
     //in the array is the length of each pancake sort, after we done, 
     //the input is sorted
