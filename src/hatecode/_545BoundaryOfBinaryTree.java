@@ -1,6 +1,6 @@
 package hatecode;
 import java.util.*;
-public class BoundaryOfBinaryTree {
+public class _545BoundaryOfBinaryTree {
 /*
 545. Boundary of Binary Tree
 Input:
