@@ -39,6 +39,9 @@ Because "0.(52)" represents 0.52525252..., and "0.5(25)" represents 0.5252525252
                  decimal_size = sz;
             //digits between ( )
             } else { // repeating
+                //decimal_size predefined in state 2, so 
+                //0.1212(12), here decimal_size = 4
+                //
                  long denom = (long) Math.pow(10, decimal_size);
                  denom *= (long) (Math.pow(10, sz) - 1);
                  ans.iadd(new Fraction(x, denom));
@@ -46,9 +49,15 @@ Because "0.(52)" represents 0.52525252..., and "0.5(25)" represents 0.5252525252
         }
         return ans;
     }
+    
+    public static void main(String[] args) {
+        _972EqualRationalNumbers pro = new _972EqualRationalNumbers();
+        pro.isRationalEqual("0.(12)", "0.1212(12)");
+    }
 }
 //
 class Fraction {
+    //n: a->numberator, b->denominator, a/b, 
     long n, d;
     Fraction(long n, long d) {
         long g = gcd(n, d);
