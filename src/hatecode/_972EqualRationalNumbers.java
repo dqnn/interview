@@ -64,7 +64,7 @@ class Fraction {
         this.n = n / g;
         this.d = d / g;
     }
-
+    //add two Fraction, 
     public void iadd(Fraction other) {
         long numerator = this.n * other.d + this.d * other.n;
         long denominator = this.d * other.d;
