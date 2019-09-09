@@ -1,6 +1,6 @@
 package hatecode;
 import java.util.*;
-public class KClosestPointsToOrigin {
+public class _973KClosestPointsToOrigin {
 /*
 973. K Closest Points to Origin
 Input: points = [[1,3],[-2,2]], K = 1
