@@ -8,7 +8,7 @@ package hatecode;
  * Date : Dec, 2017
  * Description : 201. Bitwise AND of Numbers Range
  */
-public class BitwiseANDofNumbersRange {
+public class _201BitwiseANDofNumbersRange {
 
     /**
      * Given a range [m, n] where 0 <= m <= n <= 2147483647, return the bitwise AND of all numbers in this range, inclusive.
