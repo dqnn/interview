@@ -25,13 +25,13 @@ Output: 7
     
     //this should be solved by sliding window
     public int subarraysDivByK(int[] A, int K) {
-        //because (sum + a)/K ->[1, K-1],so K slots
+      //because (sum + a)/K ->[1, K-1],so K slots
         int[] map = new int[K];
         map[0] = 1;
         int count = 0, sum = 0;
         for(int a : A) {
-            sum = (sum + a) % K;
-            if(sum < 0) sum += K;  // Because -1 % 5 = -1, but we need the positive mod 4
+             // Because -1 % 5 = -1, but we need the positive mod 4
+            sum = ((sum + a) % K + K) % K;
             count += map[sum];
             map[sum]++;
         }
@@ -46,8 +46,7 @@ Output: 7
         
         int count = 0, sum = 0;
         for(int a : A) {
-            sum = (sum + a) % K;
-            if(sum < 0) sum += K;
+            sum = ((sum + a) % K + K) % K;
             count += map.getOrDefault(sum, 0);
             map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
