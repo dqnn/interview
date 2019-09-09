@@ -1,6 +1,6 @@
 package hatecode;
 import java.util.*;
-public class BoatsToSavePeople {
+public class _881BoatsToSavePeople {
 /*
 881. Boats to Save People
 The i-th person has weight people[i], and each boat can carry a maximum weight of limit.
