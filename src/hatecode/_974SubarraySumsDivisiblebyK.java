@@ -22,6 +22,8 @@ Output: 7
     //another interval, 0-j, we can also have sum =sum % K,
     //if those 2 are equals, then i+1->j is a qualified subarray 
     //so the map is to store sum and its count
+    
+    //this should be solved by sliding window
     public int subarraysDivByK(int[] A, int K) {
         int[] map = new int[K];
 		map[0] = 1;
