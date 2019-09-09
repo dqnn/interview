@@ -20,7 +20,8 @@ Explanation: (A[1] > A[2] < A[3] > A[4] < A[5])
 */
     //thinking process: O(n)/O(1)
     
-    //
+    //so i<k>j or i >k<j will be the key character of the subarray,
+    //so we use 3 adjacent integers to make it work, since i will move from 0 to len -1
     public int maxTurbulenceSize(int[] A) {
         if(A == null || A.length < 1) return 0;
         
