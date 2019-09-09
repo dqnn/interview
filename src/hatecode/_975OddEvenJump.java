@@ -25,18 +25,6 @@ public class _975OddEvenJump {
      * 
      * Return the number of good starting indexes.
      */
-    //thinking process,  
-    //the problem is to say we want to jump from i->j, we have two options, 
-    //even jump, find the smallest [i+1, len],2,4,6
-    //odd jump, find the largest in [i+1, len] 1,3,5
-    
-    //if we can get last element, then problem solved, but each 
-    //element has fixed steps to last one, 
-    //so if we read from front to end, then we know it is not good because because we 
-    //duplicate compare from each start,so we read from behind, if we know position which 
-    //could reach last then we do not need to go to last 
-    
-    //as the requirement, treeMap is perfect match here
     
 /*
  * Take [5,1,3,4,2] as example.
@@ -64,17 +52,32 @@ we can't jump higher, higher(5) = false
 we can jump lower to 4, lower(5) = higher(4) = false
 
  */
+  //thinking process,  
+    //the problem is to say we want to jump from i->j, we have two options, 
+    //even jump, find the smallest [i+1, len],2,4,6
+    //odd jump, find the largest in [i+1, len] 1,3,5
+    
+    //if we can get last element, then problem solved, but each 
+    //element has fixed steps to last one, 
+    //so if we read from front to end, then we know it is not good because because we 
+    //duplicate compare from each start,so we read from behind, if we know position which 
+    //could reach last then we do not need to go to last 
+    
+    //as the requirement, treeMap is perfect match here
+    
     public int oddEvenJumps(int[] A) {
         if (A == null || A.length < 1) return 0;
         int n  = A.length, res = 1;
         boolean[] higher = new boolean[n], lower = new boolean[n];
         higher[n - 1] = lower[n - 1] = true;
+        
         TreeMap<Integer, Integer> map = new TreeMap<>();
         map.put(A[n - 1], n - 1);
         //from back, we can know how many 
         for (int i = n - 2; i >= 0; --i) {
             //ceilingKey >= A[i], floorKey <= A[i]
-            Integer hi = map.ceilingKey(A[i]), lo = map.floorKey(A[i]);
+            Integer hi = map.ceilingKey(A[i]), 
+                    lo = map.floorKey(A[i]);
             if (hi != null) higher[i] = lower[map.get(hi)];
             if (lo != null) lower[i] = higher[map.get(lo)];
             //since last one is true, if we can continue this from n-1 to 0 so it is good
