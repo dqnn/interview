@@ -19,7 +19,8 @@ Output: 5
     //given an array each element means the len of triangle, so 
     //return the largest perimeter, 
     
-    //
+    //how we think about if we sort, we can see 
+    //A[i]>= A[i-1] >=A[i-2],so 
     public int largestPerimeter(int[] A) {
         if(A == null || A.length <3) return 0;
         
