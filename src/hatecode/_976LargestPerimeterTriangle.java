@@ -15,7 +15,10 @@ Example 1:
 Input: [2,1,2]
 Output: 5
 */
-    //thinking process:
+    //thinking process: O(n)/O(1)
+    //given an array each element means the len of triangle, so 
+    //return the largest perimeter, 
+    
     //
     public int largestPerimeter(int[] A) {
         if(A == null || A.length <3) return 0;
