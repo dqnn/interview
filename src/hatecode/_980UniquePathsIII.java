@@ -1,5 +1,5 @@
 package hatecode;
-public class UniquePathsIII {
+public class _980UniquePathsIII {
 /*
 980. Unique Paths III
 On a 2-dimensional grid, there are 4 types of squares:
