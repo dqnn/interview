@@ -1,7 +1,7 @@
 package hatecode;
 
 import java.util.*;
-public class BraceExpansionII {
+public class _1096BraceExpansionII {
 /*
 1096. Brace Expansion II
 Grammar can best be understood through simple examples:

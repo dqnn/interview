@@ -1,7 +1,7 @@
 package hatecode;
 
 import java.util.*;
-class BraceExpansion {
+public class _1097BraceExpansion {
 /*
 1087. Brace Expansion
 A string S represents a list of words.

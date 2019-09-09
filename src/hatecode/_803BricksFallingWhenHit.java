@@ -1,5 +1,5 @@
 package hatecode;
-public class BricksFallingWhenHit {
+public class _803BricksFallingWhenHit {
     /*
      * 803. Bricks Falling When Hit We have a grid of 1s and 0s; the 1s in a cell
      * represent bricks. A brick will not drop if and only if it is directly

@@ -1,7 +1,7 @@
 package hatecode;
 
 import java.util.*;
-public class BulbSwitcherII {
+public class _672BulbSwitcherII {
 /*
 672. Bulb Switcher II
 

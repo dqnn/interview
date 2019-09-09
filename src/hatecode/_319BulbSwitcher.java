@@ -8,7 +8,7 @@ package hatecode;
  * Date : Dec, 2017
  * Description : 319. Bulb Switcher
  */
-public class BulbSwitcher {
+public class _319BulbSwitcher {
     /**
      * There are n bulbs that are initially off. You first turn on all the bulbs.
      * Then, you turn off every second bulb. On the third round, you toggle every third bulb
