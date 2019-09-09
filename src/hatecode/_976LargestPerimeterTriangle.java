@@ -15,12 +15,13 @@ Example 1:
 Input: [2,1,2]
 Output: 5
 */
-    //thinking process: O(n)/O(1)
+    //thinking process: O(nlgn)/O(1)
     //given an array each element means the len of triangle, so 
     //return the largest perimeter, 
     
     //how we think about if we sort, we can see 
-    //A[i]>= A[i-1] >=A[i-2],so 
+    //A[i]>= A[i-1] >=A[i-2],so if we cannot find the adjacent 3 elements can 
+    //form a triangle, then others cannot
     public int largestPerimeter(int[] A) {
         if(A == null || A.length <3) return 0;
         
