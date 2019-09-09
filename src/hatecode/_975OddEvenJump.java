@@ -25,13 +25,45 @@ public class _975OddEvenJump {
      * 
      * Return the number of good starting indexes.
      */
-    //thinking process, if we can get last element, then problem solved, but each 
+    //thinking process,  
+    //the problem is to say we want to jump from i->j, we have two options, 
+    //even jump, find the smallest [i+1, len],2,4,6
+    //odd jump, find the largest in [i+1, len] 1,3,5
+    
+    //if we can get last element, then problem solved, but each 
     //element has fixed steps to last one, 
     //so if we read from front to end, then we know it is not good because because we 
     //duplicate compare from each start,so we read from behind, if we know position which 
     //could reach last then we do not need to go to last 
     
     //as the requirement, treeMap is perfect match here
+    
+/*
+ * Take [5,1,3,4,2] as example.
+
+If we start at 2,
+we can jump either higher first or lower first to the end,
+because we are already at the end.
+higher(2) = true
+lower(2) = true
+
+If we start at 4,
+we can't jump higher, higher(4) = false
+we can jump lower to 2, lower(4) = higher(2) = true
+
+If we start at 3,
+we can jump higher to 4, higher(3) = lower(4) = true
+we can jump lower to 2, lower(3) = higher(2) = true
+
+If we start at 1,
+we can jump higher to 2, higher(1) = lower(2) = true
+we can't jump lower, lower(1) = false
+
+If we start at 5,
+we can't jump higher, higher(5) = false
+we can jump lower to 4, lower(5) = higher(4) = false
+
+ */
     public int oddEvenJumps(int[] A) {
         if (A == null || A.length < 1) return 0;
         int n  = A.length, res = 1;
