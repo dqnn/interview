@@ -25,6 +25,7 @@ Output: 7
     
     //this should be solved by sliding window
     public int subarraysDivByK(int[] A, int K) {
+        //because (sum + a)/K ->[1, K-1],so K slots
         int[] map = new int[K];
 		map[0] = 1;
         int count = 0, sum = 0;
