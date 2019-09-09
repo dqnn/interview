@@ -2,7 +2,9 @@
 import java.util.*;
 public class _975OddEvenJump {
     /*
-     * 975. Odd Even Jump You are given an integer array A. From some starting
+     * 975. Odd Even Jump 
+     * 
+     * You are given an integer array A. From some starting
      * index, you can make a series of jumps. The (1st, 3rd, 5th, ...) jumps in the
      * series are called odd numbered jumps, and the (2nd, 4th, 6th, ...) jumps in
      * the series are called even numbered jumps.
