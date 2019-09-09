@@ -64,7 +64,8 @@ we can jump lower to 4, lower(5) = higher(4) = false
     //could reach last then we do not need to go to last 
     
     //as the requirement, treeMap is perfect match here
-    
+    //even jumped, means first jump, you have to choose the smallest but larger than A[i]
+    //2nd jump you have to choose the biggest among the largest
     public int oddEvenJumps(int[] A) {
         if (A == null || A.length < 1) return 0;
         int n  = A.length, res = 1;
