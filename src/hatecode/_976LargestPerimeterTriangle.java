@@ -21,7 +21,10 @@ Output: 5
     
     //how we think about if we sort, we can see 
     //A[i]>= A[i-1] >=A[i-2],so if we cannot find the adjacent 3 elements can 
-    //form a triangle, then others cannot
+    //form a triangle, then others cannot, because 
+    //1. others are smaller than A[i-2], then not largest
+    //2. if A[i] bigger than rest two, then smaller will be more smaller
+    //so the only possible combination are adjacent numbers after sort
     public int largestPerimeter(int[] A) {
         if(A == null || A.length <3) return 0;
         
