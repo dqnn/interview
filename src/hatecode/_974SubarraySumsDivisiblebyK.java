@@ -15,7 +15,13 @@ Output: 7
 */
     //prefix-sum, O(n)/O(n)
     //thinking process:
-    //
+    //given an array, return how many contious subarray which their sum
+    //can divisible by K, 
+    
+    //we use prefix sum to store sum = sum % K, when 0-i,
+    //another interval, 0-j, we can also have sum =sum % K,
+    //if those 2 are equals, then i+1->j is a qualified subarray 
+    //so the map is to store sum and its count
     public int subarraysDivByK(int[] A, int K) {
         int[] map = new int[K];
 		map[0] = 1;
