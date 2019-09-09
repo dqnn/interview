@@ -1,5 +1,5 @@
 package hatecode;
-public class DistributeCoinsInBinaryTree {
+public class _979DistributeCoinsInBinaryTree {
 /*
 979. Distribute Coins in Binary Tree
 Given the root of a binary tree with N nodes, each node in the tree has node.val coins, and there are N coins total.
