@@ -1,7 +1,7 @@
 package hatecode;
 import java.util.*;
 import java.util.stream.*;
-public class VerticalOrderTraversalOfABinaryTree {
+public class _987VerticalOrderTraversalOfABinaryTree {
 /*
 987. Vertical Order Traversal of a Binary Tree
 Given a binary tree, return the vertical order traversal of its nodes values.
