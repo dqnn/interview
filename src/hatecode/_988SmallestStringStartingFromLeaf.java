@@ -23,7 +23,8 @@ Output: "dba"
     
     //so when we visit the tree from root to leaf, we append string 
     //as prefix to previous strings, so each node consider as tree,
-    //
+    //top down, each node will give answer when the node is root, which
+    //is the smaller lex string, until we return back to root
     public String smallestFromLeaf(TreeNode root) {
         return dfs(root, "");
     }
