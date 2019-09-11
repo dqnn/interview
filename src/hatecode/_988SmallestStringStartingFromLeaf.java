@@ -9,6 +9,8 @@ Given the root of a binary tree, each node has a value from 0 to 25 representing
 Find the lexicographically smallest string that starts at a leaf of this tree and ends at the root.
 
 (As a reminder, any shorter prefix of a string is lexicographically smaller: for example, "ab" is lexicographically smaller than "aba".  A leaf of a node is a node that has no children.)
+Input: [0,1,2,3,4,3,4]
+Output: "dba"
 */
     //thinking process:
     
