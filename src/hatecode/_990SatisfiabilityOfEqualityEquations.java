@@ -13,7 +13,13 @@ Example 1:
 Input: ["a==b","b!=a"]
 Output: false
 */
+    //thinking process:
+    //the problem is to given an string array, which only contains 
+    //a == b or a != b two forms but it contains multiple chars, like a , b c..
+    //so return true if we can find such values to satisfy all constains
     
+    //so we use union find to find all equals chars, with two loops on the array, 
+    //we can apply all constains
     public boolean equationsPossible(String[] es) {
         if(es == null || es.length < 1) return false;
         DSU dsu = new DSU(26);
