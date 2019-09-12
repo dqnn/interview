@@ -1,6 +1,6 @@
 package hatecode;
 import java.util.*;
-public class SubarraysWithKDifferentIntegers {
+public class _992SubarraysWithKDifferentIntegers {
     /*
      * 992. Subarrays with K Different Integers 
      * Given an array A of positive
