@@ -42,15 +42,15 @@ Output: 2
     }
     //optimized solution, O(n)/O(n)
     //isFlipped array is to 
-    public int minKBitFlips(int[] A, int K) {
+    public static int minKBitFlips(int[] A, int K) {
         int n = A.length, flipped = 0, res = 0;
         int[] isFlipped = new int[n];
         for (int i = 0; i < A.length; ++i) {
             if (i >= K)
                 flipped ^= isFlipped[i - K];
+            
             if (flipped == A[i]) {
-                if (i + K > A.length)
-                    return -1;
+                if (i + K > A.length) return -1;
                 isFlipped[i] = 1;
                 flipped ^= 1;
                 res++;
@@ -76,5 +76,10 @@ Output: 2
         }
         return res;
     }
+     
+     public static void main(String[] args) {
+         int[] in = {1,1,0,0};
+         System.out.println(minKBitFlips(in, 2));
+     }
     
 }
