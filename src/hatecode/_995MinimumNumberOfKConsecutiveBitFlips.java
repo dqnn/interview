@@ -42,6 +42,7 @@ Output: 2
     }
     //optimized solution, O(n)/O(n)
     //isFlipped array record the start digit of the array, 
+    //isFlipped[i] = 1 means we fliped digits from i->i+K,
     //
     public static int minKBitFlips(int[] A, int K) {
         int n = A.length, flipped = 0, res = 0;
