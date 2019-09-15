@@ -59,7 +59,7 @@ Output: 2
         }
         return res;
     }
-    
+
     //O(n)/O(1)
      public int minKBitFlips_Best(int[] A, int K) {
         int cur = 0, res = 0, n = A.length;
