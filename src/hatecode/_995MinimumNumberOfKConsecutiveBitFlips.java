@@ -18,7 +18,12 @@ Output: 2
     //thinking process: O(nK)/O(1) brute force
     //Given an array A and integer K, A only conains 0 or 1, K <= A.length,
     //so each time we can flip K length of sun array in A, return the min steps
-    //which we can 
+    //which A are all 1s, other return -1;
+    
+    //so brute force is we change K digit in one loop if first is 0,
+    //we only need to work on A.length - K items, 
+    //after this ,we need to check last K digits still have 0, if yes, then we 
+    //return -1.
     public int minKBitFlips_BF(int[] A, int K) {
         if(A == null || A.length < 1) return 0;
         
