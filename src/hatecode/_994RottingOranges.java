@@ -35,7 +35,6 @@ Return the minimum number of minutes that must elapse until no cell has a fresh 
         
         int r = g.length, c = g[0].length;
         
-        
         Queue<Node> q = new LinkedList<>();
         int total = 0;
         for(int i = 0; i< r;i++) {
