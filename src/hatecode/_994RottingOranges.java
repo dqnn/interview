@@ -1,6 +1,6 @@
 package hatecode;
 import java.util.*;
-public class RottingOranges {
+public class _994RottingOranges {
 /*
 994. Rotting Oranges
 In a given grid, each cell can have one of three values:
