@@ -48,8 +48,7 @@ Output: 2
         int n = A.length, flipped = 0, res = 0;
         int[] isFlipped = new int[n];
         for (int i = 0; i < A.length; ++i) {
-            if (i >= K)
-                flipped ^= isFlipped[i - K];
+            if (i >= K) flipped ^= isFlipped[i - K];
             
             if (flipped == A[i]) {
                 if (i + K > A.length) return -1;
