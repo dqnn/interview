@@ -40,9 +40,10 @@ Output: 2
         
         return res;
     }
-    //optimized solution, O(n)/O(n)
+    //optimized solution, O(n)/O(n), Greedy
     //isFlipped array record the start digit of the array, 
-    //isFlipped[i] = 1 means we flipped digits from i->i+K,
+    //isFlipped[i] = 1 means for position i, A[i] whether flipped,
+    //1 means flipped, 0 means not flipped
     //flipped means for index i, 1 means already flipped, 0 means no
     public static int minKBitFlips(int[] A, int K) {
         int n = A.length, flipped = 0, res = 0;
