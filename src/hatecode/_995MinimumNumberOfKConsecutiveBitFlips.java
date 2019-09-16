@@ -43,13 +43,13 @@ Output: 2
     //optimized solution, O(n)/O(n)
     //isFlipped array record the start digit of the array, 
     //isFlipped[i] = 1 means we flipped digits from i->i+K,
-    //
+    //flipped means for index i, 1 means already flipped, 0 means no
     public static int minKBitFlips(int[] A, int K) {
         int n = A.length, flipped = 0, res = 0;
         int[] isFlipped = new int[n];
         for (int i = 0; i < A.length; ++i) {
             if (i >= K) flipped ^= isFlipped[i - K];
-            
+            //i need to flip again, 
             if (flipped == A[i]) {
                 if (i + K > A.length) return -1;
                 isFlipped[i] = 1;
