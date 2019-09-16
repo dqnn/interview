@@ -24,7 +24,7 @@ Explanation: A = [1,4,2,3], B = [1,4,2,3,5]
 */
     //O(n)/O(n)
     //insert a node into a maximum tree， given a tree and a value, 
-    //insert the value as a node into the max tree, 
+    //insert the value as a node into the max tree, the rules are the same as 654
     
     //max tree is root is greater than any child, 
     
