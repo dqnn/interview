@@ -50,7 +50,13 @@ Output: 2
         int[] isFlipped = new int[n];
         for (int i = 0; i < A.length; ++i) {
             if (i >= K) flipped ^= isFlipped[i - K];
-            //i need to flip again, 
+            //this is tricky code, 
+            //flipped ^ A[i] == 0 means we need to flip, 
+            //1. flipped = 1, A[i] = 1 means we already flipped A[i] before
+            //and now it should be 0 because original value is 1,so we need flip
+            //2. flipped = 1, A[i] = 0, we do not need flip since we make A[i] from 0 to 1
+            //3. flipped = 0, A[i] = 1, we do not need flip
+            //4. flipped = 0, A[i] = 0, already flipped ,and it now 0, we need flip to 1
             if (flipped == A[i]) {
                 if (i + K > A.length) return -1;
                 isFlipped[i] = 1;
