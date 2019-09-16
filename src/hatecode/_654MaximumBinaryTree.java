@@ -1,6 +1,6 @@
 package hatecode;
 import java.util.*;
-public class MaximumBinaryTree {
+public class _654MaximumBinaryTree {
 /*
 654. Maximum Binary Tree
 Given an integer array with no duplicates. A maximum tree building on this array 
@@ -76,7 +76,7 @@ Then, add the node for the current number to the stack.
  */
     
     //thinking process, 
-    //construct a maxium binary tree given an array
+    //construct a maximum binary tree given an array
     //from recursive we know how we can contruct the tree, so iteratively, we can use a Deque, 
     //the reason why we use deque because we want to return the bottom node of a stack which is the root node
     //scan the array from left to right, 
