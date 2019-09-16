@@ -23,7 +23,8 @@ Output: [5,4,null,1,3,null,null,2]
 Explanation: A = [1,4,2,3], B = [1,4,2,3,5]
 */
     //O(n)/O(n)
-    //insert a node into a maxium tree
+    //insert a node into a maximum tree， given a tree and a value, 
+    //inert the value as a node into the max tree, 
     
     //thinking process:
     
