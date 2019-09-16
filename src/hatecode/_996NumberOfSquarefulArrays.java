@@ -51,6 +51,44 @@ Output: 2
         return c * c == a + b; //why this works... but a + b == c * c not work... precision???
     }
     
-    
-    
+    //O(n*2^n)/O(n*2^n)
+    //TODO:to understand this
+    public int numSquarefulPerms_DP(int[] a) {
+        int n = a.length;
+        Arrays.sort(a);
+        
+        boolean[][] s = new boolean[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                int sum = a[i] + a[j];
+                int sqrt = (int)(Math.sqrt(sum)+0.1);
+                s[i][j] = sqrt * sqrt == sum;
+            }
+        }
+        
+        int ans = 0;
+        int[][] dp = new int[1<<n][n];
+        for(int i=0;i<n;){
+            dp[1<<i][i] = 1;
+            while(i+1 < n && a[i+1] == a[i]) i++;
+            i++;
+        }
+        
+        for(int i=0;i<(1<<n);i++){
+            for(int j=0;j<n;j++){
+                if(dp[i][j] > 0){
+                    for(int k=0;k<n;k++){
+                        if((i&(1<<k))==0 && s[j][k]){
+                            if(k==0 || a[k] != a[k-1] || (i&(1<<(k-1))) > 0){
+                                dp[i|(1<<k)][k] += dp[i][j];
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        for(int i=0;i<n;i++) ans += dp[(1<<n)-1][i];
+        return ans;
+    }
 }
