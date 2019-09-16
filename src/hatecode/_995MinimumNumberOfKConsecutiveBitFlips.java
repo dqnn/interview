@@ -67,7 +67,8 @@ Output: 2
         return res;
     }
 
-    //O(n)/O(1)
+    //O(n)/O(1),
+    //further optimization, TODO: undetstand it
      public int minKBitFlips_Best(int[] A, int K) {
         int cur = 0, res = 0, n = A.length;
         for (int i = 0; i < n; ++i) {
