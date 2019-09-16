@@ -84,7 +84,7 @@ Then, add the node for the current number to the stack.
     //then we should attach cur to bigger node in stack, peek().right = cur; 
     //every time, we should push node into stack
     
-    //last return botton node of the deque
+    //last return bottom node of the deque
     public TreeNode constructMaximumBinaryTree(int[] A) {
         Deque<TreeNode> dq = new LinkedList<>();
         for(int i = 0; i < A.length; i++) {
