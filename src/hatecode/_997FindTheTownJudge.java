@@ -1,5 +1,5 @@
 package hatecode;
-public class FindTheTownJudge {
+public class _997FindTheTownJudge {
     /*
      * 997. Find the Town Judge 
      * In a town, there are N people labelled from 1 to N.
