@@ -2,7 +2,8 @@ package hatecode;
 public class _998MaximumBinaryTreeII {
 /*
 998. Maximum Binary Tree II
-We are given the root node of a maximum tree: a tree where every node has a value greater than any other value in its subtree.
+We are given the root node of a maximum tree: a tree where every node has a value greater than any other 
+value in its subtree.
 
 Just as in the previous problem, the given tree was constructed from an list A (root = Construct(A)) recursively with the following Construct(A) routine:
 
@@ -33,7 +34,7 @@ Explanation: A = [1,4,2,3], B = [1,4,2,3,5]
     //in right subtree, else it should be new root, and previous root should be its left child
     public TreeNode insertIntoMaxTree_Recursive(TreeNode root, int val) {
         if (root != null && root.val > val) {
-            root.right = insertIntoMaxTree(root.right, val);
+            root.right = insertIntoMaxTree_Recursive(root.right, val);
             return root;
         }
         //if biggest one, then we should mark this node as new root
