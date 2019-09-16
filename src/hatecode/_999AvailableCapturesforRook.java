@@ -15,7 +15,9 @@ The rook can capture the pawns at positions b5, d6 and f5.
 */  
     //O(rc)/O(1)
     //thinking process:
-    //
+    //Given an aboard, it has only 1 rook, return how many paws it can capture, 
+    //so it can move with 4 directions and cannot move into the cell which has been 
+    //occupied
     public int numRookCaptures(char[][] b) {
         for (int i = 0; i < b.length; ++i)
             for (int j = 0; j < b[i].length; ++j)
