@@ -28,7 +28,12 @@ Output: [1,0]
     //Given a board nxn, 2D array stands for lamps, and all 
     //points on same x, y and both dial will be Illumination
     //
-    //we have a query coordination, we want to know 
+    //we have a query coordination, we want to know whether 
+    //the coordination is illuminated or not
+    //and after each query, the lamp will turned off in order
+    
+    //so this is like N queen questions
+    
     int[][] dirs = {{0,1}, {0,-1}, {1,0}, {-1,0}, {1,1}, {1,-1}, {-1,1}, {-1,-1}, {0,0}};
     
 	public int[] gridIllumination(int N, int[][] lamps, int[][] queries) {
