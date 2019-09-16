@@ -57,7 +57,7 @@ Because C.val < D.val, and C.val is at the left of D.val, C should become left c
        / \
      ...  D
          /
-        C
+        C // c is on the left of D
        / \
     ...   ...
 So to update the max binary tree for nums[0] ~ nums[i - 1], we need to know the 
@@ -76,6 +76,12 @@ Then, add the node for the current number to the stack.
  */
     
     //thinking process, 
+    //max number is the root, we cut the array into two parts, 
+    //left will become left tree, right will become right tree, so for each subtree
+    //even for sub tree, if it comes on the left, then it should be on left side, else 
+    //on right side, these are the rules
+    
+    
     //construct a maximum binary tree given an array
     //from recursive we know how we can contruct the tree, so iteratively, we can use a Deque, 
     //the reason why we use deque because we want to return the bottom node of a stack which is the root node
