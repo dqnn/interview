@@ -63,7 +63,10 @@ Output: [1,0]
             int x = queries[i][0];
             int y = queries[i][1];
             
-            ans[i] = (m1.getOrDefault(x, 0) > 0 || m2.getOrDefault(y, 0) > 0 || m3.getOrDefault(x-y, 0) > 0 || m4.getOrDefault(x+y, 0) > 0) ? 1 : 0;            
+            ans[i] = (m1.getOrDefault(x, 0) > 0 
+                    || m2.getOrDefault(y, 0) > 0 
+                    || m3.getOrDefault(x-y, 0) > 0 
+                    || m4.getOrDefault(x+y, 0) > 0) ? 1 : 0;            
             // switch off the lamps, if any
             for(int d=0; d<dirs.length; d++){
                 int x1 = x + dirs[d][0];
