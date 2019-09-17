@@ -34,7 +34,8 @@ Output: [1,0]
     
     //so this is like N queen questions
     
-    int[][] dirs = {{0,1}, {0,-1}, {1,0}, {-1,0}, {1,1}, {1,-1}, {-1,1}, {-1,-1}, {0,0}};
+    int[][] dirs = {{0,1}, {0,-1}, {1,0}, {-1,0}, {1,1}, 
+                    {1,-1}, {-1,1}, {-1,-1}, {0,0}};
     
 	public int[] gridIllumination(int N, int[][] lamps, int[][] queries) {
         //rowNumer, lamp count
@@ -67,7 +68,8 @@ Output: [1,0]
                     || m2.getOrDefault(y, 0) > 0 
                     || m3.getOrDefault(x-y, 0) > 0 
                     || m4.getOrDefault(x+y, 0) > 0) ? 1 : 0;            
-            // switch off the lamps, if any
+            // switch off the lamps, change the 5 maps
+            //we have 8 directions but with origin point
             for(int d=0; d<dirs.length; d++){
                 int x1 = x + dirs[d][0];
                 int y1 = y + dirs[d][1];
