@@ -19,6 +19,7 @@ Example 1:
 Input: ["bella","label","roller"]
 Output: ["e","l","l"]
 */
+    //thinking process:
     //
     class Count {
         int idx;
