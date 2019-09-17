@@ -71,7 +71,7 @@ Output: [1,0]
             for(int d=0; d<dirs.length; d++){
                 int x1 = x + dirs[d][0];
                 int y1 = y + dirs[d][1];
-                if(m5.containsKey(N*x1 + y1) && m5.get(N*x1 + y1)){
+                if (m5.containsKey(N*x1 + y1) && m5.get(N*x1 + y1)) {
                     // the lamp is on, turn it off, so decrement the count of the lamps
                     m1.put(x1, m1.getOrDefault(x1, 1) - 1);
                     m2.put(y1, m2.getOrDefault(y1, 1) - 1);
