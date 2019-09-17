@@ -1,4 +1,6 @@
 package hatecode;
+
+import java.util.*;
 public class _1002FindCommonCharacters {
 /*
 1002. Find Common Characters
