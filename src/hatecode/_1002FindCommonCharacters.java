@@ -20,9 +20,16 @@ Example 1:
 Input: ["bella","label","roller"]
 Output: ["e","l","l"]
 */
-    //thinking process:
+    //thinking process: O(n)/O(1)
     
-    //
+    //given array of strings A, we want to know how many chars are in
+    //each string, if same char showed twice in each string, then store it in result
+    
+    //we use count[26] to record all characters appear count
+    //for each string, we use a new array cnt[26] vector to update
+    //original count[26], it is like bloom filter, and we keep the smaller number
+    
+    //last we use nCopies to the result list
     public List<String> commonChars(String[] A) {
         int[] count = new int[26]; 
         Arrays.fill(count, Integer.MAX_VALUE);
@@ -35,8 +42,7 @@ Output: ["e","l","l"]
         IntStream.range('a', 'z' + 1).forEach(c ->  res.addAll(Collections.nCopies(count[c - 'a'], "" + (char)c)));
         return res;
     }
-    
-    
+
     class Count {
         int idx;
         int count;
