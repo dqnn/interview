@@ -1,7 +1,7 @@
 package hatecode;
 
 import java.util.*;
-public class ConstructBinarySearchTreeFromPreorderTraversal {
+public class _1008ConstructBinarySearchTreeFromPreorderTraversal {
 /*
 1008. Construct Binary Search Tree from Preorder Traversal
 Return the root node of a binary search tree that matches the given preorder traversal.
