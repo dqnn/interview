@@ -7,14 +7,13 @@ Every non-negative integer N has a binary representation.  For example, 5 can be
 The complement of a binary representation is the number in binary you get when changing every 1 to a 0 and 0 to a 1.  For example, the complement of "101" in binary is "010" in binary.
 
 For a given number N in base-10, return the complement of it's binary representation as a base-10 integer.
-
- 
-
 Example 1:
 
 Input: 5
 Output: 2
 */
+    //thinking process:
+    //
     public int bitwiseComplement(int n) {
         if (n == 0) return 1;
         StringBuilder sb = new StringBuilder();
