@@ -4,6 +4,7 @@ import java.util.*;
 public class _1010PairsOfSongsWithTotalDurationsDivisibleBy60 {
 /*
 1010. Pairs of Songs With Total Durations Divisible by 60
+
 In a list of songs, the i-th song has a duration of time[i] 
 seconds. 
 
