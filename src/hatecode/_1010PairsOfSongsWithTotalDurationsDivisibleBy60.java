@@ -23,8 +23,9 @@ Explanation: Three pairs have a total duration divisible by 60:
 (time[1] = 20, time[4] = 40): total duration 60
 */
 
-    //thinking process:
-    //
+    //thinking process: O(n)/O(n)
+    //given an integer array time, each integer means a song time,
+    //return the pairs of songs which their time during is divided by 60
     public int numPairsDivisibleBy60(int[] time) {
         if (time == null || time.length < 1) return 0;
         
