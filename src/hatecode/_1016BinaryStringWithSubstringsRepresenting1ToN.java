@@ -11,6 +11,8 @@ Example 1:
 Input: S = "0110", N = 3
 Output: true
 */
+    //thinking process:
+    //
     public boolean queryString(String s, int N) {
         if (s == null || s.length() < 1) return false;
         
