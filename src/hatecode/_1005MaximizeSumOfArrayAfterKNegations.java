@@ -19,8 +19,11 @@ Input: A = [4,2,3], K = 1
 Output: 5
 Explanation: Choose indices (1,) and A becomes [4,-2,3].
 */
-    //thinking process:
-    //
+    //thinking process:O(nlgn)/O(n)
+    //given an array A, we choose index i,A[i]->-A[i],
+    //after K times, return the largest sum of the whole array
+    
+    //we sort the array, change the smallest number always
     public int largestSumAfterKNegations(int[] A, int K) {
         if (A == null ||A.length < 1) return 0;
         
