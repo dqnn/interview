@@ -1,6 +1,6 @@
 package hatecode;
 import java.util.*;
-public class NumberOfEnclaves {
+public class _1020NumberOfEnclaves {
 /*
 1020. Number of Enclaves
 Given a 2D array A, each cell is 0 (representing sea) or 1 (representing land)
