@@ -33,6 +33,8 @@ We count digit by digit, so it's O(logN)
 
 */
 
+    //thinking process: 
+    //
     public int numDupDigitsAtMostN(int N) {
         // Transform N + 1 to arrayList
         ArrayList<Integer> L = new ArrayList<Integer>();
