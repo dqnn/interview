@@ -13,7 +13,7 @@ Input: [1,0,1,0,1,0,1]
 Output: 22
 */
     //thinking process:
-    //
+    //straight forward
     public int sumRootToLeaf(TreeNode root) {
         return dfs(root, 0);
     }
