@@ -1,6 +1,6 @@
 package hatecode;
 import java.util.*;
-public class SmallestIntegerDivisibleByK {
+public class _1015SmallestIntegerDivisibleByK {
 /*
 1015. Smallest Integer Divisible by K
 Given a positive integer K, you need find the smallest positive integer N such that N is divisible by K, and N only contains the digit 1.
