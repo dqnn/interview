@@ -30,7 +30,6 @@ Explanation: Three pairs have a total duration divisible by 60:
         if (time == null || time.length < 1) return 0;
         
         int res = 0;
-        
         Map<Integer, List<Integer>> map = new HashMap<>();
         for(int temp : time) {
             int left = temp % 60;
