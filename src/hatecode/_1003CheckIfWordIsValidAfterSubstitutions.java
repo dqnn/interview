@@ -19,8 +19,6 @@ Example 1:
 Input: "aabcbc"
 Output: true
 */
-    
-    
     //brute force, O(n^2)
     public boolean isValid_BF(String s) {
         if (s == null || s.length() < 3) return false;
