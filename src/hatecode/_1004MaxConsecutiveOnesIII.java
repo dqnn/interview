@@ -16,6 +16,7 @@ Explanation:
 [1,1,1,0,0,1,1,1,1,1,1]
 */
     
+    //thinking process: 
     //two pointers templates
     //first we try best to move right, then get the max length,
     //then we will try to recover, we move to right as right as possible
