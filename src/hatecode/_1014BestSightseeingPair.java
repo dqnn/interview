@@ -2,9 +2,13 @@ package hatecode;
 public class _1014BestSightseeingPair {
 /*
 1014. Best Sightseeing Pair
-Given an array A of positive integers, A[i] represents the value of the i-th sightseeing spot, and two sightseeing spots i and j have distance j - i between them.
+Given an array A of positive integers, A[i] represents the value 
+of the i-th sightseeing spot, and two sightseeing spots i and j 
+have distance j - i between them.
 
-The score of a pair (i < j) of sightseeing spots is (A[i] + A[j] + i - j) : the sum of the values of the sightseeing spots, minus the distance between them.
+The score of a pair (i < j) of sightseeing spots is 
+(A[i] + A[j] + i - j) : the sum of the values of the sightseeing 
+spots, minus the distance between them.
 
 Return the maximum score of a pair of sightseeing spots.
 
