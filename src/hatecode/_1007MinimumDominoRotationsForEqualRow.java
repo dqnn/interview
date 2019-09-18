@@ -1,6 +1,6 @@
 package hatecode;
 import java.util.*;
-public class MinimumDominoRotationsForEqualRow {
+public class _1007MinimumDominoRotationsForEqualRow {
 /*
 1007. Minimum Domino Rotations For Equal Row
 In a row of dominoes, A[i] and B[i] represent the top and bottom halves of the i-th domino.  (A domino is a tile with two numbers from 1 to 6 - one on each half of the tile.)
@@ -18,6 +18,8 @@ Output: -1
 
 */
 
+    //thinking process:
+    //
     public int minDominoRotations(int[] A, int[] B) {
         int n = A.length;
         for (int i = 0, a = 0, b = 0; i < n && (A[i] == A[0] || B[i] == A[0]); ++i) {
