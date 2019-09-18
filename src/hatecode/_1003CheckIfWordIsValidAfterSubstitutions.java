@@ -30,7 +30,6 @@ Output: true
     //use a stack to match, when we meet 'c', we pop a and b, 
     //thinking process: 
     //given "abc" = X + Y, so X + abc + Y will be valid, 
-    //
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
         for (char c: s.toCharArray()) {
