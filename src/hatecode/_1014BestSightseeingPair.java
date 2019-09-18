@@ -20,6 +20,7 @@ Output: 11
 Explanation: i = 0, j = 2, A[i] + A[j] + i - j = 8 + 5 + 0 - 2 = 11
 */
     //thinking process:
+    //
     public int maxScoreSightseeingPair(int[] A) {
         int res = 0, cur = 0;
         for (int a: A) {
