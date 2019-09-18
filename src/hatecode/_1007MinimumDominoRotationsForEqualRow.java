@@ -18,7 +18,6 @@ Output: -1
 
 */
 
-
 /*
 Solution 3
 Find intersection set s of {A[i], B[i]}
