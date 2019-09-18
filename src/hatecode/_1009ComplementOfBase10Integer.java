@@ -20,7 +20,10 @@ Input: 5
 Output: 2
 */
     //thinking process:
-    //
+    //given one integer, like 5->101, we 1->0, 0->1, so 5->101->010,
+    //then we return 2
+    
+    //we change 5->bianry string first, then we just calculate the results
     public int bitwiseComplement(int n) {
         if (n == 0) return 1;
         StringBuilder sb = new StringBuilder();
