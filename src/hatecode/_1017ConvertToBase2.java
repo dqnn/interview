@@ -14,6 +14,7 @@ Input: 2
 Output: "110"
 Explantion: (-2) ^ 2 + (-2) ^ 1 = 2
 */
+    //thinking process: 
     public String baseNeg2(int N) {
         String res = "";
         while (N != 0) {
