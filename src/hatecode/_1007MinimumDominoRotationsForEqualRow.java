@@ -18,22 +18,7 @@ Output: -1
 
 */
 
-    //thinking process:
-    //
-    public int minDominoRotations(int[] A, int[] B) {
-        int n = A.length;
-        for (int i = 0, a = 0, b = 0; i < n && (A[i] == A[0] || B[i] == A[0]); ++i) {
-            if (A[i] != A[0]) a++;
-            if (B[i] != A[0]) b++;
-            if (i == n - 1) return Math.min(a, b);
-        }
-        for (int i = 0, a = 0, b = 0; i < n && (A[i] == B[0] || B[i] == B[0]); ++i) {
-            if (A[i] != B[0]) a++;
-            if (B[i] != B[0]) b++;
-            if (i == n - 1) return Math.min(a, b);
-        }
-        return -1;
-    }
+
 /*
 Solution 3
 Find intersection set s of {A[i], B[i]}
@@ -42,6 +27,7 @@ s.size = 1, one and only one result.
 s.size = 2, it means all dominos are [a,b] or [b,a], try either one.
 s.size > 2, impossible.
 */
+    //thinking process:
     //interview friendly, so the problem is to say, given two arrays, A[i] and B[i], they are top and bottom
     //sides for one domino, so find the min flip to make one sides all have same value
     public int minDominoRotations_Better(int[] A, int[] B) {
@@ -55,6 +41,22 @@ s.size > 2, impossible.
         }
         //s may be empty or only 1 element
         for (int i : s) return Math.min(A.length - countA[i], B.length - countB[i]);
+        return -1;
+    }
+    
+    //
+    public int minDominoRotations(int[] A, int[] B) {
+        int n = A.length;
+        for (int i = 0, a = 0, b = 0; i < n && (A[i] == A[0] || B[i] == A[0]); ++i) {
+            if (A[i] != A[0]) a++;
+            if (B[i] != A[0]) b++;
+            if (i == n - 1) return Math.min(a, b);
+        }
+        for (int i = 0, a = 0, b = 0; i < n && (A[i] == B[0] || B[i] == B[0]); ++i) {
+            if (A[i] != B[0]) a++;
+            if (B[i] != B[0]) b++;
+            if (i == n - 1) return Math.min(a, b);
+        }
         return -1;
     }
 }
