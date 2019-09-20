@@ -18,7 +18,9 @@ Input: [1,0,1,0,1,0,1]
 Output: 22
 */
     //thinking process:
-    //straight forward
+    //straight forward we walk from root to leaf, each time we store 
+    //the current value, next = next * 2 + cur.val
+    //
     public int sumRootToLeaf(TreeNode root) {
         return dfs(root, 0);
     }
@@ -26,6 +28,9 @@ Output: 22
     public int dfs(TreeNode root, int val) {
         if (root == null) return 0;
         val = val * 2 + root.val;
-        return root.left == root.right ? val : dfs(root.left, val) + dfs(root.right, val);
+        //reference are the same, means the same leaf node, note: this 
+        //is not binary tree, they have the merge case
+        return root.left == root.right ? 
+                val : dfs(root.left, val) + dfs(root.right, val);
     }
 }
