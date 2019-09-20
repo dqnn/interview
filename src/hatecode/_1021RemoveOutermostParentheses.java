@@ -18,6 +18,10 @@ Input: "(()())(())"
 Output: "()()()"
 */
     //thinking process: the input S is valid, we want to remove 
+    //the problem is to say: given a valid parenthese string s, for each substring valid parenthese, if we removed the outest parenthese
+ // the rest still valid, just return it. the primitive string of parenthese is to say it is the cleanest, no way to remove any parenthese, 
+ //return result is all primitive valid parethese strings
+ // 
     //outest parentness, like ()()->""
     //this is used opened as indicator we can remove outest parentness
     public String removeOuterParentheses(String S) {
