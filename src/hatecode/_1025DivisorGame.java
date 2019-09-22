@@ -24,7 +24,7 @@ Output: true
     //return true if and only if first player wins
     
     //dp[i] means if alice move, true is win, false is lose
-    //
+    //this is the same as word breaker
     public boolean divisorGame(int n) {
         boolean[] dp = new boolean[n +1];
         dp[0] = false;
