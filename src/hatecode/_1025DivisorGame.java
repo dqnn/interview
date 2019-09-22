@@ -4,7 +4,8 @@ public class _1025DivisorGame {
 1025. Divisor Game
 Alice and Bob take turns playing a game, with Alice starting first.
 
-Initially, there is a number N on the chalkboard.  On each player's turn, that player makes a move consisting of:
+Initially, there is a number N on the chalkboard.  
+On each player's turn, that player makes a move consisting of:
 
 Choosing any x with 0 < x < N and N % x == 0.
 Replacing the number N on the chalkboard with N - x.
@@ -18,7 +19,9 @@ Input: 2
 Output: true
 */
     //thinking process:
-    //
+    //given a number N, two players, everyone will 
+    // choose any number 0<x<N && N % x == 0, then N->N - x, 
+    //return true if and only if first player wins
     
     //dp[i] means if alice move, true is win, false is lose
     public boolean divisorGame(int n) {
