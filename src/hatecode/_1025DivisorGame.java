@@ -31,6 +31,7 @@ Output: true
         dp[1] = false;
         for(int i = 2; i<=n; i++) {
             for(int j = 1; j<i;j++) {
+                //this means 
                 if (i % j == 0 && !dp[i -j]) {
                     dp[i] = true;
                     break;
