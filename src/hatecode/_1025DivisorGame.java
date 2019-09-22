@@ -31,7 +31,9 @@ Output: true
         dp[1] = false;
         for(int i = 2; i<=n; i++) {
             for(int j = 1; j<i;j++) {
-                //this means 
+                //this means for 1 number j, 1<= j < i, 
+                // i % j == 0 and !dp[i-j] means from 1->i -j, first
+                //player lose
                 if (i % j == 0 && !dp[i -j]) {
                     dp[i] = true;
                     break;
