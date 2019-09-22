@@ -1,5 +1,5 @@
 package hatecode;
-class DivisorGame {
+public class _1025DivisorGame {
 /*
 1025. Divisor Game
 Alice and Bob take turns playing a game, with Alice starting first.
@@ -17,6 +17,9 @@ Example 1:
 Input: 2
 Output: true
 */
+    //thinking process:
+    //
+    
     //dp[i] means if alice move, true is win, false is lose
     public boolean divisorGame(int n) {
         boolean[] dp = new boolean[n +1];
