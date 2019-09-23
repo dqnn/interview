@@ -1,7 +1,7 @@
 package hatecode;
 
 import java.util.*;
-public class LongestArithmeticSequence {
+public class _1027LongestArithmeticSequence {
     /*
      * 1027. Longest Arithmetic Sequence 
      * Given an array A of integers, return the
