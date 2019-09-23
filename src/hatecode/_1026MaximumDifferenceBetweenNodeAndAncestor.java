@@ -11,6 +11,15 @@ Input: [8,3,10,1,6,null,14,null,null,4,7,13]
 Output: 7
 
 */
+    //thinking process:
+    //given a binary tree, find max diff between two nodes A and B, A is ancestor of B
+    
+    //so assume we have have the function, like helper() and we are processing one node
+    //how can we figure out the max diff for this sub tree?
+    //we need a context which has the max and min in from up tree, and downtree, 
+    //we could have the info for above tree and how can get the info for down tree, dfs,
+    //so we use min and max to record the max and min info, every time we compare to current node, 
+    //if we meet leaf node, which means we go to an end, so we just return max - min
     public int maxAncestorDiff(TreeNode root) {
         if(root == null) return 0;
         return helper(root, root.val, root.val);
