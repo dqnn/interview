@@ -59,7 +59,7 @@ Output: [1,2,5,3,null,6,null,4,null,7]
         return stack.pop();
     }
     
-    
+    //this is most common solution
     int index = 0;
     public TreeNode recoverFromPreorder(String S) {
         return helper(S, 0);
