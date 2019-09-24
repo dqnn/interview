@@ -23,9 +23,11 @@ Output: [1,2,5,3,null,6,null,4,null,7]
     //thinking process: O(n)/O(n) n = s.length()
     //given a string, preorder visit this tree, and we form a dash as level, 
     //level 1 is 1 dash, level 2 is two dashes, if there is only node, that node is 
-    //guarnteed as left child,
+    //guarnteed as left child, return the root of the tree
     
-    //
+    //the difficulty of this problem is we have 2 dimensions problems,
+    //the sequence is only pre-ordered, and we have dashes to show which level it is 
+    //so we need a structure to store levels where we are
     public TreeNode recoverFromPreorder_Best(String s) {
         if(s == null || s.length() < 1) return null;
         int level = 0, var = 0;
