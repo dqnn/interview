@@ -39,6 +39,7 @@ Output: [1,2,5,3,null,6,null,4,null,7]
             for (var = 0; i < s.length() && s.charAt(i) != '-'; i++) {
                 var = var * 10 + (s.charAt(i) - '0');
             }
+            //
             while(stack.size() > level) {
                 stack.pop();
             }
