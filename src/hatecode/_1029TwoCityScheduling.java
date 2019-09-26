@@ -24,7 +24,7 @@ Output: 110
     //we want to sort by how much saved if we go to b instead of a
     //[[10,20],[30,200],[400,50],[30,20]]->
     //10, 170, -350, -10, we just need to loop first half, because we can know 
-    //3rd person if 
+    //so -350,-10 to b, since we saved most, 
     public int twoCitySchedCost(int[][] costs) {
         Arrays.sort(costs, (a, b)->((a[1] - a[0]) - (b[1] - b[0])));
         int cost = 0;
