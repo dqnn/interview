@@ -17,6 +17,10 @@ Output: 20
 */
     //thinking process：
     //similiar to stock buy  2
+    //the problem is to say, given one array A, two integer L and M,
+    //we want to find two sub array length is L and M, non-overlapping,
+    //their sum is max, return the max
+    
     //
     public int maxSumTwoNoOverlap(int[] A, int L, int M) {
         if(A == null || A.length < 1) return 0;
