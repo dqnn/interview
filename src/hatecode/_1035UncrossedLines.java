@@ -1,5 +1,5 @@
 package hatecode;
-class Solution {
+public class _1035UncrossedLines {
 /*
 1035. Uncrossed Lines
 We write the integers of A and B (in the order they are given) on two separate horizontal lines.
