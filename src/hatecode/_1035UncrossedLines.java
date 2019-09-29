@@ -13,6 +13,12 @@ Note that a connecting lines cannot intersect even at the endpoints: each number
 Return the maximum number of connecting lines we can draw in this way.
 */
     //thinking process:O(rc)/O(rc)
+    
+    //the problems is to say: given two integer array A and B,
+    //we draw a line if A[i]=B[j], but the line cannot intersect, so return max 
+    //lines we can draw.
+    
+    //LCS problem ,the longest common subsequence
     public int maxUncrossedLines(int[] A, int[] B) {
         if(A == null || A.length < 1 || B == null || B.length < 1) return 0;
         
