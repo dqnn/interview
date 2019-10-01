@@ -21,7 +21,7 @@ Output: false
     //thinking process: depends on the length of blocked = B, O(B^2)/O(B^2)
     //
     final int MAX_VISIT = 20000;
-	
+
     public boolean isEscapePossible(int[][] blocked, int[] source, int[] target) {
         Set<String> blockedSet = new HashSet<>();
         for (int[] ij : blocked) {
