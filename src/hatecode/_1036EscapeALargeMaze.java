@@ -4,7 +4,8 @@ import java.util.*;
 public class _1036EscapeALargeMaze {
 /*
 1036. Escape a Large Maze
-In a 1 million by 1 million grid, the coordinates of each grid square are (x, y) with 0 <= x, y < 10^6.
+In a 1 million by 1 million grid, the coordinates of each grid square 
+are (x, y) with 0 <= x, y < 10^6.
 
 We start at the source square and want to reach the target square.  Each move, we can walk to a 4-directionally adjacent square in the grid that isn't in the given list of blocked squares.
 
