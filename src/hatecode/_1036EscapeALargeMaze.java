@@ -19,7 +19,8 @@ Input: blocked = [[0,1],[1,0]], source = [0,0], target = [0,2]
 Output: false
 */
     //thinking process: depends on the length of blocked = B, O(B^2)/O(B^2)
-    //
+    //we need to track from source to target and target to source
+    //the reason is 
     final int MAX_VISIT = 20000;
 
     public boolean isEscapePossible(int[][] blocked, int[] source, int[] target) {
