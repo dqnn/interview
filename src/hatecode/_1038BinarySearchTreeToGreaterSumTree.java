@@ -17,6 +17,8 @@ Output: [30,36,21,36,35,26,15,null,null,null,33,null,null,null,8]
     //same as 538. Convert BST to Greater Tree
     //thinking process:
     //given a bianry search tree, to construct a new tree, like node.val =6, find a sum value x = sum(nodes which value >=6), the example is 6+7+8 = 21
+    
+    //this is excellent solution, we use a variable pre to store the right tree results
     //
     int pre = 0;
     public TreeNode bstToGst(TreeNode root) {
