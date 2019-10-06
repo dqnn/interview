@@ -26,7 +26,16 @@ Or, we can move 9 -> 5, 4 -> 6 for two moves to finish the game.
 */
     //thinking process: 
     
-    //the problem is to say: 
+    //the problem is to say: given an array A, each value means a position which
+    //i-th stone placed, so you can move the endpoint stone to any other positions to
+    //make the stone not end point stone.
+    
+    //return [min_move, max_move]
+    //[7,4,9], min_move: we can only move 4->8, 
+    //for max move, we can move 9 to 6, then 7->5,
+    //so the last situation is that they are consective on one line
+    
+    //
    public int[] numMovesStonesII(int[] A) {
         Arrays.sort(A);
         int i = 0, n = A.length, low = n;
