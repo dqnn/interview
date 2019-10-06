@@ -26,7 +26,7 @@ Or, we can move 9 -> 5, 4 -> 6 for two moves to finish the game.
 */
     //thinking process: 
     
-    //
+    //the problem is to say: 
    public int[] numMovesStonesII(int[] A) {
         Arrays.sort(A);
         int i = 0, n = A.length, low = n;
