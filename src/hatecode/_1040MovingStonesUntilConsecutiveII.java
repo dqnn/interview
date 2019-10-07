@@ -51,18 +51,24 @@ Or, we can move 9 -> 5, 4 -> 6 for two moves to finish the game.
         //this part is the key and it is tricky
         
         //we use a max length of n - 1 to measure the empty slots in the 
-        //window, for example，[7,4,9]->[4,7,9]
+        //window, 
+        
+        //
+        //[7,4,9]->[4,7,9]
         //the min move, 4->8, 
         //[6,5,4,3,10]->[3,4,5,6,10]
         //so we have 7, 8, 9 unoccupied slot, then 3->8, 10->7 to end for min
         //9 is empty but outside, so the min = 2
+        //
         int l = 0;
         for (int r = 0; r < n; ++r) {
             while (A[r] - A[l] >= n) ++l;
-            //if the window length = n - 1 or we have n -2 position
+            //if it is consective and only 1 outside the window,
+            //we return 2
             if (r - l + 1 == n - 1 
                     && A[r] - A[l] == n - 2)
                 low = Math.min(low, 2);
+            //if not consective, then we 
             else low = Math.min(low, n - (r - l + 1));
         }
         return new int[] {low, high};
