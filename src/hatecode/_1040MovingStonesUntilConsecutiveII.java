@@ -55,7 +55,7 @@ Or, we can move 9 -> 5, 4 -> 6 for two moves to finish the game.
         //the min move, 4->8, 
         //[6,5,4,3,10]->[3,4,5,6,10]
         //so we have 7, 8, 9 unoccupied slot, then 3->8, 10->7 to end for min
-        // 
+        //9 is empty but outside, so the min = 2
         int l = 0;
         for (int r = 0; r < n; ++r) {
             while (A[r] - A[l] >= n) ++l;
