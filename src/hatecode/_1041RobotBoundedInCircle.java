@@ -28,6 +28,7 @@ When repeating these instructions, the robot remains in the circle of radius 2 c
     //x ==0 && y == 0 || i > 0, i > 0 because 
     public boolean isRobotBounded(String ins) {
         int x = 0, y = 0, i = 0;
+        //U R D L
         int[][] dir = {{0, 1}, {1, 0}, {0, -1},{-1, 0}};
         for (int j = 0; j < ins.length(); ++j)
             if (ins.charAt(j) == 'R') i = (i + 1) % 4;
