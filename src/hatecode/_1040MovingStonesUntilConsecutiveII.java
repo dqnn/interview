@@ -68,7 +68,7 @@ Or, we can move 9 -> 5, 4 -> 6 for two moves to finish the game.
             if (r - l + 1 == n - 1 
                     && A[r] - A[l] == n - 2)
                 low = Math.min(low, 2);
-            //if not consective, then we have n-(r-l+1) steps
+            //if not consective, TODO: then we have n-(r-l+1) steps
             //example [1,4,7,9,20,30]，当前i为0，j为1，那么将[7,9,20,30]与[1,4]连续只需要4步
             else low = Math.min(low, n - (r - l + 1));
         }
