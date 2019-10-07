@@ -22,15 +22,18 @@ The robot moves from (0,0) to (0,2), turns 180 degrees, and then returns to (0,0
 When repeating these instructions, the robot remains in the circle of radius 2 centered at the origin.
 */
     
-    //thinking process:
+    //thinking process:O(n)/O(1)
+    //given a dir string, G means direct, L->left, R->right, so 
+    //we start in a infinite board, we walk as ins, can we have a circle?
+    
     //
     public boolean isRobotBounded(String ins) {
-        int x = 0, y = 0, i = 0, d[][] = {{0, 1}, {1, 0}, 
-                                          {0, -1},{-1, 0}};
+        int x = 0, y = 0, i = 0;
+        int[][] dir = {{0, 1}, {1, 0}, {0, -1},{-1, 0}};
         for (int j = 0; j < ins.length(); ++j)
             if (ins.charAt(j) == 'R') i = (i + 1) % 4;
             else if (ins.charAt(j) == 'L') i = (i + 3) % 4;
-            else x += d[i][0]; y += d[i][1];
+            else x += dir[i][0]; y += dir[i][1];
             
         return x == 0 && y == 0 || i > 0;
     }
