@@ -35,7 +35,13 @@ Or, we can move 9 -> 5, 4 -> 6 for two moves to finish the game.
     //for max move, we can move 9 to 6, then 7->5,
     //so the last situation is that they are consective on one line
     
-    //so 
+    //so for the max possible move, we have two options, 
+    //a. we can move first into the middle = A[n-1] - A[1] - n + 2
+    //b. we can move last into the middle = A[n-2] - A[0] -n + 2
+    //because we can always find a move if there is empty position
+    
+    //for the min possible move, we use a sliding window from left, 
+    //
    public int[] numMovesStonesII(int[] A) {
         Arrays.sort(A);
         int i = 0, n = A.length, low = n;
