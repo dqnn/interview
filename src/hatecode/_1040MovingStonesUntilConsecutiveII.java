@@ -44,15 +44,18 @@ Or, we can move 9 -> 5, 4 -> 6 for two moves to finish the game.
     //
    public int[] numMovesStonesII(int[] A) {
         Arrays.sort(A);
-        int i = 0, n = A.length, low = n;
+        int n = A.length, low = n;
         int high = Math.max(A[n - 1] - A[1] - n + 2, 
                             A[n - 2] - A[0] - n + 2);
-        for (int j = 0; j < n; ++j) {
-            while (A[j] - A[i] >= n) ++i;
-            if (j - i + 1 == n - 1 && A[j] - A[i] == n - 2)
+        //n-sliding window to find the possible min move
+        //
+        int l = 0;
+        for (int r = 0; r < n; ++r) {
+            while (A[r] - A[l] >= n) ++l;
+            if (r - l + 1 == n - 1 && A[r] - A[l] == n - 2)
                 low = Math.min(low, 2);
             else
-                low = Math.min(low, n - (j - i + 1));
+                low = Math.min(low, n - (r - l + 1));
         }
         return new int[] {low, high};
     }
