@@ -51,7 +51,10 @@ Or, we can move 9 -> 5, 4 -> 6 for two moves to finish the game.
         //this part is the key and it is tricky
         
         //we use a length of n - 1 to measure the empty slots in the 
-        //window, so 
+        //window, for example，[7,4,9]->[4,7,9]
+        //the min move, 4->8, 
+        //[6,5,4,3,10]->[3,4,5,6,10]
+        //so we have 7, 8, 9 unoccupied slot, then 
         int l = 0;
         for (int r = 0; r < n; ++r) {
             while (A[r] - A[l] >= n) ++l;
