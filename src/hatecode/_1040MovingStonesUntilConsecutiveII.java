@@ -35,11 +35,12 @@ Or, we can move 9 -> 5, 4 -> 6 for two moves to finish the game.
     //for max move, we can move 9 to 6, then 7->5,
     //so the last situation is that they are consective on one line
     
-    //
+    //so 
    public int[] numMovesStonesII(int[] A) {
         Arrays.sort(A);
         int i = 0, n = A.length, low = n;
-        int high = Math.max(A[n - 1] - n + 2 - A[1], A[n - 2] - A[0] - n + 2);
+        int high = Math.max(A[n - 1] - A[1] - n + 2, 
+                            A[n - 2] - A[0] - n + 2);
         for (int j = 0; j < n; ++j) {
             while (A[j] - A[i] >= n) ++i;
             if (j - i + 1 == n - 1 && A[j] - A[i] == n - 2)
