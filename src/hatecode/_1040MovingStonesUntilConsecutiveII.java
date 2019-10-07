@@ -48,12 +48,16 @@ Or, we can move 9 -> 5, 4 -> 6 for two moves to finish the game.
         int high = Math.max(A[n - 1] - A[1] - n + 2, 
                             A[n - 2] - A[0] - n + 2);
         //n-sliding window to find the possible min move
-        //
+        //this part is the key and it is tricky
+        
+        //we use a length of n - 1 to measure the empty slots in the 
+        //window, so 
         int l = 0;
         for (int r = 0; r < n; ++r) {
             while (A[r] - A[l] >= n) ++l;
             //if the window length = n - 1 or we have n -2 position
-            if (r - l + 1 == n - 1 && A[r] - A[l] == n - 2)
+            if (r - l + 1 == n - 1 
+                    && A[r] - A[l] == n - 2)
                 low = Math.min(low, 2);
             else low = Math.min(low, n - (r - l + 1));
         }
