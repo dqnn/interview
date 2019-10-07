@@ -24,7 +24,8 @@ When repeating these instructions, the robot remains in the circle of radius 2 c
     //given a dir string, G means direct, L->left, R->right, so 
     //we start in a infinite board, we walk as ins, can we have a circle?
     
-    //
+    //we start from (i, j)->(x, y), so just need to check whether 
+    //x ==0 && y == 0 || i > 0, i > 0 because 
     public boolean isRobotBounded(String ins) {
         int x = 0, y = 0, i = 0;
         int[][] dir = {{0, 1}, {1, 0}, {0, -1},{-1, 0}};
