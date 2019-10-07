@@ -52,7 +52,7 @@ Or, we can move 9 -> 5, 4 -> 6 for two moves to finish the game.
         int l = 0;
         for (int r = 0; r < n; ++r) {
             while (A[r] - A[l] >= n) ++l;
-            //
+            //if the window length = n - 1 or we have n -2 position
             if (r - l + 1 == n - 1 && A[r] - A[l] == n - 2)
                 low = Math.min(low, 2);
             else low = Math.min(low, n - (r - l + 1));
