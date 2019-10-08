@@ -31,6 +31,7 @@ When repeating these instructions, the robot remains in the circle of radius 2 c
         //U R D L
         int[][] dir = {{0, 1}, {1, 0}, {0, -1},{-1, 0}};
         for (int j = 0; j < ins.length(); ++j)
+            // (i + 1) % 4 means 
             if (ins.charAt(j) == 'R') i = (i + 1) % 4;
             else if (ins.charAt(j) == 'L') i = (i + 3) % 4;
             else x += dir[i][0]; y += dir[i][1];
