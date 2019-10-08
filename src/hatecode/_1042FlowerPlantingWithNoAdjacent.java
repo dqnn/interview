@@ -34,6 +34,7 @@ Output: [1,2,3]
             G.get(p[0] - 1).add(p[1] - 1);
             G.get(p[1] - 1).add(p[0] - 1);
         }
+        //
         int[] res = new int[N];
         for (int i = 0; i < N; i++) {
             int[] colors = new int[5];
