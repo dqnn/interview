@@ -22,6 +22,10 @@ Input: N = 3, paths = [[1,2],[2,3],[3,1]]
 Output: [1,2,3]
 */
   //thinking process: 
+    //given one integer N stands for flowers type, another 2D array
+    //stands for connected gardens, each garden has different typeof flowers
+    //so return one folower type as array for all gardens
+    
     //
     public int[] gardenNoAdj(int N, int[][] paths) {
         Map<Integer, Set<Integer>> G = new HashMap<>();
