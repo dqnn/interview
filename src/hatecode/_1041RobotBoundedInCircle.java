@@ -27,7 +27,7 @@ When repeating these instructions, the robot remains in the circle of radius 2 c
     //we start from (i, j)->(x, y), so just need to check whether 
     //x ==0 && y == 0 || i > 0, i > 0 because
     
-    //we suppose original dir is U, so 
+    //we suppose original dir is U, 
     public boolean isRobotBounded(String ins) {
         int x = 0, y = 0, i = 0;
         //U R D L
