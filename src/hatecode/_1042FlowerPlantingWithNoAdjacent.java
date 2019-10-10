@@ -31,7 +31,9 @@ Output: [1,2,3]
     //flowers, answer is guaranteed
     
     //we use map G to record each garden and corresponding neighbors,
-    //
+    //then suppose we have max 4 type of flowers, 1, 2, 3, 4
+    //then each time, we start from garden i, each time we remove all its neighbors
+    //then we get its first element as answer
     public int[] gardenNoAdj(int N, int[][] paths) {
         //add neighbors
         Map<Integer, Set<Integer>> G = new HashMap<>();
@@ -43,12 +45,11 @@ Output: [1,2,3]
         //
         int[] res = new int[N];
         for (int i = 0; i < N; i++) {
-            int[] colors = new int[5];
-            for (int j : G.get(i))
-                colors[res[j]] = 1;
-            for (int c = 4; c > 0; --c)
-                if (colors[c] == 0)
-                    res[i] = c;
+            Set<Integer> set = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+            for (int j : G.get(i)) {
+                 set.remove(res[j]);
+            }
+            res[i] = set.iterator().next();
         }
         return res;
     }
