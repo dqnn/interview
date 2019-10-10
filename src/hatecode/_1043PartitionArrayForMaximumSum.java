@@ -1,7 +1,7 @@
 package hatecode;
 
 import java.util.*;
-public class PartitionArrayForMaximumSum {
+public class _1043PartitionArrayForMaximumSum {
 /*
 1043. Partition Array for Maximum Sum
 Given an integer array A, you partition the array into (contiguous) subarrays of length at most K.  After partitioning, each subarray has their values changed to become the maximum value of that subarray.
