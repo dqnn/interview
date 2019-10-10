@@ -24,7 +24,7 @@ Output: [1,2,3]
   //thinking process: 
     //given one integer N stands for flowers type, another 2D array
     //stands for connected gardens, each garden has different typeof flowers
-    //so return one flower type as array for all gardens
+    //so return one possible flower type as array for all gardens
     
     //
     public int[] gardenNoAdj(int N, int[][] paths) {
