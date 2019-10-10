@@ -1,6 +1,7 @@
 package hatecode;
 
 import java.util.*;
+import java.util.stream.IntStream;
 public class _1042FlowerPlantingWithNoAdjacent {
 /*
 1042. Flower Planting With No Adjacent
@@ -26,10 +27,15 @@ Output: [1,2,3]
     //stands for connected gardens, each garden has different typeof flowers
     //so return one possible flower type as array for all gardens
     
+    //each garden has max =3 adjacent neibours, so if we have at least 4 type of 
+    //flowers, answer is guaranteed
+    
+    //we use map G to record each garden and corresponding neighbors,
     //
     public int[] gardenNoAdj(int N, int[][] paths) {
+        //add neighbors
         Map<Integer, Set<Integer>> G = new HashMap<>();
-        for (int i = 0; i < N; i++) G.put(i, new HashSet<>());
+        IntStream.range(0, N).forEach(i->G.put(i, new HashSet<>()));
         for (int[] p : paths) {
             G.get(p[0] - 1).add(p[1] - 1);
             G.get(p[1] - 1).add(p[0] - 1);
