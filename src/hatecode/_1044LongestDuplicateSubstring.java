@@ -34,6 +34,8 @@ Output: "ana"
         int l = 0;
         int r = S.length() - 1;
         int mid;
+        //if we find repeated substring then we move mid ->right, so to find a longer
+        //substring, if we cannot which means we should lower down the length
         while (l < r - 1) {
             mid = (l + r) / 2;
             if (searchForLength(S, mid) != null) {
@@ -50,6 +52,7 @@ Output: "ana"
         }
     }
     //search substring from [0, len]
+    //we use hash value as string value
     String searchForLength(String str, int len) {
         // rolling hash method
         if (len == 0) {
