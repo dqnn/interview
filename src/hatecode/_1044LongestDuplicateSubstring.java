@@ -73,6 +73,7 @@ Output: "ana"
             multiplier = (multiplier * base) % p;
         }
         // first substring
+        //TODO, just use string.hash() to rewrite this part code
         List<Integer> eqHashIds = new ArrayList<Integer>();
         eqHashIds.add(0);
         map.put(hash, eqHashIds);
