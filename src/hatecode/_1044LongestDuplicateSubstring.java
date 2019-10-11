@@ -72,28 +72,28 @@ Output: "ana"
         equalHashIdx.add(0);
         map.put(hash, equalHashIdx);
         // other substrings
-        int from = 0;
-        int to = len;
-        while (to < str.length()) {
-            hash = ((hash + p - multiplier * str.charAt(from++) % p) * base + str.charAt(to++)) % p;
+        int s = 0;
+        int e = len;
+        while (e < str.length()) {
+            hash = ((hash + p - multiplier * str.charAt(s++) % p) * base + str.charAt(e++)) % p;
             equalHashIdx = map.get(hash);
             if (equalHashIdx == null) {
                 equalHashIdx = new ArrayList<Integer>();
                 map.put(hash, equalHashIdx);
             } else {
                 for (int i0: equalHashIdx) {
-                    if (str.substring(from, to).equals(str.substring(i0, i0 + len))) {
+                    if (str.substring(s, e).equals(str.substring(i0, i0 + len))) {
                         return str.substring(i0, i0 + len);
                     }
                 }
             }
-            equalHashIdx.add(from);
+            equalHashIdx.add(s);
         }
         return null;
     }
     
     
-    
+    //fastest solution in lc, just for reference
     private class BSTNode {
         int low, high;
         BSTNode left, right;
