@@ -21,7 +21,8 @@ Output: "ana"
     //repeat 2 or more times, overlap is allowed
     //for example banana, we can see ana repeat 2 times even there overlap
     
-    //so
+    //so we use binary search to find the longest repeated substring, 
+    //
     public String longestDupSubstring(String S) {
         // edge case
         if (S == null) {
@@ -46,7 +47,7 @@ Output: "ana"
             return searchForLength(S, l);
         }
     }
-    
+    //search substirng from [0, len]
     String searchForLength(String str, int len) {
         // rolling hash method
         if (len == 0) {
@@ -58,6 +59,7 @@ Output: "ana"
         long p = (1 << 31) - 1;  // prime number
         long base = 256;
         long hash = 0;
+        //calculate the string hash
         for (int i = 0; i < len; ++i) {
             hash = (hash * base + str.charAt(i)) % p;
         }
