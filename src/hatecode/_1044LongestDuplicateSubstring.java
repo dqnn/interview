@@ -49,7 +49,7 @@ Output: "ana"
             return searchForLength(S, l);
         }
     }
-    //search substirng from [0, len]
+    //search substring from [0, len]
     String searchForLength(String str, int len) {
         // rolling hash method
         if (len == 0) {
