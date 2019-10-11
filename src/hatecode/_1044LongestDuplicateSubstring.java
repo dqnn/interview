@@ -6,7 +6,9 @@ public class _1044LongestDuplicateSubstring {
 1044. Longest Duplicate Substring
 Given a string S, consider all duplicated substrings: (contiguous) substrings of S that occur 2 or more times.  (The occurrences may overlap.)
 
-Return any duplicated substring that has the longest possible length.  (If S does not have a duplicated substring, the answer is "".)
+Return any duplicated substring that has the 
+longest possible length.  (If S does not have a 
+duplicated substring, the answer is "".)
 
  
 
@@ -15,7 +17,7 @@ Example 1:
 Input: "banana"
 Output: "ana"
 */
-    //thinking process:
+    //thinking process:O(nlgn)/O(n)
     
     //given a string s, mainly to find the longest substring which
     //repeat 2 or more times, overlap is allowed
@@ -68,26 +70,26 @@ Output: "ana"
             multiplier = (multiplier * base) % p;
         }
         // first substring
-        List<Integer> equalHashIdx = new ArrayList<Integer>();
-        equalHashIdx.add(0);
-        map.put(hash, equalHashIdx);
+        List<Integer> eqHashIds = new ArrayList<Integer>();
+        eqHashIds.add(0);
+        map.put(hash, eqHashIds);
         // other substrings
         int s = 0;
         int e = len;
         while (e < str.length()) {
             hash = ((hash + p - multiplier * str.charAt(s++) % p) * base + str.charAt(e++)) % p;
-            equalHashIdx = map.get(hash);
-            if (equalHashIdx == null) {
-                equalHashIdx = new ArrayList<Integer>();
-                map.put(hash, equalHashIdx);
+            eqHashIds = map.get(hash);
+            if (eqHashIds == null) {
+                eqHashIds = new ArrayList<Integer>();
+                map.put(hash, eqHashIds);
             } else {
-                for (int i0: equalHashIdx) {
+                for (int i0: eqHashIds) {
                     if (str.substring(s, e).equals(str.substring(i0, i0 + len))) {
                         return str.substring(i0, i0 + len);
                     }
                 }
             }
-            equalHashIdx.add(s);
+            eqHashIds.add(s);
         }
         return null;
     }
