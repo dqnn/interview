@@ -52,7 +52,8 @@ Output: "ana"
         }
     }
     //search substring from [0, len]
-    //we use hash value as string value
+    //we use hash value as string value, we use a function to calc
+    //the positive integer hash value 
     String searchForLength(String str, int len) {
         // rolling hash method
         if (len == 0) {
@@ -74,26 +75,28 @@ Output: "ana"
         }
         // first substring
         //TODO, just use string.hash() to rewrite this part code
-        List<Integer> eqHashIds = new ArrayList<Integer>();
-        eqHashIds.add(0);
-        map.put(hash, eqHashIds);
+        
+        //
+        List<Integer> idxList = new ArrayList<Integer>();
+        idxList.add(0);
+        map.put(hash, idxList);
         // other substrings
         int s = 0;
         int e = len;
         while (e < str.length()) {
             hash = ((hash + p - multiplier * str.charAt(s++) % p) * base + str.charAt(e++)) % p;
-            eqHashIds = map.get(hash);
-            if (eqHashIds == null) {
-                eqHashIds = new ArrayList<Integer>();
-                map.put(hash, eqHashIds);
+            idxList = map.get(hash);
+            if (idxList == null) {
+                idxList = new ArrayList<Integer>();
+                map.put(hash, idxList);
             } else {
-                for (int i0: eqHashIds) {
+                for (int i0: idxList) {
                     if (str.substring(s, e).equals(str.substring(i0, i0 + len))) {
                         return str.substring(i0, i0 + len);
                     }
                 }
             }
-            eqHashIds.add(s);
+            idxList.add(s);
         }
         return null;
     }
