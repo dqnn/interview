@@ -26,11 +26,15 @@ we combine 1 and 1 to get 0 so the array converts to [1] then that's the value o
 */
     //O(n)
     //thinking process:
-    //
-    public int lastStoneWeight_Best(int[] stones) {
+    //given an array  A, every time we choose two biggest number, 
+    //if they are the same, the two disappear, if not bigger-smaller
+    //return last or 0 if there is none
+    
+    //so
+    public int lastStoneWeight_Best(int[] A) {
         int[] buckets = new int[1001];
-        for (int i = 0; i < stones.length; i++) {
-            buckets[stones[i]]++;
+        for (int i = 0; i < A.length; i++) {
+            buckets[A[i]]++;
         }
 
         int slow = buckets.length - 1;   //start from the big to small
