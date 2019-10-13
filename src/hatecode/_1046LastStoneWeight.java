@@ -25,7 +25,7 @@ we combine 2 and 1 to get 1 so the array converts to [1,1,1] then,
 we combine 1 and 1 to get 0 so the array converts to [1] then that's the value of last stone.
 */
     //O(n)
-    public int lastStoneWeight(int[] stones) {
+    public int lastStoneWeight_Best(int[] stones) {
         int[] buckets = new int[1001];
         for (int i = 0; i < stones.length; i++) {
             buckets[stones[i]]++;
