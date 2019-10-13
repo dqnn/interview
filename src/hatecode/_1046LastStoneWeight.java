@@ -30,7 +30,8 @@ we combine 1 and 1 to get 0 so the array converts to [1] then that's the value o
     //if they are the same, the two disappear, if not bigger-smaller
     //return last or 0 if there is none
     
-    //so
+    //so we use PQ to note the biggest two numbers in the queue, then 
+    //
     public int lastStoneWeight_Best(int[] A) {
         int[] buckets = new int[1001];
         for (int i = 0; i < A.length; i++) {
