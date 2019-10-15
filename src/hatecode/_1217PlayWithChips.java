@@ -19,7 +19,7 @@ Example 1:
 Input: chips = [1,2,3]
 Output: 1
 */
-    //thinking process:
+    //thinking process:O(1)/O(1)
     //given an array A, each value in A reprents a position, we can move
     //any chips to +-2 position without any cost but +-1 with cost 1,
     //return the mini cost to move all to same position
@@ -28,7 +28,7 @@ Output: 1
     //we can see that if there are only two chips, one is odd ,another is even, then
     //it will be 1, suppose they can move to closest each other without cost
     //so above is the simplest model, we can move any chips to the two locations,
-    //
+    //the min steps are odd->even or even->odd, so we choose the smaller one
     public int minCostToMoveChips(int[] A) {
         if(A == null ||A.length < 1) return 0;
         
