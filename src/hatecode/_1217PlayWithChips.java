@@ -21,9 +21,13 @@ Output: 1
 */
     //thinking process:
     //given an array A, each value in A reprents a position, we can move
-    //any chips to +-2 postion without any cost but +-1 with cost 1,
+    //any chips to +-2 position without any cost but +-1 with cost 1,
     //return the mini cost to move all to same position
     
+    //so from the problem we can see moving between odd or even has no cost
+    //we can see that if there are only two chips, one is odd ,another is even, then
+    //it will be 1, suppose they can move to closest each other without cost
+    //so above is the simplest model, we can move any chips to the two locations,
     //
     public int minCostToMoveChips(int[] A) {
         if(A == null ||A.length < 1) return 0;
