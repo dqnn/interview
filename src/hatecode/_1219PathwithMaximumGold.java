@@ -43,16 +43,24 @@ Path to get the maximum gold, 9 -> 8 -> 7.
     //this one has one technical, BFS 2D array often use List<int[]> to remember
     //what should be stored
 
-    //
+    //we use cellTrace to track all visited cells into array
+    //we use last cellCellTrace & next cellTrace to know whether
+    //we can walk to this cell or not, because if it is 0 means we never visit,
+    //if not we can walk to this cell
+    
+    //another is we use Queue<int[]> as a technical to do BFS,
+    //the better part is it is easy to get the node status, but if we want to 
+    //know the path, then it is more difficult.
+    //TODO: add the path solution
     public int getMaximumGold(int[][] grid) {
         int ans = 0, m = grid.length, n = grid[0].length;
-        int[][] oneCellTrace = new int[m][n];
+        int[][] cellTrace = new int[m][n];
         Queue<int[]> q = new LinkedList<>();
-        for (int i = 0, goldCellId = 0; i < m; ++i) {
+        for (int i = 0, cellId = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (grid[i][j] > 0) {
-                    oneCellTrace[i][j] = 1 << goldCellId++;
-                    q.offer(new int[]{i, j, grid[i][j], oneCellTrace[i][j]});
+                    cellTrace[i][j] = 1 << cellId++;
+                    q.offer(new int[]{i, j, grid[i][j], cellTrace[i][j]});
                 }
             }
         }
@@ -62,8 +70,8 @@ Path to get the maximum gold, 9 -> 8 -> 7.
             ans = Math.max(sum, ans);
             for (int[] d: dirs) {
                 int r = i + d[0], c = j + d[1];
-                if (r >= 0 && r < m && c >= 0 && c < n && grid[r][c] > 0 && (trace & oneCellTrace[r][c]) == 0) {
-                    q.offer(new int[]{r, c, sum + grid[r][c], trace | oneCellTrace[r][c]});
+                if (r >= 0 && r < m && c >= 0 && c < n && grid[r][c] > 0 && (trace & cellTrace[r][c]) == 0) {
+                    q.offer(new int[]{r, c, sum + grid[r][c], trace | cellTrace[r][c]});
                 }
             }
         }
