@@ -42,8 +42,8 @@ Path to get the maximum gold, 9 -> 8 -> 7.
     
     //this one has one technical, BFS 2D array often use List<int[]> to remember
     //what should be stored
-    //
 
+    //
     public int getMaximumGold(int[][] grid) {
         int ans = 0, m = grid.length, n = grid[0].length;
         int[][] oneCellTrace = new int[m][n];
