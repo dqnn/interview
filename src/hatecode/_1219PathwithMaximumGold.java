@@ -26,6 +26,22 @@ Explanation:
 Path to get the maximum gold, 9 -> 8 -> 7.
 */
     //thinking process:O(4^k + m * n), k is cells
+    //the problem is to say: given an 2D array, each cell value means gold amount, you
+    //can start any cell to collect gold, but u cannot visit same cell twice and should not visit
+    //cell with no gold, so return max gold you can collect
+    
+    //so for this typical question, we can see there are multiple 
+    //follow ups: 
+    //1. the path and the max gold
+    //2. DFS/BFS
+    //3. complexity 
+    
+    //so brute force is to say we try every cell and dfs all max gold we can collect
+    //the better way is we use BFS, assume we start from every cell, 
+    //each time, we have 4 directions to collect. 
+    
+    //this one has one technical, BFS 2D array often use List<int[]> to remember
+    //what should be stored
     //
     private static final int[] d = {0, 1, 0, -1, 0};
     public int getMaximumGold(int[][] grid) {
