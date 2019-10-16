@@ -43,7 +43,7 @@ Path to get the maximum gold, 9 -> 8 -> 7.
     //this one has one technical, BFS 2D array often use List<int[]> to remember
     //what should be stored
     //
-    private static final int[] d = {0, 1, 0, -1, 0};
+
     public int getMaximumGold(int[][] grid) {
         int ans = 0, m = grid.length, n = grid[0].length;
         int[][] oneCellTrace = new int[m][n];
@@ -56,11 +56,12 @@ Path to get the maximum gold, 9 -> 8 -> 7.
                 }
             }
         }
+        int[][] dirs ={{0,1}, {0,-1}, {1, 0}, {-1, 0}};
         while (!q.isEmpty()) {
             int i = q.peek()[0], j = q.peek()[1], sum = q.peek()[2], trace = q.poll()[3];
             ans = Math.max(sum, ans);
-            for (int k = 0; k < 4; ++k) {
-                int r = i + d[k], c = j + d[k + 1];
+            for (int[] d: dirs) {
+                int r = i + d[0], c = j + d[1];
                 if (r >= 0 && r < m && c >= 0 && c < n && grid[r][c] > 0 && (trace & oneCellTrace[r][c]) == 0) {
                     q.offer(new int[]{r, c, sum + grid[r][c], trace | oneCellTrace[r][c]});
                 }
