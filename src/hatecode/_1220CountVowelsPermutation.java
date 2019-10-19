@@ -1,4 +1,6 @@
 package hatecode;
+
+import java.util.*;
 public class _1220CountVowelsPermutation {
 /*
 1220. Count Vowels Permutation
@@ -19,6 +21,14 @@ Example 1:
 Input: n = 1
 Output: 5
 */
+    
+    //thinking process: O(n)/O(n)
+    
+    //the problem is to say: given an integer n, and 5 vowels rules
+    //which means the next char rule, if we want a length =n string, how 
+    //many strings we can have
+    
+    //
     public int countVowelPermutation(int n) {
         if(n <= 0) return 0;
         
