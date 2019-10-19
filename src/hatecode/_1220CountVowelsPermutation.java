@@ -28,7 +28,11 @@ Output: 5
     //which means the next char rule, if we want a length =n string, how 
     //many strings we can have
     
-    //
+    //given such rules about string, we use dp[i][char] means how many i length
+    //strings there with last char is char, so for dp[i+1][char] we  can 
+    //infer from the rules, for example, 
+    //dp[2]['a'], so if last char is a, we can see there are e->a,i->a,u->a
+    //so use this to finish the work
     public int countVowelPermutation(int n) {
         if(n <= 0) return 0;
         
