@@ -18,7 +18,7 @@ Input: [2,7,4,1,8,1]
 Output: 1
 */
     
-    //thinking process: 
+    //thinking process: O(ns)/O(s) s= sum(A)
     //
     public int lastStoneWeightII(int[] A) {
         if(A == null || A.length < 1) return 0;
