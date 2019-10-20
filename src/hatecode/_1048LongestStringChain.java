@@ -26,6 +26,7 @@ Output: 4
     //so given array of strings, we would like to longest string chain which pre is 
     //next's predecessor
     
+    //so from the example, each next word length will +1. so we can easily think about 
     //
     public int longestStrChain(String[] words) {
         if(words == null || words.length < 1) return 0;
