@@ -19,6 +19,8 @@ Example 1:
 Input: ["a","b","ba","bca","bda","bdca"]
 Output: 4
 */
+    //thinking process:
+    //
     public int longestStrChain(String[] words) {
         if(words == null || words.length < 1) return 0;
         
