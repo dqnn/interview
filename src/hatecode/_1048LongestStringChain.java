@@ -20,6 +20,12 @@ Input: ["a","b","ba","bca","bda","bdca"]
 Output: 4
 */
     //thinking process:
+    //define a predecessor word, is that abc->abdc, then abc is abdc's 
+    //predecessor word, because we add d into abc, any palce in abc is working
+    
+    //so given array of strings, we would like to longest string chain which pre is 
+    //next's predecessor
+    
     //
     public int longestStrChain(String[] words) {
         if(words == null || words.length < 1) return 0;
