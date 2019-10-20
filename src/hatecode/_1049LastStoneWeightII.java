@@ -1,4 +1,5 @@
 package hatecode;
+import java.util.*;
 public class _1049LastStoneWeightII {
 /*
 1049. Last Stone Weight II
@@ -52,5 +53,23 @@ Output: 1
         for (int i = sumA / 2; i > 0; --i)
             if (dp[i]) return sumA - i - i;
         return 0;
+    }
+    
+    //interesting solutions
+    public int lastStoneWeightII_GoodOnes(int[] stones) {
+        Set<Integer> set = new HashSet<>();
+        set.add(stones[0]);
+        set.add(-stones[0]);
+        for(int i=1;i<stones.length;i++){
+            Set<Integer> set2 = new HashSet<>();
+            for(int item : set){
+                set2.add(item + stones[i]);
+                set2.add(item - stones[i]);
+            }
+            set = set2;
+        }
+        int min = Integer.MAX_VALUE;
+        for(int item : set) min = Math.min(Math.abs(item), min);
+        return min;
     }
 }
