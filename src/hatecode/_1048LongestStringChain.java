@@ -19,7 +19,7 @@ Example 1:
 Input: ["a","b","ba","bca","bda","bdca"]
 Output: 4
 */
-    //thinking process:
+    //thinking process: O(nlgn + nl^2)/O(nl), l = avg(w.length()), substring is O(n)
     //define a predecessor word, is that abc->abdc, then abc is abdc's 
     //predecessor word, because we add d into abc, any palce in abc is working
     
@@ -27,7 +27,10 @@ Output: 4
     //next's predecessor
     
     //so from the example, each next word length will +1. so we can easily think about 
-    //
+    //for each word w, like abc, we will add (bc,2), (ac,2),(ab,2) to map,
+    //so next time, if there is a word bcd, then bc can be its predecessor
+    
+    //we just need to remember the map is to remember that for previous all possible answers
     public int longestStrChain(String[] words) {
         if(words == null || words.length < 1) return 0;
         
