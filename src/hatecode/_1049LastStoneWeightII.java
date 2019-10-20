@@ -22,6 +22,8 @@ Output: 1
     //given an array of integers, we want to know for any two integers in array A
     //x ==y -> x and y will disappear, x !=y ->then it |y-x|
     //we want to know last stone weight, if the smallest possible 
+    
+    //
     public int lastStoneWeightII(int[] A) {
         if(A == null || A.length < 1) return 0;
         boolean[] dp = new boolean[1501];
