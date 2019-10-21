@@ -38,7 +38,6 @@ Output: 1
         j ranges from  {1..n}
 
     same as 494. Target Sum
-
     */
     public int lastStoneWeightII(int[] A) {
         if(A == null || A.length < 1) return 0;
