@@ -37,8 +37,8 @@ Output: 1
     */
     //thinking process： 
     //see above explanations
-    //the model is knapsack, weight is sum, so we want to know which sum between
-    //0 and 
+    //the model is knapsack, bag is sum, so we want to the max weight we can get 
+    //from stones
     public int lastStoneWeightII(int[] stones) {
         int sum = 0, S2 = 0;
         for (int s : stones) sum += s;
