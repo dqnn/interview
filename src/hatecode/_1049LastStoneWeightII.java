@@ -31,9 +31,11 @@ Output: 1
 
     ==> -> diff = S - 2 * S2  ==> minimize diff equals to  maximize S2 
 
-    Now we should find the maximum of S2 , range from 0 to S / 2, using dp can solve this
+    Now we should find the maximum of S2 , range from 0 to S / 2, 
+    using dp can solve this
 
-    dp[i][j]   = {true if some subset from 1st to j'th has a sum equal to sum i, false otherwise}
+    dp[i][j]   = {true if some subset from 1st to j'th has a sum 
+    equal to sum i, false otherwise}
         i ranges from (sum of all elements) {1..n}
         j ranges from  {1..n}
 
