@@ -41,7 +41,7 @@ Output: 1
 
     same as 494. Target Sum
     */
-    
+    //
     public int lastStoneWeightII(int[] stones) {
         int S = 0, S2 = 0;
         for (int s : stones) S += s;
