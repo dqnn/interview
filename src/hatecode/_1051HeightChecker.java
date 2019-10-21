@@ -19,6 +19,9 @@ Output: 3
     //the problem is to say: given an array of heights of students, they should be 
     //in non-decrease order, now find out how many are not in correct order, 
     //original problem has one issue that, do we need to find out 
+    //[1,2,1,2,1,1,1,2,1], if we sort and compare it would be 4, 
+    //but we can move each 2 to end of the queue, it would be 3, so definition of the problem
+    //would be how many elements are out of order
     public int heightChecker(int[] hs) {
         if(hs == null || hs.length < 1) return 0;
         
