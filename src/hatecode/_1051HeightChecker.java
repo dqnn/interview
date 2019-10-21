@@ -22,6 +22,11 @@ Output: 3
     //[1,2,1,2,1,1,1,2,1], if we sort and compare it would be 4, 
     //but we can move each 2 to end of the queue, it would be 3, so definition of the problem
     //would be how many elements are out of order
+    
+    //current solution is to get each integer frequency, then 
+    //we move from 1 to max, note while loop in for
+    //if we find hs[i] != curH means we found one not in correct place, so res++;
+    //and we need decrease the count because we visit the element already
     public int heightChecker(int[] hs) {
         if(hs == null || hs.length < 1) return 0;
         
