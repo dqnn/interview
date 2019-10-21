@@ -60,7 +60,12 @@ Output: 1
         return sum - 2 * S2;
     }
     
-    //interesting solutions
+    // brute force, but interesting brute force, it gave us one perspective
+    //to simulate all possible combination sum as array grows
+    //so suppose [1,2,3], first we add 1,-1 into set.
+    //then for 2, we +2 for each in set, 3,1, -2->[-1,-3], then->[-3,-1,1,3]
+    //continue, so we can see actually we are trying every combination sum and merge them
+    //
     public int lastStoneWeightII_GoodOnes(int[] stones) {
         Set<Integer> set = new HashSet<>();
         set.add(stones[0]);
