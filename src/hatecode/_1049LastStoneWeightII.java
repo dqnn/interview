@@ -18,12 +18,6 @@ Example 1:
 Input: [2,7,4,1,8,1]
 Output: 1
 */
-    
-    //thinking process: O(ns)/O(s) s= sum(A)
-    //given an array of integers, we want to know for any two integers in array A
-    //x ==y -> x and y will disappear, x !=y ->then it |y-x|
-    //we want to know last stone weight, if the smallest possible 
-    
     /**
     This question eaquals to partition an array into 2 subsets whose difference is minimal
     (1) S1 + S2  = S
@@ -41,7 +35,10 @@ Output: 1
 
     same as 494. Target Sum
     */
-    //
+    //thinking process： 
+    //see above explanations
+    //the model is knapsack, weight is sum, so we want to know which sum between
+    //0 and 
     public int lastStoneWeightII(int[] stones) {
         int sum = 0, S2 = 0;
         for (int s : stones) sum += s;
