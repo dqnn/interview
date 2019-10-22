@@ -17,6 +17,13 @@ Example 1:
 Input: customers = [1,0,1,2,1,1,7,5], grumpy = [0,1,0,1,0,1,0,1], X = 3
 Output: 16
 */
+    //thinking process: O(n)/O(1)
+    
+    //the problem is to say: a book store has customers[i] at i-th minute, customer will 
+    //leave at minute, grumpy[i] = 0 or 1 1 means grumpy then customer not satisfied, so 
+    //but they can have X not grumpy so return max customer satisified number
+    
+    //
     public int maxSatisfied(int[] customers, int[] grumpy, int X) {
         if(customers == null || customers.length< 1) return 0;
         int win = 0, maxSatisfied = 0, satisfied = 0;
