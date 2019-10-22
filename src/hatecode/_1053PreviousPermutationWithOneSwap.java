@@ -13,7 +13,9 @@ Output: [3,1,2]
 */
     //thinking process:O(n)/O(1)
     
-    //next permuation has some similiar thinking like this
+    //next permutation has some similiar thinking like this
+    
+    //
     public int[] prevPermOpt1(int[] A) {
         if(A == null || A.length < 1) return new int[0];
         int n = A.length, left = n - 2, right = n - 1, tmp;
