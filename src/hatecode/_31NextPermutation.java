@@ -107,6 +107,7 @@ public class _31NextPermutation {
             }
         }
     }
+    //
     public static void main(String[] args) {
         int[] in = {1,2,7,4,3,1}; // [1, 3, 1, 2, 4, 7]
         nextPermutation2(in);
