@@ -30,10 +30,11 @@ Output: 16
     
     //satisfied will record not grumpy customers amount
     //win will record if grumpy customer amount, 
-    //so if win size >=X, then we will remove first one
+    //so if win size >=X, then we will remove first one, so this is to compare 
+    //if window starts from each element, the biggest value, 
     public int maxSatisfied(int[] customers, int[] grumpy, int X) {
         if(customers == null || customers.length< 1) return 0;
-        int win = 0, maxSatisfied = 0, satisfied = 0;
+        int win = 0, maxSatisfiedInWin = 0, satisfied = 0;
         for(int i = 0; i< customers.length; i++) {
             if(grumpy[i] == 0) satisfied += customers[i];
             else win += customers[i];
@@ -41,9 +42,9 @@ Output: 16
             if(i >= X) {
                 win -= grumpy[i-X] * customers[i-X];
             }
-            maxSatisfied = Math.max(win, maxSatisfied);
+            maxSatisfiedInWin = Math.max(win, maxSatisfiedInWin);
         }
         
-        return satisfied + maxSatisfied;
+        return satisfied + maxSatisfiedInWin;
     }
 }
