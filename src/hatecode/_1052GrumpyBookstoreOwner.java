@@ -23,7 +23,7 @@ Output: 16
     //leave at minute, grumpy[i] = 0 or 1 1 means grumpy then customer not satisfied, so 
     //but they can have X not grumpy so return max customer satisified number
     
-    //
+    //so BF is 
     public int maxSatisfied(int[] customers, int[] grumpy, int X) {
         if(customers == null || customers.length< 1) return 0;
         int win = 0, maxSatisfied = 0, satisfied = 0;
