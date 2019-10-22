@@ -16,7 +16,7 @@ Output: [3,1,2]
     //next permutation has some similiar thinking like this
     //[3,2,1] return the previous smaller array, [3,1,2], the opposite of 31
     
-    //same thoughts process to 31,for
+    //same thoughts process to 31,
     public int[] prevPermOpt1(int[] A) {
         if(A == null || A.length < 1) return new int[0];
         
