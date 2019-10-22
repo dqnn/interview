@@ -14,18 +14,21 @@ Output: [3,1,2]
     //thinking process:O(n)/O(1)
     
     //next permutation has some similiar thinking like this
+    //[3,2,1] return the previous smaller array, [3,1,2], the opposite of 31
     
-    //
+    //same thoughts process to 31,for
     public int[] prevPermOpt1(int[] A) {
         if(A == null || A.length < 1) return new int[0];
+        
         int n = A.length, left = n - 2, right = n - 1, tmp;
         while (left >= 0  && A[left] <= A[left + 1]) left--;
+        
         if (left < 0) return A;
+        
         while (A[left] <= A[right]) right--;
         while (A[right - 1] == A[right]) right--;
         tmp = A[left]; A[left] = A[right]; A[right] = tmp;
         return A;
-        
     }
     
     
