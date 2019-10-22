@@ -10,7 +10,7 @@ import java.util.Arrays;
  * Date : Aug, 2018
  * Description : TODO
  */
-public class NextPermutation {
+public class _31NextPermutation {
     /**
      * 31. Next Permutation
      * Here are some examples. Inputs are in the left-hand column and 
@@ -76,14 +76,17 @@ public class NextPermutation {
     //interview friendly: 
     //thinking process: the problem is to find next permutation if they all sorted, if last one
     //return first permutation
-    //so 
+    //e.g. {1,2,7,4,3,1}
+    //first we want to find adjacent two digits left is smaller than right
+    
     public static void nextPermutation2(int[] nums) {
         //edge case
         if (nums == null || nums.length == 1) return;
 
         int end = nums.length -2;
         int j = end;
-        //we find the the pattern like 1,2,3, note j point to 2 and stop
+        //we find the the pattern like 1,2,3, 
+        //note j point to 2 and stop
         for(; j>=0 && nums[j+1] <= nums[j];) {
             j--;
         }
@@ -105,8 +108,8 @@ public class NextPermutation {
         }
     }
     public static void main(String[] args) {
-        int[] in = {1,2,7,4,3,1};
-        nextPermutation(in);
+        int[] in = {1,2,7,4,3,1}; // [1, 3, 1, 2, 4, 7]
+        nextPermutation2(in);
         System.out.println(Arrays.toString(in));
     }
 }
