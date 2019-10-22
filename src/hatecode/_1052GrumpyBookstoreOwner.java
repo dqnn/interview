@@ -23,7 +23,14 @@ Output: 16
     //leave at minute, grumpy[i] = 0 or 1 1 means grumpy then customer not satisfied, so 
     //but they can have X not grumpy so return max customer satisified number
     
-    //so BF is 
+    //so BF is we can try window at each start to test which is biggest gain. 
+    
+    //but that will be O(Xn),so we can improve a little bit by using a window
+    //win starts 1, if it bigger than X, then we remove first item in the window
+    
+    //satisfied will record not grumpy customers amount
+    //win will record if grumpy customer amount, 
+    //so if win size >=X, then we will remove first one
     public int maxSatisfied(int[] customers, int[] grumpy, int X) {
         if(customers == null || customers.length< 1) return 0;
         int win = 0, maxSatisfied = 0, satisfied = 0;
