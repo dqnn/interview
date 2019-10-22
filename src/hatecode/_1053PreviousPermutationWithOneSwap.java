@@ -27,7 +27,11 @@ Output: [3,1,2]
         
         while (A[left] <= A[right]) right--;
         while (A[right - 1] == A[right]) right--;
-        tmp = A[left]; A[left] = A[right]; A[right] = tmp;
+        
+        tmp = A[left]; 
+        A[left] = A[right]; 
+        A[right] = tmp;
+        
         return A;
     }
     
