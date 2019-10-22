@@ -76,6 +76,9 @@ public class _31NextPermutation {
     //interview friendly: 
     //thinking process: the problem is to find next permutation if they all sorted, if last one
     //return first permutation
+    
+    //1: if it is decreasing, then next is the increase sequence
+    //2: 
     //e.g. {1,2,7,4,3,1}
     //first we want to find adjacent two digits left is smaller than right
     
