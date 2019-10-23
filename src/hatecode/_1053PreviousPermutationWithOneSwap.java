@@ -23,14 +23,16 @@ Output: [3,1,2]
         if(A == null || A.length < 1) return new int[0];
         
         int n = A.length, left = n - 2, right = n - 1, tmp;
-        //looking for 1，2，6，5，4，1
+        //looking for 1，4，2，5，6，7, left = 1 and stop
         while (left >= 0  && A[left] <= A[left + 1]) left--;
-        
+        //means A is increasing sequence, so previous was itself
         if (left < 0) return A;
         
+        //look for 2,5,6,7, smaller than 4,right = 2
         while (A[left] <= A[right]) right--;
+        //process the equal value case, like 1,4,2,2,5,6,7
         while (A[right - 1] == A[right]) right--;
-        
+        //switch
         tmp = A[left]; 
         A[left] = A[right]; 
         A[right] = tmp;
