@@ -54,6 +54,7 @@ Output: [2,1,2,1,2,1]
         return res;
     }
     
+    //this is brute force solutions
     public int[] rearrangeBarcodes_BF(int[] barcodes) {
         if(barcodes == null || barcodes.length < 1) return barcodes;
         int[] res = new int[barcodes.length];
