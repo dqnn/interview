@@ -18,7 +18,9 @@ Output: [3,1,2]
     
     //same thoughts process to 31,
     
-    //
+    //the difference is 31 require re-sort on right part, this does not 
+    //sort, just switch will be enough, 
+   //the complexity is to think about the patterns
     public int[] prevPermOpt1(int[] A) {
         if(A == null || A.length < 1) return new int[0];
         
