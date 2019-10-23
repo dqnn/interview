@@ -15,20 +15,23 @@ Example 1:
 Input: [1,1,1,2,2,2]
 Output: [2,1,2,1,2,1]
 */
+    //thinking process : O(n)/O(n)
     
-    public int[] rearrangeBarcodes(int[] barcodes) {
-        if (barcodes == null || barcodes.length == 0) return barcodes;
-        Map<Integer, Integer> counter = new HashMap<>();
+    //this is like LRU thinking, 
+    public int[] rearrangeBarcodes(int[] b) {
+        if (b == null || b.length == 0) return b;
+        
+        Map<Integer, Integer> map = new HashMap<>();
         int max_fre = 0;
-        for (int num : barcodes) {
-            counter.put(num, counter.getOrDefault(num, 0) + 1);
-            if (counter.get(num) > max_fre) {
-                max_fre = counter.get(num);
-            }
+        for (int num : b) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+            max_fre = Math.max(max_fre, map.get(num));
         }
+        
         List<Integer>[] buckets = new ArrayList[max_fre + 1];
-        for (int num : counter.keySet()) {
-            int c = counter.get(num);
+        for (int num : map.keySet()) {
+            int c = map.get(num);
+            //to save some space
             if (buckets[c] == null) {
                 buckets[c] = new ArrayList<>();
             }
@@ -36,15 +39,14 @@ Output: [2,1,2,1,2,1]
         }
         
         int index = 0;
-        int[] res = new int[barcodes.length];
+        int[] res = new int[b.length];
         for (int i = max_fre; i >= 1; i--) {
-            List<Integer> b = buckets[i];
-            if (b == null) continue;
-            for (int num : b) {
+            if (buckets[i] == null) continue;
+            for (int num : buckets[i]) {
                 int j = i;
                 while (j > 0) {
                     res[index] = num;
-                    index = index + 2 < barcodes.length ? index + 2 : 1;
+                    index = index + 2 < b.length ? index + 2 : 1;
                     j--;
                 } 
             }
