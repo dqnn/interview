@@ -38,16 +38,19 @@ Output: [2,1,2,1,2,1]
             buckets[c].add(num);
         }
         //here is how we place the numbers:
-        //we have max_fre buckets, so 
-        int index = 0;
+        //we have max_fre buckets, so idx means the global pointer to current
+        //it jump by 2 every time, if reach end, then start from 1 then
+        //so we pick most fre bucket place the number every 2 slots 
+        
+        int idx = 0;
         int[] res = new int[b.length];
         for (int i = max_fre; i >= 1; i--) {
             if (buckets[i] == null) continue;
             for (int num : buckets[i]) {
                 int j = i;
                 while (j > 0) {
-                    res[index] = num;
-                    index = index + 2 < b.length ? index + 2 : 1;
+                    res[idx] = num;
+                    idx = idx + 2 < b.length ? idx + 2 : 1;
                     j--;
                 } 
             }
