@@ -16,8 +16,10 @@ Input: [1,1,1,2,2,2]
 Output: [2,1,2,1,2,1]
 */
     //thinking process : O(n)/O(n)
-    
-    //this is like LRU thinking, so 
+    //the problem is to say given an array b, each number means 
+    //barcode, so we need to re-arrange them so ajacent does not have
+    //same value,
+    //this is like LRU thinking, see 42, this is one way
     public int[] rearrangeBarcodes(int[] b) {
         if (b == null || b.length == 0) return b;
         
