@@ -37,7 +37,8 @@ Output: [2,1,2,1,2,1]
             }
             buckets[c].add(num);
         }
-        
+        //here is how we place the numbers:
+        //we have max_fre buckets, so 
         int index = 0;
         int[] res = new int[b.length];
         for (int i = max_fre; i >= 1; i--) {
