@@ -1,7 +1,7 @@
 package hatecode;
 
 import java.util.*;
-public class ShortestWayToFormString {
+public class _1055ShortestWayToFormString {
     /*
      * 1055. Shortest Way to Form String From any string, we can form a subsequence
      * of that string by deleting some number of characters (possibly no deletions).
