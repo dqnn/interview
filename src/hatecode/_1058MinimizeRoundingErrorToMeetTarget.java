@@ -20,6 +20,9 @@ Output: "1.000"
     //the problem is to say: given string array as float, you can 
     //round up (ceiling), round down (floor), if all these integer can sum to 
     //target then find out min of SUM(round(p) - p)
+    
+    //we use PQ to store ceiling(p) -p -(floor(p) - p), 
+    //so as we add to PQ, we use target - floor(p), res += p - low
     //
     public String minimizeError_Greedy(String[] prices, int target) {
         float res = 0;
