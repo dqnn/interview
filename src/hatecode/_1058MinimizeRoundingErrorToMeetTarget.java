@@ -17,6 +17,9 @@ Output: "1.000"
 */
     //thinking process: 
     
+    //the problem is to say: given string array as float, you can 
+    //round up (ceiling), round down (floor), if all these integer can sum to 
+    //target then find out min of SUM(round(p) - p)
     //
     public String minimizeError_Greedy(String[] prices, int target) {
         float res = 0;
