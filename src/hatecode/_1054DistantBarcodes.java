@@ -17,7 +17,7 @@ Output: [2,1,2,1,2,1]
 */
     //thinking process : O(n)/O(n)
     
-    //this is like LRU thinking, 
+    //this is like LRU thinking, so 
     public int[] rearrangeBarcodes(int[] b) {
         if (b == null || b.length == 0) return b;
         
