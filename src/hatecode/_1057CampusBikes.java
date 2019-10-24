@@ -1,7 +1,7 @@
 package hatecode;
 
 import java.util.*;
-public class CampusBikes {
+public class _1057CampusBikes {
 /*
 1057. Campus Bikes
 On a campus represented as a 2D grid, there are N workers and M bikes, with N <= M. Each worker and bike is a 2D coordinate on this grid.
