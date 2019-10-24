@@ -16,6 +16,8 @@ Input: prices = ["0.700","2.800","4.900"], target = 8
 Output: "1.000"
 */
     //thinking process: 
+    
+    //
     public String minimizeError_Greedy(String[] prices, int target) {
         float res = 0;
         PriorityQueue<Double> diffHeap = new PriorityQueue<>();
