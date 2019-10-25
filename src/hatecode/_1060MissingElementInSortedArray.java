@@ -31,9 +31,8 @@ Output: 5
             //A[mid] - A[l]，how many numbers 
             //mid -l, how many numbers in A,
             int cnt = A[mid] - A[l] - (mid - l);
-            if (cnt >= k) {
-                r =mid;
-            } else {
+            if (cnt >= k) r =mid;
+            else {
                 l = mid;
                 k -= cnt;
             }
