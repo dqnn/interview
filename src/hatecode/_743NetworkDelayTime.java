@@ -1,7 +1,7 @@
 package hatecode;
 import java.util.*;
 import java.util.stream.*;
-public class NetworkDelayTime {
+public class _743NetworkDelayTime {
 /*
 743. Network Delay Time
 There are N network nodes, labelled 1 to N.
