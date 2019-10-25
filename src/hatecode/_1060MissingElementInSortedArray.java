@@ -24,6 +24,7 @@ Output: 5
         
         int l = 0, r = A.length - 1;
         int m = 0;
+        //binary search finally 
         while (l + 1 < r) {
             m = l + (r - l) / 2;
             //this means how many missed numbers between 
@@ -36,7 +37,7 @@ Output: 5
                 l = m;k -= cnt;
             }
         }
-        
+        //this means we reached the end, so find something out of array
         if (A[l] + k >= A[r]) {
             return A[l] + k + 1;
         }
