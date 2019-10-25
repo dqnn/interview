@@ -18,8 +18,32 @@ Output: 5
     //[4,7,9,10], 3, first missing is 8,
     
     //so suppose all filled missing numbers into array, so it will be a search
-    //problem, then 
+    //problem, then
     public int missingElement(int[] A, int k) {
+        if(A == null || A.length < 1) return 0;
+        
+        int l = 0, r = A.length - 1;
+        int mid = 0;
+        while (l + 1 < r) {
+            mid = l + (r - l) / 2;
+            //this means how many missed numbers between 
+            //A[mid] and A[l]
+            int cnt = A[mid] - A[l] - (mid - l);
+            if (cnt >= k) {
+                r =mid;
+            } else {
+                l = mid;
+                k -= cnt;
+            }
+        }
+        
+        if (A[l] + k >= A[r]) {
+            return A[l] + k + 1;
+        }
+        return A[l] + k;
+    }
+    //not understood
+    public int missingElement_Best(int[] A, int k) {
         if(A == null || A.length < 1) return 0;
         
         int l = 0, r = A.length;
