@@ -33,9 +33,10 @@ Output: "1.000"
             double low = Math.floor(f);
             double high = Math.ceil(f);
             
+            //here we add 4-3.8 -(3.8 -3) = -0.6
             if (low != high)
                 diffHeap.offer((high-f)-(f-low));
-            
+            //res is to add the diff between f to floor
             res += f-low;
             target -= low;
         }
