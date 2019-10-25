@@ -11,8 +11,13 @@ Example 1:
 Input: A = [4,7,9,10], K = 1
 Output: 5
 */
-    //thinking process:
-    //
+    //thinking process:O(lgn) /O(1)
+    //the problem is to say: given an array A and integer k, find out
+    //the k-th missing number,
+    //[4,7,9,10], 1, first missing is 5, 
+    //[4,7,9,10], 3, first missing is 8,
+    
+    //so
     public int missingElement(int[] A, int k) {
         if(A == null || A.length < 1) return 0;
         
