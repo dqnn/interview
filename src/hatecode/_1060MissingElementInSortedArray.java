@@ -24,7 +24,8 @@ Output: 5
         
         int l = 0, r = A.length - 1;
         int m = 0;
-        //binary search finally 
+        //binary search finally will return l/r which is closet what
+        //we want
         while (l + 1 < r) {
             m = l + (r - l) / 2;
             //this means how many missed numbers between 
