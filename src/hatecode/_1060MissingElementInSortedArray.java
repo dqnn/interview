@@ -17,7 +17,7 @@ Output: 5
     //[4,7,9,10], 1, first missing is 5, 
     //[4,7,9,10], 3, first missing is 8,
     
-    //so
+    //so 
     public int missingElement(int[] A, int k) {
         if(A == null || A.length < 1) return 0;
         
