@@ -1,0 +1,47 @@
+package hatecode;
+public class _1060MissingElementInSortedArray {
+/*
+1060. Missing Element in Sorted Array
+Given a sorted array A of unique numbers, find the K-th missing number starting from the leftmost number of the array.
+
+ 
+
+Example 1:
+
+Input: A = [4,7,9,10], K = 1
+Output: 5
+*/
+    //thinking process:
+    //
+    public int missingElement(int[] A, int k) {
+        if(A == null || A.length < 1) return 0;
+        
+        int l = 0, r = A.length;
+        while(l < r) {
+            int m = l + (r - l) / 2;
+            if(A[m] - m - k >= A[0]) r = m;
+            else l = m + 1;
+        }
+        return A[0] + l + k - 1;
+    }
+    
+    
+    public int missingElement_BF(int[] nums, int k) {
+         int start = nums[0];
+         int end = nums[nums.length-1];
+        if (k>(end-start-nums.length+1)) {
+            return start+nums.length+k-1;
+        }
+        
+        for (int i=1; i<nums.length-1; i++) {   
+            int t = k;
+            k -= (nums[i] - nums[i-1] - 1);
+            if (k<=0) {
+                return nums[i-1]+t;
+            }
+        }
+        return end+k-1;
+    }
+    
+    
+}
