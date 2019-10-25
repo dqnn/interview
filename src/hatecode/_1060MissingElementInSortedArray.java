@@ -23,18 +23,17 @@ Output: 5
         if(A == null || A.length < 1) return 0;
         
         int l = 0, r = A.length - 1;
-        int mid = 0;
+        int m = 0;
         while (l + 1 < r) {
-            mid = l + (r - l) / 2;
+            m = l + (r - l) / 2;
             //this means how many missed numbers between 
             //A[mid] and A[l]
             //A[mid] - A[l]，how many numbers 
             //mid -l, how many numbers in A,
-            int cnt = A[mid] - A[l] - (mid - l);
-            if (cnt >= k) r = mid;
+            int cnt = A[m] - A[l] - (m - l);
+            if (cnt >= k) r = m;
             else {
-                l = mid;
-                k -= cnt;
+                l = m;k -= cnt;
             }
         }
         
