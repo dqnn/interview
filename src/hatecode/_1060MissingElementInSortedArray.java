@@ -51,7 +51,7 @@ Output: 5
         int l = 0, r = A.length;
         while(l < r) {
             int m = l + (r - l) / 2;
-            if(A[m] - m - k >= A[0]) r = m;
+            if(A[m] - m - A[0] >= k) r = m;
             else l = m + 1;
         }
         return A[0] + l + k - 1;
