@@ -12,6 +12,13 @@ Now, we send a signal from a certain node K. How long will it take for all nodes
 
 Note:
 */
+    //TODO：add Dij solution since it has better complexity
+/*
+bellman time complexity is O(VE) and Dijkstra Algo has O(ElogV)in case of maxheap is used.
+Bellman does relaxation for n-1 times and Dijkstra Algo only 1 time.
+Bellman can handle negative weights but Dijkstra Algo can't.
+Bellman visit a vertex more then once but Dijkstra Algo only once.
+ */
     public int networkDelayTime_BellManFord(int[][] times, int N, int K) {
         List<List<int[]>> graph = new ArrayList<>();
         // we add 0->N+ 1 array list, why we choose N + 1 since node is from 1->N, 
