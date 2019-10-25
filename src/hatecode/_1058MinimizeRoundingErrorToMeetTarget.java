@@ -38,7 +38,7 @@ Output: "1.000"
                 diffHeap.offer((high-f)-(f-low));
             //res is to add the diff between f to floor
             res += f-low;
-            target -= low;
+            target -= low; //target is the smallest
         }
         
         if (target < 0 || target > diffHeap.size())
