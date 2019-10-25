@@ -17,7 +17,8 @@ Output: 5
     //[4,7,9,10], 1, first missing is 5, 
     //[4,7,9,10], 3, first missing is 8,
     
-    //so 
+    //so suppose all filled missing numbers into array, so it will be a search
+    //problem, then 
     public int missingElement(int[] A, int k) {
         if(A == null || A.length < 1) return 0;
         
@@ -29,7 +30,6 @@ Output: 5
         }
         return A[0] + l + k - 1;
     }
-    
     
     public int missingElement_BF(int[] nums, int k) {
          int start = nums[0];
