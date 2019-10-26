@@ -28,7 +28,7 @@ Output: "makkek"
     //each char will be equal, so given another string S, return the smallest 
     //lexi string
     
-    //we use union find to find the smallest char
+    //we use union find to find the smallest char as each group root
     public String smallestEquivalentString(String A, String B, String S) {
         
         StringBuilder sb = new StringBuilder();
