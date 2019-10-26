@@ -22,7 +22,13 @@ Example 1:
 Input: A = "parker", B = "morris", S = "parser"
 Output: "makkek"
 */
-    //thinking process: O()
+    //thinking process: O(a(n) + n)/O(1)
+    
+    //the problem is to say, to give two same length strings of A, B,
+    //each char will be equal, so given another string S, return the smallest 
+    //lexi string
+    
+    //we use union find to find the smallest char
     public String smallestEquivalentString(String A, String B, String S) {
         
         StringBuilder sb = new StringBuilder();
