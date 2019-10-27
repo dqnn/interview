@@ -76,7 +76,7 @@ Output: "ana"
         // first substring
         //TODO, just use string.hash() to rewrite this part code
         
-        //
+        //this is like bloom filter
         List<Integer> idxList = new ArrayList<Integer>();
         idxList.add(0);
         map.put(hash, idxList);
