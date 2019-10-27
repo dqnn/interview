@@ -24,18 +24,14 @@ Explanation: There is no repeating substring.
             return 0;
         }
         // binary search the max length
-        int l = 0;
-        int r = S.length() - 1;
+        int l = 0, r = S.length() - 1;
         int mid;
         //if we find repeated substring then we move mid ->right, so to find a longer
         //substring, if we cannot which means we should lower down the length
         while (l + 1 < r) {
             mid = (l + r) / 2;
-            if (searchForLength(S, mid) != null) {
-                l = mid;
-            } else {
-                r = mid - 1;
-            }
+            if (searchForLength(S, mid) != null) l = mid;
+            else r = mid - 1;
         }
         String str = searchForLength(S, r);
         if (str != null) {
