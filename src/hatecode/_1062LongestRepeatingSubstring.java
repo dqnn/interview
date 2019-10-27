@@ -29,6 +29,11 @@ Explanation: There is no repeating substring.
         //if we find repeated substring len = mid, if we can find it, we want to make 
         //the length longer ,so we move l->mid, so m can be longer
         //other wise we make it smaller
+        
+        //another key point, this can only use 3rd template,
+        //abbaba
+        //this only has longest substring  = 2
+        //
         while (l + 1 < r) {
             int m =  l + (r - l) / 2;
             if (searchFixedLen(s, m) != null) l = m;
