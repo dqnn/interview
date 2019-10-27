@@ -33,7 +33,11 @@ Explanation: There is no repeating substring.
         //another key point, this can only use 3rd template,
         //abbaba
         //this only has longest substring  = 2
-        //
+        //but if we use 2nd template, we will see l m r as follow
+        //0--3--6--> we cannot len = 3 substring, 0-1-3, we can 1
+        //->2--2--3-->3--3--3then stop, so we can see 2 are skipped but it is the 
+        //answer, because only 3rd template could return 2 answers, and this problem essence
+        //could only use 3rd template
         while (l + 1 < r) {
             int m =  l + (r - l) / 2;
             if (searchFixedLen(s, m) != null) l = m;
