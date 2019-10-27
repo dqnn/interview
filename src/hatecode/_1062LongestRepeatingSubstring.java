@@ -13,26 +13,10 @@ Example 1:
 Input: "abcd"
 Output: 0
 Explanation: There is no repeating substring.
-
 */
-    //BF, TLE O(n^3)/O(n^2)
-    public int longestRepeatingSubstring_BF(String s) {
-        if(s == null || s.length() < 1) return 0;
-        
-        Set<String> set = new HashSet<>();
-        int res = 0;
-        for(int i =1; i <=s.length(); i++) {
-            for(int j = 0; j< i; j++) {
-                String str = s.substring(j, i);
-                if(set.contains(str)) res = Math.max(res, str.length());
-                else set.add(str);
-            }
-        }
-        
-        return res;
-    }
-    //O(nlgn)/O(n)
     
+    //thinking process: O(nlgn)/O(n)
+    //the problem is to say: given string s, find the longest repeated substring
     //this is the same as 1044
     public int longestRepeatingSubstring(String S) {
         // edge case
@@ -109,5 +93,20 @@ Explanation: There is no repeating substring.
         }
         return null;
     }
-    
+  //BF, TLE O(n^3)/O(n^2)
+    public int longestRepeatingSubstring_BF(String s) {
+        if(s == null || s.length() < 1) return 0;
+        
+        Set<String> set = new HashSet<>();
+        int res = 0;
+        for(int i =1; i <=s.length(); i++) {
+            for(int j = 0; j< i; j++) {
+                String str = s.substring(j, i);
+                if(set.contains(str)) res = Math.max(res, str.length());
+                else set.add(str);
+            }
+        }
+        
+        return res;
+    }
 }
