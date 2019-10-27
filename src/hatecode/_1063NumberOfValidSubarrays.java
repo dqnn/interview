@@ -1,6 +1,6 @@
 package hatecode;
 import java.util.*;
-public class NumberOfValidSubarrays {
+public class _1063NumberOfValidSubarrays {
 /*
 1063. Number of Valid Subarrays
 Given an array A of integers, return the number of non-empty continuous subarrays that satisfy the following condition:
