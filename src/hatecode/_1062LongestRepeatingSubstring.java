@@ -52,7 +52,9 @@ Explanation: There is no repeating substring.
         long p = (1 << 31) - 1;  // prime number， 13 also works
         long base = 256;
         long hash = 0;
-        //calculate the string hash
+        //calculate the string hash,the reason why we do not use substring is because 
+        //substirng is O(n) while we caculate each time is just to remove first
+        //and add last new character so we reduce O(n) complexity
         for (int i = 0; i < len; ++i) {
             hash = (hash * base + str.charAt(i)) % p;
         }
