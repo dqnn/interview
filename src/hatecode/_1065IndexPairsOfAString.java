@@ -20,7 +20,10 @@ Output: [[3,7],[9,13],[10,17]]
     //so the problem is to say given a string text and a dictionary,
     //we want to find [start, end] indexes which are substring in words
     
-    //
+    //so we construct words by Trie, this way is good is because we can 
+    //check all words in one time. so we also can understand where 
+    //we should leverage Trie
+    
     public int[][] indexPairs(String text, String[] words) {
         Trie t = new Trie();
         for(String w: words) t.addWords(w);
