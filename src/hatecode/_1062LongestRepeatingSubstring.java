@@ -40,7 +40,7 @@ Explanation: There is no repeating substring.
             return searchForLength(S, l).length();
         }
     }
-    //search substring from [0, len]
+    //search substring length = len, 
     //we use hash value as string value, we use a function to calc
     //the positive integer hash value 
     String searchForLength(String str, int len) {
@@ -69,7 +69,7 @@ Explanation: There is no repeating substring.
         List<Integer> idxList = new ArrayList<Integer>();
         idxList.add(0);
         map.put(hash, idxList);
-        // other substrings
+        // we use win = len to search whether it has repeated substring in s
         int s = 0;
         int e = len;
         while (e < str.length()) {
