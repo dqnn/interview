@@ -24,7 +24,7 @@ Output: 3
     //another key point is for 2nd template, we have another way
     //the key is:
     //if r = A.length then we should check l == A.length or not 
-    //the 2nd way is better
+    //the 2nd way is better if we do not need to consider the length case?
     public int fixedPoint(int[] A) {
         int l = 0, r = A.length;
         while(l < r) {
