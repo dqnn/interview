@@ -4,6 +4,7 @@ import java.util.*;
 public class _1044LongestDuplicateSubstring {
 /*
 1044. Longest Duplicate Substring
+
 Given a string S, consider all duplicated substrings: (contiguous) substrings of S that occur 2 or more times.  (The occurrences may overlap.)
 
 Return any duplicated substring that has the 
