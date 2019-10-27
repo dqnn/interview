@@ -18,32 +18,33 @@ Explanation: There is no repeating substring.
     //thinking process: O(nlgn)/O(n)
     //the problem is to say: given string s, find the longest repeated substring
     //this is the same as 1044
-    public int longestRepeatingSubstring(String S) {
+    
+    //so we use BS here to quickly locate which length of substring is repeated, searchFixedLength()
+    //is find 
+    public int longestRepeatingSubstring(String s) {
         // edge case
-        if (S == null) {
-            return 0;
-        }
+        if (s == null || s.length() < 1) return 0;
         // binary search the max length
-        int l = 0, r = S.length() - 1;
-        int mid;
-        //if we find repeated substring then we move mid ->right, so to find a longer
-        //substring, if we cannot which means we should lower down the length
+        int l = 0, r = s.length() - 1;
+        //if we find repeated substring len = mid, if we can find it, we want to make 
+        //the length longer ,so we move l->mid, so m can be longer
+        //other wise we make it smaller
         while (l + 1 < r) {
-            mid = (l + r) / 2;
-            if (searchForLength(S, mid) != null) l = mid;
-            else r = mid - 1;
+            int m =  l + (r - l) / 2;
+            if (searchFixedLen(s, m) != null) l = m;
+            else r = m - 1;
         }
-        String str = searchForLength(S, r);
+        String str = searchFixedLen(s, r);
         if (str != null) {
             return str.length();
         } else {
-            return searchForLength(S, l).length();
+            return searchFixedLen(s, l).length();
         }
     }
     //search substring length = len, 
     //we use hash value as string value, we use a function to calc
     //the positive integer hash value 
-    String searchForLength(String str, int len) {
+    String searchFixedLen(String str, int len) {
         // rolling hash method
         if (len == 0) return "";
         else if (len >= str.length()) return null;
@@ -67,7 +68,6 @@ Explanation: There is no repeating substring.
         //we use first and last char character to reduce the computation
         
         //this is like bloom filter
-        //
         List<Integer> idxList = new ArrayList<Integer>();
         idxList.add(0);
         map.put(hash, idxList);
@@ -78,12 +78,12 @@ Explanation: There is no repeating substring.
             hash = ((hash + p - multiplier * str.charAt(s++) % p) * base + str.charAt(e++)) % p;
             idxList = map.get(hash);
             if (idxList == null) {
-                idxList = new ArrayList<Integer>();
+                idxList = new ArrayList<>();
                 map.put(hash, idxList);
             } else {
-                for (int i0: idxList) {
-                    if (str.substring(s, e).equals(str.substring(i0, i0 + len))) {
-                        return str.substring(i0, i0 + len);
+                for (int idx: idxList) {
+                    if (str.substring(s, e).equals(str.substring(idx, idx + len))) {
+                        return str.substring(idx, idx + len);
                     }
                 }
             }
