@@ -55,6 +55,7 @@ Output: "makkek"
         public void union(int c1, int c2) {
             int p1 = find(c1);
             int p2 = find(c2);
+            //here we want to use the smallest char as root
             if(p1 < p2) parent[p2] = p1;
             else parent[p1] = p2;
         }
