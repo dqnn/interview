@@ -2,7 +2,7 @@ package hatecode;
 
 import org.junit.Test;
 import java.util.*;
-public class CampusBikesII {
+public class _1066CampusBikesII {
     /*
      * 1066. Campus Bikes II 
      * On a campus represented as a 2D grid, there are N
