@@ -24,20 +24,20 @@ Output: [3,1,2]
     public int[] prevPermOpt1(int[] A) {
         if(A == null || A.length < 1) return new int[0];
         
-        int n = A.length, left = n - 2, right = n - 1, tmp;
+        int n = A.length, l = n - 2, r = n - 1, tmp;
         //looking for 1，4，2，5，6，7, left = 1 and stop
-        while (left >= 0  && A[left] <= A[left + 1]) left--;
+        while (l >= 0  && A[l] <= A[l + 1]) l--;
         //means A is increasing sequence, so previous was itself
-        if (left < 0) return A;
+        if (l < 0) return A;
         
         //look for 2,5,6,7, smaller than 4,right = 2
-        while (A[left] <= A[right]) right--;
+        while (A[l] <= A[r]) r--;
         //process the equal value case, like 1,4,2,2,5,6,7
-        while (A[right - 1] == A[right]) right--;
+        while (A[r - 1] == A[r]) r--;
         //switch
-        tmp = A[left]; 
-        A[left] = A[right]; 
-        A[right] = tmp;
+        tmp = A[l]; 
+        A[l] = A[r]; 
+        A[r] = tmp;
         
         return A;
     }
