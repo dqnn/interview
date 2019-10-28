@@ -20,7 +20,12 @@ Output: [3,1,2]
     
     //the difference is 31 require re-sort on right part, this does not 
     //sort, just switch will be enough, 
-   //the complexity is to think about the patterns
+   
+    //first we want to make sure the sequence has decrease part, if it always increasing then return -1
+    //previous will find l index which needs to switch, then 
+    //2nd step is to find right can be switch, 
+    //A[r] should be smaller than A[l], and it should be closest. 
+    
     public int[] prevPermOpt1(int[] A) {
         if(A == null || A.length < 1) return new int[0];
         
