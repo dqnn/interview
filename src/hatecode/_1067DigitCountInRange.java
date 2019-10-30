@@ -15,7 +15,7 @@ Output: 6
     //given digit d, integer low and high, from [low, hight], how many
     //times d appear
     
-    //
+    //needs to add some comments
     public int digitsCount(int d, int low, int high) {
         return countDigit(high, d) - countDigit(low-1, d);
     }
