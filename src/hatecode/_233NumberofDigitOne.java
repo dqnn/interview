@@ -37,7 +37,7 @@ public class _233NumberofDigitOne {
      * @param n
      * @return
      */
-    // still not full understand
+    // still not full understand， pure math problem
     public int countDigitOne(int n) {
         int res = 0;
         for (long m = 1; m <= n; m *= 10) {
