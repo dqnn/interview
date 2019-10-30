@@ -25,7 +25,7 @@ Output: 10
     public int newInteger(int n) {
         int ans = 0;
         int base = 1;
-        //calc 
+        //calc  
         while (n > 0){
             ans += n % 9 * base;
             n /= 9;
