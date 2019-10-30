@@ -71,7 +71,8 @@ iterate through all digits and sum them all will give the final answer
             q /= 10;
             res += q * x;
             //here n % x is to get the digit on 
-            //10, 100, 1000... 
+            //10, 100, 1000...  for example, n = 22, x = 10,
+            //then we will get 2 + 1, because 
             if (digit == 1) res += n % x + 1;
             if (digit > 1) res += x;
             x *= 10;
@@ -80,6 +81,6 @@ iterate through all digits and sum them all will give the final answer
     }
     
     public static void main(String[] args) {
-        System.out.println(countDigitOne2(11));
+        System.out.println(countDigitOne2(22));
     }
 }
