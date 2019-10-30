@@ -63,18 +63,15 @@ it should be:
 iterate through all digits and sum them all will give the final answer
      */
     public int countDigitOne2(int n) {
-        if (n <= 0)
-            return 0;
+        if (n <= 0) return 0;
         int q = n, x = 1, res = 0;
         do {
             // digit is the left on second digit of n from right
             int digit = q % 10;
             q /= 10;
             res += q * x;
-            if (digit == 1)
-                res += n % x + 1;
-            if (digit > 1)
-                res += x;
+            if (digit == 1) res += n % x + 1;
+            if (digit > 1) res += x;
             x *= 10;
         } while (q > 0);
         return res;
