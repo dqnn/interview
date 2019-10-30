@@ -50,7 +50,8 @@ public class _233NumberofDigitOne {
     }
     
     /*
-     * The idea is to calculate occurrence of 1 on every digit. There are 3 scenarios, for example
+     * The idea is to calculate occurrence of 1 on every digit. 
+     * There are 3 scenarios, for example
 
 if n = xyzdabc
 and we are considering the occurrence of one on thousand, it should be:
