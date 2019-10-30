@@ -54,7 +54,8 @@ public class _233NumberofDigitOne {
      * There are 3 scenarios, for example
 
 if n = xyzdabc
-and we are considering the occurrence of one on thousand, it should be:
+and we are considering the occurrence of one on thousand, 
+it should be:
 
 (1) xyz * 1000                     if d == 0
 (2) xyz * 1000 + abc + 1           if d == 1
