@@ -62,7 +62,7 @@ it should be:
 (3) xyz * 1000 + 1000              if d > 1
 iterate through all digits and sum them all will give the final answer
      */
-    public int countDigitOne2(int n) {
+    public static int countDigitOne2(int n) {
         if (n <= 0) return 0;
         int q = n, x = 1, res = 0;
         do {
@@ -75,6 +75,9 @@ iterate through all digits and sum them all will give the final answer
             x *= 10;
         } while (q > 0);
         return res;
-
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(countDigitOne2(101));
     }
 }
