@@ -24,8 +24,9 @@ Output: 10
     //O(logn)/O(1)
     public int newInteger(int n) {
         int ans = 0;
+        //1,10,100,1000
         int base = 1;
-        //calc  
+        //calculate 9 as radix, what is n-th number
         while (n > 0){
             ans += n % 9 * base;
             n /= 9;
@@ -39,7 +40,8 @@ Output: 10
         return Integer.parseInt(Integer.toString(n, 9));
     }
 
-    //like this better, because it showed how we can process it.  and it applies to other digits, like 7 or 4,
+    //like this better, because it showed how we can process it.  
+    //and it applies to other digits, like 7 or 4,
     //
     int[] dp;
     public int newInteger_BruteForce(int n) {
