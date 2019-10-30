@@ -47,7 +47,8 @@ Output: 10
     public int newInteger_BruteForce(int n) {
         if (n < 9) return n;
         dp = new int[10];
-        //dp[n] corresponds to range[10^(n - 1), 10^n - 1], e.g. dp[2] is the number of 9 within [10, 99]
+        //dp[n] corresponds to range[10^(n - 1), 10^n - 1], 
+        //e.g. dp[2] is the number of 9 within [10, 99]
         dp[0] = 0;
         dp[1] = 1;
         int p = 10;
