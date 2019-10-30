@@ -8,7 +8,7 @@ package hatecode;
  * Date : Aug, 2018
  * Description : 233. Number of Digit One
  */
-public class NumberofDigitOne {
+public class _233NumberofDigitOne {
     /**
      * Given an integer n, count the total number of digit 1 appearing in all 
      * non-negative integers less than or equal to n.
