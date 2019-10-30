@@ -1,7 +1,7 @@
 package hatecode;
 
 import java.util.*;
-class Remove9 {
+public class _660Remove9 {
 /*
 660. Remove 9
 Start from integer 1, remove any integer that contains 9 such as 9, 19, 29...
@@ -33,7 +33,8 @@ Output: 10
         }
         return ans;
     }
-    //O(1)/O(1)
+    //O(1)/O(1)，9 as radix, 
+    //8,9,10->8,10 means radix as 9 sequence
     public int newInteger_Best(int n) {
         return Integer.parseInt(Integer.toString(n, 9));
     }
