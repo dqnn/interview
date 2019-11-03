@@ -68,14 +68,14 @@ iterate through all digits and sum them all will give the final answer
         int q = n, x = 1, res = 0;
         do {
             // digit is the left on second digit of n from right
-            int digit = q % 10;
+            int d = q % 10;
             q /= 10;
             res += q * x;
             //here n % x is to get the digit on 
             //10, 100, 1000...  for example, n = 22, x = 10,
             //then we will get 2 + 1, because 
-            if (digit == 1) res += n % x + 1;
-            if (digit > 1) res += x;
+            if (d == 1) res += n % x + 1;
+            if (d > 1) res += x;
             x *= 10;
         } while (q > 0);
         return res;
