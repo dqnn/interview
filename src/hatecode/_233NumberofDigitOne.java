@@ -58,9 +58,9 @@ if n = xyzdabc
 and we are considering the occurrence of one on thousand, 
 it should be:
 
-(1) xyz * 1000                     if d == 0
-(2) xyz * 1000 + abc + 1           if d == 1
-(3) xyz * 1000 + 1000              if d > 1
+(1) xyz * 1000                         if d == 0
+(2) xyz * 1000 + abc + 1               if d == 1
+(3) xyz * 1000 + 1000 =(xyz+1)*1000    if d > 1
 iterate through all digits and sum them all will give the final answer
      */
     public static int countDigitOne2(int n) {
