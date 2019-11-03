@@ -26,8 +26,11 @@ Output: 1
     
     //each cell only has 1 or 0, so for two rows, at some columns 
     //they must change at the same time, 
-    //0001 vs 1110, we can change latter to 0001, so it would be the same as 
-    //0001, 
+/* change 1-3 column
+ *  0001 --->  1111
+ *  1110 --->  0000
+ *  so we can know these two has same pattern
+ */
     public int maxEqualRowsAfterFlips(int[][] m) {
         if(m == null || m.length < 1 || m[0].length < 1) return 0;
         Map<String, Integer> map = new HashMap<>();
