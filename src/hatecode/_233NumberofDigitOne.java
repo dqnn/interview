@@ -32,7 +32,7 @@ public class _233NumberofDigitOne {
 
      Summary: 
      (a + 8) / 10 * m + (a % 10 == 1) * (b + 1);
-     time : < O(n)
+     time : O(logn)
      space : O(1)
 
      * @param n
