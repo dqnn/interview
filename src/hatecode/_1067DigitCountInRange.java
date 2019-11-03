@@ -33,6 +33,8 @@ Output: 6
         int count = 0;
         for(long i = 1; i <= n; i*= 10) {
             long divider = i * 10;
+            //d= 2, n = 31452, divider = 10, then 
+            //then we will have 3145 times of 2 showed at last digit
             count += (n / divider) * i;
             //d = 0 or d > 0
             if (d > 0) {
