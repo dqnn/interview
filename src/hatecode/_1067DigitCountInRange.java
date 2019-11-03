@@ -41,7 +41,7 @@ Output: 6
                                   i); 
             } else {
                 if(n / divider > 0) {
-                 // comment2: when d == 0, we need avoid to take 
+                    // comment2: when d == 0, we need avoid to take 
                     //numbers like 0xxxx into account.
                     if(i > 1) {  
                         count -= i;
