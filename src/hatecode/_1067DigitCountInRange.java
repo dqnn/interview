@@ -38,7 +38,13 @@ Output: 6
             count += (n / divider) * i;
             //d = 0 or d > 0
             if (d > 0) {
-                // comment1: tailing number need to be large than d *  i to qualify.
+                //n % divider means the rest, like 
+                //31452 % 10 = 2, last digit, we want to see 
+                //in this position whether it exceed d * i or not.
+                //for example if 31420, we cannot see 3 at 2 position, +1 is
+                //because it showed once, only substracting will be 0.
+                // comment1: tailing number need to be large than d *  i 
+                //to qualify.
                 count += Math.min(Math.max(n % divider - d * i + 1, 0), 
                                   i); 
             } else {
