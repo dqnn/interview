@@ -18,6 +18,11 @@ Input: arr1 = [1,1,1,1,1], arr2 = [1,0,1]
 Output: [1,0,0,0,0]
 */
     //thinking process:
+    
+    //the problem is to say: given two arrays, from left to right,
+    //-2^(len-1) + ...(-2)^0
+    
+    //return the sum of arr1 and arr2 as base 2
     //same as -2 base problem, 
     public int[] addNegabinary(int[] arr1, int[] arr2) {
         int i = arr1.length - 1;
@@ -42,6 +47,6 @@ Output: [1,0,0,0,0]
         while (!stack.isEmpty()) {
             res[index++] = stack.pop();
         }
-        return res;          
+        return res;
     }
 }
