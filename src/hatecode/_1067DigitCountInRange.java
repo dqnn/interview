@@ -15,12 +15,17 @@ Output: 6
     //given digit d, integer low and high, from [low, hight], how many
     //times d appear
     
-    //So 
+    //so 233 has solutin for 1-n, so here we 
+    //first to know for d, how many times occurred for 1-low, then 
+    //1-high, we substract former, 
+    
+    //
     public int digitsCount(int d, int low, int high) {
         return countDigit(high, d) - countDigit(low-1, d);
     }
     
-    int countDigit(int n, int d) {
+    //1-n， how many times d occurred
+    private int countDigit(int n, int d) {
         if(n < 0 || n < d) {
             return 0;
         }
@@ -31,7 +36,9 @@ Output: 6
             count += (n / divider) * i;
             
             if (d > 0) {
-                count += Math.min(Math.max(n % divider - d * i + 1, 0), i); // comment1: tailing number need to be large than d *  i to qualify.
+                // comment1: tailing number need to be large than d *  i to qualify.
+                count += Math.min(Math.max(n % divider - d * i + 1, 0), 
+                                  i); 
             } else {
                 if(n / divider > 0) {
                     if(i > 1) {  // comment2: when d == 0, we need avoid to take numbers like 0xxxx into account.
