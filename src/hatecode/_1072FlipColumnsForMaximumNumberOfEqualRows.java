@@ -53,14 +53,14 @@ Output: 1
     }
     
     public int maxEqualRowsAfterFlips2(int[][] matrix) {
-        if(m == null || m.length < 1 || m[0].length < 1) return 0;
+        if(matrix == null || matrix.length < 1 || matrix[0].length < 1) return 0;
         int res = 0;
-        int m = matrix.length, n = matrix[0].length;
-        int[] flip = new int[n];
-        for(int i = 0; i < m; i++) {
+        int r = matrix.length, c = matrix[0].length;
+        int[] flip = new int[c];
+        for(int i = 0; i < r; i++) {
             int cnt = 0;
-            for(int j = 0; j < n; j++) flip[j] = 1 - matrix[i][j];
-            for(int k = 0; k < m; k++) {
+            for(int j = 0; j < c; j++) flip[j] = 1 - matrix[i][j];
+            for(int k = 0; k < r; k++) {
                 if(Arrays.equals(matrix[k], matrix[i]) || Arrays.equals(matrix[k], flip)) cnt++;
             }
             res = Math.max(res, cnt);
