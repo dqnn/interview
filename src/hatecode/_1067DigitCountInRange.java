@@ -18,7 +18,6 @@ Output: 6
     //so 233 has solutin for 1-n, so here we 
     //first to know for d, how many times occurred for 1-low, then 
     //1-high, we substract former, 
-    
     //
     public int digitsCount(int d, int low, int high) {
         return countDigit(high, d) - countDigit(low-1, d);
@@ -48,6 +47,7 @@ Output: 6
                 count += Math.min(Math.max(n % divider - d * i + 1, 0), 
                                   i); 
             } else {
+                //means n has digit on divider(biggest pisition)
                 if(n / divider > 0) {
                     // comment2: when d == 0, we need avoid to take 
                     //numbers like 0xxxx into account.
