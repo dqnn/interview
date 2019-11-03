@@ -34,14 +34,16 @@ Output: 6
         for(long i = 1; i <= n; i*= 10) {
             long divider = i * 10;
             count += (n / divider) * i;
-            
+            //d = 0 or d > 0
             if (d > 0) {
                 // comment1: tailing number need to be large than d *  i to qualify.
                 count += Math.min(Math.max(n % divider - d * i + 1, 0), 
                                   i); 
             } else {
                 if(n / divider > 0) {
-                    if(i > 1) {  // comment2: when d == 0, we need avoid to take numbers like 0xxxx into account.
+                 // comment2: when d == 0, we need avoid to take 
+                    //numbers like 0xxxx into account.
+                    if(i > 1) {  
                         count -= i;
                         count += Math.min(n % divider + 1, i);  
                     }
