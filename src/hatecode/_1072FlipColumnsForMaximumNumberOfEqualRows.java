@@ -1,7 +1,7 @@
 package hatecode;
 
 import java.util.*;
-class Solution {
+public class _1072FlipColumnsForMaximumNumberOfEqualRows {
 /*
 1072. Flip Columns For Maximum Number of Equal Rows
 Given a matrix consisting of 0s and 1s, we may choose any number 
@@ -24,7 +24,8 @@ Output: 1
     //column, no matter how many times flip, return max row count which
     //has all same value
     
-    //
+    //each cell only has 1 or 0, so for two rows, at some columns 
+    //they must change at the same time, so 
     public int maxEqualRowsAfterFlips(int[][] m) {
         if(m == null || m.length < 1 || m[0].length < 1) return 0;
         Map<String, Integer> map = new HashMap<>();
