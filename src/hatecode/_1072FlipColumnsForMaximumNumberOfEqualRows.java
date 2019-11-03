@@ -19,7 +19,7 @@ Example 1:
 Input: [[0,1],[1,1]]
 Output: 1
 */
-    //thinking process:
+    //thinking process:O(r(c + 1) + r)O(rc)
     //given a matrix, only 1 or 0 for each cell, then we flip each
     //column, no matter how many times flip, return max row count which
     //has all same value
@@ -29,7 +29,8 @@ Output: 1
 /* change 1-3 column
  *  0001 --->  1111
  *  1110 --->  0000
- *  so we can know these two has same pattern
+ *  so we can know these two has same pattern,use hashmap to store 
+ *  all the possibilities
  */
     public int maxEqualRowsAfterFlips(int[][] m) {
         if(m == null || m.length < 1 || m[0].length < 1) return 0;
@@ -52,7 +53,8 @@ Output: 1
     }
     
     public int maxEqualRowsAfterFlips2(int[][] matrix) {
-        int ans = 0;
+        if(m == null || m.length < 1 || m[0].length < 1) return 0;
+        int res = 0;
         int m = matrix.length, n = matrix[0].length;
         int[] flip = new int[n];
         for(int i = 0; i < m; i++) {
@@ -61,9 +63,9 @@ Output: 1
             for(int k = 0; k < m; k++) {
                 if(Arrays.equals(matrix[k], matrix[i]) || Arrays.equals(matrix[k], flip)) cnt++;
             }
-            ans = Math.max(ans, cnt);
+            res = Math.max(res, cnt);
         }
-        return ans;
+        return res;
     }
     
     public int maxEqualRowsAfterFlips_Fastest(int[][] matrix) {
