@@ -32,7 +32,6 @@ Output: 1
         if(m == null || m.length < 1 || m[0].length < 1) return 0;
         Map<String, Integer> map = new HashMap<>();
         
-        
         for(int[] rows : m) {
             StringBuilder sb1 = new StringBuilder(), sb2 = new StringBuilder();
             for(int r: rows) {
