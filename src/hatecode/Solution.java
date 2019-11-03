@@ -16,6 +16,10 @@ Input: [[0,1],[1,1]]
 Output: 1
 */
     //thinking process:
+    //given a matrix, only 1 or 0 for each cell, then we flip each
+    //column, no matter how many times flip, return max row count which
+    //has all same value
+    
     //
     public int maxEqualRowsAfterFlips(int[][] m) {
         if(m == null || m.length < 1 || m[0].length < 1) return 0;
