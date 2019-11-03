@@ -39,7 +39,6 @@ Output: [1,0,0,0,0]
         }
         while (!stack.isEmpty() && stack.peek() == 0) {
             stack.pop();
-        
         }
         int[] res = new int[stack.size()];
         int index = 0;
