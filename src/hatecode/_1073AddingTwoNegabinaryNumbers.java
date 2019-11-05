@@ -40,7 +40,10 @@ Bit (result):  1  1 0
     //-2^(len-1) + ...(-2)^0
     
     //return the sum of arr1 and arr2 as base 2
-    //same as -2 base problem, 
+    //so right aligned, even position is positive, odd is negative,
+    //
+    
+    
     public int[] addNegabinary(int[] arr1, int[] arr2) {
         int i = arr1.length - 1;
         int  j = arr2.length - 1;
