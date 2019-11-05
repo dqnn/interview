@@ -43,7 +43,9 @@ Bit (result):  1  1 0
     //so right aligned, even position is positive, odd is negative,
     //
     
-    //if 
+    //so if we found carry > 0, then next position should have opposite, because
+    //number from - to + or + to -, 
+    //
     public int[] addNegabinary(int[] arr1, int[] arr2) {
         int i = arr1.length - 1;
         int  j = arr2.length - 1;
@@ -60,6 +62,7 @@ Bit (result):  1  1 0
         while (!stack.isEmpty() && stack.peek() == 0) {
             stack.pop();
         }
+        
         int[] res = new int[stack.size()];
         int index = 0;
         if (stack.isEmpty()) return new int[]{0};
