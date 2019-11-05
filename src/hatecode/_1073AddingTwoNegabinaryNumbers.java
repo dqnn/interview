@@ -43,7 +43,7 @@ Bit (result):  1  1 0
     //so right aligned, even position is positive, odd is negative,
     //
     
-    
+    //
     public int[] addNegabinary(int[] arr1, int[] arr2) {
         int i = arr1.length - 1;
         int  j = arr2.length - 1;
