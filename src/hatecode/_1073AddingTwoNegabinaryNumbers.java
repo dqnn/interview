@@ -42,7 +42,7 @@ Bit (result):  1  1 0
     //return the sum of arr1 and arr2 as base 2
     //so right aligned, even position is positive, odd is negative,
     //
-    
+    //we visit from right to left, carry will change flag by each step
     //so if we found carry > 0, then next position should have opposite, because
     //number from - to + or + to -, 
     //
