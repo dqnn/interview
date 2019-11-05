@@ -16,7 +16,24 @@ Example 1:
 
 Input: arr1 = [1,1,1,1,1], arr2 = [1,0,1]
 Output: [1,0,0,0,0]
-*/
+
+Carry:          1 −1  0 −1  1 −1  0  0  0
+First addend:         1  0  1  0  1  0  1
+Second addend:        1  1  1  0  1  0  0 + addition
+               --------------------------
+Number:         1 −1  2  0  3 −1  2  0  1
+-----------------------------------------
+Bit (result):   1  1  0  0  1  1  0  0  1
+ 
+( 1 + 1 = -2 = [1,1,0])
+Carry:         1 -1
+First addend:       1
+Second addend:      1 + addition
+               ------
+Number:        1 -1 0
+               ------
+Bit (result):  1  1 0
+**/
     //thinking process:
     
     //the problem is to say: given two arrays, from left to right,
