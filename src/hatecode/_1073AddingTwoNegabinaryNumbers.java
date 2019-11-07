@@ -57,7 +57,6 @@ Bit (result):  1  1 0
            if (j >= 0) carry += arr2[j--];
             stack.push(carry & 1);
             carry = - (carry >> 1);
-           
         }
         //remove leading 0 because we are right aligned, 
         //like [1,1,0,0], [1,0,0], this would become 0.
