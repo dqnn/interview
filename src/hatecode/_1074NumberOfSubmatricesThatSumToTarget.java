@@ -19,6 +19,9 @@ Output: 4
 */
     //thinking process： 
     
+    //given an matrix and integer target, we want to find how many matrix sum equals to 
+    //target, each cell can be a matrix
+    
     //
     public int numSubmatrixSumTarget(int[][] A, int target) {
         if(A == null || A.length < 1 || A[0].length < 1) return 0;
