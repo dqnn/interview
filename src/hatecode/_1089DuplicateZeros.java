@@ -16,14 +16,15 @@ public class _1089DuplicateZeros {
      * Explanation: After calling your function, the input array is modified 
      * to: [1,0,0,2,3,0,0,4]
      */
-    //thinking process: 
+    //thinking process: O(n)/O(1)
     //given an integer array A, if element is 0, then duplicate it, put it aside, 
     //move the all other right elements to back, just move in place
     
-    //
+    //TODO: add easier undertood text here
     public void duplicateZeros(int[] A) {
         if(A == null || A.length< 1) return;
         int n = A.length, count = 0;
+        //how many 0 in array
         for (int num : A) {
             if (num == 0) count++;
         }
