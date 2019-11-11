@@ -1,7 +1,7 @@
 package hatecode;
 
 import java.util.*;
-public class LetterTilePossibilities {
+public class _1079LetterTilePossibilities {
     /*
      * 1079. Letter Tile Possibilities
      * tags: backtracking, subsetII 
