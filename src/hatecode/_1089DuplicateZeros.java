@@ -1,5 +1,5 @@
 package hatecode;
-public class DuplicateZeros {
+public class _1089DuplicateZeros {
     /*
      * 1089. Duplicate Zeros 
      * Given a fixed length array arr of integers, duplicate
