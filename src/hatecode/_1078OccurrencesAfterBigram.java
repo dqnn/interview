@@ -15,7 +15,15 @@ Input: text = "alice is a good girl she is a good student", first = "a", second 
 Output: ["girl","student"]
 */
   
+    //thinking process: O(n)/O(n)
+    
+    //so the problem is to say to find "A B C" pattern, and return list of C, A, B
+    //is the given words
+    
+    //so just iterate the whole sentences and return 
     public String[] findOcurrences(String text, String first, String second) {
+        if(text == null || text.length() < 1) return new String[0];
+        
         String[] words = text.split(" ");
         List<String> res = new ArrayList<>();
         for (int i = 2; i < words.length; ++i) {
