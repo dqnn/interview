@@ -20,7 +20,7 @@ public class _1089DuplicateZeros {
     //given an integer array A, if element is 0, then duplicate it, put it aside, 
     //move the all other right elements to back, just move in place
     
-    //TODO: add easier undertood text here
+    //TODO: add easier to understand text here
     public void duplicateZeros(int[] A) {
         if(A == null || A.length< 1) return;
         int n = A.length, count = 0;
