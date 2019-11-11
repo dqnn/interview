@@ -15,7 +15,7 @@ Example 1:
 Input: [[1,91],[1,92],[2,93],[2,97],[1,60],[2,77],[1,65],[1,87],[1,100],[2,100],[2,76]]
 Output: [[1,87],[2,88]]
 */
-    //thinking process:O(n)/O(n), so map use n people, n here is generail mean linear 
+    //thinking process:O(nlgn)/O(n), so map use n people, n here is generail mean linear 
     
     //given 2D array items, item[0][0] means id, item[0][1] means score, so 
     //return another 2D array with each student top 5 average
