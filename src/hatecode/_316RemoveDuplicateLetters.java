@@ -67,7 +67,13 @@ Output: "acdb"
     //we have to look into [0,2] first because we want to at least 1 a, out of [0,2]
     //there will be no a, then in [0,2] we look for smallest lexi character
     
-    //
+    //after we find the smallest lexi character, we remove from map, then we look for next
+    //substring[0, minIdx], to continue
+    
+    //if we reach the r(the end of the substring), then we should expand r, then way is to look for next
+    //smallest index in map. for example[0,2], we will find a is smallest, l = 3, 
+    //and we reached the substring end, we need to use next smallest char in map
+    // and move r to that position
     public String removeDuplicateLetters(String s) {
         if (s == null || s.length() == 0) return s;
         HashMap<Character, Integer> map = new HashMap<>();
@@ -76,19 +82,19 @@ Output: "acdb"
             map.put(s.charAt(i), i);
         }
         char[] res = new char[map.size()];
-        int start = 0, end = findMinLastPos(map);
+        int l = 0, r = findMinLastPos(map);
         for (int i = 0; i < res.length; i++) {
             char minChar = 'z' + 1;
-            for (int k = start; k <= end; k++) {
+            for (int k = l; k <= r; k++) {
                 if (map.containsKey(s.charAt(k)) && s.charAt(k) < minChar) {
                     minChar = s.charAt(k);
-                    start = k + 1;
+                    l = k + 1;
                 }
             }
             res[i] = minChar;
             map.remove(minChar);
-            if (s.charAt(end) == minChar) {
-                end = findMinLastPos(map);
+            if (s.charAt(r) == minChar) {
+                r = findMinLastPos(map);
             }
         }
         return new String(res);
