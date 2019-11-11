@@ -36,4 +36,25 @@ Output: "adbc"
         for(Character ch:res) sb.append(ch);
         return sb.toString();
     }
+    
+    //stack solution
+    public String smallestSubsequence_Stack(String text) {
+        int[] count = new int[26];
+        int n = text.length();
+        for (int i = 0; i < n; i++) count[text.charAt(i) - 'a']++;
+        boolean[] used = new boolean[26];
+        Stack<Character> stack = new Stack<>();
+        for (char c : text.toCharArray()) {
+            --count[c - 'a'];
+            if (used[c - 'a']) continue;
+            while (!stack.isEmpty() && c < stack.peek() && count[stack.peek() - 'a'] > 0) {
+                used[stack.pop() - 'a'] = false;
+            }
+            stack.push(c);
+            used[c - 'a'] = true;
+        }
+        StringBuilder sb = new StringBuilder();
+        while (!stack.isEmpty()) sb.insert(0, stack.pop());
+        return sb.toString();
+    }
 }
