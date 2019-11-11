@@ -130,6 +130,6 @@ Output: "acdb"
                     break;
                 }
             }
-            return s.length() == 0 ? "" : s.charAt(pos) + removeDuplicateLetters(s.substring(pos + 1).replaceAll("" + s.charAt(pos), ""));
+            return s.length() == 0 ? "" : s.charAt(pos) + removeDuplicateLetters2(s.substring(pos + 1).replaceAll("" + s.charAt(pos), ""));
         }
 }
