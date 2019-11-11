@@ -20,7 +20,10 @@ Output: ["girl","student"]
     //so the problem is to say to find "A B C" pattern, and return list of C, A, B
     //is the given words
     
-    //so just iterate the whole sentences and return 
+    //so just iterate the whole sentences and return
+    
+    //another way is to remember each string's hashcode and do compare, but it would 
+    //require extra space
     public String[] findOcurrences(String text, String first, String second) {
         if(text == null || text.length() < 1) return new String[0];
         
