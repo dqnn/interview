@@ -28,21 +28,21 @@ Output: ["acdf","acef","bcdf","bcef"]
         return set.toArray(new String[set.size()]);
     }
     
-    private void helper(String S,int pos,String res,TreeSet<String> set) {
-        if(pos==S.length()){
+    private void helper(String s,int pos,String res,TreeSet<String> set) {
+        if(pos==s.length()){
             set.add(res);
             return;
         }
-        if(S.charAt(pos)=='{') {
+        if(s.charAt(pos)=='{') {
             int index=pos+1;
             
-            while(index < S.length() && S.charAt(index) != '}') index++;
+            while(index < s.length() && s.charAt(index) != '}') index++;
             
-            String[] options=S.substring(pos+1,index).split(",");
+            String[] options=s.substring(pos+1,index).split(",");
             
-            for(String option:options) helper(S,index+1,res+option,set);
+            for(String option:options) helper(s,index+1,res+option,set);
         }
-        else helper(S,pos+1,res+S.charAt(pos),set);
+        else helper(s,pos+1,res+s.charAt(pos),set);
     }
     
     //recursive solution
