@@ -45,6 +45,7 @@ Output: 4
                 map.put(0, 1);
                 int cur = 0;
                 for (int k = 0; k < r; k++) {
+                    //here we count from i->j->k area sum
                     cur += A[k][j] - (i > 0 ? A[k][i - 1] : 0);
                     res += map.getOrDefault(cur - target, 0);
                     map.put(cur, map.getOrDefault(cur, 0) + 1);
