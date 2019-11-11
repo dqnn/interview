@@ -11,7 +11,7 @@ Example 1:
 Input: "cdadabcc"
 Output: "adbc"
 */
-    //thinking process:
+    //thinking process:O(n)/O(1),1 is because we have limited character, max 26
     //given string s, return the smallest lexi order subsequence, which each character
     //in s will only appear once
     
@@ -21,12 +21,12 @@ Output: "adbc"
         int[] used = new int[26];
         int[] cnt = new int[26];
         for(Character c : s.toCharArray()) cnt[c-'a']++;
-        for(Character c : s.toCharArray()) 
-        {
+        
+        for(Character c : s.toCharArray()) {
             cnt[c-'a']--;
             if(used[c-'a']++ > 0) continue;
-            while(res.size()>0 && res.get(res.size()-1) > c && cnt[res.get(res.size()-1)-'a'] > 0)
-            {
+            while(res.size()>0 && res.get(res.size()-1) > c 
+                    && cnt[res.get(res.size()-1)-'a'] > 0) {
                 used[res.get(res.size()-1)-'a'] = 0;
                 res.remove(res.size()-1);
             }
@@ -37,7 +37,7 @@ Output: "adbc"
         return sb.toString();
     }
     
-    //stack solution
+    //stack solution, O(n)/O(n), 
     public String smallestSubsequence_Stack(String s) {
         int[] cnt = new int[26];
         int n = s.length();
