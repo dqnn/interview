@@ -17,7 +17,9 @@ Output: "adbc"
     
     //for example, we process[0, n] substring, 
     //we pick 1 character from string, then we compare to current result set substring, 
-    //
+    
+    //so we use used[] to indicate whether we used this character or not, everytime, we would
+    //increase 1
     public String smallestSubsequence(String s) {
         List<Character> res = new ArrayList<>();
         int[] used = new int[26];
