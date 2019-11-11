@@ -63,6 +63,8 @@ Output: "acdb"
     //c->[0,3,5,7]->[7]
     //b->[1,6]->[6]
     //a->[2]->[2]
+    
+    //so substring[0,2] we will look for smallest char
     public String removeDuplicateLetters(String s) {
         if (s == null || s.length() == 0) return s;
         HashMap<Character, Integer> map = new HashMap<>();
@@ -98,8 +100,11 @@ Output: "acdb"
     }
     
     /*
-    Given the string s, the greedy choice (i.e., the leftmost letter in the answer) is the smallest s[i], s.t.
-    the suffix s[i .. ] contains all the unique letters. (Note that, when there are more than one smallest s[i]'s, we choose the leftmost one. Why? Simply consider the example: "abcacb".)
+    Given the string s, the greedy choice (i.e., the leftmost letter in the answer) 
+    //is the smallest s[i], s.t.
+    the suffix s[i .. ] contains all the unique letters. (Note that, when there are 
+    more than one smallest s[i]'s, we choose the leftmost one. Why? 
+    Simply consider the example: "abcacb".)
 
     After determining the greedy choice s[i], we get a new string s' from s by
 
