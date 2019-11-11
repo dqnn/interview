@@ -15,14 +15,16 @@ Output: "adbc"
     //given string s, return the smallest lexi order subsequence, which each character
     //in s will only appear once
     
+    //for example, we process[0, n] substring, 
+    //we pick 1 character from string, then we compare to current result set substring, 
     //
     public String smallestSubsequence(String s) {
         List<Character> res = new ArrayList<>();
         int[] used = new int[26];
         int[] cnt = new int[26];
-        for(Character c : s.toCharArray()) cnt[c-'a']++;
+        for(char c : s.toCharArray()) cnt[c-'a']++;
         
-        for(Character c : s.toCharArray()) {
+        for(char c : s.toCharArray()) {
             cnt[c-'a']--;
             if(used[c-'a']++ > 0) continue;
             while(res.size()>0 && res.get(res.size()-1) > c 
