@@ -39,8 +39,7 @@ Output: ["acdf","acef","bcdf","bcef"]
         if (s.charAt(pos) == '{') {
             int index = pos + 1;
 
-            while (index < s.length() && s.charAt(index) != '}')
-                index++;
+            while (index < s.length() && s.charAt(index) != '}') index++;
 
             String[] options = s.substring(pos + 1, index).split(",");
 
