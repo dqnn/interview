@@ -64,7 +64,10 @@ Output: "acdb"
     //b->[1,6]->[6]
     //a->[2]->[2]
     
-    //so substring[0,2] we will look for smallest char
+    //we have to look into [0,2] first because we want to at least 1 a, out of [0,2]
+    //there will be no a, then in [0,2] we look for smallest lexi character
+    
+    //
     public String removeDuplicateLetters(String s) {
         if (s == null || s.length() == 0) return s;
         HashMap<Character, Integer> map = new HashMap<>();
