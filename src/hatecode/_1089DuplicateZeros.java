@@ -29,6 +29,7 @@ public class _1089DuplicateZeros {
             if (num == 0) count++;
         }
         int i = n - 1;
+        //last element in the new position
         int write = n + count - 1;
 
         while (i >= 0 && write >= 0) {
