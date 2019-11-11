@@ -11,9 +11,15 @@ public class _1079LetterTilePossibilities {
 
      * Example 1:
      * 
-     * Input: "AAB" Output: 8 Explanation: The possible sequences are "A", "B",
+     * Input: "AAB" Output: 
+     * 8 Explanation: The possible sequences are "A", "B",
      * "AA", "AB", "BA", "AAB", "ABA", "BAA".
      */
+    
+    //thinking process: 
+    //given a set of letters, it may contain duplicate letter, so you need to mix them to 
+    //have different strings, 
+    
     //interview friendly, really brilliant solution
     //O(26 * 2^n)/O(n)
     public int numTilePossibilities(String t) {
