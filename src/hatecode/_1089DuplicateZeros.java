@@ -20,15 +20,15 @@ public class _1089DuplicateZeros {
     //given an integer array A, if element is 0, then duplicate it, put it aside, 
     //move the all other right elements to back, just move in place
     
-    //[1,0,2,3,0,4,5,0] 
-    //cnt = 3，wp = 8 + 3 - 1 = 10, r means the index in array
+    //A = [1,0,2,3,0,4,5,0] 
+    //cnt = 3，wp = 8 + 3 - 1 = 10, r means the pointer in A
     //
     public void duplicateZeros(int[] A) {
         if(A == null || A.length< 1) return;
         int n = A.length, cnt = 0;
         //how many 0 in array
         for (int num : A) if (num == 0) cnt++;
-
+        //pointer inside A, 
         int r = n - 1;
         //last element in the new position, wp= write position, A[wp]= A[i]
         int wp = n + cnt - 1;
