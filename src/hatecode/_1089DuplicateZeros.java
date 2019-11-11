@@ -20,27 +20,29 @@ public class _1089DuplicateZeros {
     //given an integer array A, if element is 0, then duplicate it, put it aside, 
     //move the all other right elements to back, just move in place
     
-    //TODO: add easier to understand text here
+    //[1,0,2,3,0,4,5,0] 
+    //cnt = 3，wp = 8 + 3 - 1 = 10, r means the index in array
+    //
     public void duplicateZeros(int[] A) {
         if(A == null || A.length< 1) return;
-        int n = A.length, count = 0;
+        int n = A.length, cnt = 0;
         //how many 0 in array
-        for (int num : A) if (num == 0) count++;
+        for (int num : A) if (num == 0) cnt++;
 
-        int i = n - 1;
+        int r = n - 1;
         //last element in the new position, wp= write position, A[wp]= A[i]
-        int wp = n + count - 1;
+        int wp = n + cnt - 1;
 
-        while (i >= 0 && wp >= 0) {
-            if (A[i] != 0) { // Non-zero, just write it in
-                if (wp < n) A[wp] = A[i];
+        while (r >= 0 && wp >= 0) {
+            if (A[r] != 0) { // Non-zero, copy A[i] to A[wp]
+                if (wp < n) A[wp] = A[r];
             } else { // Zero found, write it in twice if we can
-                if (wp < n)  A[wp] = A[i];
+                if (wp < n)  A[wp] = A[r];
                 wp--;
-                if (wp < n) A[wp] = A[i];
+                if (wp < n) A[wp] = A[r];
             }
 
-            i--;
+            r--;
             wp--;
         }
     }
