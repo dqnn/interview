@@ -18,7 +18,29 @@ Output: [1,2,3,4,null,null,7,8,9,null,14]
     //path sum less than limit, then remove this node and return the new root
     
     //this solution is BEST, i really was surprised by root.left == root.right, this is 
-    //COOL code i have never seen
+    //COOL code i have never seen. 
+    
+    //when we visit the tree recursively, if a node become a new leaf, we need to remove this node 
+    //because it means no valid path to leaf, tricky!!!!
+/*
+
+if root.left == root.right == null, root is leaf with no child {
+    if root.val < limit, we return null;
+    else we return root.
+}
+if root.left != null, root has left child {
+    Recursively call sufficientSubset function on left child,
+    with limit = limit - root.val
+}
+if root.right != null, root has right child {
+    Recursively call sufficientSubset function on right child,
+    with limit = limit - root.val
+}
+if root.left == root.right == null,
+root has no more children, no valid path left,
+we return null;
+else we return root.
+ */
     public TreeNode sufficientSubset(TreeNode root, int limit) {
         if (root == null) return null;
         //if this is the leaf and we found the it is less than limit,then ew return the result
@@ -27,7 +49,7 @@ Output: [1,2,3,4,null,null,7,8,9,null,14]
         
         root.left = sufficientSubset(root.left, limit - root.val);
         root.right = sufficientSubset(root.right, limit - root.val);
-        //this is the key, 
+        //this is the key, means no path to leaf, need to remove 
         return root.left == root.right ? null : root;
     }
 }
