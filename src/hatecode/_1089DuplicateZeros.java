@@ -25,9 +25,8 @@ public class _1089DuplicateZeros {
         if(A == null || A.length< 1) return;
         int n = A.length, count = 0;
         //how many 0 in array
-        for (int num : A) {
-            if (num == 0) count++;
-        }
+        for (int num : A) if (num == 0) count++;
+
         int i = n - 1;
         //last element in the new position
         int write = n + count - 1;
