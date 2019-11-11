@@ -21,10 +21,13 @@ Output: ["acdf","acef","bcdf","bcef"]
 */
     
     //thinking process:
+    //given a string s, we want to use multiple multiple factors, like 
+    //(a+b)*c = ac + bc, so here is the same, output all factors as above example
+    
     //
     public String[] expand(String s) {
-        TreeSet<String> set=new TreeSet<>();
-        helper(s,0,"",set);
+        TreeSet<String> set = new TreeSet<>();
+        helper(s, 0, "", set);
         return set.toArray(new String[set.size()]);
     }
     
