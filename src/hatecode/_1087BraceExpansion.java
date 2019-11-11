@@ -38,7 +38,7 @@ Output: ["acdf","acef","bcdf","bcef"]
             
             while(index < s.length() && s.charAt(index) != '}') index++;
             
-            String[] options=s.substring(pos+1,index).split(",");
+            String[] options = s.substring(pos+1,index).split(",");
             
             for(String option:options) helper(s,index+1,res+option,set);
         }
