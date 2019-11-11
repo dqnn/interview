@@ -28,20 +28,20 @@ public class _1089DuplicateZeros {
         for (int num : A) if (num == 0) count++;
 
         int i = n - 1;
-        //last element in the new position
-        int write = n + count - 1;
+        //last element in the new position, wp= write position, A[wp]= A[i]
+        int wp = n + count - 1;
 
-        while (i >= 0 && write >= 0) {
+        while (i >= 0 && wp >= 0) {
             if (A[i] != 0) { // Non-zero, just write it in
-                if (write < n) A[write] = A[i];
+                if (wp < n) A[wp] = A[i];
             } else { // Zero found, write it in twice if we can
-                if (write < n)  A[write] = A[i];
-                write--;
-                if (write < n) A[write] = A[i];
+                if (wp < n)  A[wp] = A[i];
+                wp--;
+                if (wp < n) A[wp] = A[i];
             }
 
             i--;
-            write--;
+            wp--;
         }
     }
 }
