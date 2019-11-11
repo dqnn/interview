@@ -19,7 +19,10 @@ Output: "adbc"
     //we pick 1 character from string, then we compare to current result set substring, 
     
     //so we use used[] to indicate whether we used this character or not, everytime, we would
-    //increase 1
+    //increase 1,
+    //we get char c, and comapre to last character in res, if it is bigger than current char
+    //and last character count bigger than 0, then we can remove last character and mark
+    //used[] as 0, 
     public String smallestSubsequence(String s) {
         List<Character> res = new ArrayList<>();
         int[] used = new int[26];
