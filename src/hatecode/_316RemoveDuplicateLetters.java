@@ -52,6 +52,11 @@ Output: "acdb"
      * @param s
      * @return
      */
+    
+    //thinking process: 
+    
+    //given string s, we want to remove duplicate character, return the smallest lexi 
+    //sequence of original string
     public String removeDuplicateLetters(String s) {
         if (s == null || s.length() == 0) return s;
         HashMap<Character, Integer> map = new HashMap<>();
