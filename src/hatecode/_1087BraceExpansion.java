@@ -43,8 +43,7 @@ Output: ["acdf","acef","bcdf","bcef"]
 
             String[] options = s.substring(pos + 1, index).split(",");
 
-            for (String option : options)
-                helper(s, index + 1, res + option, set);
+            for (String option : options) helper(s, index + 1, res + option, set);
         } else helper(s, pos + 1, res + s.charAt(pos), set);
     }
     
