@@ -1,7 +1,7 @@
 package hatecode;
 
 import java.util.*;
-public class ConfusingNumberII {
+public class _1088ConfusingNumberII {
 /*
 1088. Confusing Number II
 tags: recursive, digits
