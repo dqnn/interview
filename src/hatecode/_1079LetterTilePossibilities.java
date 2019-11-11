@@ -18,7 +18,8 @@ public class _1079LetterTilePossibilities {
     
     //thinking process: 
     //given a set of letters, it may contain duplicate letter, so you need to mix them to 
-    //have different strings, 
+    //have different strings, like above examples, you have 2A and 1B, how many different strings
+    //you can make
     
     //interview friendly, really brilliant solution
     //O(26 * 2^n)/O(n)
