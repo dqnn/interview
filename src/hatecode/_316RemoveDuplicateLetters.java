@@ -57,6 +57,12 @@ Output: "acdb"
     
     //given string s, we want to remove duplicate character, return the smallest lexi 
     //sequence of original string
+    
+    //we use map to store the last index of each character,
+    //c b a c d c b c
+    //c->[0,3,5,7]->[7]
+    //b->[1,6]->[6]
+    //a->[2]->[2]
     public String removeDuplicateLetters(String s) {
         if (s == null || s.length() == 0) return s;
         HashMap<Character, Integer> map = new HashMap<>();
