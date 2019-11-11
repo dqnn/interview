@@ -11,21 +11,24 @@ Example 1:
 Input: "cdadabcc"
 Output: "adbc"
 */
-    public String smallestSubsequence(String text) {
+    //thinking process:
+    //given string s, return the smallest lexi order subsequence, which each character
+    //in s will only appear once
+    public String smallestSubsequence(String s) {
         List<Character> res = new ArrayList<>();
         int[] used = new int[26];
         int[] cnt = new int[26];
-        for(Character ch : text.toCharArray()) cnt[ch-'a']++;
-        for(Character ch : text.toCharArray()) 
+        for(Character c : s.toCharArray()) cnt[c-'a']++;
+        for(Character c : s.toCharArray()) 
         {
-            cnt[ch-'a']--;
-            if(used[ch-'a']++ > 0) continue;
-            while(res.size()>0 && res.get(res.size()-1) > ch && cnt[res.get(res.size()-1)-'a'] > 0)
+            cnt[c-'a']--;
+            if(used[c-'a']++ > 0) continue;
+            while(res.size()>0 && res.get(res.size()-1) > c && cnt[res.get(res.size()-1)-'a'] > 0)
             {
                 used[res.get(res.size()-1)-'a'] = 0;
                 res.remove(res.size()-1);
             }
-            res.add(ch);
+            res.add(c);
         }
         StringBuilder sb = new StringBuilder();
         for(Character ch:res) sb.append(ch);
