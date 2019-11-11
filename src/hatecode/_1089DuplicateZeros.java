@@ -13,9 +13,14 @@ public class _1089DuplicateZeros {
      * Example 1:
      * 
      * Input: [1,0,2,3,0,4,5,0]
+     * Explanation: After calling your function, the input array is modified 
+     * to: [1,0,0,2,3,0,0,4]
      */
     //thinking process: 
-    //this is same as re-arrange the arrays
+    //given an integer array A, if element is 0, then duplicate it, put it aside, 
+    //move the all other right elements to back, just move in place
+    
+    //
     public void duplicateZeros(int[] A) {
         if(A == null || A.length< 1) return;
         int n = A.length, count = 0;
