@@ -18,6 +18,12 @@ Example 1:
 Input: [[0,0,0],[1,1,0],[1,1,0]]
 Output: 4
 */
+    //thinking process: 
+    
+    //given 2D matrix, 0 is empty, 1 is blocked, find the shortest path from top left
+    //to right bottom
+    
+    //
     public int shortestPathBinaryMatrix(int[][] m) {
         if(m == null || m.length < 1 || m[0].length < 1 || m[0][0] == 1) return -1;
         
