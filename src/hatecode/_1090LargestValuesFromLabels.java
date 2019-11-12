@@ -42,20 +42,21 @@ Output: 9
         Arrays.stream(labels).forEach(i->map.put(i, 0));
 
         int size = values.length;
-        int[][] val_lab = new int[size][2];
+        //m[0] value, m[1] = label
+        int[][] m = new int[size][2];
 
         // creating a 2D array which has values and labels corresponding to the values
         for (int i = 0; i < size; i++) {
-            val_lab[i][0] = values[i];
-            val_lab[i][1] = labels[i];
+            m[i][0] = values[i];
+            m[i][1] = labels[i];
         }
 
         // sorting the array in descending order based on the values from column 0
-        Arrays.sort(val_lab, (a, b)->(b[0] - a[0]));
+        Arrays.sort(m, (a, b)->(b[0] - a[0]));
         int sum = 0;
         for (int i = 0; i < size; i++) {
-            int val = val_lab[i][0];
-            int lab = val_lab[i][1];
+            int val = m[i][0];
+            int lab = m[i][1];
             // if label usage less than use_limit and subset size is less than num_wanted, include 
             //array item in the subset
             if (num_wanted > 0 && map.get(lab) < use_limit) {
