@@ -19,6 +19,9 @@ Example 1:
 Input: values = [5,4,3,2,1], labels = [1,1,2,2,3], num_wanted = 3, use_limit = 1
 Output: 9
 */
+    //thinking process: O(n)/O(n)
+    
+    //
     public int largestValsFromLabels(int[] values, int[] labels, int num_wanted, int use_limit) {
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 
