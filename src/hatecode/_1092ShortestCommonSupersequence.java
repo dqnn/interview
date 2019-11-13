@@ -2,6 +2,7 @@ package hatecode;
 public class _1092ShortestCommonSupersequence {
 /*
 1092. Shortest Common Supersequence
+943. Find the super string
 Given two strings str1 and str2, return the shortest string that has both str1 and str2 as subsequences.  If multiple answers exist, you may return any of them.
 
 (A string S is a subsequence of string T if deleting some number of characters from T (possibly 0, and the characters are chosen anywhere from T) results in the string S.)
