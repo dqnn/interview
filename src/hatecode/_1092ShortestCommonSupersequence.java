@@ -18,7 +18,7 @@ str1 = "abac" is a subsequence of "cabac" because we can delete the first "c".
 str2 = "cab" is a subsequence of "cabac" because we can delete the last "ac".
 The answer provided is the shortest such string that satisfies these properties.
 */
-    //thinking process: 
+    //thinking process: O(mn + m + n)/O(mn)
     
     //given two string s1 and s2, find shortest string of s1 and s2
     
@@ -36,12 +36,13 @@ The answer provided is the shortest such string that satisfies these properties.
      *   
      *   so from above example we can see ab is LCS
      *   
-     *   
-     *   case1: i == 0,  s1[--i]
-     *   case2: j == 0,  s2[--j]
+     *          cond     result
+     *   case1: i < 0,  s2[--i]  we choose s2,
+     *   case2: j < 0,  s1[--j]  we choose s1
      *   case3: s1[i-1]==s2[j-1]:s1[--i],s2[--j]
      *   case4: dp[i-1][j] == dp[i][j] s1[--i],means s1[i] does not match, then we need insert into sb
      *   case5: dp[i][j-1] == dp[i][j] s2[--j],means s2[j] does not match, then insert into sb
+     so be careful about the index, especially on case 1 and case 2
      */
     public String shortestCommonSupersequence(String s1, String s2) {
         //Part1 fill the longest common sequence table
@@ -74,12 +75,12 @@ The answer provided is the shortest such string that satisfies these properties.
             if(val == dp[i][j+1]){
                 sb.append(s1.charAt(i));
                 i--;
-            }else if(val == dp[i+1][j]){
+            } else if(val == dp[i+1][j]){
                 sb.append(s2.charAt(j));
                 j--;
         //Case 3 if the value is not the same compared with left or upper cell, append char and i--,j--
         //in longest common sequence, this means we find the common char
-            }else {
+            } else {
                 sb.append(s1.charAt(i));
                 i--;
                 j--;
