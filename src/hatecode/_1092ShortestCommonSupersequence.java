@@ -74,11 +74,11 @@ The answer provided is the shortest such string that satisfies these properties.
             }
             
             int val = dp[i+1][j+1];
-            //case 4, means we get from left
+            //case 4, means we get from up, 
             if(val == dp[i][j+1]){
                 sb.append(s1.charAt(i));
                 i--;
-            //case 5, means we get from up
+            //case 5, means we get from left
             } else if(val == dp[i+1][j]){
                 sb.append(s2.charAt(j));
                 j--;
