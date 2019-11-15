@@ -60,6 +60,8 @@ The answer provided is the shortest such string that satisfies these properties.
         StringBuilder sb = new StringBuilder();
         for(int i = s1.length()-1,j = s2.length()-1;i>=0 || j>=0;){
         //Case 1: either there is no char in str1 or str2, append char directly
+        //why i < 0, because i started from s1.len - 1, and our cond is i >=0. 
+        //
             if(i < 0){
                 sb.append(s2.charAt(j));
                 j--;
