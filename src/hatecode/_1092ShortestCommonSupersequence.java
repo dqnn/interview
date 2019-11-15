@@ -22,29 +22,31 @@ The answer provided is the shortest such string that satisfies these properties.
     
     //given two string s1 and s2, find shortest string of s1 and s2
     
-    
-    public String shortestCommonSupersequence(String str1, String str2) {
+    //so first need to understand how we calc LCS dp
+    //LCS means longest common subsequence, so it is the longest same part between
+    //s1 and s2, 
+    public String shortestCommonSupersequence(String s1, String s2) {
         //Part1 fill the longest common sequence table
-        int[][] dp = new int[str1.length()+1][str2.length()+1];
-        for(int i = 0;i<str1.length();i++){
-            for(int j = 0;j<str2.length();j++){
-                if(str1.charAt(i) == str2.charAt(j)){
+        int[][] dp = new int[s1.length()+1][s2.length()+1];
+        for(int i = 0;i<s1.length();i++){
+            for(int j = 0;j<s2.length();j++){
+                if(s1.charAt(i) == s2.charAt(j)){
                     dp[i+1][j+1] = dp[i][j] + 1;
                 }else {
                     dp[i+1][j+1] = Math.max(dp[i][j+1],dp[i+1][j]);
                 }
             }
         }
-        //Part2: use the table to get the ans
+        //Part2: use the table to get the res
         StringBuilder sb = new StringBuilder();
-        for(int i = str1.length()-1,j = str2.length()-1;i>=0 || j>=0;){
+        for(int i = s1.length()-1,j = s2.length()-1;i>=0 || j>=0;){
         //Case 1: either there is no char in str1 or str2, append char directly
             if(i < 0){
-                sb.append(str2.charAt(j));
+                sb.append(s2.charAt(j));
                 j--;
                 continue;
             }else if(j < 0){
-                sb.append(str1.charAt(i));
+                sb.append(s1.charAt(i));
                 i--;
                 continue;
             }
@@ -52,15 +54,15 @@ The answer provided is the shortest such string that satisfies these properties.
         // in longest common sequence, this means the char should be deleted, but in this problem, we need to append
             int val = dp[i+1][j+1];
             if(val == dp[i][j+1]){
-                sb.append(str1.charAt(i));
+                sb.append(s1.charAt(i));
                 i--;
             }else if(val == dp[i+1][j]){
-                sb.append(str2.charAt(j));
+                sb.append(s2.charAt(j));
                 j--;
         //Case 3 if the value is not the same compared with left or upper cell, append char and i--,j--
         //in longest common sequence, this means we find the common char
             }else {
-                sb.append(str1.charAt(i));
+                sb.append(s1.charAt(i));
                 i--;
                 j--;
             }
