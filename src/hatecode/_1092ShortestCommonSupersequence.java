@@ -79,7 +79,8 @@ The answer provided is the shortest such string that satisfies these properties.
                 sb.append(s1.charAt(i));
                 i--;
             //case 5, abac cab, will go here first, this means 
-            //s2[j] does not match s1[i]
+            //s1 still has chance to append to result because s1 will match
+            //its beforehand part, so we need to append s2 into result
             } else if(val == dp[i+1][j]){
                 sb.append(s2.charAt(j));
                 j--;
