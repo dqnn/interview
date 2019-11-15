@@ -30,12 +30,14 @@ Output: [1.00000,3.00000,2.37500,2.50000,3.00000]
                 if (min < 0) min = i;
                 max = i;
                 sum += i * count[i];
+                //frequency
                 if (count[i] > count[mode]) mode = i;
             }
         }
         avg = sum / total;
         if (total == 1) median = sum; // single element.
         int m1 = (total + 1) / 2, m2 = total / 2 + 1; // m1-th and m2-th items are medians.
+        //calc the median
         for (int i = 0, cnt = 0; total > 1 && i < 256; ++i) { // more than 1 elements.
             if (cnt < m1 && cnt + count[i] >= m1) // find m1-th item.
                 median += i / 2.0d; // add its half.
