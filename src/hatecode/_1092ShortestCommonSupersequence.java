@@ -84,8 +84,7 @@ The answer provided is the shortest such string that satisfies these properties.
         //in longest common sequence, this means we find the common char
             } else {
                 sb.append(s1.charAt(i));
-                i--;
-                j--;
+                i--;j--;
             }
         }
         return sb.reverse().toString();
