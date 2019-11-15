@@ -34,7 +34,9 @@ The answer provided is the shortest such string that satisfies these properties.
      *   a 0 1  1  1  1
      *   b 0 1  2  2  2
      *   
-     *   so from above example we can see 
+     *   so from above example we can see ab is LCS
+     *   next problem how we ab -> cabac
+     *   
      */
     public String shortestCommonSupersequence(String s1, String s2) {
         //Part1 fill the longest common sequence table
