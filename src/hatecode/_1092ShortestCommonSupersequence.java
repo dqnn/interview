@@ -39,7 +39,7 @@ The answer provided is the shortest such string that satisfies these properties.
      *          cond     result
      *   case1: i < 0,  s2[--i]  we choose s2,
      *   case2: j < 0,  s1[--j]  we choose s1
-     *   case3: s1[i-1]==s2[j-1]:s1[--i],s2[--j]
+     *   case3: s1[i]==s2[j]:s1[--i],s2[--j]
      *   case4: dp[i-1][j] == dp[i][j] s1[--i],means s1[i] does not match, then we need insert into sb
      *   case5: dp[i][j-1] == dp[i][j] s2[--j],means s2[j] does not match, then insert into sb
      so be careful about the index, especially on case 1 and case 2
@@ -64,17 +64,19 @@ The answer provided is the shortest such string that satisfies these properties.
                 sb.append(s2.charAt(j));
                 j--;
                 continue;
+        //Case 2
             }else if(j < 0){
                 sb.append(s1.charAt(i));
                 i--;
                 continue;
             }
-        //Case 2: if the value is the same compared with left or uppper cell, append corresponding char in str1 or str2
-        // in longest common sequence, this means the char should be deleted, but in this problem, we need to append
+            
             int val = dp[i+1][j+1];
+            //case 4
             if(val == dp[i][j+1]){
                 sb.append(s1.charAt(i));
                 i--;
+            //case 5
             } else if(val == dp[i+1][j]){
                 sb.append(s2.charAt(j));
                 j--;
