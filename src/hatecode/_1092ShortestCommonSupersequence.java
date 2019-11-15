@@ -26,7 +26,7 @@ The answer provided is the shortest such string that satisfies these properties.
     //LCS means longest common subsequence, so it is the longest same part between
     //s1 and s2, 
     
-    //dp[i][j] means LCS for s1[0,i] and s2[0,j] 
+    //dp[i][j] means LCS for s1[0,i-1] and s2[0,j-1] 
     /*
      *       a  b  a  c
      *     0 0  0  0  0
@@ -35,8 +35,13 @@ The answer provided is the shortest such string that satisfies these properties.
      *   b 0 1  2  2  2
      *   
      *   so from above example we can see ab is LCS
-     *   next problem how we ab -> cabac
      *   
+     *   
+     *   case1: i == 0,  s1[--i]
+     *   case2: j == 0,  s2[--j]
+     *   case3: s1[i-1]==s2[j-1]:s1[--i],s2[--j]
+     *   case4: dp[i-1][j] == dp[i][j] s1[--i],means s1[i] does not match, then we need insert into sb
+     *   case5: dp[i][j-1] == dp[i][j] s2[--j],means s2[j] does not match, then insert into sb
      */
     public String shortestCommonSupersequence(String s1, String s2) {
         //Part1 fill the longest common sequence table
