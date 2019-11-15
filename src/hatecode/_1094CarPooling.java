@@ -1,7 +1,7 @@
 package hatecode;
 
 import java.util.*;
-public class CarPooling {
+public class _1094CarPooling {
     /*
      * 1094. Car Pooling You are driving a vehicle that has capacity empty seats
      * initially available for passengers. The vehicle only drives east (ie. it
