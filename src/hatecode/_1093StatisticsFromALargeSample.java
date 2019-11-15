@@ -20,6 +20,7 @@ Output: [1.00000,3.00000,2.37500,2.50000,3.00000]
     //thinking process:
     
     //mode means most frquent number
+    //followup: stream?
     public double[] sampleStats(int[] count) {
         int total = 0, mode = 0;
         double median = 0, min = -1, max = 0, avg = 0, sum = 0;
