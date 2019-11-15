@@ -25,6 +25,17 @@ The answer provided is the shortest such string that satisfies these properties.
     //so first need to understand how we calc LCS dp
     //LCS means longest common subsequence, so it is the longest same part between
     //s1 and s2, 
+    
+    //dp[i][j] means LCS for s1[0,i] and s2[0,j] 
+    /*
+     *       a  b  a  c
+     *     0 0  0  0  0
+     *   c 0 0  0  0  1
+     *   a 0 1  1  1  1
+     *   b 0 1  2  2  2
+     *   
+     *   so from above example we can see 
+     */
     public String shortestCommonSupersequence(String s1, String s2) {
         //Part1 fill the longest common sequence table
         int[][] dp = new int[s1.length()+1][s2.length()+1];
