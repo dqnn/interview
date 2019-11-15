@@ -78,7 +78,8 @@ The answer provided is the shortest such string that satisfies these properties.
             if(val == dp[i][j+1]){
                 sb.append(s1.charAt(i));
                 i--;
-            //case 5, means we get from left
+            //case 5, abac cab, will go here first, this means 
+            //s2[j] does not match s1[i]
             } else if(val == dp[i+1][j]){
                 sb.append(s2.charAt(j));
                 j--;
