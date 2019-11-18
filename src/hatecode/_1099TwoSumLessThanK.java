@@ -1,5 +1,5 @@
 package hatecode;
-public class TwoSumLessThanK {
+public class _1099TwoSumLessThanK {
 /*
 1099. Two Sum Less Than K
 Given an array A of integers and integer K, return the maximum S such that there 
