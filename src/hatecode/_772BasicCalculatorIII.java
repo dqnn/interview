@@ -126,7 +126,8 @@ following calculations.
     }
 
     // O(n^2)/O(n)recursive, A + B, we recursive to get A and B, understand its templates
-     public int calculate(String s) {
+    //worst case: (((1+1))), we have to be in else for every time
+    public int calculate(String s) {
          int res = 0, curRes = 0, num = 0;
          char op = '+';
          for(int i = 0; i <= s.length() - 1; i++) {
