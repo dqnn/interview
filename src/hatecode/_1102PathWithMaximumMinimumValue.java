@@ -29,7 +29,8 @@ Output: 4
             maxscore = Math.min(maxscore, top[0]);
             if(i == r - 1 && j == c - 1) return maxscore;
             for(int[] d : dirs) {
-                int x = d[0] + i, y = d[1] + j;
+                int x = d[0] + i;
+                int y = d[1] + j;
                 if(x >= 0 && x < r && y >= 0 && y < c && A[x][y]>=0){
                     pq.add(new int[] {A[x][y], x, y});
                     A[x][y] = -1;
