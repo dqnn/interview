@@ -27,9 +27,11 @@ Output: 20190301
     //given a list of logs, log[i] = [20190101,0,1], 0 and 1 person know each 
     //other on 20190101
     //return the earliest time when all people know each other
+    
+    //union find and sort
     public int earliestAcq(int[][] logs, int N) {
         if(logs == null || logs.length < 1 ) return 0;
-        
+
         Arrays.sort(logs, (a, b)->(a[0] - b[0]));
         DSU dsu = new DSU(N);
         
