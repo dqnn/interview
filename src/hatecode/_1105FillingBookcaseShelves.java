@@ -48,10 +48,10 @@ Output: 6
     //dfs solution,O(n*m)/O(n), if not memo, then O(2^n)/O(n)
     public int minHeightShelves_DFS(int[][] books, int sw) {
         Integer[] dp = new Integer[books.length];
-        return memSol(books, sw, 0, dp);
+        return helper(books, sw, 0, dp);
     }
     
-    public int memSol(int[][] books, int sw, int index, Integer[] dp){
+    public int helper(int[][] books, int sw, int index, Integer[] dp){
         if(index >= books.length) return 0;
         
         if(dp[index] != null) return dp[index];
@@ -62,7 +62,7 @@ Output: 6
             w += books[i][0];
             h = Math.max(h , books[i][1]);
             
-            int r = memSol(books, sw, i+1, dp);
+            int r = helper(books, sw, i+1, dp);
             if(r != Integer.MAX_VALUE){
                res = Math.min(res, r+h);   
             }
