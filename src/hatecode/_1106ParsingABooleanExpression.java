@@ -24,27 +24,32 @@ Output: true
 */
     
     //thinking process: O(n)/O(n)
+    
+    //given a string, which is contains "(),!&tf", like "|(&(t,f,t),!(t))"
+    //we would like to implement a function to evaluate this string, the result is 
+    //a boolean, true or false
+    
+    //
     public boolean parseBoolExpr_Stack(String s) {
         if(s == null || s.length() < 1) return true;
-        
+
         //Term, Operator
         Deque<Character> stk = new ArrayDeque<>();
         for (int i = 0; i < s.length(); ++i) {
             char c = s.charAt(i);
             if (c == ')') {
                 Set<Character> seen = new HashSet<>();
-                while (stk.peek() != '(')
-                    seen.add(stk.pop());
+                while (stk.peek() != '(') seen.add(stk.pop());
                 stk.pop();// pop out '('.
                 char operator = stk.pop(); // get operator for current expression.
                 if (operator == '&') {
                     stk.push(seen.contains('f') ? 'f' : 't'); // if there is any 'f', & expression results to 'f'
-                }else if (operator == '|') {
+                } else if (operator == '|') {
                     stk.push(seen.contains('t') ? 't' : 'f'); // if there is any 't', | expression results to 't'
-                }else { // ! expression.
+                } else { // ! expression.
                     stk.push(seen.contains('t') ? 'f' : 't'); // Logical NOT flips the expression.
                 }
-            }else if (c != ',') {
+            } else if (c != ',') {
                 stk.push(c);
             }
         }
