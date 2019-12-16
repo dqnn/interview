@@ -25,11 +25,15 @@ Output: true
     
     //thinking process: O(n)/O(n)
     
-    //given a string, which is contains "(),!&tf", like "|(&(t,f,t),!(t))"
+    //given a string, which is contains "(),!|&tf", like "|(&(t,f,t),!(t))"
     //we would like to implement a function to evaluate this string, the result is 
     //a boolean, true or false
     
-    //
+    //eg, "|(&(t,f,t),!(t))"
+    //first we identified first ), all chars before ) will be put in stack,
+    //then we look back for first (, the chars between () will be put into seen, 
+    //() there must be operator before each (). so we do calculate the result for this
+    //(), 
     public boolean parseBoolExpr_Stack(String s) {
         if(s == null || s.length() < 1) return true;
 
