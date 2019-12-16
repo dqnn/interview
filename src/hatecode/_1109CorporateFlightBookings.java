@@ -26,9 +26,9 @@ Output: [10,55,45,25,25]
     //
     public int[] corpFlightBookings(int[][] bookings, int n) {
         int[] res = new int[n];
-        for (int[] v : bookings) {
-            res[v[0] - 1] += v[2];
-            if (v[1] < n) res[v[1]] -= v[2];
+        for (int[] b : bookings) {
+            res[b[0] - 1] += b[2];
+            if (b[1] < n) res[b[1]] -= b[2];
         }
         for (int i = 1; i < n; ++i) res[i] += res[i - 1];
         return res;
