@@ -2,7 +2,7 @@ package hatecode;
 
 import java.util.*;
 import java.util.stream.Collectors;
-public class DeleteNodesAndReturnForest {
+public class _1110DeleteNodesAndReturnForest {
 /*
 1110. Delete Nodes And Return Forest
 Given the root of a binary tree, each node in the tree has a distinct value.

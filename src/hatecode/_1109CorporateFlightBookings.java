@@ -23,7 +23,13 @@ Output: [10,55,45,25,25]
     //given a flight 2D array as bookings,[i,j,k]->from i to j reserved k seats,
     //return an array which contains seats for all stops, all stops is another parameter n
     
-    //
+    //this solution is to leverage [start, end, end+1] relationship, so this problem 
+    //essentially is what to know for a range, how can we know the change on the edge easily,
+    //i, j, eg, two case
+    // i + 1 = j, so we have to substract the value in previous range, so the correct value 
+    //on j can be correct. 
+    // j -i > 1, this would be ok, because we will substract value on i + 1, and it would be 0 if there is no 
+    //seats on this timepoint
     public int[] corpFlightBookings(int[][] bookings, int n) {
         int[] res = new int[n];
         for (int[] b : bookings) {
