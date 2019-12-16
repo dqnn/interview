@@ -30,6 +30,29 @@ Input: seq = "(()())"
 Output: [0,1,1,1,1,0]
 */
     //thinking process: O(n)/O(1)
+    //follow is the example to demonstrate the problem, so we define VPS concept, 
+    //which means parenthsis can concat, include each other still valid. 
+    //so given an string of parenthese, we can extract them into A+B model, the depth is max(A, B)
+    //so return an array, res[i] = 0 if seq[0] is part of A, else 1
+/*
+ * Example 1:
+
+    ( ( ) ( ) )                 "(()())"
+
+  [ 0 1 1 1 1 0 ]
+
+A:  (         )                 "()"
+B:    ( ) ( )                   "()()"
+
+Example 2:
+
+    ( ) ( ( ) ) ( )             "()(())()"
+
+  [ 0 0 0 1 1 0 1 1 ]
+
+A:  ( ) (     )                 "()()"
+B:        ( )   ( )             "()()" 
+ */
     
     //so 
     public int[] maxDepthAfterSplit(String seq) {
