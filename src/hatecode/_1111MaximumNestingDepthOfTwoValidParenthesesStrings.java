@@ -57,10 +57,11 @@ B:        ( )   ( )             "()()"
     //so 
     public int[] maxDepthAfterSplit(String seq) {
         int n = seq.length(), res[] = new int[n];
-        for (int i = 0; i < n; ++i)
+        for (int i = 0; i < n; i++)
             res[i] = seq.charAt(i) == '(' ? i & 1 : (1 - i & 1);
         return res;
     }
+    
     
     public int[] maxDepthAfterSplit_CountEven(String seq) {
         int A = 0, B = 0, n = seq.length();
