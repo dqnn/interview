@@ -54,7 +54,7 @@ A:  ( ) (     )                 "()()"
 B:        ( )   ( )             "()()" 
  */
     
-    //so 
+    //so A has odd parenthesis, B has even so
     public int[] maxDepthAfterSplit(String seq) {
         int n = seq.length(), res[] = new int[n];
         for (int i = 0; i < n; i++)
