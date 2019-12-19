@@ -54,7 +54,12 @@ A:  ( ) (     )                 "()()"
 B:        ( )   ( )             "()()" 
  */
     
-    //so A has odd parenthesis, B has even so
+    //look at this example, (((()))), since multiple answers exists, so lets suppose depth(A) 》= depth(B),
+    // for this example, how can achieve min(dep(A), dep(B)), if total depth is even, then dep(A) =dep(B) = totalDep/2,
+    //   ( ( ( ( ) ) ) )  will be like following, so we mark even->B, odd-.A
+    //   (   (     )   )     A
+   //      (   ( )   )       B
+   // so we can know if i as index of seq, if i & 1 == 1 means odd, 
     public int[] maxDepthAfterSplit(String seq) {
         int n = seq.length(), res[] = new int[n];
         for (int i = 0; i < n; i++)
