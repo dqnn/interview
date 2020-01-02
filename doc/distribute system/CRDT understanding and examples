@@ -2,5 +2,9 @@
 Video: https://www.youtube.com/playlist?list=PLzUeAPxtWcqxBXjUelmcm5ORVjEpbUlHH
 So Consistency: 
 
+
+simple explainations: https://www.youtube.com/watch?v=vBU70EjwGfw
+
+
 1. Idempotence, each change has same effect, for example, we have 1 , 2, 3 changes, no matter the order their come, finally we are the same,
 one example to show the diff is the times 2, if base are differnt, then result will be different
