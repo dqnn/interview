@@ -14,7 +14,6 @@ After each query (x, y) [in the order given by queries], we turn off any lamps t
 
 Return an array of answers.  Each value answer[i] should be equal to the answer of the i-th query queries[i].
 
- 
 
 Example 1:
 
