@@ -40,7 +40,7 @@ Output: "firstsecondthird"
     //so  --1--  --2--  --3-- how can we insert dependency?
     //
     Semaphore run2, run3;
-    //Semaphore consttuctor take one integer to count down, if it is 0 then 
+    //Semaphore constructor take one integer to count down, if it is 0 then 
     //you have to wait when call acquire, when release it will increase 1
     
     //so we initialize 0 means all have to wait
