@@ -32,6 +32,10 @@ Output: "foobar"
 
     //thinking process: same as 1114, 
     
+    //the problem is to say given two function, foo and bar and an integer n,
+    //we would like to print foorbar n =1, foobarfoobar n=2, like this way,
+    //just add some code into current class
+    
     //
     private int n;
 
