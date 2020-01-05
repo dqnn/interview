@@ -26,6 +26,7 @@ Other possible solutions are [[2,1,6],[5],[0,4,3]] and [[5],[0,6,2],[4,3,1]].
     //we get index and gz[i] each time, and put in a list, if list size equals to gz[i]
     //means we fulfilled the group, then we reset the list in map,
     
+    //this essentially is a allocation problem, and we have many correct answers. 
     //
     public List<List<Integer>> groupThePeople(int[] gz) {
       List<List<Integer>> res = new ArrayList<>();
