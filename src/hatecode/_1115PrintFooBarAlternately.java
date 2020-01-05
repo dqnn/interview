@@ -36,6 +36,9 @@ Output: "foobar"
     //we would like to print foorbar n =1, foobarfoobar n=2, like this way,
     //just add some code into current class
     
+    //so we would like to print the string in correct squence, but they should 
+    //print in correct order, recursion as dependency can work here
+    
     //
     private int n;
 
