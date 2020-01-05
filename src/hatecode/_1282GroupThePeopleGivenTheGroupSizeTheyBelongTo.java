@@ -23,9 +23,13 @@ Other possible solutions are [[2,1,6],[5],[0,4,3]] and [[5],[0,6,2],[4,3,1]].
     //belong a group, the group size, foe example [3,3,3,3,3,1,3] means 0 belongs to a 
     //group has 3 people, so return a list of list which contains all Ids,
     
+    //we get index and gz[i] each time, and put in a list, if list size equals to gz[i]
+    //means we fulfilled the group, then we reset the list in map,
+    
     //
     public List<List<Integer>> groupThePeople(int[] gz) {
       List<List<Integer>> res = new ArrayList<>();
+      //map stores group size - group list<IDs> 
       Map<Integer, List<Integer>> groups = new HashMap<>();
       for (int i = 0; i < gz.length; ++i) {
         List<Integer> list = groups.computeIfAbsent(gz[i], k -> new ArrayList<>());
