@@ -25,19 +25,20 @@ Other possible solutions are [[2,1,6],[5],[0,4,3]] and [[5],[0,6,2],[4,3,1]].
     
     //
     public List<List<Integer>> groupThePeople(int[] gz) {
-      List<List<Integer>> res = new ArrayList();
+      List<List<Integer>> res = new ArrayList<>();
       Map<Integer, List<Integer>> groups = new HashMap<>();
       for (int i = 0; i < gz.length; ++i) {
-        List<Integer> list = groups.computeIfAbsent(gz[i], k -> new ArrayList());
+        List<Integer> list = groups.computeIfAbsent(gz[i], k -> new ArrayList<>());
         list.add(i);
         if (list.size() == gz[i]) {
           res.add(list);
-          groups.put(gz[i], new ArrayList());
+          groups.put(gz[i], new ArrayList<>());
         }
       }
       return res;
     }
     
+    //brute force
     public List<List<Integer>> groupThePeople_Naive(int[] groupSizes) {
         List<List<Integer>> result = new ArrayList<>();
         int n = groupSizes.length;
