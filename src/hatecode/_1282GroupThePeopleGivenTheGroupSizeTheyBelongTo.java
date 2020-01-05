@@ -27,7 +27,12 @@ Other possible solutions are [[2,1,6],[5],[0,4,3]] and [[5],[0,6,2],[4,3,1]].
     //means we fulfilled the group, then we reset the list in map,
     
     //this essentially is an allocation problem, and we have many correct answers. 
-    //
+    //Allocation is put resource into some groups based on some rules, 
+    //here is the simple one, the key factor is group size,
+    //so we use group size as map key, map value is the group list which contains Id,
+    //every time we get Id as index, and put into a new list, 
+    //if size == current group size, then means we fullfiled one group, 
+    //then added to result set
     public List<List<Integer>> groupThePeople(int[] gz) {
       List<List<Integer>> res = new ArrayList<>();
       //map stores group size - group list<IDs> 
