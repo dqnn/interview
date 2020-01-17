@@ -23,7 +23,12 @@ Input: n = 2
 Output: "0102"
 */
     // thinking process: 
-    //
+    //the problem is to say: given 3 threads with 3 functions and an integer n, 
+    //zero function will print 0, even will print even number and 
+    //odd will print odd number, we would like to print such form like
+    //"0102030405" n = 5 string,
+    
+    //so 
     int n;
     
     Semaphore semaphoreEven, semaphoreOdd, semaphoreZero;
