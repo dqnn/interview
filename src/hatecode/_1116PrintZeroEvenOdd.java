@@ -33,7 +33,10 @@ Output: "0102"
     
     //even or odd will only be executed n / 2 time but 0 will be executed n times
     
-    //
+    //thinking 3 threads aready exists，now we want them to print each function below, 
+    //so we just need to control when can print with signal inside these 3 functions
+    //zero has 1 intially becuase it will print first, others will be blocked. 
+    //same logic with 1115
     
     int n;
     
