@@ -22,7 +22,8 @@ Example 1:
 Input: n = 2
 Output: "0102"
 */
-    
+    // thinking process: 
+    //
     int n;
     
     Semaphore semaphoreEven, semaphoreOdd, semaphoreZero;
