@@ -28,7 +28,13 @@ Output: "0102"
     //odd will print odd number, we would like to print such form like
     //"0102030405" n = 5 string,
     
-    //so 
+    //so the key is how to control the print flow, we need some control signal to 
+    //allow each function can be executed
+    
+    //even or odd will only be executed n / 2 time but 0 will be executed n times
+    
+    //
+    
     int n;
     
     Semaphore semaphoreEven, semaphoreOdd, semaphoreZero;
