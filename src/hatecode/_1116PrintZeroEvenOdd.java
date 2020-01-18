@@ -35,7 +35,7 @@ Output: "0102"
     
     //thinking 3 threads aready exists，now we want them to print each function below, 
     //so we just need to control when can print with signal inside these 3 functions
-    //zero has 1 intially becuase it will print first, others will be blocked. 
+    //zero has 1 initially because it will print first, others will be blocked. 
     //same logic with 1115
     
     int n;
