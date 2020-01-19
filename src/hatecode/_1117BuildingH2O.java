@@ -25,7 +25,14 @@ Explanation: "HOH" and "OHH" are also valid answers.
     
     //thinking process:
     
-    //the problem is to say: 
+   /*the problem is to say: we have two threads with 2 methods can produce 
+    O and H, 
+    but we do not H or O which will arrive earlier, we would like to
+    to have H2O style, one time, we group consective 3 chars will form
+    H2O, HHO, HOH,OHH are all correct. 
+     
+    So we would like to  
+    */
     
     Semaphore outputting;
     Semaphore outputHydrogen, outputOxygen;
