@@ -89,7 +89,6 @@ Output: "0102"
         int nextOdd = 1;
         for(int i = 0; i < numTimes; i++){
             semaphoreOdd.acquire();
-            
             printNumber.accept(nextOdd);
             nextOdd += 2;
             
