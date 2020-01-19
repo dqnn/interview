@@ -22,6 +22,11 @@ Input: "HOH"
 Output: "HHO"
 Explanation: "HOH" and "OHH" are also valid answers.
  */
+    
+    //thinking process:
+    
+    //the problem is to say: 
+    
     Semaphore outputting;
     Semaphore outputHydrogen, outputOxygen;
     public _1117BuildingH2O() {
