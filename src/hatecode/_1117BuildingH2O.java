@@ -49,7 +49,12 @@ Explanation: "HOH" and "OHH" are also valid answers.
         releaseHydrogen.run();
         outputOxygen.release();
     }
-
+    //every time, line 55 will be first run, 
+    //then H and O thread will compete, but that's ok, 
+    //outputting is to make sure printing is by sequence, BY O's sequence
+    //suppose H1 H2 O1 O2, 
+    //we do not know H1 or H2 who will be print first, but 
+    //thats ok
     public void oxygen(Runnable releaseOxygen) throws InterruptedException {
         //we only output 1 complete set at a time.
         outputting.acquire();
