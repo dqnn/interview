@@ -35,6 +35,9 @@ Explanation: "HOH" and "OHH" are also valid answers.
     when we release 2 H then we can release 1 O, 
     */
     
+    //the key of the problem is to think in this way:
+    //the chars are coming in 8 possibilities, we want to guarantee that
+    //output is in H2O sequence, so 
     Semaphore outputting;
     Semaphore outputHydrogen, outputOxygen;
     public _1117BuildingH2O() {
