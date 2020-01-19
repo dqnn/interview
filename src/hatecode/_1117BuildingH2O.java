@@ -58,7 +58,6 @@ Explanation: "HOH" and "OHH" are also valid answers.
 		releaseOxygen.run();
 		//we wait for 2 hydrogens to finish printing
         outputOxygen.acquire(2);
-        
         outputting.release();
     }
 }
