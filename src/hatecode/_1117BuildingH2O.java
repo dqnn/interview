@@ -31,7 +31,8 @@ Explanation: "HOH" and "OHH" are also valid answers.
     to have H2O style, one time, we group consective 3 chars will form
     H2O, HHO, HOH,OHH are all correct. 
      
-    So we would like to  
+    So the threads need to be mutually conditional, which means
+    when we release 2 H then we can release 1 O, 
     */
     
     Semaphore outputting;
@@ -62,7 +63,8 @@ Explanation: "HOH" and "OHH" are also valid answers.
     }
 }
 
-
+//this would work, but since we have 2 O threads are blocked, we do not 
+//which O will be printed, so the O sequence cannot be garauteed.
 class H2O {
     
     Semaphore h, o;
