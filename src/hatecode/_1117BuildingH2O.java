@@ -37,7 +37,7 @@ Explanation: "HOH" and "OHH" are also valid answers.
     
     //the key of the problem is to think in this way:
     //the chars are coming in 8 possibilities, we want to guarantee that
-    //output is in H2O sequence, so 
+    //output is in H2O sequence
     Semaphore outputting;
     Semaphore outputHydrogen, outputOxygen;
     public _1117BuildingH2O() {
