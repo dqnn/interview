@@ -29,7 +29,8 @@ Output: 6.00000
         return res == Double.MIN_VALUE ? -1 : res;
     }
     
-    //int[], [0] is sum, [1] count of nodes 
+    //int[], [0] is sum, [1] count of nodes, we do not need map actually since it 
+    //does not help not all
     private int[] helper(TreeNode root, Map<TreeNode, int[]> map) {
         if(root == null) return new int[]{0,0};
         if(map.containsKey(root)) return map.get(root);
