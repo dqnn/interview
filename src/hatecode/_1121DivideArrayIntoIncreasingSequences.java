@@ -12,6 +12,13 @@ Input: nums = [1,2,2,3,3,4,4], K = 3
 Output: true
 */
   
+    //thinking process: O(n)/O(1)
+    
+    //so the problem is to say: given an integer array A, and postive integer K, 
+    //we would like to see whether the array can split into two non -decreasing array and each size
+    //should >= K,
+    
+    //
     public boolean canDivideIntoSubsequences(int[] A, int K) {
         int cur = 1, groups = 1, n = A.length;
         for (int i = 1; i < n; i++) {
