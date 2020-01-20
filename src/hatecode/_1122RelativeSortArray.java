@@ -24,7 +24,10 @@ Output: [2,2,2,1,4,3,3,9,6,7,19]
     //place in last but relatively its position in A1
     
     //O(n)/O(1)
-    //
+    //cnt[] is the array to record the frequency of each number in A1, 
+    //after we record, then we assign the value each in A2 to A1 with frequence in 
+    //cnt, then after that, we go through cnt and place the number in A1
+    //this way we hacked the length of the array, but time complexity is better
     public int[] relativeSortArray_best(int[] A1, int[] A2) {
         int[] cnt = new int[1001];
         for(int n : A1) cnt[n]++;
