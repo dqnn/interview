@@ -22,7 +22,7 @@ Output: true, [2,2,3,3], [1,4,4]
     //should >= K,
     
     //groups is the id of the group,the array is already sorted, 
-    //so
+    //so 
     public boolean canDivideIntoSubsequences(int[] A, int K) {
         int cur = 1, groups = 1, n = A.length;
         for (int i = 1; i < n; i++) {
