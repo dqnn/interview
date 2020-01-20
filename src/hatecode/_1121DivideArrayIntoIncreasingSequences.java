@@ -12,7 +12,7 @@ length at least K.
 Example 1:
 
 Input: nums = [1,2,2,3,3,4,4], K = 3, 
-Output: true, [1,2,3,4], [2,3,4]
+Output: true, [1,2,2,3], [3,3,4]
 */
   
     //thinking process: O(n)/O(1)
@@ -21,7 +21,8 @@ Output: true, [1,2,3,4], [2,3,4]
     //we would like to see whether the array can split into 2+ non -decreasing array and each size
     //should >= K,
     
-    //
+    //groups is the id of the group,the array is already sorted, 
+    //so
     public boolean canDivideIntoSubsequences(int[] A, int K) {
         int cur = 1, groups = 1, n = A.length;
         for (int i = 1; i < n; i++) {
