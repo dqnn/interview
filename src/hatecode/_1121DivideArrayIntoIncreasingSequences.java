@@ -19,10 +19,11 @@ Output: true, [2,2,3,3], [1,4,4]
     
     //so the problem is to say: given an integer array A, and postive integer K, 
     //we would like to see whether the array can split into 2+ non -decreasing array and each size
-    //should >= K,
+    //should >= K, so disjoint subsequence means one number can only be in one 
+    //group
     
     //groups is the id of the group,the array is already sorted, 
-    //so 
+    //so if they are the same, they has to be in one group, 
     public boolean canDivideIntoSubsequences(int[] A, int K) {
         int cur = 1, groups = 1, n = A.length;
         for (int i = 1; i < n; i++) {
