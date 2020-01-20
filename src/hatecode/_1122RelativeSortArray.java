@@ -23,7 +23,7 @@ Output: [2,2,2,1,4,3,3,9,6,7,19]
     //A1, we want to sort A1 according to each number position in A2, if not in A2, then
     //place in last but relatively its position in A1
     
-    //
+    //O(n)/O(1)
     public int[] relativeSortArray_best(int[] A1, int[] A2) {
         int[] cnt = new int[1001];
         for(int n : A1) cnt[n]++;
@@ -41,7 +41,7 @@ Output: [2,2,2,1,4,3,3,9,6,7,19]
         return A1;
     }
     
-    //this solution is tricky, 
+    //this solution is tricky, O(nlgn + O(m))/O(m)
     //the action is actually sorting, so if element is in A2, then we just use its index
     //in A2, if not, we use 1000 + A1, it could satisfy 
     //1. biggest index compared to other elements in A2, 
