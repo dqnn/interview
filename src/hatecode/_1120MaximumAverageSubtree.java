@@ -27,6 +27,13 @@ Example 1:
 Input: [5,6,1]
 Output: 6.00000
 */
+    //thinking process: O(n)/O(n), actually we do not need to memo the value
+    
+    //so given a tree, we would like to get max avg value, avg value is for a node, 
+    //one node avg value is sum/count of nodes include the root. 
+    
+    //recursive, but we have to remember how many count of nodes for its right/left
+    //or we cannot calculate current node avg
     double res = Double.MIN_VALUE;
     
     public double maximumAverageSubtree(TreeNode root) {
