@@ -18,7 +18,7 @@ Output: true, [1,2,3,4], [2,3,4]
     //thinking process: O(n)/O(1)
     
     //so the problem is to say: given an integer array A, and postive integer K, 
-    //we would like to see whether the array can split into 2+ non -decreasing array and each size
+    //we would like to see whether the array can split into 1+ non -decreasing array and each size
     //should >= K, so disjoint subsequence means in one array, each
     //numbe should be different
     
