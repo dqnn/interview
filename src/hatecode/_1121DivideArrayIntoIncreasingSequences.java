@@ -2,7 +2,10 @@ package hatecode;
 public class _1121DivideArrayIntoIncreasingSequences {
 /*
 1121. Divide Array Into Increasing Sequences
-Given a non-decreasing array of positive integers nums and an integer K, find out if this array can be divided into one or more disjoint increasing subsequences of length at least K.
+Given a non-decreasing array of positive integers nums and 
+an integer K, find out if this array can be divided 
+into one or more disjoint increasing subsequences of 
+length at least K.
 
  
 
