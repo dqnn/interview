@@ -12,7 +12,7 @@ length at least K.
 Example 1:
 
 Input: nums = [1,2,2,3,3,4,4], K = 3, 
-Output: true, [1,2,2,3], [3,3,4]
+Output: true, [2,2,3,3], [1,4,4]
 */
   
     //thinking process: O(n)/O(1)
