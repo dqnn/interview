@@ -54,7 +54,7 @@ Output: [2,2,2,1,4,3,3,9,6,7,19]
         Map<Integer, Integer> map = new HashMap<>();
         for(int i =0; i<A2.length; i++) map.put(A2[i],i);
         
-        Integer[] arr10= Arrays.stream( A1 ).boxed().toArray( Integer[]::new );
+        Integer[] arr10= Arrays.stream(A1).boxed().toArray(Integer[]::new);
         Arrays.sort(arr10, (a, b)->(map.getOrDefault(a, a+1000) - map.getOrDefault(b, b+1000)));
         for(int i = 0; i< arr10.length; i++) {
             A1[i] = arr10[i];
