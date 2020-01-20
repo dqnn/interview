@@ -41,17 +41,21 @@ Output: [2,2,2,1,4,3,3,9,6,7,19]
         return A1;
     }
     
-    
-    public int[] relativeSortArray(int[] arr1, int[] arr2) {
+    //this solution is tricky, 
+    //the action is actually sorting, so if element is in A2, then we just use its index
+    //in A2, if not, we use 1000 + A1, it could satisfy 
+    //1. biggest index compared to other elements in A2, 
+    //2. relative and better position in A1
+    public int[] relativeSortArray(int[] A1, int[] A2) {
         Map<Integer, Integer> map = new HashMap<>();
-        for(int i =0; i<arr2.length; i++) map.put(arr2[i],i);
+        for(int i =0; i<A2.length; i++) map.put(A2[i],i);
         
-        Integer[] arr10= Arrays.stream( arr1 ).boxed().toArray( Integer[]::new );
+        Integer[] arr10= Arrays.stream( A1 ).boxed().toArray( Integer[]::new );
         Arrays.sort(arr10, (a, b)->(map.getOrDefault(a, a+1000) - map.getOrDefault(b, b+1000)));
         for(int i = 0; i< arr10.length; i++) {
-            arr1[i] = arr10[i];
+            A1[i] = arr10[i];
         } 
-        return arr1;
+        return A1;
     
     }
 }
