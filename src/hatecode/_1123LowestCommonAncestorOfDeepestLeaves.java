@@ -34,7 +34,10 @@ The answer returned is a TreeNode object (not an array) with serialization "[1,2
     
     //compared to 865, we can find that 865 will have two nodes while here
     //we do not, but ask for deepest nodes, so we use recursive to find the 
-    //deepest nodes, 
+    //deepest nodes.
+    
+    //the key is to understand recursive, we can one pass to find the deepest node 
+    //with lca. 
     int deepest = 0;
     TreeNode lca;
 
