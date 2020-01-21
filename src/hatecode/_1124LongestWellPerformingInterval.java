@@ -30,6 +30,8 @@ Output: 3
     
     //
     public int longestWPI(int[] H) {
+        if (H == null || H.length < 1) return 0;
+        
         int res = 0, score = 0, n = H.length;
         Map<Integer, Integer> seen = new HashMap<>();
         for (int i = 0; i < n; ++i) {
