@@ -48,6 +48,7 @@ The answer returned is a TreeNode object (not an array) with serialization "[1,2
         return lca;
     }
 
+    //need to understand this recursive function deeply
     private int helper(TreeNode node, int depth) {
         deepest = Math.max(deepest, depth);
         if (node == null) {
