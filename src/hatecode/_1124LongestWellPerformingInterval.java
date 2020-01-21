@@ -24,12 +24,16 @@ Input: hours = [9,9,6,0,6,6,9]
 Output: 3
 */
     //thinking process: O(n)/O(n)
+    //given an array H, each integer stands for hours one employee works, so
+    //if H[i] > 8, then it is well-performing day, well performing period means
+    //in a consecutive sequence, well-performing days more than none performing days,
+    
     //
-    public int longestWPI(int[] hours) {
-        int res = 0, score = 0, n = hours.length;
+    public int longestWPI(int[] H) {
+        int res = 0, score = 0, n = H.length;
         Map<Integer, Integer> seen = new HashMap<>();
         for (int i = 0; i < n; ++i) {
-            score += hours[i] > 8 ? 1 : -1;
+            score += H[i] > 8 ? 1 : -1;
             if (score > 0) {
                 res = i + 1;
             } else {
