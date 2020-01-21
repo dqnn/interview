@@ -34,9 +34,8 @@ Output: 3
         Map<Integer, Integer> seen = new HashMap<>();
         for (int i = 0; i < n; ++i) {
             score += H[i] > 8 ? 1 : -1;
-            if (score > 0) {
-                res = i + 1;
-            } else {
+            if (score > 0)  res = i + 1;
+            else {
                 seen.putIfAbsent(score, i);
                 if (seen.containsKey(score - 1))
                     res = Math.max(res, i - seen.get(score - 1));
