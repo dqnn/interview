@@ -32,7 +32,9 @@ The answer returned is a TreeNode object (not an array) with serialization "[1,2
     //given a tree, find the deepest nodes lowest common ancestor
     //same as 865
     
-    //
+    //compared to 865, we can find that 865 will have two nodes while here
+    //we do not, but ask for deepest nodes, so we use recursive to find the 
+    //deepest, 
     int deepest = 0;
     TreeNode lca;
 
