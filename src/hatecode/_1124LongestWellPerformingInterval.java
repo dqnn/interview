@@ -43,8 +43,8 @@ Output: 3
         }
         return res;
     }
-    
-    
+
+
     public int longestWPI_BetterPerformance(int[] hours) {
         int len = hours.length;
         int[] preSum = new int[len+1];   // prefix Sum
