@@ -72,6 +72,7 @@ Output: 3
                 stack.push(i);
             }
         }
+        //this is the pattern often being used in array to justify sub array
         int res = 0;
         for (int j = len; j >= 0; j--) {  // start from end
             while (!stack.isEmpty() && preSum[stack.peek()] < preSum[j]) {
