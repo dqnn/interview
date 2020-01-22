@@ -28,11 +28,24 @@ Output: 3
     //if H[i] > 8, then it is well-performing day, well performing period means
     //in a consecutive sequence, well-performing days more than none performing days,
     
+    //Brute-forth is O(n^2), just calculate each [i,j]and choose the longest
+    
+    //the optimized one is to record prefixSum like flag to indicate from 0 to here,
+    //what's the characteristic of the array, so one possible case is we can concat two 
+    //subarray together, but pre subarray sum < 0, like this.
+    
+    //we can convert to this problem: one array only contains 1, -1,
+    //find the longest sub array sum > 0, 
+    
+    //so we want to record prefix sum, and save (sum, index) to map,
+    //so each time, at current position i, sum, we just need to find whether we have 
+    //sum - 1 in the map, if not then it is not, it is like to look for sum = 1 longest sub array
     //
     public int longestWPI(int[] H) {
         if (H == null || H.length < 1) return 0;
         
         int res = 0, score = 0, n = H.length;
+        //<score，index>,no override
         Map<Integer, Integer> seen = new HashMap<>();
         for (int i = 0; i < n; ++i) {
             score += H[i] > 8 ? 1 : -1;
