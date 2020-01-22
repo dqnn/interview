@@ -45,7 +45,10 @@ Output: 3
         if (H == null || H.length < 1) return 0;
         
         int res = 0, score = 0, n = H.length;
-        //<score，index>,no override
+        //<score，index>,no override,
+        //we can store all score into map, but here is the optimization, that
+        //we only need to record when score <= 0, because if score >0 which means
+        //it could be longer at least 0, 
         Map<Integer, Integer> seen = new HashMap<>();
         for (int i = 0; i < n; ++i) {
             score += H[i] > 8 ? 1 : -1;
@@ -73,6 +76,7 @@ Output: 3
             }
         }
         //this is the pattern often being used in array to justify sub array
+        //we loop in the array and to detect previous sum can satisfy the needs
         int res = 0;
         for (int j = len; j >= 0; j--) {  // start from end
             while (!stack.isEmpty() && preSum[stack.peek()] < preSum[j]) {
