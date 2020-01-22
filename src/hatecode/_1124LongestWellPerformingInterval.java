@@ -28,7 +28,7 @@ Output: 3
     //if H[i] > 8, then it is well-performing day, well performing period means
     //in a consecutive sequence, well-performing days more than none performing days,
     
-    //
+    // 
     public int longestWPI(int[] H) {
         if (H == null || H.length < 1) return 0;
         
