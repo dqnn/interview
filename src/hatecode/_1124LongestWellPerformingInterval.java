@@ -42,7 +42,8 @@ Output: 3
     //sum - 1 in the map, if not then it is not, it is like to look for sum = 1 longest sub array
     
     
-    //use <score, i> as entry, so every time, if we 
+    //use <score, i> as entry, so every time, for H[i], if current score < 0, we will try to 
+    //seek for previous score - 1 position, like subarray sum
     public int longestWPI(int[] H) {
         if (H == null || H.length < 1) return 0;
         
