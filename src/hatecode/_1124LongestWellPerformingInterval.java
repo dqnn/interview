@@ -40,7 +40,9 @@ Output: 3
     //so we want to record prefix sum, and save (sum, index) to map,
     //so each time, at current position i, sum, we just need to find whether we have 
     //sum - 1 in the map, if not then it is not, it is like to look for sum = 1 longest sub array
-    //
+    
+    
+    //use <score, i> as entry, so every time, if we 
     public int longestWPI(int[] H) {
         if (H == null || H.length < 1) return 0;
         
@@ -50,7 +52,7 @@ Output: 3
         //we only need to record when score <= 0, because if score >0 which means
         //it could be longer at least 0, 
         Map<Integer, Integer> seen = new HashMap<>();
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < n; i++) {
             score += H[i] > 8 ? 1 : -1;
             if (score > 0)  res = i + 1;
             else {
