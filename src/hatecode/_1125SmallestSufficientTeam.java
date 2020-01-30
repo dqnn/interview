@@ -25,13 +25,20 @@ Input: req_skills = ["algorithms","math","java","reactjs","csharp","aws"], peopl
 Output: [1,2]
  */
     // thinking process: O()
+    
+    //the problem is to say:
+    //given one array skills, it means skills we need, another is List<List<String>>,
+    //this means each person's skill. 
+    //return smallest team
+    
+    //the kernel concept is knapsacks, so setup index as 
     public int[] smallestSufficientTeam(String[] skills, List<List<String>> people) {
         int sLen = skills.length, pLen = people.size();
         
         Map<String, Integer> skmap = new HashMap<>();
         for(int i = 0; i < sLen; i++)
             skmap.put(skills[i], i);
-        
+        //2->4, 
         Set<Integer>[] skillArr = new Set[1 << sLen];
         skillArr[0] = new HashSet<>();
         
