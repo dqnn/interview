@@ -1,4 +1,4 @@
-package hatecode._0001_0999;
+package hatecode._1000_1999;
 public class _1281SubtractTheProductAndSumOfDigitsOfAnInteger {
 /*
 1281. Subtract the Product and Sum of Digits of an Integer

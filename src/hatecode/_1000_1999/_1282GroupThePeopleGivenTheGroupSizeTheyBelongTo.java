@@ -1,4 +1,4 @@
-package hatecode._0001_0999;
+package hatecode._1000_1999;
 
 import java.util.*;
 public class _1282GroupThePeopleGivenTheGroupSizeTheyBelongTo {  
