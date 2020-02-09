@@ -2,7 +2,7 @@ package hatecode._1000_1999;
 
 import java.util.*;
 
-import hatecode.TreeNode;
+import hatecode._0001_0999.TreeNode;
 
 public class _1120MaximumAverageSubtree {
 /*

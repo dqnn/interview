@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author duqiang
- *
- */
-package hatecode;

@@ -2,7 +2,7 @@ package hatecode._1000_1999;
 
 import java.util.*;
 
-import hatecode.ListNode;
+import hatecode._0001_0999.ListNode;
 public class _1019NextGreaterNodeInLinkedList {
 /*
 1019. Next Greater Node In Linked List

@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-import hatecode.TreeNode;
+import hatecode._0001_0999.TreeNode;
 
 /**
  * Created by duqiang on 24/07/2017.

@@ -3,7 +3,7 @@ package hatecode._1000_1999;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import hatecode.TreeNode;
+import hatecode._0001_0999.TreeNode;
 public class _1110DeleteNodesAndReturnForest {
 /*
 1110. Delete Nodes And Return Forest

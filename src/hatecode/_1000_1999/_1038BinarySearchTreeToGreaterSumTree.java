@@ -2,7 +2,7 @@ package hatecode._1000_1999;
 
 import java.util.*;
 
-import hatecode.TreeNode;
+import hatecode._0001_0999.TreeNode;
 public class _1038BinarySearchTreeToGreaterSumTree {
     /*
     1038. Binary Search Tree to Greater Sum Tree
