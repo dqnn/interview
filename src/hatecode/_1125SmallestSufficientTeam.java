@@ -32,36 +32,51 @@ Output: [1,2]
     //return smallest team
     
     //the kernel concept is knapsacks, so setup index as 
-    public int[] smallestSufficientTeam(String[] skills, List<List<String>> people) {
+    public static int[] smallestSufficientTeam(String[] skills, List<List<String>> people) {
         int sLen = skills.length, pLen = people.size();
         
-        Map<String, Integer> skmap = new HashMap<>();
+        Map<String, Integer> sk2SkIdx = new HashMap<>();
         for(int i = 0; i < sLen; i++)
-            skmap.put(skills[i], i);
-        //2->4, 
-        Set<Integer>[] skillArr = new Set[1 << sLen];
-        skillArr[0] = new HashSet<>();
+            sk2SkIdx.put(skills[i], i);
         
-        for(int ppl = 0; ppl < pLen; ppl++){
-            int pplSkill = 0;
-            for(String sks : people.get(ppl)){
-                pplSkill |= 1 << (skmap.get(sks));
-            }
+        //so we have list of set, the size is 2^(sLen), the reason why we choose this is because
+        //each required skill is one bit in "sLen",  for example, 
+        //req_skills = ["java","nodejs","reactjs"] then 1<< 3 --> 8,
+        Set<Integer>[] skill2Teams = new Set[1 << sLen];
+        skill2Teams[0] = new HashSet<>();
+        
+        //we calculate each person's skill represented by binary string,
+        for(int pIdx = 0; pIdx < pLen; pIdx++){
+            //for each person, what's the bitset looks like for each person, 
+            //for example, req_skills = ["java","nodejs","reactjs"] then 1<< 3 --> 8,
+            //people = [["java"],["nodejs"],["nodejs","reactjs"]]
+            //then for first guy, only java,node.js, java index is 0, so pSkill = 0, 
+            //nodejs = 1, then pSkill = 10
             
-            for(int k = 0; k < skillArr.length; k++){
-                if(skillArr[k] == null) continue;
-                Set<Integer> currSkills = skillArr[k];
-                int combined = k | pplSkill;
+            //so this means we want to map each one's skill into binary string, 
+            //if he has, then corresponding bit is 1
+            int pSkill = 0;
+            for(String skill : people.get(pIdx)){
+                pSkill |= 1 << (sk2SkIdx.get(skill));
+            }
+
+            //for person pIdx，pIdx has skill pSkill,  for all skill's combination, 
+            //if we find current skill combination k + pIdx's skill = combined, means if we add pIdx to k, 
+            //
+            for(int k = 0; k < skill2Teams.length; k++){
+                if(skill2Teams[k] == null) continue;
+                Set<Integer> currTeamMembers = skill2Teams[k];
+                int combined = k | pSkill;//add this person to k indexed skills
                 if(combined == k) continue;
-                if(skillArr[combined] == null || skillArr[combined].size() > currSkills.size() + 1){
-                    Set<Integer> cSkills = new HashSet<>(currSkills);
-                    cSkills.add(ppl);
-                    skillArr[combined] = cSkills;
+                if(skill2Teams[combined] == null || skill2Teams[combined].size() > currTeamMembers.size() + 1){
+                    Set<Integer> cSkills = new HashSet<>(currTeamMembers);
+                    cSkills.add(pIdx);
+                    skill2Teams[combined] = cSkills;
                 }
             }
         }
         
-        Set<Integer> resSet = skillArr[(1 << sLen) - 1];
+        Set<Integer> resSet = skill2Teams[(1 << sLen) - 1];
         int[] res = new int[resSet.size()];
         int pos = 0;
         for(Integer n : resSet)
@@ -70,6 +85,18 @@ Output: [1,2]
         return res;
     }
     
+    public static void main(String[] args) {
+        String[] skills = {"algorithms","math","java","reactjs","csharp","aws"};
+        List<List<String>> people = new ArrayList<>();
+        people.add(Arrays.asList("algorithms","math","java"));
+        people.add(Arrays.asList("algorithms","math","reactjs"));
+        people.add(Arrays.asList("java","csharp","aws"));
+        people.add(Arrays.asList("reactjs","csharp"));
+        people.add(Arrays.asList("csharp","math"));
+        people.add(Arrays.asList("aws","java"));
+        
+        System.out.println(smallestSufficientTeam(skills, people));
+    }
     
     public int[] smallestSufficientTeam_Bitmask(String[] req_skills, List<List<String>> people) {
         //1. Create hashmap to transfer skill state satisfaction info to bits and store in skillStates integer
