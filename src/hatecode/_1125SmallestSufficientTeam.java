@@ -62,13 +62,16 @@ Output: [1,2]
 
             //for person pIdx，pIdx has skill pSkill,  for all skill's combination, 
             //if we find current skill combination k + pIdx's skill = combined, means if we add pIdx to k, 
-            //
+            //we try to add this pIdx to currentTeam, if we found the combination already
+            //have such team, we tested whether current team size + 1 is smaller than combined, if yes, then
+            //that;s what we want
             for(int k = 0; k < skill2Teams.length; k++){
                 if(skill2Teams[k] == null) continue;
                 Set<Integer> currTeamMembers = skill2Teams[k];
                 int combined = k | pSkill;//add this person to k indexed skills
                 if(combined == k) continue;
-                if(skill2Teams[combined] == null || skill2Teams[combined].size() > currTeamMembers.size() + 1){
+                if(skill2Teams[combined] == null 
+                        || skill2Teams[combined].size() > currTeamMembers.size() + 1){
                     Set<Integer> cSkills = new HashSet<>(currTeamMembers);
                     cSkills.add(pIdx);
                     skill2Teams[combined] = cSkills;
