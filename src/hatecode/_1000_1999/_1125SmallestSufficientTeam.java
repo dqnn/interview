@@ -66,6 +66,7 @@ Output: [1,2]
             //we try to add this pIdx to currentTeam, if we found the combination already
             //have such team, we tested whether current team size + 1 is smaller than combined, if yes, then
             //skills2teams[k] always point a smaller size team but has same skills
+            //like BFS scan, 
             for(int k = 0; k < skill2Teams.length; k++){
                 if(skill2Teams[k] == null) continue;
                 Set<Integer> currTeamMembers = skill2Teams[k];
