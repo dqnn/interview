@@ -17,7 +17,14 @@ Example 1:
 Input: n = 3, red_edges = [[0,1],[1,2]], blue_edges = []
 Output: [0,1,-1]
 */
-    public int[] shortestAlternatingPaths(int n, int[][] red_edges, int[][] blue_edges) {
+    //thinking process: O(V+E)/O()
+    
+    //the problem is to say: given 0,1,...n-1 nodes, two edges, reds means i->j with red edges,
+    //blues means i->j with blue edges, return an array res, res[x] means node 0->x shortest path with each edge
+    //alternative color
+    
+    //
+    public int[] shortestAlternatingPaths(int n, int[][] reds, int[][] blues) {
         if(n <= 0) return new int[0];
         
         // Two sets one for blu and another for red
@@ -27,11 +34,11 @@ Output: [0,1,-1]
             graph[1][i] = new HashSet<>();
         }
         // red edges in 0 - col
-        for (int[] re : red_edges) {
+        for (int[] re : reds) {
             graph[0][ re[0] ].add(re[1]);
         }
         // blu edges in 1 - col
-        for (int[] blu : blue_edges) {
+        for (int[] blu : blues) {
             graph[1][ blu[0] ].add(blu[1]);
         }
         int[][] res = new int[2][n];
