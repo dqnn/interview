@@ -51,7 +51,7 @@ Output: [0,1,-1]
         int[][] res = new int[2][n];
         // Zero edge is always accessible to itself - leave it as 0
         for (int i = 1; i < n; i++) {
-            res[0][i] = 2 * n; // 2* n means not accessible not not use it
+            res[0][i] = 2 * n; // 2* n means not accessible and have not not use it
             res[1][i] = 2 * n;
         }
         // Q entries are vert with a color (up to that point)
@@ -69,7 +69,7 @@ Output: [0,1,-1]
             // is automatically derived from previous node
             for (int next : graph[1 - colr][vert]) {
                 if (res[1 - colr][next] == 2 * n) {
-                    res[1 - colr][next] = 1 + res[colr][vert];
+                    res[1 - colr][next] = 1 + res[colr][vert];//this is tricky part, 
                     q.offer(new int[] {next, 1 - colr});
                 }
             }
