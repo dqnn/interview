@@ -51,7 +51,7 @@ Output: [0,1,-1]
         int[][] res = new int[2][n];
         // Zero edge is always accessible to itself - leave it as 0
         for (int i = 1; i < n; i++) {
-            res[0][i] = 2 * n;
+            res[0][i] = 2 * n; // 2* n means not accessible not not use it
             res[1][i] = 2 * n;
         }
         // Q entries are vert with a color (up to that point)
