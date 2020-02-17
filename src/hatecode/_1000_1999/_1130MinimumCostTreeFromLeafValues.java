@@ -18,6 +18,13 @@ Example 1:
 Input: arr = [6,2,4]
 Output: 32
 */
+    //thinking process: O(n)/O(n)
+    
+    //the problem is to say: given an integer array A, it represents in-order visit
+    //leaf sequence of a tree, so non-leaf value is product of its left subtree leaf
+    //and right subtree leaf
+    
+    //
     public int mctFromLeafValues(int[] A) {
         int res = 0;
         Stack<Integer> stack = new Stack<>();
