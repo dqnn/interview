@@ -21,7 +21,7 @@ Example 1:
 Input: n = 3, red_edges = [[0,1],[1,2]], blue_edges = []
 Output: [0,1,-1]
 */
-    //thinking process: O(V+E)/O()
+    //thinking process: O(V+E)/O(V+E), we just browse all possible path,and we do not walk visited
     
     //the problem is to say: given 0,1,...n-1 nodes, two edges, reds means i->j with red edges,
     //blues means i->j with blue edges, return an array res, res[x] means node 0->x shortest path with each edge
