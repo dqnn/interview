@@ -24,8 +24,12 @@ Output: 32
     //leaf sequence of a tree, so non-leaf value is product of its left subtree leaf
     //and right subtree leaf
     
+    //stack here we used to pop out the data in the stack which is 
+    //smaller than current value in the array, so 
     //
     public int mctFromLeafValues(int[] A) {
+        if(A == null || A.length < 1) return 0;
+        
         int res = 0;
         Stack<Integer> stack = new Stack<>();
         stack.push(Integer.MAX_VALUE);
