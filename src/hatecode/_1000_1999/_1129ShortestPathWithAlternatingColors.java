@@ -4,11 +4,15 @@ import java.util.*;
 public class _1129ShortestPathWithAlternatingColors {
 /*
 1129. Shortest Path with Alternating Colors
-Consider a directed graph, with nodes labelled 0, 1, ..., n-1.  In this graph, each edge is either red or blue, and there could be self-edges or parallel edges.
+Consider a directed graph, with nodes labelled 0, 1, ..., n-1.  In this graph, 
+each edge is either red or blue, and there could be self-edges or parallel edges.
 
-Each [i, j] in red_edges denotes a red directed edge from node i to node j.  Similarly, each [i, j] in blue_edges denotes a blue directed edge from node i to node j.
+Each [i, j] in red_edges denotes a red directed edge from node i to node j.  
+Similarly, each [i, j] in blue_edges denotes a blue directed edge from node i to node j.
 
-Return an array answer of length n, where each answer[X] is the length of the shortest path from node 0 to node X such that the edge colors alternate along the path (or -1 if such a path doesn't exist).
+Return an array answer of length n, where each answer[X] is the 
+length of the shortest path from node 0 to node X such that the edge colors 
+alternate along the path (or -1 if such a path doesn't exist).
 
  
 
@@ -41,6 +45,9 @@ Output: [0,1,-1]
         for (int[] blu : blues) {
             graph[1][ blu[0] ].add(blu[1]);
         }
+        
+        //res[0][i] means from node 0 to node i if last edge is red, the min distance
+        //res[1][i] means from node 0 to node i if last edge is blue, the min is distance
         int[][] res = new int[2][n];
         // Zero edge is always accessible to itself - leave it as 0
         for (int i = 1; i < n; i++) {
@@ -48,6 +55,8 @@ Output: [0,1,-1]
             res[1][i] = 2 * n;
         }
         // Q entries are vert with a color (up to that point)
+        //we start from two possible nodes, one has red edge and another has blue edge
+        //each time, we search for alternate color and add to Q,
         Queue<int[]> q = new LinkedList<>();
         q.offer(new int[] {0, 0}); // either with red
         q.offer(new int[] {0, 1}); // or with blue
@@ -58,10 +67,10 @@ Output: [0,1,-1]
             // No need to keep track of level up to now
             // only need to keep what color - and the length
             // is automatically derived from previous node
-            for (int nxt : graph[1 - colr][vert]) {
-                if (res[1 - colr][nxt] == 2 * n) {
-                    res[1 - colr][nxt] = 1 + res[colr][vert];
-                    q.offer(new int[] {nxt, 1 - colr});
+            for (int next : graph[1 - colr][vert]) {
+                if (res[1 - colr][next] == 2 * n) {
+                    res[1 - colr][next] = 1 + res[colr][vert];
+                    q.offer(new int[] {next, 1 - colr});
                 }
             }
         }
@@ -71,7 +80,6 @@ Output: [0,1,-1]
             ans[i] = (t == 2 * n) ? -1 : t;
         }
         return ans;
-        
     }
     
     //O(V + E^2)
