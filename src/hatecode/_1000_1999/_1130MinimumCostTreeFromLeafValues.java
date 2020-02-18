@@ -34,8 +34,9 @@ Output: 32
     //possible, so for the array, A[i], we would like to for every 3 integers(why 3? because the array is in-order visit,
     //there are only two displays, like above, which means the middle one must be in lowest level, 
     //), so the question is to detect A[i-1] or A[i+1] is bigger, that's below min(), this is 
-    //the action of leveling up
-    //
+    //the action of leveling up, so the middle element must be used to multiple smaller with before or latter, 
+    //then we continue, this action means we construct the tree above, but we still push current value into 
+    //stack, because we need to use it, but the smaller node will be ignored
     public int mctFromLeafValues(int[] A) {
         if(A == null || A.length < 1) return 0;
         
