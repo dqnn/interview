@@ -33,8 +33,9 @@ Output: 32
     //so from above two trees, we can see we want to move big number to upper level as up as 
     //possible, so for the array, A[i], we would like to for every 3 integers(why 3? because the array is in-order visit,
     //there are only two displays, like above, which means the middle one must be in lowest level, 
-    //), so the question is to detect A[i-1] or A[i+1] is bigger
-    //previous in array, then 
+    //), so the question is to detect A[i-1] or A[i+1] is bigger, that's below min(), this is 
+    //the action of leveling up
+    //
     public int mctFromLeafValues(int[] A) {
         if(A == null || A.length < 1) return 0;
         
