@@ -18,7 +18,21 @@ Output: 13
     
     //thinking process: O(n)/O(1), like best time to sell stocks
     
-    //manhantance distance, in java code, 
+    //longest manhantance distance, in java code, 
+    //{-1, 1} means the directions, 
+    //Take |arr1[i] - arr1[j]| + |arr2[i] - arr2[j]| as Manhattan distance of two points.
+    //arr1 is the x, arr2 is y, then 
+   /*
+    * For 3 points on the plane, we always have 
+    * |AO| - |BO| <= |AB|.
+When AO and BO are in the same direction, 
+we have ||AO| - |BO|| = |AB|.
+
+We take 4 points for point O, left-top, left-bottom, 
+right-top and right-bottom.
+Each time, for each point B, and find the closest 
+A point to O,
+    */
     public int maxAbsValExpr(int[] x, int[] y) {
         int res = 0, n = x.length, P[] = {-1,1};
         for (int p : P) {
