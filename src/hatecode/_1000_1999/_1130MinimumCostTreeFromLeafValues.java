@@ -21,12 +21,20 @@ Output: 32
     //thinking process: O(n)/O(n)
     
     //the problem is to say: given an integer array A, it represents in-order visit
-    //leaf sequence of a tree, so non-leaf value is product of its left subtree leaf
-    //and right subtree leaf
-    
-    //stack here we used to pop out the data in the stack which is 
-    //smaller than current value in the array, so 
-    //
+    //leaf sequence of a tree, so non-leaf value is product of its largest left subtree leaf
+    //and largest right subtree leaf
+    //      36          32
+    /*      24          24
+     *     /  \       /    \
+     *    12  4       6    8
+     *   /  \            /   \
+     *   6  2            2   4        
+     */
+    //so from above two trees, we can see we want to move big number to upper level as up as 
+    //possible, so for the array, A[i], we would like to for every 3 integers(why 3? because the array is in-order visit,
+    //there are only two displays, like above, which means the middle one must be in lowest level, 
+    //), so the question is to detect A[i-1] or A[i+1] is bigger
+    //previous in array, then 
     public int mctFromLeafValues(int[] A) {
         if(A == null || A.length < 1) return 0;
         
