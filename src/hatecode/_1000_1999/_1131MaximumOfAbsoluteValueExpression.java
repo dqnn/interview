@@ -32,6 +32,8 @@ We take 4 points for point O, left-top, left-bottom,
 right-top and right-bottom.
 Each time, for each point B, and find the closest 
 A point to O,
+//suppose current x is starting point, we have +/-1 cases, 
+//so we get the diff
     */
     public int maxAbsValExpr(int[] x, int[] y) {
         int res = 0, n = x.length, P[] = {-1,1};
