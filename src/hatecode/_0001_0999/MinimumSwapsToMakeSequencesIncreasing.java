@@ -48,7 +48,14 @@ For i = 3, notice that A[2] >= A[3], which mean the manipulation of A[3] and B[3
         }
         return Math.min(swapRecord, fixRecord);
     }
-     //swap
+     //thinking process: O(n)/O(n)
+     //we use DP to solve this problem, but it is tricky
+     //1. we use state DP, at each position i for A and B, we only 2 status, swap or not, so we have the definition of DP array 
+     //2. for the DP equation, we could know there is only 2 x 2 = cases, because it is strictly increasing, 
+     //each number has 2 cases, since there was always result, so it only would be 3 cases
+     /*
+         A[]
+     */
      public int minSwap(int[] A, int[] B) {
          int n = A.length;
          
