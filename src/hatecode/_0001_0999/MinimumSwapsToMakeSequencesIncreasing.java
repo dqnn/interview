@@ -26,6 +26,12 @@ For i = 1, either swap or fix is OK. So we take the minimum previous result, min
 For i = 2, notice that A[1] >= B[2], which means the manipulation of A[2] and B[2] should be same as A[1] and B[1], if A[1] and B[1] swap, A[2] and B[2] should swap, vice versa. Make sense, right? So swapRecord[2] = swapRecord[1] + 1 and fixRecord[2] = fixRecord[1]
 For i = 3, notice that A[2] >= A[3], which mean the manipulation of A[3] and B[3] and A[2] and B[2] should be opposite. In this case, swapRecord[3] = fixRecord[2] + 1 and fixRecord[3] = swapRecord[2]
  */
+    //thinking process: O(n)/O(1)
+    // the problems is to say, given two integer arrays, A and B, same length, at each position, we can swap A[i]<->B[i], so A and B
+    //B can be strictly increasing, result is guarnteed 
+    
+     // extension question, how can we make space O(1)
+     //if the result is not guarteed ,how to solve? add condition in for loop. make sure A[i] or B[i] is bigger than min(A[i-1], B[i-1])
      public int minSwap_Best(int[] A, int[] B) {
          //initialize 
         int swapRecord = 1, fixRecord = 0;
