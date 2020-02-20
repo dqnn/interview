@@ -68,7 +68,11 @@ For i = 3, notice that A[2] >= A[3], which mean the manipulation of A[3] and B[3
                  dp[i][0] = Math.min(dp[i - 1][0], dp[i - 1][1]);
                  dp[i][1] = Math.min(dp[i - 1][0], dp[i - 1][1]) + 1;
              } else if (areBothSelfIncreasing) {
-                 dp[i][0] = dp[i - 1][0];
+                 //here means A[i - 1] < A[i] && B[i - 1] < B[i] and A[i - 1] >= B[i] || B[i - 1] >= A[i], in this case
+		 //dp[i][0] means mini no swap, so we do not do anything at position i, just keep it, so dp[i][0] = dp[i-1][0]
+		 dp[i][0] = dp[i - 1][0];
+		 //if we want to swap at position i, then we need to previous position swap, so it would be 
+		 //dp[i][1] = dp[i-1][1] + 1;
                  dp[i][1] = dp[i - 1][1] + 1;
              } else { // if (areInterchangeIncreasing)
                  dp[i][0] = dp[i - 1][1];
