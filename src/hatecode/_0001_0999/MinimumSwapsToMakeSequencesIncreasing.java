@@ -82,7 +82,10 @@ For i = 3, notice that A[2] >= A[3], which mean the manipulation of A[3] and B[3
 		 //dp[i][1] = dp[i-1][1] + 1;
                  dp[i][1] = dp[i - 1][1] + 1;
              } else { // if (areInterchangeIncreasing)
-                 dp[i][0] = dp[i - 1][1];
+                 //here means in A or B they are not self increasing, so we two options, 
+		 //1. at i, we do not swap, but we have to swap at i-1, 
+		 dp[i][0] = dp[i - 1][1];
+		 //2. at i, we do swap. but i-1 cannot swap, so +1
                  dp[i][1] = dp[i - 1][0] + 1;
              }
          }
