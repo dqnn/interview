@@ -11,6 +11,7 @@ Given a positive integer N, return true if and only if it is an Armstrong number
 Example 1:
 
 Input: 153
+153 = 1^3 + 5^3 + 3^3
 Output: true
 */
     //thinking process: O(logN)/O(1)
