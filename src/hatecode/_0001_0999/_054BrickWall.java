@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BrickWall {
+public class _054BrickWall {
 /*
 554. Brick Wall
 There is a brick wall in front of you. The wall is rectangular and has several rows of bricks. 
