@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by duqiang on 28/07/2017.
  */
-public class Subsets {
+public class _78Subsets {
     /**
      * 78. Subsets
      * Given a set of distinct integers, nums, return all possible subsets.
@@ -63,8 +63,8 @@ public class Subsets {
     	    if (nums == null || pos < 0 || pos > nums.length) {
             return;
         }
-    	    if (list.size() > 0)
-    	        res.add(new ArrayList<>(list));
+
+        if (list.size() > 0) res.add(new ArrayList<>(list));
         for (int i = pos; i < nums.length; i++) {
             list.add(nums[i]);
             helper(res, list, nums, i + 1);

@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class CanIWin {
+public class _464CanIWin {
     /*
      * 464. Can I Win 
      * 

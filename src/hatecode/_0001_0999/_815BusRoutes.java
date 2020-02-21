@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class BusRoutes {
+public class _815BusRoutes {
 /*
 815. Bus Routes
 We have a list of bus routes. Each routes[i] is a bus route that the i-th bus 

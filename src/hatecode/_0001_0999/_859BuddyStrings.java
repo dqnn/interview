@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 /*
+ * 859. Buddy Strings
 Given two strings A and B of lowercase letters, return true if and only if we can swap 
 two letters in A so that the result equals B.
 
@@ -38,7 +39,8 @@ Note:
 0 <= B.length <= 20000
 A and B consist only of lowercase letters.
  */
-public class BuddyStrings {
+//thinking process: 
+public class _859BuddyStrings {
     public boolean buddyStrings(String A, String B) {
         if (A == null && B == null) return false;
         if (A == null || B == null || A.length() != B.length() || A.length() < 2) return false;

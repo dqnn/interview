@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Jan, 2018
  * Description : 312. Burst Balloons
  */
-public class BurstBalloons {
+public class _312BurstBalloons {
     /**
      * Given n balloons, indexed from 0 to n-1. Each balloon is painted with a number on
      * it represented by array nums. You are asked to burst all the balloons.
@@ -51,6 +51,9 @@ public class BurstBalloons {
      * @return
      */
 
+    //thinking process: 
+    
+    
     public int maxCoins(int[] nums) {
         int n = nums.length;
         //copy original data into new ones and add 1 in start and end

@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode Package Name : leetcode File Name : CanPlaceFlowers
  * Creator : duqiang Date : Aug, 2018 Description : TODO
  */
-public class CanPlaceFlowers {
+public class _605CanPlaceFlowers {
     /**
      * 605. Can Place Flowers
      * Suppose you have a long flowerbed in which some of the plots are planted

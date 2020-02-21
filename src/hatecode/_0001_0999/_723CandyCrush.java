@@ -3,8 +3,9 @@ package hatecode._0001_0999;
 import java.util.HashSet;
 import java.util.Set;
 
-public class CandyCrush {
+public class _723CandyCrush {
 /*
+ * 723. Candy Crush
 This question is about implementing a basic elimination algorithm for Candy Crush.
 
 Given a 2D integer array board representing the grid of candy, different positive 

@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 import java.util.*;
 
-public class CheckCompletenessOfABinaryTree {
+public class _958CheckCompletenessOfABinaryTree {
 /*
 958. Check Completeness of a Binary Tree
 Given a binary tree, determine if it is a complete binary tree.

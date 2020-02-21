@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class CatAndMouse {
+public class _913CatAndMouse {
 /*
 913. Cat and Mouse
 A game on an undirected graph is played by two players, Mouse and Cat, who alternate turns.
@@ -104,7 +104,7 @@ Explanation:
 
         int[][] graph = {{2,5},{3},{0,4,5},{1,4,5},{2,3},{0,2,3}};
         int[][] graph2 = {{6},{4},{9},{5},{1,5},{3,4,6},{0,5,10},{8,9,10},{7},{2,7},{6,7}};
-        CatAndMouse catandMouse = new CatAndMouse();
+        _913CatAndMouse catandMouse = new _913CatAndMouse();
         System.out.println(catandMouse.catMouseGame(graph));
         System.out.println(catandMouse.catMouseGame(graph2));
 

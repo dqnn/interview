@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Dec, 2017
  * Description : 299. Bulls and Cows
  */
-public class BullsandCows {
+public class _299BullsandCows {
     /**
      * For example:
      * 
@@ -30,6 +30,7 @@ public class BullsandCows {
      * @return
      */
 
+    //thinking process: 
     public String getHint(String secret, String guess) {
         int bulls = 0;
         int cows = 0;

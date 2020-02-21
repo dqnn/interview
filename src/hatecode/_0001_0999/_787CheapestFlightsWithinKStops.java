@@ -20,7 +20,7 @@ n = 3, edges = [[0,1,100],[1,2,100],[0,2,500]]
 src = 0, dst = 2, k = 1
 Output: 200
  */
-public class CheapestFlightsWithinKStops {
+public class _787CheapestFlightsWithinKStops {
     // we use shortest path algorithms
     //O(E + nlgn) E is total flights , nlgn is the heap sort/ O(n) (heap)
     public int findCheapestPrice(int n, int[][] flights, int src, int dst, int K) {

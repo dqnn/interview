@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class ChampagneTower {
+public class _799ChampagneTower {
     /*
      * 799. Champagne Tower 
      * We stack glasses in a pyramid, where the first row has 1

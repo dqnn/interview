@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class CarFleet {
+public class _853CarFleet {
 /*
 853. Car Fleet
 N cars are going to the same destination along a one lane road.  The destination is target miles away.
