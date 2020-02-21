@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class ColoringABorder {
+public class _1034ColoringABorder {
 
 /*
 1034. Coloring A Border
