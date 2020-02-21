@@ -10,7 +10,7 @@ import java.util.Arrays;
  * Date : Aug, 2018
  * Description : TODO
  */
-public class _31NextPermutation {
+public class _031NextPermutation {
     /**
      * 31. Next Permutation
      * Here are some examples. Inputs are in the left-hand column and 
