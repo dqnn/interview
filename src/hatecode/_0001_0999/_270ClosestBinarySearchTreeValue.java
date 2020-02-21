@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class ClosestBinarySearchTreeValue {
+public class _270ClosestBinarySearchTreeValue {
 /*
 270. Closest Binary Search Tree Value
 Given a non-empty binary search tree and a target value, 

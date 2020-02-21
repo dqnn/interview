@@ -13,7 +13,7 @@ import java.util.Stack;
  * Date : Dec, 2017
  * Description : 272. Closest Binary Search Tree Value II
  */
-public class ClosestBinarySearchTreeValueII {
+public class _272ClosestBinarySearchTreeValueII {
 
     /**
      * Given a non-empty binary search tree and a target value, find k values in the BST that are closest to the target.

@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class CoinChangeII {
+public class _518CoinChangeII {
 /*
 518.
 Coin Change 2

@@ -8,7 +8,7 @@
  * Date : Nov, 2017
  * Description : 70. Climbing Stairs
  */
-public class ClimbingStairs {
+public class _070ClimbingStairs {
     /**
      * You are climbing a stair case. It takes n steps to reach to the top.
 

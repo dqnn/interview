@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class ClosestLeafInABinaryTree {
+public class _742ClosestLeafInABinaryTree {
 /*
 742. Closest Leaf in a Binary Tree
 Given a binary tree where every node has a unique value, and a target key k, find the value of the nearest leaf node to target k in the tree.

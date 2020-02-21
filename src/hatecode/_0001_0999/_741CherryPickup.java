@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class CherryPickup {
+public class _741CherryPickup {
 /*
 741. Cherry Pickup
 In a N x N grid representing a field of cherries, each cell is one of three possible integers.

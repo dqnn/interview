@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class CircularArrayLoop {
+public class _457CircularArrayLoop {
     /*
      * 457. Circular Array Loop 
      * You are given an array of positive and negative
