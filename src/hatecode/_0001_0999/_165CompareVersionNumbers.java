@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Nov, 2017
  * Description : 165. Compare Version Numbers
  */
-public class CompareVersionNumbers {
+public class _165CompareVersionNumbers {
     /**
      * Compare two version numbers version1 and version2.
      If version1 > version2 return 1, if version1 < version2 return -1, otherwise return 0.

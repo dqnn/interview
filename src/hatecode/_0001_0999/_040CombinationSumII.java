@@ -8,7 +8,7 @@ import java.util.List;
  * Project Name : Leetcode Package Name : leetcode File Name : CombinationSumII
  * Creator : duqiang Date : Aug, 2018 Description : TODO
  */
-public class CombinationSumII {
+public class _040CombinationSumII {
 
     /**
      * 40. Combination Sum II

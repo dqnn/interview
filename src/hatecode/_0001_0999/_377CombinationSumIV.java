@@ -6,7 +6,7 @@ import java.util.HashMap;
  * Project Name : Leetcode Package Name : leetcode File Name : CombinationSumIV
  * Creator : duqiang Date : Aug, 2018 Description : 377. Combination Sum IV
  */
-public class CombinationSumIV {
+public class _377CombinationSumIV {
     /**
      * nums = [1, 2, 3]
      target = 4

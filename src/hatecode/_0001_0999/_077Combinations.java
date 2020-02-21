@@ -11,7 +11,7 @@ import java.util.List;
  * Date : Aug, 2017
  * Description : TODO
  */
-public class Combinations {
+public class _077Combinations {
 
     /**
      * 77. Combinations
