@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class CompleteBinaryTreeInserter {
+public class _919CompleteBinaryTreeInserter {
 /*
  * 919. Complete Binary Tree Inserter
 A complete binary tree is a binary tree in which every level, except possibly the last, is completely filled, and all nodes are as far left as possible.
@@ -20,7 +20,7 @@ Output: [null,1,[1,2]]
  */
     TreeNode root;
     Queue<TreeNode> queue;
-    public CompleteBinaryTreeInserter(TreeNode root) {
+    public _919CompleteBinaryTreeInserter(TreeNode root) {
         this.root = root;
       
         queue = new LinkedList<>();

@@ -26,7 +26,7 @@ Return the following binary tree:
     /  \
    15   7
  */
-public class ConstructBinaryTreefromInorderandPostorderTraversal {
+public class _106ConstructBinaryTreefromInorderandPostorderTraversal {
     /**
      *      3
          /    \

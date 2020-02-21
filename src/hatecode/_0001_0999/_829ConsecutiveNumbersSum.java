@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class ConsecutiveNumbersSum {
+public class _829ConsecutiveNumbersSum {
 /*
 829. Consecutive Numbers Sum
 Given a positive integer N, how many ways can we write it as a sum of consecutive 

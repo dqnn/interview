@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class ConcatenatedWords {
+public class _472ConcatenatedWords {
 /*
 472. Concatenated Words
 Given a list of words (without duplicates), please write a program that returns all concatenated words in the given list of words.

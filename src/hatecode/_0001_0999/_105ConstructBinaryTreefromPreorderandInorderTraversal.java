@@ -9,7 +9,7 @@ import java.util.*;
  * Date : Nov, 2017
  * Description : 105. Construct Binary Tree from Preorder and Inorder Traversal
  */
-public class ConstructBinaryTreefromPreorderandInorderTraversal {
+public class _105ConstructBinaryTreefromPreorderandInorderTraversal {
     /**
      *    3
          / \
