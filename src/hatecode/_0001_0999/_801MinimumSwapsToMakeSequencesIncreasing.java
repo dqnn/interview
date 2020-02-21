@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class MinimumSwapsToMakeSequencesIncreasing {
+public class _801MinimumSwapsToMakeSequencesIncreasing {
 /*
 801. Minimum Swaps To Make Sequences Increasing
 swapRecord means for the ith element in A and B, the minimum swaps if we swap A[i] and B[i]
