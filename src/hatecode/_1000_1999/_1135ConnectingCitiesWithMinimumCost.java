@@ -25,7 +25,12 @@ Choosing any 2 edges will connect all cities so we choose the minimum 2.
 */
     //thinking process: O(nlgn)/O(n)
     
-    //
+    //the problems is to say given a array like
+    //A[i]=[1,2,3] means 1->2 or 2->1 cost is 3, so we want to 
+    //find in this graph, each pair, the total mini cost, if not
+    //exist, return -1, some node is not connected
+    
+    //so
     class DSU {
         int[] parent;
         int count;
