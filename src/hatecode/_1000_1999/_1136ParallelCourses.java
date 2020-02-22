@@ -19,7 +19,7 @@ In the first semester, courses 1 and 2 are studied. In the second semester, cour
 */
     //thinking process: 
     
-    
+    //the problem is to say: 
     public int minimumSemesters_TopSort(int N, int[][] relations) {
         if (relations == null || relations.length < 1) return -1;
          
