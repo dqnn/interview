@@ -30,7 +30,11 @@ Choosing any 2 edges will connect all cities so we choose the minimum 2.
     //find in this graph, each pair, the total mini cost, if not
     //exist, return -1, some node is not connected
     
-    //so
+    //so for example, N = 3, connections = [[1,2,5],[1,3,6],[2,3,1]]
+    //the total cost is minimal when each pair is minimal, if not, it does not add 
+    //extra to the graph, so we use UF to dectect whether they can be connected, if yes
+    //and they directly connected, then we directly add cost, if not
+    //we just skip, because total cost does not change.
     class DSU {
         int[] parent;
         int count;
