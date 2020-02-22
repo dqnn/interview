@@ -31,8 +31,9 @@ In the first semester, courses 1 and 2 are studied. In the second semester, cour
         }
         Queue<Integer> q = new LinkedList<>(); // save current 0 in-degree vertices.
         for (int i = 1; i <= N; ++i)
-            if (inDegree[i] == 0)
-                q.offer(i);
+            if (inDegree[i] == 0) q.offer(i);
+        
+        
         int semester = 0;
         while (!q.isEmpty()) { // BFS traverse all currently 0 in degree vertices.
             for (int sz = q.size(); sz > 0; --sz) { // sz is the search breadth.
