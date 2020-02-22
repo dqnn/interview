@@ -17,7 +17,9 @@ Output: 2
 Explanation: 
 In the first semester, courses 1 and 2 are studied. In the second semester, course 3 is studied.
 */
-    //top sort solution
+    //thinking process: 
+    
+    
     public int minimumSemesters_TopSort(int N, int[][] relations) {
         if (relations == null || relations.length < 1) return -1;
          
