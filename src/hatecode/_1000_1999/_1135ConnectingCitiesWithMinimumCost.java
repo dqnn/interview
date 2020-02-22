@@ -76,22 +76,28 @@ Choosing any 2 edges will connect all cities so we choose the minimum 2.
         }
         return dsu.count == 1 ? res : -1;
     }
-        //Prim algothrims, spanning tree
-        //
-        public int minimumCost_Prim(int N, int[][] connections) {
-            if(N == 0) return 0;
-            if(connections == null || connections.length == 0) return -1;
+        //Prim algothrims, minimum spanning tree
+        //starting one node with all its edges, we cannot start from just one node
+        //and we know the mini result
+        public int minimumCost_Prim(int n, int[][] cons) {
+            if( n == 0 || cons == null || cons.length <1) return 0;
 
-            boolean[] visited = new boolean[N+1];
-            Map<Integer, HashSet<int[]>> g = new HashMap<>();
-            for(int[] c : connections) {
-                g.computeIfAbsent(c[0], y -> new HashSet<>()).add(c);
-                g.computeIfAbsent(c[1], y -> new HashSet<>()).add(new int[] {c[1], c[0], c[2]});
+            boolean[] visited = new boolean[n+1];
+            
+            //store a-b cost and b->a cost
+            Map<Integer, HashSet<int[]>> map = new HashMap<>();
+            for(int[] c : cons) {
+                map.computeIfAbsent(c[0], y -> new HashSet<>()).add(c);
+                map.computeIfAbsent(c[1], y -> new HashSet<>()).add(new int[] {c[1], c[0], c[2]});
             }
             Queue<int[]> pq = new PriorityQueue<>((int[] a, int[] b) -> a[2] - b[2]);
-            int k = g.keySet().iterator().next();
+            
+            int k = map.keySet().iterator().next();
             visited[k] = true;
-            for(int[] e : g.get(k)) pq.offer(e);
+            for(int[] e : map.get(k)) pq.offer(e);
+            //above 3 can be changed to:
+            //visited[1] = true;
+            //for(int[] e : map.get(1)) pq.offer(e);
 
             int r = 0;
             while(!pq.isEmpty()) {
@@ -99,12 +105,12 @@ Choosing any 2 edges will connect all cities so we choose the minimum 2.
                 if(visited[e[1]]) continue;
                 r += e[2];
                 visited[e[1]] = true;
-                for(int[] ne : g.get(e[1])) {
+                for(int[] ne : map.get(e[1])) {
                     if(!visited[ne[1]]) {
                         pq.offer(ne);
                     }
                 }
             }
-            return IntStream.range(1, N+1).allMatch(i -> visited[i] == true) ? r : -1;
+            return IntStream.range(1, n+1).allMatch(i -> visited[i] == true) ? r : -1;
     }
 }
