@@ -23,7 +23,9 @@ Explanation:
 Choosing any 2 edges will connect all cities so we choose the minimum 2.
 
 */
+    //thinking process: O(nlgn)/O(n)
     
+    //
     class DSU {
         int[] parent;
         int count;
@@ -65,7 +67,8 @@ Choosing any 2 edges will connect all cities so we choose the minimum 2.
         }
         return dsu.count == 1 ? res : -1;
     }
-        //Prim algothrims
+        //Prim algothrims, spanning tree
+        //
         public int minimumCost_Prim(int N, int[][] connections) {
             if(N == 0) return 0;
             if(connections == null || connections.length == 0) return -1;
