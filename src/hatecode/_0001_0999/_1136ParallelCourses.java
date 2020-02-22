@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class ParallelCourses {
+public class _1136ParallelCourses {
 /*
 1136. Parallel Courses
 There are N courses, labelled from 1 to N.
