@@ -45,7 +45,7 @@ In the first semester, courses 1 and 2 are studied. In the second semester, cour
                     if (--inDegree[course] == 0) // decrease the in-degree of course's neighbors.
                         q.offer(course); // add current 0 in-degree vertex into Queue.
             }
-            ++semester; // need one more semester.
+            semester++; // need one more semester.
         }
         return N == 0 ? semester : -1;
     }
@@ -84,8 +84,7 @@ In the first semester, courses 1 and 2 are studied. In the second semester, cour
             }
             cnt[v] = Math.max(cnt[v], cnt[next] + 1);
         }
-        
-        
+
         visited[v] = 2;
         return true;
     }
