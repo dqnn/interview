@@ -73,10 +73,8 @@ In the first semester, courses 1 and 2 are studied. In the second semester, cour
     }
     
     public boolean dfs(int[] visited, List<Integer>[] adj, int v, int[] cnt){
-        if(visited[v] == 2)
-            return true;
-        else if(visited[v] == 1)
-            return false;
+        if(visited[v] == 2) return true;
+        else if(visited[v] == 1) return false;
         
         visited[v] = 1;
         
