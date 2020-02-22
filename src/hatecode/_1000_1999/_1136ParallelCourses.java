@@ -19,7 +19,10 @@ In the first semester, courses 1 and 2 are studied. In the second semester, cour
 */
     //thinking process: 
     
-    //the problem is to say: 
+    //the problem is to say: given int N as N courses, int[][] relations means [X, Y]
+    //Y has to be studied before X, so return the mini semesters have to take?
+    
+    //
     public int minimumSemesters_TopSort(int N, int[][] relations) {
         if (relations == null || relations.length < 1) return -1;
          
@@ -30,9 +33,7 @@ In the first semester, courses 1 and 2 are studied. In the second semester, cour
             ++inDegree[r[1]]; // count prerequisites for r[1].
         }
         Queue<Integer> q = new LinkedList<>(); // save current 0 in-degree vertices.
-        for (int i = 1; i <= N; ++i)
-            if (inDegree[i] == 0) q.offer(i);
-        
+        for (int i = 1; i <= N; ++i) if (inDegree[i] == 0) q.offer(i);
         
         int semester = 0;
         while (!q.isEmpty()) { // BFS traverse all currently 0 in degree vertices.
