@@ -17,6 +17,7 @@ Input: n = 4
 Output: 4
 */
 /*
+ * O(k* logn) k = 3, 
 We have 3 equations:
         f(n)   = f(n-1) + f(n-2) + f(n-3)
         f(n-1) = f(n-1)
@@ -35,7 +36,7 @@ Since we can compute an matrix exponent by O(log(n)), Simplify the relation into
 The matrix multiplication cost is k^3, k=3. So the total cost is O(k^3log(n))
 */
     
-    
+    //O(n)/O(1)
     public int tribonacci(int n) {
         if (n < 2) return n;
         int a = 0, b = 1, c = 1, d;
