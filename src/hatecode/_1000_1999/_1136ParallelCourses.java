@@ -23,7 +23,8 @@ In the first semester, courses 1 and 2 are studied. In the second semester, cour
     //Y has to be studied before X, so return the mini semesters have to take?
     
     //the key thing in mind is how we start and how to process, given the conditions, 
-    //
+    //we would like to find the least dependency node, start from there, bsf visit all 
+    //nodes which has same count of indegree, 
     public int minimumSemesters_TopSort(int N, int[][] relations) {
         if (relations == null || relations.length < 1) return -1;
          
