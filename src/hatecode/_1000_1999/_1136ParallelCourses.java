@@ -52,8 +52,6 @@ In the first semester, courses 1 and 2 are studied. In the second semester, cour
         return N == 0 ? semester : -1;
     }
     
-    
-    
     //this is the best performance one
     public int minimumSemesters(int N, int[][] relations) {
         int[] cnt = new int[N];
