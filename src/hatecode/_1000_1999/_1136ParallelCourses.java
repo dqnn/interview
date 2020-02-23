@@ -17,7 +17,7 @@ Output: 2
 Explanation: 
 In the first semester, courses 1 and 2 are studied. In the second semester, course 3 is studied.
 */
-    //thinking process: 
+    //thinking process:
     
     //the problem is to say: given int N as N courses, int[][] relations means [X, Y]
     //Y has to be studied before X, so return the mini semesters have to take?
