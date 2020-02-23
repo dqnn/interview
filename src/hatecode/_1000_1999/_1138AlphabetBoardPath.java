@@ -43,7 +43,8 @@ Output: "DDR!UURRR!!DDD!"
               String.join("", Collections.nCopies(Math.max(0, x1 - x), "R")) +
               String.join("", Collections.nCopies(Math.max(0, x - x1), "L")) +
               String.join("", Collections.nCopies(Math.max(0, y1 - y), "D")) + "!");
-            x = x1; y = y1;
+            x = x1; 
+            y = y1;
           }
           return sb.toString();
     }
