@@ -22,6 +22,7 @@ In the first semester, courses 1 and 2 are studied. In the second semester, cour
     //the problem is to say: given int N as N courses, int[][] relations means [X, Y]
     //Y has to be studied before X, so return the mini semesters have to take?
     
+    //the key thing in mind is how we start and how to process, given the conditions, 
     //
     public int minimumSemesters_TopSort(int N, int[][] relations) {
         if (relations == null || relations.length < 1) return -1;
@@ -30,16 +31,16 @@ In the first semester, courses 1 and 2 are studied. In the second semester, cour
         int[] inDegree = new int[N + 1]; // inDegree[i]: number of prerequisites for i.
         for (int[] r : relations) {
             g.computeIfAbsent(r[0], l -> new ArrayList<>()).add(r[1]); // construct graph.
-            ++inDegree[r[1]]; // count prerequisites for r[1].
+            inDegree[r[1]]++; // count prerequisites for r[1].
         }
         Queue<Integer> q = new LinkedList<>(); // save current 0 in-degree vertices.
-        for (int i = 1; i <= N; ++i) if (inDegree[i] == 0) q.offer(i);
-        
+        for (int i = 1; i <= N; i++) if (inDegree[i] == 0) q.offer(i);
+
         int semester = 0;
         while (!q.isEmpty()) { // BFS traverse all currently 0 in degree vertices.
-            for (int sz = q.size(); sz > 0; --sz) { // sz is the search breadth.
+            for (int sz = q.size(); sz > 0; sz--) { // sz is the search breadth.
                 int c = q.poll();
-                --N;
+                N--;
                 if (!g.containsKey(c)) continue; // c's in-degree is currently 0, but it has no prerequisite.
                 for (int course : g.remove(c))
                     if (--inDegree[course] == 0) // decrease the in-degree of course's neighbors.
