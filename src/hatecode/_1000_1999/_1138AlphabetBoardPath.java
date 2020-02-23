@@ -33,7 +33,18 @@ Output: "DDR!UURRR!!DDD!"
     //! means print the character in current cell. 
     
     //we can easily get (x, y) coordination in the board, so we can use x%5, y/5 to get its
-    //offset, 
+    //offset, for example, 
+    /*
+     *   a b c d e
+     *   f g h i j
+     *   k l m n o
+     *   p q r s t 
+     *   u v w x y 
+     *   z
+     *   
+     *   start from (0, 0), we know first char nx = x % 5, ny = y / 5, so we know we need move down
+     *   by n = nx, we can compar to 0 so we can know whether U or D, same as others.
+     */
     public String alphabetBoardPath(String target) {
         if(target == null || target.length() < 1) return "";
           int x = 0, y = 0;
@@ -51,7 +62,7 @@ Output: "DDR!UURRR!!DDD!"
     }
     
     //thinking process: 
-    //
+    //this is more smooth thinking, 
     public String alphabetBoardPath_BestPerf(String target) {
         StringBuilder sb = new StringBuilder();
         for (int n = 0, i = 0, j = 0; n < target.length(); n++) {
