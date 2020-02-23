@@ -35,7 +35,7 @@ Since we can compute an matrix exponent by O(log(n)), Simplify the relation into
         
 The matrix multiplication cost is k^3, k=3. So the total cost is O(k^3log(n))
 */
-    
+
     //O(n)/O(1)
     public int tribonacci(int n) {
         if (n < 2) return n;
