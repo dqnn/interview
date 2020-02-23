@@ -43,7 +43,7 @@ Output: "DDR!UURRR!!DDD!"
      *   z
      *   
      *   start from (0, 0), we know first char nx = x % 5, ny = y / 5, so we know we need move down
-     *   by n = nx, we can compar to 0 so we can know whether U or D, same as others.
+     *   by n = nx, we can compare to 0 so we can know whether U or D, same as others.
      */
     public String alphabetBoardPath(String target) {
         if(target == null || target.length() < 1) return "";
