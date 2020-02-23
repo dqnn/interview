@@ -32,13 +32,14 @@ Output: "DDR!UURRR!!DDD!"
     //would like to output its directions to find the same string as target string
     //! means print the character in current cell. 
     
-    //
+    //we can easily get (x, y) coordination in the board, so we can use x%5, y/5 to get its
+    //offset, 
     public String alphabetBoardPath(String target) {
         if(target == null || target.length() < 1) return "";
           int x = 0, y = 0;
           StringBuilder sb = new StringBuilder();
-          for (char ch : target.toCharArray()) {
-            int x1 = (ch - 'a') % 5, y1 = (ch - 'a') / 5;
+          for (char c : target.toCharArray()) {
+            int x1 = (c - 'a') % 5, y1 = (c - 'a') / 5;
             sb.append(String.join("", Collections.nCopies(Math.max(0, y - y1), "U")) +
               String.join("", Collections.nCopies(Math.max(0, x1 - x), "R")) +
               String.join("", Collections.nCopies(Math.max(0, x - x1), "L")) +
