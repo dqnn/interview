@@ -59,7 +59,8 @@ also this is the reason we want to start with (1,1)
         for(int i =1; i <= r; i++) {
             for(int j = 1; j<=c;j++) {
                 if (matrix[i-1][j-1] == '1') {
-                    dp[i][j] = Math.min(Math.min(dp[i][j-1], dp[i-1][j-1]), dp[i-1][j]) + 1;
+                    dp[i][j] = 1 + Math.min(Math.min(dp[i][j-1], dp[i-1][j-1]), 
+                                            dp[i-1][j]);
                     res = Math.max(res, dp[i][j]);
                 }
             }
