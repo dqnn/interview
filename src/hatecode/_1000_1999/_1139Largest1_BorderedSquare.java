@@ -28,7 +28,6 @@ Output: 9
         for(int j = 0;j<c;j++){
             for(int i = 0;i<r;i++){
                 preSumU2D[i+1][j+1] = preSumU2D[i][j+1] + m[i][j];
-                
             }
         }
         //we sum from left to right
@@ -39,6 +38,8 @@ Output: 9
         }
         /*
          * so here we would like to use two presum 2D array to calculate the largest square, 
+         * the square must be begin within len, because if exceeds len then we cannot form a square, 
+         * we do not need to check one by one, we just need to check the sub array sum, 
          * 
          */
         int len = Math.min(r,c);
