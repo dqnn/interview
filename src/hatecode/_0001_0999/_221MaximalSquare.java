@@ -6,9 +6,11 @@ package hatecode._0001_0999;
  * File Name : MaximalSquare
  * Creator : duqiang
  * Date : Aug, 2018
- * Description : 221. Maximal Square
+ * Description : 
+ * 221. Maximal Square
+ * 1139. Largest 1-Bordered Square
  */
-public class MaximalSquare {
+public class _221MaximalSquare {
 
     /**
      * Given a 2D binary matrix filled with 0's and 1's, find the largest square containing only 1's and return its area.
