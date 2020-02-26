@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class LargestPlusSign {
+public class _764LargestPlusSign {
 /*
 764. Largest Plus Sign
 这道题给了我们一个数字N，表示一个NxN的二位数字，初始化均为1，又给了一个mines数组，里面是一些坐标，表示数组中这些位置都为0，然后让我们找最大的加型符号。所谓的加型符号是有数字1组成的一个十字型的加号，题目中也给出了长度分别为1，2，3的加型符号的样子。
