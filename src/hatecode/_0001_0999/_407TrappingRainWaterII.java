@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class TrappingRainWaterII {
+public class _407TrappingRainWaterII {
 /*
 407. Trapping Rain Water II
 Given the following 3x6 height map:
