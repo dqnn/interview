@@ -1,4 +1,4 @@
-package hatecode._0001_0999;
+package hatecode._1000_1999;
 public class _1028ConvertToBaseMinus2 {
 /*
 1028. Convert to Base -2
