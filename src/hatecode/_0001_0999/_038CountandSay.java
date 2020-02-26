@@ -1,8 +1,10 @@
 package hatecode._0001_0999;
 
 /**
- * Project Name : Leetcode Package Name : leetcode File Name : CountandSay
- * Creator : duqiang Date : Ang, 2018 Description : 38. Count and Say
+ * Project Name : Leetcode Package Name : 
+leetcode File Name : CountandSay
+ * Creator : duqiang Date : Ang, 2018 Description : 
+ * 38. Count and Say
  */
 
 /*
@@ -37,7 +39,7 @@ package hatecode._0001_0999;
 
 
 
-public class CountandSay {
+public class _038CountandSay {
     /**
      1.     1
      2.     11
