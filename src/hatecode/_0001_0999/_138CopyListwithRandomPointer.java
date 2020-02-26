@@ -16,7 +16,7 @@ class RandomListNode {
     RandomListNode next, random;
     RandomListNode(int x) { this.label = x; }
 }
-public class CopyListwithRandomPointer {
+public class _138CopyListwithRandomPointer {
     /**
      * 138. Copy List with Random Pointer
      * A linked list is given such that each node contains an additional random pointer 
