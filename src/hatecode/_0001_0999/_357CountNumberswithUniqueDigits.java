@@ -15,7 +15,7 @@ package hatecode._0001_0999;
  * 
  * 
  */
-public class CountNumberswithUniqueDigits {
+public class _357CountNumberswithUniqueDigits {
 
     /*
      * f(1) = 10 since 0 -9,

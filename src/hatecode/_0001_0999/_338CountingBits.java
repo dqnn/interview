@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Nov, 2017
  * Description : 338. Counting Bits
  */
-public class CountingBits {
+public class _338CountingBits {
     /**
      * Given a non negative integer number num. For every numbers i in the range 0 ≤
      * i ≤ num calculate the number of 1's in their binary representation and return
