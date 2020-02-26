@@ -52,7 +52,7 @@ public class _288UniqueWordAbbreviation {
     
     //firstly we add words into Map, and if key are the same and original string are different,
     //then we would use "" to update the string
-    public UniqueWordAbbreviation(String[] dictionary) {
+    public _288UniqueWordAbbreviation(String[] dictionary) {
         map = new HashMap<>();
         for (String s : dictionary) {
             String key = getKey(s);
