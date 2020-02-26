@@ -10,7 +10,7 @@ import java.util.Stack;
  * Date : Sep, 2018
  * Description : 255. Verify Preorder Sequence in Binary Search Tree
  */
-public class VerifyPreorderSequenceinBinarySearchTree {
+public class _255VerifyPreorderSequenceinBinarySearchTree {
     /**
      *    6
          / \

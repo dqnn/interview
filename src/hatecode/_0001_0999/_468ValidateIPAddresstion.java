@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 
-class ValidateIPAddresstion {
+public class _468ValidateIPAddresstion {
     /*
      * 468. Validate IP Address Write a function to check whether an input string is
      * a valid IPv4 address or IPv6 address or neither.

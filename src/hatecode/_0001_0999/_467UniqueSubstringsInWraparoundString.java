@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-class UniqueSubstringsInWraparoundString {
+public class _467UniqueSubstringsInWraparoundString {
 /*
 467. Unique Substrings in Wraparound String
 Example 1:

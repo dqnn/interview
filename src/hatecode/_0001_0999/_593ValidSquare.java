@@ -2,7 +2,7 @@ package hatecode._0001_0999;
 
 import java.util.Arrays;
 
-public class ValidSquare {
+public class _593ValidSquare {
 /*
 593. Valid Square
 Given the coordinates of four points in 2D space, return whether the four points could construct a square.

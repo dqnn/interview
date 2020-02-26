@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class ValidParenthesisString {
+public class _678ValidParenthesisString {
 /*
 678. Valid Parenthesis String
 Given a string containing only three types of characters: '(', ')' and '*', 

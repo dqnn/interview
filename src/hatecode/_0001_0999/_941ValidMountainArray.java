@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class ValidMountainArray {
+public class _941ValidMountainArray {
 /*
 941. Valid Mountain Array
 Given an array A of integers, return true if and only if it is a valid mountain array.

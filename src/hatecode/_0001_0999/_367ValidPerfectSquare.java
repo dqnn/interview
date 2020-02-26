@@ -21,7 +21,7 @@ Example 2:
 Input: 14
 Output: false
  */
-public class ValidPerfectSquare {
+public class _367ValidPerfectSquare {
 
     // time : O(n) space : O(1)
     // this is to reduce the complexity of num, we use num / i

@@ -35,7 +35,7 @@ Input:
 ]
 Output: true
  */
-public class ValidSudoku {
+public class _036ValidSudoku {
 
 
     // time : O(n^2) space : O(n)

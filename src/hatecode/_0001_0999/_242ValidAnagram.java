@@ -11,7 +11,7 @@ import java.util.Arrays;
  * Date : Sep, 2018
  * Description : 242. Valid Anagram
  */
-public class ValidAnagram {
+public class _242ValidAnagram {
     /**
 Given two strings s and t , write a function to determine if t is an 
 anagram of s.

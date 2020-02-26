@@ -1,5 +1,12 @@
 package hatecode._0001_0999;
-public class ValidPalindromeII {
+public class _680ValidPalindromeII {
+ /*680. Valid Palindrome II
+  * Given a non-empty string s, you may delete at most one character. Judge whether you can make it a palindrome.
+
+Example 1:
+Input: "aba"
+Output: True
+  */
     //recursive solution, better for readability
     int count = 1;
     public boolean validPalindrome(String s) {

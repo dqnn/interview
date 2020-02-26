@@ -5,7 +5,7 @@ import java.util.Stack;
 /**
  * Created by duqiang on 27/07/2017.
  */
-public class ValidParentheses {
+public class _020ValidParentheses {
     /**
      * 20. Valid Parentheses
      * Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.

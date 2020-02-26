@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class ValidBoomerang {
+public class _1037ValidBoomerang {
 /*
 1037. Valid Boomerang
 A boomerang is a set of 3 points that are all distinct and not in a straight line.

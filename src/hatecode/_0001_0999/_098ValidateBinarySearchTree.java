@@ -6,7 +6,7 @@ import java.util.Stack;
 /**
  * Created by duqiang on 24/07/2017.
  */
-public class ValidateBinarySearchTree {
+public class _098ValidateBinarySearchTree {
 
     /**
      * 98. Validate Binary Search Tree

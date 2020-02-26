@@ -2,7 +2,7 @@ package hatecode._0001_0999;
 
 import java.util.Arrays;
 
-public class ValidTriangleNumber {
+public class _611ValidTriangleNumber {
 /*
 611. Valid Triangle Number
 

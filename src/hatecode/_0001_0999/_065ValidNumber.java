@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : TODO
  */
-public class ValidNumber {
+public class _065ValidNumber {
 
     /**
      * 65. Valid Number

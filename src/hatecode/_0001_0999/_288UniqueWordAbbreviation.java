@@ -10,7 +10,7 @@ import java.util.HashMap;
  * Date : Sep, 2018
  * Description : 288. Unique Word Abbreviation
  */
-public class UniqueWordAbbreviation {
+public class _288UniqueWordAbbreviation {
     /**
      * tags: google
      * An abbreviation of a word follows the form <first letter><number><last letter>.

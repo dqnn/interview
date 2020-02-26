@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class VerifyingAnAlienDictionary {
+public class _953VerifyingAnAlienDictionary {
     /*
      * 953. Verifying an Alien Dictionary In an alien language, surprisingly they
      * also use english lowercase letters, but possibly in a different order. The

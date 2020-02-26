@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class ValidWordAbbreviation {
+public class _408ValidWordAbbreviation {
 /*
 408. Valid Word Abbreviation
 tags: google

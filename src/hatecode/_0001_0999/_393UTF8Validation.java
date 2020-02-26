@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : 393. UTF-8 Validation
  */
-public class UTF8Validation {
+public class _393UTF8Validation {
     /**
      * A character in UTF8 can be from 1 to 4 bytes long, subjected to the following rules:
 

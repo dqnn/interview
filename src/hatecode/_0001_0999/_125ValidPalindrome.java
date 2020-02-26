@@ -3,7 +3,7 @@ package hatecode._0001_0999;
 /**
  * Created by duqiang on 28/07/2017.
  */
-public class ValidPalindrome {
+public class _125ValidPalindrome {
     /**
      * 125. Valid Palindrome
      * Given a string, determine if it is a palindrome, considering only alphanumeric 

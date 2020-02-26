@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class ValidWordSquare {
+public class _422ValidWordSquare {
 /*
 422. Valid Word Square
 Given a sequence of words, check whether it forms a valid word square.

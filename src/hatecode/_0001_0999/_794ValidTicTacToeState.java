@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class ValidTicTacToeState {
+public class _794ValidTicTacToeState {
 /*
 794. Valid Tic-Tac-Toe State
 A Tic-Tac-Toe board is given as a string array board. Return True if and only if it is possible to reach this board position during the course of a valid tic-tac-toe game.
