@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class DominoAndTrominoTiling {
+public class _790DominoAndTrominoTiling {
 /*
 790. Domino and Tromino Tiling
 We have two types of tiles: a 2x1 domino shape, and an "L" tromino shape. These shapes may be rotated.
