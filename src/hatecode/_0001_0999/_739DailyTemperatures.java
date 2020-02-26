@@ -2,7 +2,7 @@ package hatecode._0001_0999;
 
 import java.util.Stack;
 
-public class DailyTemperatures {
+public class _739DailyTemperatures {
 /*
 739. Daily Temperatures
 Given a list of daily temperatures T, return a list such that, for each day in the input, 

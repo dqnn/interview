@@ -26,7 +26,7 @@ Follow up:
 What if there are lots of merges and the number of disjoint intervals are small 
 compared to the data stream's size?
  */
-public class DataStreamasDisjointIntervals {
+public class _352DataStreamasDisjointIntervals {
 
     /**
 
@@ -40,7 +40,7 @@ public class DataStreamasDisjointIntervals {
 
     TreeMap<Integer, Interval> treeMap;
 
-    public DataStreamasDisjointIntervals() {
+    public _352DataStreamasDisjointIntervals() {
         treeMap = new TreeMap<>();
     }
 

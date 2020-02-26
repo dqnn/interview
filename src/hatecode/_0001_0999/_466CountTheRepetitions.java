@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-class CountTheRepetitions {
+public class _466CountTheRepetitions {
 /*
 466. Count The Repetitions
 Define S = [s,n] as the string S which consists of n connected strings s. For example, ["abc", 3] ="abcabcabc".

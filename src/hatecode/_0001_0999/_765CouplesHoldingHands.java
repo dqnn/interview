@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class CouplesHoldingHands {
+public class _765CouplesHoldingHands {
     /*
      * 765. Couples Holding Hands N couples sit in 2N seats arranged in a row and
      * want to hold hands. We want to know the minimum number of swaps so that every

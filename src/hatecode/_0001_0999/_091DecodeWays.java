@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Nov, 2017
  * Description : 91. Decode Ways
  */
-public class DecodeWays {
+public class _091DecodeWays {
     /**
      * A message containing letters from A-Z is being encoded to numbers using the 
      * following mapping:

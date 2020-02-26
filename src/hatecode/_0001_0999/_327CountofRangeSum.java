@@ -11,7 +11,7 @@ import java.util.TreeMap;
  * Date : Jan, 2018
  * Description : 327. Count of Range Sum
  */
-public class CountofRangeSum {
+public class _327CountofRangeSum {
     /**
      * Given an integer array nums, return the number of range sums that lie in [lower, upper] inclusive.
      Range sum S(i, j) is defined as the sum of the elements in nums

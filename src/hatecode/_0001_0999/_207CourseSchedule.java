@@ -11,7 +11,7 @@ import java.util.stream.*;
  * Date : Nov, 2017
  * Description : 207. Course Schedule
  */
-public class CourseSchedule {
+public class _207CourseSchedule {
 
     /**
      * There are a total of n courses you have to take, labeled from 0 to n - 1.

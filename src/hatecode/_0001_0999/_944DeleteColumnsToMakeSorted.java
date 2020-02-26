@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class DeleteColumnsToMakeSorted {
+public class _944DeleteColumnsToMakeSorted {
 /*
 944. Delete Columns to Make Sorted
 Example 1:

@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Nov, 2017
  * Description : 250. Count Univalue Subtrees
  */
-public class CountUnivalueSubtrees {
+public class _250CountUnivalueSubtrees {
     /**
      * Given a binary tree, count the number of uni-value subtrees.
 

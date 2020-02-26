@@ -11,7 +11,7 @@ import java.util.Queue;
  * Date : Dec, 2017
  * Description : 210. Course Schedule II
  */
-public class CourseScheduleII {
+public class _210CourseScheduleII {
     /**
      * There are a total of n courses you have to take, labeled from 0 to n - 1.
 

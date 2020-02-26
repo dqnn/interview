@@ -1,12 +1,10 @@
 package hatecode._0001_0999;
 
-
-
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class DecodeWaysII {
+public class _639DecodeWaysII {
     /*
      * 639. Decode Ways II 
      * A message containing letters from A-Z is being encoded to

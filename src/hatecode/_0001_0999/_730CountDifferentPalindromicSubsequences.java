@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class CountDifferentPalindromicSubsequences {
+public class _730CountDifferentPalindromicSubsequences {
 /*
 730. Count Different Palindromic Subsequences
 Given a string S, find the number of different non-empty palindromic subsequences in S, and return that number modulo 10^9 + 7.

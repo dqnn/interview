@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Nov, 2017
  * Description : 204. Count Primes
  */
-public class CountPrimes {
+public class _204CountPrimes {
     /**
      * 厄拉多塞筛法，求一组质数，时间复杂度仅有O(nloglogn)
      * 如果从1到n-1分别判断质数，时间复杂度为O(nsqrt(n))）

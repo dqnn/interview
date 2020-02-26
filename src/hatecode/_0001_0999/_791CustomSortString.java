@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class CustomSortString {
+public class _791CustomSortString {
 /*
 791. Custom Sort String
 S and T are strings composed of lowercase letters. In S, no letter occurs more than once.

@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class CrackingTheSafe {
+public class _753CrackingTheSafe {
     /*
      * 753. Cracking the Safe 
      * 

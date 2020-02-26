@@ -10,7 +10,7 @@ import java.util.*;
  * Date : Sep, 2017
  * Description : TODO
  */
-public class DecodeString {
+public class _394DecodeString {
 
     /**
      * 394. Decode String
