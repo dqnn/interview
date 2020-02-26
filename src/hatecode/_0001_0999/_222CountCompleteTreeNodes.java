@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Dec, 2017
  * Description : 222. Count Complete Tree Nodes
  */
-public class CountCompleteTreeNodes {
+public class _222CountCompleteTreeNodes {
 
     /**
      * Given a complete binary tree, count the number of nodes.
