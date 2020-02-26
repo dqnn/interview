@@ -61,8 +61,9 @@ Output: "DDR!UURRR!!DDD!"
           return sb.toString();
     }
     
-    //thinking process: 
-    //this is more smooth thinking, 
+    //thinking process: best performance
+    //this is more smooth thinking, so for each character in target, 
+    //we get its position(i, j) in board, then we know how to move
     public String alphabetBoardPath_BestPerf(String target) {
         StringBuilder sb = new StringBuilder();
         for (int n = 0, i = 0, j = 0; n < target.length(); n++) {
