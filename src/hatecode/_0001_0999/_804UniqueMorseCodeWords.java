@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-class UniqueMorseCodeWords {
+public class _804UniqueMorseCodeWords {
 /*
 804. Unique Morse Code Words
 Example:

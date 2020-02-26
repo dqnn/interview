@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : 62. Unique Paths
  */
-public class UniquePaths {
+public class _062UniquePaths {
 /*
 A robot is located at the top-left corner of a m x n grid (marked 'Start' in the 
 diagram below).

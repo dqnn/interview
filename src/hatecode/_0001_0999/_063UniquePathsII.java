@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : 63. Unique Paths II
  */
-public class UniquePathsII {
+public class _063UniquePathsII {
     /**
      * Follow up for "Unique Paths":
 
