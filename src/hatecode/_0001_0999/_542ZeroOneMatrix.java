@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-class ZeroOneMatrix {
+public class _542ZeroOneMatrix {
 /*
 542. 01 Matrix
 Given a matrix consists of 0 and 1, find the distance of the nearest 0 for each cell.

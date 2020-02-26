@@ -20,7 +20,7 @@ import java.util.Map;
  * 
  * Input: nums = [1,2,3,1,2,3], k = 2 Output: false
  */
-public class ContainsDuplicateII {
+public class _219ContainsDuplicateII {
     //time : O(n) space : O(n)
     // so suppose we have duplicate number, first it was not in map,
     // latter we found it and since num[i] == num[j], so we can get previous index

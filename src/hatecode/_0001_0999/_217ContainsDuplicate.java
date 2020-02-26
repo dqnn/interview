@@ -29,7 +29,7 @@ Input: [1,1,1,3,3,4,3,2,4,2]
 Output: true
 
  */
-public class ContainsDuplicate {
+public class _217ContainsDuplicate {
 
     // time : O(n) space : O(n)
     public boolean containsDuplicate(int[] nums) {

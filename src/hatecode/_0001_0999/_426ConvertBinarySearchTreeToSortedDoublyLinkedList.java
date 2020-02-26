@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class ConvertBinarySearchTreeToSortedDoublyLinkedList {
+public class _426ConvertBinarySearchTreeToSortedDoublyLinkedList {
 /*
  * 426. Convert Binary Search Tree to Sorted Doubly Linked List
 Convert a BST to a sorted circular doubly-linked list in-place. Think of the left and 

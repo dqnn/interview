@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 import java.util.*;
 
-public class ConstructBinaryTreeFromString {
+public class _536ConstructBinaryTreeFromString {
 /*
 536. Construct Binary Tree from String
 The whole input represents a binary tree. It contains an integer followed by zero, one or two pairs of parenthesis. The integer represents the root's value and a pair of parenthesis contains a child binary tree with the same structure.

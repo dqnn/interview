@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class ConvertToBaseMinus2 {
+public class _1028ConvertToBaseMinus2 {
 /*
 1028. Convert to Base -2
 Given a number N, return a string consisting of "0"s and "1"s that represents its value in base -2 (negative two).

@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : 6. ZigZag Conversion
  */
-public class ZigZagConversion {
+public class _006ZigZagConversion {
 /*
  * 
 The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: 

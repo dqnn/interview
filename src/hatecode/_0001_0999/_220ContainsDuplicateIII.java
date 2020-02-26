@@ -12,7 +12,7 @@ import java.util.TreeSet;
  * Description : 220. Contains Duplicate III
  */
 
-public class ContainsDuplicateIII {
+public class _220ContainsDuplicateIII {
     /**
      * Given an array of integers, find out whether there are two distinct indices i
      * and j in the array such that the absolute difference between nums[i] and

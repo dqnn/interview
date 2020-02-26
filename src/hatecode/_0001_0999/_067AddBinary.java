@@ -5,7 +5,7 @@ import java.util.Stack;
 /**
  * Created by duqiang on 28/07/2018.
  */
-public class _67AddBinary {
+public class _067AddBinary {
     /**
      * 67. Add Binary
      * Given two binary strings, return their sum (also a binary string).

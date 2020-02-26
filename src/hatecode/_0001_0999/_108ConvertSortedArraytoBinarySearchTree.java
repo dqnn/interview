@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2017
  * Description : TODO
  */
-public class ConvertSortedArraytoBinarySearchTree {
+public class _108ConvertSortedArraytoBinarySearchTree {
     /**
      * 108. Convert Sorted Array to Binary Search Tree
      * Given an array where elements are sorted in ascending order, 

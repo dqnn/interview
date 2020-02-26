@@ -3,8 +3,9 @@ package hatecode._0001_0999;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ContinuousSubarraySum {
+public class _523ContinuousSubarraySum {
 /*
+ * 523. Continuous Subarray Sum
 Given a list of non-negative numbers and a target integer k, 
 write a function to check if the array has a continuous subarray of size 
 at least 2 that sums up to the multiple of k, that is, sums up to n*k 

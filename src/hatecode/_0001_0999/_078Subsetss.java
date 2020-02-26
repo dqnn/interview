@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by duqiang on 28/07/2017.
  */
-public class _78Subsets {
+public class _078Subsetss {
     /**
      * 78. Subsets
      * Given a set of distinct integers, nums, return all possible subsets.

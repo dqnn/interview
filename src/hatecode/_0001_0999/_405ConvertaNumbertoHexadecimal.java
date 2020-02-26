@@ -33,7 +33,7 @@ Input:
 Output:
 "ffffffff"
  */
-public class ConvertaNumbertoHexadecimal {
+public class _405ConvertaNumbertoHexadecimal {
     /**
      *
      * time : < O(n)

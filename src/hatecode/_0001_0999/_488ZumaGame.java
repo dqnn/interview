@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class ZumaGame {
+public class _488ZumaGame {
     /*
  488. Zuma Game
 Think about Zuma Game. You have a row of balls on the table, 

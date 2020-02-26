@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class ContiguousArray {
+public class _525ContiguousArray {
 /*
 525. Contiguous Array
 Given a binary array, find the maximum length of a contiguous subarray with equal number of 0 and 1.

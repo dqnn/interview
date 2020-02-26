@@ -12,7 +12,7 @@ import java.util.List;
  * Date : Sep, 2018
  * Description : 281. Zigzag Iterator
  */
-public class ZigzagIterator {
+public class _281ZigzagIterator {
     /**
      *For example, given two 1d vectors:
 
@@ -49,7 +49,7 @@ Output: [1,4,8,2,5,9,3,6,7].
     private Iterator<Integer> i, j, temp;
 
 
-    public ZigzagIterator(List<Integer> v1, List<Integer> v2) {
+    public _281ZigzagIterator(List<Integer> v1, List<Integer> v2) {
         i = v2.iterator();
         j = v1.iterator();
     }
