@@ -38,9 +38,9 @@ Output: 9
         }
         /*
          * so here we would like to use two presum 2D array to calculate the largest square, 
-         * the square must be begin within len, because if exceeds len then we cannot form a square, 
-         * we do not need to check one by one, we just need to check the sub array sum, 
-         * 
+         * let's assume the max square len = min(r,c), so we can start from len to 0, 
+         *  we use presum(i+len) - presum(i) == len to know whether we have 0 or not, if equals
+         *  then they are all 1s, if not are 0s. 
          */
         int len = Math.min(r,c);
         while(len > 0){
@@ -58,6 +58,8 @@ Output: 9
         return 0;
     }
     
+    //here use a different thinking: 
+    //
     public int largest1BorderedSquare_Best_Perf(int[][] grid) {
         int max = 0;
         int r = grid.length;
