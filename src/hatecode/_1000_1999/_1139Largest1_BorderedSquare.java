@@ -18,27 +18,28 @@ Output: 9
     //border all 1, only 1 or 0 for each cell
     
     //we use preSum to calculate the sum
-    public int largest1BorderedSquare(int[][] grid) {
-        if (grid == null || grid.length < 1 || grid[0].length < 1) return 0;
+    public int largest1BorderedSquare(int[][] m) {
+        if (m == null || m.length < 1 || m[0].length < 1) return 0;
         
-        int r = grid.length, c = grid[0].length;
+        int r = m.length, c = m[0].length;
         int[][] preSumU2D = new int[r+1][c+1];
         int[][] preSumL2R = new int[r+1][c+1];
         //we sum up to down, 1 + 1, 
         for(int j = 0;j<c;j++){
             for(int i = 0;i<r;i++){
-                preSumU2D[i+1][j+1] = preSumU2D[i][j+1] + grid[i][j];
+                preSumU2D[i+1][j+1] = preSumU2D[i][j+1] + m[i][j];
                 
             }
         }
         //we sum from left to right
         for(int i = 0;i<r;i++){
             for(int j = 0;j<c;j++){
-                preSumL2R[i+1][j+1] = preSumL2R[i+1][j] + grid[i][j];
+                preSumL2R[i+1][j+1] = preSumL2R[i+1][j] + m[i][j];
             }
         }
         /*
-         * so 
+         * so here we would like to use two presum 2D array to calculate the largest square, 
+         * 
          */
         int len = Math.min(r,c);
         while(len > 0){
