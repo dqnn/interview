@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : 365. Water and Jug Problem
  */
-public class WaterandJugProblem {
+public class _365WaterandJugProblem {
     /**
      * You are given two jugs with capacities x and y litres. There is an infinite amount of water supply available.
      * You need to determine whether it is possible to measure exactly z litres using these two jugs.

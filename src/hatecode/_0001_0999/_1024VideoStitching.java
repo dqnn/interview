@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class VideoStitching {
+public class _1024VideoStitching {
 /*
 1024. Video Stitching
 You are given a series of video clips from a sporting event that lasted T seconds.  These video clips can be overlapping with each other and have varied lengths.

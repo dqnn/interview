@@ -10,7 +10,7 @@ import java.util.*;
  * Date : Sep, 2018
  * Description : 127. Word Ladder
  */
-public class WordLadder {
+public class _127WordLadder {
     /**
 Given two words (beginWord and endWord), and a dictionary's word list, find the length of 
 shortest transformation sequence from beginWord to endWord, such that:

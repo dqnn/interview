@@ -11,7 +11,7 @@ import java.util.Map;
  * Date : Sep, 2018
  * Description : 290. Word Pattern
  */
-public class WordPattern {
+public class _290WordPattern {
     /**
      * Given a pattern and a string str, find if str follows the same pattern.
 

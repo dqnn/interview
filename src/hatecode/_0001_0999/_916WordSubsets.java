@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class WordSubsets {
+public class _916WordSubsets {
 /*
 916. Word Subsets
 We are given two arrays A and B of words.  Each word is a string of lowercase letters.

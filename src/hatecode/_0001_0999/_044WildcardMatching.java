@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : 44. Wildcard Matching
  */
-public class WildcardMatching {
+public class _044WildcardMatching {
     /**
      * tags: google
      * Implement wildcard pattern matching with support for '?' and '*'.

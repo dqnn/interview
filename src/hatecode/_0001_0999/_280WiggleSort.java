@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : 280. Wiggle Sort
  */
-public class WiggleSort {
+public class _280WiggleSort {
     /**
      * Given an unsorted array nums, reorder it in-place such that 
      * nums[0] <= nums[1] >= nums[2] <= nums[3]....

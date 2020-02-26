@@ -11,7 +11,7 @@ import java.util.List;
  * Date : Sep, 2018
  * Description : 212. Word Search II
  */
-public class WordSearchII {
+public class _212WordSearchII {
     /**
      * Given a 2D board and a list of words from the dictionary, find all words in the board.
 

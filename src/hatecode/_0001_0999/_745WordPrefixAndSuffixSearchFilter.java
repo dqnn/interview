@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class WordPrefixAndSuffixSearchFilter {
+public class _745WordPrefixAndSuffixSearchFilter {
 /*
 745. Prefix and Suffix Search
 Given many words, words[i] has weight i.
@@ -50,7 +50,7 @@ WordFilter.f("b", "") // returns -1
         }
     
     
-    public WordPrefixAndSuffixSearchFilter(String[] words) {
+    public void WordPrefixAndSuffixSearchFilter(String[] words) {
        root = new Trie();
         int idx = 0;
        for(String word : words) {

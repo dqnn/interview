@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : 79. Word Search
  */
-public class WordSearch {
+public class _079WordSearch {
     /**
      * For example,
      Given board =

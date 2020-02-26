@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class WordSquares {
+public class _425WordSquares {
 /*
 425. Word Squares
 Example 1:

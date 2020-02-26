@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-class XOfAKindInADeckOfCards {
+public class _914XOfAKindInADeckOfCards {
 /*
 914. X of a Kind in a Deck of Cards
 In a deck of cards, each card has an integer written on it.

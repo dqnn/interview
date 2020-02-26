@@ -11,7 +11,7 @@ import java.util.*;
  * Date : Sep, 2018
  * Description : 139. Word Break
  */
-public class WordBreak {
+public class _139WordBreak {
 
     /**
      * Given a non-empty string s and a dictionary wordDict containing a list of non-empty words,

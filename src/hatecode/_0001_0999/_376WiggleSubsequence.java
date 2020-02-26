@@ -11,7 +11,7 @@ import java.util.List;
  * Date : Sep, 2018
  * Description : 376. Wiggle Subsequence
  */
-public class WiggleSubsequence {
+public class _376WiggleSubsequence {
 
     /**
      * Examples:

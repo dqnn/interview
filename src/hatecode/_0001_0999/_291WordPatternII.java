@@ -13,7 +13,7 @@ import java.util.Set;
  * Date : Sep, 2018
  * Description : 291. Word Pattern II
  */
-public class WordPatternII {
+public class _291WordPatternII {
     /**
      * Given a pattern and a string str, find if str follows the same pattern.
 

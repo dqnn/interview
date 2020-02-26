@@ -11,7 +11,7 @@ import java.util.Queue;
  * Date : Sep, 2018
  * Description : 286. Walls and Gates
  */
-public class WallsandGates {
+public class _286WallsandGates {
     /**
      * You are given a m x n 2D grid initialized with these three possible values.
 

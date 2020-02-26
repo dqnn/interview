@@ -13,7 +13,7 @@ import java.util.List;
  * Date : Sep, 2018
  * Description : 140. Word Break II
  */
-public class WordBreakII {
+public class _140WordBreakII {
     /**
 Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, 
 add spaces in s to construct a sentence where each word is a valid dictionary word. 

@@ -10,7 +10,7 @@ import java.util.Stack;
  * Date : Sep, 2018
  * Description : 331. Verify Preorder Serialization of a Binary Tree
  */
-public class VerifyPreorderSerializationofaBinaryTree {
+public class _331VerifyPreorderSerializationofaBinaryTree {
     /**
 One way to serialize a binary tree is to use pre-order traversal. 
 When we encounter a non-null node, 

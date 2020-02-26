@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class WordAbbreviation {
+public class _527WordAbbreviation {
     /*tags: trie, google
      * 527. Word Abbreviation 
      * Given an array of n distinct non-empty strings, you
