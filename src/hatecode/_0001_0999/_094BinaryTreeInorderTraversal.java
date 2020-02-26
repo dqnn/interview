@@ -9,7 +9,7 @@ import org.junit.Test;
 /**
  * Created by duqiang on 25/07/2017.
  */
-public class _94BinaryTreeInorderTraversal {
+public class _094BinaryTreeInorderTraversal {
     /**
      * 94. Binary Tree Inorder Traversal
      * Given a binary tree, return the inorder traversal of its nodes' values.
