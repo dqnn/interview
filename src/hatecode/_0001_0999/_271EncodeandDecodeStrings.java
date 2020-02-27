@@ -40,7 +40,7 @@ The string may contain any possible characters out of 256 valid ascii characters
 Do not use class member/global/static variables to store states. Your encode and decode algorithms should be stateless.
 Do not rely on any library method such as eval or serialize methods. You should implement your own encode/decode algorithm.
  */
-public class EncodeandDecodeStrings {
+public class _271EncodeandDecodeStrings {
 
 
     /**

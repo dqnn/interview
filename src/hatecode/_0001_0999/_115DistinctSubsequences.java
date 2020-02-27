@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Nov, 2017
  * Description : 115. Distinct Subsequences
  */
-public class DistinctSubsequences {
+public class _115DistinctSubsequences {
     /**
      * Given a string S and a string T, count the number of distinct subsequences of
      * S which equals T.

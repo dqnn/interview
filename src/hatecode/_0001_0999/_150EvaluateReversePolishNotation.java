@@ -10,7 +10,7 @@ import java.util.Stack;
  * Date : Sep, 2017
  * Description : 150. Evaluate Reverse Polish Notation
  */
-public class EvaluateReversePolishNotation {
+public class _150EvaluateReversePolishNotation {
     /**
      * Valid operators are +, -, *, /. Each operand may be an integer or another expression.
 

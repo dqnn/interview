@@ -42,7 +42,7 @@ twitter.unfollow(1, 2);
 // since user 1 is no longer following user 2.
 twitter.getNewsFeed(1);
  */
-public class DesignTwitter {
+public class _355DesignTwitter {
 
     private int timeStamp = 0;
     private HashMap<Integer, User> userMap;
@@ -87,7 +87,7 @@ public class DesignTwitter {
     }
 
     /** Initialize your data structure here. */
-    public DesignTwitter() {
+    public _355DesignTwitter() {
         userMap = new HashMap<>();
     }
 

@@ -15,7 +15,7 @@ import java.util.Set;
  * Date : Dec, 2017
  * Description : 399. Evaluate Division
  */
-public class EvaluateDivision {
+public class _399EvaluateDivision {
 
     /** tags: google, facebook
      * Equations are given in the format A / B = k, where A and B are variables represented as strings,

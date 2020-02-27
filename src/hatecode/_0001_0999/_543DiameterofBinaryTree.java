@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode Package Name : leetcode File Name :
  * DiameterofBinaryTree Creator : duqiang Date : July, 2018 Description : TODO
  */
-public class DiameterofBinaryTree {
+public class _543DiameterofBinaryTree {
     /**
      * 543. Diameter of Binary Tree
      * Given a binary tree, you need to compute the length of the diameter of the tree.

@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Nov, 2017
  * Description : 29. Divide Two Integers
  */
-public class DivideTwoIntegers {
+public class _029DivideTwoIntegers {
     /**
      * Given two integers dividend and divisor, divide two integers without using
      * multiplication, division and mod operator. Return the quotient after dividing

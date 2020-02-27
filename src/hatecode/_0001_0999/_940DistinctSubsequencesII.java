@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class DistinctSubsequencesII {
+public class _940DistinctSubsequencesII {
 /*
 940. Distinct Subsequences II
 Given a string S, count the number of distinct, non-empty subsequences of S .

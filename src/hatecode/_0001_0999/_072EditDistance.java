@@ -8,7 +8,7 @@ import java.util.*;
  * Date : Dec, 2017
  * Description : 72. Edit Distance
  */
-public class EditDistance {
+public class _072EditDistance {
     /**
      * Given two words word1 and word2, find the minimum number of steps required to convert word1 to word2.
      * (each operation is counted as 1 step.)

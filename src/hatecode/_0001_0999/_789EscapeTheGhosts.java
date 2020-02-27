@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class EscapeTheGhosts {
+public class _789EscapeTheGhosts {
 /*
 789. Escape The Ghosts
 You are playing a simplified Pacman game. You start at the point (0, 0), and your destination is (target[0], target[1]). There are several ghosts on the map, the i-th ghost starts at (ghosts[i][0], ghosts[i][1]).

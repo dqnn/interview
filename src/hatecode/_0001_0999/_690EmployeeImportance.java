@@ -2,7 +2,7 @@ package hatecode._0001_0999;
 
 import java.util.*;
 import java.util.stream.*;
-public class EmployeeImportance {
+public class _690EmployeeImportance {
 /*
 690. Employee Importance
 You are given a data structure of employee information, which includes the employee's unique id, his importance value and his direct subordinates' id.

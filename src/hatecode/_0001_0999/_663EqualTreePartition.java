@@ -9,7 +9,7 @@ import java.util.*;
  *     TreeNode(int x) { val = x; }
  * }
  */
-class EqualTreePartition {
+public class _663EqualTreePartition {
 /*
 663. Equal Tree Partition
 Given a binary tree with n nodes, your task is to check if it's possible to partition the tree to two trees which have the equal sum of values after removing exactly one edge on the original tree.

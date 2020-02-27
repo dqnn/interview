@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-class EncodeStringWithShortestLength {
+public class _471EncodeStringWithShortestLength {
 /*
 471. Encode String with Shortest Length
 Given a non-empty string, encode the string such that its encoded length is the shortest.

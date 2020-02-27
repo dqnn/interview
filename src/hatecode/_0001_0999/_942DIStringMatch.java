@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 
-class DIStringMatch {
+public class _942DIStringMatch {
 /*
  * 942 DI String Match
 Given a string S that only contains "I" (increase) or "D" (decrease), let N = S.length.

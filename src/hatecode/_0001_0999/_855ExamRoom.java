@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 import java.util.*;
 
-public class ExamRoom {
+public class _855ExamRoom {
     /*
      * 855. Exam Room 
      * In an exam room, there are N seats in a single row, numbered

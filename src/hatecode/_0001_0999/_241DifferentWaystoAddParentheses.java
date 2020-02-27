@@ -11,7 +11,7 @@ import java.util.*;
  * 
  * : 241. Different Ways to Add Parentheses
  */
-public class DifferentWaystoAddParentheses {
+public class _241DifferentWaystoAddParentheses {
     /**
      * Given a string of numbers and operators, return all possible results from
      * computing all the different possible ways to group numbers and operators. The
