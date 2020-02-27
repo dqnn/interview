@@ -11,7 +11,7 @@ import java.util.List;
  * Date : Sep, 2018
  * Description : TODO
  */
-public class UniqueBinarySearchTreesII {
+public class _095UniqueBinarySearchTreesII {
     /**
      * 95. Unique Binary Search Trees II
      * Given an integer n, generate all structurally unique BST's (binary search trees) 
