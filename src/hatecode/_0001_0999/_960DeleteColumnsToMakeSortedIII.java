@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class DeleteColumnsToMakeSortedIII {
+public class _960DeleteColumnsToMakeSortedIII {
 /*
 960. Delete Columns to Make Sorted III
 We are given an array A of N lowercase letter strings, all of the same length.

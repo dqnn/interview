@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Jan, 2018
  * Description : 348. Design Tic-Tac-Toe
  */
-public class DesignTicTacToe {
+public class _348DesignTicTacToe {
     /**
      * Given n = 3, assume that player 1 is "X" and player 2 is "O" in the board.
 
@@ -61,7 +61,7 @@ public class DesignTicTacToe {
     private int antiDiagonal;
     private int size;
 
-    public DesignTicTacToe(int n) {
+    public _348DesignTicTacToe(int n) {
         rows = new int[n];
         cols = new int[n];
         this.size = n;

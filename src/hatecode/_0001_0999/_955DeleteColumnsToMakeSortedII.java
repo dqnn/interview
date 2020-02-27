@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class DeleteColumnsToMakeSortedII {
+public class _955DeleteColumnsToMakeSortedII {
 /*
 955. Delete Columns to Make Sorted II
 We are given an array A of N lowercase letter strings, all of the same length.

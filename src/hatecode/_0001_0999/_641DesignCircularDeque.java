@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class DesignCircularDeque {
+public class _641DesignCircularDeque {
 /*
 641. Design Circular Deque
 Design your implementation of the circular double-ended queue (deque).
@@ -38,7 +38,7 @@ circularDeque.getFront();			// return 4
     DLLNode head;
     DLLNode tail;
     /** Initialize your data structure here. Set the size of the deque to be k. */
-    public DesignCircularDeque(int k) {
+    public _641DesignCircularDeque(int k) {
         head = new DLLNode(-1);
         tail = new DLLNode(-1);
         head.pre = tail;

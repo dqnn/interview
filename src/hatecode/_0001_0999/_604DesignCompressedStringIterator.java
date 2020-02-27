@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class DesignCompressedStringIterator {
+public class _604DesignCompressedStringIterator {
 /*
 604. Design Compressed String Iterator
 Example:

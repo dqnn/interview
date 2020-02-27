@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class DesignCircularQueue {
+public class _622DesignCircularQueue {
 /*
 622. Design Circular Queue
 Design your implementation of the circular queue. The circular queue is a linear data structure in which the operations are performed based on FIFO (First In First Out) principle and the last position is connected back to the first position to make a circle. It is also called "Ring Buffer".
@@ -42,7 +42,7 @@ circularQueue.Rear();  // return 4
     //as many as possible
     int[] a;
     int head, tail,size;
-    public DesignCircularQueue(int k) {
+    public _622DesignCircularQueue(int k) {
         this.a = new int[k];
         this.head = 0;
         //here is the key, we tail will always point to last element in array.

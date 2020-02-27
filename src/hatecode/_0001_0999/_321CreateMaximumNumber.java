@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Jan, 2018
  * Description : 321. Create Maximum Number
  */
-public class CreateMaximumNumber {
+public class _321CreateMaximumNumber {
     /**
      * Given two arrays of length m and n with digits 0-9 representing two numbers.
      * Create the maximum number of length k <= m + n from digits of the two. The

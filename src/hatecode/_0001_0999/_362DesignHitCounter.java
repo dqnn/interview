@@ -11,7 +11,7 @@ import java.util.Queue;
  * Date : Jan, 2018
  * Description : 362. Design Hit Counter
  */
-public class DesignHitCounter {
+public class _362DesignHitCounter {
     /**
      * Design a hit counter which counts the number of hits received in the past 5
      * minutes.
@@ -46,7 +46,7 @@ public class DesignHitCounter {
     Queue<Integer> queue;
 
     /** Initialize your data structure here. */
-    public DesignHitCounter() {
+    public _362DesignHitCounter() {
         queue = new LinkedList<>();
     }
 

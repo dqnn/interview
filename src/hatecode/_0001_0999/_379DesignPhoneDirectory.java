@@ -12,7 +12,7 @@ import java.util.Queue;
  * Date : Jan, 2018
  * Description : 379. Design Phone Directory
  */
-public class DesignPhoneDirectory {
+public class _379DesignPhoneDirectory {
     /**
      * Design a Phone Directory which supports the following operations:
 
@@ -52,7 +52,7 @@ public class DesignPhoneDirectory {
     Queue<Integer> queue = new LinkedList<>();
     int maxNumbers;
 
-    public DesignPhoneDirectory(int maxNumbers) {
+    public _379DesignPhoneDirectory(int maxNumbers) {
        this.maxNumbers = maxNumbers;
        for (int i = 0; i < maxNumbers; i++) {
            queue.offer(i);

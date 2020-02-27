@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class DeleteAndEarn {
+public class _740DeleteAndEarn {
 /*
 740. Delete and Earn
 Given an array nums of integers, you can perform operations on the array.

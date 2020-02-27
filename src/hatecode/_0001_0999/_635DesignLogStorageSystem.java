@@ -8,11 +8,11 @@ put(3, "2016:01:01:00:00:00");
 retrieve("2016:01:01:01:01:01","2017:01:01:23:00:00","Year"); // return [1,2,3], because you need to return all logs within 2016 and 2017.
 retrieve("2016:01:01:01:01:01","2017:01:01:23:00:00","Hour"); // return [1,2], because you need to return all logs start from 2016:01:01:01 to 2017:01:01:23, where log 3 is left outside the range.
 */
-public class DesignLogStorageSystem {
+public class _635DesignLogStorageSystem {
     private String minTemplate, maxTemplate;
     private HashMap<String, Integer> timestampIndexMap;
     private TreeMap<String, List<Integer>> logs;
-    public DesignLogStorageSystem() {
+    public _635DesignLogStorageSystem() {
         minTemplate = "2000:01:01:00:00:00";
         maxTemplate = "2017:12:31:23:59:59";
         timestampIndexMap = new HashMap<>();

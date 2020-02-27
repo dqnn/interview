@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class DeleteNodeInABST {
+public class _450DeleteNodeInABST {
 /*
 450. Delete Node in a BST
 */

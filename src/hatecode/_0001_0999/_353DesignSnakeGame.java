@@ -58,7 +58,7 @@ import java.util.LinkedList;
  * 
  * snake.move("U"); -> Returns -1 (Game over because snake collides with border)
  */
-public class DesignSnakeGame {
+public class _353DesignSnakeGame {
 
     //2D position info is encoded to 1D and stored as two copies 
     Set<Integer> bodyCopy; // this copy is good for fast loop-up for eating body case
@@ -69,7 +69,7 @@ public class DesignSnakeGame {
     int width;
     int height;
     
-    public DesignSnakeGame(int width, int height, int[][] food) {
+    public _353DesignSnakeGame(int width, int height, int[][] food) {
         this.width = width;
         this.height = height;
         this.food = food;

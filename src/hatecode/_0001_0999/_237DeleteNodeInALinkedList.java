@@ -3,7 +3,7 @@ package hatecode._0001_0999;
 /**
  * Created by duqiang on 25/07/2017.
  */
-public class DeleteNodeInALinkedList {
+public class _237DeleteNodeInALinkedList {
     /**
      * 237. Delete Node in a Linked List
      * Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.

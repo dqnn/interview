@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class DesignLinkedList {
+public class _707DesignLinkedList {
 /*
 707. Design Linked List
 MyLinkedList linkedList = new MyLinkedList();
