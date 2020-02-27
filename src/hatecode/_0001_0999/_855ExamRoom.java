@@ -65,7 +65,7 @@ public class _855ExamRoom {
     
     //TODO: how to make leave(int) to lgn， the key is to have a map<Integer, List<Interval>>
     //so when we merge two Intervals should be easy
-    public ExamRoom(int N) {
+    public _855ExamRoom(int N) {
         this.pq = new PriorityQueue<>((a, b) -> a.dist != b.dist? b.dist - a.dist : a.x - b.x);
         this.N = N;
         pq.add(new Interval(-1, N));

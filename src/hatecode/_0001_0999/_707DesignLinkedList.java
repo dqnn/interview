@@ -22,7 +22,7 @@ linkedList.get(1);            // returns 3
     
     Node head, tail;
     int size;
-    public DesignLinkedList() {
+    public _707DesignLinkedList() {
         this.head = new Node(0);
         this.tail = new Node(0);
         head.next = tail;
