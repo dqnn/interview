@@ -9,7 +9,7 @@ import java.util.*;
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class FindLeaveOfBinaryTree {
+public class _366FindLeaveOfBinaryTree {
 /*
 366. Find Leaves of Binary Tree
 Given a binary tree, collect a tree's nodes as if you were doing this: Collect and remove all leaves, repeat until the tree is empty.

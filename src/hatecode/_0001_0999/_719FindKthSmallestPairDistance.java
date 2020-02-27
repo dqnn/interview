@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class FindKthSmallestPairDistance {
+public class _719FindKthSmallestPairDistance {
 /*
 719. Find K-th Smallest Pair Distance
 Given an integer array, return the k-th smallest distance among all the pairs. The distance of 

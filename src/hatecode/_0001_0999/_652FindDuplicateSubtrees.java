@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class FindDuplicateSubtrees {
+public class _652FindDuplicateSubtrees {
 /*
 652. Find Duplicate Subtrees
 Given a binary tree, return all duplicate subtrees. For each kind of duplicate subtrees, you only need to return the root node of any one of them.

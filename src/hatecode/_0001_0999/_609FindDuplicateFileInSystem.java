@@ -2,7 +2,7 @@ package hatecode._0001_0999;
 
 import java.util.*;
 import java.util.stream.Collectors;
-public class FindDuplicateFileInSystem {
+public class _609FindDuplicateFileInSystem {
 /*
 609. Find Duplicate File in System
 Example 1:

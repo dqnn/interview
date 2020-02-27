@@ -14,7 +14,7 @@ import java.util.Stack;
  * Date : Jan, 2018
  * Description : 373. Find K Pairs with Smallest Sums
  */
-public class FindKPairswithSmallestSums {
+public class _373FindKPairswithSmallestSums {
     /**
      * You are given two integer arrays nums1 and nums2 sorted in ascending order and an integer k.
 

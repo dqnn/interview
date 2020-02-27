@@ -10,7 +10,7 @@ import java.util.Arrays;
  * Date : Sep, 2018
  * Description : TODO
  */
-public class FindFirstAndLastPositionOfElementInSortedArray {
+public class _034FindFirstAndLastPositionOfElementInSortedArray {
     /**
      * 34. Find First and Last Position of Element in Sorted Array
      * Given an array of integers sorted in ascending order, find the starting 

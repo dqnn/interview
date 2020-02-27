@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-class FindEventualSafeStates {
+public class _802FindEventualSafeStates {
 /*
 802. Find Eventual Safe States
 In a directed graph, we start at some node and every turn, walk along a directed edge of the graph.  If we reach a node that is terminal (that is, it has no outgoing directed edges), we stop.

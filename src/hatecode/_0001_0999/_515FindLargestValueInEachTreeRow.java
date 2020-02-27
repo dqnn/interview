@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class FindLargestValueInEachTreeRow {
+public class _515FindLargestValueInEachTreeRow {
 /*
 515. Find Largest Value in Each Tree Row
 You need to find the largest value in each row of a binary tree.

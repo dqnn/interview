@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 import java.util.*;
 import java.util.stream.Collectors;
-public class FindKClosestElements {
+public class _658FindKClosestElements {
 /*
  * 658. Find K Closest Elements
 Given a sorted array, two integers k and x, find the k closest elements to x 
