@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class FallingSquares {
+public class _699FallingSquares {
 /*
 699. Falling Squares
 Input: [[1, 2], [2, 3], [6, 1]]

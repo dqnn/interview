@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 
-class FibonacciNumber {
+public class _509FibonacciNumber {
 /*
 509. Fibonacci Number
 The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence, such that each number

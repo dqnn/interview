@@ -2,7 +2,7 @@ package hatecode._0001_0999;
 
 import java.util.*;
 
-class ExclusiveTimeOfFunctions {
+public class _636ExclusiveTimeOfFunctions {
 /*
  636 Exclusive Time of Functions
 Given the running logs of n functions that are executed in a nonpreemptive 

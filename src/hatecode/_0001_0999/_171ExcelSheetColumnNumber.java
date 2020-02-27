@@ -2,7 +2,9 @@ package hatecode._0001_0999;
 
 /**
  * Project Name : Leetcode Package Name : leetcode File Name :
- * ExcelSheetColumnNumber Creator : duqiang Date : Oct, 2017 Description : 171.
+ * ExcelSheetColumnNumber Creator : duqiang 
+ * Date : Oct, 2017 Description : 
+ * 171.
  * Excel Sheet Column Number Given a column title as appear in an Excel sheet,
  * return its corresponding column number.
  * 
@@ -21,7 +23,7 @@ package hatecode._0001_0999;
  * 
  * Input: "ZY" Output: 701
  */
-public class ExcelSheetColumnNumber {
+public class _171ExcelSheetColumnNumber {
     /**
      * For example:
 

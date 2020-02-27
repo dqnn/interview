@@ -32,7 +32,7 @@ Output:
  *  use index as indicator to store whether visited before or not
  *  O(n), O(1)
  */
-class FindAllDuplicatesinArray {
+public class _442FindAllDuplicatesinArray {
     // so should be sensitive about the index,if it is within context of n, then we should consider 
     // take advantage of the value to be index. 
     public List<Integer> findDuplicates(int[] nums) {

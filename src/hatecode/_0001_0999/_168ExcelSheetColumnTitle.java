@@ -33,7 +33,7 @@ Input: 701
 Output: "ZY"
 
  */
-public class ExcelSheetColumnTitle {
+public class _168ExcelSheetColumnTitle {
     /**
      * 1 -> A
      2 -> B

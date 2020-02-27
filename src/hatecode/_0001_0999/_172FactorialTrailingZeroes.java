@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Dec, 2017
  * Description : 172. Factorial Trailing Zeroes
  */
-public class FactorialTrailingZeroes {
+public class _172FactorialTrailingZeroes {
     /**
      * Given an integer n, return the number of trailing zeroes in n!.
 

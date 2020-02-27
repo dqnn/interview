@@ -11,7 +11,7 @@ import java.util.List;
  * Date : July, 2018
  * Description : TODO
  */
-public class FactorCombinations {
+public class _254FactorCombinations {
 
     /**
      * 254. Factor Combinations

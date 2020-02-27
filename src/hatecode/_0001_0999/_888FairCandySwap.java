@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class FairCandySwap {
+public class _888FairCandySwap {
 /*
 888. Fair Candy Swap
 Alice and Bob have candy bars of different sizes: A[i] is the size of the i-th bar of candy that Alice has, and B[j] is the size of the j-th bar of candy that Bob has.

@@ -13,7 +13,7 @@ import java.util.Set;
  * Date : July, 2018
  * Description : 438. Find All Anagrams in a String
  */
-public class FindAllAnagramsinaString {
+public class _438FindAllAnagramsinaString {
     
     /**tags: Two Pointers
      * 
