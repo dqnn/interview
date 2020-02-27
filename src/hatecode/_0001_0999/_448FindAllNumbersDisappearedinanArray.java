@@ -11,7 +11,7 @@ import java.util.List;
  * Date : Nov, 2017
  * Description : 448. Find All Numbers Disappeared in an Array
  */
-public class FindAllNumbersDisappearedinanArray {
+public class _448FindAllNumbersDisappearedinanArray {
     /**
      * Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
 

@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class FindAnagramMappings {
+public class _760FindAnagramMappings {
 /*
 760. Find Anagram Mappings
 Given two lists Aand B, and B is an anagram of A. B is an anagram of A means B is made by randomizing the order of the elements in A.

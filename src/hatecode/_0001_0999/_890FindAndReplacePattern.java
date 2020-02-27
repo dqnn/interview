@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 import java.util.*;
 import java.util.stream.*;
-class FindAndReplacePattern {
+public class _890FindAndReplacePattern {
 /*
 890. Find and Replace Pattern
 

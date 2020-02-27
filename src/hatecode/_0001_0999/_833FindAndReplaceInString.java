@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-class FindAndReplaceInString {
+public class _833FindAndReplaceInString {
     /*
      * 833. Find And Replace in String To some string S, we will perform some
      * replacement operations that replace groups of letters with new ones (not

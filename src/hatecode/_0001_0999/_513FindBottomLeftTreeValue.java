@@ -11,7 +11,7 @@ import java.util.Queue;
  * Date : July, 2018
  * Description : TODO
  */
-public class FindBottomLeftTreeValue {
+public class _513FindBottomLeftTreeValue {
 
     /**
      * 513. Find Bottom Left Tree Value
