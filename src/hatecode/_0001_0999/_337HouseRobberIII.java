@@ -10,7 +10,7 @@ import java.util.HashMap;
  * Date : July, 2018
  * Description : TODO
  */
-public class HouseRobberIII {
+public class _337HouseRobberIII {
     /**
      * 
      * The thief has found himself a new place for his thievery again. 

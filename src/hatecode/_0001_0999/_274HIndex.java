@@ -10,7 +10,7 @@ import java.util.Arrays;
  * Date : July, 2018
  * Description : 274. H-Index
  */
-public class HIndex {
+public class _274HIndex {
     /**
      * 
      * 

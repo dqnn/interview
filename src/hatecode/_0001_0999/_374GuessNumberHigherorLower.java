@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2017
  * Description : TODO
  */
-public class GuessNumberHigherorLower {
+public class _374GuessNumberHigherorLower {
     /**
      * 374. Guess Number Higher or Lower
      *

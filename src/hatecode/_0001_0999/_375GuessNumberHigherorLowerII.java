@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Jan, 2018
  * Description : 375. Guess Number Higher or Lower II
  */
-public class GuessNumberHigherorLowerII {
+public class _375GuessNumberHigherorLowerII {
     /**
      * tags: google, game
      * We are playing the Guess Game. The game is as follows:

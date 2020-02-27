@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : July, 2018
  * Description : 198. House Robber
  */
-public class HouseRobber {
+public class _198HouseRobber {
     /**
      * You are a professional robber planning to rob houses along a street. Each
      * house has a certain amount of money stashed, the only constraint stopping you

@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class Heaters {
+public class _475Heaters {
 /*
 475. Heaters
 Now, you are given positions of houses and heaters on a horizontal line, find out minimum radius of heaters so that all houses could be covered by those heaters.

@@ -10,7 +10,7 @@ import java.util.*;
  * Date : Nov, 2017
  * Description : 202. Happy Number
  */
-public class HappyNumber {
+public class _202HappyNumber {
     /**
      * Write an algorithm to determine if a number is "happy".
 

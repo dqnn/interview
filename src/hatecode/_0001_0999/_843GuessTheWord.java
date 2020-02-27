@@ -2,7 +2,7 @@ package hatecode._0001_0999;
 
 import java.util.*;
 
-public class GuessTheWord {
+public class _843GuessTheWord {
 /*
 843. Guess the Word
 We are given a word list of unique words, each word is 6 letters long, 

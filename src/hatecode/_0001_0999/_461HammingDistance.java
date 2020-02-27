@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-class HammingDistance {
+public class _461HammingDistance {
 /*
 461. Hamming Distance
 The Hamming distance between two integers is the number of positions at which the corresponding bits are different.

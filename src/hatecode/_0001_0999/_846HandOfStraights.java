@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class HandOfStraights {
+public class _846HandOfStraights {
     /*
      * 846. Hand of Straights Alice has a hand of cards, given as an array of
      * integers.
