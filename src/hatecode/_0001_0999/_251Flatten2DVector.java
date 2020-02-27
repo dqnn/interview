@@ -35,7 +35,7 @@ public class _251Flatten2DVector {
     // the key is to getNextRow(), it is aim to get next correct row iterator
     Iterator<List<Integer>> itrs;
     Iterator<Integer> rowItr;
-    public Flatten2DVector(List<List<Integer>> vec2d) {
+    public _251Flatten2DVector(List<List<Integer>> vec2d) {
         if(vec2d == null || vec2d.size() == 0) return;
         itrs = vec2d.iterator();
         rowItr = itrs.next().iterator();

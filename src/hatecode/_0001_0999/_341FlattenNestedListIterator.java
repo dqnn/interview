@@ -53,7 +53,7 @@ public class _341FlattenNestedListIterator {
 
     // so similiar question like this requires to understand the problem correctly, like this 
     // the nestedInteger
-    public FlattenNestedListIterator(List<NestedInteger> nestedList) {
+    public _341FlattenNestedListIterator(List<NestedInteger> nestedList) {
         stack = new Stack<>();
         for (int i = nestedList.size() - 1; i >= 0; i--) {
             stack.push(nestedList.get(i));
