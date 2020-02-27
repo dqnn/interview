@@ -10,7 +10,7 @@ import java.util.HashSet;
  * Date : Jan, 2018
  * Description : 356. Line Reflection
  */
-public class LineReflection {
+public class _356LineReflection {
     /**
      * Given n points on a 2D plane, find if there is such a line parallel to y-axis that reflect the given set of points.
 

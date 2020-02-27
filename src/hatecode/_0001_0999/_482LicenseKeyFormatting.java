@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class LicenseKeyFormatting {
+public class _482LicenseKeyFormatting {
 /*
 482. License Key Formatting
 You are given a license key represented as a string S which consists only alphanumeric 

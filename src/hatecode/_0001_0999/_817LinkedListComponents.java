@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class LinkedListComponents {
+public class _817LinkedListComponents {
 /*
 817. Linked List Components
 We are given head, the head node of a linked list containing unique integer values.
