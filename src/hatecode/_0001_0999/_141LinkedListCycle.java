@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by duqiang on 25/07/2018.
  */
-public class LinkedListCycle {
+public class _141LinkedListCycle {
 
     /**
      * 141. Linked List Cycle

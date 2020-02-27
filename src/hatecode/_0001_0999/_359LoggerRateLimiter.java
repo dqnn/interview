@@ -10,7 +10,7 @@ import java.util.*;
  * Date : Aug, 2018
  * Description : 359. Logger Rate Limiter
  */
-public class LoggerRateLimiter {
+public class _359LoggerRateLimiter {
     /**
      * Design a logger system that receive stream of messages along with its timestamps, 
      * each message should be printed if and only if it is not printed in the last 10 seconds.
@@ -48,7 +48,7 @@ Examples:
     /** Initialize your data structure here. */
     HashMap<String, Integer> map;
 
-    public LoggerRateLimiter() {
+    public _359LoggerRateLimiter() {
         map = new HashMap<>();
     }
 

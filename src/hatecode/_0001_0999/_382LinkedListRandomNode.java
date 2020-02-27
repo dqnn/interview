@@ -10,7 +10,7 @@ import java.util.Random;
  * Date : Aug, 2018
  * Description : TODO
  */
-public class LinkedListRandomNode {
+public class _382LinkedListRandomNode {
     /**
      * 382. Linked List Random Node
      * Given a singly linked list, return a random node's value from the linked list. Each node must have the same probability of being chosen.
@@ -69,7 +69,7 @@ http://blog.jobbole.com/42550/
     private ListNode head;
     private Random rmd;
 
-    public LinkedListRandomNode(ListNode head) {
+    public _382LinkedListRandomNode(ListNode head) {
         this.head = head;
         rmd = new Random();
     }
