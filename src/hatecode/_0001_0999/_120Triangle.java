@@ -6,11 +6,10 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : Triangle
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 120. Triangle
  */
-public class Triangle {
+public class _120Triangle {
     /**
      * Given a triangle, find the minimum path sum from top to bottom. 
      * Each step you may move to adjacent numbers

@@ -1,12 +1,9 @@
 package hatecode._0001_0999;
 
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.*;
 
-/**
- * Created by duqiang on 23/07/2017.
- */
-public class TwoSum {
+
+public class _001TwoSum {
 
     /**
      *  1. Two Sum

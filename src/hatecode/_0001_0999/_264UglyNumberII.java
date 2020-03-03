@@ -4,11 +4,10 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : UglyNumberII
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 264. Ugly Number II
  */
-public class UglyNumberII {
+public class _264UglyNumberII {
     /**
      *
 Write a program to find the n-th ugly number.

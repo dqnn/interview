@@ -4,11 +4,10 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : UniqueBinarySearchTrees
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : TODO
  */
-public class UniqueBinarySearchTrees {
+public class _096UniqueBinarySearchTrees {
     /**
      * 96. Unique Binary Search Trees
      * Given n, how many structurally unique BST's (binary search trees) 

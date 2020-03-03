@@ -6,11 +6,10 @@ import java.util.HashSet;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : TwoSumIVInputisaBST
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : TODO
  */
-public class TwoSumIVInputisaBST {
+public class _653TwoSumIVInputisaBST {
 
     /**
      * 653. Two Sum IV - Input is a BST

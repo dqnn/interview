@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 
-public class TwoKeysKeyboard {
+public class _650TwoKeysKeyboard {
 /*
 650. 2 Keys Keyboard
 Initially on a notepad only one character 'A' is present. You can perform two operations on this notepad for each step:

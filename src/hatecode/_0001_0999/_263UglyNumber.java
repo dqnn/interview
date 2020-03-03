@@ -4,11 +4,10 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : UglyNumber
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 263. Ugly Number
  */
-public class UglyNumber {
+public class _263UglyNumber {
     /**
 Write a program to check whether a given number is an ugly number.
 
