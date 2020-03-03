@@ -11,7 +11,7 @@ import java.util.List;
  * Date : Sep, 2018
  * Description : 118. Pascal's Triangle
  */
-public class PascalTriangle {
+public class _118PascalTriangle {
     /**
      * For example, given numRows = 5,
      Return
