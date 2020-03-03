@@ -79,7 +79,7 @@ list, we don't need to worry about null pointer
             head = new Node();
     private int                size     = 0;
 
-    public LRUCache(int capacity) {
+    public _146LRUCache(int capacity) {
         map = new HashMap<>();
         this.capacity = capacity;
         head.next = tail;
