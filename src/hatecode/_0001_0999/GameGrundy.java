@@ -1,7 +1,8 @@
 package hatecode._0001_0999;
 import java.util.*; 
 
-/* Game Description- 
+/* Game Description- this is not from LC
+ * this is not from 
 "A game is played between two players and there are N piles 
 of stones such that each pile has certain number of stones. 
 On his/her turn, a player selects a pile and can take any 
