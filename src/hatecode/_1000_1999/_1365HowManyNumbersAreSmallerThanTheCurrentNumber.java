@@ -39,14 +39,15 @@ For nums[0]=8 there exist four smaller numbers than it (1, 2, 2 and 3).
         for (int i =0; i < A.length; i++) {
             count[A[i]]++;
         }
-        
+        //note this starts from 1, because there is no number smaller than 0
         for (int i = 1 ; i <= 100; i++) {
             count[i] += count[i-1];    
         }
-        
+        //note res[i]= count[A[i] - 1]; how many 
+        //elements <= A[i]-1, 
+        //if A[i] = 0 means we do not need to assign value
         for (int i = 0; i < A.length; i++) {
-            if (A[i] == 0) res[i] = 0;
-            else res[i] = count[A[i] - 1];
+            if (A[i] != 0) res[i] = count[A[i] - 1];
         }
         
         return res;    
