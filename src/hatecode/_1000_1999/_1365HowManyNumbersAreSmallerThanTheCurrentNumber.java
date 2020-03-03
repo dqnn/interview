@@ -53,8 +53,10 @@ For nums[0]=8 there exist four smaller numbers than it (1, 2, 2 and 3).
         return res;    
         
     }
-    
-    
+    //thinking process: O(nlgn + n)/O(n)
+    //we use binary search l pivot to know how many elements on left size, 
+    //we use 2nd template, note if there are dulplicate numbers
+    //we want to move l to most right, 
     public int[] smallerNumbersThanCurrent_BS(int[] A) {
         int[] numsCopy = Arrays.copyOf(A, A.length);
         Arrays.sort(numsCopy);
