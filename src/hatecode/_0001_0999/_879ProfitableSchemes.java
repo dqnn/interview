@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class ProfitableSchemes {
+public class _879ProfitableSchemes {
 /*
 879. Profitable Schemes
 There are G people in a gang, and a list of various crimes they could commit.

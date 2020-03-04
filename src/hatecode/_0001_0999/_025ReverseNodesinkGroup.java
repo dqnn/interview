@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : 25. Reverse Nodes in k-Group
  */
-public class ReverseNodesinkGroup {
+public class _025ReverseNodesinkGroup {
     /**
 Given a linked list, reverse the nodes of a linked list 
 k at a time and return its modified list.

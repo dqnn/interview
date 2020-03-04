@@ -3,7 +3,7 @@ package hatecode._0001_0999;
 /**
  * Created by duqiang on 25/07/2017.
  */
-public class ReverseInteger {
+public class _007ReverseInteger {
 
     /**
      * 7. Reverse Integer

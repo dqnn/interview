@@ -3,7 +3,7 @@ package hatecode._0001_0999;
 /**
  * Created by duqiang on 28/07/2017.
  */
-public class ReverseLinkedList {
+public class _206ReverseLinkedList {
     /**
      * 206. Reverse Linked List
 
