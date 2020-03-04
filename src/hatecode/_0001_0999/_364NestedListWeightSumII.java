@@ -7,11 +7,10 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : NestedListWeightSumII
- * Creator : duqiang
  * Date : Aug, 2018
  * Description : 364. Nested List Weight Sum II
  */
-public class NestedListWeightSumII {
+public class _364NestedListWeightSumII {
     /**
      * Given a nested list of integers, return the sum of all integers in the list weighted by their depth.
 

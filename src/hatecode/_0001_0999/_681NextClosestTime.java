@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class NextClosestTime {
+public class _681NextClosestTime {
 /*
  * 681. Next Closest Time
 Given a time represented in the format "HH:MM", form the next closest time by 

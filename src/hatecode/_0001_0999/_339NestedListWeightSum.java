@@ -8,11 +8,10 @@ import java.util.Queue;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : NestedListWeightSum
- * Creator : duqiang
  * Date : Aug, 2018
  * Description : TODO
  */
-public class NestedListWeightSum {
+public class _339NestedListWeightSum {
     /**
      * 339. Nested List Weight Sum
      * Given a nested list of integers, return the sum of all integers in the list weighted by their depth.

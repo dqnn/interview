@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class MyCalendarIII {
+public class _732MyCalendarIII {
 /*
 732. My Calendar III
 Example 1:
@@ -21,7 +21,7 @@ eg. [10, 20), [10, 40), and [5, 15) are still triple booked.
 */
     TreeMap<Integer, Integer> delta;
 
-    public MyCalendarIII() {
+    public _732MyCalendarIII() {
         delta = new TreeMap();
     }
 

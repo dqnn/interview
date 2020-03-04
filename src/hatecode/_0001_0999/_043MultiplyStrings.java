@@ -4,11 +4,10 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : MultiplyStrings
- * Creator : duqiang
  * Date : Aug, 2018
  * Description : 43. Multiply Strings
  */
-public class MultiplyStrings {
+public class _043MultiplyStrings {
     /**
      * tags: facebook
      * Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2.

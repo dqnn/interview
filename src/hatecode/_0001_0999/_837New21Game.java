@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class New21Game {
+public class _837New21Game {
 /*
  * 837. New 21 Game
 Alice plays the following game, loosely based on the card game "21".

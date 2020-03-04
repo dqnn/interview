@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class MyCalendarII {
+public class _731MyCalendarII {
     /*
      * 731. My Calendar II Implement a MyCalendarTwo class to store your events. A
      * new event can be added if adding the event will not cause a triple booking.
@@ -115,7 +115,7 @@ private void normalize(SegmentTreeNode node) {
 
     SegmentTreeNode root;
 
-    public MyCalendarII() {
+    public _731MyCalendarII() {
         root = new SegmentTreeNode(0, 1_000_000_000, 0);
     }
 

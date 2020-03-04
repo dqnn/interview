@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-class MyCalendarI {
+public class _729MyCalendarI {
 /*
 729. My Calendar I
 implement a MyCalendar class to store your events. A new event can be added if adding the event will not cause a double booking.
@@ -26,7 +26,7 @@ MyCalendar.book(20, 30); // returns true
         }
     }
     List<Interval> list;
-    public MyCalendarI() {
+    public _729MyCalendarI() {
         this.list = new ArrayList<>();
     }
     //O(n^2)/O(n)
