@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : 161. One Edit Distance
  */
-public class OneEditDistance {
+public class _161OneEditDistance {
     /**
      * 161. One Edit Distance
 Given two strings s and t, determine if they are both one edit distance apart.

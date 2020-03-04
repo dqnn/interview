@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Nov, 2017
  * Description : 434. Number of Segments in a String
  */
-public class NumberofSegmentsinaString {
+public class _434NumberofSegmentsinaString {
     /**
      * Count the number of segments in a string, where a segment is defined to be a contiguous sequence 
      * of non-space characters.

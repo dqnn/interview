@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class NumberComplement {
+public class _476NumberComplement {
 /*
 476. Number Complement
 Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation.

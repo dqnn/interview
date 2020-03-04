@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class OnesAndZeroes {
+public class _474OnesAndZeroes {
 /*
 474. Ones and Zeroes
 In the computer world, use restricted resource you have to generate maximum benefit is what we always want to pursue.

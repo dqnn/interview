@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class NumbersWithSameConsecutiveDifferences {
+public class _967NumbersWithSameConsecutiveDifferences {
 /*
 967. Numbers With Same Consecutive Differences
 Return all non-negative integers of length N such that the absolute difference between every two consecutive digits is K.

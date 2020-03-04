@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class NumberOfMusicPlaylists {
+public class _920NumberOfMusicPlaylists {
 /*
 920. Number of Music Playlists
 

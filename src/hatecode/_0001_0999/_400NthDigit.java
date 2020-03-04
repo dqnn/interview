@@ -4,11 +4,10 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : NthDigit
- * Creator : duqiang
  * Date : Oct, 2017
  * Description : 400. Nth Digit
  */
-public class NthDigit {
+public class _400NthDigit {
     /**
 Find the nth digit of the infinite integer sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...
 

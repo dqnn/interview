@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class NumberOfCornerRectangles {
+public class _750NumberOfCornerRectangles {
 /*
 750. Number Of Corner Rectangles
 Given a grid where each entry is only 0 or 1, find the number of corner rectangles.

@@ -4,11 +4,10 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : OddEvenLinkedList
- * Creator : duqiang
  * Date : Aug, 2018
  * Description : TODO
  */
-public class OddEvenLinkedList {
+public class _328OddEvenLinkedList {
     /**
      * 328. Odd Even Linked List
 Given a singly linked list, group all odd nodes together followed by the even nodes. 

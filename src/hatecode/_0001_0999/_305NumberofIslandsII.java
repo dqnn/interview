@@ -12,7 +12,7 @@ import java.util.List;
  * Date : Aug, 2018
  * Description : 305. Number of Islands II
  */
-public class NumberofIslandsII {
+public class _305NumberofIslandsII {
     /**
      * tag: union-find
      * A 2d grid map of m rows and n columns is initially filled with water.

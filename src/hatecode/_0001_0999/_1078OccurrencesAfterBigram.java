@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-class OccurrencesAfterBigram {
+public class _1078OccurrencesAfterBigram {
 /*
  * tags:easy
 1078. Occurrences After Bigram

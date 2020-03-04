@@ -2,7 +2,7 @@ package hatecode._0001_0999;
 import java.util.*;
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
-public class NumberOfMatchingSubsequences {
+public class _792NumberOfMatchingSubsequences {
 /*792. Number of Matching Subsequences
 Given string S and a dictionary of words words, find the number of words[i] that is a subsequence of S.
 

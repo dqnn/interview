@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class NumbersWithOneRepeatedDigit {
+public class _1015NumbersWithOneRepeatedDigit {
 /*
  * 1015. Numbers With 1 Repeated Digit
 Given a positive integer N, return the number of positive integers less than or equal to N that have at least 1 repeated digit.

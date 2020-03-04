@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
-class NumberOfRecentCalls {
+public class _933NumberOfRecentCalls {
 /*
 933. Number of Recent Calls
 Write a class RecentCounter to count recent requests.
@@ -46,7 +46,7 @@ Each call to ping will have 1 <= t <= 10^9.
     
     //another TLE solution
     private List<Integer> list;
-    public NumberOfRecentCalls() {
+    public _933NumberOfRecentCalls() {
         this.list = new ArrayList<>();
     }
     public int ping3(int t) {

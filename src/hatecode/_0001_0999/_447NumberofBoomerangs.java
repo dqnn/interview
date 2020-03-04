@@ -10,7 +10,7 @@ import java.util.HashMap;
  * Date : Sep, 2018
  * Description : 447. Number of Boomerangs
  */
-public class NumberofBoomerangs {
+public class _447NumberofBoomerangs {
     /**
      * Given n points in the plane that are all pairwise distinct, a "boomerang" is a tuple of points (i, j, k)
      * such that the distance between i and j equals the distance between i and k (the order of the tuple matters).

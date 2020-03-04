@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Aug, 2018
  * Description : 292. Nim Game
  */
-public class NimGame {
+public class _292NimGame {
     /**
     You are playing the following Nim Game with your friend: There is a heap of stones on the table,
      each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner.

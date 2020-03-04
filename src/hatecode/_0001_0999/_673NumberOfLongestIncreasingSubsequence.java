@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class NumberOfLongestIncreasingSubsequence {
+public class _673NumberOfLongestIncreasingSubsequence {
 /*
  * 673. Number of Longest Increasing Subsequence
 Given an unsorted array of integers, find the number of longest increasing subsequence.

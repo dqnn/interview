@@ -10,7 +10,7 @@ import java.util.Arrays;
  * Date : Sep, 2018
  * Description : 323. Number of Connected Components in an Undirected Graph
  */
-public class NumberofConnectedComponentsinanUndirectedGraph {
+public class _323NumberofConnectedComponentsinanUndirectedGraph {
     /**tag:union-find
      * Given n nodes labeled from 0 to n - 1 and a list of undirected edges 
      * (each edge is a pair of nodes),

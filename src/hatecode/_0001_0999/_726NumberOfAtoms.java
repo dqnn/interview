@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class NumberOfAtoms {
+public class _726NumberOfAtoms {
 /*
 726. Number of Atoms
 Example 1:

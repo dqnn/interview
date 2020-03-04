@@ -4,11 +4,10 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : Numberof1Bits
- * Creator : duqiang
  * Date : Aug, 2018
  * Description : 191. Number of 1 Bits
  */
-public class Numberof1Bits {
+public class _191Numberof1Bits {
     /**
      * Write a function that takes an unsigned integer and returns the number of ’1' bits it has
      * (also known as the Hamming weight).

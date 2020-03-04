@@ -7,11 +7,10 @@ import java.util.Stack;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : NextGreaterElementI
- * Creator : duqiang
  * Date : Aug, 2018
  * Description : 496. Next Greater Element I
  */
-public class NextGreaterElementI {
+public class _496NextGreaterElementI {
     /**
      * You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset 
      * of nums2. Find all the next greater numbers for nums1's elements in the corresponding places of nums2.

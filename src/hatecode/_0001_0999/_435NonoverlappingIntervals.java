@@ -7,11 +7,10 @@ import java.util.Comparator;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : NonoverlappingIntervals
- * Creator : duqiang
  * Date : Aug, 2018
  * Description : 435. Non-overlapping Intervals
  */
-public class NonoverlappingIntervals {
+public class _435NonoverlappingIntervals {
     /**
      * Given a collection of intervals, find the minimum number of intervals you need to remove to make the rest 
      * of the intervals non-overlapping.
