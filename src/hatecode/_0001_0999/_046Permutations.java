@@ -3,7 +3,7 @@ package hatecode._0001_0999;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Permutations {
+public class _046Permutations {
     /**
      * 46. Permutations
      * Given a collection of distinct numbers, return all possible permutations.

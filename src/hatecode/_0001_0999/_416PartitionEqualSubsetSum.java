@@ -6,7 +6,6 @@ import java.util.Arrays;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : PartitionEqualSubsetSum
- * Creator : duqiang
  * Date : September, 2018
  * Description : 416. Partition Equal Subset Sum
  */
@@ -53,7 +52,7 @@ dp[i][j] = dp[i-1][j] || dp[i-1][j-nums[i]]
 
 talking is cheap:
  */
-public class PartitionEqualSubsetSum {
+public class _416PartitionEqualSubsetSum {
     public boolean canPartition(int[] nums) {
         int sum = Arrays.stream(nums).sum();
         if (sum % 2 != 0) return false;

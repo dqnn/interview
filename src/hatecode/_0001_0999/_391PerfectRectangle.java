@@ -6,11 +6,10 @@ import java.util.HashSet;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : PerfectRectangle
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 391. Perfect Rectangle
  */
-public class PerfectRectangle {
+public class _391PerfectRectangle {
     
 /*
  * 给定N个与坐标轴对齐的矩形（其中N > 0），判断它们是否恰好围成一个矩形区域

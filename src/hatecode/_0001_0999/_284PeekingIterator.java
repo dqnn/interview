@@ -6,13 +6,12 @@ import java.util.Iterator;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : PeekingIterator
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 284. Peeking Iterator
  * TODO: 
  * generic how to implement? 
  */
-public class PeekingIterator {
+public class _284PeekingIterator {
     /**
      Given an Iterator class interface with methods: next() and hasNext(), design and implement 
      a PeekingIterator that support the peek() operation -- 
@@ -34,7 +33,7 @@ Follow up: How would you extend your design to be generic and work with all type
     private Iterator<Integer> iterator;
     private Integer next = null;
 
-    public PeekingIterator(Iterator<Integer> iterator) {
+    public _284PeekingIterator(Iterator<Integer> iterator) {
         this.iterator = iterator;
         if (iterator.hasNext()) {
             next = iterator.next();

@@ -7,7 +7,6 @@ import java.util.Set;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : PalindromicSubstrings
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : TODO
  */

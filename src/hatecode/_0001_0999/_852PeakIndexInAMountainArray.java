@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class PeakIndexInAMountainArray {
+public class _852PeakIndexInAMountainArray {
 /*
  852. Peak Index in a Mountain Array
 Let's call an array A a mountain if the following properties hold:

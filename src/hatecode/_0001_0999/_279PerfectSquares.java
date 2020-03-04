@@ -10,7 +10,7 @@ import java.util.Arrays;
  * Date : Sep, 2018
  * Description : 279. Perfect Squares
  */
-public class PerfectSquares {
+public class _279PerfectSquares {
 
     /**
      * Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, ...)
