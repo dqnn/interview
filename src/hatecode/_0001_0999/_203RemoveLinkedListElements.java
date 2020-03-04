@@ -3,7 +3,7 @@ package hatecode._0001_0999;
 /**
  * Created by duqiang on 25/07/2017.
  */
-public class RemoveLinkedListElements {
+public class _203RemoveLinkedListElements {
     /**
      * 203. Remove Linked List Elements
      * Remove all elements from a linked list of integers that have value val.

@@ -40,7 +40,7 @@ Note:
 
 1 <= N <= 10^9
  */
-class ReorderedPowerOf2 {
+public class _869ReorderedPowerOf2 {
     public boolean reorderedPowerOf2(int N) {
         //edge case
         if (N < 1) {

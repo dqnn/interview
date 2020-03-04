@@ -12,7 +12,7 @@ import java.util.List;
  * Date : Sep, 2018
  * Description : 187. Repeated DNA Sequences
  */
-public class RepeatedDNASequences {
+public class _187RepeatedDNASequences {
     /**
      * All DNA is composed of a series of nucleotides abbreviated 
      * as A, C, G, and T,

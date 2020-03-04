@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : 19. Remove Nth Node From End of List
  */
-public class RemoveNthNodeFromEndofList {
+public class _019RemoveNthNodeFromEndofList {
     /**
      *  Given linked list: 1->2->3->4->5, and n = 2.
 
