@@ -3,7 +3,7 @@ package hatecode._0001_0999;
 /**
  * Created by duqiang on 25/07/2017.
  */
-public class RemoveDuplicatesfromSortedList {
+public class _083RemoveDuplicatesfromSortedList {
     /**
      * 83. Remove Duplicates from Sorted List
      * Given a sorted linked list, delete all duplicates such that each element appear only once.

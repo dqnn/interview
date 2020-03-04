@@ -3,7 +3,7 @@ package hatecode._0001_0999;
 /**
  * Created by duqiang on 25/07/2017.
  */
-public class RemoveDuplicatesfromSortedArrayII {
+public class _080RemoveDuplicatesfromSortedArrayII {
     /**
      * 80. Remove Duplicates from Sorted Array II (26. Remove Duplicates from Sorted Array: follow up)
      * Follow up for "Remove Duplicates":

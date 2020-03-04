@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-class ReorganizeString {
+public class _767ReorganizeString {
 /*
 767. Reorganize String
 Given a string S, check if the letters can be rearranged so that two characters that are adjacent to each other are not the same.

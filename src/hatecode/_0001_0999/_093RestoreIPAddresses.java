@@ -11,7 +11,7 @@ import java.util.List;
  * Date : Sep, 2018
  * Descrstion : 93. Restore IP Addresses
  */
-public class RestoreIPAddresses {
+public class _093RestoreIPAddresses {
     /**
      * Given a string containing only digits, restore it by returning 
      * all possible valid s address combinations.

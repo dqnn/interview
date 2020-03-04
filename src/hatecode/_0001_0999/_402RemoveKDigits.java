@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class RemoveKDigits {
+public class _402RemoveKDigits {
 /*
 402. Remove K Digits
 given a non-negative integer num represented as a string, remove k digits 

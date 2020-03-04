@@ -3,7 +3,7 @@ package hatecode._0001_0999;
 /**
  * Created by duqiang on 25/07/2017.
  */
-public class RemoveElement {
+public class _027RemoveElement {
     /**
      * 27. Remove Element (26, 80)
      * Given an array and a value, remove all instances of that value in place and return the new length.
