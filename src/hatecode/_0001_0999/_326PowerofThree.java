@@ -4,7 +4,7 @@ package hatecode._0001_0999;
 /**
  * Created by duqiang on 28/07/2017.
  */
-public class PowerofThree {
+public class _326PowerofThree {
     /**
      * 326. Power of Three
      * Given an integer, write a function to determine if it is a power of three.

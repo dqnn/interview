@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class PyramidTransitionMatrix {
+public class _756PyramidTransitionMatrix {
 /*
 756. Pyramid Transition Matrix
 We are stacking blocks to form a pyramid. Each block has a color which is a one letter string, like `'Z'`.

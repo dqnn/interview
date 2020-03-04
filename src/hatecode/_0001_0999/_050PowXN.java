@@ -1,9 +1,7 @@
 package hatecode._0001_0999;
 
-/**
- * Created by duqiang on 27/07/2017.
- */
-public class PowXN {
+
+public class _050PowXN {
     /**
      * 50. Pow(x, n)
      * Implement pow(x, n).

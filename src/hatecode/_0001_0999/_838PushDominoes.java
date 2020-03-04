@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class PushDominoes {
+public class _838PushDominoes {
 /*
 838. Push Dominoes
 There are N dominoes in a line, and we place each domino vertically upright.

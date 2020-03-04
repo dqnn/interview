@@ -3,7 +3,7 @@ package hatecode._0001_0999;
 /**
  * Created by duqiang on 25/07/2017.
  */
-public class PowerofTwo {
+public class _231PowerofTwo {
     /**
      * 231. Power of Two
      * Given an integer, write a function to determine if it is a power of two.

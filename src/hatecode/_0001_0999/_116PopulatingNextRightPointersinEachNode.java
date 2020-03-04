@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : 116. Populating Next Right Pointers in Each Node
  */
-public class PopulatingNextRightPointersinEachNode {
+public class _116PopulatingNextRightPointersinEachNode {
     /**
 Given a binary tree
 

@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
  * Date : Nov, 2017
  * Description : 60. Permutation Sequence
  */
-public class PermutationSequence {
+public class _060PermutationSequence {
     /**
      * The set [1,2,3,…,n] contains a total of n! unique permutations.
 
