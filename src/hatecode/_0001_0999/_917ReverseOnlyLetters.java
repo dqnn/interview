@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class ReverseOnlyLetters {
+public class _917ReverseOnlyLetters {
 /*
 917. Reverse Only Letters
 Given a string S, return the "reversed" string where all characters that are not a letter stay in the same place, and all letters reverse their positions.
