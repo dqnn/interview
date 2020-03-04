@@ -16,7 +16,7 @@ import java.util.Set;
  * Date : Sep, 2018
  * Description : 301. Remove Invalid Parentheses
  */
-public class RemoveInvalidParentheses {
+public class _301RemoveInvalidParentheses {
     /**
      * Remove the minimum number of invalid parentheses in order to make the input string valid.
      * Return all possible results.
@@ -241,7 +241,7 @@ so it will remove middle (, and become )(, last it will reverse again to become 
     }
     
     public static void main(String[] args) {
-        RemoveInvalidParentheses tt =new RemoveInvalidParentheses();
+        _301RemoveInvalidParentheses tt =new _301RemoveInvalidParentheses();
         //List<String> res = tt.removeInvalidParentheses_Best("(()()((()");
         List<String> res = tt.removeInvalidParentheses_Best(")");
         System.out.println(res);
