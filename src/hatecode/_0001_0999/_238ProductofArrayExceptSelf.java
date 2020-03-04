@@ -1,14 +1,11 @@
 package hatecode._0001_0999;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
  * File Name : ProductofArrayExceptSelf
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : TODO
  */
-public class ProductofArrayExceptSelf {
+public class _238ProductofArrayExceptSelf {
     /**
      * 238. Product of Array Except Self
 Given an array nums of n integers where n > 1,  return an array output such that output[i] is 

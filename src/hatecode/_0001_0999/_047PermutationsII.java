@@ -5,14 +5,11 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
  * File Name : PermutationsII
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : TODO
  */
-public class PermutationsII {
+public class _047PermutationsII {
     /**
      * 47. Permutations II
 Given a collection of numbers that might contain duplicates, 

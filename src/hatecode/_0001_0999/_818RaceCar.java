@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class RaceCar {
+public class _818RaceCar {
     /*
      * 818. Race Car Your car starts at position 0 and speed +1 on an infinite
      * number line. (Your car can go into negative positions.)

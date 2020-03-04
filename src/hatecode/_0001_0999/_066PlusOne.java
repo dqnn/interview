@@ -3,7 +3,7 @@ package hatecode._0001_0999;
 /**
  * Created by duqiang on 24/07/2017.
  */
-public class PlusOne {
+public class _066PlusOne {
     /**
      * 66. Plus One
      * Given a non-negative integer represented as a non-empty array of digits, plus one to the integer.

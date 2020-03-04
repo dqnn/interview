@@ -1,14 +1,11 @@
 package hatecode._0001_0999;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
  * File Name : PlusOneLinkedList
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : TODO
  */
-public class PlusOneLinkedList {
+public class _369PlusOneLinkedList {
     /**
      * 369. Plus One Linked List
      * Input:

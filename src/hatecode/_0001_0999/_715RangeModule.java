@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class RangeModule {
+public class _715RangeModule {
 /*
 715. Range Module
 A Range Module is a module that tracks ranges of numbers. Your task is to design and implement the following interfaces in an efficient manner.
@@ -32,7 +32,7 @@ queryRange(16, 17): true (The number 16 in [16, 17) is still being tracked, desp
     //so how to management the start and end is important, this use TreeSet, treeSet is to have 
     //tailSet >=(input), higher(), means >input, 
     TreeSet<Interval> ranges;
-    public RangeModule() {
+    public _715RangeModule() {
         ranges = new TreeSet<>((a,b)->(a.right == b.right ? a.left - b.left : a.right - b.right));
     }
 

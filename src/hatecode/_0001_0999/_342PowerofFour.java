@@ -4,11 +4,10 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : PowerofFour
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 342. Power of Four
  */
-public class PowerofFour {
+public class _342PowerofFour {
 
     /**
      * Given an integer (signed 32 bits), write a function to check whether it is a power of 4.
