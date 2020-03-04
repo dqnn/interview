@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class RectangleOverlap {
+public class _836RectangleOverlap {
     /*
      * 836. Rectangle Overlap 
      * 

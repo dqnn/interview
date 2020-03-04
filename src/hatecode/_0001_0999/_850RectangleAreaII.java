@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class RectangleAreaII {
+public class _850RectangleAreaII {
     /*
      * 850. Rectangle Area II We are given a list of (axis-aligned) rectangles. Each
      * rectangle[i] = [x1, y1, x2, y2] , where (x1, y1) are the coordinates of the

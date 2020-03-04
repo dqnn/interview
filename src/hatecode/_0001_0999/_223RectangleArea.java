@@ -4,11 +4,10 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : RectangleArea
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 223. Rectangle Area
  */
-public class RectangleArea {
+public class _223RectangleArea {
 
     /**
 Find the total area covered by two rectilinear rectangles in a 2D plane.

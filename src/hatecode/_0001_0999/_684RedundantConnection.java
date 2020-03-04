@@ -43,7 +43,7 @@ class DUS {
         return size[root];
     }
 }
-public class RedundantConnection {
+public class _684RedundantConnection {
     /*
      * 684. Redundant Connection In this problem, a tree is an undirected graph that
      * is connected and has no cycles.

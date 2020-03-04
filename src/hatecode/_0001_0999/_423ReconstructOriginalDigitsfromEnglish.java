@@ -4,11 +4,10 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ReconstructOriginalDigitsfromEnglish
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 423. Reconstruct Original Digits from English
  */
-public class ReconstructOriginalDigitsfromEnglish {
+public class _423ReconstructOriginalDigitsfromEnglish {
     /**
      * Given a non-empty string containing an out-of-order English representation of digits 0-9,
      * output the digits in ascending order.

@@ -2,7 +2,7 @@ package hatecode._0001_0999;
 
 import java.util.*;
 import java.util.stream.*;
-public class RegionsCutBySlashes {
+public class _959RegionsCutBySlashes {
 /*
 959. Regions Cut By Slashes
 In a N x N grid composed of 1 x 1 squares, each 1 x 1 square consists of a /, \, or blank space.  These characters divide the square into contiguous regions.
