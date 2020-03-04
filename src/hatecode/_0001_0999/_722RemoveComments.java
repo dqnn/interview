@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class RemoveComments {
+public class _722RemoveComments {
 /*
 722. Remove Comments
 */

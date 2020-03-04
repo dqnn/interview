@@ -90,7 +90,7 @@ Time complexity: O(n^4)
 
 Space complexity: O(n^3)
  */
-public class RemoveBoxes {
+public class _546RemoveBoxes {
     //this is actually memo, 
     public int removeBoxes(int[] b) {
         //edge case

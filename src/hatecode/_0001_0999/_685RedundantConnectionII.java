@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class RedundantConnectionII {
+public class _685RedundantConnectionII {
 /*
 685. Redundant Connection II
 In this problem, a rooted tree is a directed graph such that, 
@@ -170,6 +170,6 @@ case 2: [[2,1],[3,1],[4,2],[1,4]]  cycle with double parents
     
     public static void main(String[] args) {
         int[][] g = new int[][] {{1,2},{2,3},{3,4},{5,3},{5,1}};
-        System.out.println(Arrays.toString(new RedundantConnectionII().findRedundantDirectedConnection(g)));
+        System.out.println(Arrays.toString(new _685RedundantConnectionII().findRedundantDirectedConnection(g)));
     }
 }

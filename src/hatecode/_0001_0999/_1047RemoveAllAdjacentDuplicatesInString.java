@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class RemoveAllAdjacentDuplicatesInString {
+public class _1047RemoveAllAdjacentDuplicatesInString {
 /*
 1047. Remove All Adjacent Duplicates In String
 Given a string S of lowercase letters, a duplicate removal consists of choosing two adjacent and equal letters, and removing them.
