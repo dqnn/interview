@@ -1,14 +1,11 @@
 package hatecode._0001_0999;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
  * File Name : PopulatingNextRightPointersinEachNodeII
- * Creator : duqiang
  * Date : Oct, 2017
  * Description : 117. Populating Next Right Pointers in Each Node II
  */
-public class PopulatingNextRightPointersinEachNodeII {
+public class _117PopulatingNextRightPointersinEachNodeII {
     /**
      * For example,
      Given the following binary tree,
