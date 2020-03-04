@@ -4,11 +4,10 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : MoveZeroes
- * Creator : duqiang
  * Date : Aug, 2018
  * Description : TODO
  */
-public class MoveZeroes {
+public class _283MoveZeroes {
     /**
      * 283. Move Zeroes
      * Given an array nums, write a function to move all 0's to the end of it

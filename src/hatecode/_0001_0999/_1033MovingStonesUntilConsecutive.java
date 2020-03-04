@@ -2,7 +2,7 @@ package hatecode._0001_0999;
 
 import java.util.*;
 
-public class MovingStonesUntilConsecutive {
+public class _1033MovingStonesUntilConsecutive {
 /*
 1033. Moving Stones Until Consecutive
 Three stones are on a number line at positions a, b, and c.

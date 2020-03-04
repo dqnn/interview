@@ -4,11 +4,10 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : PartitionList
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 86. Partition List
  */
-public class PartitionList {
+public class _086PartitionList {
     /**
      * Given a linked list and a value x, partition it such that all nodes less 
      * than x come before nodes

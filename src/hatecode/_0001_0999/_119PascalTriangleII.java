@@ -7,11 +7,10 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : PascalTriangleII
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 119. Pascal's Triangle II
  */
-public class PascalTriangleII {
+public class _119PascalTriangleII {
     /**
      *
      * [

@@ -9,7 +9,7 @@ import java.util.*;
  * Date : Aug, 2018
  * Description : 76. Minimum Window Substring
  */
-public class MinimumWindowSubstring {
+public class _076MinimumWindowSubstring {
     /**
      * sliding window
      * Given a string S and a string T, find the minimum window in S which will contain all the characters

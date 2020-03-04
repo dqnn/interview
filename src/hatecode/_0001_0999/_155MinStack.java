@@ -12,7 +12,7 @@ import java.util.Stack;
  */
 
 // this question is to use simple structure to implement, like double linked list or array
-public class MinStack {
+public class _155MinStack {
 
     /** initialize your data structure here. */
     /**
@@ -46,7 +46,7 @@ public class MinStack {
     private Stack<Integer> minStack;
 
 
-    public MinStack() {
+    public _155MinStack() {
         stack = new Stack<>();
         minStack = new Stack<>();
     }

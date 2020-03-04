@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by duqiang on 28/07/2017.
  */
-public class PathSumII {
+public class _113PathSumII {
     /**
      * 113. Path Sum II
      * Given a binary tree and a sum, find all root-to-leaf paths where each path's sum equals the given sum.

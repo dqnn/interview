@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class MostStonesRemovedWithSameRowOrColumn {
+public class _947MostStonesRemovedWithSameRowOrColumn {
     /*
      * 947. Most Stones Removed with Same Row or Column 
      * On a 2D plane, we place stones at some integer coordinate points. Each coordinate 

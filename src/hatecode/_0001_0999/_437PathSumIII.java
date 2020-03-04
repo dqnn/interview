@@ -8,11 +8,10 @@ import java.util.Map;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : PathSumIII
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 437. Path Sum III
  */
-public class PathSumIII {
+public class _437PathSumIII {
     /**
      * You are given a binary tree in which each node contains an integer value.
 

@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class MonotonicArray {
+public class _896MonotonicArray {
 /*
 896. Monotonic Array
 An array is monotonic if it is either monotone increasing or monotone decreasing.

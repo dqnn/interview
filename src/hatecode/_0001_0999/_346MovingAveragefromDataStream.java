@@ -11,7 +11,7 @@ import java.util.Queue;
  * Date : Aug, 2018
  * Description : 346. Moving Average from Data Stream
  */
-public class MovingAveragefromDataStream {
+public class _346MovingAveragefromDataStream {
     /**
      * Given a stream of integers and a window size, calculate the moving average of all integers '
      * in the sliding window.
@@ -32,7 +32,7 @@ For example,
     private double sum = 0;
     private int size;
 
-    public MovingAveragefromDataStream(int size) {
+    public _346MovingAveragefromDataStream(int size) {
         queue = new LinkedList<>();
         this.size = size;
     }

@@ -11,7 +11,7 @@ import java.util.Stack;
  * Description : 385. Mini Parser
  * Tags: NestedInteger, stack
  */
-public class MiniParser {
+public class _385MiniParser {
     /**
      * Given a nested list of integers represented as a string, implement a parser to deserialize it.
 

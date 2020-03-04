@@ -5,7 +5,7 @@ import java.util.Stack;
 /**
  * Created by duqiang on 27/07/2017.
  */
-public class PathSum {
+public class _112PathSum {
     /**
      * 112. Path Sum
      * Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding 

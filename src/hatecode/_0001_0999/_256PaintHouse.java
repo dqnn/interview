@@ -4,11 +4,10 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : PaintHouse
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 256. Paint House
  */
-public class PaintHouse {
+public class _256PaintHouse {
     /**
      * There are a row of n houses, each house can be painted with one of the three
      * colors: red, blue or green. The cost of painting each house with a certain

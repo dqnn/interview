@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class ParseLispExpression {
+public class _736ParseLispExpression {
     /*
      * 736. Parse Lisp Expression You are given a string expression representing a
      * Lisp-like expression to return the integer value of.

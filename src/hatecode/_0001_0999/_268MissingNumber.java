@@ -10,7 +10,7 @@ package hatecode._0001_0999;
  * Date : Aug, 2018
  * Description : 268. Missing Number
  */
-public class MissingNumber {
+public class _268MissingNumber {
     /**
      * Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
 

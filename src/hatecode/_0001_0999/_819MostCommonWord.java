@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class MostCommonWord {
+public class _819MostCommonWord {
 /*
 819. Most Common Word
 Given a paragraph and a list of banned words, return the most frequent word that is not in the list of banned words.  It is guaranteed there is at least one word that isn't banned, and that the answer is unique.

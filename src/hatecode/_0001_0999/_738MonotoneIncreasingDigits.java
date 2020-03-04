@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class MonotoneIncreasingDigits {
+public class _738MonotoneIncreasingDigits {
 /*
 738. Monotone Increasing Digits
 Given a non-negative integer N, find the largest number that is less than or equal to N with monotone increasing digits.
