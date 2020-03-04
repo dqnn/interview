@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class RetainAllRoots {
+public class GoogleRetainAllRoots {
 /*
  * this is from Goole interview doc, not from LC
  * 
