@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class ReachingPoints {
+public class _780ReachingPoints {
 /*
 780. Reaching Points
 A move consists of taking a point (x, y) and transforming it to either (x, x+y) or (x+y, y).

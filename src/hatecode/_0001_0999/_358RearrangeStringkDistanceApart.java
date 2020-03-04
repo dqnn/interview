@@ -10,11 +10,10 @@ import java.util.Queue;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : RearrangeStringkDistanceApart
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 358. Rearrange String k Distance Apart
  */
-public class RearrangeStringkDistanceApart {
+public class _358RearrangeStringkDistanceApart {
 
     /**
 Given a non-empty string s and an integer k, rearrange the string such that the same 

@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class RandomPickWithWeight {
+public class _528RandomPickWithWeight {
     /*
      * 528. Random Pick with Weight Given an array w of positive integers, where
      * w[i] describes the weight of index i, write a function pickIndex which
@@ -25,7 +25,7 @@ public class RandomPickWithWeight {
     //to produce 0 - 3 as index, we cannot use index % 2, because  if index = 2
     //then we should return 0 which is incorrect, so we need binary search
     //to determine which is right index should return, we 
-    public RandomPickWithWeight(int[] w) {
+    public _528RandomPickWithWeight(int[] w) {
         this.random = new Random();
         for(int i=1; i<w.length; ++i)
             w[i] += w[i-1];

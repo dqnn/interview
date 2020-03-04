@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class PhoneDirectory {
+public class _379PhoneDirectory {
 /*
 379. Design Phone Directory
 Design a Phone Directory which supports the following operations:
@@ -15,7 +15,7 @@ release: Recycle or release a number.
     private Queue<Integer> q;
     private Set<Integer> set;
     int max;
-    public PhoneDirectory(int maxNumbers) {
+    public _379PhoneDirectory(int maxNumbers) {
         this.q = new LinkedList<>();
         this.set = new HashSet<>();
         this.max = maxNumbers;

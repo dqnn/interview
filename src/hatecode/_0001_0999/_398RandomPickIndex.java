@@ -7,11 +7,10 @@ import java.util.Random;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : RandomPickIndex
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : TODO
  */
-public class RandomPickIndex {
+public class _398RandomPickIndex {
     /**
      * 398. Random Pick Index
      * Given an array of integers with possible duplicates, randomly output the index of a given target
@@ -62,7 +61,7 @@ to get the random number 0 among {0,1,2,3} in the loop where i = 4, so the proba
     private int[] nums;
     Random rmd;
 
-    public RandomPickIndex(int[] nums) {
+    public _398RandomPickIndex(int[] nums) {
         this.nums = nums;
         rmd = new Random();
     }

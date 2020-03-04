@@ -12,7 +12,7 @@ import org.junit.Test;
  * Tags: templates for two dimension of variables, and index++ as pointer in 
  *array
  */
-public class ReadNCharactersGivenRead4 {
+public class _157ReadNCharactersGivenRead4 {
     /**
 The API: int read4(char *buf) reads 4 characters at a time from a file.
 

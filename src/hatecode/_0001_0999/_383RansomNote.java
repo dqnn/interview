@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : 383. Ransom Note
  */
-public class RansomNote {
+public class _383RansomNote {
     /**
      * You may assume that both strings contain only lowercase letters.
 

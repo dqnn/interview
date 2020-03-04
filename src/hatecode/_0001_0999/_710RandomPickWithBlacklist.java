@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class RandomPickWithBlacklist {
+public class _710RandomPickWithBlacklist {
 /*
 710. Random Pick with Blacklist
 Given a blacklist B containing unique integers from [0, N), write a function to return a uniform random integer from [0, N) which is NOT in B.
@@ -34,7 +34,7 @@ Output: [null,0,0,0]
     //when  call pick. we choose one random number from 0-M-1, you can think this is the index of numbers in 0-N-1, the correct 
     //thinking is that 3->4 while 5->6 next un-blacklist number is the target. 
     // 
-    public RandomPickWithBlacklist(int N, int[] blacklist) {
+    public _710RandomPickWithBlacklist(int N, int[] blacklist) {
         map = new HashMap<>();
         Arrays.stream(blacklist).forEach(e->map.put(e, -1));
         

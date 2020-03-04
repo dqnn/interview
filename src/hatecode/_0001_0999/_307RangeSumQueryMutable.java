@@ -24,7 +24,7 @@ import java.util.Arrays;
  * 
  * 
  */
-public class RangeSumQueryMutable {
+public class _307RangeSumQueryMutable {
 
     int[] nums;
     int[] tree;
@@ -34,7 +34,7 @@ public class RangeSumQueryMutable {
 //nums = [1,2,3,4,5,6,7,8]->tree: [0, 1, 3, 3, 10, 5, 11, 7, 36]
 
     // time : O(n * logn)
-    public RangeSumQueryMutable(int[] nums) {
+    public _307RangeSumQueryMutable(int[] nums) {
         n = nums.length;
         tree = new int[n + 1];
         this.nums = new int[n];
@@ -71,7 +71,7 @@ public class RangeSumQueryMutable {
     
     public static void main(String[] args) {
         int[] in = {1,2,3,4,5,6,7,8};
-        RangeSumQueryMutable range = new RangeSumQueryMutable(in);
+        _307RangeSumQueryMutable range = new _307RangeSumQueryMutable(in);
         
         System.out.println(range.sumRange(0, 2));
     }

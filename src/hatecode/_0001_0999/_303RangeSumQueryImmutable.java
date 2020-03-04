@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : 303. Range Sum Query - Immutable
  */
-public class RangeSumQueryImmutable {
+public class _303RangeSumQueryImmutable {
     /**
      * Given an integer array nums, find the sum of the elements between indices i and j (i ≤ j), inclusive.
 
@@ -33,7 +33,7 @@ public class RangeSumQueryImmutable {
 
     private int[] sum;
 
-    public RangeSumQueryImmutable(int[] nums) {
+    public _303RangeSumQueryImmutable(int[] nums) {
         sum = new int[nums.length + 1];
         for (int i = 0; i < nums.length; i++) {
             sum[i + 1] = sum[i] + nums[i];

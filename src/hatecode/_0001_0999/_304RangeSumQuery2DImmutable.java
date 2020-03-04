@@ -4,11 +4,10 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : RangeSumQuery2DImmutable
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 304. Range Sum Query 2D - Immutable
  */
-public class RangeSumQuery2DImmutable {
+public class _304RangeSumQuery2DImmutable {
     /**
      * Given a 2D matrix matrix, find the sum of the elements inside the rectangle defined by its 
      * upper left corner (row1, col1) and lower right corner (row2, col2).
@@ -38,7 +37,7 @@ public class RangeSumQuery2DImmutable {
     private int[][] sum;
 
     // it is more like area calculation
-    public RangeSumQuery2DImmutable(int[][] matrix) {
+    public _304RangeSumQuery2DImmutable(int[][] matrix) {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return;
         int m = matrix.length;
         int n = matrix[0].length;

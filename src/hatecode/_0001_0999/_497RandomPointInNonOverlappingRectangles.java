@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class RandomPointInNonOverlappingRectangles {
+public class _497RandomPointInNonOverlappingRectangles {
     /*
      * 497. Random Point in Non-overlapping Rectangles Given a list of
      * non-overlapping axis-aligned rectangles rects, write a function pick which
@@ -20,7 +20,7 @@ public class RandomPointInNonOverlappingRectangles {
     //interview friendly version: 
     //we stored accumulated area into prefix sum array, and use BS to find the target rectangle, 
     //
-    public RandomPointInNonOverlappingRectangles(int[][] rects) {
+    public _497RandomPointInNonOverlappingRectangles(int[][] rects) {
         this.rects = rects;
         this.rand = new Random();
         this.psum = new ArrayList<>();

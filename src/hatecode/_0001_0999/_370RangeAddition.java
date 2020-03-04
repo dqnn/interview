@@ -4,11 +4,10 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : RangeAddition
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 370. Range Addition
  */
-public class RangeAddition {
+public class _370RangeAddition {
     /**
      * Assume you have an array of length n initialized with all 0's and are given k update operations.
 

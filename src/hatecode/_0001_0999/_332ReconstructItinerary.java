@@ -6,11 +6,10 @@ import java.util.*;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ReconstructItinerary
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 332. Reconstruct Itinerary
  */
-public class ReconstructItinerary {
+public class _332ReconstructItinerary {
 
     /**
      * Given a list of airline tickets represented by pairs of departure and arrival airports [from, to],

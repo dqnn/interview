@@ -34,7 +34,7 @@ The matrix is only modifiable by the update function.
 You may assume the number of calls to update and sumRegion function is distributed evenly.
 You may assume that row1 ≤ row2 and col1 ≤ col2.
  */
-public class RangeSumQuery2DMutable {
+public class _308RangeSumQuery2DMutable {
 
     int[][] tree;
     int[][] nums;
@@ -42,7 +42,7 @@ public class RangeSumQuery2DMutable {
     int n;
 
     // time : O(m * logm * n * logn)
-    public RangeSumQuery2DMutable(int[][] matrix) {
+    public _308RangeSumQuery2DMutable(int[][] matrix) {
         if (matrix.length == 0 || matrix[0].length == 0) return;
         m = matrix.length;
         n = matrix[0].length;
@@ -113,7 +113,7 @@ we need to roll up this change to next 2^n index node
                 {1, 2, 0, 1, 5},
                 {4, 1, 0, 1, 7},
                 {1, 0, 3, 0, 5}};
-        RangeSumQuery2DMutable table = new RangeSumQuery2DMutable(in);
+        _308RangeSumQuery2DMutable table = new _308RangeSumQuery2DMutable(in);
         System.out.println(table.sumRegion(2, 1, 4, 3)); //should be 8
         table.update(3,3,2); //should be 8
         System.out.println(table.sumRegion(2, 1, 4, 3)); //should be 10

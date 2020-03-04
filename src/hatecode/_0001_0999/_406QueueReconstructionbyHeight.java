@@ -36,7 +36,7 @@ input: [[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]]
 subarray after step 1: [[7,0], [7,1]]
 subarray after step 2: [[7,0], [6,1], [7,1]]
  */
-public class QueueReconstructionbyHeight {
+public class _406QueueReconstructionbyHeight {
     public int[][] reconstructQueue(int[][] p) {
         if (p == null || p.length < 1 || p[0].length < 1) {
             return p;

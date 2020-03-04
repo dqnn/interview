@@ -6,11 +6,10 @@ import java.util.Stack;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : RecoverBinarySearchTree
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 99. Recover Binary Search Tree
  */
-public class RecoverBinarySearchTree {
+public class _099RecoverBinarySearchTree {
     /**
      * Two elements of a binary search tree (BST) are swapped by mistake.
 
