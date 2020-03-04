@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class OnlineElection {
+public class _911OnlineElection {
 /*
 911. Online Election
 In an election, the i-th vote was cast for persons[i] at time times[i].
@@ -19,7 +19,7 @@ Output: [null,0,1,1,0,0,1]
 
     Map<Integer, Integer> m = new HashMap<>();
     int[] time;
-    public OnlineElection(int[] persons, int[] times) {
+    public _911OnlineElection(int[] persons, int[] times) {
         int n = persons.length, lead = -1;
         Map<Integer, Integer> count = new HashMap<>();
         time = times;
