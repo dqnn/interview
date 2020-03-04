@@ -13,7 +13,7 @@ import java.util.List;
  * Date : Aug, 2018
  * Description : 336. Palindrome Pairs
  */
-public class PalindromePairs {
+public class _336PalindromePairs {
     /**
      * Given a list of unique words, find all pairs of distinct indices (i, j) in the given list,
      * so that the concatenation of the two words, i.e. words[i] + words[j] is a palindrome.

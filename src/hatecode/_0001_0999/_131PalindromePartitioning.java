@@ -7,11 +7,10 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : PalindromePartitioning
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 131. Palindrome Partitioning
  */
-public class PalindromePartitioning {
+public class _131PalindromePartitioning {
     /**
 Given a string s, partition s such that every substring of the partition is a palindrome.
 

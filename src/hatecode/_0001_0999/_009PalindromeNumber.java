@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : TODO
  */
-public class PalindromeNumber {
+public class _009PalindromeNumber {
 
     /**
      * 9. Palindrome Number

@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : 276. Paint Fence
  */
-public class PaintFence {
+public class _276PaintFence {
     /**
 There is a fence with n posts, each post can be painted with one of the k colors.
 

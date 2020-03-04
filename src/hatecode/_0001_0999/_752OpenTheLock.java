@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class OpenTheLock {
+public class _752OpenTheLock {
 /*
 752. Open the Lock
 

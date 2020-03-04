@@ -8,11 +8,10 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : PalindromePermutationII
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 267. Palindrome Permutation II
  */
-public class PalindromePermutationII {
+public class _267PalindromePermutationII {
     /**
      * Given a string s, return all the palindromic permutations (without duplicates) of it. Return an empty list if no palindromic permutation could be form.
 

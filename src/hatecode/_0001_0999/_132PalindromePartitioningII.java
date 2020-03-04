@@ -9,7 +9,7 @@ package hatecode._0001_0999;
  * Description : 132. Palindrome Partitioning II
  * tags: two pointers, dp
  */
-public class PalindromePartitioningII {
+public class _132PalindromePartitioningII {
     /**
      * Given a string s, partition s such that every substring of the partition is a 
      * palindrome.

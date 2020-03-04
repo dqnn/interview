@@ -6,11 +6,10 @@ import java.util.HashSet;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : PalindromePermutation
- * Creator : duqiang
  * Date : Sep, 2017
  * Description : TODO
  */
-public class PalindromePermutation {
+public class _266PalindromePermutation {
     /**
      * 266. Palindrome Permutation
      * Given a string, determine if a permutation of the string could form a palindrome.

@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class onvexPolygon {
+public class _469onvexPolygon {
 /*
 469. Convex Polygon
 Given a list of points that form a polygon when joined sequentially, find if this polygon is convex (Convex polygon definition).

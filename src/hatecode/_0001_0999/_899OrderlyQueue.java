@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class OrderlyQueue {
+public class _899OrderlyQueue {
 /*
 899. Orderly Queue
 A string S of lowercase letters is given.  Then, we may make any number of moves.

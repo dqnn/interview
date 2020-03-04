@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class OptimalAccountBalancing {
+public class _465OptimalAccountBalancing {
     /*
      * 465. Optimal Account Balancing A group of friends went on holiday and
      * sometimes lent each other money. For example, Alice paid for Bill's lunch for

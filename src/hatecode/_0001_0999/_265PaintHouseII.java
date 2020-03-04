@@ -5,11 +5,10 @@ import java.util.*;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : PaintHouseII
- * Creator : duqiang
  * Date : Dec, 2017
  * Description : 265. Paint House II
  */
-public class PaintHouseII {
+public class _265PaintHouseII {
     /**
      * There are a row of n houses, each house can be painted with one of the k colors.
      * The cost of painting each house with a certain color is different.

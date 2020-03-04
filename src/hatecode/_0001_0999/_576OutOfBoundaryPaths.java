@@ -3,7 +3,6 @@ package hatecode._0001_0999;
 import java.util.Arrays;
 
 /*
- * author Denny Du 
  * Date 10/18/2018
 576. Out of Boundary Paths
 There is an m by n grid with a ball. Given the start coordinate (i,j) of the ball, 
@@ -34,7 +33,7 @@ Once you move the ball out of boundary, you cannot move it back.
 The length and height of the grid is in range [1,50].
 N is in range [0,50].
  */
-public class OutOfBoundaryPaths {
+public class _576OutOfBoundaryPaths {
     //DP[i][j][k] stands for how many possible ways to walk into cell j,k in step i, DP[i][j][k] 
     //only depends on DP[i - 1][j][k], so we can compress 3 dimensional dp array to 2 dimensional.
     public int findPaths(int m, int n, int N, int i, int j) {

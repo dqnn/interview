@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class OutputContestMatches {
+public class _544OutputContestMatches {
 /*
 544. Output Contest Matches
 During the NBA playoffs, we always arrange the rather strong team to play with the rather weak team, like make the rank 1 team play with the rank nth team, which is a good strategy to make the contest more interesting. Now, you're given n teams, you need to output their final contest matches in the form of a string.
