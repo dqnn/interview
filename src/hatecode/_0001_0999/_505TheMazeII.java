@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class TheMazeII {
+public class _505TheMazeII {
     /*
      * 505. The Maze II 
      * 

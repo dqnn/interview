@@ -11,7 +11,7 @@ import java.util.PriorityQueue;
  * Date : Sep, 2018
  * Description : 313. Super Ugly Number
  */
-public class SuperUglyNumber {
+public class _313SuperUglyNumber {
     /**
      * Write a program to find the nth super ugly number.
 

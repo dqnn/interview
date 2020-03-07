@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-class TicTacToe {
+public class _348TicTacToe {
 /*
 348. Design Tic-Tac-Toe
 Design a Tic-tac-toe game that is played between two players on a n x n grid.
@@ -58,7 +58,7 @@ Could you do better than O(n2) per move() operation?
     int[] col;
     int dial;
     int antiDial;
-    public TicTacToe(int n) {
+    public _348TicTacToe(int n) {
         this.row = new int[n];
         this.col = new int[n];
         this.dial = 0;

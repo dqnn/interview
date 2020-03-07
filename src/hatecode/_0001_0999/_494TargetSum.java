@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class TargetSum {
+public class _494TargetSum {
 /*
  tag: DP, operators
 494. Target Sum

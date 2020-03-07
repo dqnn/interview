@@ -10,7 +10,7 @@ import java.util.*;
  * Date : Sep, 2018
  * Description : 218. The Skyline Problem
  */
-public class TheSkylineProblem {
+public class _218TheSkylineProblem {
 /*
 A city's skyline is the outer contour of the silhouette formed by all the buildings in that city when viewed from a 
 distance. Now suppose you are given the locations and height of all the buildings as shown on a cityscape 
@@ -299,7 +299,7 @@ firstKey()
     }
     
     public static void main(String[] args) {
-        TheSkylineProblem tt = new TheSkylineProblem();
+        _218TheSkylineProblem tt = new _218TheSkylineProblem();
         Node test = tt.buildNode(0, 12);
         System.out.println(test);
     }

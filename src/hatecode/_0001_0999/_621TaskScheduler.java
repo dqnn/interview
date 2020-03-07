@@ -35,7 +35,7 @@ Note:
 The number of tasks is in the range [1, 10000].
 The integer n is in the range [0, 100].
  */
-class TaskScheduler {
+public class _621TaskScheduler {
     //thinking process: 
     //the problem is to say we have list of tasks which described in 
     //upper case, and if same task, cpu has to be cool down for n =2 time,

@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class SwapAdjacentInLRString {
+public class _777SwapAdjacentInLRString {
 /*
 777. Swap Adjacent in LR String
 In a string composed of 'L', 'R', and 'X' characters, like "RXXLRXRXL", 

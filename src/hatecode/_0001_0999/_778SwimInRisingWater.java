@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-class SwimInRisingWater {
+public class _778SwimInRisingWater {
 /*
 778. Swim in Rising Water
 On an N x N grid, each square grid[i][j] represents the elevation at that point (i,j).

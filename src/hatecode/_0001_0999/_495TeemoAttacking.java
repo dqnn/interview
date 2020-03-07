@@ -37,7 +37,7 @@ You may assume the numbers in the Teemo's attacking time series and his poisonin
 //thinking process:
 //so this problem is asking for time period which is in poision status, if we 
 // 
-class TeemoAttacking {
+public class _495TeemoAttacking {
     public int findPoisonedDuration(int[] timeSeries, int duration) {
         //edge case
         if (timeSeries == null || timeSeries.length < 1) {

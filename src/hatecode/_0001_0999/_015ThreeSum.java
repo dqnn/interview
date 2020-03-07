@@ -12,7 +12,7 @@ import java.util.List;
  * Date : Sep, 2018
  * Description : TODO
  */
-public class ThreeSum {
+public class _015ThreeSum {
     /**
      * 15. 3Sum
      * Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0?

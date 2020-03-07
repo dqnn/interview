@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : TODO
  */
-public class SwapNodesinPairs {
+public class _24SwapNodesinPairs {
     /**
      * 24. Swap Nodes in Pairs
      * Given a linked list, swap every two adjacent nodes and return its head.

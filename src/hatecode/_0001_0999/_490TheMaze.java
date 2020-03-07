@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class TheMaze {
+public class _490TheMaze {
     /*
      * 490. The Maze There is a ball in a maze with empty spaces and walls. The ball
      * can go through empty spaces by rolling up, down, left or right, but it won't

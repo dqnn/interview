@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class TernaryExpressionParser {
+public class _439TernaryExpressionParser {
 /*
 439. Ternary Expression Parser
 Example 1:

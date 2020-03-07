@@ -13,7 +13,7 @@ import java.util.PriorityQueue;
  * Date : Sep, 2018
  * Description : 414. Third Maximum Number
  */
-public class ThirdMaximumNumber {
+public class _414ThirdMaximumNumber {
     /**
      * Given a non-empty array of integers, return the third maximum number in this array.
      *  If it does not exist, return the maximum number. 

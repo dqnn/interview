@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class SuperWashingMachines {
+public class _517SuperWashingMachines {
 /*
 517. Super Washing Machines
 You have n super washing machines on a line. Initially, each washing machine has some dresses or is empty.

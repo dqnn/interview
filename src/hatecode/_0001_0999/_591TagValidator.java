@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class TagValidator {
+public class _591TagValidator {
 /*
 591. Tag Validator
 Given a string representing a code snippet, you need to implement a tag validator to parse the code and return whether it is valid. A code snippet is valid if all the following rules hold:
