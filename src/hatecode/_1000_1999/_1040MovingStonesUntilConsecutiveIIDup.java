@@ -1,7 +1,7 @@
-package hatecode._0001_0999;
+package hatecode._1000_1999;
 
 import java.util.*;
-public class _1040MovingStonesUntilConsecutiveII {
+public class _1040MovingStonesUntilConsecutiveIIDup {
 /*
 1040. Moving Stones Until Consecutive II
 On an infinite number line, the position of the i-th stone is given by stones[i].  Call a stone an endpoint stone if it has the smallest or largest position.
