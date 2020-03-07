@@ -7,11 +7,10 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : TextJustification
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 68. Text Justification
  */
-public class TextJustification {
+public class _068TextJustification {
     /**
      * Given an array of words and a length L, format the text such that each line has exactly
      * L characters and is fully (left and right) justified.

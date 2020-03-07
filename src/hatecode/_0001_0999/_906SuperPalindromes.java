@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-public class SuperPalindromes {
+public class _906SuperPalindromes {
 /*
 906. Super Palindromes
 Let's say a positive integer is a superpalindrome if it is a palindrome, and it is also the square of a palindrome.

@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-class SuperEggDrop {
+public class _887SuperEggDrop {
 /*
 887. Super Egg Drop
 You are given K eggs, and you have access to a building with N floors from 1 to N. 

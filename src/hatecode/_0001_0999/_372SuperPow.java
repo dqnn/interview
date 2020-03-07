@@ -4,11 +4,10 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : SuperPow
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 372. Super Pow
  */
-public class SuperPow {
+public class _372SuperPow {
     /**
      * Your task is to calculate ab mod 1337 where a is a positive 
      * integer and b is an extremely
