@@ -12,7 +12,7 @@ import java.util.Stack;
  * Date : Sep, 2018
  * Description : TODO
  */
-public class SumofLeftLeaves {
+public class _404SumofLeftLeaves {
 
     /**
      * 404. Sum of Left Leaves

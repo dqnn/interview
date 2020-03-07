@@ -11,7 +11,7 @@ import java.util.List;
  * Date : Sep, 2018
  * Description : TODO
  */
-public class SummaryRanges {
+public class _228SummaryRanges {
     /**
      * 228. Summary Ranges
      * Given a sorted integer array without duplicates, 

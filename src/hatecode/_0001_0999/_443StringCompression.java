@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : 443. String Compression
  */
-public class StringCompression {
+public class _443StringCompression {
     /**
      * Given an array of characters, compress it in-place.
 

@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class SubtreeOfAnotherTree {
+public class _572SubtreeOfAnotherTree {
 /*
  * 
 572  Subtree of Another Tree

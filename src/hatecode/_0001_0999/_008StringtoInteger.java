@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : 8. String to Integer (atoi)
  */
-public class StringtoInteger {
+public class _008StringtoInteger {
     /**
      * time : O(n)
      * space : O(1)

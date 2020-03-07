@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : 37. Sudoku Solver
  */
-public class SudokuSolver {
+public class _037SudokuSolver {
 /*
 Write a program to solve a Sudoku puzzle by filling the empty cells.
 

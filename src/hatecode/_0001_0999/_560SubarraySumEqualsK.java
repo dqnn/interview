@@ -10,7 +10,7 @@ import java.util.HashMap;
  * Date : Sep, 2018
  * Description : TODO
  */
-public class SubarraySumEqualsK {
+public class _560SubarraySumEqualsK {
     /**
      * 560. Subarray Sum Equals K
      * Given an array of integers and an integer k, you need to find 

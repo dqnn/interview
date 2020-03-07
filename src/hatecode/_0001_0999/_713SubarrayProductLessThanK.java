@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class SubarrayProductLessThanK {
+public class _713SubarrayProductLessThanK {
 /*
 713. Subarray Product Less Than K
 Your are given an array of positive integers nums.

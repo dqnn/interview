@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SubdomainVisitCount {
+public class _811SubdomainVisitCount {
 /*
  * 811. Subdomain Visit Count
 A website domain like "discuss.leetcode.com" consists of various subdomains. 

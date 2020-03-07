@@ -1,5 +1,5 @@
 package hatecode._0001_0999;
-public class StudentAttendanceRecordI {
+public class _551StudentAttendanceRecordI {
 /*
 551. Student Attendance Record I
 You are given a string representing an attendance record for a student. The record only contains the following three characters:

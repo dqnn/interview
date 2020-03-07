@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-class StampingTheSequence {
+public class _936StampingTheSequence {
     /*
      * 936. Stamping The Sequence For example, if the sequence is "ababc", and the
      * stamp is "abc", then we could return the answer [0, 2], corresponding to the

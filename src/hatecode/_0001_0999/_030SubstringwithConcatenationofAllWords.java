@@ -13,7 +13,7 @@ import java.util.Map;
  * Date : Sep, 2018
  * Description : 30. Substring with Concatenation of All Words
  */
-public class SubstringwithConcatenationofAllWords {
+public class _030SubstringwithConcatenationofAllWords {
     /**
      * You are given a string, s, and a list of words that 
      * are all of the same length.

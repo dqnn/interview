@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Sep, 2018
  * Description : 371. Sum of Two Integers
  */
-public class SumofTwoIntegers {
+public class _371SumofTwoIntegers {
     /**
      * Calculate the sum of two integers a and b, 
      * but you are not allowed to use the operator + and -.

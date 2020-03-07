@@ -12,7 +12,7 @@ import java.util.List;
  * Date : Sep, 2018
  * Description : 248. Strobogrammatic Number III
  */
-public class StrobogrammaticNumberIII {
+public class _248StrobogrammaticNumberIII {
     /**
      * A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down
      * right-side up or upside down.).

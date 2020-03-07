@@ -10,7 +10,7 @@ import java.util.HashMap;
  * Date : Sep, 2018
  * Description : 246. Strobogrammatic Number
  */
-public class StrobogrammaticNumber {
+public class _246StrobogrammaticNumber {
     /**
      * A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down).
 

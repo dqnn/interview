@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class SumOfDistancesInTree {
+public class _834SumOfDistancesInTree {
 /*
 834. Sum of Distances in Tree
 Explanation:
