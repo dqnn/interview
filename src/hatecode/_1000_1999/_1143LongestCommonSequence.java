@@ -29,7 +29,7 @@ example:
     //thinking process: O(mn)/O(mn)
     
     //classical problem, this problem would require you draw four cells, 
-    //DP， needs initialize
+    //DP， needs initialize， 
     public static int LCS(String AA, String BB) {
         char[] A = AA.toCharArray();
         char[] B = BB.toCharArray();
