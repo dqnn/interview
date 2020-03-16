@@ -19,6 +19,10 @@ Output: true
 */
     //thinking process: O(n)/O(h)
     
+    //the problem is to say: given a complete binary tree, n nodes, each node has different
+    //distinct value, two players, x is one value, each player can choose its adjacent
+    //nodes, one player will win if he has more nodes, n is odd,
+    
     //
     int l, r, val;
     public boolean btreeGameWinningMove(TreeNode root, int n, int x) {
