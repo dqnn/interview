@@ -34,6 +34,10 @@ Output: 4
     
     //but no matter ^ or V, we can have each pattern for whole arr,so we have to use two 
     //integer to save the current min value, so we use int[2] to save the value
+    
+    //there are edge case, for first and last element in arr, so suppose we have 
+    //max number around this arr, like [Integer.MAX_VAULE, 9,6,1,6,2, Integer.MAX_VAULE]
+    //this would not change the result since we want the min move
     public int movesToMakeZigzag(int[] A) {
         if(A == null || A.length < 1) return 0;
         
