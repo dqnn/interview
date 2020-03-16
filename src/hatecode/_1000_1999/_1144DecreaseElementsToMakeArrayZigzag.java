@@ -50,7 +50,7 @@ Output: 4
         return Math.min(res[0], res[1]);
     }
     
-    //
+    //e=even, o=odd
     public int movesToMakeZigzag_BF(int[] nums) {
         int e = 0, o = 0, n = nums.length;
         for(int i=1; i < n; i+= 2){
