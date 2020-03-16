@@ -39,8 +39,8 @@ Output: 4
         
         int res[] = new int[2],  n = A.length, l, r;
         for (int i = 0; i < n; i++) {
-            l = i > 0 ? A[i - 1] : 1001;
-            r = i + 1 < n ? A[i + 1] : 1001;
+            l = i > 0 ? A[i - 1] : Integer.MAX_VALUE;
+            r = i + 1 < n ? A[i + 1] : Integer.MAX_VALUE;
             res[i % 2] += Math.max(0, A[i] - Math.min(l, r) + 1);
         }
         return Math.min(res[0], res[1]);
