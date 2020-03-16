@@ -14,8 +14,8 @@ Return the minimum number of moves to transform the given array nums into a zigz
 
 Example 1:
 
-Input: nums = [1,2,3]
-Output: 2
+Input: nums = [9,6,1,6,2]
+Output: 4
 
 1 <= nums.length <= 1000
 1 <= nums[i] <= 1000
@@ -26,7 +26,11 @@ Output: 2
     //one element in array as 1 move, to make the arr as zigzag array, return the min 
     //move
     
-    //
+    //for 3 adjacent elements in array, we can try to do 2 things
+    //1. to make ^ pattern, what's the min move?
+    //2. to make V pattern, what;s the min move?
+    //[9,6,1,6,2], for 9, 6, 1, if for 1, we can make 9 to 5, then 4 moves, 
+    //for 2, 1->7, then 6 moves, then we contniue this working until the end
     public int movesToMakeZigzag(int[] A) {
         if(A == null || A.length < 1) return 0;
         
