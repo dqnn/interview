@@ -30,7 +30,10 @@ Output: 4
     //1. to make ^ pattern, what's the min move?
     //2. to make V pattern, what;s the min move?
     //[9,6,1,6,2], for 9, 6, 1, if for 1, we can make 9 to 5, then 4 moves, 
-    //for 2, 1->7, then 6 moves, then we contniue this working until the end
+    //for 2, 1->7, then 6 moves, then we continue this working until the end
+    
+    //but no matter ^ or V, we can have each pattern for whole arr,so we have to use two 
+    //integer to save the current min value, so we use int[2] to save the value
     public int movesToMakeZigzag(int[] A) {
         if(A == null || A.length < 1) return 0;
         
