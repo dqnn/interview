@@ -22,12 +22,16 @@ Output: 2
 */
     //thinking process:O(n)/O(1)
     
-    //we look for the diff
+    //the problem is to say:  given an integer arr, if we want to make decrease 1 for 
+    //one element in array as 1 move, to make the arr as zigzag array, return the min 
+    //move
+    
+    //
     public int movesToMakeZigzag(int[] A) {
         if(A == null || A.length < 1) return 0;
         
         int res[] = new int[2],  n = A.length, l, r;
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < n; i++) {
             l = i > 0 ? A[i - 1] : 1001;
             r = i + 1 < n ? A[i + 1] : 1001;
             res[i % 2] += Math.max(0, A[i] - Math.min(l, r) + 1);
