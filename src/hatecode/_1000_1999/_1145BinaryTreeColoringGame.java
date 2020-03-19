@@ -19,9 +19,10 @@ Output: true
 */
     //thinking process: O(n)/O(h)
     
-    //the problem is to say: given a complete binary tree, n nodes, each node has different
-    //distinct value, two players, x is one value, each player can choose its adjacent
-    //nodes, one player will win if he has more nodes, n is odd,
+    //the problem is to say: given a complete binary tree, n(odd) nodes, each node 
+    //has different distinct value, two players, x is one value, each player 
+    //can choose its adjacent nodes, one player will win if he has more nodes, suppose you
+    //are 2nd player, return true if you can win else false
     
     //
     int l, r, val;
