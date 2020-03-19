@@ -5,6 +5,7 @@ import hatecode._0001_0999.TreeNode;
 public class _1145BinaryTreeColoringGame {
 /*
 1145. Binary Tree Coloring Game
+Tags:game, tree
 Two players play a turn based game on a binary tree.  We are given the root of this binary tree, and the number of nodes n in the tree.  n is odd, and each node has a distinct value from 1 to n.
 
 Initially, the first player names a value x with 1 <= x <= n, and the second player names a value y with 1 <= y <= n and y != x.  The first player colors the node with value x red, and the second player colors the node with value y blue.
@@ -24,7 +25,15 @@ Output: true
     //can choose its adjacent nodes, one player will win if he has more nodes, suppose you
     //are 2nd player, return true if you can win else false
     
-    //
+    //first understand the game rules: so one node could have most 3 neighbors,  which means 
+    //after first node is set, the rest of moves have to be around the node, so suppose first
+    //player got x, then 2nd player have two options:
+    //1 in its subtree, left child or right child, in this case, the max nodes 2nd player could
+    //get is max(l, r),
+    //2 not in its subtree, so max nodes 2nd player can get n -l -r -1,  which means 2nd player 
+    //first occupy its parent, we only have 2 cases.
+    
+    // l means x's left subtree, r means x's right subtree
     int l, r, val;
     public boolean btreeGameWinningMove(TreeNode root, int n, int x) {
         val = x;
