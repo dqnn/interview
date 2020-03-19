@@ -25,9 +25,9 @@ snapshotArr.set(0,6);
 snapshotArr.get(0,0);  // Get the value of array[0] with snap_id = 0, return 5
 */
 
-    //thinking process: O(lgn)/O(n), n= times set() called
+    //thinking process: O(lgn)/O(n + length), n= times set() called
     
-    //
+    //for each element we keep one version, this is easy for debugging
     TreeMap<Integer, Integer>[] A;
     int snap_id = 0;
     public _1146SnapshotArray(int length) {
@@ -45,7 +45,8 @@ snapshotArr.get(0,0);  // Get the value of array[0] with snap_id = 0, return 5
     public int snap() {
         return snap_id++;
     }
-
+    //return <= snap_id max key, value, the lookup is binary search, this is 
+    //optimized than BF
     public int get(int index, int snap_id) {
         return A[index].floorEntry(snap_id).getValue();
     }
