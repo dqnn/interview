@@ -22,8 +22,17 @@ Explanation: We can split the string on "(ghi)(abcdef)(hello)(adam)(hello)(abcde
     
     //the problem is to say, given one string s, we need to figure out the max k, 
     //the s will be split k strings, assume they are a1..ak, 
-    //a1 = ak, a2=ak-1, which means they are palidrom by small piece of strings
-    //
+    //a1 = ak, a2=ak-1, which means they are palindrom by small piece of strings
+    
+    //so this problem can be solved by greedy and dp, typically DP. 
+    //why we can use Greedy, because the max k only exists when we split each character
+    //int short string, we compare each character both end, the edge case is 
+    //whole string match, like merchant, k = 1. so we can see this is recursive problem, 
+    
+    //so how to get max k, we need to compare one char by one char. 
+    //l is substring from left, r is substring but read from left to right, 
+    //every time we found matched, then res++, and reset l and r. so we can get the min length of 
+    //string length so k is max
     public int longestDecomposition_Best(String s) {
         int res = 0, n = s.length();
         String l = "", r = "";
@@ -39,24 +48,27 @@ Explanation: We can split the string on "(ghi)(abcdef)(hello)(adam)(hello)(abcde
         return res;
     }
     
-    public int longestDecomposition(String text) {
-        if (null == text) return -1;
+    //
+    public int longestDecomposition(String s) {
+        if (null == s) return -1;
         
-        int n = text.length();
+        int n = s.length();
         // 将字符串分成 [0,i) ~ [n-i, n)
         // 如果上面相等 表示有2份回文字段
         // 并将剩余字段投入下一轮迭代 [i, n-i)
         // i 其实表示的是比较字段的长度
         for (int i = 1; i <= n/2; i++) {
-            if (text.substring(0, i).equals(text.substring(n-i, n))) {
-                return 2 + longestDecomposition(text.substring(i, n-i));
+            if (s.substring(0, i).equals(s.substring(n-i, n))) {
+                return 2 + longestDecomposition(s.substring(i, n-i));
             }
         }
         
         // 当最终剩余字段大于零 则其单独成一段 +1
         return n == 0 ? 0 : 1;
     }
-    
+    //here is the DP solution, 
+    //dp[i][j] means in substring s[i,j] the max k. 
+    //so
     class DPWith2D {
         int[][] dp;
         String text;
@@ -72,7 +84,7 @@ Explanation: We can split the string on "(ghi)(abcdef)(hello)(adam)(hello)(abcde
             // 求整个字符串的回文字段k
             return helper(0, n-1);
         }
-        
+
         /**
          * 求回文字段数 text的子串
          * @param s 起始位置
@@ -104,6 +116,7 @@ Explanation: We can split the string on "(ghi)(abcdef)(hello)(adam)(hello)(abcde
             return dp[s][e] = res;
         }
     }
+
     class DPWith1D {
         // 存储表示0~i 出现的回文字段
         int dp[] = new int[1050];
