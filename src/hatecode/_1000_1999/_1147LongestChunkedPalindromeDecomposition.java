@@ -20,6 +20,9 @@ Explanation: We can split the string on "(ghi)(abcdef)(hello)(adam)(hello)(abcde
 */
     //thinking process: O(n)/O(n)
     
+    //the problem is to say, given one string s, we need to figure out the max k, 
+    //the s will be split k strings, assume they are a1..ak, 
+    //a1 = ak, a2=ak-1, which means they are palidrom by small piece of strings
     //
     public int longestDecomposition_Best(String s) {
         int res = 0, n = s.length();
