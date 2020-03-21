@@ -68,7 +68,8 @@ Explanation: We can split the string on "(ghi)(abcdef)(hello)(adam)(hello)(abcde
     }
     //here is the DP solution, 
     //dp[i][j] means in substring s[i,j] the max k. 
-    //so
+    //recursive + dp, 
+    //本质上就是上面的做法，只不过用了 2+ helper() 代替
     class DPWith2D {
         int[][] dp;
         String text;
@@ -107,16 +108,16 @@ Explanation: We can split the string on "(ghi)(abcdef)(hello)(adam)(hello)(abcde
                 String ed = text.substring(e-l+1, e+1);
                 // 如果两子串相等 表示找到回文字段 +2
                 if (st.equals(ed)) {
-                    int tmp = helper(s+l, e-l);
                     // 更新结果值
-                    res = tmp+2;
+                    res = helper(s+l, e-l)+2;
                 }
             }
             
             return dp[s][e] = res;
         }
     }
-
+    //here we use 1D array as dp.
+    //b 
     class DPWith1D {
         // 存储表示0~i 出现的回文字段
         int dp[] = new int[1050];
