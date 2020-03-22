@@ -27,8 +27,9 @@ Output: true
         return false;
     }
     //better one, O(lgn)/O(1)
-    
-    //since it is more than half of the array, so the middle one must be the value. 
+     
+    //then we can find target first occur psition, then we can look for cur + n/2 
+    //whether has the same value, if yes, then yes, else return false
     
     //but we need to validate it
     public boolean isMajorityElement(int[] nums, int target) {
