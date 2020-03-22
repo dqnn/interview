@@ -21,7 +21,14 @@ Output: ["home","about","career"]
     
     //thinking process: 
     
-    //the problem is to say, given three arrays, 
+    //the problem is to say, given three arrays, each means name, timestamp, web
+    
+    //we want to know for a 3-page visit pattern, which is most frequent, ignore users, 
+    //so what we have to do is to collect each users web visited and sort by timestamp,
+    //then we use use another map<visitPattern, Integer> to record the count and output the max
+    
+    //note: we need to use set for each user, because map may overlap with users, but 
+    //max should be max visit pattern for each user, not for all
     class Pair {
         int time;
         String web;
