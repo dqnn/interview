@@ -29,6 +29,8 @@ Output: ["home","about","career"]
     
     //note: we need to use set for each user, because map may overlap with users, but 
     //max should be max visit pattern for each user, not for all
+    
+    //this one is not a good question
     class Pair {
         int time;
         String web;
