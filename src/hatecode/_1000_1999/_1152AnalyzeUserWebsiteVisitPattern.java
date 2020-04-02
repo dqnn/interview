@@ -39,8 +39,7 @@ Output: ["home","about","career"]
             this.web = web;
         }
     }
-    
-    
+
     public List<String> mostVisitedPattern(String[] username, int[] timestamp, String[] website) {
         Map<String, List<Pair>> map = new HashMap<>();
         int n = username.length;
