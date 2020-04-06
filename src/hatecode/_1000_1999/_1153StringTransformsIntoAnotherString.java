@@ -22,6 +22,11 @@ Output: true
     //given two strings, we can change one char in s1, so return true if we can 
     //change to str2. all strings length are the same
     
+    //take aabcc->ccdee as example, we can see a->c means a must change to c, the only
+    //difference is when to change a->c, so any change path if we cannot fulfil this, then it 
+    //is incorrect
+    
+    //so we can consider a path, a->c, c->e such movements, the destination is str2, 
     //
     public boolean canConvert(String s1, String s2) {
         if(s1 == null || s1 == s2) return true;
