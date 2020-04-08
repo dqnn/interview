@@ -1,6 +1,7 @@
 package hatecode._1000_1999;
 
 import java.util.*;
+import java.util.stream.Collectors;
 public class _1153StringTransformsIntoAnotherString {
 /*
 1153. String Transforms Into Another String
