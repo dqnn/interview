@@ -41,12 +41,12 @@ Output: true
         if(s1 == null || s1 == s2) return true;
         
         if (s1.equals(s2)) return true;
-        Map<Character, Character> dp = new HashMap<>();
+        Map<Character, Character> map = new HashMap<>();
         for (int i = 0; i < s1.length(); ++i) {
-            if (dp.getOrDefault(s1.charAt(i), s2.charAt(i)) != s2.charAt(i))
+            if (map.getOrDefault(s1.charAt(i), s2.charAt(i)) != s2.charAt(i))
                 return false;
-            dp.put(s1.charAt(i), s2.charAt(i));
+            map.put(s1.charAt(i), s2.charAt(i));
         }
-        return new HashSet<Character>(dp.values()).size() < 26;
+        return new HashSet<Character>(map.values()).size() < 26;
     }
 }
