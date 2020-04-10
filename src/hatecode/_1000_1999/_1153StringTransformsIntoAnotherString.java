@@ -36,7 +36,6 @@ Output: true
     //is incorrect
     
     //so we can consider a path, a->c, c->e such movements, the destination is str2, 
-    //
     public boolean canConvert(String s1, String s2) {
         if(s1 == null || s1 == s2) return true;
         
