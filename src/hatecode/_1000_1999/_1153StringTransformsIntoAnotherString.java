@@ -28,7 +28,8 @@ Output: true
     2. many to one, like a->c, c->e, aabcc->ccdee, any char not in s2 we can use as temp char
          to like a->g->c,so aabcc->ggbcc, then c->e, which means we won't impact c->e because 
          a->g
-    3. one to many, a->f, a->g, cannot change to s2
+    3. one to many, a->f, a->g, cannot change to s2, like ada->gbf, a cannot map to 2 chars because 
+    no matter you change to which first then you need to flip back
     */
     //take aabcc->ccdee as example, we can see a->c means a must change to c, the only
     //difference is when to change a->c, so any change path if we cannot fulfil this, then it 
