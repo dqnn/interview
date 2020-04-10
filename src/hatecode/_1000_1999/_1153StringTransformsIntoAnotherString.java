@@ -27,6 +27,7 @@ Output: true
     1. one to one, a->c, d->e, one char map to another, like abc, def
     2. many to one, like a->c, c->e, aabcc->ccdee, any char not in s2 we can use as temp char
          to like a->g->c,so this will change to case 1
+    3. one to many, 
     */
     //take aabcc->ccdee as example, we can see a->c means a must change to c, the only
     //difference is when to change a->c, so any change path if we cannot fulfil this, then it 
