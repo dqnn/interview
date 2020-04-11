@@ -14,7 +14,10 @@ Example 1:
 Input: text = "ababa"
 Output: 3
  */
-    //thinking process: 
+    //thinking process: O(n)/O(n)
+    
+    //the problem is to say: given a string s, if we can swap max 2 chars in s, return 
+    //longest substring length in the string
     
     //
     public int maxRepOpt1(String s) {

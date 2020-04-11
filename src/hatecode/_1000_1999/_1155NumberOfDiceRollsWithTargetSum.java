@@ -17,7 +17,8 @@ Output: 1
     //thinking process: O(d* target)/O(target)
     
     //the problem is to say: given d dices, one which f faces, the value on each face is 
-    //1...f,
+    //1...f, each dice you can play once, so return how many ways of values sequence sum = target, 
+    //the result m % 10^9 + 7
     
     //we can use brute force to solve first, f(d, f, target) = f(d-1, f, target - i)+.....
     //so we can see we have 2 dimensions, one is d another is sum, so
