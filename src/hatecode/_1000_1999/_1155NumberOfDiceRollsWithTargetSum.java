@@ -23,7 +23,7 @@ Output: 1
     //so we can see we have 2 dimensions, one is d another is sum, so
     //we can memo the middle value, 
     
-    //continue the solution, 
+    //continue the solution, TODO: understand this soluion
     public int numRollsToTarget(int d, int f, int target) {
         int mod = 1000000007;
         int[] dp1 = new int[target + 1];
