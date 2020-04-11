@@ -14,7 +14,16 @@ Input: d = 1, f = 6, target = 3
 Output: 1
 */
   
-    //optimized DP
+    //thinking process: O(d* target)/O(target)
+    
+    //the problem is to say: given d dices, one which f faces, the value on each face is 
+    //1...f,
+    
+    //we can use brute force to solve first, f(d, f, target) = f(d-1, f, target - i)+.....
+    //so we can see we have 2 dimensions, one is d another is sum, so
+    //we can memo the middle value, 
+    
+    //continue the solution, 
     public int numRollsToTarget(int d, int f, int target) {
         int mod = 1000000007;
         int[] dp1 = new int[target + 1];
@@ -35,16 +44,19 @@ Output: 1
         return dp1[target];
     }
     
-    
+    //we store res + 1 because some results are 0, we still want to use them
+    //
     int[][] dp = new int[31][1001];
-    long M = 10^9 + 7;
+    int M = 1000000007;
     //top-down
     int numRollsToTarget_DP(int d, int f, int target) {
         if (d == 0 || target <= 0) return d == target ? 1 : 0;
         if (dp[d][target] > 0) return dp[d][target] - 1;
+        
         int res = 0;
         for (int i = 1; i <= f; ++i)
-        res = (res + numRollsToTarget(d - 1, f, target - i)) % 1000000007;
+            res = (res + numRollsToTarget(d - 1, f, target - i)) % M;
+        
         dp[d][target] = res + 1;
         return res;
     }
@@ -52,7 +64,7 @@ Output: 1
     
     public int numRollsToTarget_BF_Overflow(int d, int f, int target) {
         int res = 0;
-        int M = 10^9 + 7;
+        int M = 1000000007;
         for(int i = 1; i<=f; i++) {
             res = (res + numRollsToTarget(d-1, f, target - i)) % M;
         }
