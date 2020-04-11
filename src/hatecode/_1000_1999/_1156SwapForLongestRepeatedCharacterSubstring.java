@@ -24,7 +24,8 @@ Output: 3
     //1 whether they are continuous or not? 
     //2 whether it has 2 diff between the two elements. 
     
-    //
+    //we use cur to record the length of repeated chars, pre means the previous repeated
+    //chars
     public int maxRepOpt1(String s) {
         if(s == null || s.length() < 1) return 0;
         
