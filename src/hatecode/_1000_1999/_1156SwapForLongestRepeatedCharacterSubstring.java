@@ -26,6 +26,8 @@ Output: 3
     
     //
     public int maxRepOpt1(String s) {
+        if(s == null || s.length() < 1) return 0;
+        
         HashMap<Character,List<Integer>> map=new HashMap<>();
         for(int i=0;i<s.length();i++){
             map.computeIfAbsent(s.charAt(i), v->new ArrayList<>()).add(i);
