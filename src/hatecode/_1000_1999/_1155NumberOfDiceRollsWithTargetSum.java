@@ -44,7 +44,8 @@ Output: 1
         return dp1[target];
     }
     
-    //we store res + 1 because some results are 0, we still want to use them
+    //we store res + 1 because most results are 0, we still want to remember that 
+    //we already done the computation
     //
     int[][] dp = new int[31][1001];
     int M = 1000000007;
