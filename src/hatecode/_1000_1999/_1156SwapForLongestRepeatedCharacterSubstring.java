@@ -19,6 +19,11 @@ Output: 3
     //the problem is to say: given a string s, if we can swap max 2 chars in s, return 
     //longest substring length in the string
     
+    //we use a map<char, List<Integer>> to store char<->{1,3} indexes of char, then 
+    //for each list, we want to know 
+    //1 whether they are continuous or not? 
+    //2 whether it has 2 diff between the two elements. 
+    
     //
     public int maxRepOpt1(String s) {
         HashMap<Character,List<Integer>> map=new HashMap<>();
