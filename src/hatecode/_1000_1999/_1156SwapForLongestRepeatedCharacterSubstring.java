@@ -17,15 +17,15 @@ Output: 3
     //thinking process: O(n)/O(n)
     
     //the problem is to say: given a string s, if we can swap max 2 chars in s, return 
-    //longest substring length in the string
+    //longest substring length in the string, only swap 1 time
     
     //we use a map<char, List<Integer>> to store char<->{1,3} indexes of char, then 
     //for each list, we want to know 
     //1 whether they are continuous or not? 
-    //2 whether it has 2 diff between the two elements. and we need to concatening those
+    //2 whether it has 2 diff between the two elements. and we need to choose which one has max length
     
     //we use cur to record the length of repeated chars, pre means the previous repeated
-    //chars, if 
+    //chars, 
     public static int maxRepOpt1(String s) {
         if(s == null || s.length() < 1) return 0;
         
@@ -51,6 +51,8 @@ Output: 3
                 sum = Math.max(sum, cur + pre);
             }
             //for each char, we would like know its max possible length
+            //if in a list all are successive then sum = length,if not it means 
+            //the max length of the substring,like aaabcccdeeeee, something, answer is 5
             res = Math.max(res, sum + (sum < list.size() ? 1 : 0));
         }
         return res;
