@@ -26,7 +26,7 @@ Output: 3
     
     //we use cur to record the length of repeated chars, pre means the previous repeated
     //chars, if 
-    public int maxRepOpt1(String s) {
+    public static int maxRepOpt1(String s) {
         if(s == null || s.length() < 1) return 0;
         
         HashMap<Character,List<Integer>> map=new HashMap<>();
@@ -38,13 +38,18 @@ Output: 3
         for (List<Integer> list : map.values()) {
             int cur = 1, pre = 0, sum = 1;
             for (int i = 1; i < list.size(); i++) {
+                //adjacent repeated chars
                 if (list.get(i) == list.get(i - 1) + 1) cur++;
                 else {
+                    //there is one char not repeated, we store cur->pre, if not
+                    //we update pre->0, cur= 1
                     pre = list.get(i) == list.get(i - 1) + 2 ? cur : 0;
                     cur = 1;
                 }
+                //in current position, we want to know max length
                 sum = Math.max(sum, cur + pre);
             }
+            //for each list, we 
             res = Math.max(res, sum + (sum < list.size() ? 1 : 0));
         }
         return res;
@@ -84,5 +89,9 @@ Output: 3
         }
 
         return res;
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(maxRepOpt1("aabca"));
     }
 }
