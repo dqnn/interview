@@ -22,10 +22,10 @@ Output: 3
     //we use a map<char, List<Integer>> to store char<->{1,3} indexes of char, then 
     //for each list, we want to know 
     //1 whether they are continuous or not? 
-    //2 whether it has 2 diff between the two elements. 
+    //2 whether it has 2 diff between the two elements. and we need to concatening those
     
     //we use cur to record the length of repeated chars, pre means the previous repeated
-    //chars
+    //chars, if 
     public int maxRepOpt1(String s) {
         if(s == null || s.length() < 1) return 0;
         
