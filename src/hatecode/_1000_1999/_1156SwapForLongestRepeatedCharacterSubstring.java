@@ -43,13 +43,14 @@ Output: 3
                 else {
                     //there is one char not repeated, we store cur->pre, if not
                     //we update pre->0, cur= 1
+                    //for example: aaabbaaa, we can know previous segment has 3 chars
                     pre = list.get(i) == list.get(i - 1) + 2 ? cur : 0;
                     cur = 1;
                 }
                 //in current position, we want to know max length
                 sum = Math.max(sum, cur + pre);
             }
-            //for each list, we 
+            //for each char, we would like know its max possible length
             res = Math.max(res, sum + (sum < list.size() ? 1 : 0));
         }
         return res;
