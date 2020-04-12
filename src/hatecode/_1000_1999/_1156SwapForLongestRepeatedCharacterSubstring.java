@@ -63,23 +63,20 @@ Output: 3
         for (int i = 0; i < len; ++i)
             ++dict[text.charAt(i) - 'a'];
 
-        HashMap<Character, Integer> win = new HashMap();
+        Map<Character, Integer> win = new HashMap<>();
         int res = 0, sizeMoreThanTwo = 0, maxId = -1;
 
         for (int l = 0, r = 0; r < len; ++r) {
             char c = text.charAt(r);
 
             win.put(c, win.getOrDefault(c, 0) + 1);
-            if (win.get(c) == 2)
-                ++sizeMoreThanTwo;
+            if (win.get(c) == 2) ++sizeMoreThanTwo;
 
             while (win.size() > 2 || sizeMoreThanTwo > 1) {
                 c = text.charAt(l++);
                 win.put(c, win.getOrDefault(c, 0) - 1);
-                if (win.get(c) == 1)
-                    --sizeMoreThanTwo;
-                if (win.get(c) == 0)
-                    win.remove(c);
+                if (win.get(c) == 1) --sizeMoreThanTwo;
+                if (win.get(c) == 0) win.remove(c);
             }
 
             for (Character _c : win.keySet()) {
