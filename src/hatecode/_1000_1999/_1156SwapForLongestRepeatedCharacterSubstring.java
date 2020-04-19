@@ -71,24 +71,24 @@ Output: 3
         for (int i = 0; i < len; ++i)
             ++dict[text.charAt(i) - 'a'];
 
-        Map<Character, Integer> win = new HashMap<>();
+        Map<Character, Integer> winMap = new HashMap<>();
         int res = 0, sizeMoreThanTwo = 0;
 
         for (int l = 0, r = 0; r < len; ++r) {
             char c = text.charAt(r);
 
-            win.put(c, win.getOrDefault(c, 0) + 1);
-            if (win.get(c) == 2) ++sizeMoreThanTwo;
+            winMap.put(c, winMap.getOrDefault(c, 0) + 1);
+            if (winMap.get(c) == 2) ++sizeMoreThanTwo;
 
-            while (win.size() > 2 || sizeMoreThanTwo > 1) {
+            while (winMap.size() > 2 || sizeMoreThanTwo > 1) {
                 c = text.charAt(l++);
-                win.put(c, win.getOrDefault(c, 0) - 1);
-                if (win.get(c) == 1) --sizeMoreThanTwo;
-                if (win.get(c) == 0) win.remove(c);
+                winMap.put(c, winMap.getOrDefault(c, 0) - 1);
+                if (winMap.get(c) == 1) --sizeMoreThanTwo;
+                if (winMap.get(c) == 0) winMap.remove(c);
             }
 
-            for (Character _c : win.keySet()) {
-                res = (win.size() == 1 || dict[_c - 'a'] > win.get(_c)) ? Math.max(res, r - l + 1)
+            for (Character _c : winMap.keySet()) {
+                res = (winMap.size() == 1 || dict[_c - 'a'] > winMap.get(_c)) ? Math.max(res, r - l + 1)
                         : Math.max(res, r - l);
             }
         }
