@@ -86,6 +86,7 @@ Output: 3
             char c = text.charAt(r);
 
             winMap.put(c, winMap.getOrDefault(c, 0) + 1);
+            //means there are only two chars in the window, so we increase sizeMoreThanTwo
             if (winMap.get(c) == 2) ++sizeMoreThanTwo;
             
             //like ababa, winMap.size() ==2 but we still able to move right, 
