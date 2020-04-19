@@ -63,7 +63,7 @@ Output: 3
     //sliding window solution
     //thinking process: 
     
-    //
+    //thinking about a window, if 
     public int maxRepOpt1_SlidingWin(String text) {
         int len = text.length();
 
