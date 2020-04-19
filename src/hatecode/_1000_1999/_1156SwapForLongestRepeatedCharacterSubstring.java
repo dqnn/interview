@@ -63,7 +63,16 @@ Output: 3
     //sliding window solution
     //thinking process: 
     
-    //thinking about a window, if 
+    //thinking about a window, 
+    /*
+     * 1. why sliding window can solve this problem?
+     * 2. how to move left and right pointer?
+     * 
+     * so the purpose of sliding window is: it always seek for longest substring under restrictions,
+     * like 
+     * when we add a char into winMap means r moves right 
+     * when we found winMap has more than 2 distinct chars || 
+     */
     public int maxRepOpt1_SlidingWin(String text) {
         int len = text.length();
 
@@ -78,7 +87,9 @@ Output: 3
 
             winMap.put(c, winMap.getOrDefault(c, 0) + 1);
             if (winMap.get(c) == 2) ++sizeMoreThanTwo;
-
+            
+            //like ababa, winMap.size() ==2 but we still able to move right, 
+            //but when there are 2 chars in map, we want to move l to right
             while (winMap.size() > 2 || sizeMoreThanTwo > 1) {
                 //move left pointer, so window size will be less than 1
                 c = text.charAt(l++);
@@ -87,7 +98,8 @@ Output: 3
                 if (winMap.get(c) == 1) --sizeMoreThanTwo;
                 if (winMap.get(c) == 0) winMap.remove(c);
             }
-
+            
+            //means if there are more char in string we can switch for [l, r] range
             for (Character _c : winMap.keySet()) {
                 res = (winMap.size() == 1 || dict[_c - 'a'] > winMap.get(_c)) 
                         ? Math.max(res, r - l + 1): Math.max(res, r - l);
