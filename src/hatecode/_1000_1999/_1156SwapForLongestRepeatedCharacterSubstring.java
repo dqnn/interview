@@ -20,9 +20,11 @@ Output: 3
     //longest substring length in the string, only swap 1 time
     
     //we use a map<char, List<Integer>> to store char<->{1,3} indexes of char, then 
-    //for each list, we want to know 
+    //for each list, like we removed the different char from string, but keep same left on each 
+    //index, so we can see there are 2 cases: 
     //1 whether they are continuous or not? 
-    //2 whether it has 2 diff between the two elements. and we need to choose which one has max length
+    //2 if not contious, like aabaaa, so we need to see if we put a in first b or second b will be 
+    //better,so we need to store current max and continue next,
     
     //we use cur to record the length of repeated chars, pre means the previous repeated
     //chars, 
@@ -36,6 +38,7 @@ Output: 3
         
         int res = 0;
         for (List<Integer> list : map.values()) {
+            //pre means previous segment string length
             int cur = 1, pre = 0, sum = 1;
             for (int i = 1; i < list.size(); i++) {
                 //adjacent repeated chars
@@ -43,7 +46,7 @@ Output: 3
                 else {
                     //there is one char not repeated, we store cur->pre, if not
                     //we update pre->0, cur= 1
-                    //for example: aaabbaaa, we can know previous segment has 3 chars
+                    //for example: aaabaaa, we can know previous segment has 3 chars
                     pre = list.get(i) == list.get(i - 1) + 2 ? cur : 0;
                     cur = 1;
                 }
