@@ -61,6 +61,9 @@ Output: 3
     }
     
     //sliding window solution
+    //thinking process: 
+    
+    //
     public int maxRepOpt1_SlidingWin(String text) {
         int len = text.length();
 
@@ -69,7 +72,7 @@ Output: 3
             ++dict[text.charAt(i) - 'a'];
 
         Map<Character, Integer> win = new HashMap<>();
-        int res = 0, sizeMoreThanTwo = 0, maxId = -1;
+        int res = 0, sizeMoreThanTwo = 0;
 
         for (int l = 0, r = 0; r < len; ++r) {
             char c = text.charAt(r);
