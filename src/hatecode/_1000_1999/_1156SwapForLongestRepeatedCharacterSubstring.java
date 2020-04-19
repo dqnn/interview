@@ -68,8 +68,7 @@ Output: 3
         int len = text.length();
 
         int[] dict = new int[26];
-        for (int i = 0; i < len; ++i)
-            ++dict[text.charAt(i) - 'a'];
+        for (int i = 0; i < len; ++i) ++dict[text.charAt(i) - 'a'];
 
         Map<Character, Integer> winMap = new HashMap<>();
         int res = 0, sizeMoreThanTwo = 0;
@@ -81,15 +80,17 @@ Output: 3
             if (winMap.get(c) == 2) ++sizeMoreThanTwo;
 
             while (winMap.size() > 2 || sizeMoreThanTwo > 1) {
+                //move left pointer, so window size will be less than 1
                 c = text.charAt(l++);
                 winMap.put(c, winMap.getOrDefault(c, 0) - 1);
+                
                 if (winMap.get(c) == 1) --sizeMoreThanTwo;
                 if (winMap.get(c) == 0) winMap.remove(c);
             }
 
             for (Character _c : winMap.keySet()) {
-                res = (winMap.size() == 1 || dict[_c - 'a'] > winMap.get(_c)) ? Math.max(res, r - l + 1)
-                        : Math.max(res, r - l);
+                res = (winMap.size() == 1 || dict[_c - 'a'] > winMap.get(_c)) 
+                        ? Math.max(res, r - l + 1): Math.max(res, r - l);
             }
         }
 
