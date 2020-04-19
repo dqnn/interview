@@ -38,7 +38,7 @@ Output: 3
         
         int res = 0;
         for (List<Integer> list : map.values()) {
-            //pre means previous segment string length
+            //pre means previous repeated char segment length
             int cur = 1, pre = 0, sum = 1;
             for (int i = 1; i < list.size(); i++) {
                 //adjacent repeated chars
@@ -53,9 +53,8 @@ Output: 3
                 //in current position, we want to know max length
                 sum = Math.max(sum, cur + pre);
             }
-            //for each char, we would like know its max possible length
-            //if in a list all are successive then sum = length,if not it means 
-            //the max length of the substring,like aaabcccdeeeee, something, answer is 5
+            //for string like "ccbbccccc", we will find finally cur = 5, pre = 0, sum = 5
+            //but list.size() == 7, so we can swap one to make  longest. 
             res = Math.max(res, sum + (sum < list.size() ? 1 : 0));
         }
         return res;
