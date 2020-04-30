@@ -33,7 +33,10 @@ The number of queries is at most 10000
 
     //thinking process: O(n+ lgn)/O(n)
     
-    //this is the binary search solution
+    //the problems is to say: given a integer array, implement API query(l, r, threshold),
+    //you need to find out the majority elements during [l ,r] as subarray in given array
+    
+    //this is the binary search solution. here is one trick, 
     Map<Integer, List<Integer>> map = new HashMap<>();
     int[] A;
     public _1157OnlineMajorityElementInSubarray(int[] arr) {
