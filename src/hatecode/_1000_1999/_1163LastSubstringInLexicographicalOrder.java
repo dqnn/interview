@@ -14,6 +14,20 @@ Input: "abab"
 Output: "bab"
 Explanation: The substrings are ["a", "ab", "aba", "abab", "b", "ba", "bab"]. The lexicographically 
 */
+    //thinking process: O(n)/O(1)
+    
+    //the problem is to say: given a string s, for all substrings of s, find the last substring with
+    //max lexi order
+    
+    //what's the lexi order, like the order in dictionary
+    //1. letter order
+    //2. same prefix, then longer strings are in latter
+    //so
+    //1 we seek for largest char in the s.
+    //2 all substring with this char should be considered. from the position to end
+    //3 looping the 2 output list, remove first char, repeat 1 and 2 until we have 1 left
+    
+    //
     public String lastSubstring(String s) {
         int l = s.length();
         int i = 0, j = 1, k = 0;
