@@ -20,9 +20,20 @@ Output: 2
     //thinking process: O(m * n)/O(1)
     
     //the problem is to say: given matrix m * n, filled with 0 and 1, find the max distance between 0 and all 1s, 
-    //this means they all have same manhatan distance
+    //this means they all have same Manhattan distance
     
-    //
+    //we use BFS to scan the grid, first we add all 1s into queue, then we bfs expand 
+    //to look for 0s, change to 1s, so we can avoid visit again, if we cannot change the origin
+    //grid then we use visited array
+    
+    //how many levels visited - 1 is actually the Manhattan distance, for above example
+    /*[[1,0,1],      [1,1,1]     [1,1,1]
+     * [0,0,0],  --> [1,0,1]  -> [1,1,1] -> nothing to do
+     * [1,0,1]]      [1,1,1]     [1,1,1] 
+     * q.size = 4     q.size= 4    q.size= 1
+     * 
+     * but overall the distance is 2, last one means we already there and we should remove last step.
+     */
     public int maxDistance_BFS(int[][] g) {
         if(g == null || g.length < 1 || g[0].length < 1) return 0;
         
@@ -55,25 +66,26 @@ Output: 2
         return res-1;
     }
     
-    public int maxDistance(int[][] grid) {
-        if(grid == null || grid.length < 1 || grid[0].length < 1) return 0;
+    //TODO: to understand this, 
+    public int maxDistance(int[][] g) {
+        if(g == null || g.length < 1 || g[0].length < 1) return 0;
         
-        int n = grid.length, m = grid[0].length, res = 0;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                if (grid[i][j] == 1) continue;
-                grid[i][j] = 201; //201 here cuz as the despription, the size won't exceed 100.
-                if (i > 0) grid[i][j] = Math.min(grid[i][j], grid[i-1][j] + 1);
-                if (j > 0) grid[i][j] = Math.min(grid[i][j], grid[i][j-1] + 1);
+        int r = g.length, c = g[0].length, res = 0;
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                if (g[i][j] == 1) continue;
+                g[i][j] = 201; //201 here cuz as the despription, the size won't exceed 100.
+                if (i > 0) g[i][j] = Math.min(g[i][j], g[i-1][j] + 1);
+                if (j > 0) g[i][j] = Math.min(g[i][j], g[i][j-1] + 1);
             }
         }
         
-        for (int i = n-1; i > -1; i--) {
-            for (int j = m-1; j > -1; j--) {
-                if (grid[i][j] == 1) continue;
-                if (i < n-1) grid[i][j] = Math.min(grid[i][j], grid[i+1][j] + 1);
-                if (j < m-1) grid[i][j] = Math.min(grid[i][j], grid[i][j+1] + 1);
-                res = Math.max(res, grid[i][j]); //update the maximum
+        for (int i = r-1; i > -1; i--) {
+            for (int j = c-1; j > -1; j--) {
+                if (g[i][j] == 1) continue;
+                if (i < r-1) g[i][j] = Math.min(g[i][j], g[i+1][j] + 1);
+                if (j < c-1) g[i][j] = Math.min(g[i][j], g[i][j+1] + 1);
+                res = Math.max(res, g[i][j]); //update the maximum
             }
         }
         
