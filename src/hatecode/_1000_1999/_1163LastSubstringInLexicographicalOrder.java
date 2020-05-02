@@ -42,6 +42,7 @@ the second string to j+k+1. Because s[j]~s[j+k] must be less than s[i], otherwis
 will be updated by "j". So the next possible candidate is "j+k+1".
      */
     
+    //need more time to understand this
     public String lastSubstring(String s) {
         int l = s.length();
         
@@ -67,13 +68,20 @@ will be updated by "j". So the next possible candidate is "j+k+1".
     }
     
     //encoding solution
+    /*Traverse the input string reversely, encode all suffices and compare them and update max and the corresponding index. e.g., for "bba",
+    radix is 2, and we have suffices "a", "ba", "bba" and their encoding are as follows:
+        0 * 2 * 2 = 0, 0 * 2 + 1 * 2 * 2 = 4, 0 + 1 * 2 + 1 * 2 * 2 = 6
+
+        We can use TreeSet.headSet(key).size() to get indices of corresponding characters.
+        */
     public String lastSubstring_encoding(String s) {
         TreeSet<Character> ts = new TreeSet<>();
-        for (int i = 0; i < s.length(); ++i)
-            ts.add(s.charAt(i));
+        for (char c: s.toCharArray()) ts.add(c);
+        
         int radix = ts.size(), lo = 0;
         double max = 0d, cur = 0d;
         for (int i = s.length() - 1; i >= 0; --i) {
+            //headset means less than 
             cur = ts.headSet(s.charAt(i)).size() + cur / radix;
             if (max <= cur) {
                 max = cur;
