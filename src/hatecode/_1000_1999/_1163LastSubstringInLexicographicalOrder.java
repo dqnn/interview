@@ -78,11 +78,13 @@ will be updated by "j". So the next possible candidate is "j+k+1".
         TreeSet<Character> ts = new TreeSet<>();
         for (char c: s.toCharArray()) ts.add(c);
         
-        int radix = ts.size(), lo = 0;
+        //distinct char count
+        int distinctCharCnt = ts.size(), lo = 0;
         double max = 0d, cur = 0d;
+        //we traverse back
         for (int i = s.length() - 1; i >= 0; --i) {
             //headset means less than 
-            cur = ts.headSet(s.charAt(i)).size() + cur / radix;
+            cur = ts.headSet(s.charAt(i)).size() + cur / distinctCharCnt;
             if (max <= cur) {
                 max = cur;
                 lo = i;
