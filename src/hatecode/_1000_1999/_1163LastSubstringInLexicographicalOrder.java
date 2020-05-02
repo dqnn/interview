@@ -27,7 +27,20 @@ Explanation: The substrings are ["a", "ab", "aba", "abab", "b", "ba", "bab"]. Th
     //2 all substring with this char should be considered. from the position to end
     //3 looping the 2 output list, remove first char, repeat 1 and 2 until we have 1 left
     
-    //
+    /*
+1."i" is the starting index of the first substring
+2."j" is the staring index of the second substring
+3."k" is related to substring.length() (eg. "k" is substring.length()-1)
+
+Case 1 (s[i+k]==s[j+k]):
+-> If s.substr(i,k+1)==s.substr(j,k+1), we keep increasing k.
+Case 2 (s[i+k]<s[j+k]):
+-> If the second substring is larger, we update i with j. (The final answer is s.substr(i))
+Case 3 (s[i+k]>s[j+k]):
+-> If the second substring is smaller, we just change the starting index of 
+the second string to j+k+1. Because s[j]~s[j+k] must be less than s[i], otherwise "i" 
+will be updated by "j". So the next possible candidate is "j+k+1".
+     */
     public String lastSubstring(String s) {
         int l = s.length();
         int i = 0, j = 1, k = 0;
