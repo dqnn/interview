@@ -61,11 +61,11 @@ fileSystem.get("/a"); // return 1
             if (folders[i].equals("")) {
                 continue;
             }
-        	if (currNode.children.containsKey(folders[i])) {
-        		currNode = currNode.children.get(folders[i]);
-        	} else {
-        		return false;
-        	}
+            if (currNode.children.containsKey(folders[i])) {
+                currNode = currNode.children.get(folders[i]);
+            } else {
+                return false;
+            }
         }
         
         // check if the path exists
@@ -85,11 +85,11 @@ fileSystem.get("/a"); // return 1
             if (folder.equals("")) {
                 continue;
             }
-        	if (currNode.children.containsKey(folder)) {
-        		currNode = currNode.children.get(folder);
-        	} else {
-        		return -1;
-        	}
+            if (currNode.children.containsKey(folder)) {
+                currNode = currNode.children.get(folder);
+            } else {
+                return -1;
+            }
         }
 
         return currNode.value;
