@@ -68,6 +68,7 @@ will be updated by "j". So the next possible candidate is "j+k+1".
     }
     
     //encoding solution
+    //this is not good solution, not easy to figure out the formula
     /*Traverse the input string reversely, encode all suffices and compare them and update max and the corresponding index. e.g., for "bba",
     radix is 2, and we have suffices "a", "ba", "bba" and their encoding are as follows:
         0 * 2 * 2 = 0, 0 * 2 + 1 * 2 * 2 = 4, 0 + 1 * 2 + 1 * 2 * 2 = 6
@@ -80,12 +81,20 @@ will be updated by "j". So the next possible candidate is "j+k+1".
         
         //distinct char count
         int distinctCharCnt = ts.size(), lo = 0;
+        //for "cacacb", when point to "cb" c, we can see cur  = 1, 
+        //then cur = 2 + 1/3, 
+        //so we can see the formula that ts.headSet is most important since how many chars
+        //before the input is key, the latter part is always smaller than 1. this indicates us 
+        //the char order is most significant contributor
+        
+        //but if first part is the same, then 2nd means if we have more chars, then it is bigger
         double max = 0d, cur = 0d;
         //we traverse back
         for (int i = s.length() - 1; i >= 0; --i) {
             //headset means less than， so the char which has biggest ASCII integer,
             //we can get the biggest number, 
-            // cur / distinctCharCnt < 1
+            // cur / distinctCharCnt < 1, for "cacacb" answer is "cb", we can try
+            //this algorithms, cur / distinctCharCnt 
             //ts.headSet(s.charAt(i)).size() <= distinctCharCnt - 1
             cur = ts.headSet(s.charAt(i)).size() + cur / distinctCharCnt;
             if (max <= cur) {
