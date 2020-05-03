@@ -44,19 +44,24 @@ will be updated by "j". So the next possible candidate is "j+k+1".
     
     //need more time to understand this
     public String lastSubstring(String s) {
-        int l = s.length();
+        int e = s.length();
         
         //i is first string starting index
         //j is 2nd string starting index
         //w is the width of both strings
         int i = 0, j = 1, w = 0;
-        while(j + w < l) {
+        while(j + w < e) {
+            //we increase the window if both string has same char in same position
             if (s.charAt(i+w) == s.charAt(j+w)){
                 w++;
                 continue;
             }
+            //if first string is bigger than 2nd, then we move 2nd string starting pointer 
+            //to right
             if (s.charAt(i+w) > s.charAt(j+w)){
                 j++;
+            //if first smaller than 2nd, then we move i to j, then 2nd pointer to j + 1 to have 
+            //one char. last reset window = 0.
             } else {
                 i = j;
                 j = i + 1;
