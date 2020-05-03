@@ -83,7 +83,10 @@ will be updated by "j". So the next possible candidate is "j+k+1".
         double max = 0d, cur = 0d;
         //we traverse back
         for (int i = s.length() - 1; i >= 0; --i) {
-            //headset means less than 
+            //headset means less than， so the char which has biggest ASCII integer,
+            //we can get the biggest number, 
+            // cur / distinctCharCnt < 1
+            //ts.headSet(s.charAt(i)).size() <= distinctCharCnt - 1
             cur = ts.headSet(s.charAt(i)).size() + cur / distinctCharCnt;
             if (max <= cur) {
                 max = cur;
