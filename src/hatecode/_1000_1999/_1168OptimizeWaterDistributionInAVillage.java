@@ -1,6 +1,10 @@
 package hatecode._1000_1999;
 
 import java.util.*;
+
+import hatecode._1000_1999._1061LexicographicallySmallestEquivalentString.DSU;
+import hatecode.base.SDSU;
+
 public class _1168OptimizeWaterDistributionInAVillage {
 /*
 1168. Optimize Water Distribution in a Village
@@ -12,7 +16,7 @@ Find the minimum total cost to supply water to all houses.
 Input: n = 3, wells = [1,2,2], pipes = [[1,2,1],[2,3,1]]
 Output: 3
 */
-    //thinking process: O(n)/O(n)
+    //thinking process: O(n + mlgm)/O(n + m), n is nodes, m is edges
     
     //so the problem is to say: given n houses, each house has 2 ways to get water,
     //one is to dig wells, cost is wells[i], another is get water from another house, cost is 
@@ -66,7 +70,9 @@ Output: 3
         // what we need to smallest connected graph in G, we do not need to 
         //loop every possible path, so pq.size() will have a long way to 0 if 
         //backtracking or others
-        while (pq.size() > 0 && seen.size() < n + 1) {
+        
+        //every time we always have smallest cost to construct the tree, greedy
+        while (pq.size() > 0 && seen.size() <= n) {
             Edge minEdge = pq.poll();
             
             if (seen.contains(minEdge.v)) continue;
@@ -85,5 +91,34 @@ Output: 3
     
     public static void main(String[] args) {
         System.out.println(new _1168OptimizeWaterDistributionInAVillage().minCostToSupplyWater(3,  new int[] {1,2,1}, new int[][] {{1,2,1}, {2,3,1}}));
+        System.out.println(new _1168OptimizeWaterDistributionInAVillage().minCostToSupplyWater_UF(3,  new int[] {1,2,1}, new int[][] {{1,2,1}, {2,3,1}}));
+    }
+    
+    
+    //this is pretty neaty solution.
+    
+    //so from the problem we understand that each house has 2 ways to get water, 
+    //
+    public int minCostToSupplyWater_UF(int n, int[] wells, int[][] pipes) {
+        
+        SDSU dsu = new SDSU(n + 1);
+        List<int[]> edges = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            edges.add(new int[] {0, i + 1, wells[i]});
+        }
+        for (int[] p : pipes) {
+            edges.add(p);
+        }
+        Collections.sort(edges, (a, b) -> Integer.compare(a[2], b[2]));
+
+        int res = 0;
+        for (int[] e : edges) {
+            int x = dsu.find(e[0]), y = dsu.find(e[1]);
+            if (x != y) {
+                res += e[2];
+                dsu.union(x, y);
+            }
+        }
+        return res;
     }
 }
