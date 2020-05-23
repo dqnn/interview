@@ -45,22 +45,27 @@ Output: 3
         PriorityQueue<Edge> pq = new PriorityQueue<>((a, b)->(a.w - b.w));
         Set<Integer> seen = new HashSet<>();
         int cost = 0;
-        
+        //we create mapping i->node(i)
         for (int i = 0; i <= n; i++) map.put(i, new Node(i));
         
+        //we create virtually node 0 which would connect all other nodes
         for (int i = 0 ; i < wells.length; i++) {
             Edge e = new Edge(i + 1, wells[i]);
             map.get(0).edges.add(e);
             pq.offer(e);
         }
         
+        //for every node, we add all real edges
         for (int[] pipe : pipes) {
             map.get(pipe[0]).edges.add(new Edge(pipe[1], pipe[2]));
             map.get(pipe[1]).edges.add(new Edge(pipe[0], pipe[2]));
         }
         
         seen.add(0);
-                
+        //so we want to make sure the max(seen.size) = n + 1, because 
+        // what we need to smallest connected graph in G, we do not need to 
+        //loop every possible path, so pq.size() will have a long way to 0 if 
+        //backtracking or others
         while (pq.size() > 0 && seen.size() < n + 1) {
             Edge minEdge = pq.poll();
             
