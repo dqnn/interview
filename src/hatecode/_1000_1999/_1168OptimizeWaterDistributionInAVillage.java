@@ -14,7 +14,16 @@ Output: 3
 */
     //thinking process: O(n)/O(n)
     
-    //so the problem is to say: 
+    //so the problem is to say: given n houses, each house has 2 ways to get water,
+    //one is to dig wells, cost is wells[i], another is get water from another house, cost is 
+    //pipes[1][2] means house 1 to house 2 cost an vice either.
+    //so if we want all houses get water, how much cost totally?
+    
+    //so this is typical MST algortihms, given N nodes and its edges, find the smallest
+    //cost with all nodes there.
+    
+    //but the only different here is the nodes not start from 0 while they start from 1, and 
+    //we add node 0 virtually connect to all nodes. 
     class Edge {
         int v;
         int w;
