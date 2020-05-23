@@ -64,8 +64,7 @@ Output: 3
         while (pq.size() > 0 && seen.size() < n + 1) {
             Edge minEdge = pq.poll();
             
-            if (seen.contains(minEdge.v))
-                continue;
+            if (seen.contains(minEdge.v)) continue;
             
             seen.add(minEdge.v);
             cost += minEdge.w;
