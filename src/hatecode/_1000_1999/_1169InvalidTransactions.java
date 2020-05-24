@@ -29,8 +29,9 @@ Output: ["alice,20,800,mtv","alice,50,100,beijing"]
     
     //the biggest problem is the stream data, it does not come as time series, 
     //some time are lag behind, so we need to compare each transaction to all previous 
-    //transactions, i believe we can improve here is to use TreeMap to filter out the time diff
-    //is 60m
+    //transactions, 
+    //if we sort, the time complexity is O(nlgn), we do not need that, we just 
+    //compare so it is O(n)
     public class Transaction {
         String name;
         int time;
@@ -58,26 +59,20 @@ Output: ["alice,20,800,mtv","alice,50,100,beijing"]
             int amount = Integer.valueOf(split[2]);
             String city = split[3];
             
-            if(amount > 1000) {
-                out.add(t);
-            }
-            
+            //the matching condition is or, so we cannot use if else
+            if(amount > 1000) out.add(t);
+
+            map.computeIfAbsent(name, v->new ArrayList<>()).add(new Transaction(name, time, city, t));
             List<Transaction> otherTransactions = map.get(name);
-            
-            if(otherTransactions == null) {
-                otherTransactions = new ArrayList<>();
-                otherTransactions.add(new Transaction(name, time, city, t));
-                map.put(name, otherTransactions);
-            } else {
-                for(Transaction transa : otherTransactions) {
-                    if(!transa.city.equals(city) && Math.abs(transa.time - time) <= 60) {
-                        out.add(transa.trans);
-                        out.add(t);
-                    }
+            //we do not need sort, because we just want to compare one by one
+            for (Transaction transa : otherTransactions) {
+                if (!transa.city.equals(city) && Math.abs(transa.time - time) <= 60) {
+                    out.add(transa.trans);
+                    out.add(t);
                 }
-                
-                otherTransactions.add(new Transaction(name, time, city, t));
             }
+
+            otherTransactions.add(new Transaction(name, time, city, t));
         }
         
         return new ArrayList<String>(out);
