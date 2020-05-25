@@ -18,7 +18,15 @@ Output: [1,2]
     
     //thinking process: O(aq + bq + b + algb)/O(max(ap,bq) + b)
     
-    //the problem 
+    //the problem is to say, for each string, we would like to know its smallest char
+    //frequency, for given two string arrays,String[] queries and String[] words
+    
+    //we would like to for any string in query, we want to know how many strings in words
+    //the smallest char frequency is higher than one in queries
+    
+    //as example queries = ["bbb","cc"], words = ["a","aa","aaa","aaaa"]
+    //bbb=>3, cc->2, so in words =[1,2,3,4], we 1 string bigger than 3,and 2 bigger than 2
+    //so result is [1,2]
     public int[] numSmallerByFrequency_BF(String[] queries, String[] words) {
         if(queries == null || queries.length < 1 || words == null || words.length < 1) return new int[0];
         
