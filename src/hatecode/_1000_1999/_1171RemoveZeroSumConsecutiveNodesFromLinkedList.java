@@ -33,21 +33,21 @@ Output: [3,1]
         
         ListNode dummy = new ListNode(0), cur = dummy;
         dummy.next = head;
-        int prefix = 0;
-        Map<Integer, ListNode> m = new HashMap<>();
+        int preSum = 0;
+        Map<Integer, ListNode> map = new HashMap<>();
         while (cur != null) {
-            prefix += cur.val;
-            if (m.containsKey(prefix)) {
-                cur =  m.get(prefix).next;
-                int p = prefix + cur.val;
-                while (p != prefix) {
-                    m.remove(p);
+            preSum += cur.val;
+            if (map.containsKey(preSum)) {
+                cur =  map.get(preSum).next;
+                int p = preSum + cur.val;
+                while (p != preSum) {
+                    map.remove(p);
                     cur = cur.next;
                     p += cur.val;
                 }
-                m.get(prefix).next = cur.next;
+                map.get(preSum).next = cur.next;
             } else {
-                m.put(prefix, cur);
+                map.put(preSum, cur);
             }
             cur = cur.next;
         }
