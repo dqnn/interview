@@ -61,8 +61,12 @@ Output: [3,1]
     
     //this is same solution as above, but this one is more neat and we did not remove 
     //the old nodes pointer to null
+    
+    //the good part is easy to understand, bad part is 2 pass though complexity is 
+    //the same
     public ListNode removeZeroSumSublists_2PASS(ListNode head) {
-        if (head==null) return null;
+        if (head == null || head.next == null) return null;
+        
         int sum = 0;
         ListNode dmy = new ListNode(0);
         dmy.next = head;
