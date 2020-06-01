@@ -27,7 +27,8 @@ Output: [3,1]
     
     //so if we think sub array sum = 0, then it is easy to think about prefix Sum,
     //we use a dummy node, just in case the head is included, 
-    //
+    //the code first while loop is to visit all nodes, 2nd while loop is 
+    //to remove the nodes which sum = 0; 
     public ListNode removeZeroSumSublists(ListNode head) {
         if(head == null) return head;
         
@@ -37,14 +38,18 @@ Output: [3,1]
         Map<Integer, ListNode> map = new HashMap<>();
         while (cur != null) {
             preSum += cur.val;
+            //means a find a sub linked list sum = 0;
             if (map.containsKey(preSum)) {
                 cur =  map.get(preSum).next;
+                //p is sub linked list sum
                 int p = preSum + cur.val;
+                // p == sum means we find all nodes
                 while (p != preSum) {
                     map.remove(p);
                     cur = cur.next;
                     p += cur.val;
                 }
+                //this is to mark node prioir first node to last one's next
                 map.get(preSum).next = cur.next;
             } else {
                 map.put(preSum, cur);
