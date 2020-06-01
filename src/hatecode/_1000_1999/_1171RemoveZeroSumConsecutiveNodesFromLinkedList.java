@@ -54,6 +54,8 @@ Output: [3,1]
         return dummy.next;
     }
     
+    //this is same solution as above, but this one is more neat and we did not remove 
+    //the old nodes pointer to null
     public ListNode removeZeroSumSublists_2PASS(ListNode head) {
         if (head==null) return null;
         int sum = 0;
