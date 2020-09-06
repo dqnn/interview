@@ -1,12 +1,10 @@
-package hatecode._1000_1999;
+package hatecode._0001_0999;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-
-import hatecode._0001_0999.TreeNode;
 
 /**
  * Created by duqiang on 28/07/2017.
