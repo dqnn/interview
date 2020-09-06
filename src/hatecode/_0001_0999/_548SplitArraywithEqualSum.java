@@ -58,8 +58,9 @@ Iterate middle cuts and then find left cuts which divides the first half into tw
             }
             // k must begin with j + 2 since there must be at least 1 number j+1 for one subarray
             for (int k = j + 2; k < nums.length - 1; k++) {
-                if (sum[nums.length - 1] - sum[k] == sum[k - 1] - sum[j] 
-                        && set.contains(sum[k - 1] - sum[j]))
+                int skn = sum[nums.length - 1] - sum[k];
+                int sjk = sum[k - 1] - sum[j];
+                if ( skn == sjk && set.contains(sjk))
                     return true;
             }
         }
