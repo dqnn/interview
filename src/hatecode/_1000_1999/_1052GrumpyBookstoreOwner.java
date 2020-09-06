@@ -34,6 +34,11 @@ Output: 16
     //if window starts from each element, the biggest value, 
     public int maxSatisfied(int[] customers, int[] grumpy, int X) {
         if(customers == null || customers.length< 1) return 0;
+        
+        //we use 3 variables:
+        //1. win: how many customers in the window
+        //2. maxSatisfiedInWin: max customer satisfied in the window
+        //3. satisfied: always satisfied customer
         int win = 0, maxSatisfiedInWin = 0, satisfied = 0;
         for(int i = 0; i< customers.length; i++) {
             if(grumpy[i] == 0) satisfied += customers[i];
