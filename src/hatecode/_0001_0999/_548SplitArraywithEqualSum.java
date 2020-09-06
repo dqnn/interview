@@ -22,7 +22,7 @@ Iterate middle cuts and then find left cuts which divides the first half into tw
 */
     //thinking process: the problem is to ask to find 3 indexes where it would break 
     //the whole array into 4 parts, sum of each part equals the same, indexes themselves
-    //are exclusive
+    //are exclusive, this is essentially same as two sum
     
     //so this is like 3 Sum, we have a left pointer i ,i must begin with 1, then we have another 
     //2 pointer on i's right, so we can break the whole array into 4 parts, 
