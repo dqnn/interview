@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
-public class _584SplitArraywithEqualSum {
+public class _548SplitArraywithEqualSum {
 /*
 548. Split Array with Equal Sum
 Given an array with n integers, you need to find if there are triplets (i, j, k) which satisfies following conditions:
@@ -21,7 +21,8 @@ Here j is used for middle cut, i for left cut and k for right cut.
 Iterate middle cuts and then find left cuts which divides the first half into two equal quarters, store that quarter sums in the hashset. Then find right cuts which divides the second half into two equal quarters and check if quarter sum is present in the hashset. If yes return true.
 */
     //thinking process: the problem is to ask to find 3 indexes where it would break 
-    //the whole array into 4 parts, sum of each part equals the same
+    //the whole array into 4 parts, sum of each part equals the same, indexes themselves
+    //are exclusive
     
     //so this is like 3 Sum, we have a left pointer i ,i must begin with 1, then we have another 
     //2 pointer on i's right, so we can break the whole array into 4 parts, 
