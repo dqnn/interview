@@ -38,7 +38,8 @@ Output: 16
         //we use 3 variables:
         //1. win: how many customers in the window
         //2. maxSatisfiedInWin: max customer satisfied in the window
-        //3. satisfied: always satisfied customer
+        //3. satisfied: always satisfied customer, since each unit is 1 minute,
+        //so if it is 0 then it is definitely satisfied
         int win = 0, maxSatisfiedInWin = 0, satisfied = 0;
         for(int i = 0; i< customers.length; i++) {
             if(grumpy[i] == 0) satisfied += customers[i];
