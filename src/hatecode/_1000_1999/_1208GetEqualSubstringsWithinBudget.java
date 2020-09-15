@@ -31,8 +31,15 @@ Output: 3
     //pointer
     //each move we will have a window length, then we can use for max compare
     
+    //improvement:
+    //since it is always increasing, see simplifed code. 
+    
     //another solution is prefix sum and binary search, 
     //find two number max diff less than cost and it has longest length
+    //since prefix sum are always increasing since it is abs cost > 0. then we can use 
+    //binary seach to look for smallest number for each one
+    
+    
     public int equalSubstring(String s, String t, int maxCost) {
         if (s == null || t == null || s.length() != t.length() || maxCost < 0) {
             return 0;
@@ -48,5 +55,28 @@ Output: 3
             win = Math.max(win, r - l + 1);
         }
         return win;
+    }
+    
+    //TODO: understand why it indicate r = n means the max window
+    public int equalSubstring_Simplified(String s, String t, int maxCost) {
+        // sanity check
+        if(s == null || s.isEmpty() || t == null || t.isEmpty() 
+                || s.length() != t.length()) return 0;
+        
+        final char[] chss = s.toCharArray();
+        final char[] chst = t.toCharArray();
+        
+        int l = 0, r = 0;
+        while(r < s.length()){
+            maxCost -= Math.abs(chss[r] - chst[r]);
+
+            if(maxCost < 0){
+                maxCost += Math.abs(chss[l] - chst[l]);
+                l++;
+            }
+            r++;
+        }
+        
+        return r - l;
     }
 }
