@@ -84,6 +84,18 @@ Output: 3
             r++;
         }
 
+        /*here is the trick:
+         * 
+         * when we move r to right, like following example:
+         * "abcdaaaaaaaaaa"
+           "bcdeaaaaaaazzz"
+            3
+           max = 10, r = first z then it is the max window, but l will only move 1 step, so 
+           max length will be fixed. which means once we find the max length, it would be never change,
+           this is simplifed only for this case. because we did not use while when cost< 0 for typical sliding 
+           window, we should use while instead of if
+         */
+        
         return r - l;
     }
 }
