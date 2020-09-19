@@ -58,6 +58,13 @@ Output: 3
     }
     
     //TODO: understand why it indicate r = n means the max window
+    /*
+    what is sliding window(Two Pointers):
+    sliding window is a fixed length of window ???? when we move the window to 
+    right, we did not start from win =1, we always move left right pointers when necessary,
+    so it re-use the results from previous calculation that's why it has simple complexity
+    
+    */
     public int equalSubstring_Simplified(String s, String t, int maxCost) {
         // sanity check
         if(s == null || s.isEmpty() || t == null || t.isEmpty() 
@@ -76,7 +83,7 @@ Output: 3
             }
             r++;
         }
-        
+
         return r - l;
     }
 }
