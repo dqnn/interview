@@ -36,6 +36,8 @@ Output: 12
         boolean[] prime = new boolean[n + 1]; 
         //assign true from 2 to n, n+1 is exclusive, 2 is inclusive
         Arrays.fill(prime, 2, n+1, true); 
+        //this means max prime  in [2, n] is sqrt(n),for each possible prime 
+        //number, we start from i * i, step is i to mark it is not prime number
         for(int i=2; i * i <= n; i++) {
             if (prime[i]) 
                 for(int j=i*i; j <= n; j += i) 
