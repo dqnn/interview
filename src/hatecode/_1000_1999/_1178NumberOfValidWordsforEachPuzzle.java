@@ -26,22 +26,26 @@ Output: [1,1,3,2,4,0]
     
     //so return an array, res[i] means how many words in words are valid for puzzles
     
-    //we encode each word, 
+    //we encoded each word, 
     public List<Integer> findNumOfValidWords(String[] words, String[] puzzles) {
         if(words == null || words.length< 1) return new ArrayList<>();
+        
+        //here calculate the mask<-> words list
         List<Integer> res = new ArrayList<>();
         Map<Integer, Integer> map = new HashMap<>();
         for(String w : words) {
             int cur = encode(w);
             map.put(cur, map.getOrDefault(cur, 0) + 1);
         }
+        //
         for(String p : puzzles) {
-            
             int cur = encode(p);
+            //first char
             int must = 1 << (p.charAt(0) - 'a');
             int sub = cur;
             int count = 0;
             while(sub != 0) {
+                //contains first letter && 
                 if((sub & must) > 0 && map.containsKey(sub)){
                     count += map.get(sub);
                 }
@@ -53,6 +57,12 @@ Output: [1,1,3,2,4,0]
         }
         return res;
     }
+    
+    //we encode each char to this integer, 
+    //we have 32 bit while s can only have 26 bit, so we can definitely get an 
+    //integer which represent this string
+    
+    //but this integer can only represnet how many distinct character
     int encode(String s) {
         int res = 0;
         for(char c : s.toCharArray()) {
