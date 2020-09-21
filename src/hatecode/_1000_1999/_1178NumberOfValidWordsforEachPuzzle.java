@@ -39,18 +39,20 @@ Output: [1,1,3,2,4,0]
         }
         //
         for(String p : puzzles) {
-            int cur = encode(p);
+            int curPzzBits = encode(p);
             //first char
-            int must = 1 << (p.charAt(0) - 'a');
-            int sub = cur;
+            int fstCh = 1 << (p.charAt(0) - 'a');
+            int sub = curPzzBits;
             int count = 0;
             while(sub != 0) {
                 //contains first letter && 
-                if((sub & must) > 0 && map.containsKey(sub)){
+                if((sub & fstCh) > 0 && map.containsKey(sub)){
+                    //how many words
                     count += map.get(sub);
                 }
-                
-                sub = (sub - 1) & cur;
+                //puzzle may have more characters than words, but we can reduce one 
+                //each time to detect whether map contains its smaller integer representer
+                sub = (sub - 1) & curPzzBits;
             }
             
             res.add(count);
