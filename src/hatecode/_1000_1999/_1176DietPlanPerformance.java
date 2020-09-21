@@ -20,19 +20,32 @@ Example 1:
 Input: calories = [1,2,3,4,5], k = 1, lower = 3, upper = 3
 Output: 0
 */
+    
+    //thinking process: O(n)/O(1)
+    //the problem is to say: given an array A, a for length k of its subarray,
+    //if its sum > upper, then +1, if less than lower than -1,
+    //return points after all. 
+    
+    //so sliding window, but we need to care when K is >= its array length,so we
+    //can use i-k to minimize this impact.
     public int dietPlanPerformance(int[] A, int k, int lower, int upper) {
-        if(A ==null || A.length < 1 || k < 1 || lower >= upper) return 0;
+        if (A == null || A.length < 1 || k < 1 || lower >= upper)
+            return 0;
+
+        int res = 0;
         
-       int res = 0;
+        //two pointer or sliding window templates
         for (int i = 0, win = 0; i < A.length; ++i) {
             win += A[i];
-            if (i >= k - 1) {                                                      
-                if (i > k - 1) { win -= A[i - k]; } 
-                if (win < lower) { --res ; }
-                else if (win > upper) { ++res; }
+            //we remove first element, if window is bigger
+            if (i >= k - 1) {
+                if (i > k - 1) win -= A[i - k];
+
+                if (win < lower)       --res;
+                else if (win > upper)  ++res;
             }
         }
         return res;
-        
+
     }
 }
