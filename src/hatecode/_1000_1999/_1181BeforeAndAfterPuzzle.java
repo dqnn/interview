@@ -27,6 +27,12 @@ Input: phrases = ["writing code","code rocks"]
 Output: ["writing code rocks"]
 */
     // thinking process: O(n)/O(n)
+    
+    //the problem is to say: given string array of phrases, 
+    //if phrases[i] last word is the first of phrases[j] then we can concat them together
+    //and remove the same work, just keep one copy, return all strings
+    
+    //use one map can help, pretty straightforward.
     public List<String> beforeAndAfterPuzzles(String[] phrases) {
         int n = phrases.length;
         Map<String, List<Integer>> map = new HashMap<>();
