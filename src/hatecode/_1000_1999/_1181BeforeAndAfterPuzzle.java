@@ -1,6 +1,7 @@
 package hatecode._1000_1999;
 
 import java.util.*;
+import java.util.stream.IntStream;
 public class _1181BeforeAndAfterPuzzle {
 /*
 1181. Before and After Puzzle
@@ -12,7 +13,9 @@ No space appears in the start or the end of a phrase. There are no consecutive s
 Before and After puzzles are phrases that are formed by merging two phrases where 
 the last word of the first phrase is the same as the first word of the second phrase.
 
-Return the Before and After puzzles that can be formed by every two phrases phrases[i] and phrases[j] where i != j. Note that the order of matching two phrases matters, we want to consider both orders.
+Return the Before and After puzzles that can be formed by every two phrases 
+phrases[i] and phrases[j] where i != j. Note that the order of matching two phrases 
+matters, we want to consider both orders.
 
 You should return a list of distinct strings sorted lexicographically.
 
@@ -23,24 +26,26 @@ Example 1:
 Input: phrases = ["writing code","code rocks"]
 Output: ["writing code rocks"]
 */
-    //TODO: understand the complexity
+    // thinking process: O(n)/O(n)
     public List<String> beforeAndAfterPuzzles(String[] phrases) {
         int n = phrases.length;
         Map<String, List<Integer>> map = new HashMap<>();
+        
         // for the head word of each string in phrases as the key, the value is the index of this string
-        for(int i = 0; i < n; ++i) {
-            String head = head(phrases[i]);
-            if (!map.containsKey(head)) {
-                map.put(head, new ArrayList<>());
-            }
-            map.get(head).add(i);
-        }
+        //this is the 3 for loop 
+        //for(int i = 0; i < n; ++i) {
+          //  String head = head(phrases[i]);
+            //map.computeIfAbsent(head, v->new ArrayList<>()).add(i);
+        //}
+        
+        IntStream.range(0, phrases.length).forEach(i->map.computeIfAbsent(head(phrases[i]), v->new ArrayList<>()).add(i));
         Set<String> result = new HashSet<>();
         for(int i = 0; i < n; ++i) {
             String tail = tail(phrases[i]);
             if (map.containsKey(tail)) {
                 for (Integer j : map.get(tail)) {
                     if (i != j) {
+                        // remove the dup and concat
                         result.add(phrases[i] + phrases[j].substring(tail.length()));
                     }
                 }
