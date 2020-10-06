@@ -1,4 +1,6 @@
 package hatecode._1000_1999;
+
+import java.util.*;
 public class _1183MaximumNumberOfOnes {
 /*
 1183. Maximum Number of Ones
@@ -16,6 +18,12 @@ Output: 4
     //thinking process: O()/O()
     
     //the problem is to say: 
+    //given a nxm matrix, then we have a square matrix inside the matrix, sideLength < n,m
+    //each small matrix will have 1 <= maxOnes, so how many Ones could big matrix have.
+    //you can think small matrix can move around inside the big matrix
+    
+    //the big matrix is just copy of small ones, then when we move, the lost part will be 
+    //newly added ones
     public int maximumNumberOfOnes(int width, int height, int sideLength, int maxOnes) {
         int M = sideLength * sideLength;
         if (maxOnes >= M) return width * height;
@@ -33,8 +41,15 @@ Output: 4
         return sum;
     }
     
-    We isolate a square at the top left position with sides = sideLength. Then we put 1 at some position (x,y) in this sqare. Our onesCount increases. If we put 1 at positions (a * sideLength + x, b * sideLength + y) our onesCount remains the same. So we just try to put 1 in the top left sqare and calculate how many more points we can have without affecting maxOnes. Then chose maxOnes number of points with maximum number of 1 it can give us.
-
+    /*
+    We isolate a square at the top left position with sides = sideLength. 
+    Then we put 1 at some position (x,y) in this sqare. Our onesCount increases. 
+    If we put 1 at positions (a * sideLength + x, b * sideLength + y) our 
+    onesCount remains the same. So we just try to put 1 in the top left 
+    sqare and calculate how many more points we can have without affecting 
+    maxOnes. Then chose maxOnes number of points with maximum number of 1 
+    it can give us.
+    */
 class Point implements Comparable<Point>
     {
         int x;
