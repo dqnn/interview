@@ -61,8 +61,13 @@ Output: 3
     }
     
     //sliding window solution
-    //thinking process: TODO: need more time to understand sizeMoreThanTwo. the edge case is 
-    //ababa
+    //thinking process: the final answer must be a substring like "aaa" with one character in right so we can replace
+    
+    //from this point, we can track:
+    //the key is that we only can switch char once, so we use a window to know 
+    //how many distinct chars, so one edge is aabb, it is 2 distinct char and each freq is 2, we 
+    //have to know for each character how many are there in the string, so if in window, the majority of 
+    //character are more, then we can switch from the left strings.
     
     //thinking about a window, 
     /*
@@ -81,23 +86,23 @@ Output: 3
         for (int i = 0; i < len; ++i) ++dict[text.charAt(i) - 'a'];
 
         Map<Character, Integer> winMap = new HashMap<>();
-        int res = 0, sizeMoreThanTwo = 0;
+        int res = 0, distinctChCount = 0;
 
         for (int l = 0, r = 0; r < len; ++r) {
             char c = text.charAt(r);
 
             winMap.put(c, winMap.getOrDefault(c, 0) + 1);
             //means there are only two chars in the window, so we increase sizeMoreThanTwo
-            if (winMap.get(c) == 2) ++sizeMoreThanTwo;
+            if (winMap.get(c) == 2) ++distinctChCount;
             
             //like ababa, winMap.size() ==2 but we still able to move right, 
             //but when there are 2 chars in map, we want to move l to right
-            while (winMap.size() > 2 || sizeMoreThanTwo > 1) {
+            while (winMap.size() > 2 || distinctChCount > 1) {
                 //move left pointer, so window size will be less than 1
                 c = text.charAt(l++);
                 winMap.put(c, winMap.getOrDefault(c, 0) - 1);
                 
-                if (winMap.get(c) == 1) --sizeMoreThanTwo;
+                if (winMap.get(c) == 1) --distinctChCount;
                 if (winMap.get(c) == 0) winMap.remove(c);
             }
             
