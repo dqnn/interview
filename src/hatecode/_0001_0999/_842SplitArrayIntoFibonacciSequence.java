@@ -21,11 +21,16 @@ Input: "123456579"
 Output: [123,456,579]
 */
     
-    //thinking process: O()
-    public List<Integer> splitIntoFibonacci(String S) {
+    //thinking process: O()O()
+    
+    //the problem is to say: given one string s, you can cut the string into several parts,
+    //each part will be a number, the number sequence will be fib sequence, return our answer
+    
+    //typical dfs,
+    public List<Integer> splitIntoFibonacci(String s) {
         
         List<Integer> res = new ArrayList<>();
-        helper(res, S, 0);
+        helper(res, s, 0);
         
         return res;
     }
