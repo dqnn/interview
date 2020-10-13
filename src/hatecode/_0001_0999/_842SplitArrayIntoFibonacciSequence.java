@@ -26,7 +26,7 @@ Output: [123,456,579]
     //the problem is to say: given one string s, you can cut the string into several parts,
     //each part will be a number, the number sequence will be fib sequence, return our answer
     
-    //typical dfs,
+    //typical dfs, suppose 
     public List<Integer> splitIntoFibonacci(String s) {
         
         List<Integer> res = new ArrayList<>();
@@ -36,20 +36,22 @@ Output: [123,456,579]
     }
     
     
-    public boolean helper(List<Integer> res, String S, int start) {
-        if (start == S.length() && res.size() >= 3)
+    public boolean helper(List<Integer> res, String s, int start) {
+        if (start == s.length() && res.size() >= 3)
             return true;
         long num = 0;
-        for (int i = start; i < S.length(); i++) {
-            if (S.charAt(start) == '0' && i > start)
+        for (int i = start; i < s.length(); i++) {
+            if (s.charAt(start) == '0' && i > start)
                 break;
-            num = num * 10 + (S.charAt(i) - '0');
+            num = num * 10 + (s.charAt(i) - '0');
+            //pruning, we can remove, only to improve perf
             if (num > Integer.MAX_VALUE || res.size() >= 2 && res.get(res.size() - 1) + res.get(res.size() - 2) < num)
                 break;
+            //this is normal case
             if (res.size() <= 1 || res.get(res.size() - 1) + res.get(res.size() - 2) == num) {
                 res.add((int) num);
-                if (helper(res, S, i + 1))
-                    return true;
+                if (helper(res, s, i + 1)) return true;
+                
                 res.remove(res.size() - 1);
             }
         }
