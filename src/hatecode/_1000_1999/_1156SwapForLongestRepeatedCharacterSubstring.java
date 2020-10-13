@@ -60,8 +60,9 @@ Output: 3
         return res;
     }
     
-    //sliding window solution
-    //thinking process: the final answer must be a substring like "aaa" with one character in right so we can replace
+    //sliding window solution 
+    //thinking process:  O(n)/O(1)
+    //the final answer must be a substring like "aaa" with one character in right so we can replace
     
     //from this point, we can track:
     //the key is that we only can switch char once, so we use a window to know 
