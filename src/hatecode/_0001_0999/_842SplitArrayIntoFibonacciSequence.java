@@ -26,7 +26,7 @@ Output: [123,456,579]
     //the problem is to say: given one string s, you can cut the string into several parts,
     //each part will be a number, the number sequence will be fib sequence, return our answer
     
-    //typical dfs, suppose 
+    //typical dfs,  
     public List<Integer> splitIntoFibonacci(String s) {
         
         List<Integer> res = new ArrayList<>();
