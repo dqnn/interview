@@ -47,7 +47,9 @@ Output: [123,456,579]
             //pruning, we can remove, only to improve perf
             if (num > Integer.MAX_VALUE || res.size() >= 2 && res.get(res.size() - 1) + res.get(res.size() - 2) < num)
                 break;
-            //this is normal case
+            //this is normal case, 
+            //1 is only 1 integer in current list or no integer
+            //2. if already 2 number, then we need to find out more numbers has such character
             if (res.size() <= 1 || res.get(res.size() - 1) + res.get(res.size() - 2) == num) {
                 res.add((int) num);
                 if (helper(res, s, i + 1)) return true;
