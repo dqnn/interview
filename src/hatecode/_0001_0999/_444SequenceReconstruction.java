@@ -45,7 +45,13 @@ public class _444SequenceReconstruction {
     }
     //most voted solution, top sort
     
-    //this is interview friendly solution, 
+    //interview friendly solution, 
+    //thinking process:
+    //the problem is to say given one origin sequence, and list of sub sequence, we would like to 
+    //know whether we can conclude the the origin sequence from sub sequence, here "conclude" means
+    //the digit relative order is the same in origin seq and each sub sequence
+    
+
     //this use map to store the direction, Map<Integer, Set<Integer>> to store the mapping
     //indegree to store the indegree
     // the problem is to say: given a org sequence and list of seqs, 
