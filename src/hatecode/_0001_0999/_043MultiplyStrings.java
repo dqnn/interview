@@ -65,6 +65,10 @@ public class _043MultiplyStrings {
                 digits[p2] = sum % 10;
             }
         }
+        
+        //two exception case:
+        //1 leading 0.
+        //2 result is 0
         StringBuilder sb = new StringBuilder();
         for (int digit : digits) {
             //skip leading 0
