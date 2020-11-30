@@ -59,7 +59,7 @@ public class _043MultiplyStrings {
                 int sum = product + digits[p2];
                 // incremental 
                 digits[p1] += sum / 10;
-                // real value in the position
+                // real value in the position, note we do not have +
                 digits[p2] = sum % 10;
             }
         }
