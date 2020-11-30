@@ -7,6 +7,7 @@ package hatecode._0001_0999;
  * Creator : duqiang
  * Date : Sep, 2017
  * Description : 2. Add Two Numbers
+ * Similiar question: 2, 43, 445
  */
 public class _002AddTwoNumbers {
     /**
