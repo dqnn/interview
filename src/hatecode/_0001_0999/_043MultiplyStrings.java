@@ -34,6 +34,7 @@ public class _043MultiplyStrings {
     //for example: A[i] * B[j], the sum as a factor must be in the result, and we just need to know
     //how we put the contribution, since it is just one digit * another digit, so it must be 
     //2 digit at most, and the position should be i+j and i+j+1 if it has carrier. 
+    //another key is to note: A[i] * B[j] mapping to digits array
     //we cannot use convert * to +, 
     //the key is A[i] * B[j] will be placed into [i+j, i+j+1]
     public String multiply(String num1, String num2) {
@@ -53,11 +54,12 @@ public class _043MultiplyStrings {
   *  ------------ digit[A.length() + B.length()]
   *  we can see A[1] = 2, B[0] = 5, so the product  1 0 will start 1(i + j), 
   *  the remainder will be 2(i + j + 1)
-  */
+  */            
+                //note i+j+1 is the smaller one
                 int p1 = i + j, p2 = i + j + 1;
                 //add previous value of digits[p2], p2 is smaller significant position, so sum here is real
                 int sum = product + digits[p2];
-                // incremental 
+                // incremental, we need to add previous value 
                 digits[p1] += sum / 10;
                 // real value in the position, note we do not have +
                 digits[p2] = sum % 10;
