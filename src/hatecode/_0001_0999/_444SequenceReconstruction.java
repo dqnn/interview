@@ -50,7 +50,8 @@ public class _444SequenceReconstruction {
     //the problem is to say given one origin sequence, and list of sub sequence, we would like to 
     //know whether we can conclude the the origin sequence from sub sequence, here "conclude" means
     //the digit relative order is the same in origin seq and each sub sequence
-    
+    //for example, org: [1,2,3], seqs: [[1,2],[1,3]]
+    //we cannot infer seqs->org, because 1,3,2 can also have same pattern to seqs
 
     //this use map to store the direction, Map<Integer, Set<Integer>> to store the mapping
     //indegree to store the indegree
