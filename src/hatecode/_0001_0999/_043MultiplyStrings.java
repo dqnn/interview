@@ -50,7 +50,7 @@ public class _043MultiplyStrings {
   *        1  5
   *     1  0
   *  0  5
-  *  ------------
+  *  ------------ digit[A.length() + B.length()]
   *  we can see A[1] = 2, B[0] = 5, so the product  1 0 will start 1(i + j), 
   *  the remainder will be 2(i + j + 1)
   */
