@@ -36,7 +36,7 @@ public class _002AddTwoNumbers {
         int sum = 0;
         ListNode cur = dummy;
         ListNode p1 = l1, p2 = l2;
-        //this is how we visit the linked list
+        //this is how we visit the linked list, if they do not have same length
         while (p1 != null || p2 != null) {
             if (p1 != null) {
                 sum += p1.val;
