@@ -52,8 +52,8 @@ public class _043MultiplyStrings {
   *     1  0
   *  0  5
   *  ------------ digit[A.length() + B.length()]
-  *  we can see A[1] = 2, B[0] = 5, so the product  1 0 will start 1 (i + j), 
-  *  the remainder will be 2 (i + j + 1)
+  *  we can see A[1] = 2, B[0] = 5, product = 10, then the smallest result starts from 0 at i + j + 1, 
+  *  the righter, the smaller, 
   */            
                 //note i+j+1 is the smaller one
                 int p1 = i + j, p2 = i + j + 1;
@@ -61,7 +61,7 @@ public class _043MultiplyStrings {
                 int sum = product + digits[p2];
                 // incremental, we need to add previous value 
                 digits[p1] += sum / 10;
-                // real value in the position, note we do not have +
+                // real value in the smaller position, note we do not have +
                 digits[p2] = sum % 10;
             }
         }
