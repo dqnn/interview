@@ -27,6 +27,13 @@ public class _043MultiplyStrings {
      * @return
      */
     //thinking process:
+    //the problem is to say: given two strings integers, multiple them and return.
+    
+    //each multiple can be assembled by plus, look at examples, we use an array to store
+    //all the sum which by each digit multiple, 
+    //for example: A[i] * B[j], the sum as a factor must be in the result, and we just need to know
+    //how we put the contribution, since it is just one digit * another digit, so it must be 
+    //2 digit at most, and the position should be i+j and i+j+1 if it has carrier. 
     //we cannot use convert * to +, 
     //the key is A[i] * B[j] will be placed into [i+j, i+j+1]
     public String multiply(String num1, String num2) {
