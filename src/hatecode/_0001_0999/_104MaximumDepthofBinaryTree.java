@@ -51,4 +51,22 @@ return its depth = 3.
         
         return Math.max(left, right) + 1;
     }
+    
+    
+    //most navie ones, just easier to understand, but pretty silly
+    int res = 0;
+    public int maxDepth4(TreeNode root) {
+       
+        helper(root, 0);
+        return res;
+    }
+    
+    int helper(TreeNode root, int level) {
+         if(root == null) return level;
+         int l = helper(root.left, level + 1);
+         int r = helper(root.right, level + 1);
+         int curMax = Math.max(l, r);
+         res = Math.max(res, curMax);
+        return curMax;
+    }
 }
