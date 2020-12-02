@@ -10,7 +10,8 @@ Return the shortest distance between the given start and destination stops.
 public class _1184DistanceBetweenBusStops {
     
     //O(n)/O(1)
-    //thinking process: just need to figure out the sub array
+    //thinking process: the problem is to say, a bus stop routine is a circle, distance[i]
+    //is the distance between nodes i and (i+1)%n, return the shortest path given two nodes
     public int distanceBetweenBusStops(int[] distance, int start, int destination) {
         if (distance == null || distance.length < 1) return -1;
         int sum = 0,  partialSum = 0;
