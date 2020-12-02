@@ -7,9 +7,11 @@ The input is given as three integers representing the day, month and year respec
 
 Return the answer as one of the following values {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}.
 */
+
+
 public class _1185DayOfTheWeek {
 
-    
+    //use a formular to calc,but we need to calculate the formular first
     String[] days = new String[]{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
     public String dayOfTheWeek(int d, int m, int y) {
         if (m < 3) {
