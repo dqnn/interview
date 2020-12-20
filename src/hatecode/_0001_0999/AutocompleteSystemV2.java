@@ -2,7 +2,7 @@ package hatecode._0001_0999;
 import java.util.*;
 public class AutocompleteSystemV2 {
 
-/*
+/*problem statement: 
  * the problem is to say: given a list of popular search query with its
  * frequency(times), return the queries which prefix match.
  * 
@@ -11,6 +11,8 @@ public class AutocompleteSystemV2 {
  * 'th' -> this, that
  * 'thi'-> this
  * 'thit'->''
+ *  one note: if this:3, that:4, then th should be th:7, we need to add the frequency
+ *  if it is the same prefix for all words
  */
 class TrieNode {
     Map<Character, TrieNode> children;
