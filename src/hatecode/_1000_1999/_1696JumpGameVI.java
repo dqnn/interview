@@ -23,6 +23,7 @@ Output: 7
     /* thinking process: O(n)/O(n)
      * 
      * needs some time to understand this
+     * why we use a DQ to process 
      */
     public int maxResult(int[] A, int k) {
         if(A.length == 1) return A[0];
