@@ -1,6 +1,17 @@
 package hatecode._0001_0999;
 import java.util.*;
 public class AutocompleteSystemV2 {
+
+/*
+ * the problem is to say: given a list of popular search query with its
+ * frequency(times), return the queries which prefix match.
+ * 
+ * for examples, current we have this and that in the data base, then when we type
+ * 't'--> this, that
+ * 'th' -> this, that
+ * 'thi'-> this
+ * 'thit'->''
+ */
 class TrieNode {
     Map<Character, TrieNode> children;
     Map<String, Integer> counts;
