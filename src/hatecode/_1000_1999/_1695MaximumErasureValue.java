@@ -16,12 +16,17 @@ An array b is called to be a subarray of a if it forms a contiguous subsequence 
 Example 1:
 
 Input: nums = [4,2,4,5,6]
+output：17
 */
     
     // thinking process : O(n)/O(n)
     
     /*
-     * sliding window solution
+     * sliding window solution， 
+     *  A = [4,2,4,5,6]
+     *  when l = 0, r = 2, then we need to move l to 1,  
+     *  A = [2,4,4,5,6]
+     *  when l = 0, r = 2, then we need to move l to 2, because then we can have unique set  
      */
     public int maximumUniqueSubarray(int[] A) {
         if (A == null || A.length < 1) return 0;
