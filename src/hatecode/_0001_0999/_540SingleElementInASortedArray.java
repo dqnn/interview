@@ -2,7 +2,9 @@ package hatecode._0001_0999;
 public class _540SingleElementInASortedArray {
 /*
 540. Single Element in a Sorted Array
-Given a sorted array consisting of only integers where every element appears twice except for one element which appears once. Find this single element that appears only once.
+Given a sorted array consisting of only integers where every element 
+appears twice except for one element which appears once. 
+Find this single element that appears only once.
 
 Example 1:
 Input: [1,1,2,3,3,4,4,8,8]
@@ -11,7 +13,7 @@ Example 2:
 Input: [3,3,7,7,10,11,11]
 Output: 10
 */
-    //thinking process: 
+    //thinking process: O(logN)/O(1)
     //if it is sorted, then BS is on the plate, whole length must be odd number
     //so if mid is even, 
     public int singleNonDuplicate_Standard(int[] nums) {
@@ -19,7 +21,8 @@ Output: 10
             return 0;
 
         int n = nums.length;
-        //this binary search templates is tricky, traditionally this should be r = n as 2nd template,
+        //this binary search templates is tricky, 
+        //traditionally this should be r = n as 2nd template,
         //but since our TODO: add more comments here
         int l = 0, r = n - 1;
 
