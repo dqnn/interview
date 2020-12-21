@@ -7,9 +7,10 @@ public class _895MaximumFrequencyStack {
      * 
      * FreqStack has two functions:
      * 
-     * push(int x), which pushes an integer x onto the stack. pop(), which removes
-     * and returns the most frequent element in the stack. If there is a tie for
-     * most frequent element, the element closest to the top of the stack is removed
+     * push(int x), which pushes an integer x onto the stack. 
+     * pop(), which removes and returns the most frequent element in the stack. 
+     * If there is a tie formost frequent element, the element closest to the 
+     * top of the stack is removed
      * and returned.
      * 
      */
@@ -27,8 +28,8 @@ public class _895MaximumFrequencyStack {
     public int pop() {
         int x = fre2Stack.get(maxFreq).pop();
         key2Fre.put(x, maxFreq - 1);
-        //here is the key, the reason why we can maxfreq because this is max fre stack, not LFU, 
-        //we actually have a lot dup value in these stacks
+        //here is the key, the reason why we can maxfreq because this is 
+        //max fre stack, not LFU, we actually have a lot dup value in these stacks
         if (fre2Stack.get(maxFreq).size() == 0) maxFreq--;
         return x;
     }
