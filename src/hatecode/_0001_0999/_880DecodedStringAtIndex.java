@@ -15,30 +15,47 @@ Example 1:
 Input: S = "leet2code3", K = 10
 Output: "o"
 */
-    //thinking process: 
+    //thinking process: O(n)/O(1)
+    
+    //the problem is to say: given one string and one integer K, the string contains 
+    //string and a digit, digit means the string will be dup how many times, then
+    //return the K-th character.
+    
+    //brute force is we calculated the whole string and we count from first to Kth position.
+    //but this will TLE.
+    
+    //then we start from the origin string, how can we be faster and less space?
+    //we easily know the whole length, we do not need to know the whole string, then we visit 
+    //back from end to head for this string, so they key is how we can identify the Kth char.
+    //so when we visit back, suppose we have the result string, but we visit the original string
+    //if we meet digit,then we divide the length, then we reduced the previos length, then
+    //we should meet char, if K = totalLen after total -- and K /= total.
+    
+    //so we will meet each letter or digit in the original string, it will map to the result
+    //string, but the map how we map is to use digit, and %
     public String decodeAtIndex(String str, int k) {
-        long size =0 ;
-        for(int i=0;i<str.length();i++) {
-            char ch=str.charAt(i);
-            if(Character.isDigit(ch)) {
-                size*=ch-'0';
+        long totalLen =0 ;
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (Character.isDigit(ch)) {
+                totalLen *= ch - '0';
             } else {
-                size++;
+                totalLen++;
             }
         }
         
        for (int i = str.length()-1; i >= 0; --i) {
             char c = str.charAt(i);
             if (Character.isDigit(c)) {
-                size /= c - '0';
-                k %= size;
+                totalLen /= c - '0';
+                k %= totalLen;
             } else {
-                if(k==0 || k==size) {
+                //this means 
+                if(k==0 || k == totalLen) {
                     return Character.toString(c);
                 }
-                size--;
+                totalLen--;
             }
-                
         }
         return "";
     }
