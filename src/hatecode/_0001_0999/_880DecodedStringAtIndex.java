@@ -34,24 +34,28 @@ Output: "o"
     //so we will meet each letter or digit in the original string, it will map to the result
     //string, but the map how we map is to use digit, and %
     public String decodeAtIndex(String str, int k) {
+        //result string Length
         long totalLen =0 ;
         for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
             if (Character.isDigit(ch)) {
+                //repeat ch - ‘0’ - 1 times
                 totalLen *= ch - '0';
             } else {
                 totalLen++;
             }
         }
-        
+       //we start back visit the origin string, t
        for (int i = str.length()-1; i >= 0; --i) {
             char c = str.charAt(i);
             if (Character.isDigit(c)) {
                 totalLen /= c - '0';
+                //
                 k %= totalLen;
             } else {
-                //this means 
-                if(k==0 || k == totalLen) {
+                //k maybe the last character;
+                //K >=0, 
+                if (k == 0 || k == totalLen) {
                     return Character.toString(c);
                 }
                 totalLen--;
