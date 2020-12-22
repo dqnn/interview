@@ -53,14 +53,62 @@ Output: "o"
                 //
                 k %= totalLen;
             } else {
-                //k maybe the last character;
-                //K >=0, 
-                if (k == 0 || k == totalLen) {
+                //k maybe the last character; below also works
+                //if (k == 0 || k == totalLen) {
+                if(k % totalLen == 0) {
                     return Character.toString(c);
                 }
                 totalLen--;
             }
         }
         return "";
+    }
+    //this slights improved the time complexity
+    public String decodeAtIndex_Improved(String str, int k) {
+        long totalLen = 0;
+        int i = 0;
+        for (; totalLen < k; i++) {
+            char ch = str.charAt(i);
+            if (Character.isDigit(ch)) {
+                totalLen *= ch - '0';
+            } else {
+                totalLen++;
+            }
+        }
+        i--;
+        for (int j = i; j >= 0; --j) {
+            char c = str.charAt(j);
+            if (Character.isDigit(c)) {
+                totalLen /= c - '0';
+                k %= totalLen;
+            } else {
+                if (k % totalLen == 0) {
+                    return Character.toString(c);
+                }
+                totalLen--;
+            }
+        }
+        return "";
+    }
+    
+    //this is optimized
+    public String decodeAtIndex2(String S, int K) {
+        long N = 0L;
+        int i;
+        char[] chs = S.toCharArray();
+        for (i = 0; N < K; i++) 
+            N = chs[i] >= '0' && chs[i] <= '9' ? 
+                    N*(chs[i] - '0') : N + 1;
+        //we do not need to go so far
+        i--;
+        while (true){
+            if (chs[i] >= '0' && chs[i] <= '9') {
+                N /= chs[i] - '0';
+                K %= N;
+            } else if (K%N == 0) return "" + chs[i];
+              else N--;
+            
+            i--;
+        }
     }
 }
