@@ -50,6 +50,7 @@ Output: 1
         return memo.get(key);
     }
 
+    //pretty naive solution and only for understanding the solution
     public int makeArrayIncreasing(int[] arr1, int[] arr2) {
         int n = arr1.length;
 
@@ -112,6 +113,7 @@ Output: 1
             return -1;
     }
     
+    // interview friendly
     public int makeArrayIncreasing_TreeSet(int[] arr1, int[] arr2) {
         if (arr1 == null || arr1.length == 0) return -1;
         if (arr1.length == 1) return 0;
