@@ -23,7 +23,7 @@ Output: 1
  * the problem is to say: given two arrays, a1, a2, you can replace any elements in a1
  * with element in a2,  a1[i] = a2[j], return min operations
  * 
- * so
+ * TODO: understand the problem
  */
 
     public static int makeArrayIncreasing_DFS_MEMO(int[] arr1, int[] arr2) {
@@ -54,7 +54,7 @@ Output: 1
     public int makeArrayIncreasing(int[] arr1, int[] arr2) {
         int n = arr1.length;
 
-        // sort and generate new arr2
+        // sort and generate new arr2, just remove the dup ones
         Arrays.sort(arr2);
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < arr2.length; i++) {
@@ -67,7 +67,7 @@ Output: 1
             newarr2[i] = list.get(i);
         arr2 = newarr2;
 
-        // generate new arr1
+        // generate new arr1, add min and max to the array as first and last element
         int[] newarr1 = new int[n + 2];
         for (int i = 0; i < n; i++)
             newarr1[i + 1] = arr1[i];
