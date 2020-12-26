@@ -57,7 +57,10 @@ queue.size();       // 2 elements remaining in the queue. size() is always calle
     
     //thinking process: 
     
-    //the problem is to say: 
+    //the problem is to say: implement a queue, the queue has limited capacity, 
+    //if it is full, then block, if not, enqueue() to queue, 
+    //if queue is empty, then dequeue should be blocked
+    //this is the same as CPP multiple thread coding
     
     Semaphore e, d;
     Queue<Integer> q;
