@@ -23,25 +23,30 @@ Output: 4
      * l[i] means from 0->i, at position i, the max sum for previous 0->i.
      * r[i] means from n-1-> i, scan from right to i, the max sum 
      * 
-     * 
+     * so we can try all cases, 
      */
-public int maximumSum(int[] a) {
-        int n = a.length;
+    public int maximumSum(int[] A) {
+        int n = A.length;
         int[] l = new int[n], r = new int[n];
-        int max = a[0];
-        l[0] = a[0];
-        for(int i=1; i < n; i++){
-            l[i] = Math.max(a[i], l[i-1]+a[i]);
+        int max = A[0];
+        l[0] = A[0];
+        for (int i = 1; i < n; i++) {
+            l[i] = Math.max(A[i], l[i - 1] + A[i]);
             max = Math.max(max, l[i]);
         }
-        r[n-1] = a[n-1];
-        for(int i=n-2; i >= 0; i--)
-            r[i] = Math.max(a[i], r[i+1]+a[i]);
-        for(int i=1; i < n-1; i++)
-            max = Math.max(max, l[i-1]+r[i+1]);
+        r[n - 1] = A[n - 1];
+        for (int i = n - 2; i >= 0; i--)
+            r[i] = Math.max(A[i], r[i + 1] + A[i]);
+        
+        //start from index 1 and stop at n-2 because we suppose the element we removed is not 
+        //start or end element of a subarray
+
+        for (int i = 1; i < n - 1; i++)
+            max = Math.max(max, l[i - 1] + r[i + 1]);
         return max;
     }
-    
+
+    //O(n)/O(1)
     public int maximumSum_DP(int[] arr) {
         int res = arr[0];
         int dp = arr[0];
