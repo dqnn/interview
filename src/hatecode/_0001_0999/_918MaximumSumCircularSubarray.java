@@ -70,7 +70,7 @@ Explanation: Subarray [5,5] has maximum sum 5 + 5 = 10
 
         // Want largest P[j] - P[i] with 1 <= j-i <= N
         // For each j, want smallest P[i] with i >= j-N
-        int ans = A[0];
+        int res = A[0];
         // deque: i's, increasing by P[i]
         Deque<Integer> deque = new ArrayDeque();
         deque.offer(0);
@@ -81,7 +81,7 @@ Explanation: Subarray [5,5] has maximum sum 5 + 5 = 10
                 deque.pollFirst();
 
             // The optimal i is deque[0], for cand. answer P[j] - P[i].
-            ans = Math.max(ans, P[j] - P[deque.peekFirst()]);
+            res = Math.max(res, P[j] - P[deque.peekFirst()]);
 
             // Remove any i1's with P[i2] <= P[i1].
             while (!deque.isEmpty() && P[j] <= P[deque.peekLast()])
@@ -90,6 +90,6 @@ Explanation: Subarray [5,5] has maximum sum 5 + 5 = 10
             deque.offerLast(j);
         }
 
-        return ans;
+        return res;
     }
 }
