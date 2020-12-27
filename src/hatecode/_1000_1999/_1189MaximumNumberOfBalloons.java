@@ -10,8 +10,6 @@ You can use each character in text at most once. Return the maximum number of in
 
 Example 1:
 
-
-
 Input: text = "nlaebolko"
 Output: 1
 */
