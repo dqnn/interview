@@ -29,7 +29,8 @@ Output: "dcba"
     //the mapping, eg: (abcd)
     //pair = [5,0,0,0,0,0]
     //then when we 2nd pass visit s, then when we encounter '(' or ')' then we want to 
-    //look up in pair array, we will jump to its mapping parenthese index, 
+    //look up in pair array, we will jump to its mapping parenthese index, also we change
+    //our direction, visit back, then go on.
     public String reverseParentheses(String s) {
         int n = s.length();
         Stack<Integer> opened = new Stack<>();
@@ -56,6 +57,8 @@ Output: "dcba"
         }
         return sb.toString();
     }
+    
+    //this is the brute forth solution,O(n^2)/O(n)
     
     public String reverseParentheses_BruteForth(String s) {
         Stack<String> st = new Stack<>();
