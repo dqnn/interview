@@ -25,24 +25,21 @@ Output: 0
     //return the min removal needed.
     
     //use the LIS solution, 
-    public int minimumMountainRemovals(int[] nums) {
-        int leftLen = 0;
-        int[] ldp = new int[nums.length];
-        int[] l = new int[nums.length];
-        int[] rdp = new int[nums.length];
-        int rightLen = 0;
-        int[] r = new int[nums.length];
+    public static int minimumMountainRemovals(int[] nums) {
+        int leftLen = 0, rightLen = 0;
+        int[] ldp = new int[nums.length], rdp = new int[nums.length];
+        int[] l = new int[nums.length], r = new int[nums.length];
+        
         for(int i = 0; i < nums.length; i++) {
             int pos = Arrays.binarySearch(ldp, 0, leftLen, nums[i]);
             pos = (pos < 0) ? (-(pos) - 1) : pos;
-            if(pos == leftLen) {
-                leftLen++;
-            }
+            if(pos == leftLen) leftLen++;
+            
             l[i] = pos;
             ldp[pos] = nums[i];
         }
         
-        
+        System.out.println(Arrays.toString(ldp));
         for(int i = nums.length-1; i >= 0 ; i--) {
             int pos = Arrays.binarySearch(rdp, 0, rightLen, nums[i]);
             pos = (pos < 0) ? (-(pos) - 1) : pos;
@@ -52,6 +49,8 @@ Output: 0
             r[i] = pos;
             rdp[pos] = nums[i];
         }
+  
+        System.out.println(Arrays.toString(rdp));
         
        
         int res = nums.length;
@@ -65,7 +64,7 @@ Output: 0
     }
     
     //brute force O(n^2)/O(n)
-    public int minimumMountainRemovals_SQUARE(int[] nums) {
+    public static int minimumMountainRemovals_SQUARE(int[] nums) {
         int n = nums.length;
         int[] LISForward = new int[n];
         int[] LISbackward = new int[n];
@@ -100,5 +99,8 @@ Output: 0
         return min;
     }
     
+    public static void main(String[] args) {
+        System.out.println(minimumMountainRemovals(new int[] {2,1,1,5,6,2,3,1}));
+    }
     
 }
