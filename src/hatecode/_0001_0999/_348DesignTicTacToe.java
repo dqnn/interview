@@ -54,7 +54,7 @@ public class _348DesignTicTacToe {
 
      * @param n
      */
-    //rows adn cols will record how many cards for one play on row[i]
+    //rows and cols will record how many cards for one play on row[i]
     private int[] rows;
     private int[] cols;
     private int diagonal;
@@ -71,7 +71,8 @@ public class _348DesignTicTacToe {
     //interview friendly: 
     //we use player 1 as +1, player 2 as -1, on rows and cols, diagonal, and antiDiagonal
     
-    //we do not check whether the cell was occupied before, this will leave to the play to decide. 
+    //we do not check whether the cell was occupied before, 
+    //this will leave to the play to decide. 
     public int move(int i, int j, int player) {
         int toAdd = player == 1 ? 1 : -1;
 
