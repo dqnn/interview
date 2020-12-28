@@ -50,7 +50,9 @@ public class _300LongestIncreasingSubsequence {
 
     //another thinking process:
     //we have an array tail which stored the tail[i] means for len = i + 1 sub array, the smallest 
-    //element = tail[i], so if we meet a bigger value than tail[last], then just append it, if 
+    //element, another understanding: for array nums, 0->i subarray, the LIS last element
+    
+    //so if we meet a bigger value than tail[last], then just append it, if 
     //we meet a value less than tail[i], which means we meet a smaller value in array compared to previous 
     //ones, then we find the correct position and update by binary search, so the key idea here is to keep
     //tracking of the for sub array 0->i, the smallest last element sequence = len +1, the reason why
@@ -90,14 +92,17 @@ public class _300LongestIncreasingSubsequence {
                     r = mid;
                 }
             }
+            
             // this is to update or insert a new value in tails, 
             // 2 4 9 3 7 8, when res = 3, num = 3, we finally will find and replace tail[1] = 4
             // to tail[1] = 3, and for this time, res will keep previous value
             tails[l] = num;
             // so if i == res, which means num is a correct in last longest sequence
             if (l == res) ++res;
+            
+            System.out.println(num + "-->" + Arrays.toString(tails));
         }
-        System.out.println(Arrays.toString(tails));
+        //System.out.println(Arrays.toString(tails));
         return res;
     }
     
