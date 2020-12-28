@@ -67,10 +67,10 @@ public class _300LongestIncreasingSubsequence {
          * because every time we only compare with their tails to decide which subsequence 
          * could we add new item and update the entire structure */
         //[1,3,5,4,7]->[1, 3, 4, 7, 0]
-        // len = 1, tail[0] = 1;
-        //len = 2, 1, 3
-        //len = 3: 1, 3, 4, 
-        //len = 4, 1,3,4,7
+        //len = 1, tails = [1];
+        //len = 2, tails = [1, 3]
+        //len = 3, tails = [1, 3, 4] 
+        //len = 4, tails = [1, 3, 4, 7]
        /**(1) if x is larger than all tails, append it, increase the size by 1
         * (2) if tails[i-1] < x <= tails[i], update tails[i] */
         int[] tails = new int[nums.length];
