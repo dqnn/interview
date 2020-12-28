@@ -107,11 +107,11 @@ public class _300LongestIncreasingSubsequence {
     }
     
     // this is interview friendly for O(n^2)， brute force Only
-    public int lengthOfLIS2(int[] n) {
-        if (n == null || n.length < 1) {
+    public int lengthOfLIS2(int[] A) {
+        if (A == null || A.length < 1) {
             return 0;
         }
-        int len = n.length;
+        int len = A.length;
 
         // dp[i] means if nums[i] as the last elements, the longest increasing sequence length
         int[] dp = new int[len];
@@ -127,7 +127,7 @@ public class _300LongestIncreasingSubsequence {
         //[1,3,5,4,7]->dp[1,2,3,3,4]
         for(int i = 0; i < len; i++) {
             for(int j = 0; j < i; j++) {
-                if (n[j] < n[i]) {
+                if (A[j] < A[i]) {
                     // means nums[i] could be nums[j] next element, 
                     //that's why we need compare to n[j]
                     dp[i] = Math.max(dp[j] + 1, dp[i]);

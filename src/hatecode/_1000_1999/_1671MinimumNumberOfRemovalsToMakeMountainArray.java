@@ -54,14 +54,14 @@ Output: 0
         }
         
        
-        int ans = nums.length;
+        int res = nums.length;
         
         for(int i = 1; i < nums.length-1; i++) {
             int elementsToRemove = nums.length-(l[i] + r[i] + 1);
             if(l[i] != 0 && r[i] != 0)
-                ans = Math.min(ans, elementsToRemove);
+                res = Math.min(res, elementsToRemove);
         }
-        return ans;
+        return res;
     }
     
     //brute force O(n^2)/O(n)
