@@ -6,7 +6,7 @@ public class _1670DesignFrontMiddleBackQueue {
 1670. Design Front Middle Back Queue
 Design a queue that supports push and pop operations in the front, middle, and back.
 
-Implement the FrontMiddleBack class:
+Implement the FrontMiddleBack class: 
 
 FrontMiddleBack() Initializes the queue.
 void pushFront(int val) Adds val to the front of the queue.
