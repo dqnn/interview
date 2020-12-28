@@ -78,13 +78,11 @@ public class _348DesignTicTacToe {
 
         rows[i] += toAdd;
         cols[j] += toAdd;
-        if (i == j) {
-            diagonal += toAdd;
-        }
-        if (i + j == (cols.length - 1)) {
-            antiDiagonal += toAdd;
-        }
-        if (Math.abs(rows[i]) == size || Math.abs(cols[j]) == size
+        if (i == j) diagonal += toAdd;
+        if (i + j == (cols.length - 1)) antiDiagonal += toAdd;
+        
+        if (Math.abs(rows[i]) == size 
+                || Math.abs(cols[j]) == size
                 || Math.abs(diagonal) == size || Math.abs(antiDiagonal) == size) {
             return player;
         }
