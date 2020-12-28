@@ -69,10 +69,17 @@ public class _348DesignTicTacToe {
 
     //time : O(1)
     //interview friendly: 
+    
+    //the problem is to say: given one board and two players, each player will call 
+    //move(i, j, player) function, this function should return which player will win. 
+    //win means 3 cards in one line, same row, column, or diag or anti-diag.
+    
     //we use player 1 as +1, player 2 as -1, on rows and cols, diagonal, and antiDiagonal
     
     //we do not check whether the cell was occupied before, 
     //this will leave to the play to decide. 
+    
+    
     public int move(int i, int j, int player) {
         int toAdd = player == 1 ? 1 : -1;
 
