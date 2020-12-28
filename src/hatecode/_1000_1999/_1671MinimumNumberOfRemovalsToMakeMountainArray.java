@@ -21,47 +21,50 @@ Output: 0
 */
     //thinking process: O(nlgn)/O(n)
     
-    //the problem is to say: 
+    //the problem is to say: given one array, to make it a mountain array, like a1<...ai>...
+    //return the min removal needed.
+    
+    //use the LIS solution, 
     public int minimumMountainRemovals(int[] nums) {
         int leftLen = 0;
-        int[] leftDP = new int[nums.length];
-        int[] left = new int[nums.length];
-        int[] rightDP = new int[nums.length];
+        int[] ldp = new int[nums.length];
+        int[] l = new int[nums.length];
+        int[] rdp = new int[nums.length];
         int rightLen = 0;
-        int[] right = new int[nums.length];
+        int[] r = new int[nums.length];
         for(int i = 0; i < nums.length; i++) {
-            int pos = Arrays.binarySearch(leftDP, 0, leftLen, nums[i]);
+            int pos = Arrays.binarySearch(ldp, 0, leftLen, nums[i]);
             pos = (pos < 0) ? (-(pos) - 1) : pos;
             if(pos == leftLen) {
                 leftLen++;
             }
-            left[i] = pos;
-            leftDP[pos] = nums[i];
+            l[i] = pos;
+            ldp[pos] = nums[i];
         }
         
         
         for(int i = nums.length-1; i >= 0 ; i--) {
-            int pos = Arrays.binarySearch(rightDP, 0, rightLen, nums[i]);
+            int pos = Arrays.binarySearch(rdp, 0, rightLen, nums[i]);
             pos = (pos < 0) ? (-(pos) - 1) : pos;
             if(pos == rightLen) {
                 rightLen++;
             }
-            right[i] = pos;
-            rightDP[pos] = nums[i];
+            r[i] = pos;
+            rdp[pos] = nums[i];
         }
         
        
         int ans = nums.length;
         
         for(int i = 1; i < nums.length-1; i++) {
-            int elementsToRemove = nums.length-(left[i] + right[i] + 1);
-            if(left[i] != 0 && right[i] != 0)
+            int elementsToRemove = nums.length-(l[i] + r[i] + 1);
+            if(l[i] != 0 && r[i] != 0)
                 ans = Math.min(ans, elementsToRemove);
         }
         return ans;
     }
     
-    
+    //brute force O(n^2)/O(n)
     public int minimumMountainRemovals_SQUARE(int[] nums) {
         int n = nums.length;
         int[] LISForward = new int[n];
