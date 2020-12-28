@@ -40,10 +40,14 @@ Return all critical connections in the network in any order.
         return results;
     }
     
-    
-    public void helper(List<Integer>[] graph, int parent, int node, 
-            int timer[], boolean[] visited, List<List<Integer>> results, 
-            int []timeStampAtThatNode) {
+    //we mark the node with a timer(number), this number will always be increasing
+    //
+    public void helper( List<Integer>[] graph, 
+                        int parent, int node, 
+                        int timer[], 
+                        boolean[] visited, 
+                        List<List<Integer>> results, 
+                        int []timeStampAtThatNode) {
         visited[node] = true;
         timeStampAtThatNode[node] = timer[0]++;
         int currentTimeStamp = timeStampAtThatNode[node];
