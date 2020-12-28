@@ -1,0 +1,101 @@
+package hatecode._1000_1999;
+
+import java.util.*;
+public class _1671MinimumNumberOfRemovalsToMakeMountainArray {
+/*
+1671. Minimum Number of Removals to Make Mountain Array
+You may recall that an array arr is a mountain array if and only if:
+
+arr.length >= 3
+There exists some index i (0-indexed) with 0 < i < arr.length - 1 such that:
+arr[0] < arr[1] < ... < arr[i - 1] < arr[i]
+arr[i] > arr[i + 1] > ... > arr[arr.length - 1]
+Given an integer array nums, return the minimum number of elements to remove to make nums a mountain array.
+
+ 
+
+Example 1:
+
+Input: nums = [1,3,1]
+Output: 0
+*/
+    //thinking process: O(nlgn)/O(n)
+    
+    //the problem is to say: 
+    public int minimumMountainRemovals(int[] nums) {
+        int leftLen = 0;
+        int[] leftDP = new int[nums.length];
+        int[] left = new int[nums.length];
+        int[] rightDP = new int[nums.length];
+        int rightLen = 0;
+        int[] right = new int[nums.length];
+        for(int i = 0; i < nums.length; i++) {
+            int pos = Arrays.binarySearch(leftDP, 0, leftLen, nums[i]);
+            pos = (pos < 0) ? (-(pos) - 1) : pos;
+            if(pos == leftLen) {
+                leftLen++;
+            }
+            left[i] = pos;
+            leftDP[pos] = nums[i];
+        }
+        
+        
+        for(int i = nums.length-1; i >= 0 ; i--) {
+            int pos = Arrays.binarySearch(rightDP, 0, rightLen, nums[i]);
+            pos = (pos < 0) ? (-(pos) - 1) : pos;
+            if(pos == rightLen) {
+                rightLen++;
+            }
+            right[i] = pos;
+            rightDP[pos] = nums[i];
+        }
+        
+       
+        int ans = nums.length;
+        
+        for(int i = 1; i < nums.length-1; i++) {
+            int elementsToRemove = nums.length-(left[i] + right[i] + 1);
+            if(left[i] != 0 && right[i] != 0)
+                ans = Math.min(ans, elementsToRemove);
+        }
+        return ans;
+    }
+    
+    
+    public int minimumMountainRemovals_SQUARE(int[] nums) {
+        int n = nums.length;
+        int[] LISForward = new int[n];
+        int[] LISbackward = new int[n];
+        
+        Arrays.fill(LISForward, 1);
+        Arrays.fill(LISbackward, 1);
+        
+        for(int i=0; i<n; i++) {
+           for(int j=0; j<i; j++) {
+               if(nums[i] > nums[j] && LISForward[i] < 1+LISForward[j]) {
+                  LISForward[i] = 1 + LISForward[j]; 
+               }
+           } 
+        }
+        
+         for(int i=n-1; i>=0; i--) {
+           for(int j=i+1; j<n; j++) {
+               if(nums[i] > nums[j] && LISbackward[i] < 1+LISbackward[j]) {
+                  LISbackward[i] = 1 + LISbackward[j]; 
+               }
+           } 
+        }
+  
+        int min = Integer.MAX_VALUE;
+        for(int i=0; i<n; i++) {
+            if(LISbackward[i] > 1 && LISForward[i] > 1) {
+                min = Math.min(n-(LISbackward[i]+LISForward[i]-1), min);
+            }
+             
+        }
+        
+        return min;
+    }
+    
+    
+}
