@@ -50,7 +50,7 @@ public class _300LongestIncreasingSubsequence {
 
     //another thinking process:
     //we have an array tail which stored the tail[i] means for len = i + 1 sub array, the smallest 
-    //element, another understanding: for array nums, 0->i subarray, the LIS smallest last element
+    //element, from 0->i sub array
     
     //so if we meet a bigger value than tail[last], then just append it, if 
     //we meet a value less than tail[i], which means we meet a smaller value in array compared to previous 
