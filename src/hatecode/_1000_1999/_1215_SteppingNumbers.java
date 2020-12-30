@@ -26,7 +26,11 @@ public class _1215_SteppingNumbers {
     //diffed by 1, 
     //for example, [0, 21] => [0,1,2,3,4,5,6,7,8,9,10,12,21]
     
-    //
+    //need to know some basic things, diff 1, only 1 digit, then it would be 0->9, 
+    //for 2 digits, 10,12,21,23,32,43,34,54,45.....
+    //we can continue for 3 digits, 123,234.....,321,432,
+    
+    //so 
     public static List<Integer> countSteppingNumbers(int low, int high) {
         List<Integer> res = new ArrayList<>();
         if(low > high) return res;
