@@ -22,30 +22,34 @@ public class _1215_SteppingNumbers {
 */
     //thinking process: 
     
+    //the problem is to say: given one range [low, high], return all numbers which its digits are
+    //diffed by 1, 
+    //for example, [0, 21] => [0,1,2,3,4,5,6,7,8,9,10,12,21]
+    
     //
     public static List<Integer> countSteppingNumbers(int low, int high) {
         List<Integer> res = new ArrayList<>();
         if(low > high) return res;
 
-        Queue<Integer> que = new LinkedList<>();
-        for(int i = 1; i <= 9; i++) que.add(i);
+        Queue<Integer> q = new LinkedList<>();
+        for(int i = 1; i <= 9; i++) q.add(i);
 
         if(low == 0) res.add(0);
-        while(!que.isEmpty()){
-            int cur = que.poll();
+        while(!q.isEmpty()){
+            int cur = q.poll();
             if(cur >= low && cur <= high) res.add(cur);
 
             if(cur <= high/10){
                 int lastDigit = cur%10;
-                if(lastDigit > 0) que.add(cur*10 + lastDigit - 1);
-                if(lastDigit < 9) que.add(cur*10 + lastDigit + 1);
+                if(lastDigit > 0) q.add(cur*10 + lastDigit - 1);
+                if(lastDigit < 9) q.add(cur*10 + lastDigit + 1);
             }
         }
         return res;
     }
     
     public static void main(String[] args) {
-        System.out.println(countSteppingNumbers(0, 21));
+        System.out.println(countSteppingNumbers(0, 100));
     }
 }
 
