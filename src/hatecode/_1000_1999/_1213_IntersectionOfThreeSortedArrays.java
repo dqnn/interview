@@ -17,6 +17,11 @@ public class _1213_IntersectionOfThreeSortedArrays {
     1 <= arr1[i], arr2[i], arr3[i] <= 2000
 */
     
+    //thinking process: O(n)/O(1)
+    
+    //the problem is to say: given 3 integer arrays, return the intersection of the 3 arrays.
+    
+    //we use 3 pointers and move to figure out
     public static List<Integer> arraysIntersection(int[] A1, int[] A2, int[] A3) {
         List<Integer> res = new ArrayList<>();
         if(A1 == null || A2 == null || A3 == null){
