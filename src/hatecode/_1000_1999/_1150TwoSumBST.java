@@ -23,7 +23,8 @@ Each tree has at most 5000 nodes.
     
     //thinking process: O(n+m)/O(lg(max(h1, h2))
     
-    //
+    //this TC is high,
+    // O(lgh1 + n*lgh1)
     public boolean twoSumBSTs(TreeNode root1, TreeNode root2, int target) {
         if(root1 == null || root2==null) return false;
         
@@ -33,24 +34,26 @@ Each tree has at most 5000 nodes.
             || twoSumBSTs(root1, root2.left, target)
             || twoSumBSTs(root1, root2.right, target);
     }
-    boolean help(TreeNode root1, int value, int target){
+
+    boolean help(TreeNode root, int value, int target) {
         // 如果root1为空返回false
-        if(root1==null) return false;
+        if (root == null)
+            return false;
         // 计算两棵树当前节点和
-        int sum=root1.val+value;
+        int sum = root.val + value;
         // 如果sum等于target，返回true
-        if(sum==target) return true;
+        if (sum == target) return true;
         // 如果sum大于target，减小root1的值
-        if(sum>target){
-            // 使用root1左子节点的值继续递归
-            return help(root1.left,value,target);
-        }else{ // 反之
-            // 使用root1右子节点的值继续递归
-            return help(root1.right,value,target);
+        // 使用root1左子节点的值继续递归
+        if (sum > target) {
+            return help(root.left, value, target);
+        } else { // 反之使用root1右子节点的值继续递归
+            return help(root.right, value, target);
         }
     }
     
-    //brute force solution
+    //brute force solution, 
+    //thinking process:  O(n+m)/O(lg(max(h1, h2))
     public boolean twoSumBSTs_BruteForce(TreeNode root1, TreeNode root2, int target) {
         if (root1 == null || root2 == null) return false;
         Set<Integer> set1 = new HashSet<>(), set2 = new HashSet<>();
