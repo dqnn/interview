@@ -25,8 +25,8 @@ Each tree has at most 5000 nodes.
     
     //
     public boolean twoSumBSTs(TreeNode root1, TreeNode root2, int target) {
-        // 如果root2为空，返回false
-        if(root2==null) return false;
+        if(root1 == null || root2==null) return false;
+        
         // 利用root2的当前节点去root1中找到和为target的值。
         // 若没找到，继续用root2的左右子节点去找
         return help(root1, root2.val, target)
@@ -50,6 +50,7 @@ Each tree has at most 5000 nodes.
         }
     }
     
+    //brute force solution
     public boolean twoSumBSTs_BruteForce(TreeNode root1, TreeNode root2, int target) {
         if (root1 == null || root2 == null) return false;
         Set<Integer> set1 = new HashSet<>(), set2 = new HashSet<>();
