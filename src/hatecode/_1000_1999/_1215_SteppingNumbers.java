@@ -29,8 +29,15 @@ public class _1215_SteppingNumbers {
     //need to know some basic things, diff 1, only 1 digit, then it would be 0->9, 
     //for 2 digits, 10,12,21,23,32,43,34,54,45.....
     //we can continue for 3 digits, 123,234.....,321,432,
-    
-    //so 
+    //this problem needs some math knowledge to dig out
+    //so we need to figure out a way how to assemble them, we can find the pattern, 
+    //from base 0, 1, 2, 3, .....9. 
+    //how we form 2 digits numbers, we are trying to form a 2 digits number by two adjacent 
+    // 1 digit number. so the queue is to keep a series of number which are already 12,21,
+    //example, one number abc, they are adjacent, like  a= b+1 = c+1 +1
+    //so we get last digit, it will be ab0, then if c > 0, we use its previous, 
+    //for example, abc(c-1) or abc(c-1),
+    //eg: 432, -> 432, 4321, 4323,
     public static List<Integer> countSteppingNumbers(int low, int high) {
         List<Integer> res = new ArrayList<>();
         if(low > high) return res;
