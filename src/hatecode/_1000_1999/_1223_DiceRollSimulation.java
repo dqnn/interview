@@ -29,7 +29,9 @@ therefore sequences (1,1) and (2,2) cannot occur, so the final answer is 36-2 = 
     //but 1 and 2 can not occur 2 times consecutively, so 6 x 6 =36, but (1,1) and (2, 2)
     //need to be excluded.
     
-    //
+    //dp[i][j] means how many choices for total i dices and the last number is j.
+    //dp[b][1] = sum(dp[b-1][1~6]) - sum(dp[a][2~6(except 1)])
+    
     public int dieSimulator(int n, int[] rollMax) {
         long divisor = (long)Math.pow(10, 9) + 7;
         long[][] dp = new long[n][7];
