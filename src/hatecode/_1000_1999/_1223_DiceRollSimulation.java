@@ -71,7 +71,6 @@ therefore sequences (1,1) and (2,2) cannot occur, so the final answer is 36-2 = 
     
     
     int res = 0;
-    
     public int dieSimulator_DFS_TLE(int n, int[] rollMax) {
         dfs(n, rollMax, -1, 0);
         return res;
