@@ -31,7 +31,7 @@ therefore sequences (1,1) and (2,2) cannot occur, so the final answer is 36-2 = 
     
     //dp[i][j] means how many choices for total i dices and the last number is j.
     //dp[b][1] = sum(dp[b-1][1~6]) - sum(dp[a][2~6(except 1)])
-    
+    //TODO: take more time to think
     
     public int dieSimulator(int n, int[] rollMax) {
         int mod = (int)1e9 + 7;
