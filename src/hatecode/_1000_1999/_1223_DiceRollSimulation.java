@@ -80,13 +80,16 @@ therefore sequences (1,1) and (2,2) cannot occur, so the final answer is 36-2 = 
     // dieLeft : the number of dies
     // last : last number we rolled
     // curlen : current len of same number
-    // This function trys to traval all the valid permutation
+    // This function tries to travel all the valid permutation
     private void dfs(int dieLeft, int[] rollMax, int last, int curlen){
         if(dieLeft == 0){
             res++;
             return;
         }
+        //this DFS is interesting, one die could have 6 values, so it would be tree with 
+        //6 branches and we continue from root
         for(int i=0; i<6; i++){
+            //this means current number already reached max show time
             if(i == last && curlen == rollMax[i]) continue;
             dfs(dieLeft - 1, rollMax, i, i == last ? curlen + 1 : 1);
         }
