@@ -106,11 +106,13 @@ therefore sequences (1,1) and (2,2) cannot occur, so the final answer is 36-2 = 
     private int helper(int dieLeft, int[] rollMax, int last, int curlen){
         if(dieLeft == 0) return 1;
         if(last >= 0 && dp[dieLeft][last][curlen] > 0) return dp[dieLeft][last][curlen];
+        
         int res = 0;
         for(int i=0; i<6; i++){
             if(i == last && curlen == rollMax[i]) continue;
             res = (res + helper(dieLeft - 1, rollMax, i, i == last ? curlen + 1 : 1)) % M;
         }
+        
         if(last >= 0) dp[dieLeft][last][curlen] = res;
         return res;
     }
