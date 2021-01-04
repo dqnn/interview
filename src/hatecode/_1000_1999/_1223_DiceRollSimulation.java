@@ -48,7 +48,7 @@ therefore sequences (1,1) and (2,2) cannot occur, so the final answer is 36-2 = 
             int total = 0;
             for (int j = 0; j < 6; j++) {
                 //If there are no constraints, the total sequences ending with 
-                //j should be the total sequences from preious rolling
+                //j should be the total sequences from previous rolling
                 dp[i][j] = dp[i - 1][6];
                 //For xx1, only 111 is not allowed, so we only need to remove 1 
                 //sequence from previous sum
