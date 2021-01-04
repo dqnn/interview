@@ -47,13 +47,16 @@ therefore sequences (1,1) and (2,2) cannot occur, so the final answer is 36-2 = 
         for (int i = 2; i <= n; i++) {
             int total = 0;
             for (int j = 0; j < 6; j++) {
-                //If there are no constraints, the total sequences ending with j should be the total sequences from preious rolling
+                //If there are no constraints, the total sequences ending with 
+                //j should be the total sequences from preious rolling
                 dp[i][j] = dp[i - 1][6];
-                //For xx1, only 111 is not allowed, so we only need to remove 1 sequence from previous sum
+                //For xx1, only 111 is not allowed, so we only need to remove 1 
+                //sequence from previous sum
                 if (i - rollMax[j] == 1) {
                     dp[i][j]--;
                 }
-                //For axx1, we need to remove the number of a11 (211 + 311 + 411 + 511 + 611) => (..2 + ..3 + ..4 + ..5 + ..6) => (sum - ..1)
+                //For axx1, we need to remove the number of a11 
+                //(211 + 311 + 411 + 511 + 611) => (..2 + ..3 + ..4 + ..5 + ..6) => (sum - ..1)
                 if (i - rollMax[j] >= 2) {
                     int reduciton = dp[i - rollMax[j] - 1][6] - dp[i - rollMax[j] - 1][j];
                     //must add one more mod because subtraction may introduce negative numbers
