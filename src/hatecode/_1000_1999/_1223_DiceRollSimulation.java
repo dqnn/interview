@@ -96,6 +96,10 @@ therefore sequences (1,1) and (2,2) cannot occur, so the final answer is 36-2 = 
     }
     
     //DFS + memo
+    //dp[i][j][k] means i times rolling die. 
+    //j means last rolling value, 
+    //k means how long the last value last
+    //so we have a lot of dup calcuation can be saved
     int[][][] dp = new int[5000][6][16];
     final int M = 1000000007;
     
