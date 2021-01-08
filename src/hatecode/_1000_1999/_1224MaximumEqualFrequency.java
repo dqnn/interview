@@ -37,7 +37,9 @@ Output: 7
             freq[cnt[num] - 1]--;
             freq[cnt[num]]++;
             maxF = Math.max(maxF, cnt[num]);
-            if (maxF * freq[maxF] == i || (maxF - 1) * (freq[maxF - 1] + 1) == i || maxF == 1)
+            if (maxF * freq[maxF] == i 
+                    || (maxF - 1) * (freq[maxF - 1] + 1) == i 
+                    || maxF == 1)
                 res = i + 1;
         }
         return res;
