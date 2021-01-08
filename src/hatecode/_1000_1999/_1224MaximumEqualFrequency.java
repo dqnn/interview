@@ -17,24 +17,31 @@ Example 1:
 
 Input: nums = [2,2,1,1,5,3,3,5]
 Output: 7
+
+2 <= nums.length <= 10^5
+1 <= nums[i] <= 10^5
 */
     //thinking process: 
+ 
     
-    //the problem is to say:
+    //the problem is to say:given one positive integer array, we can only remove 1 element,
+    //so left elements have same occurrency.
+    
+    //
     public int maxEqualFreq(int[] A) {
-            int[] cnt = new int[100001], freq = new int[100001];
-            int maxF=0,res=0;
-            for(int i=0;i<A.length;i++){
-                int num=A[i];
-                cnt[num]++;
-                freq[cnt[num]-1]--;
-                freq[cnt[num]]++;
-                maxF=Math.max(maxF,cnt[num]);
-                if(maxF*freq[maxF]==i||(maxF-1)*(freq[maxF-1]+1)==i||maxF==1)
-                    res = i+1;
-            }
-            return res;
+        int[] cnt = new int[100001], freq = new int[100001];
+        int maxF = 0, res = 0;
+        for (int i = 0; i < A.length; i++) {
+            int num = A[i];
+            cnt[num]++;
+            freq[cnt[num] - 1]--;
+            freq[cnt[num]]++;
+            maxF = Math.max(maxF, cnt[num]);
+            if (maxF * freq[maxF] == i || (maxF - 1) * (freq[maxF - 1] + 1) == i || maxF == 1)
+                res = i + 1;
         }
+        return res;
+    }
     
     public int maxEqualFreq_SlidingWindow(int[] nums) {
         int n = nums.length, m = 100_001, ans = 0;
