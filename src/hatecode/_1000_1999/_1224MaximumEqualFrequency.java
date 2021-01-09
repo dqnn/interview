@@ -29,6 +29,10 @@ Output: 7
     //the problem is to say:given one positive integer array, we can only remove 1 element,
     //so left elements have same occurrency.
     
+    //the problem is to say: given one positive integer array, 
+    //we can only remove 1 element, return the longest prefix sub array, 
+    //which every element has same occurrence, 
+    
     //
     public static int maxEqualFreq(int[] A) {
         int[] cnt = new int[100001], freq = new int[100001];
