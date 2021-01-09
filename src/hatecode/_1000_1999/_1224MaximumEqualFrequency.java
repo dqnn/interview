@@ -1,4 +1,6 @@
 package hatecode._1000_1999;
+
+import java.util.*;
 public class _1224MaximumEqualFrequency {
 /*
 1224. Maximum Equal Frequency
@@ -28,7 +30,7 @@ Output: 7
     //so left elements have same occurrency.
     
     //
-    public int maxEqualFreq(int[] A) {
+    public static int maxEqualFreq(int[] A) {
         int[] cnt = new int[100001], freq = new int[100001];
         int maxF = 0, res = 0;
         for (int i = 0; i < A.length; i++) {
@@ -37,6 +39,7 @@ Output: 7
             freq[cnt[num] - 1]--;
             freq[cnt[num]]++;
             maxF = Math.max(maxF, cnt[num]);
+            
             if (maxF * freq[maxF] == i 
                     || (maxF - 1) * (freq[maxF - 1] + 1) == i 
                     || maxF == 1)
@@ -45,7 +48,8 @@ Output: 7
         return res;
     }
     
-    public int maxEqualFreq_SlidingWindow(int[] nums) {
+    
+    public static int maxEqualFreq_SlidingWindow(int[] nums) {
         int n = nums.length, m = 100_001, ans = 0;
         int[] count = new int[m], freq = new int[m];
         for (int i = 0; i < n; i ++) {
@@ -61,8 +65,13 @@ Output: 7
             if (freq[d] == 1 &&(d == c + 1 || d == 1)) {
                 ans = i + 1;
             }
-            // System.out.printf("i = %d, val = %d, c = %d, d = %d, count = %s, freq = %s\n", i, val, c, d, Arrays.toString(Arrays.copyOfRange(count, 0, 10)), Arrays.toString(Arrays.copyOfRange(freq, 0, 10)));
+             System.out.printf("i = %d, val = %d, c = %d, d = %d, count = %s, freq = %s\n", i, val, c, d, Arrays.toString(Arrays.copyOfRange(count, 0, 10)), Arrays.toString(Arrays.copyOfRange(freq, 0, 10)));
         }
         return ans;
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(maxEqualFreq(new int[] {1,1,1,2,2,2,3}));
+        System.out.println(maxEqualFreq_SlidingWindow(new int[] {1,1,1,2,2,2,3}));
     }
 }
