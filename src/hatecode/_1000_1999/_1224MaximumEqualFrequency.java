@@ -51,12 +51,12 @@ Output: 7
     
     public static int maxEqualFreq_SlidingWindow(int[] A) {
         int n = A.length, m = 100_001, res = 0;
-        int[] count = new int[m], freq = new int[m];
+        int[] cnt = new int[m], freq = new int[m];
         for (int i = 0; i < n; i ++) {
             int val = A[i];
-            freq[count[val]] --;
-            int c = ++count[val];
-            freq[count[val]] ++;
+            freq[cnt[val]] --;
+            int c = ++cnt[val];
+            freq[cnt[val]] ++;
             
             if (freq[c] * c == i + 1 && i + 1 < n) {
                 res = i + 2;
@@ -65,7 +65,7 @@ Output: 7
             if (freq[d] == 1 &&(d == c + 1 || d == 1)) {
                 res = i + 1;
             }
-             System.out.printf("i = %d, val = %d, c = %d, d = %d, count = %s, freq = %s\n", i, val, c, d, Arrays.toString(Arrays.copyOfRange(count, 0, 10)), Arrays.toString(Arrays.copyOfRange(freq, 0, 10)));
+             System.out.printf("i = %d, val = %d, c = %d, d = %d, count = %s, freq = %s\n", i, val, c, d, Arrays.toString(Arrays.copyOfRange(cnt, 0, 10)), Arrays.toString(Arrays.copyOfRange(freq, 0, 10)));
         }
         return res;
     }
