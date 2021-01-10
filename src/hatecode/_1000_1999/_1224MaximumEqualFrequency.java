@@ -37,9 +37,10 @@ Output: 5
     //5 (include 1)
     
     //4 cases: 
-    //1. all elements only appear once
-    //2. one element count have more than 1 element
-    //3. 
+    //1. all elements only appear once,[1,2,3,4]-->4, maxF = 1, 
+    //2. one element count have more than 1 element, [1,1,2,2,2]->5, (maxF-1)*(freq[maxF-1]+1) ==i
+    //3. only 1 extra element, others have same fre, [1,1,2,2,3]->5, maxF*freq[maxF]==i
+    //4. only 1 number, [1]
     public static int maxEqualFreq(int[] A) {
         int[] cnt = new int[100001], freq = new int[100001];
         int maxF = 0, res = 0;
