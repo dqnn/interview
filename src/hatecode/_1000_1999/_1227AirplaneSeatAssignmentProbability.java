@@ -42,7 +42,18 @@ Explanation 2:
         if (n == 1) return 1.0;
         return 1.0/2;
     }
-    
+    /*
+     * Based on the code in part 1, we have the following formula:
+
+f(n) = 1 / n + (n - 2) / n * f(n - 1)
+Part2: Proof when n > 1, the f(n) is 1/2
+n = 2, we have f(2) = 1/2; the assumption holds;
+Suppose n = k we have f(k) = 1/2, when n = k + 1,
+f(k + 1) = 1 / (k + 1) + (k + 1 - 2) / (k + 1) * f(k)
+         = 2 / (2 * (k + 1)) + (k - 1) / (k + 1) * 1/2
+         = 1 / 2
+That is, f(k + 1) = 1 / 2 also holds.
+     */
     public double nthPersonGetsNthSeat_Recursive(int n) {
         if (n == 1) return 1.0d;
         return 1d / n + (n - 2d) / n * nthPersonGetsNthSeat(n - 1);
