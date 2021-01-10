@@ -36,7 +36,10 @@ Output: 5
     //[1,1,1,2,2,2] --> we should remove 3rd 1, so the prefix array longest should be 
     //5 (include 1)
     
-    //
+    //4 cases: 
+    //1. all elements only appear once
+    //2. one element count have more than 1 element
+    //3. 
     public static int maxEqualFreq(int[] A) {
         int[] cnt = new int[100001], freq = new int[100001];
         int maxF = 0, res = 0;
