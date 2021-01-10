@@ -17,8 +17,8 @@ of ocurrences (0).
 
 Example 1:
 
-Input: nums = [2,2,1,1,5,3,3,5]
-Output: 7
+Input: nums = [1,1,1,2,2,2]
+Output: 5
 
 2 <= nums.length <= 10^5
 1 <= nums[i] <= 10^5
@@ -32,6 +32,9 @@ Output: 7
     //the problem is to say: given one positive integer array, 
     //we can only remove 1 element, return the longest prefix sub array, 
     //which every element has same occurrence, 
+    
+    //[1,1,1,2,2,2] --> we should remove 3rd 1, so the prefix array longest should be 
+    //5 (include 1)
     
     //
     public static int maxEqualFreq(int[] A) {
@@ -52,7 +55,7 @@ Output: 7
         return res;
     }
     
-    
+    //
     public static int maxEqualFreq_SlidingWindow(int[] A) {
         int n = A.length, m = 100_001, res = 0;
         int[] cnt = new int[m], freq = new int[m];
