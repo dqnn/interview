@@ -21,21 +21,27 @@ Output: 0.50000
     
     //thinking process:
     /*
-     * f(n) = 1/n                                    -> 1st person picks his own seat, all others including the nth person is going to get their own seats
-    + 1/n * 0                                 -> 1st person picks last one's seat, there's no chance the nth peroson is going to get his own seat
-    + (n-2)/n * (                        ->1st person picks one of seat from 2nd to (n-1)th
-        1/(n-2) * f(n-1) +                 -> 1st person picks 2nd seat, see explanation 1 below
-        1/(n-2) * f(n-2) +                 -> 1st person picks 3rd seat see explanation 2 below
-        ......
-        1/(n-2) * f(2)                     -> 1st person pick (n-1)th's seat
-    )
-
-f(n) = 1/n + 0 + 1/n * (f(n-1) + f(n-2) + ... + f(2)) = 1/n * (f(n-1) + f(n-2) + ... + f(2) + 1) = 1/n * (f(n-1) + f(n-2) + ... + f(2) + f(1)) because f(1) = 1 
-
-Explanation 1:
-1st person picks 2nd seat, then the 2nd person becomes the new "careless" person, and he can pick 1st, 3rd, 4th ... nth seat. To him, the number of seats is n-1. This is a subproblem.
-Explanation 2:
-1st person picks 3rd seat, then the 2nd person will sit at his own seat, and the 3rd person becomes the new "careless" peroson, and he can pick 1st, 4th, 5th .., nth seat. To him, the number of seats is n-2. This is a subproblem.
+     Let f(n) be the probability that the n-th passenger will get his own seat.
+If the 1st passenger get the 1st seat, then everyone will get their own seats, 
+so the n-th passenger gets his own seat with probability: 1/n
+If the 1st passenger get the 2nd seat, with probability 1/n, then n-1 seats left. 
+Here, the 2nd passenger faces the same situation of the 1st passenger, he can just 
+randomly choose a seat. So it is the same question but n becomes n-1. In this situation, 
+the probability that the n-th passenger gets his seat is f(n-1). So the final probability is f(n-1)*(1/n)
+If the 1st passenger get the 3rd seat, ..., the probability is f(n-2)*(1/n)
+...
+....
+......
+Then f(n) = 1/n + f(n-1)*(1/n)+ f(n-2)*(1/n) + ... + f(2)*(1/n)
+Let's solve this recursive formula:
+nf(n) = 1+ f(n-1)+ f(n-2) + ... + f(2) ...... Equation 1
+(n-1)f(n-1) = 1+ f(n-2)+ ... + f(2) ...... Equation 2
+Use Equation 1 - Equation 2
+nf(n) - (n-1)f(n-1) = f(n-1)
+so
+f(n) = f(n-1) when n>=3
+We already know f(2)=0.5
+So f(n) = 0.5 when n>=2
      */
     
     public double nthPersonGetsNthSeat(int n) {
