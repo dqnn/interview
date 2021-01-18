@@ -16,6 +16,7 @@ public class _1228MissingNumberInArithmeticProgression {
  */
     //thinking process: O(n)/O(1)
     
+    //the missing must not be first or last one, it must be in the middle
     //get its sub first, then try to figure out the one which is missing
     public static int missingNumber(int[] A) {
         if (A == null || A.length < 1) return -1;
