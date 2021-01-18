@@ -43,7 +43,9 @@ public class _1229MeetingScheduler {
     //the problem is to say: given two free time slots with a during integer, find the 
     //common free time, return a list of idle interval
     
-    //
+    //use a priorityqueue to store all slots which has duration bigger than duration.
+    //sort them by start time so we can have all in a sorted order, then we poll first and compare 2nd
+    //in pq, then we can get all qualified candidates
     List<Integer> minAvailableDuration(int[][] slots1, int[][] slots2, int duration) {
         List<Integer> res = new ArrayList<>();
         if (slots1 == null || slots2 == null) return res;
