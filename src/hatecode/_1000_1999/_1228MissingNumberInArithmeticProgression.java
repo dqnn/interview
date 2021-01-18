@@ -14,6 +14,22 @@ public class _1228MissingNumberInArithmeticProgression {
   Input: arr[]  = {1, 6, 11, 16, 21, 31};
         Output: 26
  */
-   
+    public static int missingNumber(int[] A) {
+        if (A == null || A.length < 1) return -1;
+        
+        int n = A.length;
+        int first = A[0], last = A[n - 1];
+        int sub = (last - first)/ n;
+        
+        for(int i = 0; i<n - 1; i++) {
+            int cur = A[i], next = A[i+1];
+            if (cur + sub != next) return cur + sub;
+        }
+        return -1;
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(new int[] {1,2,3,4,6});
+    }
 }
 
