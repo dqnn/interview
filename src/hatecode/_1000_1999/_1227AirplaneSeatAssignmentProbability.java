@@ -19,7 +19,7 @@ Input: n = 2
 Output: 0.50000
 */
     
-    //thinking process:
+    //thinking process: O(1)/O(1), pure math
     /*
      Let f(n) be the probability that the n-th passenger will get his own seat.
 If the 1st passenger get the 1st seat, then everyone will get their own seats, 
@@ -50,15 +50,18 @@ So f(n) = 0.5 when n>=2
     }
     /*
      * Based on the code in part 1, we have the following formula:
+通过条件概率，构造递推公式，假设 n 个人的答案为 f(n)。
 
-f(n) = 1 / n + (n - 2) / n * f(n - 1)
-Part2: Proof when n > 1, the f(n) is 1/2
-n = 2, we have f(2) = 1/2; the assumption holds;
-Suppose n = k we have f(k) = 1/2, when n = k + 1,
-f(k + 1) = 1 / (k + 1) + (k + 1 - 2) / (k + 1) * f(k)
-         = 2 / (2 * (k + 1)) + (k - 1) / (k + 1) * 1/2
-         = 1 / 2
-That is, f(k + 1) = 1 / 2 also holds.
+n = 1 or n choose seat n
+已知 f(1)=1。假设现在有 n 个人，如果第一个人选了 1 号座位，则第 n 个人必定会坐到自己的座位上。这个事件发生的概率为 1/n。
+如果第一个人选了 n 号座位，则第 n 个人永远不会坐到自己的座位上。这个事件发生的概率也为1/n。 
+
+n in [2, n-1]
+接下来，不妨假设第一个人选了 j 号座位，其中 2≤j≤n−1，则[2, j-1] 个人都会坐到自己的座位上，
+第 j 个人到第 n 个人的座位有可能被打乱。此时，如果第 j 个人选择了第一个人的座位，则第 n 个人必定会坐到自己的座位上。
+如果第 j 个人选了 n 号座位，则第 n 个人永远不会坐到自己的座位上，所以规模变成了 n−j+1 个人的问题。
+综上，当 n≥2 时，递推公式可以为 f(n)=1/n⋅1 + 1/n⋅0+ 1/n⋅(f(n-1) + f(n-2) + f(2)) = 1/n (f(1) + ... + f(n-1))
+
      */
     public double nthPersonGetsNthSeat_Recursive(int n) {
         if (n == 1) return 1.0d;
