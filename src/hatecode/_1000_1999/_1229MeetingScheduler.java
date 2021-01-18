@@ -38,9 +38,33 @@ public class _1229MeetingScheduler {
     0 <= slots1[i][j], slots2[i][j] <= 10^9
     1 <= duration <= 10^6 
 */
+    //thinking process; O()/O()
     
-    List<Integer> minAvailableDuration(List<List<Integer>> slots1, List<List<Integer>> slots2, int duration) {
+    //the problem is to say: given two free time slots with a during integer, find the 
+    //common free time, return a list of idle interval
+    
+    //
+    List<Integer> minAvailableDuration(int[][] slots1, int[][] slots2, int duration) {
+        List<Integer> res = new ArrayList<>();
+        if (slots1 == null || slots2 == null) return res;
         
+        PriorityQueue<int[]> pq = new PriorityQueue<int[]>((a, b)->(a[0] - b[0]));
+        for(int[] slot : slots1) {
+            if (slot[1] - slot[0] >= duration) pq.add(slot);
+        }
+        
+        for(int[] slot : slots2) {
+            if (slot[1] - slot[0] >= duration) pq.add(slot);
+        }
+        
+        while(!pq.isEmpty()) {
+            int[] slot = pq.poll();
+            if (slot[1] > pq.peek()[0] + duration) {
+                res.add(slot[0]);
+                res.add(slot[0] + duration);
+            }
+        }
+        return res;
     }
 }
 
