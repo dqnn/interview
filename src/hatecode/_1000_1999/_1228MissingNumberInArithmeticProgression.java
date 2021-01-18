@@ -14,6 +14,9 @@ public class _1228MissingNumberInArithmeticProgression {
   Input: arr[]  = {1, 6, 11, 16, 21, 31};
         Output: 26
  */
+    //thinking process: O(n)/O(1)
+    
+    //get its sub first, then try to figure out the one which is missing
     public static int missingNumber(int[] A) {
         if (A == null || A.length < 1) return -1;
         
@@ -29,7 +32,7 @@ public class _1228MissingNumberInArithmeticProgression {
     }
     
     public static void main(String[] args) {
-        System.out.println(new int[] {1,2,3,4,6});
+        System.out.println(missingNumber(new int[] {1,2,3,4,6}));
     }
 }
 
