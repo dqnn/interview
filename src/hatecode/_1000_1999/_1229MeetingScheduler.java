@@ -38,7 +38,7 @@ public class _1229MeetingScheduler {
     0 <= slots1[i][j], slots2[i][j] <= 10^9
     1 <= duration <= 10^6 
 */
-    //thinking process; O()/O()
+    //thinking process; O(nlgn)/O(n)
     
     //the problem is to say: given two free time slots with a during integer, find the 
     //common free time, return a list of idle interval
