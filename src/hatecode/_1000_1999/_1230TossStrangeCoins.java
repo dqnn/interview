@@ -20,7 +20,12 @@ public class _1230TossStrangeCoins {
     Output: 0.03125
   */
     //thinking process: 
-    //
+    
+    //the problem is to say: given one list of double numbers, which
+    //represents coin head up tossed probability, return the probability of 
+    //coins head up tossed target times.
+    
+    //combination sum,
     double probabilityOfHeads(List<Double> prob, int target) { 
         
         return 0.0;
