@@ -34,7 +34,7 @@
 ## Scale
  * QPS, > 1000, should have more than 2 hosts? why? 
  * Data size, rentation policy, how longer we need to keep? 
-# Arch (microservices)
+# Arch (breakdown into microservices)
  
  
  
