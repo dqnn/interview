@@ -37,7 +37,7 @@
 # Arch (breakdown into microservices)
 ## Channel Service (Session Service)
 * serve all request from user, more like a API Gateway
-### APIs
+### APIs(To be continued...)
 - GetChannels(UserId)
   - store last viewed channel; 
   - store visible channels;recent direct msgs, memberships
