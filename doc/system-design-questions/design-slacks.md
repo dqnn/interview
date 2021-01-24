@@ -39,13 +39,13 @@
 * serve all request from user, more like a API Gateway
 ### APIs
 - GetChannels(UserId)
- - store last viewed channel; 
- - store visible channels;recent direct msgs, memberships
- - show unread msgs/last msg preview; denormalized data
+  - store last viewed channel; 
+  - store visible channels;recent direct msgs, memberships
+  - show unread msgs/last msg preview; denormalized data
 - SendMessage(SenderId, revciever_Id, message_type, Message, mediaId)
- - message_type is enum[individual message, group message]
- - create_timestamp, updated_timestamp, expire_timestamp, STATE will be appended by channel service
- - state will enum(recieved, sent, viewed, notification_sent, deleted), the multimedia content needs to be processed, it would need sometime between recieved and sent
+  - message_type is enum[individual message, group message]
+  - create_timestamp, updated_timestamp, expire_timestamp, STATE will be appended by channel service
+  - state will enum(recieved, sent, viewed, notification_sent, deleted), the multimedia content needs to be processed, it would need sometime between recieved and sent
 - updateMessage(message_Id, message)/delete
 
 ![Arch](https://github.com/dqnn/interview/blob/master/doc/system-design-questions/designSlacks.png)
