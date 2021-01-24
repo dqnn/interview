@@ -22,7 +22,7 @@
 * User can register/authentication/
 * User can search msgs
 * User can use emoj to other msgs. like thumbs up, sad, etc
-## Constrains
+## Constrains, main is DB read/write
 * DAU: 10M active users 
 * peak msgs count: 10M * 100 msgs/person * 8.64(peak factor)/86400 = 10K msgs/s,
 * one msg size: 1 KB
