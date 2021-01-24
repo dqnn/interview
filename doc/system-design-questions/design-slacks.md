@@ -49,6 +49,17 @@
 - updateMessage(message_Id, message)/delete
 
 ![Arch](https://github.com/dqnn/interview/blob/master/doc/system-design-questions/designSlacks.png)
+### Internal APIs
+- Image APIs
+  - processMedia(mediaId)
+     -- replica media
+     -- postprocess: generate thumbail/preview
+     -- distribute to CDN
+- Notification APIs
+  - notifyUser(userId, send_id, message_Id, msg_preview)
+    -- either use db or kafka
+    -- exactly once is difficult, requiring two phrase commit(decrease perf), see XA protocol, https://en.wikipedia.org/wiki/X/Open_XA  
+
  
  
  
