@@ -27,9 +27,11 @@
 * peak msgs count: 10M * 100 msgs/person * 8.64(peak factor)/86400 = 10K msgs/s,
 * one msg size: 1 KB
 * storage:  1K * 10K  = 10 M/s, one year is 10 * 86400 * 365 = 315T
-* througput:   10M/s
+* througput:   10M/s, notes: some addtional capacity is needed
 * group member limit: < 1000 memembers
+* Latency: 
+* CPU, RAM, Disk < 50%, avg shoud be 30% ~ 40% 
 ## Scale
- * QPS
+ * QPS, > 1000, should have more than 2 hosts? why? 
  * Data size, rentation policy, how longer we need to keep? 
  
