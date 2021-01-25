@@ -35,6 +35,7 @@
  * QPS, > 1000, should have more than 2 hosts? why? 
  * Data size, rentation policy, how longer we need to keep? 
 # Arch (breakdown into microservices)
+* DynamoDB and S2 are infinitely and linear scale, we just need to pay more loads but no hurt on scale/latency
 ## Channel Service (Session Service)
 * serve all request from user, more like a API Gateway
 ### APIs(To be continued...)
