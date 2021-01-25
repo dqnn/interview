@@ -52,13 +52,13 @@
 ### Internal APIs
 - Image APIs
   - processMedia(mediaId)
-     -- replica media
-     -- postprocess: generate thumbail/preview
-     -- distribute to CDN
+     - replica media
+     - postprocess: generate thumbail/preview
+     - distribute to CDN
 - Notification APIs
   - notifyUser(userId, send_id, message_Id, msg_preview)
-    -- either use db or kafka
-    -- exactly once is difficult, requiring two phrase commit(decrease perf), see XA protocol, https://en.wikipedia.org/wiki/X/Open_XA  
+    - either use db or kafka
+    - exactly once is difficult, requiring two phrase commit(decrease perf), see XA protocol, https://en.wikipedia.org/wiki/X/Open_XA  
 
  
  
