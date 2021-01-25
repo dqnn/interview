@@ -67,6 +67,7 @@
 | Id(shard key) | Title       |
 | name          | Text        |
 | status          | Text        |
+* online status can be detected by websocket. status can be in another table
 ## Friend Table (SQL)
 | Field      | Description |
 | ----------- | ----------- |
@@ -104,6 +105,9 @@
 | key    | message_Id       |
 | value | [Davlid:smile, Uncle:good]     | 
 # Bottle Neck/Scale
+* mysql shardding by zookeeper, spend sometime on zookeeper
+* sharding, periodically cleanup
+* throttling
 
 
  
