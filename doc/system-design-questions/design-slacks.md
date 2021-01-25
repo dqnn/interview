@@ -86,7 +86,7 @@
 ## channel table (Redis)
 | Field      | Description |
 | ----------- | ----------- |
-| key    | Title       |
+| key    | Denny(userId)       |
 | value | [Davlid:{unread_msg:10;last_view_timestamp:1111}, Uncle:{unread_msg:10;last_view_timestamp:1111}]     | 
 ## Message storage Table (DynamoDB)
 | Field      | Description |
