@@ -61,13 +61,13 @@
     - exactly once is difficult, requiring two phrase commit(decrease perf), see XA protocol, https://en.wikipedia.org/wiki/X/Open_XA, thining about this case: one user installed slacks on phone and desktop, then we should the notification to phone and desktop(ready), if he saw the message on phone then on desktop, we should not send this notification or it should mute this notification immediately,(commit), also see https://www.educative.io/edpresso/what-is-the-two-phase-commit-protocol
     
 # Data Model
-## User Table
+## User Table (SQL)
 | Field      | Description |
 | ----------- | ----------- |
 | Id(shard key) | Title       |
 | name          | Text        |
 | status          | Text        |
-## Friend Table
+## Friend Table (SQL)
 | Field      | Description |
 | ----------- | ----------- |
 | user_id1    | Title       |
@@ -75,20 +75,19 @@
 | connected_date | Text     | 
 | last view date user1 | 16234556,process highlight unread message   |
 *  you can query user_id1's all friends, 1 see 2's message last read, 2 see 1's message last read. 2nd reason is sharding easily,  this timstamp cannot be on message table
-## Group Table 
-## Friend Table
+## Group Table (SQL)
 | Field      | Description |
 | ----------- | ----------- |
 | group_id    | Title       |
 | user_id    | Text        |
 | joined_date | Text     | 
 | last_view date | Text     | 
-## channel table
+## channel table (Redis)
 | Field      | Description |
 | ----------- | ----------- |
-| UserId    | Title       |
+| key    | Title       |
 | value | [Davlid:{unread_msg:10;last_view_timestamp:1111}, Uncle:{unread_msg:10;last_view_timestamp:1111}]     | 
-## Message storage Table
+## Message storage Table (DynamoDB)
 | Field      | Description |
 | ----------- | ----------- |
 | containerId(partition_key, groupId)    | Title       |
@@ -98,7 +97,11 @@
 | message | Text     |
 | timestamp | Text     | 
 * for group message, containerid is groupId, fir p2p chat, containerId is userId1_UserId2 sorted. 
-
+## Emoji table (Redis)
+| Field      | Description |
+| ----------- | ----------- |
+| key    | Title       |
+| value | [Davlid:smile, Uncle:good]     | 
 
  
  
