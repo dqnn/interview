@@ -81,6 +81,7 @@
 | group_id    | Title       |
 | user_id    | Text        |
 | joined_date | Text     | 
+| role| admin/user   | 
 | last_view date | Text     | 
 ## channel table (Redis)
 | Field      | Description |
@@ -100,8 +101,10 @@
 ## Emoji table (Redis)
 | Field      | Description |
 | ----------- | ----------- |
-| key    | Title       |
+| key    | message_Id       |
 | value | [Davlid:smile, Uncle:good]     | 
+# Bottle Neck/Scale
+
 
  
  
