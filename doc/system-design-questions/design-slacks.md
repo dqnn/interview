@@ -58,7 +58,7 @@
 - Notification APIs
   - notifyUser(userId, send_id, message_Id, msg_preview)
     - either use db or kafka
-    - exactly once is difficult, requiring two phrase commit(decrease perf), see XA protocol, https://en.wikipedia.org/wiki/X/Open_XA  
+    - exactly once is difficult, requiring two phrase commit(decrease perf), see XA protocol, https://en.wikipedia.org/wiki/X/Open_XA, thining about this case: one user installed slacks on phone and desktop, then we should the notification to phone and desktop(ready), if he saw the message on phone then on desktop, we should not send this notification or it should mute this notification immediately,(commit), also see https://www.educative.io/edpresso/what-is-the-two-phase-commit-protocol
 
  
  
