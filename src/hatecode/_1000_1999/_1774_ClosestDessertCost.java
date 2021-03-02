@@ -24,8 +24,16 @@ Input: baseCosts = [1,7], toppingCosts = [3,4], target = 10
 Output: 10
 */
     
+    //thinking process: O(3^n)/O(n)
     
-    //thinking process: 
+    //the problem is to say: given baseCosts array and toppingCosts array, you will need 
+    //to find the min diff between:
+    //a. base[i] + n * topping[j], n = 0,1,2,3..., i=0..n-1, j=0 ...n-1
+    //b. target
+    
+    //find the min diff, previously there we can use binary search to find the closest one, but 
+    //now we do not have an aray to perform search, so we need to figure out all possible ways, 
+    
     //
     
     int res;
