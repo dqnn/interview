@@ -34,7 +34,10 @@ Output: 10
     //find the min diff, previously there we can use binary search to find the closest one, but 
     //now we do not have an aray to perform search, so we need to figure out all possible ways, 
     
-    //
+    //we start from currentCost = 0, then each time, we have 3 days to digging down, 
+    //then everytime we tried a new combination, then we should updates the result.
+    
+    //here if we tried all toppings or base costs, then exit
     
     int res;
     public int closestCost(int[] baseCosts, int[] toppingCosts, int target) {
