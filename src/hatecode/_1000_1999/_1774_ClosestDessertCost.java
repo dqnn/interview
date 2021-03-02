@@ -39,6 +39,8 @@ Output: 10
     
     //here if we tried all toppings or base costs, then exit
     
+    //TODO: how to design the visited nodes
+    
     int res;
     public int closestCost(int[] baseCosts, int[] toppingCosts, int target) {
         res = baseCosts[0];
