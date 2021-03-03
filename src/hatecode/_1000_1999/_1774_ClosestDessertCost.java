@@ -56,4 +56,59 @@ Output: 10
         helper(current + toppingCosts[index], toppingCosts, index + 1, target);
         helper(current + toppingCosts[index]*2, toppingCosts, index + 1, target);
     }
+    
+    //DP 
+    public int closestCost_(int[] base, int[] top, int tar) {
+        int m=top.length, size=100000;
+        for(int i:base) size=Math.min(size,i);
+        
+        int min=100000;
+        for(int i:top) min=Math.min(min,i);
+        size+=min;
+        
+        //minimum size for the dp
+        size=Math.max(size+1,2*tar+1);
+        boolean[][] dp=new boolean[m+1][size];
+        
+        //base case
+        for(int b:base){
+            if(b<size) dp[0][b]=true;
+        }
+        
+        //Generating the rest of DP table
+        for(int i=1;i<=m;i++){
+            for(int j=1;j<size;j++){
+                if(dp[i-1][j]){
+                    dp[i][j]=true;
+                    
+                    //using one topping
+                    if(j+top[i-1]<size){
+                        dp[i][j+top[i-1]]=true;
+                        
+                        //using same topping again if possible
+                        if(j+2*top[i-1]<size)
+                            dp[i][j+2*top[i-1]]=true;
+                    }
+                }
+            }
+        }
+        if(dp[m][tar])
+            return tar;
+        int res=-1000000;
+        
+        //computing nearest possible answer to target
+        for(int i=tar-1;i>=0;i--){
+            if(dp[m][i]){
+                res=i;
+                break;
+            }
+        }
+        for(int i=tar+1;i<size;i++){
+            if(dp[m][i]){
+                res=(tar-res)<=(i-tar)?res:i;
+                break;
+            }
+        }
+        return res;
+    }
 }
