@@ -167,9 +167,11 @@ Given n items with size nums[i] which an integer array and all
 positive numbers, no duplicates. An integer target denotes the size of a 
 backpack. Find the number of possible combinations to fill the backpack.
 
-Each item may be chosen unlimited number of times
-target = 7
-nums = [2, 2, 3]
+Example
+Given candidate items [2,3,6,7] and target 7,
+A solution set is:
+[7]
+[2, 2, 3]
 return 2
 
 LC 518. coin change II is this type of question
