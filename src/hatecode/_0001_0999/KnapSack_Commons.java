@@ -162,7 +162,7 @@ m =  10. return 15
         return dp[n][w];
     }
 /*
-backPackIV 重复选择+唯一排列+装满可能性总数
+backPackIV 重复选择+唯一排列+装满可能性总数， 唯一排列就是组合的意思
 Given n items with size nums[i] which an integer array and all 
 positive numbers, no duplicates. An integer target denotes the size of a 
 backpack. Find the number of possible combinations to fill the backpack.
