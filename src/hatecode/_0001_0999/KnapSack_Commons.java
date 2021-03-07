@@ -255,7 +255,7 @@ LC 518. coin change II is this type of question
     
     
     
-    //BackPackVI Problem 重复选择+不同排列+装满可能性总数
+    //BackPackVI Problem 重复选择+不同排列+装满可能性总数, 不同排列 意思就是排列， 顺序相关
 /*
 Given an integer array nums with all positive numbers and no duplicates, 
 find the number of possible combinations that add up to a positive integer target.
