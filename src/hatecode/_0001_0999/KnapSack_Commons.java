@@ -319,6 +319,19 @@ http://www.yikanggao.com/blog/2017/06/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%BB
         return dp[n][w];
     }
    
+    //1D array have some tricky part, summary as below:
+    /*
+     * 1. numbers can be repeated use or not:
+     *  a. if not repeated, then num in outter loop, target is internal loop starting
+     *      with w, -- as below: 
+     *      for (int a: A) {
+     *          for(int w= W; w>=0; w--) {...}
+     *      } 
+     *  b. if repeated, then num in outter loop, target is internal loop with start from 0; 
+     *  
+     * 2. if order of the elements needs to consider, like [1,2,1] and 
+     *     [2,1,1] are different answers, then target is outter, numbers are inner 
+     */
     
     public static void main(String[] args) {
         int[] in = {3,5,2,7};
