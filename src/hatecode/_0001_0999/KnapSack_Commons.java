@@ -303,7 +303,7 @@ for (int i = 0; i < nums.length; ++i){
 大小为4的背包，[1, 1,2]和[2, 1, 1]是不同的方案，容量都为4，所以要先迭代容量，找出所有容量为4的物品组合。
 http://www.yikanggao.com/blog/2017/06/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%BB%86%E8%8A%82%E6%8E%A2%E6%9E%90.html
  */
-    //TODO：this code has some erros, like nums={1}, w=4, it would return 4,  should be 1
+    //TODO：this code has some errors, like nums={1}, w=4, it would return 4,  should be 1
     //for nums=[3,4,5,6,7], w = 1, should be 0 but it returned 1
     public static int backPackVI_2DDP(int[] nums, int w) {
         if (nums == null || nums.length < 1 || w < 1) return 0;
