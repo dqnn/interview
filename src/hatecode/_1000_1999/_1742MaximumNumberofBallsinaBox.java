@@ -43,6 +43,7 @@ Output: 2
         return res;
     }
     
+    //we only need to calu one number digit sum, then
     public int countBalls_faster(int lowLimit, int highLimit) {
         int[] arr = new int[100];
         int offset = 50;
