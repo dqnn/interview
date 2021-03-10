@@ -45,32 +45,23 @@ Output: 2
     
     public int countBalls_faster(int lowLimit, int highLimit) {
         int[] arr = new int[100];
-
         int offset = 50;
-        
-        arr[offset] ++;
-        
-        for (int i = lowLimit + 1; i <= highLimit; i ++)
-        {
-            offset ++;
-            
+        arr[offset]++;
+
+        for (int i = lowLimit + 1; i <= highLimit; i++) {
+            offset++;
             int j = 10;
-            while (i % j == 0)
-            {
+            while (i % j == 0) {
                 offset -= 9;
                 j *= 10;
             }
-            
-            arr[offset] ++;
+            arr[offset]++;
         }
-        
+
         int ret = 0;
-        
-        for (int num : arr)
-        {
+        for (int num : arr) {
             ret = Math.max(ret, num);
         }
-        
         return ret;
     }
     
