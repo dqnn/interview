@@ -19,6 +19,10 @@ Output: 2
 */
     /*
      *  thinking process: O(n)/O(n)
+     *  
+     *  the problem is to say: given l and h number, it means the ball number,
+     *  then sum on each digit, sum will be the box number, return the box number which has max balls
+     *  
      */
     public int countBalls(int l, int h) {
         if (l > h) return 0;
