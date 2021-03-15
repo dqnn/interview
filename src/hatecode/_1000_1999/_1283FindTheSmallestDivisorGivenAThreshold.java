@@ -20,7 +20,10 @@ Output: 5
     //thinking process: O(nlgn/O(1))
     
     //thinking process: the problem is to say: given an integre array A
-    //and a threshold, 
+    //and a threshold, need to figure out the smallest divisor which the sum
+    //of the result A[i]/divisor cannot exceed threshold
+    
+    //
     
     public int smallestDivisor(int[] A, int threshold) {
         
