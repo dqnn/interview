@@ -35,7 +35,7 @@ public class _1284MinimumNumberOfFlipsToConvertBinaryMatrixToZeroMatrix
     //NOTE: this problem is not typical 4-direction problem, because the final result is determined by the matrix,or 
     //by matrix state, not related to the cell track, so we need to figure out the state change path, 
     //if BFS, from original state, we have r*c states in step 2, so ....
-    //
+    //TODO: if DFS, dfs is tricky compared to BFS, here since we have define the success state, then for steps
     
     
     public int minFlips_BFS(int[][] mat) {
