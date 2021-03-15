@@ -19,20 +19,21 @@ Output: 5
 */
     //thinking process: O(nlgn/O(1))
     
-    //thinking process: 
+    //thinking process: the problem is to say: given an integre array A
+    //and a threshold, 
     
     public int smallestDivisor(int[] A, int threshold) {
         
-        int left = 1, right = 1 + Arrays.stream(A).max().getAsInt();
-        while (left < right) {
-            int m = (left + right) / 2, sum = 0;
+        int l = 1, r = 1 + Arrays.stream(A).max().getAsInt();
+        while (l < r) {
+            int m = (l + r) / 2, sum = 0;
             for (int i : A)
                 sum += (i + m - 1) / m;
             if (sum > threshold)
-                left = m + 1;
+                l = m + 1;
             else
-                right = m;
+                r = m;
         }
-        return left;
+        return l;
     }
 }
