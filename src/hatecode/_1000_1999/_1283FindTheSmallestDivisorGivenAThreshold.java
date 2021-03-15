@@ -23,20 +23,28 @@ Output: 5
     //and a threshold, need to figure out the smallest divisor which the sum
     //of the result A[i]/divisor cannot exceed threshold
     
-    //
-    
-    public int smallestDivisor(int[] A, int threshold) {
+    // 1 + (i - 1) / m means always find the upper integer of i
+    //we should BS to find the minimal result because all positive integers, 
+    //if we choose small one then result will exceed threshold, then move l means we want
+    //a bigger divisor
+    public static int smallestDivisor(int[] A, int threshold) {
         
         int l = 1, r = 1 + Arrays.stream(A).max().getAsInt();
         while (l < r) {
-            int m = (l + r) / 2, sum = 0;
-            for (int i : A)
-                sum += (i + m - 1) / m;
-            if (sum > threshold)
-                l = m + 1;
-            else
-                r = m;
+            int m = l + (r -l)/2, sum = 0;
+            
+            for (int i : A) sum += 1 + (i - 1) / m;
+            
+            if (sum > threshold) l = m + 1;
+            else r = m;
         }
         return l;
+    }
+    
+    public static void main(String[] args) {
+        //should be 5
+        System.out.println(smallestDivisor(new int[] {1,2,5,9}, 6));
+        //should be 44
+        System.out.println(smallestDivisor(new int[] {44,22,33,11,1}, 5));
     }
 }
