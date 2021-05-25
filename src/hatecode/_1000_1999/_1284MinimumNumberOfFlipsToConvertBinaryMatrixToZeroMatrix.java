@@ -39,8 +39,9 @@ public class _1284MinimumNumberOfFlipsToConvertBinaryMatrixToZeroMatrix
     
     
     public int minFlips_BFS(int[][] mat) {
+       
         // Instantiate initial config with zero steps
-        State init = new State(mat, 0);
+        State init = new State(mat, 0); 
         if (init.isDone()) {
             return init.step;
         }
