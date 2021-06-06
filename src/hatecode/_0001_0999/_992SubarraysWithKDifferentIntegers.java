@@ -30,6 +30,11 @@ public class _992SubarraysWithKDifferentIntegers {
     //so r -l + 1 means how many elements in current sub array, and the subarray they have k distinct integers
     //but 1,2,1, we have 3 subarray in this K =2, but we will have 3 accorinding to r - l + 1. so 
     //we decide to subtract k = 1
+    
+    //the reason why helper(A, k) - helper(A, k -1) is because r -l + 1 means how many subarrays, 1 + 2 + 3 + 4..+ k, 
+    //there is a lot of dup adding, so we minus 1=2+3..+ k - 1, 
+    
+    //helper() means how many contious subarrays length <=k
     public int subarraysWithKDistinct(int[] A, int k) {
         if (A == null ||A.length < 1 || k < 1) return 0; 
         return helper(A, k) - helper(A, k -1);
