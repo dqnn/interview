@@ -37,17 +37,20 @@ public class _003LongestSubstringWithoutRepeatingCharacters {
     //left pointer position max(j, map.get(ch) + 1
     // and we update new char since left pointer move one more step， the length of the string is i -j +1
     // the key of the problem is to understand how we move the left and right pointers
-    public int lengthOfLongestSubstring(String s) {
+    public static int lengthOfLongestSubstring(String s) {
         if (s == null || s.length() == 0) return 0;
         HashMap<Character, Integer> map = new HashMap<>();
         int res = 0;
-        //here is one way to initialize i and j
-        for (int i = 0, j = 0; i < s.length(); i++) {
-            if (map.containsKey(s.charAt(i))) {
-                j = Math.max(j, map.get(s.charAt(i)) + 1);
+        //here is one way to initialize i and j when using TP
+        for (int l = 0, r = 0; r < s.length(); r++) {
+            //move l to the r postion, since it is already dup, so we have to find next 
+            //qualified substring
+            if (map.containsKey(s.charAt(r))) {
+                l = Math.max(l, map.get(s.charAt(r)) + 1);
             }
-            map.put(s.charAt(i), i);
-            res = Math.max(res, i - j + 1);
+            //put new character into the map
+            map.put(s.charAt(r), r);
+            res = Math.max(res, r - l + 1);
         }
         return res;
     }
@@ -55,9 +58,9 @@ public class _003LongestSubstringWithoutRepeatingCharacters {
     
     //so r would advanced to right always but also when we want to move left, 
     //the key is if we find the map.size() is smaller than substring length which means 
-    //we have dup character in the susbtring, so we want to move the l to right
+    //we have dup character in the subtring, so we want to move the l to right
     //after each adjustment, we would like to see the substring length
-    public int lengthOfLongestSubstring_SlidingWindow(String s) {
+    public static int lengthOfLongestSubstring_SlidingWindow(String s) {
         if (s == null || s.length() < 1) return 0;
         
         int l = 0, r =0;
@@ -67,6 +70,8 @@ public class _003LongestSubstringWithoutRepeatingCharacters {
             char rc = s.charAt(r++);
             map.put(rc, map.getOrDefault(rc, 0) + 1);
             System.out.println(map.size() + "---" + (r- l));
+            //the loop condition is the key, because if we have dup which means we have to 
+            //move l to the correct position, r is controller by outter loop
             while(map.size() < (r - l)) {
                 char lc = s.charAt(l);
                 //System.out.println(l +"--" + r + "  lc=" + lc);
@@ -78,5 +83,9 @@ public class _003LongestSubstringWithoutRepeatingCharacters {
             res = Math.max(res, r - l);
         }
         return res;
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(lengthOfLongestSubstring("abcabcabc"));
     }
 }
