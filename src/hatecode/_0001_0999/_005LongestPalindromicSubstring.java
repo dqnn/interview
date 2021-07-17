@@ -48,7 +48,7 @@ public class _005LongestPalindromicSubstring {
                 // we want to know i+1 and j - 1 whether it is palindrome, so it has two cases
                 // if there are only "aa", "a", "aba" these 3 cases, if more than that, 
                 //we need to look for the value in 
-                // dp[i+1][j-1]
+                // dp[i+1][j-1], also dp[i+1[j-1] must be intialized in previous loop
                 dp[l][r] = s.charAt(l) == s.charAt(r) && ((r - l <=2) || dp[l+1][r-1]);
                 if (dp[l][r] && (r-l+1>(end - start + 1))) {
                     start = l;
@@ -67,11 +67,12 @@ public class _005LongestPalindromicSubstring {
         for (int i = 0; i < s.length(); i++) {
             //so it is odd length of string
             helper(s, i, i);
-            // so it is even laenght of string
+            // so it is even lenght of string
             helper(s, i, i + 1);
         }
         return res;
     }
+    
     public void helper(String s, int left, int right) {
         while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
             left--;
