@@ -12,6 +12,7 @@ package hatecode._0001_0999;
 public class _002AddTwoNumbers {
     /**
 
+    2:
      Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
      Output: 7 -> 0 -> 8
      
@@ -29,7 +30,7 @@ public class _002AddTwoNumbers {
      * @return
      */
     
-    //similiar problem: multiply-strings, 43, 
+    //Similar problem: multiply-strings, 43, 
     //also 445, the problem different is 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(0);
