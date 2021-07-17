@@ -53,7 +53,7 @@ Output:
         for (int i = 0; i < nums.length; i++) {
             //so this means 
             //1. already used skip.
-            //2. if it is same as pervious and previous was used then we can use it
+            //2. if it is same as previous and previous was used then we can use it
             
             //if we change the !used[i - 1] to used[i - 1], it also works but this will introduce more
             //branches in the recursive tree because because it means we will use previous not used,  the 

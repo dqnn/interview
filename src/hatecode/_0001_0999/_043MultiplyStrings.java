@@ -37,7 +37,7 @@ public class _043MultiplyStrings {
     //another key is to note: A[i] * B[j] mapping to digits array
     //we cannot use convert * to +, 
     //the key is A[i] * B[j] will be placed into [i+j, i+j+1]
-    public String multiply(String num1, String num2) {
+    public static String multiply(String num1, String num2) {
         if (num1 == null || num2 == null) return "0";
         int[] digits = new int[num1.length() + num2.length()];
         for (int i = num1.length() - 1; i >= 0; i--) {
@@ -76,5 +76,10 @@ public class _043MultiplyStrings {
             if(digit !=0 ||sb.length() != 0) sb.append(digit);
         }
         return sb.length() == 0 ? "0" : sb.toString();
+    }
+    
+    
+    public static void main(String[] args) {
+        System.out.println(multiply("10", "10"));
     }
 }
