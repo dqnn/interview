@@ -91,7 +91,7 @@ public class _004MedianofTwoSortedArrays {
             } else if (i > l && A[i-1] > B[j]) {
                 r = i - 1; // i is too big
             }
-            else { // i is perfect
+            else { // i is perfect, handle some edge case
                 int maxLeft = 0;
                 if (i == 0) { maxLeft = B[j-1]; }
                 else if (j == 0) { maxLeft = A[i-1]; }
