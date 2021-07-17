@@ -28,6 +28,9 @@ public class _003LongestSubstringWithoutRepeatingCharacters {
      * @param s
      * @return
      */
+    //thinking process: O(n)/O(n)
+    //the problem is to say: given one stringm find the max length of one substring which 
+    //has longest length, abcabcbb ---> abc
     // we use a map to store char-> idx, so we use two pointers i and j.
     // when we scan from left to right, 
     // if find the char in the map, then we know the 
