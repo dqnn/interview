@@ -96,6 +96,8 @@ public class _004MedianofTwoSortedArrays {
                 if (i == 0) { maxLeft = B[j-1]; }
                 else if (j == 0) { maxLeft = A[i-1]; }
                 else { maxLeft = Math.max(A[i-1], B[j-1]); }
+                
+                //the only middle, if not it is even case
                 if ( (m + n) % 2 == 1 ) { return maxLeft; }
 
                 int minRight = 0;
