@@ -37,21 +37,22 @@ public class _005LongestPalindromicSubstring {
         if (s == null || s.length() < 1) {
             return "";
         }
-        //dp[i][j] means substring(i, j+1) is palindromic or not, substring is O(n), so here we 
-        //use start and end to reduce the complexity
+        //dp[l][r] means substring(l, r+1) is palindromic or not, substring is O(n), 
+        //so here we use start and end to reduce the complexity
         int n = s.length();
         boolean[][] dp = new boolean[n][n];
         int start=0, end=0;
-        for(int j = 0; j < s.length(); j++) {
-            for(int i = 0; i <= j; i++) {
+        for(int r = 0; r < s.length(); r++) {
+            for(int l = 0; l <= r; l++) {
                 // we need j - i because when s.charAt(i) == s.charAt(j), 
-                // we want to know i+1 and j - 1 whther it is palindrome, so it has two cases
-                // if there are only "aa", "a", "aba" these 3 cases, if more than that, we need to look for the value in 
+                // we want to know i+1 and j - 1 whether it is palindrome, so it has two cases
+                // if there are only "aa", "a", "aba" these 3 cases, if more than that, 
+                //we need to look for the value in 
                 // dp[i+1][j-1]
-                dp[i][j] = s.charAt(i) == s.charAt(j) && ((j - i <=2) || dp[i+1][j-1]);
-                if (dp[i][j] && (j-i+1>(end - start + 1))) {
-                    start = i;
-                    end = j;
+                dp[l][r] = s.charAt(l) == s.charAt(r) && ((r - l <=2) || dp[l+1][r-1]);
+                if (dp[l][r] && (r-l+1>(end - start + 1))) {
+                    start = l;
+                    end = r;
                 }
             }
         }
