@@ -38,6 +38,7 @@ public class _002AddTwoNumbers {
         ListNode cur = dummy;
         ListNode p1 = l1, p2 = l2;
         //this is how we visit the linked list, if they do not have same length
+        //also apply to the case two OR conditions that we have visit both
         while (p1 != null || p2 != null) {
             if (p1 != null) {
                 sum += p1.val;
