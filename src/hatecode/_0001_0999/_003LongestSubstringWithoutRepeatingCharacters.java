@@ -41,6 +41,7 @@ public class _003LongestSubstringWithoutRepeatingCharacters {
         if (s == null || s.length() == 0) return 0;
         HashMap<Character, Integer> map = new HashMap<>();
         int res = 0;
+        //here is one way to initialize i and j
         for (int i = 0, j = 0; i < s.length(); i++) {
             if (map.containsKey(s.charAt(i))) {
                 j = Math.max(j, map.get(s.charAt(i)) + 1);
