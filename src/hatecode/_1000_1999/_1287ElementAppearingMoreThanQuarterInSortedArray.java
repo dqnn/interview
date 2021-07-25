@@ -31,24 +31,24 @@ Output: 6
     }
     //interview friendly, 
     //thinking process: O(lgn)/O(1)
-    public int findSpecialInteger_BS(int[] arr) {
-        int len = arr.length / 4 + 1;
+    public int findSpecialInteger_BS(int[] A) {
+        int len = A.length / 4 + 1;
         int[] candidateIdx = new int[]{len - 1, len * 2 - 1, len * 3 - 1};
         for (int i : candidateIdx) {
-            if (i >= arr.length) continue;
-            int l = findLeftMostIndex(arr, arr[i], i - len + 1, i);
+            if (i >= A.length) continue;
+            int l = findLeftMostIndex(A, A[i], i - len + 1, i);
             int r = l + len - 1;
-            if (r < arr.length && arr[l] == arr[r]) {
-                return arr[l];
+            if (r < A.length && A[l] == A[r]) {
+                return A[l];
             }
         }
         return -1;
     }
 
-    private int findLeftMostIndex(int[] arr, int target, int l, int r){
+    private int findLeftMostIndex(int[] A, int target, int l, int r){
         while (l < r) {
             int m = l + (r - l) / 2;
-            if (arr[m] < target) {
+            if (A[m] < target) {
                 l = m + 1;
             } else {
                 r = m;
