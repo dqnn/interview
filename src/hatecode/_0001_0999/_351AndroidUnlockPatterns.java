@@ -56,7 +56,7 @@ public class _351AndroidUnlockPatterns {
      * 再乘4，最后单独对5调用一次，然后把所有的加起来就是最终结果了，参见代码如下：
      * time : 不知道
      * space : 不知道
-     * @param m
+     * @param mem
      * @param n
      * @return
      */
