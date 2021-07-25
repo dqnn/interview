@@ -31,6 +31,14 @@ Output: 6
     }
     //interview friendly, 
     //thinking process: O(lgn)/O(1)
+    
+    //the problem is to say: given one non-decreasing integer array, only one element
+    //appear more than 25%, return it.
+    
+    //we can find out 1/4, 1/2,3/4 length of array A, for each length, we can easily 
+    //get A[i] value, and find the most left one.
+    
+    //
     public int findSpecialInteger_BS(int[] A) {
         int len = A.length / 4 + 1;
         int[] candidateIdx = new int[]{len - 1, len * 2 - 1, len * 3 - 1};
