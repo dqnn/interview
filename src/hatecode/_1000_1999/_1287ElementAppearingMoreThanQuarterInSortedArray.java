@@ -10,7 +10,7 @@ return that integer.
 
 Example 1:
 
-Input: arr = [1,2,2,6,6,6,6,7,10]
+Input: arr = [1,2,2,6,6,6,6,7,10]  
 Output: 6
 */
     //O(n), linear search
