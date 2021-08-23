@@ -43,7 +43,7 @@ public class _003LongestSubstringWithoutRepeatingCharacters {
         int res = 0;
         //here is one way to initialize i and j when using TP
         for (int l = 0, r = 0; r < s.length(); r++) {
-            //move l to the r postion, since it is already dup, so we have to find next 
+            //move l to the r position, since it is already dup, so we have to find next 
             //qualified substring
             if (map.containsKey(s.charAt(r))) {
                 l = Math.max(l, map.get(s.charAt(r)) + 1);
