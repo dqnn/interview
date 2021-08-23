@@ -58,7 +58,7 @@ public class _003LongestSubstringWithoutRepeatingCharacters {
     
     //so r would advanced to right always but also when we want to move left, 
     //the key is if we find the map.size() is smaller than substring length which means 
-    //we have dup character in the subtring, so we want to move the l to right
+    //we have dup character in the substring, so we want to move the l to right
     //after each adjustment, we would like to see the substring length
     public static int lengthOfLongestSubstring_SlidingWindow(String s) {
         if (s == null || s.length() < 1) return 0;
