@@ -70,7 +70,7 @@ public class _004MedianofTwoSortedArrays {
      * @param n2
      * @return
      */
-    //shorter Binary search solution, we want to do BS on shorter array
+    //shorter binary search solution, we want to do BS on shorter array
     //A is cut L1 | R1,
     //B is cut  L2 | R2 
     public double findMedianSortedArrays(int[] A, int[] B) {
