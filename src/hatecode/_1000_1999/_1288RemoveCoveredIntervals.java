@@ -26,6 +26,12 @@ Output: 2
      * sort by start asc, end by desc. then if end1 >=end2 this means 2nd interval
      * can be contained by first one. 
      * 
+     * all intervals can be considered two points:
+     * 1.  sort. 
+     * 2.  3 cases between two intervals. 
+     *      a. contained, 
+     *      b. overlap 
+     *      c. no overlap
      */
   
     public int removeCoveredIntervals(int[][] ins) {
