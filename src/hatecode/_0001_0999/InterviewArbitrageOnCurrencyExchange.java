@@ -15,10 +15,10 @@ public class InterviewArbitrageOnCurrencyExchange {
         List<String> currencyList;
         double curAmount = 1.0;
         
-        public QueueNode(String currency, double amount) {
+        public QueueNode(List<String> currency, double amount) {
             this.curAmount *= amount;
             this.currencyList = new ArrayList<>();
-            this.currencyList.add(currency);
+            this.currencyList.addAll(currency);
         }
     }
     
@@ -52,7 +52,7 @@ public class InterviewArbitrageOnCurrencyExchange {
         List<String> res = new ArrayList<>();
         
         for(String currency: map.keySet()) {
-            q.offer(new QueueNode(currency, 1.0));
+            q.offer(new QueueNode(Arrays.asList(currency), 1.0));
         }
         
         while(!q.isEmpty()) {
@@ -73,7 +73,8 @@ public class InterviewArbitrageOnCurrencyExchange {
                 }
                 
                 for(MapNode e: map.get(origialCurrency)) {
-                    q.offer(new QueueNode(e.currency, e.rate));
+                    node.currencyList.add(e.currency);
+                    q.offer(new QueueNode(node.currencyList, node.curAmount * e.rate));
                 }
             }
         }
