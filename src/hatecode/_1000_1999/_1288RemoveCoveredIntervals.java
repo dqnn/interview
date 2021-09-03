@@ -20,6 +20,11 @@ Output: 2
 */
     /*
      * thinking process: O(nlgn)/O(1)
+     * given list of intervals, [start, end], start <= end and integers, small ones
+     * can be contained in big ones, return how many left.
+     * 
+     * sort by start asc, end by desc. then if end1 >=end2 this means 2nd interval
+     * can be contained by first one. 
      * 
      */
   
