@@ -15,7 +15,7 @@ The possible falling paths are:
 [3,4,8], [3,4,9], [3,5,7], [3,5,9]
 The falling path with the smallest sum is [1,5,7], so the answer is 13.
     */
-    public int minFallingPathSum(int[][] grid) {
-        return 0;
+    public int minFallingPathSum(int[][] g) {
+        
     }
 }
