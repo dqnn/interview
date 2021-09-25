@@ -15,6 +15,9 @@ Example 2:
 
 Input: A = [1,2], K = 4
 Output: -1
+
+Input: nums = [2,-1,2], k = 3
+Output: 3
  */
     /*
 P[x]=y 表示数列的前缀和，考虑点 x1 ,x2 若 x1<x2 ,且P[x1]>=p[x2]，那么选择x2肯定来的比x1短；

@@ -44,6 +44,7 @@ player2 -> lose    win   lose
     //string is to dump the boolean[] visited array, Arrays.toString(visited)
     
     //TODO: compare this to first or last digit game, another is to compare the new 21 game.
+    //follow up: return the max points first player can get?
     //how we can have a template for all the games, Cats and mouse, candy crush, etc
     
     //so this problem demonstrated the keys in backtracking type problems, 

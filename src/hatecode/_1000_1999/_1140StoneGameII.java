@@ -45,7 +45,7 @@ If Alex takes two piles at the beginning, then Lee can take all three piles left
      *      /  \     / | \    
      */
     
-    //the problems is the same as Can I win or other game recursion questions
+    //the problems is the same as 464 Can I win or other game recursion questions
     public int stoneGameII(int[] A) {
         if (A == null || A.length < 1) return 0;
         int n = A.length;
@@ -96,4 +96,9 @@ If Alex takes two piles at the beginning, then Lee can take all three piles left
         dp[i][M] = sums[i] - min; // max stones = all the left stones - the min stones next player can get
         return dp[i][M];
     }
+    
+    public static void main(String[] args) {
+        
+    }
+    
 }

@@ -1,4 +1,7 @@
 package hatecode._1000_1999;
+
+import java.util.Properties;
+
 public class _1289MinimumFallingPathSumII {
     /*
     1289. Minimum Falling Path Sum II
@@ -15,7 +18,15 @@ The possible falling paths are:
 [3,4,8], [3,4,9], [3,5,7], [3,5,9]
 The falling path with the smallest sum is [1,5,7], so the answer is 13.
     */
-    public int minFallingPathSum(int[][] g) {
+    public void minFallingPathSum(int[][] g) {
         
+    }
+    
+    public static void main(String[] args) {
+        Properties p = System.getProperties();
+        p.setProperty("pirate", "scurvy");
+        String s = p.getProperty("argProp") + " ";
+        s += p.getProperty("pirate");
+        System.out.println(s);
     }
 }
