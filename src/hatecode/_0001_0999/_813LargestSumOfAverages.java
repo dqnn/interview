@@ -31,24 +31,29 @@ Output: 20 = (9)/1 + (1+2+3)/3 + (9)/1
         //first we get only 1 partition, the avg
         for(int i = 0; i<n; i++) {
             cur += A[i];
+            //dp[i+1][1]  = for i +1 to n, group = 1, the max sum(avg)
             dp[i+1][1] = cur/(i+1);
         }
         
         return helper(n, K, A, dp);
     }
-    
-    private double  helper(int n, int k, int[] A, double[][] dp) {
-        if (dp[n][k] > 0) return dp[n][k];
+    //helper function means:
+    //from 0->pos with k groups, the max sum(avg)
+    private double  helper(int pos, int k, int[] A, double[][] dp) {
+        if (dp[pos][k] > 0) return dp[pos][k];
         
-        if (n < k) return 0;
+        if (pos < k) return 0;
         
         double cur = 0.0;
-        //we scan from right to left, each time we reduce the partition, and compare to get the best one
-        for(int i= n-1; i>0;i--) {
+        //we scan from right to left, each time we reduce the partition, and compare to get the best one,
+        //bottom up solution
+        for(int i= pos-1; i>0;i--) {
             cur += A[i];
-            dp[n][k] = Math.max(dp[n][k], helper(i, k -1, A, dp) + cur/(n - i));
+            dp[pos][k] = Math.max(dp[pos][k], helper(i, k -1, A, dp) + cur/(pos - i));
         }
         
-        return dp[n][k];
+        return dp[pos][k];
     }
+    
+    //another DP is top down, from 0->n, helper function determined everything
 }

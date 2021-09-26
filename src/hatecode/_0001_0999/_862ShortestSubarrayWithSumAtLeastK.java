@@ -20,10 +20,14 @@ Input: nums = [2,-1,2], k = 3
 Output: 3
  */
     /*
+     * 
+     * thinking process: 
+     * TODO: how we can from sliding window to Deque?
 P[x]=y 表示数列的前缀和，考虑点 x1 ,x2 若 x1<x2 ,且P[x1]>=p[x2]，那么选择x2肯定来的比x1短；
 考虑y1<y2,若 满足 y1 ，y2都是x点，那么y1肯定比y2好。
 维护一个双端队列，每次入队前 和 尾端的P[x]比较，若比原来的小则弹出原来的值；
 和队首比较，若满足差值至少为K，则将队首的值出列。
+
      */
     public static int shortestSubarray(int[] A, int K) {
         int N = A.length, res = N + 1;
