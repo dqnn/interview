@@ -1,4 +1,7 @@
 package hatecode._1000_1999;
+
+import java.util.Arrays;
+
 public class _1140StoneGameII {
 /*
 1140. Stone Game II
@@ -46,7 +49,7 @@ If Alex takes two piles at the beginning, then Lee can take all three piles left
      */
     
     //the problems is the same as 464 Can I win or other game recursion questions
-    public int stoneGameII(int[] A) {
+    public static int stoneGameII(int[] A) {
         if (A == null || A.length < 1) return 0;
         int n = A.length;
         // First we calculate the sum of all piles from the end to the begging 
@@ -60,18 +63,19 @@ If Alex takes two piles at the beginning, then Lee can take all three piles left
             sums[i] = sums[i + 1] + A[i]; // the sum from piles[i] to the end
         }
         // We create the memorization vector where dp[i][j] is the optimal choice  
-        // in the i position of piles with max 2*j piles. 
+        // in the i position of piles with max 2*j piles. longest pile is n
         int[][] dp = new int[n][n];
         //we also return helper(A, 0, 1, dp, sums);
         helper(A, 0, 1, dp, sums);
         
         // Alex starts first and so he is at position 0 of piles and he begins with 
         // max 2*1 options.
+        System.out.println(Arrays.deepToString(dp));
         return dp[0][1];
     }
     
     // i means the pile index, M is the parameter decides X scope, 1<=X<=2M,
-    private int helper(int[] A, int i, int M, int[][] dp, int[] sums) {
+    private static int helper(int[] A, int i, int M, int[][] dp, int[] sums) {
         //reach end of pile
         if (i == A.length) return 0;
         
@@ -98,7 +102,7 @@ If Alex takes two piles at the beginning, then Lee can take all three piles left
     }
     
     public static void main(String[] args) {
-        
+        System.out.println(stoneGameII(new int[] {2,7,9,4,4}));
     }
     
 }

@@ -2,7 +2,8 @@ package hatecode._0001_0999;
 public class _813LargestSumOfAverages {
 /*
 813. Largest Sum of Averages
-We partition a row of numbers A into at most K adjacent (non-empty) groups, then our score is the sum of the average of each group. What is the largest score we can achieve?
+We partition a row of numbers A into at most K adjacent (non-empty) groups, 
+then our score is the sum of the average of each group. What is the largest score we can achieve?
 
 Note that our partition must use every number in A, and that scores are not necessarily integers.
 
@@ -10,15 +11,15 @@ Example:
 Input: 
 A = [9,1,2,3,9]
 K = 3
-Output: 20
+Output: 20 = (9)/1 + (1+2+3)/3 + (9)/1
 */  
     //typical backtracking solution
-    //thinking process:
-    //given an array, and K as max parition number, return the max avg for the array
+    //thinking process:O(kn^2)
+    //given an array, and K as max partition number, return the max avg for the array
     
-    //K should be 1 and A.length, it is like a cut, we throw 1-K-1 cuts in the array. and get is avg and compare 
+    //K should be 1 and A.length, it is like a cut, we throw 1 ~ K-1 cuts in the array. and get is avg and compare 
     //each time, so this is a backtracking problem. 
-    //we use dp[i][k] means for 0-i, k partition, the max avg, so for since this is 2 dimension 
+    //dp[i][k] means for 0~i and k groups so far, the max sum of avg 
     //k was computed by backtracking method and i was computed by from n-1 to 1
     public double largestSumOfAverages(int[] A, int K) {
         if (A == null ||A.length < K) return 0.0;
@@ -30,7 +31,7 @@ Output: 20
         //first we get only 1 partition, the avg
         for(int i = 0; i<n; i++) {
             cur += A[i];
-            dp[i+1][1] = cur/(i +1);
+            dp[i+1][1] = cur/(i+1);
         }
         
         return helper(n, K, A, dp);
