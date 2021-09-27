@@ -62,18 +62,24 @@ queue.size();       // 2 elements remaining in the queue. size() is always calle
     //if queue is empty, then dequeue should be blocked
     //this is the same as CPP multiple thread coding
     
+    
+    //use cases:
+    //1. if queue is empty, dequeue is blocked, while enqueue is not
+    //2. if queue is full, then enqueue is blocked, while dequeue is not. 
+    //3. if queue is not empty & not full, then we have few  aviallble seats with according semaphore,
+    //so we need initialize semaphore with same seats capacity, this is for enqueue, while for dequeue, 
     Semaphore e, d;
     Queue<Integer> q;
     public _1188DesignBoundedBlockingQueue(int capacity) {
         e = new Semaphore(capacity, true);
-        d = new Semaphore(0, true);
+        d = new Semaphore(0, true);//will be blocked when called by acquire,tryAcquire will return false
         q = new LinkedList<>();
     }
 
     public void enqueue(int element) throws InterruptedException {
         e.acquire();
         q.add(element);
-        d.release();
+        d.release();//made semaphore + 1
     }
 
     public int dequeue() throws InterruptedException {
