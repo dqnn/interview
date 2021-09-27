@@ -76,9 +76,9 @@ Output
      
         public CombinationIterator_No_precomputation(String characters, int combinationLength) {
             combLength = combinationLength;
-            ch2Idx = new HashMap();
+            ch2Idx = new HashMap<>();
             str = characters;
-            st = new Stack();
+            st = new Stack<>();
             result = "";
             // create the first combination
             for (Character ch : characters.toCharArray()) {
@@ -135,6 +135,7 @@ Output
             chars = characters;
             n = characters.length();
             
+            //this is to make each digi is 1
             bitmask = (1 << n) - 1;
             len = combinationLength;
                   
