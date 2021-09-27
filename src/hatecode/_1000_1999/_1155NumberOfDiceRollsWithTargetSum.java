@@ -7,8 +7,6 @@ You have d dice, and each die has f faces numbered 1, 2, ..., f.
 Return the number of possible ways (out of f^d total ways) modulo 10^9 + 7 to 
 roll the dice so the sum of the face up numbers equals target.
 
- 
-
 Example 1:
 
 Input: d = 1, f = 6, target = 3
@@ -25,7 +23,7 @@ Output: 1
     //so we can see we have 2 dimensions, one is d another is sum, so
     //we can memo the middle value, 
     
-    //continue the solution, TODO: understand this soluion
+    //continue the solution, TODO: understand this solution
     public int numRollsToTarget(int d, int f, int target) {
         int mod = 1000000007;
         int[] dp1 = new int[target + 1];
@@ -46,7 +44,8 @@ Output: 1
         return dp1[target];
     }
     
-    //bottom up solution
+    //bottom up solution, DP with dfs, but not space optimization, be careful about the 
+    //MOD
     public int numRollsToTarget_DP2(int d, int f, int target) {
         int MOD = (int)Math.pow(10, 9) + 7;
         long[][] dp = new long[d + 1][target + 1];
@@ -65,6 +64,7 @@ Output: 1
         return (int)dp[d][target];
     }
     
+    //interview friendly firstly but not space optimized
     //we store res + 1 because most results are 0, we still want to remember that 
     //we already done the computation
     int[][] dp = new int[31][1001];
