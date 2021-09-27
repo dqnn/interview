@@ -55,9 +55,7 @@ Output: 1
                 for (int k = 1; k <= f; k++) {
                     if (j >= k) {
                         dp[i][j] = (dp[i][j] + dp[i - 1][j - k]) % MOD;
-                    } else {
-                        break;
-                    }
+                    } else break;
                 }
             }
         }
