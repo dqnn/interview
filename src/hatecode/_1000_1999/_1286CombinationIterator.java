@@ -123,7 +123,12 @@ Output
         }
     }
     
-    //use integer n to represent the character 
+    //use integer n to represent the character, 
+    
+    //we start from each digit as 1, then for example, 111-->110, then always,we will output 
+    //the more significant position digits just be the same as lex order of characters.
+    
+    
     class CombinationIterator_Bits {
         String chars;
         int n;
@@ -147,6 +152,7 @@ Output
                 bitmask--;
 
             StringBuilder curr = new StringBuilder();
+            // 1 << (n - 1 - i))) this is to get each digit on every position
             for(int i=0; i<n; ++i){
                 if((bitmask & ( 1 << (n - 1 - i))) != 0)
                     curr.append(chars.charAt(i));
