@@ -74,18 +74,19 @@ Output: 3
         for (int i = 1; i <= len; i++) {
             preSum[i] = preSum[i-1] + (hours[i-1] > 8 ? 1 : -1);
         }
-        Deque<Integer> stack = new LinkedList<>();   // Deque (8ms) is much faster than Stack (18ms)
+        //only put decreasing number into the array
+        Deque<Integer> deque = new LinkedList<>();   // Deque (8ms) is much faster than Stack (18ms)
         for (int i = 0; i <= len; i++) {
-            if (stack.isEmpty() || preSum[stack.peek()] > preSum[i]) {
-                stack.push(i);
+            if (deque.isEmpty() || preSum[deque.peek()] > preSum[i]) {
+                deque.push(i);
             }
         }
         //this is the pattern often being used in array to justify sub array
         //we loop in the array and to detect previous sum can satisfy the needs
         int res = 0;
         for (int j = len; j >= 0; j--) {  // start from end
-            while (!stack.isEmpty() && preSum[stack.peek()] < preSum[j]) {
-                res = Math.max(res, j-stack.pop());
+            while (!deque.isEmpty() && preSum[deque.peek()] < preSum[j]) {
+                res = Math.max(res, j-deque.pop());
             }
         }
         return res;
