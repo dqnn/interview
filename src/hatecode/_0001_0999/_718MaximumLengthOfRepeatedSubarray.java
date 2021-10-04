@@ -14,6 +14,9 @@ Explanation:
 The repeated subarray with maximum length is [3, 2, 1].
 */
     //standard LC substring DP
+    
+    //dp[i][j] means the for A 0->i-1, B, 0->j-1, the common subarray, end with A[i-1] and B[j-1], 
+    //A[i-1] == B[j-1]
     public int findLength_DP(int[] A, int[] B) {
         if (A == null || B == null ||A.length < 1 || B.length < 1) return 0;
         

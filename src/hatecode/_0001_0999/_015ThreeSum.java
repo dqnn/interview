@@ -21,7 +21,8 @@ public class _015ThreeSum {
      Note: The solution set must not contain duplicate triplets.
 
      For example, given array S = [-1, 0, 1, 2, -1, -4],
-
+     
+    [-4, -1,-1,0,1,2]
      A solution set is:
      [
      [-1, 0, 1],
@@ -33,7 +34,7 @@ public class _015ThreeSum {
      * @param nums
      * @return
      */
-    public List<List<Integer>> threeSum(int[] nums) {
+    public static List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(nums);
         for (int i = 0; i < nums.length - 2; i++) {
@@ -42,7 +43,7 @@ public class _015ThreeSum {
             while (low < high) {
                 if (nums[low] + nums[high] == sum) {
                     res.add(Arrays.asList(nums[i], nums[low], nums[high]));
-                    //we move since we found many dup
+                    //we move since we found many dup, like  {-1, 0, 1, 1, 2, -1, -4}
                     while (low < high && nums[low] == nums[low + 1]) low++;
                     while (low < high && nums[high] == nums[high - 1]) high--;
                     low++;
@@ -53,5 +54,10 @@ public class _015ThreeSum {
             }
         }
         return res;
+    }
+    
+    
+    public static void main(String[] args) {
+        System.out.println(Arrays.deepToString(threeSum(new int[] {-1, 0, 1, 1, 2, -1, -4}).toArray()));
     }
 }
