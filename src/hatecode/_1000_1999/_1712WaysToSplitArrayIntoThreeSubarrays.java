@@ -21,7 +21,7 @@ Output: 1
     //, cut the array to 3 subarrays, then each sum of each subarray satisfy:
     //sum(l) <= sum(m) <= sum(r), 
     
-    //
+    //we use two pointers to solve this problem
     public int waysToSplit(int[] A) {
         if (A == null || A.length < 1) return 0;
         
