@@ -34,6 +34,9 @@ Output: 1
         long res = 0;
         final int MOD = 1000000000 + 7;
         
+        // |______|________|_______|________|
+        // 1      i        l       r        n
+        // i 表示第一刀的位置，枚举第一刀的位置，计算第二刀的可选位置数
         for(int i = 1, l =2,r = 2; i <= n - 1; i++) {
             l = Math.max(l, i+1);
             r = Math.max(r, i+1);
