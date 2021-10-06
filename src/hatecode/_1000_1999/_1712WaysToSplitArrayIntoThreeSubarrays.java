@@ -15,6 +15,13 @@ Example 1:
 Input: nums = [1,1,1]
 Output: 1
 */
+    //O(n)/O(n)
+    
+    //thinking process: the problem is to say: given a positive integer array, 
+    //, cut the array to 3 subarrays, then each sum of each subarray satisfy:
+    //sum(l) <= sum(m) <= sum(r), 
+    
+    //
     public int waysToSplit(int[] A) {
         if (A == null || A.length < 1) return 0;
         
