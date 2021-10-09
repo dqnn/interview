@@ -17,6 +17,9 @@ Output: 0.16666666666666666
         int value;
         double p;
         
+        //int parent; this can help to remove the visited nodes, but 
+        //it has to be a tree, not a graph
+        
         public Node(int v, double p) {
             this.value = v;
             this.p = p;
