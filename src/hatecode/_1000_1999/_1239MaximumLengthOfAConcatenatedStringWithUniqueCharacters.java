@@ -91,8 +91,10 @@ Maximum length is 4.
                 ncur = cur | encode[i];
                 mlen = Math.max(mlen, A.get(i).length() + helper(A, encode, i+1, ncur, len));
                 
-                //if we found in this substring of A, we can connect them all,
-                if(start>0 && mlen>=len[len.length-1] - len[start-1]) return mlen;
+                //if we found in this substring of A, we can connect them all, this is rarely willbe called
+                if(start>0 && mlen>=len[len.length-1] - len[start-1]) {
+                    return mlen;
+                }
             }
         }
         return mlen;
