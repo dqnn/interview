@@ -24,7 +24,16 @@ Output: 0.16666666666666666
     }
     //thinking process: O(n)/O(n)
     
-    //the problem is to say: 
+    //the problem is to say: given a list of edges, nodes count, time tick t and a target 
+    //node value, after t ticks, return the probility of the frog in target node.
+    
+    //there are several rules there, one is you cannot jump back, another is 
+    //you can only jump to new nodes, last one is if you have no choice ,just stay there.
+    
+    //need to understand the status count, the key is "after t seconds" which give us 
+    //strong indicator there we need to care about the status.
+    
+    
     public double frogPosition(int n, int[][] edges, int t, int target) {
         if (n <= 1) return 1.0;
         Map<Integer, List<Integer>> map = new HashMap<>();
