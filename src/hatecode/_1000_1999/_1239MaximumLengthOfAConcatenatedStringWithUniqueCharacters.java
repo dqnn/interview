@@ -64,45 +64,49 @@ Maximum length is 4.
         return true;
     }
     
-    //this is most optimal solution on speed, though 
-    public int maxLength(List<String> arr) {
-        int[] encode = new int[arr.size()];
-        int[] len = new int[arr.size()];
-        for (int i = 0; i < arr.size(); i++) {
-            encode[i] = encode(arr.get(i));
-            len[i] = (i == 0 ? 0 : len[i - 1]) + arr.get(i).length();
+
+  //this is most optimal solution on speed,  
+    public int maxLength(List<String> A) {
+        int[] encode = new int[A.size()];
+        
+        //
+        int[] len = new int[A.size()];
+        for(int i=0; i<A.size(); i++) {
+            encode[i] = encode(A.get(i));
+            len[i] = (i==0?0:len[i-1]) + A.get(i).length();
         }
-
-        return helper(arr, encode, 0, 0, len);
+        
+        return helper(A, encode, 0, 0, len);
     }
-
-    int helper(List<String> arr, int[] encode, int start, int cur, int[] len) {
-        if (start >= encode.length)
-            return 0;
-        int mlen = 0;
-        for (int i = start; i < encode.length; i++) {
-            if (encode[i] == (~0))
-                continue;
+    
+    //helper is used to calc the max length of string inside [start, A.length], 
+    //
+    int helper(List<String> A, int[] encode, int start, int cur, int[]len) {
+        if(start>=encode.length) return 0;
+        int mlen=0;
+        for(int i=start; i<encode.length; i++) {
+            if(encode[i]== (~0)) continue;
             int ncur = cur & encode[i];
-            if (ncur == 0) {
+            if(ncur ==0) {
                 ncur = cur | encode[i];
-                mlen = Math.max(mlen, arr.get(i).length() + helper(arr, encode, i + 1, ncur, len));
-                if (start > 0 && mlen >= len[len.length - 1] - len[start - 1])
-                    return mlen;
+                mlen = Math.max(mlen, A.get(i).length() + helper(A, encode, i+1, ncur, len));
+                
+                //if we found in this substring of A, we can connect them all,
+                if(start>0 && mlen>=len[len.length-1] - len[start-1]) return mlen;
             }
         }
         return mlen;
     }
-
+    
     int encode(String s) {
         boolean[] used = new boolean[26];
-        int res = 0;
-        for (char c : s.toCharArray()) {
-            if (used[c - 'a'])
-                return ~0;
-            used[c - 'a'] = true;
-            res |= (1 << (c - 'a'));
+        int res=0;
+        for(char c: s.toCharArray()) {
+            if(used[c-'a']) return ~0;
+            used[c-'a'] =true;
+            res |= (1<<(c-'a'));
         }
         return res;
     }
+
 }
