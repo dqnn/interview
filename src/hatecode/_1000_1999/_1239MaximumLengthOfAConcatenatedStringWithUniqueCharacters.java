@@ -113,16 +113,21 @@ Maximum length is 4.
     
     //most optimal solution, but not recommend in interview, just for self practice
     public int maxLength3(List<String> A) {
+        //dp[i] means for 0 -> i strings, all possible combinations, it will be C(i, 2)
         List<Integer> dp = new ArrayList<>();
         dp.add(0);
         int res = 0;
         for (String s : A) {
             int a = 0, dup = 0;
+            
+            //encoding s to one integer 
             for (char c : s.toCharArray()) {
                 dup |= a & (1 << (c - 'a'));
                 a |= 1 << (c - 'a');
             }
             if (dup > 0) continue;
+            
+            //we look back, to see whether we can contact with previous strings,
             for (int i = dp.size() - 1; i >= 0; --i) {
                 if ((dp.get(i) & a) > 0) continue;
                 dp.add(dp.get(i) | a);
