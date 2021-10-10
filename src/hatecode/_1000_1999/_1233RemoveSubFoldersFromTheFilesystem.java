@@ -58,7 +58,7 @@ Output: ["/a","/c/d","/c/f"]
         }
     }
     
-    
+    //this is academic solution,
     public List<String> removeSubfolders(String[] fs) {
         for(String s: fs) {
             buildTrie(s);
@@ -67,11 +67,7 @@ Output: ["/a","/c/d","/c/f"]
         return getParentNodes(root);
     }
     
-    
-    
-    
-    
-    
+
     
     //this is tricky solution while it is not the purpose of the question
     public List<String> removeSubfolders2(String[] fs) {
