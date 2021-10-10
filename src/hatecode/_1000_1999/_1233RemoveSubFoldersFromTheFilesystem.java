@@ -58,7 +58,15 @@ Output: ["/a","/c/d","/c/f"]
         }
     }
     
-    //this is academic solution,
+    //thinking process: 
+    
+    //the problem is to say: give list of directories, 
+    //return list of folders which does not have any subfolders.
+    //eg: /a/b, /a, /c/b, /c/f, --> /a, /c/b, /c/f, we cannot return /c because there is no /c folder
+    // in the list
+    //this is academic solution, use trie to store the strings, also
+    //use word to end the search in advance! 
+    
     public List<String> removeSubfolders(String[] fs) {
         for(String s: fs) {
             buildTrie(s);
