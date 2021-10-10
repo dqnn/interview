@@ -26,7 +26,8 @@ Output: 0
     //return the min of substring length which needs to replaced so
     //each character count will be the same.
     
-    //we move left pointer when 
+    //we move left pointer when counter of each character less than k, because
+    //
     public int balancedString(String s) {
         if (s == null || s.length() < 4) return 0;
         
