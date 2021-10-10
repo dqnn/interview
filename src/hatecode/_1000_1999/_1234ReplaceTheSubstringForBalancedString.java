@@ -25,6 +25,8 @@ Output: 0
     //"Q","W","E","R", length will be multiple times of 4, so
     //return the min of substring length which needs to replaced so
     //each character count will be the same.
+    
+    //we move left pointer when 
     public int balancedString(String s) {
         if (s == null || s.length() < 4) return 0;
         
@@ -43,7 +45,6 @@ Output: 0
             count[s.charAt(r)]--;
           
             //here is the key for sliding window:
-            //
             while(l <= r && count['W'] <=k && count['Q'] <=k && count['E'] <=k&& count['R'] <=k) {
                 res = Math.min(res, r-l+1);
                 count[s.charAt(l)]++;
