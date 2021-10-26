@@ -46,13 +46,14 @@ Output: 0
             count[s.charAt(r)]--;
           
             //here is the key for sliding window:
+            //the count of 4 characters have to be the same,
+            //if 
             while(l <= r && count['W'] <=k && count['Q'] <=k && count['E'] <=k&& count['R'] <=k) {
                 res = Math.min(res, r-l+1);
                 count[s.charAt(l)]++;
                 l++;
             }
             r++;
-            
         }
         
         return res;
