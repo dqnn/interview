@@ -36,6 +36,7 @@ Output: 4
     }
     
     //this is used by a sliding window.
+    //why we can use sliding window here:
     //
     public int maximumDifference2(int[] A) {
         if (A == null || A.length < 1) return 0;
