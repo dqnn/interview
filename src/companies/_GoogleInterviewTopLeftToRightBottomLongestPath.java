@@ -19,6 +19,12 @@ public class _GoogleInterviewTopLeftToRightBottomLongestPath {
     
     //dp[i][j][3] means on point (i,j), the max steps from UP(0), left(1) and 
     //right[2]. 
+    
+    //on each row you can choose left/right and keep, or down. 
+    //so for each cell,  suppose it is 0, we have 3 possibilities:
+    //a. down, max(left[-1], right[+1], up + 1)
+    //b, continue left, 
+    //c, continue right, 
     public static int getMaxSteps(int[][] g) {
         
         int r = g.length, c=g[0].length;
