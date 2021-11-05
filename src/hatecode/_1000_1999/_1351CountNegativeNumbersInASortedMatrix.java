@@ -15,7 +15,11 @@ Output: 8
     //the problem is to say: given one integer 2D array, 
     //column and rows are sorted non-increasing, find all negative numbers
     
-    //we need to find the pattern in this question,
+    //we need to find the pattern in this question, since the cols and rows are sorted, 
+    //so if we scan from bottom left, if it is negative, then all numbers on its right are all negative,
+    //if it is positive, then it means all numbers above it are positive, so we can move,
+    
+    //so we find way to how to move i, j,
     public int countNegatives(int[][] g) {
         int m = g.length, n = g[0].length, r = m -1, c = 0;
         int res = 0;
