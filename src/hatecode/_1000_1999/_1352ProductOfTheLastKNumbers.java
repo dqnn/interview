@@ -29,6 +29,11 @@ Output
     
     //last K sum or product, so we use prefixProduct to store for 0->i the product
     //from 0->i, 
+    
+    //every time if we meet 0, then we re-start and add 1 to queue.
+    
+    //so when ask for last k numbers, we compare k to n=A.size(), because everytime
+    //we add 1 to A, so n always >=k+1
     List<Integer> A;
     public _1352ProductOfTheLastKNumbers() {
         A = new ArrayList<>();
