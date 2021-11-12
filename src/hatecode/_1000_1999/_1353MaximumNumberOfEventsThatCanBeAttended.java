@@ -30,7 +30,9 @@ Example 1:
         for(int t=minT; t<=maxT; t++){
             while(eventId<A.length && A[eventId][0]<=t)//at each time, we add the new events that are now attendable
                 q.add(A[eventId++][1]);
+            
             while(!q.isEmpty() && q.peek()<t) q.poll();//we remove the ones that are not attendable anymore
+            
             if(!q.isEmpty()){
                 q.poll();
                 res++;
