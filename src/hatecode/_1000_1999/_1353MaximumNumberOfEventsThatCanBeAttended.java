@@ -22,7 +22,7 @@ Output: 4
     //the problem is to say: given list of [start, end] events, start here means the date-th number,
     //events= [[1,2],[2,3],[3,4],[1,2]],
     //[1,2],[1,2], we can attend 1st at day 1, 2nd attend day 2.
-    //
+    //this problem is totally different than previous ones, 
     public int maxEvents(int[][] A) {
         Arrays.sort(A, (a,b)->a[0]==b[0]? a[1]-b[1] : a[0]-b[0]);
         PriorityQueue<Integer> q = new PriorityQueue<>();//hold attandable events at each time t; 
@@ -33,11 +33,13 @@ Output: 4
         int minT = A[0][0];
         int eventId=0, res =0;
         for(int t=minT; t<=maxT; t++){
-            while(eventId<A.length && A[eventId][0]<=t)//at each time, we add the new events that are now attendable
+          //add attend-able events
+            while(eventId<A.length && A[eventId][0]<=t)
                 q.add(A[eventId++][1]);
-            
+            //remove non-attendable events
             while(!q.isEmpty() && q.peek()<t) q.poll();//we remove the ones that are not attendable anymore
             
+            //here means event end time >= t, we an attend
             if(!q.isEmpty()){
                 q.poll();
                 res++;
