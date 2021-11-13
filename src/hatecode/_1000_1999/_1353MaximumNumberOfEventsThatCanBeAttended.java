@@ -22,7 +22,12 @@ Output: 4
     //the problem is to say: given list of [start, end] events, start here means the date-th number,
     //events= [[1,2],[2,3],[3,4],[1,2]],
     //[1,2],[1,2], we can attend 1st at day 1, 2nd attend day 2.
-    //this problem is totally different than previous ones, 
+    //this problem is totally different than previous ones, previous is more 
+    //ask on merge intervals, analysis relationships between intervals, here is more 
+    //on the greedy on interval ends, we need to use a way to count how to attend most events.
+    
+    //we sort events asc by start, end event date, then get min and max time frame
+    //
     public int maxEvents(int[][] A) {
         Arrays.sort(A, (a,b)->a[0]==b[0]? a[1]-b[1] : a[0]-b[0]);
         PriorityQueue<Integer> q = new PriorityQueue<>();//hold attandable events at each time t; 
