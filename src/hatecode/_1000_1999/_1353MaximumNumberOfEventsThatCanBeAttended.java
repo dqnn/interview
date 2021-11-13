@@ -29,6 +29,7 @@ Output: 4
     //we sort events asc by start, end event date, then get min and max time frame
     //firstly we add all attenable events into PQ, then remove ones we cannot attend.
     //then poll first one to attend, because everytime we should choose the time end earlier
+    //it is like sweeping line 
     public int maxEvents(int[][] A) {
         Arrays.sort(A, (a,b)->a[0]==b[0]? a[1]-b[1] : a[0]-b[0]);
         PriorityQueue<Integer> q = new PriorityQueue<>();//hold attandable events at each time t; 
