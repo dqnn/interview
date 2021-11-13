@@ -14,16 +14,21 @@ Return the maximum number of events you can attend.
 
  
 
-Example 1:
+Input: events= [[1,2],[2,3],[3,4],[1,2]]
+Output: 4
 */
-    //thinking process: O(nlgn + max(A) - min(A))
+    //thinking process: O(nlgn + max(A) - min(A))/O(n)
     
+    //the problem is to say: given list of [start, end] events, start here means the date-th number,
+    //events= [[1,2],[2,3],[3,4],[1,2]],
+    //[1,2],[1,2], we can attend 1st at day 1, 2nd attend day 2.
     //
     public int maxEvents(int[][] A) {
         Arrays.sort(A, (a,b)->a[0]==b[0]? a[1]-b[1] : a[0]-b[0]);
         PriorityQueue<Integer> q = new PriorityQueue<>();//hold attandable events at each time t; 
         //meaning the ones that haven't ended yet
         int maxT = Integer.MIN_VALUE;
+        //get min and max time point of the array
         for (int[] event : A) maxT = Math.max(maxT, event[1]);
         int minT = A[0][0];
         int eventId=0, res =0;
