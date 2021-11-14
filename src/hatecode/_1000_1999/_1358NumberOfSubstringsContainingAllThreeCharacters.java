@@ -19,7 +19,9 @@ Output: 10
     //'a', 'b','c', 
     //return the number of substring which contains at least one a, b, c
     
-    //
+    //we use last to indicate last index of 'a', 'b', 'c'
+    //so min of these is the index which we have to include in the substring
+    //index + 1 means how many substring from 0->index
     public int numberOfSubstrings_LastPosition(String s) {
         int res = 0, n = s.length();
         int[] last = {-1,-1,-1};
@@ -32,7 +34,7 @@ Output: 10
         return res;
     }
     
-    //sliding windows
+    //sliding window, this is classic sliding window solution
     public int numberOfSubstrings(String s) {
         int res = 0, n = s.length();
         int l = 0;
