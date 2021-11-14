@@ -13,7 +13,13 @@ Example 1:
 Input: s = "abcabc"
 Output: 10
 */
-    //thinking process:
+    //thinking process: O(n)/O(1)
+    
+    //the problem is to say: given a string s, which only contains
+    //'a', 'b','c', 
+    //return the number of substring which contains at least one a, b, c
+    
+    //
     public int numberOfSubstrings_LastPosition(String s) {
         int res = 0, n = s.length();
         int[] last = {-1,-1,-1};
