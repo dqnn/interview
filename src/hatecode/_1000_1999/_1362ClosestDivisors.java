@@ -16,7 +16,10 @@ Output: [3,3]
     
     //thinking process: O(sqrt(A)/O(1)); math problem
     
-    //the problem is to say: given one 
+    //the problem is to say: given one integer A, return two number
+    //which are closest and their product equals A+1 or A=2
+    
+    //one is we use sqrt (A+2) and back to 1 to try, greedy thinking
     public int[] closestDivisors(int A) {
         int sqrt = (int)Math.sqrt(A+2);
         for(int i = sqrt; i > 0; i--) {
