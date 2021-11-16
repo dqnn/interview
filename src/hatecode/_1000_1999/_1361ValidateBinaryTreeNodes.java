@@ -20,7 +20,9 @@ Note that the nodes have no values and that we only use the node numbers in this
 */
     //thinking process: O(n)/O(n)
     //the problem is to say: given n nodes,0 - n-1, two array l and r which means
-    //
+    //l[i]m r[i] means its left and right child
+    
+    
     public boolean validateBinaryTreeNodes(int n, int[] l, int[] r) {
         int[] in = new int[n];
         // check nodes has more than 1 in degree, but we do not check root
