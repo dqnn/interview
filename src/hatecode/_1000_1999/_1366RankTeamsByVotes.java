@@ -20,6 +20,9 @@ Input: votes = ["ABC","ACB","ABC","ACB","ACB"]
 Output: "ACB"
 */
     //thinking process: O(26n)/O(1)
+    
+    //the problem is to say: given array of strings, one string is like 
+    //"ABCCD", its length will be less than 26, we want to get a final string
     public String rankTeams(String[] v) {
         Map<Character, int[]> map = new HashMap<>();
         
