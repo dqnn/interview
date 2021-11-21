@@ -23,6 +23,7 @@ Output: "ACB"
     
     //the problem is to say: given array of strings, one string is like 
     //"ABCCD", its length will be less than 26, we want to get a final string
+    //each position is formed by a vote process, 
     public String rankTeams(String[] v) {
         Map<Character, int[]> map = new HashMap<>();
         
