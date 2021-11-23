@@ -38,10 +38,10 @@ public class KMP_String_Matching {
         * Compute temporary array to maintain size of suffix which is same as prefix
         * Time/space complexity is O(size of pattern)
         */
-       //"abcdabcy"-->[0, 0, 0, 0, 1, 2, 3, 0]
+       //"abcdabcy"-->[0, 0, 0, 0, 1, 2, 3, 0], 
        //if index and i are all distinct then res are all 0. 
        //suppose we find same as p[index] == p[i] then next[i] = index + 1;
-       //next[i] means how many same successive characters in string pattern
+       //next[i] means A[i] has next[i]+1 same character from 0->i
        //
        public static int[] computeNextArray(char pattern[]){
            int[] next = new int[pattern.length];
@@ -53,6 +53,7 @@ public class KMP_String_Matching {
                    i++;
                } else {
                    //index = 4, next[4-1] = 0, so it rewind to 0
+                   //“aaaaaaaaab”, when index = 9, index will rewind to index = 8
                    if(index != 0) index = next[index-1];
                    else{
                        next[i] = 0;
@@ -88,6 +89,7 @@ public class KMP_String_Matching {
            String subString = "abcdabcy";
            //[0, 0, 0, 0, 1, 2, 3, 0]
            System.out.println(Arrays.toString(computeNextArray(subString.toCharArray())));
+           System.out.println(Arrays.toString(computeNextArray(new char[] {'a','a','a','a','a','a','a','b'})));
            KMP_String_Matching ss = new KMP_String_Matching();
            boolean result = ss.KMP(str.toCharArray(), subString.toCharArray());
            System.out.print(result);
