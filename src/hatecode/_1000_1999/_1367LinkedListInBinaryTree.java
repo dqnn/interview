@@ -49,6 +49,8 @@ Output: true
     
     //KMP algorithms
     public boolean isSubPath(ListNode head, TreeNode root) {
+        
+        //calc the KMP next function
         List<Integer> A = new ArrayList<>(), next = new ArrayList<>();
         A.add(head.val);
         next.add(0);
@@ -62,14 +64,15 @@ Output: true
             next.add(i);
             head = head.next;
         }
-        return dfs(root, 0, A, next);
+        //use KMP to do the search and also dfs
+        return helper(root, 0, A, next);
     }
 
-    private boolean dfs(TreeNode root, int i, List<Integer> A, List<Integer> dp) {
+    private boolean helper(TreeNode root, int i, List<Integer> A, List<Integer> dp) {
         if (root == null) return false;
         while (i > 0 && root.val != A.get(i))
             i = dp.get(i - 1);
         if (root.val == A.get(i)) ++i;
-        return i == dp.size() || dfs(root.left, i, A, dp) || dfs(root.right, i, A, dp);
+        return i == dp.size() || helper(root.left, i, A, dp) || helper(root.right, i, A, dp);
     }
 }
