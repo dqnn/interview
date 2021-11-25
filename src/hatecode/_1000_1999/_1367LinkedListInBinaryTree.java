@@ -49,20 +49,20 @@ Output: true
     
     //KMP algorithms
     public boolean isSubPath(ListNode head, TreeNode root) {
-        List<Integer> A = new ArrayList<>(), dp = new ArrayList<>();
+        List<Integer> A = new ArrayList<>(), next = new ArrayList<>();
         A.add(head.val);
-        dp.add(0);
+        next.add(0);
         int i = 0;
         head = head.next;
         while (head != null) {
             while (i > 0 && head.val != A.get(i))
-                i = dp.get(i - 1);
+                i = next.get(i - 1);
             if (head.val == A.get(i)) ++i;
             A.add(head.val);
-            dp.add(i);
+            next.add(i);
             head = head.next;
         }
-        return dfs(root, 0, A, dp);
+        return dfs(root, 0, A, next);
     }
 
     private boolean dfs(TreeNode root, int i, List<Integer> A, List<Integer> dp) {
