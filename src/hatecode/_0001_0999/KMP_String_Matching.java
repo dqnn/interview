@@ -41,7 +41,7 @@ public class KMP_String_Matching {
        //"abcdabcy"-->[0, 0, 0, 0, 1, 2, 3, 0], 
        //if index and i are all distinct then res are all 0. 
        //suppose we find same as p[index] == p[i] then next[i] = index + 1;
-       //next[i] means A[i] has next[i]+1 same character from 0->i
+       //next[i] means in 0->i, the longest length of same prefix or suffix
        //
        public static int[] computeNextArray(char pattern[]){
            int[] next = new int[pattern.length];
@@ -85,8 +85,11 @@ public class KMP_String_Matching {
        }
            
        public static void main(String args[]){
+           //for example, when 'y' != 'd', next time, it will be 
+           // "abcxabcdabcdabcy"
+           //         "abcdabcy"
            String str =   "abcxabcdabcdabcy";
-           String subString =     "abcdabcy";
+           String subString = "abcdabcy";
            //[0, 0, 0, 0, 1, 2, 3, 0]
            System.out.println(Arrays.toString(computeNextArray(subString.toCharArray())));
            System.out.println(Arrays.toString(computeNextArray(new char[] {'a','a','a','a','a','a','a','b'})));
