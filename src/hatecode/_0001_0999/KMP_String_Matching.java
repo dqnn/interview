@@ -85,8 +85,8 @@ public class KMP_String_Matching {
        }
            
        public static void main(String args[]){
-           String str = "abcxabcdabcdabcy";
-           String subString = "abcdabcy";
+           String str =   "abcxabcdabcdabcy";
+           String subString =     "abcdabcy";
            //[0, 0, 0, 0, 1, 2, 3, 0]
            System.out.println(Arrays.toString(computeNextArray(subString.toCharArray())));
            System.out.println(Arrays.toString(computeNextArray(new char[] {'a','a','a','a','a','a','a','b'})));
