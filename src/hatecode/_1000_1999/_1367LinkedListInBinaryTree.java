@@ -32,6 +32,9 @@ Output: true
                   this.right = right;
               }
           }
+     
+    //thinking process: O(N * min(L, H))/O(H), N = tree size, L = list length, H = tree height
+    //
     public boolean isSubPath2(ListNode head, TreeNode root) {
         if (head == null) return true;
         if (root == null) return false;
@@ -47,7 +50,7 @@ Output: true
     }
     
     
-    //KMP algorithms
+    //KMP algorithms O(N + L)/O(L + H)
     public boolean isSubPath(ListNode head, TreeNode root) {
         
         //calc the KMP next function

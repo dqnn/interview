@@ -42,7 +42,9 @@ public class KMP_String_Matching {
        //if index and i are all distinct then res are all 0. 
        //suppose we find same as p[index] == p[i] then next[i] = index + 1;
        //next[i] means in 0->i, the longest length of same prefix or suffix
-       //
+       //we use same prefix/suffix to indicate, if they are the same, we do not need 
+       //to repeated the compare the prefix part, just go to the 1st of character after prefix,
+       //see example in the main, i never retreat, only j retreat
        public static int[] computeNextArray(char pattern[]){
            int[] next = new int[pattern.length];
            int index = 0;
