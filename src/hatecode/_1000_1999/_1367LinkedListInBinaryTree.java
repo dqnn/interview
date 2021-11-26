@@ -52,30 +52,37 @@ Output: true
     
     //KMP algorithms O(N + L)/O(L + H)
     public boolean isSubPath(ListNode head, TreeNode root) {
-        
-        //calc the KMP next function
-        List<Integer> A = new ArrayList<>(), next = new ArrayList<>();
+        List<Integer> A = new ArrayList<>(), dp = new ArrayList<>();
         A.add(head.val);
-        next.add(0);
-        int i = 0;
-        head = head.next;
-        while (head != null) {
-            while (i > 0 && head.val != A.get(i))
-                i = next.get(i - 1);
-            if (head.val == A.get(i)) ++i;
-            A.add(head.val);
-            next.add(i);
-            head = head.next;
+        dp.add(0);
+        int index = 0;
+        
+        //code templates for calculateNext function
+        for(head = head.next; head!=null;) {
+            if(head.val == A.get(index)) {
+                dp.add(index+1);
+                index++;
+                A.add(head.val);
+                head = head.next;
+            } else {
+                if(index!=0) index = dp.get(index-1);
+                else {
+                    dp.add(0);
+                    A.add(head.val);
+                    head=head.next;
+                }
+            }
         }
-        //use KMP to do the search and also dfs
-        return helper(root, 0, A, next);
+        return helper(root, 0, A, dp);
     }
 
-    private boolean helper(TreeNode root, int i, List<Integer> A, List<Integer> dp) {
+    //the way how we do dfs is different compared to string as s and p,
+    //we have to rewind back to when it is different
+    private boolean helper(TreeNode root, int i, List<Integer> pattern, List<Integer> next) {
         if (root == null) return false;
-        while (i > 0 && root.val != A.get(i))
-            i = dp.get(i - 1);
-        if (root.val == A.get(i)) ++i;
-        return i == dp.size() || helper(root.left, i, A, dp) || helper(root.right, i, A, dp);
+        while (i > 0 && root.val != pattern.get(i))
+            i = next.get(i - 1);
+        if (root.val == pattern.get(i)) ++i;
+        return i == next.size() || helper(root.left, i, pattern, next) || helper(root.right, i, pattern, next);
     }
 }
