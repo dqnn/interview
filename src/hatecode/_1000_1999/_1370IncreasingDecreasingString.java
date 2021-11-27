@@ -24,6 +24,9 @@ Example 1:
 Input: s = "aaaabbbbcccc"
 Output: "abccbaabccba"
 */
+    //thinking process: O(n)/O()
+    
+    //the problem is to say:given one string s, 
     public String sortString(String s) {
         TreeMap<Character, Integer> map = new TreeMap<>();
         
