@@ -19,7 +19,11 @@ Output: 13
     //the problem is to say:, given a string s, find out the longest 
     //substring which contains even count of vowels, 0 is even number.
     
-    //
+    //thinking about two prefix substrings([0,i] and [0,j]) vowels count
+    //if they are odd or even at the same time, then [i, j] will be even counts for 
+    //these vowels.
+    
+    //so we can have bitcounts and sliding window solution
     public int findTheLongestSubstring_Best(String s) {
         Map<Character, Integer> map = new HashMap<>(){{
             put('a', 1);
@@ -47,7 +51,7 @@ Output: 13
     
     //O(n^2)/O(1),
     
-    //it is sliding window
+    //it is sliding window, but everytime we mark l = 0 because we need max
      public int findTheLongestSubstring(String s) {
          Map<Character, Integer> map = new HashMap<>(){{
             put('a', 0);
