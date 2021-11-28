@@ -16,6 +16,9 @@ Output: 13
 */
     //thinking process: O(n)/O(1)
     
+    //the problem is to say:, given a string s, find out the longest 
+    //substring which contains even count of vowels, 0 is even number.
+    
     //
     public int findTheLongestSubstring_Best(String s) {
         Map<Character, Integer> map = new HashMap<>(){{
