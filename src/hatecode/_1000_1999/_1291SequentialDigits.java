@@ -92,6 +92,25 @@ Output: [1234,2345,3456,4567,5678,6789,12345]
     }
     
     
+    //Sliding windows
+    public List<Integer> sequentialDigits_SlidingWindow(int low, int high) {
+        String seqNum = "123456789";
+         List<Integer> list = new ArrayList<>();
+
+        int minWindow = String.valueOf(low).length();
+        int maxWindow = String.valueOf(high).length();
+        for(;minWindow <= maxWindow; minWindow++){
+            for(int j = 0; j + minWindow <= 9; j++){
+                String str = seqNum.substring(j, j + minWindow);
+                int num = Integer.parseInt(str);
+                if(num > high) break;
+                if(low <= num && high >= num){
+                    list.add(num);
+                }
+            }
+        }
+        return list;
+    }
     
    
 }
