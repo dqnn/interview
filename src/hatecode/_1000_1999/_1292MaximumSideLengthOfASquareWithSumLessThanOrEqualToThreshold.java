@@ -13,7 +13,14 @@ Example 1:
 Input: mat = [[1,1,3,2,4,3,2],[1,1,3,2,4,3,2],[1,1,3,2,4,3,2]], threshold = 4
 Output: 2
  */   
-    //Best solution
+    //Best solution,
+    
+    //thinking process: O(mn)/O(mn)
+    
+    //the problem is to say: given a 2D matrix of integers and one integer h, we want to
+    //know how many square length of their sum of squares in this matrix less than h. 
+    
+    //
     public int maxSideLength_Best(int[][] m, int h) {
         
         int r =m.length, c = m[0].length;
