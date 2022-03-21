@@ -55,7 +55,9 @@ Output: 2
     }
     
     //this is special one, since what we need is the longest square length
-    //so we can use i j compare to length.
+    //so we can use i j compare to length, because when we calculate each pre[i][j],
+    //the qualified square bottom right coordination will only be bigger than length because 
+    //we added 0 at first row and first column
     private boolean isSquareExist(int[][] pre, int r,int c, int m, int h) {
         for(int i=m; i<=r;i++) {
             for(int j =m;j<=c; j++){
