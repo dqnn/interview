@@ -55,6 +55,7 @@ Output: 2
     }
     
     //this is special one, since what we need is the longest square length
+    //so we can use i j compare to length.
     private boolean isSquareExist(int[][] pre, int r,int c, int m, int h) {
         for(int i=m; i<=r;i++) {
             for(int j =m;j<=c; j++){
