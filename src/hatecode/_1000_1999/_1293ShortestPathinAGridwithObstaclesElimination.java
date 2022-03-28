@@ -68,7 +68,9 @@ Return the minimum number of steps to walk from the upper left corner (0, 0) to 
         return -1;
     }
     
+    //classic solution, 
     
+    //thinking process: O(mnk)/o(mnk)
     public int shortestPath_BF(int[][] g, int k) {
         
         int res = 0;
