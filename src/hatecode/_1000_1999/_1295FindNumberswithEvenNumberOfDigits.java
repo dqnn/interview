@@ -20,8 +20,8 @@ Output: 2
         int count=0;
         for(int i =0 ; i< A.length; i++){
             
-            if((A[i]>9 && A[i]<100) 
-               || (A[i]>999 && A[i]<10000) 
+            if(A[i]>9 && A[i]<100
+               || A[i]>999 && A[i]<10000
                || A[i]==100000){
                 count++;
             }
