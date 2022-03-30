@@ -10,6 +10,8 @@ Example 1:
 
 Input: nums = [12,345,2,6,7896]
 Output: 2
+
+nums < 10^5
 */
     //thinking process: 
     //given an integer array, return how many contain an even number of 
