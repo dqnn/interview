@@ -25,7 +25,6 @@ Output: 2
                 count++;
             }
         }
-        
         return count;
         
     }
