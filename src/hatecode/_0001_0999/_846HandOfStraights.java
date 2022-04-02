@@ -11,9 +11,6 @@ public class _846HandOfStraights {
      * W, and consists of W consecutive cards.
      * 
      * Return true if and only if she can.
-     * 
-     * 
-     * 
      * Example 1:
      * 
      * Input: hand = [1,2,3,6,2,3,4,7,8], W = 3 Output: true Explanation: Alice's
