@@ -5,7 +5,8 @@ public class _846HandOfStraights {
      * 846. Hand of Straights Alice has a hand of cards, given as an array of
      * integers.
      * 
-     * Now she wants to rearrange the cards into groups so that each group is size
+     * Now she wants to rearrange the cards into 
+     * groups so that each group is size
      * W, and consists of W consecutive cards.
      * 
      * Return true if and only if she can.
