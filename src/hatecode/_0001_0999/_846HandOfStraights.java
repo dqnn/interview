@@ -2,7 +2,8 @@ package hatecode._0001_0999;
 import java.util.*;
 public class _846HandOfStraights {
     /*
-     * 846. Hand of Straights Alice has a hand of cards, given as an array of
+     * 846. Hand of Straights 
+     * Alice has a hand of cards, given as an array of
      * integers.
      * 
      * Now she wants to rearrange the cards into 
