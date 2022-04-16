@@ -32,8 +32,11 @@ Output: "lee(t(c)o)de"
     //if we want to remove invalid parenthesis, we can only remove ( or ), 
     //the key is how to find the incorrect ones, we can start from examples, since the 
     //letters does not impact the results, we can start from simple example, 
-    // ((),
-    // )((, 
+    // ((), suppose we can close the smallest unit, then we can simplify the problem,
+    // it will be ( left, this reminds us the data strcutre of Stack. 
+    
+    //if we have another case, like )(), we cannot close the first one, then we need a counter 
+    //to record the  how many left or right parenthesis we have. 
     public String minRemoveToMakeValid(String s) {
         int count = 0;
         Stack<Integer> stack = new Stack<>();
@@ -44,6 +47,8 @@ Output: "lee(t(c)o)de"
                 count++;
                 stack.push(i);
             } else if (c==')') {
+                //here is )() case, we only pop when count > 0, here
+                //count = 0 but we do have one ( in stack
                 if (count>0) {
                     stack.pop();
                      count--;
