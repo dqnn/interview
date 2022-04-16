@@ -25,7 +25,15 @@ Output: "lee(t(c)o)de"
     
     //thinking process: O(n)/O(n)
     
-    //the problem is to say: given one string s, 
+    //the problem is to say: given one string s, which contains letters and 
+    // ( ), if we want valid parenthesis with min removal of the parenthesis, 
+    //return the string.
+    
+    //if we want to remove invalid parenthesis, we can only remove ( or ), 
+    //the key is how to find the incorrect ones, we can start from examples, since the 
+    //letters does not impact the results, we can start from simple example, 
+    // ((),
+    // )((, 
     public String minRemoveToMakeValid(String s) {
         int count = 0;
         Stack<Integer> stack = new Stack<>();
