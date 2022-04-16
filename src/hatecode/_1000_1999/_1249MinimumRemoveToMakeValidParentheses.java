@@ -22,6 +22,10 @@ Example 1:
 Input: s = "lee(t(c)o)de)"
 Output: "lee(t(c)o)de"
 */
+    
+    //thinking process: O(n)/O(n)
+    
+    //the problem is to say: given one string s, 
     public String minRemoveToMakeValid(String s) {
         int count = 0;
         Stack<Integer> stack = new Stack<>();
