@@ -56,6 +56,7 @@ Output: True
            return true;
        }
 
+       //always compare first to last character
        while (s.charAt(0) == s.charAt(s.length()-1)) {
            s = s.substring(1, s.length()-1);
 
