@@ -49,4 +49,26 @@ Output: True
        }
        return true;
    }
+   
+   boolean validPalindromeForRemovingKChars(String s, int k) {
+       if (s.length() <= 1) {
+           return true;
+       }
+
+       while (s.charAt(0) == s.charAt(s.length()-1)) {
+           s = s.substring(1, s.length()-1);
+
+           if (s.length() <= 1) {
+               return true;
+           }
+       }
+
+       if (k == 0) {
+           return false;
+       }
+
+       // Try to remove the first or last character
+       return validPalindromeForRemovingKChars(s.substring(0, s.length() - 1), k - 1) || 
+              validPalindromeForRemovingKChars(s.substring(1, s.length()), k - 1);
+   }
 }
