@@ -3,7 +3,7 @@ package hatecode._0001_0999;
 import java.util.Stack;
 
 /**
- * Created by duqiang on 28/07/2018.
+ * 
  */
 public class _067AddBinary {
     /**
