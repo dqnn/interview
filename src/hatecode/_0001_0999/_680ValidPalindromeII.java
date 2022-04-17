@@ -50,6 +50,7 @@ Output: True
        return true;
    }
    
+   //here to say if we want to remove most K characters
    boolean validPalindromeForRemovingKChars(String s, int k) {
        if (s.length() <= 1) {
            return true;
