@@ -76,7 +76,7 @@ public class _621TaskScheduler {
         return Math.max(tasks.length, res);
     }
     
-    //follow up: how about output the task sequence
+    //interview friendly, follow up: how about output the task sequence
     public int leastInterval2(char[] tasks, int n) {
         if (tasks == null || tasks.length == 0)
             return 0;
