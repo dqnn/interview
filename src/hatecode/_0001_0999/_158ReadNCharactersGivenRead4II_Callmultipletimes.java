@@ -87,7 +87,7 @@ read("abc", 1); // returns ""
             //we need this while here because not sure pointer or index which 
             //reach to its limit first
             while (index < n && pointer < count) {
-                buf[index++] = temp[pointer++];
+                buf[index++] = temp[pointer++]; 
             }
             //this means we rewind to start of next read4
             if (pointer == count) {
