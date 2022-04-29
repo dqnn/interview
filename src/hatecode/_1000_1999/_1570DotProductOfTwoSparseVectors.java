@@ -24,6 +24,7 @@ Output: 8
 */
     
     //thinking process: O(min(a, b))/O(min(a, b)). min(a, b) how many non 0 in A and B
+    //find the array which has less non 0 digits
     Map<Integer, Integer> map = new HashMap<>();
     _1570DotProductOfTwoSparseVectors(int[] A) {
         for(int i = 0; i<A.length; i++) {
