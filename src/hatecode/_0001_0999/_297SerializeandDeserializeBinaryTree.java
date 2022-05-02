@@ -28,7 +28,7 @@ public class _297SerializeandDeserializeBinaryTree {
      * @return
      */
     // Encodes a tree to a single string.
-    //so thinking process:
+    //thinking process:O(n)/O(n)
     // we want to convert tree to String and decode the string to tree. 
     // we want to use "null" to indicate the node is is null like array to represent 
     // string, so when we converting from tree to string, we definitely there are null in string
@@ -37,7 +37,7 @@ public class _297SerializeandDeserializeBinaryTree {
     // BFS on tree, we use Queue to store the node and it can be null to be added into queue
     // we can use space or "," to split string please note when decode we has no case on node from queue
     // is null because we never add null into queue because we node is initlized as null. 
-    //O(n)/O(n)
+    //
     public String serialize(TreeNode root) {
        if (root == null) return "";
        StringBuilder res = new StringBuilder();
@@ -62,19 +62,23 @@ public class _297SerializeandDeserializeBinaryTree {
     ////O(n)/O(n)
     public TreeNode deserialize(String data) {
         if (data == "") return null;
-        String[] str = data.split(" ");
-        TreeNode root = new TreeNode(Integer.parseInt(str[0]));
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        for (int i = 1; i < str.length; i++) {
-            TreeNode cur = queue.poll();
-            if (!str[i].equals("null")) {
-                cur.left = new TreeNode(Integer.parseInt(str[i]));
-                queue.offer(cur.left);
+        String[] d = data.split(" ");
+        Queue<TreeNode> q = new LinkedList<>();
+        TreeNode root;
+        
+        if(d[0].equals("null")) return null;
+        root = new TreeNode(Integer.valueOf(d[0]));
+        q.offer(root);
+        
+        for(int i = 1; i< d.length; i++) {
+            TreeNode cur = q.poll();
+            if(!d[i].equals("null")) {
+                cur.left = new TreeNode(Integer.valueOf(d[i]));
+                q.offer(cur.left);
             }
-            if (!str[++i].equals("null")) {
-                cur.right = new TreeNode(Integer.parseInt(str[i]));
-                queue.offer(cur.right);
+            if (!d[++i].equals("null")) {
+                cur.right = new TreeNode(Integer.valueOf(d[i]));
+                q.offer(cur.right);
             }
         }
         return root;
