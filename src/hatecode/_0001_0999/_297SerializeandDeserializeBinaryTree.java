@@ -7,7 +7,6 @@ import java.util.Queue;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : SerializeandDeserializeBinaryTree
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : TODO
  */
