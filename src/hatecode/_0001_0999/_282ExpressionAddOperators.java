@@ -77,6 +77,7 @@ public class _282ExpressionAddOperators {
             if (str.startsWith("0") && str.length() > 1) break;
             
             Long cur = Long.valueOf(str);
+            //TODO： need to find an example
             if (pos == 0) {
                 // here cur changed to pre-evaluation results
                 helper(res, path + cur, num, target, i+1, cur, cur);
