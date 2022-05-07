@@ -1,4 +1,6 @@
 package hatecode._0001_0999;
+
+import java.util.*;
 public class _426ConvertBinarySearchTreeToSortedDoublyLinkedList {
 /*
  * 426. Convert Binary Search Tree to Sorted Doubly Linked List
@@ -37,7 +39,7 @@ dashed line means the predecessor relationship.
     //BST, sorted, so we want to try inorder visit, 
     //the inorder visit: we find most left leaf which will be head of the double linked list
     // so we use dummy.next = node, node.prev = dummy, and we move  prev  point to this node
-    Node prev = null; //this is the key to rememebr previous node
+    Node prev = null; //this is the key to remember previous node
     public Node treeToDoublyList(Node root) {
         if (root == null) return null;
         
@@ -64,5 +66,35 @@ dashed line means the predecessor relationship.
         prev = node;
         
         helper(node.right);
+    }
+    
+    public Node treeToDoublyList_Stack(Node root) {
+        if (root == null) {
+            return null;
+        }
+
+        Node first = null;
+        Node last = null;
+
+        Deque<Node> stack = new ArrayDeque<>();
+        while (root != null || !stack.isEmpty()) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            root = stack.pop();
+            if (first == null) {
+                first = root;
+            }
+            if (last != null) {
+                last.right = root;
+                root.left = last;
+            }
+            last = root;
+            root = root.right;
+        }
+        first.left = last;
+        last.right = first;
+        return first;
     }
 }
