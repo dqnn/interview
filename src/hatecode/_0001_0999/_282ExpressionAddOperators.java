@@ -90,6 +90,11 @@ public class _282ExpressionAddOperators {
                 // we have added 2 in val, but * priveledge is higher than +, so we need to get pre 2 out of val
                 // and then add true result: pre * cur
                 helper(res, path + "*" + cur, num, target, i + 1, val - pre + pre * cur, pre * cur);
+                
+                // in case if we need /, it will ignore the floating part,
+                if (cur != 0) {
+                    helper(res, path +"/" +cur, num, target, i+1, val - pre + pre/cur, pre/cur);
+                } 
             }
             
         }
