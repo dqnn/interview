@@ -77,7 +77,7 @@ public class _282ExpressionAddOperators {
             if (str.startsWith("0") && str.length() > 1) break;
             
             Long cur = Long.valueOf(str);
-            //TODO： need to find an example
+            //for first character, we cannot add "+"/-/* before the expressions, like +1+2+3 such invalid expresssions
             if (pos == 0) {
                 // here cur changed to pre-evaluation results
                 helper(res, path + cur, num, target, i+1, cur, cur);
