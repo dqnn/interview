@@ -108,6 +108,10 @@ public class _269AlienDictionary {
         //and degree, the map only will save from previous character to next different ones. it will only
         //contains part of all characters
         for (int i = 0; i < words.length - 1; i++) {
+            //["abc","ab"] ==> "", need to have such case
+            if (words[i].length() > words[i+1].length() && words[i].startsWith(words[i+1])) {
+                return "";
+            }
             char[] cur = words[i].toCharArray();
             char[] next = words[i + 1].toCharArray();
             int len = Math.min(cur.length, next.length);
@@ -155,7 +159,8 @@ public class _269AlienDictionary {
                 }
             }
         }
-        //
+        //how many distinct characters in the strings,if different which means it is correct, 
+        //["abc","ab"] ==> ""
         if (res.length() != count) return "";
         return res.toString();
     }
