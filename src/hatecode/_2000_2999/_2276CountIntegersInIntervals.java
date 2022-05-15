@@ -29,6 +29,28 @@ Output
 
     
     //thinking process:  O(xlgn)/O(n)
+    
+    //the problem is to say: to implement a class, the class could insert intervals, 
+    //the interval is like [3, 5], if we insert [4,6] then we should merge them and store
+    //[3, 6], another is to return how many integers in this intervals inclusively, like here will be 
+    //4.
+    
+    //we should always start from examples,like here, [3,5], then we need to add([4,6]), firstly we need to find out 
+    //which intervals we need to merge from, this is more like a search problem, we can leverage binary search,
+    //and se also need to know when should stop.
+    
+    //         l'-----------r'
+    // l____r                   l1_____r1
+    
+    // we can think above graph is the lifetime of the merging process of two intervals.
+    //how we can fast identify the interval in storage, we should use TreeMap, l as key while r as value,
+    //we can use map.lowerEntry(l+1) to identify the closest interval from the left, we have two cases, one is null, another is we can get something,
+    
+    // so how to get next, we can map.higherEntry(left), the most closet to l.
+    // how to stop, when current entry.getValue() < l1, then we should stop, because there is nothing in common.
+    
+    //there is one edge case when we cannot get anything for first, so we need to have a flag first to workaround on the edge case.
+    
     int size = 0;
     TreeMap<Integer, Integer> map = new TreeMap<>();
     public _2276CountIntegersInIntervals() {
@@ -47,6 +69,7 @@ Output
             l = Math.min(l, curL);
             r = Math.max(r, curR);
             map.remove(curL);
+            //remove the numbers inside this interval
             size = size - (curR - curL + 1);
         }
         
