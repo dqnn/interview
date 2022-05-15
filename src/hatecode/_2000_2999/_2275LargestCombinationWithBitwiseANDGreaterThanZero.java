@@ -19,7 +19,23 @@ Example 1:
 Input: candidates = [16,17,71,62,12,24,14]
 Output: 4
 */
-    //thinking process: O()
+    //thinking process: O(n)/O(1)
+    
+    //the problem is to say: given one integer array A, 
+    //you can use AND perator for any integers in this array, return max group size 
+    //if their AND result > 0;
+    
+    //one integer has 32 digits, like below: 
+    
+   /*      1234 5678 9ABC
+    *  1-- 0000 0000 0001
+    *  2-- 0000 0000 0010
+    *  5-- 0000 0000 0101
+    *  
+    *  so actually we want to know for each digit, how many 1 are one each column.
+    *  
+    * 
+    */
     public int largestCombination(int[] A) {
         if (A == null || A.length == 0) return 0;
         if (A.length == 1 ) return 1;
