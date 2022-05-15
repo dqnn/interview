@@ -100,6 +100,7 @@ public class _031NextPermutation {
         }
         //here is the key: we scan from back to j, if we find one number 
         //which is bigger than j, then we swap and sort
+        //j point to 7 in [1,2,7,4,3,1]
         for(int i =end+1; i>j;i--) {
             if(nums[j] < nums[i]) {
                 int temp = nums[j];
