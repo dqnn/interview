@@ -90,7 +90,7 @@ public class _031NextPermutation {
         int j = end;
         //we find the the pattern like 1,2,3, 
         //note j point to 2 and stop
-        for(; j>=0 && nums[j+1] <= nums[j];) {
+        for(; j>=0 && nums[j] >= nums[j+1];) {
             j--;
         }
         //this means the all array is desc, we just need to reverse it
