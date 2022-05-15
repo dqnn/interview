@@ -6,14 +6,14 @@ import java.util.Arrays;
  * Project Name : hatecode
  * Package Name : hatecode
  * File Name : NextPermutation
- * Creator : duqiang
  * Date : Aug, 2018
  * Description : TODO
  */
 public class _031NextPermutation {
     /**
      * 31. Next Permutation
-     * Here are some examples. Inputs are in the left-hand column and 
+     * Here are some examples. Inputs are in the left-hand 
+     * column and 
      * its corresponding outputs are in the right-hand column.
      1,2,3 → 1,3,2
      3,2,1 → 1,2,3
