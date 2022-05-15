@@ -44,7 +44,6 @@ Output
             
             int curL = it.getKey(), curR = it.getValue();
             
-            
             l = Math.min(l, curL);
             r = Math.max(r, curR);
             map.remove(curL);
