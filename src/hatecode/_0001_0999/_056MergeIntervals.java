@@ -13,7 +13,8 @@ import java.util.List;
  */
 public class _056MergeIntervals {
     /**
-Given a collection of intervals, merge all overlapping intervals.
+Given a collection of intervals, 
+merge all overlapping intervals.
 
 Example 1:
 
@@ -105,8 +106,7 @@ Explanation: Intervals [1,4] and [4,5] are considerred overlapping.
           
           ///然后遍历其中一个memo数组
           for(int i = 0; i < memo_start.length; i++){
-              if(total == 0)
-                  start = i;
+              if(total == 0) start = i;
               
               total += memo_start[i];
               
