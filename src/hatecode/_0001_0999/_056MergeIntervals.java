@@ -71,7 +71,8 @@ Explanation: Intervals [1,4] and [4,5] are considerred overlapping.
     
     //another solution
     /**
-    这题立马让人想到了Calendar II里面的用1和-1代替interal，那题在TreeMap里面遍历value，当2个value>2时候，表示有overlap
+    这题立马让人想到了Calendar II里面的用1和-1代替interal，
+    那题在TreeMap里面遍历value，当2个value>2时候，表示有overlap
      * Definition for an interval.
      * public class Interval {
      *     int start;
