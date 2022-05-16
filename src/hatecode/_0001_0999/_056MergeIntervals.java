@@ -110,7 +110,8 @@ Explanation: Intervals [1,4] and [4,5] are considerred overlapping.
               if(total == 0) start = i;
               
               total += memo_start[i];
-              //如果没有overlap，那么start and end应该具有相同的index
+              //如果没有overlap，那么start and end应该具有相同的index,
+              //total here means how many start index are included
               if(total == memo_end[i] && memo_end[i] != 0){
                   ret.add(new Interval(start, i));//这里的start应该是之前的start了，i是新的end，如果有overlap，只有前面interval的start
               }//和后面interval的end才 会算进res
