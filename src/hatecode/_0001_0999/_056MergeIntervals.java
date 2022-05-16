@@ -8,7 +8,6 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : MergeIntervals
- * Creator : duqiang
  * Date : Aug, 2018
  * Description : 56. Merge Intervals
  */
