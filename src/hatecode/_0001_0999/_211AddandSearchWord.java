@@ -33,7 +33,6 @@ public class _211AddandSearchWord {
     //this is better DS,because 
     //we did not waste any mem as use a map instead char[26]
     private class Trie{
-        char c;
         Map<Character, Trie> map;
         boolean isWord;
         String word;
@@ -73,6 +72,7 @@ public class _211AddandSearchWord {
     }
     
     private boolean helper(String w, Trie root, int pos) {
+        //here is one key that need to remembered the exit
         if(pos == w.length()) return root.isWord;
         
         char cur = w.charAt(pos);
