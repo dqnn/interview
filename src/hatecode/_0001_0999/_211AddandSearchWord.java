@@ -5,7 +5,6 @@ import java.util.*;
  * Project Name : Leetcode 
  * Package Name : leetcode 
  * File Name : AddandSearchWord
- * Creator : Duqiang 
  * Date : Sep, 2018 
  * Description : TODO
  */
@@ -31,7 +30,8 @@ public class _211AddandSearchWord {
 
      */
     /** Initialize your data structure here. */
-    //this is better DS,because we did not waste any mem as use a map instead char[26]
+    //this is better DS,because 
+    //we did not waste any mem as use a map instead char[26]
     private class Trie{
         char c;
         Map<Character, Trie> map;
