@@ -72,7 +72,8 @@ NN in most situations).
 
      */
     public ListNode mergeKLists2(ListNode[] lists) {
-        if (lists == null || lists.length == 0) return null;
+        //new test case: [[], [1]]--> expect [1]
+        if (lists == null || lists.length  < 1 || lists.length  == 1 && lists[0] == null ) return null;
         PriorityQueue<ListNode> queue = new PriorityQueue<>(lists.length, (a, b) -> a.val - b.val);
         ListNode dummy = new ListNode(0);
         ListNode cur = dummy;
