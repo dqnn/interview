@@ -84,7 +84,8 @@ NN in most situations).
             }
         }
         // for each one, we add them into the queue 
-        // we always get smallest, this is similiar with kN solutions
+        // we always get smallest, this is similar with kN 
+        //solutions
         while (!queue.isEmpty()) {
             cur.next = queue.poll();
             cur = cur.next;
@@ -104,7 +105,8 @@ NN in most situations).
         int len = lists.length;
         ListNode dummy = new ListNode(0), cur = dummy;
         ListNode[] end = new ListNode[len];
-        //we store a list of pointers which point current smallest val in the list
+        //we store a list of pointers which point current smallest val in the 
+        //list
         for(int i = 0; i < len; i++) {
             end[i] = lists[i];
         }
