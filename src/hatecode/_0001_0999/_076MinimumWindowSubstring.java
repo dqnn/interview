@@ -75,16 +75,19 @@ public class _076MinimumWindowSubstring {
                 if(map.get(c) == 0) count--;
             }
             r++;
-            //only move left when condition satisfied
+            //only move left when condition satisfied,
+            //this actually visit each substring,but each character only visit twice
+            //count == 0 means now a qualified substring appear
             while(count == 0) {
                 char lc = s.charAt(l);
+                //we did not remove any keys in map, so they should be there for every character in t
                 if(map.containsKey(lc)) {
                     map.put(lc, map.getOrDefault(lc, 0) + 1);
                     //the character we removed is what we need
                     //because this is in while(count == 0), which means lc must be new
                     if(map.get(lc) > 0) count++;
                 }
-                //this part is where we add our customerlize code
+                //this part is where we add our customize code
                 if(r -l < len) {
                     len = r-l;
                     res = s.substring(l, r);
