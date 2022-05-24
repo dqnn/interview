@@ -46,6 +46,8 @@ public class _029DivideTwoIntegers {
         
         long lres = helper(ldividend, ldivisor);
         int res = 0;
+        
+        // [ld = -2147483648, d = -1], it will be bigger than integer max
         if (lres > Integer.MAX_VALUE) {
             res = (sign == 1) ? Integer.MAX_VALUE : Integer.MIN_VALUE;
         } else res = (int)(sign * lres);
