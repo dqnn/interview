@@ -2,10 +2,7 @@ package hatecode._0001_0999;
 
 import java.util.*;
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
  * File Name : MinimumWindowSubstring
- * Creator : duqiang
  * Date : Aug, 2018
  * Description : 76. Minimum Window Substring
  */
