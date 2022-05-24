@@ -4,7 +4,6 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : DivideTwoIntegers
- * Creator : duqiang
  * Date : Nov, 2017
  * Description : 29. Divide Two Integers
  */
@@ -33,9 +32,9 @@ public class _029DivideTwoIntegers {
      */
     //thinking process: given two integer, output the ld/d result
     //so it means we need to use + and - to implement / 
-    // this way, the algorithms is to accerlerate faster and if we encounter the barrier, 
+    // this way, the algorithms is to accelerate faster and if we encounter the barrier, 
     //we slow down and then faster, like collision detection algorithms, decrease fast and 
-    // accerlerate slow.
+    // accelerate slow.
     public int divide(int ld, int d) {
         int sign = 1;
         if ((ld > 0 && d < 0) || (ld < 0 && d > 0)) sign = -1;
@@ -52,6 +51,8 @@ public class _029DivideTwoIntegers {
         } else res = (int)(sign * lres);
         return res;
     }
+    
+    
     //O(lgn)/O(lgn)
     public long helper(long ld, long d) {
         if (ld < d) return 0;
