@@ -129,7 +129,8 @@ public class _076MinimumWindowSubstring {
     }
     
     public static void main(String[] args) {
-        String S = "AOBECOEBANC", T = "ABC";
+        //String S = "AOBECOEBANC", T = "ABC";
+        String S = "cabwefgewcwaefgcf", T = "cae";
         System.out.println(minWindow(S, T));
     }
 }

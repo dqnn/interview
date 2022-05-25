@@ -2,15 +2,18 @@ package hatecode._0001_0999;
 
 import java.util.*;
 /**
- * Created by duqiang on 28/07/2017.
+ * Created by  on 28/07/2017.
  */
 public class _236LowestCommonAncestorofaBinaryTree {
     /**
      * 236. Lowest Common Ancestor of a Binary Tree
-     * Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
+     * Given a binary tree, find the lowest common ancestor (LCA) of two given 
+     * nodes in the tree.
 
-     According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v
-     and w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).”
+     According to the definition of LCA on Wikipedia: “The lowest common ancestor
+      is defined between two nodes v and w as the lowest node in T that has 
+      both v and w as descendants (where we allow a node to be a descendant of 
+      itself).”
 
      time: O(n);
      space : O(n);
