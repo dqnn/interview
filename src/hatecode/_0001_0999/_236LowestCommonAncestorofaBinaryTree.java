@@ -39,13 +39,16 @@ public class _236LowestCommonAncestorofaBinaryTree {
             return root;
         }
         
-        // Let’s say root node is not p or q then it checks left branch first
+        // we have 3 cases, 
+        //first is the p q are in two branches, left and right are all not null
         TreeNode left = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
-        //
+        
         if (left != null && right != null) {
             return root;
         }
+        
+        //only in left or right branch
         return left == null ? right : left;
     }
     //iterative solutions
