@@ -4,7 +4,6 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : BinaryTreeMaximumPathSum
- * Creator : duqiang
  * Date : Nov, 2017
  * Description : 124. Binary Tree Maximum Path Sum
  */
@@ -45,7 +44,7 @@ public class _124BinaryTreeMaximumPathSum {
         return res;
     }
 
-    // we need PostOrder to visit the tree. model the programe in this way.
+    // we need PostOrder to visit the tree. model the program in this way.
     // it has 4 use cases
     // 1 Node only, 2 L child, 3 R child 4 L + root Node,
     // 5 R + root Node, 6 L + R + RootNode
