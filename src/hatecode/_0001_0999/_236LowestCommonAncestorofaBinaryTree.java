@@ -30,7 +30,7 @@ public class _236LowestCommonAncestorofaBinaryTree {
     //so we visit from top by this recursive function, if we find it equals p or q, then we 
     //just return
     
-    //this needs to be remembered, this methold is to return starting from root, whether it 
+    //this needs to be remembered, this method is to return starting from root, whether it 
     //has lowest common ancestor for p and q, if not return null, if yes, return the node
     public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
        // returns real root which is LCA since 
