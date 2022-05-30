@@ -50,6 +50,8 @@ sum_i - sum_j = (m - n) *k
             // k can be 0, in that case, 0,-1 can help
             if (k!=0) sum %=k;
             if (map.containsKey(sum)){
+                //not [i, j] did not include i, it starts from 
+                //[i+1, j],so j - i -1 + 1>=2
                 if (i - map.get(sum) > 1) return true;
             } else map.put(sum, i);
         }
