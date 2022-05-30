@@ -18,8 +18,6 @@ Explanation: Subarrays [1, 2], [2, 6], [7, 5] correspond to the starting indices
 We could have also taken [2, 1], but an answer of [1, 3, 5] would be lexicographically larger.
 
 
-
-
 The question asks for three non-overlapping intervals with maximum sum of all 3 intervals. 
 If the middle interval is [i, i+k-1], where k <= i <= n-2k,
  the left interval has to be in subrange [0, i-1], 
@@ -54,9 +52,7 @@ and "> tot" for left interval. Thanks to @lee215 for pointing this out!
             if (sum[i+1]-sum[i+1-k] > tot) {
                 posLeft[i] = i+1-k;
                 tot = sum[i+1]-sum[i+1-k];
-            }
-            else
-                posLeft[i] = posLeft[i-1];
+            } else posLeft[i] = posLeft[i-1];
         }
         // DP for starting index of the right max sum interval
        // caution: the condition is ">= tot" for right interval, and "> tot" for left interval
