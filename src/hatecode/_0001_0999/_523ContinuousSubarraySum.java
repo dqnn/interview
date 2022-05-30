@@ -32,6 +32,7 @@ Thus,
 sum_i - sum_j = (m - n) *k
     */
     //thinking process:
+    //if say about sub array, always trying to think from prefix sum
     
     //interview friendly: 
     //
