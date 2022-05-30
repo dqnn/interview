@@ -8,7 +8,6 @@ import java.util.Random;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : KthLargestElementinanArray
- * Creator : duqiang
  * Date : June, 2018
  * Description : 215. Kth Largest Element in an Array
  */
