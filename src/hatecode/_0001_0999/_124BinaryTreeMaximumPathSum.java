@@ -56,6 +56,7 @@ public class _124BinaryTreeMaximumPathSum {
         // so when in left bottom, the leaf node, the left = 0, right = 0, given this
         // node
         // the max SUm = root.val, so we have to use root value at this point.
+        //why compare to 0, becuase if it neagtive, then we do not need them, just stop here
         int left = Math.max(0, helper(root.left));
         int right = Math.max(0, helper(root.right));
         res = Math.max(res, left + right + root.val);
