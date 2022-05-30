@@ -43,7 +43,7 @@ and "> tot" for left interval. Thanks to @lee215 for pointing this out!
     //
     public int[] maxSumOfThreeSubarrays(int[] nums, int k) {
         int n = nums.length, maxsum = 0;
-        int[] sum = new int[n+1], posLeft = new int[n], posRight = new int[n], ans = new int[3];
+        int[] sum = new int[n+1], posLeft = new int[n], posRight = new int[n], res = new int[3];
         //sum starts from 1, not 0
         for (int i = 0; i < n; i++) sum[i+1] = sum[i]+nums[i];
         // DP for starting index of the left max sum interval
@@ -73,10 +73,10 @@ and "> tot" for left interval. Thanks to @lee215 for pointing this out!
             int tot = (sum[i+k]-sum[i]) + (sum[l+k]-sum[l]) + (sum[r+k]-sum[r]);
             if (tot > maxsum) {
                 maxsum = tot;
-                ans[0] = l; ans[1] = i; ans[2] = r;
+                res[0] = l; res[1] = i; res[2] = r;
             }
         }
-        return ans;
+        return res;
     }
     /*
  similar to that buy and sell stock problem.
