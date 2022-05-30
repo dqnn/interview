@@ -6,7 +6,6 @@ import org.junit.Test;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ReadNCharactersGivenRead4
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 157. Read N Characters Given Read4
  * Tags: templates for two dimension of variables, and index++ as pointer in 
@@ -51,6 +50,8 @@ The read function will only be called once for each test case.
      * @param n   Maximum number of characters to read
      * @return    The number of characters read
      */
+    
+    //interview friendly.
     public int read(char[] buf, int n) {
         // storage to store the char from  read4
         char[] temp = new char[4];
@@ -67,6 +68,31 @@ The read function will only be called once for each test case.
             // means either full or there is nore more data to read so we just return
             if (index == n || count < 4) return index;
         }
+    }
+    
+    //self writing,
+    public int read_self(char[] buf, int n) {
+        int idx = 0;
+        char[] temp = new char[4];
+        int cur = read4(temp);
+        while (cur > 0 && idx + cur <= n) {
+            for(int i = 0; i<cur; i++){
+                buf[idx++] = temp[i];
+            }
+            cur = read4(temp);
+        }
+        
+        if( cur == 0) return idx;
+        
+        int left = Math.min(cur, n - idx);
+        
+        if (left > 0) {
+            for(int i = 0; i < left; i++) {
+                buf[idx++] = temp[i];
+            }
+        }
+        return idx;
+        
     }
 
     /**
