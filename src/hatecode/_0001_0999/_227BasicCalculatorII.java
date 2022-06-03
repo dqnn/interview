@@ -6,7 +6,6 @@ import java.util.Stack;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : BasicCalculatorII
- * Creator : duqiang
  * Date : Sep, 2017
  * Description : 227. Basic Calculator II
  * Implement a basic calculator to evaluate a simple expression string.
