@@ -4,7 +4,6 @@
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ClimbingStairs
- * Creator : duqiang
  * Date : Nov, 2017
  * Description : 70. Climbing Stairs
  */
