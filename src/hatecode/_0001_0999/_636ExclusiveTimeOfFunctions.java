@@ -37,7 +37,8 @@ Output:[3, 4]
     //so need to update parent time attribute in stack, here we use peek(). 
     
     //the key of the problem:
-    //1. 
+    //using a iterative way to solve a recursive question,the pattern is 
+    // like ( ) question
     public static int[] exclusiveTime(int n, List<String> logs) {
         if (n < 1 || logs == null) {
             return new int[0];
