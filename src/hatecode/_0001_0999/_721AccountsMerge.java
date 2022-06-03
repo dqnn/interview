@@ -67,7 +67,7 @@ be accepted.
                 if (!emailToID.containsKey(email)) {
                     emailToID.put(email, id++);
                 }
-                System.out.println("email2ID: " + emailToID);
+                //System.out.println("email2ID: " + emailToID);
                 //System.out.println("email2Name: " +emailToName);
                 //fist email address and each eachId
                 //this is johnsmith@mail.com-->1 and latter = 0,1,2
@@ -76,16 +76,16 @@ be accepted.
             }
         }
 
-        Map<Integer, List<String>> ans = new HashMap<>();
+        Map<Integer, List<String>> res = new HashMap<>();
         for (String email: emailToName.keySet()) {
             int index = dsu.find(emailToID.get(email));
-            ans.computeIfAbsent(index, x-> new ArrayList<>()).add(email);
+            res.computeIfAbsent(index, x-> new ArrayList<>()).add(email);
         }
-        for (List<String> component: ans.values()) {
+        for (List<String> component: res.values()) {
             Collections.sort(component);
             component.add(0, emailToName.get(component.get(0)));
         }
-        return new ArrayList<>(ans.values());
+        return new ArrayList<>(res.values());
     }
 class Unionhelper {
     int[] parent;

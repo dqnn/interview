@@ -48,7 +48,8 @@ public class _124BinaryTreeMaximumPathSum {
     // it has 4 use cases
     // 1 Node only, 2 L child, 3 R child 4 L + root Node,
     // 5 R + root Node, 6 L + R + RootNode
-
+    //comapre to 543, this is node value, 543 is edges, that's why
+    //different on line 63
     public int helper(TreeNode root) {
         if (root == null) return 0;
         // thinking about this way:
