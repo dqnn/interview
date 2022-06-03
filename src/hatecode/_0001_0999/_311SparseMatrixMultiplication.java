@@ -4,7 +4,6 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : SparseMatrixMultiplication
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 311. Sparse Matrix Multiplication
  */
@@ -12,7 +11,8 @@ public class _311SparseMatrixMultiplication {
     /**
 Given two sparse matrices A and B, return the result of AB.
 
-You may assume that A's column number is equal to B's row number.
+You may assume that A's column number is equal to B's 
+row number.
 
 
 
