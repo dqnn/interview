@@ -36,6 +36,7 @@ According to the definition of LCA on Wikipedia: "The lowest common ancestor of 
         
         Node a = p, b = q;
         
+        //we change to another node if reach null
         while(a !=b) {
             a = a == null? q: a.parent;
             b = b == null ? p: b.parent;
