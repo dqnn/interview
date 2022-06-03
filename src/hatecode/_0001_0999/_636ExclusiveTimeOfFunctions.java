@@ -17,7 +17,8 @@ of time 0. "0:end:0" means function 0 ends to the very end of time 0.
 
 Exclusive time of a function is defined as the time spent within this function, 
 the time spent by calling other functions should not be considered as this function's 
-exclusive time. You should return the exclusive time of each function sorted by their 
+exclusive time. 
+You should return the exclusive time of each function sorted by their 
 function id.
 
 Example 1:
