@@ -7,7 +7,6 @@ import java.util.HashMap;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : CopyListwithRandomPointer
- * Creator : duqiang
  * Date : Sep, 2017
  * Description : TODO
  */

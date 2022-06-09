@@ -12,7 +12,6 @@ import java.util.Stack;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : BasicCalculatorII
- * Creator : duqiang
  * Date : Sep, 2017
  * Description : 772. Basic Calculator III
  * 
@@ -37,6 +36,8 @@ Do not use the eval built-in library function.
  */
 public class _772BasicCalculatorIII {
 /*
+ * calculate expressions which contains + - * / ( ), like "6-4/2"-->4
+
 In this section, I will specify the general rules for carrying out the actual 
 evaluations of the expression.
 
@@ -49,11 +50,13 @@ For each level of calculation, we maintain two pieces of information: the partia
 result and the operator in effect.
 
 For level one, the partial result starts from 0 and the initial operator in effect 
-is +; for level two, the partial result starts from 1 and the initial operator 
+is +; 
+for level two, the partial result starts from 1 and the initial operator 
 in effect is *.
 
 We will use l1 and o1 to denote respectively the partial result and the operator 
-in effect for level one; l2 and o2 for level two. The operators have the following mapping:
+in effect for level one; 
+l2 and o2 for level two. The operators have the following mapping:
 o1 == 1 means +; o1 == -1 means - ;
 o2 == 1 means *; o2 == -1 means /.
 By default we have l1 = 0, o1 = 1, and l2 = 1, o2 = 1.
@@ -187,44 +190,96 @@ following calculations.
          return res;
      }
 
-
-     // time : O(n) space : O(1), this igorens the ()
-    public static int calculate2(String s) {
-        if (s == null || s.length() == 0) return 0;
-        s = s.trim().replaceAll(" +", ""); // remove all spaces
-        int res = 0;
-        int preVal = 0;
-        int i = 0;
-        char sign = '+';
-        while (i < s.length()) {
-            int curVal = 0;
-            while (i < s.length() && Character.isDigit(s.charAt(i))) {
-                curVal = curVal * 10 + s.charAt(i) - '0';
-                i++;
+    public static void main(String[] args) {
+        String temp = "-3+(2+1*2)";
+        System.out.println(_772BasicCalculatorIII.calculate_Polish(temp));
+    }
+    
+    
+    static Map<Character, Integer> map;
+    public static int calculate_Polish(String s) {
+        
+        //format s to reversed polish notion
+        s = s.replace(" ", "");
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            //add 0 before -3+(2+1) or -(1+2)
+            if ((c == '+' || c == '-') && (i == 0 || s.charAt(i - 1) == '(')) {
+                sb.append(0);
             }
-            if (sign == '+') {
-                res += preVal;
-                preVal = curVal;
-            } else if (sign == '-') {
-                res += preVal;
-                preVal = -curVal;
-            } else if (sign == '*') {
-                preVal = preVal * curVal;
-            } else if (sign == '/') {
-                preVal = preVal / curVal;
-            }
-            if (i < s.length()) {
-                sign = s.charAt(i);
-                i++;
+            sb.append(c);
+        }
+        s = sb.toString();
+        System.out.println(s);
+        
+        
+        //
+        Deque<Integer> operands = new ArrayDeque<>();
+        Deque<Character> operators = new ArrayDeque<>();
+        map = new HashMap<>();
+        map.put('(', -1);
+        map.put('+', 0);
+        map.put('-', 0);
+        map.put('*', 1);
+        map.put('/', 1);
+        int n = s.length();
+        for (int i = 0; i < n; i++) {
+            char c = s.charAt(i);
+            if (c == ' ') {
+                continue;
+            } else if (Character.isDigit(c)) {
+                
+                //calculate the number before operator
+                int val = Character.getNumericValue(c);
+                while (i + 1 < n && Character.isDigit(s.charAt(i + 1))) {
+                    val = val * 10 + Character.getNumericValue(s.charAt(i + 1));
+                    i++;
+                }
+                operands.push(val);
+            } else if (c == '(') {
+                operators.push(c);
+            } else if (c == ')') {
+                while (operators.peek() != '(') {
+                    int a = operands.pop();
+                    int b = operands.pop();
+                    operands.push(operate(b, a, operators.pop()));
+                }
+                operators.pop();
+            } else {
+                while (!operators.isEmpty() && comparePrecedence(operators.peek(), c) >= 0) {
+                    int a = operands.pop();
+                    int b = operands.pop();
+                    operands.push(operate(b, a, operators.pop()));
+                }
+                operators.push(c);
             }
         }
-        res += preVal;
-        return res;
+        while (!operators.isEmpty()) {
+            int a = operands.pop();
+            int b = operands.pop();
+            operands.push(operate(b, a, operators.pop()));
+        }
+        return operands.pop();
     }
-
-    public static void main(String[] args) {
-        String temp = "3*(2+1+2)";
-        System.out.println(_772BasicCalculatorIII.calculate4(temp));
+    
+    private static int operate(int a, int b, char c) {
+        switch(c) {
+            case '+' :
+                return a + b;
+            case '-' :
+                return a - b;
+            case '/' :
+                return a / b;
+            case '*' :
+                return a * b;
+            default :
+                return a + b;
+        }
+    }
+    
+    private static int comparePrecedence(char a, char b) {
+        return map.get(a) - map.get(b);
     }
 
 }
