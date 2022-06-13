@@ -64,7 +64,7 @@ public class _364NestedListWeightSumII {
     }
 
     // interview friendly,
-    //thinking process:
+    //thinking process: tricky one also
     //the problem is reversly sum, the leaf will be last level, and the root will 
     //have the highest level, we can also try top-down accumulate the level, but it sounds 
     //will have 2nd visit, first to make sure the each node level, seond is sum them up. 
