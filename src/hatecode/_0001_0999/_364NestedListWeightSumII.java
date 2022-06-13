@@ -38,6 +38,13 @@ public class _364NestedListWeightSumII {
      * @param nestedList
      * @return
      */
+    
+    //O(nm)/O(m)
+    
+    //the key of the problem is to understand how to pass the current level 
+    //value to next level without knowing the exact current level value,
+    //we use a trick here that when going to next level, we use sum in current level, 
+    //in next level, we add sum again. note: sum + sum + sum != sum x2 x 2...
     public int depthSumInverse(List<NestedInteger> nestedList) {
         if (nestedList == null) return 0;
         return helper(nestedList, 0);
