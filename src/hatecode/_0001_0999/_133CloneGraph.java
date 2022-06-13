@@ -1,17 +1,11 @@
 package hatecode._0001_0999;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : CloneGraph
- * Creator : duqiang
  * Date : Oct, 2017
  * Description : 133. Clone Graph
  * Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors.
@@ -37,6 +31,9 @@ Visually, the graph looks like the following:
          / \
          \_/
  */
+
+
+//thinking process: O()
 public class _133CloneGraph {
     /**
      * time : O(m + n) m : nodes n : edges
@@ -51,7 +48,7 @@ public class _133CloneGraph {
     public UndirectedGraphNode helper(UndirectedGraphNode node) {
         if (node == null) return null;
         if (map.containsKey(node)) return map.get(node);
-        UndirectedGraphNode dup = new UndirectedGraphNode(node.label);
+        UndirectedGraphNode dup = new UndirectedGraphNode(node.val);
         map.put(node, dup);
         for (UndirectedGraphNode neighboer : node.neighbors) {
             UndirectedGraphNode clone = helper(neighboer);
@@ -63,38 +60,37 @@ public class _133CloneGraph {
 
     public UndirectedGraphNode cloneGraph2(UndirectedGraphNode node) {
         if (node == null) return node;
-        List<UndirectedGraphNode> nodes = getNodes(node);
-        // Map is mainly used to store all new nodes and to avoid re-copying all nodes
-        // also one template to remember
-        HashMap<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<>();
-
-        for (UndirectedGraphNode cur : nodes) {
-            map.put(cur, new UndirectedGraphNode(cur.label));
-        }
-        for (UndirectedGraphNode cur : nodes) {
-            UndirectedGraphNode newNode = map.get(cur);
-            for (UndirectedGraphNode neighbor : cur.neighbors) {
-                newNode.neighbors.add(map.get(neighbor));
+        Map<UndirectedGraphNode, UndirectedGraphNode> nodeMap= new HashMap<>();
+        
+        helper2(node, nodeMap);
+        
+        for(var entry: nodeMap.entrySet()) {
+            UndirectedGraphNode origin = entry.getKey();
+            for(UndirectedGraphNode temp: origin.neighbors) {
+                entry.getValue().neighbors.add(nodeMap.get(temp));
             }
         }
-        return map.get(node);
+        
+        return nodeMap.get(node);
     }
-
-    public List<UndirectedGraphNode> getNodes(UndirectedGraphNode node) {
-        Queue<UndirectedGraphNode> queue = new LinkedList<>();
-        HashSet<UndirectedGraphNode> set = new HashSet<>();
-        queue.offer(node);
-        set.add(node);
-
-        while (!queue.isEmpty()) {
-            UndirectedGraphNode cur = queue.poll();
-            for (UndirectedGraphNode neighbor : cur.neighbors) {
-                if (!set.contains(neighbor)) {
-                    set.add(neighbor);
-                    queue.offer(neighbor);
-                }
+    
+    private void helper2(UndirectedGraphNode root,
+            Map<UndirectedGraphNode, UndirectedGraphNode> nodeMap) {
+        Queue<UndirectedGraphNode> q = new LinkedList<>();
+        q.offer(root);
+        nodeMap.put(root, new UndirectedGraphNode(root.val));
+        
+        while(!q.isEmpty()) {
+            UndirectedGraphNode e = q.poll();
+            
+            for(UndirectedGraphNode tem: e.neighbors) {
+                if (nodeMap.containsKey(tem)) continue;
+                nodeMap.put(tem, new UndirectedGraphNode(tem.val));
+                q.add(tem);
             }
+            
         }
-        return new ArrayList<>(set);
+        //nodeMap.keySet().forEach(e->System.out.println(e.val));
+        //conns.keySet().forEach(e->System.out.println(e.val));
     }
 }
