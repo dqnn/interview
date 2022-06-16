@@ -7,7 +7,6 @@ import java.util.Queue;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ShortestDistancefromAllBuildings
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 317. Shortest Distance from All Buildings
  */
