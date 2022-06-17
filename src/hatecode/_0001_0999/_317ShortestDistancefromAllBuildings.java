@@ -48,7 +48,7 @@ public class _317ShortestDistancefromAllBuildings {
     //thinking process:
     
     //the problem is to say we want to know the shortest distance in a given 2D matrix, 
-    // to all buildings 1, 0 is empty, 1 is building cannot pass and 2 is obstacle. 
+    //from 0 to all buildings 1, 0 is empty, 1 is building cannot pass and 2 is obstacle. 
     
     //we start from each 1 building, we use nums to store when cell = 0, what's the building
     //number it could reach. dist is used to store the distance from 1 cell. 
@@ -68,17 +68,17 @@ public class _317ShortestDistancefromAllBuildings {
         if (grid == null || grid.length == 0) return -1;
         int m = grid.length;
         int n = grid[0].length;
-        //dist store the distance to nearest 1 elements
+        //dist store the distance to nearest 1 elements, bfs, so it would be always minimal distance
         int[][] dist = new int[m][n];
         //nums store the building numbers, which means how many buildings can reach this cell
-        int[][] nums = new int[m][n];
-        int buildingNum = 0;
+        int[][] accessibleBuildingCountMatrix = new int[m][n];
+        int totalbuildingCount = 0;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (grid[i][j] == 1) {
-                    buildingNum++;
+                 if (grid[i][j] == 1) {
+                    totalbuildingCount++;
                     //we start from this point, 
-                    bfs(grid, i, j, dist, nums);
+                    bfs(grid, i, j, dist, accessibleBuildingCountMatrix);
                 }
             }
         }
@@ -86,7 +86,7 @@ public class _317ShortestDistancefromAllBuildings {
         int res = Integer.MAX_VALUE;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (grid[i][j] == 0 && dist[i][j] != 0 && nums[i][j] == buildingNum) {
+                if (grid[i][j] == 0 && dist[i][j] != 0 && accessibleBuildingCountMatrix[i][j] == totalbuildingCount) {
                     res = Math.min(res, dist[i][j]);
                 }
             }
