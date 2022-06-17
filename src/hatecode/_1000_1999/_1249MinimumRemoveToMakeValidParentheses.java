@@ -37,6 +37,9 @@ Output: "lee(t(c)o)de"
     
     //if we have another case, like )(), we cannot close the first one, then we need a counter 
     //to record the  how many left or right parenthesis we have. 
+    
+    //similar question: 921,
+    //one follow up: return all possible valid string
     public String minRemoveToMakeValid(String s) {
         int count = 0;
         Stack<Integer> stack = new Stack<>();
