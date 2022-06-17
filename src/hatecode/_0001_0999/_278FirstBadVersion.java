@@ -63,4 +63,18 @@ public class _278FirstBadVersion {
     public boolean isBadVersion(int mid) {
         return true;
     }
+    
+    
+        public int firstBadVersion_FirstTemplate(int n) {
+            int l = 1, r = n;
+            
+            while(l < r) {
+                int m = l + (r-l)/2;
+                if (isBadVersion(m)) {
+                    r = m;
+                } else l = m + 1;
+            }
+            
+            return l;
+        }
 }
