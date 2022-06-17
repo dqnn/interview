@@ -8,7 +8,7 @@ import java.util.Set;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ContainsDuplicate
- * Creator : duqiang
+ * Creator : professorX
  * Date : Oct, 2017
  * Description : 217. Contains Duplicate
  * Given an array of integers, find if the array contains any duplicates.

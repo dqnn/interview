@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ContainerWithMostWater
- * Creator : duqiang
+ * Creator : professorX
  * Date : Nov, 2017
  * Description : 11. Container With Most Water
  * Given n non-negative integers a1, a2, ...,

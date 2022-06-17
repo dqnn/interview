@@ -9,7 +9,7 @@ import java.util.Stack;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ClosestBinarySearchTreeValueII
- * Creator : duqiang
+ * Creator : professorX
  * Date : Dec, 2017
  * Description : 272. Closest Binary Search Tree Value II
  */

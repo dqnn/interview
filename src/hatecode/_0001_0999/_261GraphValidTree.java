@@ -9,7 +9,7 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : GraphValidTree
- * Creator : duqiang
+ * Creator : professorX
  * Date : Dec, 2017
  * Description : 261. Graph Valid Tree
  */

@@ -7,7 +7,7 @@ import java.util.Queue;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : WallsandGates
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 286. Walls and Gates
  */

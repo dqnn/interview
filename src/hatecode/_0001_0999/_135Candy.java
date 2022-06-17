@@ -6,7 +6,7 @@ import java.util.Arrays;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : Candy
- * Creator : duqiang
+ * Creator : professorX
  * Date : Dec, 2017
  * Description : 135. Candy
  */

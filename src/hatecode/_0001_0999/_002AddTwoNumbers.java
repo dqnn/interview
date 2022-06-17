@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : AddTwoNumbers
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2017
  * Description : 2. Add Two Numbers
  * Similiar question: 2, 43, 445

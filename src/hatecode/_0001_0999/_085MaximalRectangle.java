@@ -7,7 +7,7 @@ import java.util.Stack;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : MaximalRectangle
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2018
  * Description : 85. Maximal Rectangle
  */

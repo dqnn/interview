@@ -10,7 +10,7 @@ import java.util.TreeMap;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : CountofSmallerNumbersAfterSelf
- * Creator : duqiang
+ * Creator : professorX
  * Date : Nov, 2017
  * Description : 315. Count of Smaller Numbers After Self
  */

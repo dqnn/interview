@@ -6,7 +6,7 @@ import java.util.Arrays;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : HIndex
- * Creator : duqiang
+ * Creator : professorX
  * Date : July, 2018
  * Description : 274. H-Index
  */

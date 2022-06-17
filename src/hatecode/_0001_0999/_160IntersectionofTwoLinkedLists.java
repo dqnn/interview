@@ -7,7 +7,7 @@ import java.util.Set;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : IntersectionofTwoLinkedLists
- * Creator : duqiang
+ * Creator : professorX
  * Date : Oct, 2017
  * Description : 160. Intersection of Two Linked Lists
  */

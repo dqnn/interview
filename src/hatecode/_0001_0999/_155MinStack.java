@@ -6,7 +6,7 @@ import java.util.Stack;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : MinStack
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2018
  * Description : TODO
  */

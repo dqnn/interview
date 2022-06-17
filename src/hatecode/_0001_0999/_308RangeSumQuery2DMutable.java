@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : RangeSumQuery2DMutable
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 308. Range Sum Query 2D - Mutable
  */

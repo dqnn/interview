@@ -7,7 +7,7 @@ import java.util.TreeSet;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ContainsDuplicateIII
- * Creator : duqiang
+ * Creator : professorX
  * Date : Dec, 2017
  * Description : 220. Contains Duplicate III
  */

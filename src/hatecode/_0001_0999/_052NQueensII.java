@@ -7,7 +7,7 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : NQueensII
- * Creator : duqiang
+ * Creator : professorX
  * Date : Nov, 2017
  * Description : 52. N-Queens II
  */

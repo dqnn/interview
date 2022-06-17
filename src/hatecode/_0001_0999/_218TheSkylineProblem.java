@@ -6,7 +6,7 @@ import java.util.*;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : TheSkylineProblem
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 218. The Skyline Problem
  */

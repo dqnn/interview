@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : GameofLife
- * Creator : duqiang
+ * Creator : professorX
  * Date : Dec, 2017
  * Description : 289. Game of Life
  */

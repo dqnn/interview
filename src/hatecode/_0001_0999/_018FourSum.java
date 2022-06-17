@@ -10,7 +10,7 @@ import java.util.Set;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : FourSum
- * Creator : duqiang
+ * Creator : professorX
  * Date : Oct, 2017
  * Description : 18. 4Sum
  */

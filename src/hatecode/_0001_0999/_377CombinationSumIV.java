@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 /**
  * Project Name : Leetcode Package Name : leetcode File Name : CombinationSumIV
- * Creator : duqiang Date : Aug, 2018 Description : 377. Combination Sum IV
+ * Creator : professorX Date : Aug, 2018 Description : 377. Combination Sum IV
  */
 public class _377CombinationSumIV {
     /**

@@ -6,7 +6,7 @@ import java.util.Stack;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : VerifyPreorderSerializationofaBinaryTree
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 331. Verify Preorder Serialization of a Binary Tree
  */

@@ -7,7 +7,7 @@ import java.util.HashMap;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : LongestSubstringwithAtLeastKRepeatingCharacters
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2018
  * Description : 395. Longest Substring with At Least K Repeating Characters
  */

@@ -9,7 +9,7 @@ import java.util.Set;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : FindAllAnagramsinaString
- * Creator : duqiang
+ * Creator : professorX
  * Date : July, 2018
  * Description : 438. Find All Anagrams in a String
  */

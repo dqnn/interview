@@ -3,7 +3,7 @@ package hatecode._0001_0999;
 import java.util.*;
 /**
  * Project Name : Leetcode Package Name : leetcode File Name : BestMeetingPoint
- * Creator : duqiang Date : July, 2018 Description : 296. Best Meeting Point
+ * Creator : professorX Date : July, 2018 Description : 296. Best Meeting Point
  */
 public class _296BestMeetingPoint {
 

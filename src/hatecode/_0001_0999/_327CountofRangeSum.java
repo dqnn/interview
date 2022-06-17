@@ -7,7 +7,7 @@ import java.util.TreeMap;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : CountofRangeSum
- * Creator : duqiang
+ * Creator : professorX
  * Date : Jan, 2018
  * Description : 327. Count of Range Sum
  */

@@ -6,7 +6,7 @@ import java.util.Arrays;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : AssignCookies
- * Creator : duqiang
+ * Creator : professorX
  * Date : Nov, 2017
  * Description : 455. Assign Cookies
  * Assume you are an awesome parent and want to give your children some cookies. But, you should give 

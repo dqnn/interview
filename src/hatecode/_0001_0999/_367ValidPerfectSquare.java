@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ValidPerfectSquare
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 367. Valid Perfect Square
  Given a positive integer num, write a function which returns True if num is 

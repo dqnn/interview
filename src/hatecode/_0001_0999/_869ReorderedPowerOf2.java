@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * Author duqiang
+ * Author professorX
  * Date July 2018
  * 869. Reordered Power of 2
  * Starting with a positive integer N, we reorder the digits in any order (including the original order) such that 

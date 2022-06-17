@@ -6,7 +6,7 @@ import java.util.*;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : WordLadderII
- * Creator : duqiang
+ * Creator : professorX
  * Date : Dec, 2017
  * Description : 126. Word Ladder II
  */

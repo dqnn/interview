@@ -8,7 +8,7 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : IsSubsequence
- * Creator : duqiang
+ * Creator : professorX
  * Date : July, 2018
  * Description : TODO
  */

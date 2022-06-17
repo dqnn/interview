@@ -6,7 +6,7 @@ import java.util.*;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ConstructBinaryTreefromInorderandPostorderTraversal
- * Creator : duqiang
+ * Creator : professorX
  * Date : Nov, 2017
  * Description : 106. Construct Binary Tree from Inorder and Postorder Traversal
  * Given inorder and postorder traversal of a tree, construct the binary tree.

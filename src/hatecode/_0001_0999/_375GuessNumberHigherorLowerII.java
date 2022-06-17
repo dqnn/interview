@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : GuessNumberHigherorLowerII
- * Creator : duqiang
+ * Creator : professorX
  * Date : Jan, 2018
  * Description : 375. Guess Number Higher or Lower II
  */

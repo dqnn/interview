@@ -7,7 +7,7 @@ import java.util.Map;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : WordPattern
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 290. Word Pattern
  */

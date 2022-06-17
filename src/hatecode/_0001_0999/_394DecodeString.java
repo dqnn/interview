@@ -6,7 +6,7 @@ import java.util.*;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : DecodeString
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2017
  * Description : TODO
  */

@@ -5,7 +5,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : DungeonGame
- * Creator : duqiang
+ * Creator : professorX
  * Date : Dec, 2017
  * Description : 174. Dungeon Game
  * The demons had captured the princess (P) and imprisoned her in the bottom-right corner of a dungeon. The dungeon consists of M x N rooms laid out in a 2D grid. Our valiant knight (K) was initially positioned in the top-left room and must fight his way through the dungeon to rescue the princess.

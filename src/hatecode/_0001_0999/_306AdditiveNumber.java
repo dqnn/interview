@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : AdditiveNumber
- * Creator : Duqiang
+ * Creator : professorX
  * Date : Jan, 2018
  * Description : 306. Additive Number
  */

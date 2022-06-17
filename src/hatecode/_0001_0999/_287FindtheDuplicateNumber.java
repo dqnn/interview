@@ -7,7 +7,7 @@ import java.util.Map;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : FindtheDuplicateNumber
- * Creator : duqiang
+ * Creator : professorX
  * Date : Nov, 2017
  * Description : 287. Find the Duplicate Number
  */

@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : PalindromePartitioningII
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 132. Palindrome Partitioning II
  * tags: two pointers, dp

@@ -7,7 +7,7 @@ import java.util.Queue;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ImplementStackusingQueues
- * Creator : duqiang
+ * Creator : professorX
  * Date : july, 2018
  * Description : TODO
  * 

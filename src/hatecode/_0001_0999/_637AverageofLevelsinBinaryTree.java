@@ -9,7 +9,7 @@ import java.util.Queue;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : AverageofLevelsinBinaryTree
- * Creator : duqiang
+ * Creator : professorX
  * Date : June, 2018
  * Description : 637. Average of Levels in Binary Tree
  * Given a non-empty binary tree, return the average value of the nodes on each level 

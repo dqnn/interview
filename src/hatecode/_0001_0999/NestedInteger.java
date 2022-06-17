@@ -7,7 +7,7 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : NestedInteger
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2017
  * Description : TODO
  */

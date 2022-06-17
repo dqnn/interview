@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : FirstUniqueCharacterinaString
- * Creator : duqiang
+ * Creator : professorX
  * Date : Oct, 2017
  * Description : 387. First Unique Character in a String
  */

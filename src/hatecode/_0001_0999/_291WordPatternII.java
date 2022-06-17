@@ -9,7 +9,7 @@ import java.util.Set;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : WordPatternII
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 291. Word Pattern II
  */

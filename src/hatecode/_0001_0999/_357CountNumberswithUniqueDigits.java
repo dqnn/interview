@@ -2,7 +2,7 @@ package hatecode._0001_0999;
 
 /**
  * Project Name : Leetcode Package Name : leetcode File Name :
- * CountNumberswithUniqueDigits Creator : duqiang Date : Aug, 2018 Description :
+ * CountNumberswithUniqueDigits Creator : professorX Date : Aug, 2018 Description :
  * 
  * 
  * 

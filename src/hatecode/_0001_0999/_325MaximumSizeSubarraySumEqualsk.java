@@ -6,7 +6,7 @@ import java.util.HashMap;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : MaximumSizeSubarraySumEqualsk
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2018
  * Description : 325. Maximum Size Subarray Sum Equals k
  */

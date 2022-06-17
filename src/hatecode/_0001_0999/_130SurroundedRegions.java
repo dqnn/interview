@@ -7,7 +7,7 @@ import java.util.Queue;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : SurroundedRegions
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 130. Surrounded Regions
  */

@@ -7,7 +7,7 @@ import java.util.Queue;
 
 /**
  * Project Name : Leetcode Package Name : leetcode File Name :
- * BinaryTreeRightSideView Creator : duqiang Date : July, 2018 Description :
+ * BinaryTreeRightSideView Creator : professorX Date : July, 2018 Description :
  * TODO
  */
 public class _199BinaryTreeRightSideView {

@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : CountCompleteTreeNodes
- * Creator : duqiang
+ * Creator : professorX
  * Date : Dec, 2017
  * Description : 222. Count Complete Tree Nodes
  */

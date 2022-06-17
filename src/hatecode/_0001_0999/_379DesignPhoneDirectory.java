@@ -8,7 +8,7 @@ import java.util.Queue;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : DesignPhoneDirectory
- * Creator : duqiang
+ * Creator : professorX
  * Date : Jan, 2018
  * Description : 379. Design Phone Directory
  */

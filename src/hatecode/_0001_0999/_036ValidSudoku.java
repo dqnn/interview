@@ -6,7 +6,7 @@ import java.util.HashSet;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ValidSudoku
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2017
  * Description : 36. Valid Sudoku
  Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according 

@@ -7,7 +7,7 @@ import java.util.*;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : AlienDictionary
- * Creator : duqiang
+ * Creator : professorX
  * Date : Dec, 2017
  * Description : 269. Alien Dictionary
  */

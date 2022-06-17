@@ -6,7 +6,7 @@ import java.util.HashMap;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : RemoveDuplicateLetters
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 316. Remove Duplicate Letters
  */

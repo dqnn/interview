@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Stack;
 
 /**
- * Created by duqiang on 24/07/2017.
+ * Created by professorX on 24/07/2017.
  */
 public class _098ValidateBinarySearchTree {
 

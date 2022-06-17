@@ -6,7 +6,7 @@ import java.util.Stack;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ImplementQueueusingStacks
- * Creator : duqiang
+ * Creator : professorX
  * Date : July, 2018
  * Description : TODO
  * Implement the following operations of a queue using stacks.

@@ -8,7 +8,7 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : NumberofIslandsII
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2018
  * Description : 305. Number of Islands II
  */

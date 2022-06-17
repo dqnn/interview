@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : IntegertoEnglishWords
- * Creator : duqiang
+ * Creator : professorX
  * Date : Nov, 2017
  * Description : 273. Integer to English Words
  */

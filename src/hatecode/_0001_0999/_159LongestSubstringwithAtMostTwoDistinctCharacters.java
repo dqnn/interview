@@ -6,7 +6,7 @@ import java.util.HashMap;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : LongestSubstringwithAtMostTwoDistinctCharacters
- * Creator : duqiang
+ * Creator : professorX
  * Date : Nov, 2017
  * Description : 159. Longest Substring with At Most Two Distinct Characters
  */

@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ConvertaNumbertoHexadecimal
- * Creator : duqiang
+ * Creator : professorX
  * Date : Jan, 2018
  * Description : 405. Convert a Number to Hexadecimal
  * Given an integer, write an algorithm to convert it to hexadecimal. For negative integer, two’s complement method is used.

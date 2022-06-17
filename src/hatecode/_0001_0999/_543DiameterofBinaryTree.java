@@ -2,7 +2,7 @@ package hatecode._0001_0999;
 
 /**
  * Project Name : Leetcode Package Name : leetcode File Name :
- * DiameterofBinaryTree Creator : duqiang Date : July, 2018 Description : TODO
+ * DiameterofBinaryTree Creator : professorX Date : July, 2018 Description : TODO
  */
 public class _543DiameterofBinaryTree {
     /**

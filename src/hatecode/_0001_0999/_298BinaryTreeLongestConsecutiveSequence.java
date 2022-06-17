@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : BinaryTreeLongestConsecutiveSequence
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2017
  * Description : 298. Binary Tree Longest Consecutive Sequence
  */

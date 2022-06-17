@@ -3,7 +3,7 @@ package hatecode._0001_0999;
 import java.util.Stack;
 
 /**
- * Created by duqiang on 27/07/2017.
+ * Created by professorX on 27/07/2017.
  */
 public class _112PathSum {
     /**

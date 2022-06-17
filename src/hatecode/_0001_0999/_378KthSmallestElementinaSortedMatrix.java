@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : KthSmallestElementinaSortedMatrix
- * Creator : duqiang
+ * Creator : professorX
  * Date : Jan, 2018
  * Description : 378. Kth Smallest Element in a Sorted Matrix
  */

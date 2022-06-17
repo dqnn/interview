@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : LengthofLastWord
- * Creator : duqiang
+ * Creator : professorX
  * Date : Oct, 2017
  * Description : 58. Length of Last Word
  */

@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : BestTimetoBuyandSellStockIII
- * Creator : duqiang
+ * Creator : professorX
  * Date : Nov, 2017
  * Description : 123. Best Time to Buy and Sell Stock III
  * Your are given an array of integers prices, for which the i-th element is the price of a given stock on day i; and a non-negative integer fee representing a transaction fee.

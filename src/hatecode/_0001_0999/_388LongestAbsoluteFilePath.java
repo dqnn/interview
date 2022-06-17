@@ -7,7 +7,7 @@ import java.util.Stack;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : LongestAbsoluteFilePath
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2018
  * Description : 388. Longest Absolute File Path
  */

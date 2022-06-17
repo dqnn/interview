@@ -7,7 +7,7 @@ import java.util.Queue;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : InterleavingString
- * Creator : duqiang
+ * Creator : professorX
  * Date : Nov, 2017
  * Description : 97. Interleaving String
  */

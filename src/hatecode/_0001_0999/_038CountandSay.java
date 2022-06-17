@@ -3,7 +3,7 @@ package hatecode._0001_0999;
 /**
  * Project Name : Leetcode Package Name : 
 leetcode File Name : CountandSay
- * Creator : duqiang Date : Ang, 2018 Description : 
+ * Creator : professorX Date : Ang, 2018 Description : 
  * 38. Count and Say
  */
 

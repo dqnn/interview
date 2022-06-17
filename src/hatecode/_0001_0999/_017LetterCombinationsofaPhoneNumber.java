@@ -12,7 +12,7 @@ import java.util.Queue;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : LetterCombinationsofaPhoneNumber
- * Creator : duqiang
+ * Creator : professorX
  * Date : Oct, 2017
  * Description : 17. Letter Combinations of a Phone Number
  */

@@ -7,7 +7,7 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : FlipGame
- * Creator : duqiang
+ * Creator : professorX
  * Date : July, 2018
  * Description : 293. Flip Game
  */

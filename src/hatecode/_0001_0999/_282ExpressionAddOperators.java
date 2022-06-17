@@ -7,7 +7,7 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ExpressionAddOperators
- * Creator : duqiang
+ * Creator : professorX
  * Date : Dec, 2017
  * Description : 282. Expression Add Operators
  */

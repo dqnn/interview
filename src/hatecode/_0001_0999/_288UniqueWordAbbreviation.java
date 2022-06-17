@@ -6,7 +6,7 @@ import java.util.HashMap;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : UniqueWordAbbreviation
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 288. Unique Word Abbreviation
  */

@@ -7,7 +7,6 @@ import java.util.*;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : WordBreak
- * Creator : duqiang
  * Date : Sep, 2018
  * Description : 139. Word Break
  */

@@ -2,7 +2,7 @@ package hatecode._0001_0999;
 
 /**
  * Project Name : Leetcode Package Name : leetcode File Name :
- * ExcelSheetColumnNumber Creator : duqiang 
+ * ExcelSheetColumnNumber Creator : professorX 
  * Date : Oct, 2017 Description : 
  * 171.
  * Excel Sheet Column Number Given a column title as appear in an Excel sheet,

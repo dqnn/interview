@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : GasStation
- * Creator : duqiang
+ * Creator : professorX
  * Date : Nov, 2017
  * Description : 134. Gas Station
  */

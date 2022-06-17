@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : HIndexII
- * Creator : duqiang
+ * Creator : professorX
  * Date : Nov, 2017
  * Description : 275. H-Index II
  * Given an array of citations sorted in ascending order (each citation is a non-negative integer) of a researcher, write a function to compute the researcher's h-index.

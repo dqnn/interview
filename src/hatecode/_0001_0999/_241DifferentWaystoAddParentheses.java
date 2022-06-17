@@ -6,7 +6,7 @@ import java.util.*;
  * Project Name : Leetcode Package Name : leetcode File Name :
  * DifferentWaystoAddParentheses
  * 
- * Creator : duqiang Date : July, 2018 Description
+ * Creator : professorX Date : July, 2018 Description
  * 
  * 
  * : 241. Different Ways to Add Parentheses

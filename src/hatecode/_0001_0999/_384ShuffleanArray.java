@@ -6,7 +6,7 @@ import java.util.Random;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ShuffleanArray
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : TODO
  * Tags: Math, Permutations

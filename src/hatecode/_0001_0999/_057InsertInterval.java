@@ -7,7 +7,7 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : InsertInterval
- * Creator : duqiang
+ * Creator : professorX
  * Date : Oct, 2017
  * Description : 57. Insert Interval
  */

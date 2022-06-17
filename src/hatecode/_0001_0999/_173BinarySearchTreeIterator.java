@@ -6,7 +6,7 @@ import java.util.Stack;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : BinarySearchTreeIterator
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2017
  * Description : 173. Binary Search Tree Iterator
  * Implement an iterator over a binary search tree (BST). 

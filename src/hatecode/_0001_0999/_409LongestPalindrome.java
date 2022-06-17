@@ -6,7 +6,7 @@ import java.util.HashSet;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : LongestPalindrome
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2018
  * Description : TODO
  */

@@ -6,7 +6,7 @@ import java.util.Stack;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : FlattenBinaryTreetoLinkedList
- * Creator : duqiang
+ * Creator : professorX
  * Date : Oct, 2017
  * Description : 114. Flatten Binary Tree to Linked List
  */

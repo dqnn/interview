@@ -8,7 +8,7 @@ import java.util.List;
 
  * Package Name : leetcode
  * File Name : FindAllDuplicatesinanArray
- * Creator : duqiang
+ * Creator : professorX
  * Date : June, 2018
  * Description : TODO
  */

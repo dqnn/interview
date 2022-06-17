@@ -7,7 +7,7 @@ import java.util.LinkedList;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : SlidingWindowMaximum
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 239. Sliding Window Maximum
  */

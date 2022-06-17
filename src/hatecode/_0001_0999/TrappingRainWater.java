@@ -6,7 +6,7 @@ import java.util.Stack;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : TrappingRainWater
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 42. Trapping Rain Water
  */

@@ -8,7 +8,7 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : RepeatedDNASequences
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 187. Repeated DNA Sequences
  */

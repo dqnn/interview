@@ -6,7 +6,7 @@ import java.util.Stack;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : LargestRectangleinHistogram
- * Creator : duqiang
+ * Creator : professorX
  * Date : Dec, 2017
  * Description : 84. Largest Rectangle in Histogram
  */

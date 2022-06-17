@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : MaximumSubarray
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2018
  * Description : TODO
  */

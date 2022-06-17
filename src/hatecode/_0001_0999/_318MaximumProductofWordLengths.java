@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : MaximumProductofWordLengths
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2018
  * Description : 318. Maximum Product of Word Lengths
  */

@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : IntegertoRoman
- * Creator : duqiang
+ * Creator : professorX
  * Date : July, 2018
  * Description : TODO
  * Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.

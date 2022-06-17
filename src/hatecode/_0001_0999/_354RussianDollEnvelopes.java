@@ -7,7 +7,7 @@ import java.util.Comparator;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : RussianDollEnvelopes
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 354. Russian Doll Envelopes
  */

@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : LargestNumber
- * Creator : duqiang
+ * Creator : professorX
  * Date : July, 2018
  * Description : 179. Largest Number
  */

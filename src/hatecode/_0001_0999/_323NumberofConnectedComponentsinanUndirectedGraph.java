@@ -6,7 +6,7 @@ import java.util.Arrays;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : NumberofConnectedComponentsinanUndirectedGraph
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 323. Number of Connected Components in an Undirected Graph
  */

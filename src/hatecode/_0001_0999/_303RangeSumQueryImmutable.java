@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : RangeSumQueryImmutable
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 303. Range Sum Query - Immutable
  */

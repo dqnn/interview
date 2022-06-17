@@ -8,7 +8,7 @@ import java.util.Stack;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : SumofLeftLeaves
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : TODO
  */

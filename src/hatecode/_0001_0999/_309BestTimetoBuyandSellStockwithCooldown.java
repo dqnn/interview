@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : BestTimetoBuyandSellStockwithCooldown
- * Creator : duqiang
+ * Creator : professorX
  * Date : Oct, 2017
  * Description : 309. Best Time to Buy and Sell Stock with Cooldown
  */

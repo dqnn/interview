@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : LongestSubstringwithAtMostKDistinctCharacters
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2018
  * Description : 340. Longest Substring with At Most K Distinct Characters
  */

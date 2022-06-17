@@ -9,7 +9,7 @@ import java.util.Set;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : IsomorphicStrings
- * Creator : duqiang
+ * Creator : professorX
  * Date : Oct, 2017
  * Description : 205. Isomorphic Strings
  */

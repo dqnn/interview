@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : PopulatingNextRightPointersinEachNode
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 116. Populating Next Right Pointers in Each Node
  */

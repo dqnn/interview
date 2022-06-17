@@ -8,7 +8,7 @@ import java.util.TreeMap;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : DataStreamasDisjointIntervals
- * Creator : duqiang
+ * Creator : professorX
  * Date : Jan, 2018
  * Description : 352. Data Stream as Disjoint Intervals
  * Given a data stream input of non-negative integers a1, a2, ..., an, ..., 

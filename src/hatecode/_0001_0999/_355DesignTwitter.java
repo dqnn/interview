@@ -6,7 +6,7 @@ import java.util.*;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : DesignTwitter
- * Creator : duqiang
+ * Creator : professorX
  * Date : Jan, 2018
  * Description : 355. Design Twitter
  * Design a simplified version of Twitter where users can post tweets, follow/unfollow another user and is able to see the 10 most recent tweets in the user's news feed. Your design should support the following methods:

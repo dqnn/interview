@@ -6,7 +6,7 @@ import java.util.*;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : HappyNumber
- * Creator : duqiang
+ * Creator : professorX
  * Date : Nov, 2017
  * Description : 202. Happy Number
  */

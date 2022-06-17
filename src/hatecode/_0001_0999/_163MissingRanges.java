@@ -7,7 +7,7 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : MissingRanges
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2018
  * Description : 163. Missing Ranges
  */

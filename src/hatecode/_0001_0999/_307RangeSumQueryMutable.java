@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * Project Name : Leetcode Package Name : leetcode File Name :
- * RangeSumQueryMutable Creator : duqiang 
+ * RangeSumQueryMutable Creator : professorX 
  * Date : Sep, 2018 
  * Description : 307. Range Sum Query - Mutable
  * 

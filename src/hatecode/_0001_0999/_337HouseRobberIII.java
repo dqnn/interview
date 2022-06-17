@@ -6,7 +6,7 @@ import java.util.HashMap;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : HouseRobberIII
- * Creator : duqiang
+ * Creator : professorX
  * Date : July, 2018
  * Description : TODO
  */

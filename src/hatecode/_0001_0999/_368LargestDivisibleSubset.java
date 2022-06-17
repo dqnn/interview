@@ -6,7 +6,7 @@ import java.util.*;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : LargestDivisibleSubset
- * Creator : duqiang
+ * Creator : professorX
  * Date : Jan, 2018
  * Description : 368. Largest Divisible Subset
  */

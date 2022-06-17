@@ -6,7 +6,7 @@ import java.util.Arrays;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : PerfectSquares
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 279. Perfect Squares
  */

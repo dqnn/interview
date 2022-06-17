@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : PermutationSequence
- * Creator : duqiang
+ * Creator : professorX
  * Date : Nov, 2017
  * Description : 60. Permutation Sequence
  */

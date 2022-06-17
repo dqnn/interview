@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * Project Name : Leetcode Package Name : leetcode File Name :
- * ContainsDuplicateII Creator : duqiang Date : Aug, 2018 Description : 219.
+ * ContainsDuplicateII Creator : professorX Date : Aug, 2018 Description : 219.
  * 
  * 
  * Contains Duplicate II Given an array of integers and an integer k, find out

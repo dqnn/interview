@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by duqiang on 28/07/2017.
+ * Created by professorX on 28/07/2017.
  */
 public class _349IntersectionofTwoArrays {
     /**

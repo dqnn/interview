@@ -6,7 +6,7 @@ import java.util.Stack;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : VerifyPreorderSequenceinBinarySearchTree
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 255. Verify Preorder Sequence in Binary Search Tree
  */

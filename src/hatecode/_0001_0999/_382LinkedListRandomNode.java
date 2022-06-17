@@ -6,7 +6,7 @@ import java.util.Random;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : LinkedListRandomNode
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2018
  * Description : TODO
  */

@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 /*
- * Author duqiang
+ * Author professorX
  * Date: July 2018
  * 
  * 

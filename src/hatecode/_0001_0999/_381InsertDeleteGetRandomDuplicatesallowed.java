@@ -11,7 +11,7 @@ import java.util.Set;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : InsertDeleteGetRandomDuplicatesallowed
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2017
  * Description : TODO
  */

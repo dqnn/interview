@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ScrambleString
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 87. Scramble String
  */

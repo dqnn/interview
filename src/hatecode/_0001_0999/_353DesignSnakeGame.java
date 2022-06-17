@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 /**
  * Project Name : Leetcode Package Name : leetcode File Name : DesignSnakeGame
- * Creator : duqiang Date : July, 2018 Description :
+ * Creator : professorX Date : July, 2018 Description :
  * 
  * 353. Design Snake Game
  * 

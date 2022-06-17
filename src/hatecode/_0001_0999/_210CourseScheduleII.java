@@ -7,7 +7,7 @@ import java.util.Queue;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : CourseScheduleII
- * Creator : duqiang
+ * Creator : professorX
  * Date : Dec, 2017
  * Description : 210. Course Schedule II
  */

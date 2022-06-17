@@ -9,7 +9,7 @@ import java.util.Map;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ShortestWordDistance
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : TODO
  */

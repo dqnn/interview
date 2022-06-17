@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by duqiang on 28/07/2017.
+ * Created by professorX on 28/07/2017.
  */
 public class _113PathSumII {
     /**

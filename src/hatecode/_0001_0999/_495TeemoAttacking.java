@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 /*
- * duqiang
+ * professorX
  * 2018-June
  */
 

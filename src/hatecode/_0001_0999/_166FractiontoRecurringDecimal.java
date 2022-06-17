@@ -6,7 +6,7 @@ import java.util.HashMap;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : FractiontoRecurringDecimal
- * Creator : duqiang
+ * Creator : professorX
  * Date : Dec, 2017
  * Description : 166. Fraction to Recurring Decimal
  */

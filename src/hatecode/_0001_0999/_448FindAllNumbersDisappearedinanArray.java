@@ -7,7 +7,7 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : FindAllNumbersDisappearedinanArray
- * Creator : duqiang
+ * Creator : professorX
  * Date : Nov, 2017
  * Description : 448. Find All Numbers Disappeared in an Array
  */

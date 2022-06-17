@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : IntegerReplacement
- * Creator : duqiang
+ * Creator : professorX
  * Date : July, 2018
  * Description : 397. Integer Replacement
  */

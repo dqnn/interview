@@ -7,7 +7,7 @@ import java.util.Queue;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : BalancedBinaryTree
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2018
  * Description : TODO
  */

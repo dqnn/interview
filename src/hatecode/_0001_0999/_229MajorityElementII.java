@@ -11,7 +11,7 @@ import java.util.Set;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : MajorityElementII
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2018
  * Description : 229. Majority Element II
  */

@@ -8,7 +8,7 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : QueueReconstructionbyHeight
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 406. Queue Reconstruction by Height
  Suppose you have a random list of people standing in a queue. Each person is described by 

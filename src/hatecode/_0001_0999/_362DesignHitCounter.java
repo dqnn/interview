@@ -7,7 +7,7 @@ import java.util.Queue;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : DesignHitCounter
- * Creator : duqiang
+ * Creator : professorX
  * Date : Jan, 2018
  * Description : 362. Design Hit Counter
  */

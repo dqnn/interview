@@ -6,7 +6,7 @@ import java.util.Arrays;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : BestTimetoBuyandSellStockIV
- * Creator : duqiang
+ * Creator : professorX
  * Date : Dec, 2017
  * Description : 188. Best Time to Buy and Sell Stock IV
  */

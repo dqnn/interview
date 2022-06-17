@@ -10,7 +10,7 @@ import java.util.Stack;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : FindKPairswithSmallestSums
- * Creator : duqiang
+ * Creator : professorX
  * Date : Jan, 2018
  * Description : 373. Find K Pairs with Smallest Sums
  */

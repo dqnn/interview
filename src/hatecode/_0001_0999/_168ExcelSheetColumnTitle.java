@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ExcelSheetColumnTitle
- * Creator : duqiang
+ * Creator : professorX
  * Date : Oct, 2017
  * Description : 168. Excel Sheet Column Title
  * Given a positive integer, return its corresponding column title as appear in an Excel sheet.

@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : SingleNumberII
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 137. Single Number II
  */

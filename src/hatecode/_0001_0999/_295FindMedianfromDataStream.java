@@ -6,7 +6,7 @@ import java.util.*;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : FindMedianfromDataStream
- * Creator : duqiang
+ * Creator : professorX
  * Date : Nov, 2017
  * Description : 295. Find Median from Data Stream
  * 

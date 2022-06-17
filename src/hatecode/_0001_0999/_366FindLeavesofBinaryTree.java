@@ -7,7 +7,7 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : FindLeavesofBinaryTree
- * Creator : duqiang
+ * Creator : professorX
  * Date : Jan, 2018
  * Description : 366. Find Leaves of Binary Tree
  */

@@ -8,7 +8,7 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : StrobogrammaticNumberII
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 247. Strobogrammatic Number II
  */

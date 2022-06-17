@@ -8,7 +8,7 @@ import java.util.Random;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : InsertDeleteGetRandom
- * Creator : duqiang
+ * Creator : professorX
  * Date : July, 2018
  * Description : TODO
  */

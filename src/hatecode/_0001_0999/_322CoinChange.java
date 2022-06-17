@@ -6,7 +6,7 @@ import java.util.Arrays;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : CoinChange
- * Creator : duqiang
+ * Creator : professorX
  * Date : Jan, 2018
  * Description : 322. Coin Change
  */

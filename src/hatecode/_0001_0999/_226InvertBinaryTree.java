@@ -7,7 +7,7 @@ import java.util.Queue;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : InvertBinaryTree
- * Creator : duqiang
+ * Creator : professorX
  * Date : July, 2018
  * Description : TODO
  */

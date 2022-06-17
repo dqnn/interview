@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : FindtheCelebrity
- * Creator : duqiang
+ * Creator : professorX
  * Date : Nov, 2017
  * Description : 277. Find the Celebrity
  */

@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : SuperUglyNumber
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 313. Super Ugly Number
  */

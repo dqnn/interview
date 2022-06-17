@@ -4,7 +4,7 @@ import java.util.*;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : EditDistance
- * Creator : duqiang
+ * Creator : professorX
  * Date : Dec, 2017
  * Description : 72. Edit Distance
  */

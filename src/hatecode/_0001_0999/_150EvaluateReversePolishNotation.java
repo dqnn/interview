@@ -6,7 +6,7 @@ import java.util.Stack;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : EvaluateReversePolishNotation
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2017
  * Description : 150. Evaluate Reverse Polish Notation
  */

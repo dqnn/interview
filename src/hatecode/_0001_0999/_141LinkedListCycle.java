@@ -3,7 +3,7 @@ package hatecode._0001_0999;
 import java.util.List;
 
 /**
- * Created by duqiang on 25/07/2018.
+ * Created by professorX on 25/07/2018.
  */
 public class _141LinkedListCycle {
 

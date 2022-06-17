@@ -1,7 +1,7 @@
 package hatecode._0001_0999;
 
 /**
- * Created by duqiang on 15/09/2017.
+ * Created by professorX on 15/09/2017.
  */
 public class _100SameTree {
 

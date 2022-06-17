@@ -7,7 +7,7 @@ import java.util.*;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : BinaryTreeVerticalOrderTraversal
- * Creator : duqiang
+ * Creator : professorX
  * Date : Jan, 2018
  * Description : 314. Binary Tree Vertical Order Traversal
  */

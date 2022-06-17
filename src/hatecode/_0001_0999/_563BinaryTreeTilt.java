@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : BinaryTreeTilt
- * Creator : duqiang
+ * Creator : professorX
  * Date : Oct, 2017
  * Description : 563. Binary Tree Tilt
  */

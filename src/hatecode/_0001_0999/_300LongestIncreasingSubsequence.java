@@ -6,7 +6,7 @@ import java.util.Arrays;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : LongestIncreasingSubsequence
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2018
  * Description : 300. Longest Increasing Subsequence
  */

@@ -10,7 +10,7 @@ import java.util.Map;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : GroupShiftedStrings
- * Creator : duqiang
+ * Creator : professorX
  * Date : Dec, 2017
  * Description : 249. Group Shifted Strings
  */

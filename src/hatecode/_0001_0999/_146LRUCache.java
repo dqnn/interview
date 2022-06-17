@@ -8,7 +8,7 @@ import java.util.Map;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : LRUCache
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2018
  * Description : 146. LRU Cache
  */

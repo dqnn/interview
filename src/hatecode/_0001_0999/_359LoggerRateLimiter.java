@@ -6,7 +6,7 @@ import java.util.*;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : LoggerRateLimiter
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2018
  * Description : 359. Logger Rate Limiter
  */

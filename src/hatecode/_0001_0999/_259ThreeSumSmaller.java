@@ -7,7 +7,7 @@ import java.util.Arrays;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ThreeSumSmaller
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 259. 3Sum Smaller
  */

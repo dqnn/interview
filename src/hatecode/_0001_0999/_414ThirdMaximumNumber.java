@@ -9,7 +9,7 @@ import java.util.PriorityQueue;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : ThirdMaximumNumber
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 414. Third Maximum Number
  */

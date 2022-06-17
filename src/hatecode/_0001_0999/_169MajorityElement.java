@@ -8,7 +8,7 @@ import java.util.Map;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : MajorityElement
- * Creator : duqiang
+ * Creator : professorX
  * Date : Aug, 2018
  * Description : 169. Majority Element
  */

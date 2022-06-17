@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- * Created by duqiang on 28/07/2017.
+ * Created by professorX on 28/07/2017.
  */
 public class _145BinaryTreePostorderTraversal {
     /**

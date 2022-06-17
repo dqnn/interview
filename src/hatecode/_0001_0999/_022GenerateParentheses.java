@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by duqiang on 21/07/2018.
+ * Created by professorX on 21/07/2018.
  */
 public class _022GenerateParentheses {
     /**

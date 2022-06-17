@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : BurstBalloons
- * Creator : duqiang
+ * Creator : professorX
  * Date : Jan, 2018
  * Description : 312. Burst Balloons
  */

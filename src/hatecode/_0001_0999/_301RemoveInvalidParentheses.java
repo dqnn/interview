@@ -12,7 +12,7 @@ import java.util.Set;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : RemoveInvalidParentheses
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 301. Remove Invalid Parentheses
  */

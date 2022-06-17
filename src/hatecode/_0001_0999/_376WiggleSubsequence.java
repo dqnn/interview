@@ -7,7 +7,7 @@ import java.util.List;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : WiggleSubsequence
- * Creator : duqiang
+ * Creator : professorX
  * Date : Sep, 2018
  * Description : 376. Wiggle Subsequence
  */

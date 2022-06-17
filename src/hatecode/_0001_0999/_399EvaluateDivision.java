@@ -11,7 +11,7 @@ import java.util.Set;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : EvaluateDivision
- * Creator : duqiang
+ * Creator : professorX
  * Date : Dec, 2017
  * Description : 399. Evaluate Division
  */
