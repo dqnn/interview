@@ -35,7 +35,8 @@ public class _139WordBreak {
      * @return
      */
     // thinking progress:
-    // the problem is say yse or no when wordDict contains substrings of s or not space seperated
+    // the problem is say yes or no when wordDict contains substrings of s or 
+    //not space separated
     
     // typical DP, 0 <= j <i, 
     // dp[j] means substring s[0, j] is in dic, so dp[i] = dp[j] && dic.conains(s[j,i)

@@ -67,7 +67,8 @@ Output:
     static HashMap<Integer, List<String>> map = new HashMap<>();
 
     // thinking process:
-    // the problem is break s into words which should exist in dict
+    // the problem is break s into words which should exist in dict， return all
+    //possible sentences
     
     //so for example catsanddog ["cat", "cats", "and", "sand", "dog"]
     // start from 0, 
