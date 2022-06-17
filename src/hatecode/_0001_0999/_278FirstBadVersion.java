@@ -73,7 +73,6 @@ public class _278FirstBadVersion {
             } else
                 l = m + 1;
         }
-
         return l;
     }
 }
