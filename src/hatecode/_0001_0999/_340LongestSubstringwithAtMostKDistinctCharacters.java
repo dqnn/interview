@@ -1,5 +1,7 @@
 package hatecode._0001_0999;
 
+import java.iutil.*;
+
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
@@ -72,6 +74,27 @@ public class _340LongestSubstringwithAtMostKDistinctCharacters {
             res = Math.max(res, r - l + 1);
             r++;
         }
+        return res;
+    }
+    
+    public int lengthOfLongestSubstringKDistinct_Map(String s, int k) {
+        Map<Character, Integer> map = new HashMap<>();
+        int l = 0;
+        int res = Integer.MIN_VALUE;
+        for(int r = 0; r<s.length(); r++) {
+            char d = s.charAt(r);
+            map.put(d, map.getOrDefault(d, 0) + 1);
+            
+            while(map.size() > k) {
+                char c = s.charAt(l);
+                if (map.get(c) > 1) map.put(c, map.get(c) - 1);
+                else map.remove(c);
+                l++;
+            }
+            
+            res = Math.max(res, r - l + 1);
+        }
+        
         return res;
     }
 }
