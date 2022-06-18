@@ -24,7 +24,8 @@ https://leetcode.com/problems/longest-substring-without-repeating-characters/
 https://leetcode.com/problems/substring-with-concatenation-of-all-words/
 https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/
 https://leetcode.com/problems/find-all-anagrams-in-a-string/
-     * Given a string s and a non-empty string p, find all the start indices of p's anagrams in s.
+     * Given a string s and a non-empty string p, 
+     * find all the start indices of p's anagrams in s.
 
      Strings consists of lowercase English letters only and the length of
      both strings s and p will not be larger than 20,100.
