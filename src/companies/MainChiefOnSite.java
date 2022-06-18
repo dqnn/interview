@@ -48,7 +48,8 @@ Cold shelf cold 10
 Frozen shelf frozen 10
 Overflow shelf any temperature 15
 Shelf Life
-Orders have an inherent value that will deteriorate over time, based on the order’s shelfLife and decayRate fields. Orders that have reached a value of zero are considered wasted: they should never be delivered and should be removed from the shelf. Please display the current order value when displaying an order in your system’s output.
+Orders have an inherent value that will deteriorate over time, 
+based on the order’s shelfLife and decayRate fields. Orders that have reached a value of zero are considered wasted: they should never be delivered and should be removed from the shelf. Please display the current order value when displaying an order in your system’s output.
 value = (shelfLife - decayRate * orderAge * shelfDecayModifier) / shelfLife
 Important: shelfDecayModifier is 1 for single-temperature shelves and 2 for the overflow shelf.
  */

@@ -102,7 +102,7 @@ enum MenuType {
        }
     }
 
-public class CloudChief {
+public class YunFirstChief {
 
     public static void main(String[] args) {
         MenuHelper helper = new MenuHelper(new MenuStream());
