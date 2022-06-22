@@ -30,9 +30,10 @@ Any other string is not a valid abbreviation of "word".
             //first character could not be 0
             if(p.charAt(j) <= '0' || p.charAt(j) > '9') return false;
             int start = j;
+            // here to truncate the numbers, like w12l --> 12 out
             while(j < n && p.charAt(j) >='0' && p.charAt(j) <= '9') j++;
-            
             int len = Integer.valueOf(p.substring(start, j));
+            //move s pointer
             i += len;
         }
         

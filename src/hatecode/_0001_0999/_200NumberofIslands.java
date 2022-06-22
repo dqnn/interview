@@ -40,7 +40,8 @@ public class _200NumberofIslands {
      * @param grid
      * @return
      */
-
+    
+    //BFS and DFS need to update the matrix
     private int m;
     private int n;
 

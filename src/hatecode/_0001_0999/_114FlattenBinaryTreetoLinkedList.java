@@ -54,6 +54,26 @@ public class _114FlattenBinaryTreetoLinkedList {
         // here we use this way to store the previous root of right child
         prev = root;
     }
+    
+    
+    //would prefer this when interview since it is more easier to understand
+    public void flatten_easier(TreeNode root) {
+        helper(root);
+    }
+    
+    private TreeNode helper(TreeNode root) {
+        if (root == null) return root;
+        TreeNode l = helper(root.left), r = helper(root.right);
+        
+        root.left = null; 
+        root.right = l;
+        TreeNode cur = root;
+        while(cur.right != null) cur = cur.right;
+        cur.right = r;
+        
+        return root;
+    }
+    
     //this is top down, the tree grow from top down and first process the left child, then left child's child...
     public void flatten2(TreeNode root) {
         if (root == null) {

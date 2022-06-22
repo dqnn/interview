@@ -3,14 +3,17 @@ import java.util.*;
 public class _921MinimumAddToMakeParenthesesValid {
 /*
 921. Minimum Add to Make Parentheses Valid
-Given a string S of '(' and ')' parentheses, we add the minimum number of parentheses ( '(' or ')', and in any positions ) so that the resulting parentheses string is valid.
+Given a string S of '(' and ')' parentheses, we add 
+the minimum number of parentheses ( '(' or ')', and in any positions ) 
+so that the resulting parentheses string is valid.
 
 Formally, a parentheses string is valid if and only if:
 
 It is the empty string, or
 It can be written as AB (A concatenated with B), where A and B are valid strings, or
 It can be written as (A), where A is a valid string.
-Given a parentheses string, return the minimum number of parentheses we must add to make the resulting string valid.
+Given a parentheses string, return the minimum number of parentheses we 
+must add to make the resulting string valid.
 
  
 
@@ -22,8 +25,8 @@ Output: 1
   //left mean ( we need to add
   //right means current opened, ( not matched
     
-    //there was one similiar problem in LC which is to say with K add/replace/delete, it could be 
-    //valid parenthese, forget the problem number....WTF
+    //there was one similiar problem in LC which is to say with K add/replace/delete, 
+    //it could be valid parenthese, forget the problem number....WTF
     public int minAddToMakeValid(String s) {
         int left = 0, right = 0;
         for (char ch: s.toCharArray()) {
