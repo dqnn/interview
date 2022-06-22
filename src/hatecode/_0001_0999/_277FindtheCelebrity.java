@@ -34,7 +34,7 @@ public class _277FindtheCelebrity {
         int celebrity = 0;
         //so after this loop, 0-celebrity-1 and celebrity+1..n-1 will not be celebrity
         //the possible is only chance to be celebrity
-        //but we not sure celebirty is true becasue this loop also ignore a lot info, like 
+        //but we not sure celebrity is true because this loop also ignore a lot info, like 
         //when we compare, some number may not know celebrity but we missed
         
         //this is a tricky loop, i  will replace pre i, so last one is definitely highest probability 

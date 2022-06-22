@@ -14,8 +14,8 @@ public class _325MaximumSizeSubarraySumEqualsk {
     /**
      * 
      * 325. Maximum Size Subarray Sum Equals k
-Given an array nums and a target value k, find the maximum length of a subarray that sums to k. 
-If there isn't one, return 0 instead.
+Given an array nums and a target value k, find the maximum length of 
+a subarray that sums to k. If there isn't one, return 0 instead.
 
 Example 1:
 Given nums = [1, -1, 5, -2, 3], k = 3,

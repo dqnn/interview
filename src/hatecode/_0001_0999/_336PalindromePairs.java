@@ -15,8 +15,10 @@ import java.util.List;
  */
 public class _336PalindromePairs {
     /**
-     * Given a list of unique words, find all pairs of distinct indices (i, j) in the given list,
-     * so that the concatenation of the two words, i.e. words[i] + words[j] is a palindrome.
+     * Given a list of unique words, find all pairs of distinct indices (i, j) 
+     * in the given list,
+     * so that the concatenation of the two words, i.e. words[i] + words[j] 
+     * is a palindrome.
 
      Example 1:
      Given words = ["bat", "tab", "cat"]
@@ -49,7 +51,7 @@ public class _336PalindromePairs {
     //str2, current we add to str1
     //3. the model is to say, we break the string into two parts, one is  
     // Str1 Str2 ---> Str2RvS Str1 Str2, so we want to check whether we can find str2 reversed string
-    // Str1 Str2 ---> Str1 Str2 Str1Rvs so we want to check whethter we can find str2 reversed string in map  
+    // Str1 Str2 ---> Str1 Str2 Str1Rvs so we want to check whether we can find str2 reversed string in map  
     public List<List<Integer>> palindromePairs(String[] words) {
         List<List<Integer>> res = new ArrayList<>();
         if (words == null || words.length < 2) return res;

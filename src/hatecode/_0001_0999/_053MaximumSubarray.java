@@ -24,9 +24,9 @@ public class _053MaximumSubarray {
      * @return
      */
 
-    // time : O(n) space : O(n);
+    // thinking process: O(n)/O(n);
+    //dp[i] means max sum of sun array from {nums[0]-->nums[i]}
     public int maxSubArray(int[] nums) {
-        // dp[i] means in nums[i], dp[i] = max{nums[0]-->nums[i]}
         int[] dp = new int[nums.length];
         dp[0] = nums[0];
         int res = nums[0];
@@ -47,7 +47,7 @@ public class _053MaximumSubarray {
         int sum = nums[0];
         for (int i = 1; i < nums.length; i++) {
             // this is easier, so comare SUM(0-i) and nums[i] each time. 
-            sum = Math.max(nums[i], sum + nums[i]);
+            sum = Math.max(nums[i], sum + nums[i]); //tricky
             res = Math.max(res, sum);
         }
         return res;

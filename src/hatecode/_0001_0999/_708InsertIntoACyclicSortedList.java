@@ -16,6 +16,7 @@ you should return the original given node.
 
 
  */
+    
     class Node {
         public int  val;
         public Node next;
@@ -25,32 +26,6 @@ you should return the original given node.
             val = _val;
             next = _next;
         }
-    }
-    
-    public Node insert1(Node start, int x) {
-        // if start is null, create a node pointing to itself and return
-        if (start == null) {
-            Node node = new Node(x, null);
-            node.next = node;
-            return node;
-        }
-        // if start is not null, try to insert it into correct position
-        // 1st pass to find max node
-        Node cur = start;
-        while (cur.val <= cur.next.val && cur.next != start) 
-            cur = cur.next;
-        // 2nd pass to insert the node in to correct position
-        Node max = cur;
-        Node dummy = new Node(0, max.next); // use a dummy head to make insertion process simpler
-        max.next = null; // break the cycle
-        cur = dummy;
-        while (cur.next != null && cur.next.val < x) {
-            cur = cur.next;
-        }
-        cur.next = new Node(x, cur.next); // insert
-        Node newMax = max.next == null ? max : max.next; // reconnect to cycle
-        newMax.next = dummy.next;
-        return start;
     }
     //interview friendly
     //thinking process: the problem is to say given a circle single list as a head
@@ -102,5 +77,32 @@ you should return the original given node.
     // insert value x after Node cur
     private void insertAfter(Node cur, int x) {
         cur.next = new Node(x, cur.next);
+    }
+  
+    
+    public Node insert1(Node start, int x) {
+        // if start is null, create a node pointing to itself and return
+        if (start == null) {
+            Node node = new Node(x, null);
+            node.next = node;
+            return node;
+        }
+        // if start is not null, try to insert it into correct position
+        // 1st pass to find max node
+        Node cur = start;
+        while (cur.val <= cur.next.val && cur.next != start) 
+            cur = cur.next;
+        // 2nd pass to insert the node in to correct position
+        Node max = cur;
+        Node dummy = new Node(0, max.next); // use a dummy head to make insertion process simpler
+        max.next = null; // break the cycle
+        cur = dummy;
+        while (cur.next != null && cur.next.val < x) {
+            cur = cur.next;
+        }
+        cur.next = new Node(x, cur.next); // insert
+        Node newMax = max.next == null ? max : max.next; // reconnect to cycle
+        newMax.next = dummy.next;
+        return start;
     }
 }

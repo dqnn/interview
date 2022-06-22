@@ -32,7 +32,8 @@ Explanation: 2 people friend request each other.
     //for person i, we want to know how many people before i he can make friends, and we can sum 
     //them up. 
     
-    //so the key point is we need to find how many at age i-- countInAge[i], next is to find for this 
+    //so the key point is we need to find how many at age i-- countInAge[i], 
+    //next is to find for this 
     //how many people this group can send request to. which is calcuated by age, 
     //sumInAge[i] - sumInAge[i / 2 + 7]; they will not include themselves
     //
