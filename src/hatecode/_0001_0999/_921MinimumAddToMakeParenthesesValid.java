@@ -25,15 +25,17 @@ Output: 1
   //left mean ( we need to add
   //right means current opened, ( not matched
     
-    //there was one similiar problem in LC which is to say with K add/replace/delete, 
-    //it could be valid parenthese, forget the problem number....WTF
+    //there was one similar problem in LC which is to say with K add/replace/delete, 
+    //it could be valid parentheses, forget the problem number....WTF
     public int minAddToMakeValid(String s) {
         int left = 0, right = 0;
-        for (char ch: s.toCharArray()) {
-            if(right == 0 && ch == ')') left++;
-            else {
-                right += ch == '(' ? 1 : -1;
-            }
+        for (char c: s.toCharArray()) {
+            // (())
+            if(c =='(') right++;
+            //((())
+            else if (right > 0) right--;
+            //))
+            else left ++;
         }
 
         return left + right;

@@ -45,13 +45,19 @@ public class _043MultiplyStrings {
                 int product = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
                 //this is the key,
  /*
-  *    1   2   3   A[i]
-  *        4   5   B[j]
-  * --------------------
-  *        1  5
-  *     1  0
-  *  0  5
-  *  ------------ digit[A.length() + B.length()]
+  *     1   2   3   A[i]
+  *         4   5   B[j]
+  *  --------------------
+  *         1  5
+  *      1  0
+  *   0  5
+  * ---------------- 
+  *      1  2
+  *   0  8
+  * 0 4
+  * ------------------
+  [ 0,1  2, 3, 4]
+  *  digit[A.length() + B.length()]
   *  we can see A[1] = 2, B[0] = 5, product = 10, then the smallest result starts from 0 at i + j + 1, 
   *  the righter, the smaller, 
   */            

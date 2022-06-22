@@ -38,16 +38,18 @@ The graph looks like this:
 3----2
 We cannot find a way to divide the set of nodes into two independent subsets.
  */
-    //O(N+E), O(N)
-    //thinking process: 
-    //the problem is to say, given a graph, find two set of nodes, which they did not have any intersections
+    //thinking process: O(N+E), O(N)
+    //the problem is to say, given a graph, find two set of nodes, 
+    //which they did not have any intersections
     
     //the problem is to mark visited nodes, 
     //when we visit current node, we mark the i as 1
     //we start from each node i, if they already visited, then we skip, 
     //so basically it means if they are connected, we put them into different boxes, i is in 1, so its 
-    //next is in box 2, so if i can want to mark one node into 2 boxes, then we have a conflct, then we 
-    // need to fix that
+    //next is in box 2, so if i can want to mark one node into 2 boxes, then we have a conflict, then we 
+    // return false
+    
+    //learning from question is that 
     public boolean isBipartite(int[][] g) {
         if (g == null || g.length < 1) {
             return true;
@@ -55,6 +57,7 @@ We cannot find a way to divide the set of nodes into two independent subsets.
         //we use 0 as not know, 1 as one box, 2 as another box
         int[] visited = new int[g.length];
         for(int i = 0; i< g.length; i++) {
+            //g[i].length > 0 means this node is not isolated, it does not impact result
             if (g[i].length > 0 && visited[i] == 0) {
                 //we put 1 as one set,
                 visited[i] = 1;
