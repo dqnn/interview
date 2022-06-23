@@ -1,4 +1,4 @@
-package companies;
+package companies.mainchief;
 
 /*
  * Problem Description
@@ -40,7 +40,13 @@ Example:
 }
 }
 Shelves
-The kitchen pick-up area has multiple shelves to hold cooked orders at different temperatures. Each order should be placed on a shelf that matches the order’s temperature. If that shelf is full, an order can be placed on the overflow shelf. If the overflow shelf is full, an existing order of your choosing on the overflow should be moved to an allowable shelf with room. If no such move is possible, a random order from the overflow shelf should be discarded as waste (and will not be available for a ‍‍‌‍‍‌‍‌‍‍‌‍‌‌‌‍‍‍‍courier pickup).
+The kitchen pick-up area has multiple shelves to hold cooked orders 
+at different temperatures. Each order should be placed on a shelf that
+ matches the order’s temperature. If that shelf is full, an order can be
+  placed on the overflow shelf. If the overflow shelf is full, an existing order 
+  of your choosing on the overflow should be moved to an allowable shelf with room. 
+  If no such move is possible, a random order from the overflow shelf should be 
+  discarded as waste (and will not be available for a ‍‍‌‍‍‌‍‌‍‍‌‍‌‌‌‍‍‍‍courier pickup).
 The following table details the kitchen’s shelves:
 Name Allowable Temperatures Capacity
 Hot shelf hot 10
@@ -49,10 +55,14 @@ Frozen shelf frozen 10
 Overflow shelf any temperature 15
 Shelf Life
 Orders have an inherent value that will deteriorate over time, 
-based on the order’s shelfLife and decayRate fields. Orders that have reached a value of zero are considered wasted: they should never be delivered and should be removed from the shelf. Please display the current order value when displaying an order in your system’s output.
+based on the order’s shelfLife and decayRate fields. Orders that have reached 
+a value of zero are considered wasted: they should never be delivered and 
+should be removed from the shelf. Please display the current order value when 
+displaying an order in your system’s output.
 value = (shelfLife - decayRate * orderAge * shelfDecayModifier) / shelfLife
-Important: shelfDecayModifier is 1 for single-temperature shelves and 2 for the overflow shelf.
+Important: shelfDecayModifier is 1 for single-temperature shelves and 2 
+for the overflow shelf.
  */
-public class MainChiefOnSite {
+public class MainKitchenMasterbiaoYan {
    
 }
