@@ -50,6 +50,7 @@ Delete     Here
      * @return
      */
     
+    //thinking process: O(mn)/O(mn)
     //overall, this is same DP templates compared to unipath I II , and regex string compare etc
     public int minDistance(String s, String t) {
         //if w1 == null or "", then we need insert w2.length() chars into w1, steps are the w2 length
