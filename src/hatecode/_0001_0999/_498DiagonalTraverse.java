@@ -11,7 +11,7 @@ Given an m x n matrix mat, return an array of all the elements of the array in a
 Example 1:
 
 
-Input: mat = [[1,2,3],[4,5,6],[7,8,9]]
+Input: mat = [[1,2],[4,5]]
 Output: [1,2,4,7,5,3,6,8,9]
       1. 2
       3. 4
@@ -37,6 +37,8 @@ Output: [1,2,4,7,5,3,6,8,9]
             res[idx] = m[i][j];
             //up right
             if ( (i + j) % 2 == 0) {
+                // here means top right, we need to process j first because
+                //if put line 44 here, index will overflow because j ++
                 if (j == c - 1) {
                     i++;
                 } else if (i == 0) {
@@ -47,6 +49,7 @@ Output: [1,2,4,7,5,3,6,8,9]
                 }
             //left down
             } else {
+                //here means 
                 if (i == r - 1) {
                     j++;
                 } else if (j == 0) {
