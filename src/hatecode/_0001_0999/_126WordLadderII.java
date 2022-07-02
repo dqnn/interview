@@ -69,6 +69,9 @@ public class _126WordLadderII {
     
     //we use visitedSet.add(newWord) to judge whether newWord was always in visited set or not. 
     // we use curLevel as 
+    
+    //for wordladder 1, we only need to find min number of steps.
+    //for workladder 2, we need to find all shortest paths(multiple answers)
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
         List<List<String>> res = new ArrayList<>();
         if (wordList.size() == 0) return res;
