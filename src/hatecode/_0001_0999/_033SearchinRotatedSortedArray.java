@@ -33,6 +33,7 @@ public class _033SearchinRotatedSortedArray {
      * @return
      */
     //interview friendly
+    //this only applies to asc array
     // thinking process:
     // so the array is like way up and way down, eg, 5,6,7,8,1,2,3
     // mid has two cases: 1 is in 5,6,7,8 another is in 1,2,3 range, 
@@ -43,7 +44,7 @@ public class _033SearchinRotatedSortedArray {
     //else move left = mid since we want to narrow down the range
     
     //the reason why we have to use two && condition to check which range is the target because since
-    //it is roated, we have to make sure it is in one single asc/desc range
+    //it is rotated, we have to make sure it is in one single asc/desc range
     public int search(int[] nums, int target) {
         if (nums == null || nums.length == 0) return -1;
         int l = 0;

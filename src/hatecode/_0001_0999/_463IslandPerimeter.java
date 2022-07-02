@@ -26,11 +26,11 @@ Input:
 
 Output: 16
 
-*/  //thinking process: we only count down and right neighbours, so we reduce 
+*/  //thinking process: we only count down and right neighbors, so we reduce 
     //the overlap ones
     
     //interview friendly: 
-    //the key is understand the perimeter, 4 * nodes - 2 *neighbours
+    //the key is understand the island perimeter, 4 * nodes - 2 *neighbous
     // because both have 1 side become 0 now, so we need to - 2 each time
     public int islandPerimeter(int[][] grid) {
         int islands = 0, neighbours = 0;
