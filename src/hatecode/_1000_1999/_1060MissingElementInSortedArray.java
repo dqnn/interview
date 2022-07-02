@@ -2,7 +2,9 @@ package hatecode._1000_1999;
 public class _1060MissingElementInSortedArray {
 /*
 1060. Missing Element in Sorted Array
-Given a sorted array A of unique numbers, find the K-th missing number starting from the leftmost number of the array.
+Given a sorted array A of unique numbers, 
+find the K-th missing number starting from the 
+leftmost number of the array.
 
  
 
