@@ -76,5 +76,16 @@ Output: 5
         return end+k-1;
     }
     
+    //brute force
+    public int missingElement_BF2(int[] A, int k) {
+        
+        for(int i = 0; i<A.length - 1; i++) {
+            if (A[i] + k < A[i+1]) return A[i] + k;
+            else k -= A[i+1] - A[i] - 1;
+        }
+        
+        return A[A.length-1] + k;
+    }
+    
     
 }
