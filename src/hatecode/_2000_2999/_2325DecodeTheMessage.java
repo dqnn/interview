@@ -24,6 +24,12 @@ Explanation: The diagram above shows the substitution table.
 It is obtained by taking the first appearance of each letter in "the quick brown fox jumps over the lazy dog".
 
 */
+    //thinking process: 
+    
+    //the problem is to say: given a key message,
+    //it will mapping to a-z character by character, if already mapping, then ignore.
+    
+    //decrypt the message
     public String decodeMessage(String key, String message) {
         Map<Character, Character> map = new HashMap<>();
         key = key.replaceAll(" ", "");
