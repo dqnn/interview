@@ -30,7 +30,7 @@ The total number of paths is 4 + 3 + 1 = 8.
     //should visit once
     
     //memo[i][j] means starting from i, j how many strictly increasing 
-    //sequence path exists
+    //sequence path exists, this is top - down solution
     long[][] memo;
     long MOD = 1_000_000_007;
     public int countPaths(int[][] A) {
