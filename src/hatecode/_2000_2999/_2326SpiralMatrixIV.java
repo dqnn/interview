@@ -23,6 +23,7 @@ Output: [[3,0,2,6,8],[5,0,-1,-1,1],[5,2,4,9,7]]
 */
     
     //thinking process: 
+    //use direction to show how to move i , j.
     //
     public int[][] spiralMatrix(int m, int n, ListNode head) {
         int[][] res = new int[m][n];
