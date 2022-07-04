@@ -3,11 +3,13 @@ import java.util.*;
 public class _548SplitArraywithEqualSum {
 /*
 548. Split Array with Equal Sum
-Given an array with n integers, you need to find if there are triplets (i, j, k) which satisfies following conditions:
+Given an array with n integers, you need to find if there are triplets (i, j, k) 
+which satisfies following conditions:
 
 0 < i, i + 1 < j, j + 1 < k < n - 1
 Sum of subarrays (0, i - 1), (i + 1, j - 1), (j + 1, k - 1) and (k + 1, n - 1) should be equal.
-where we define that subarray (L, R) represents a slice of the original array starting from the element indexed L to the element indexed R.
+where we define that subarray (L, R) represents a slice of the original array 
+starting from the element indexed L to the element indexed R.
 Example:
 Input: [1,2,1,2,1,2,1]
 Output: True
@@ -33,7 +35,7 @@ Iterate middle cuts and then find left cuts which divides the first half into tw
     //set, 
     
     //for K, since we must have 1 element, so k must be begin with k +2, then we will do the same
-    //thing as j, since we have a set to know whther we have came across the same sum, so this 
+    //thing as j, since we have a set to know whether we have came across the same sum, so this 
     //complexity will only O(n^2)
     public boolean splitArray(int[] nums) {
         //since we have at least 4 subarray and 3 elements
@@ -56,7 +58,8 @@ Iterate middle cuts and then find left cuts which divides the first half into tw
                 if (sum[i - 1] == sum[j - 1] - sum[i])
                     set.add(sum[i - 1]);
             }
-            // k must begin with j + 2 since there must be at least 1 number j+1 for one subarray
+            // k must begin with j + 2 since there must be at least 1 number 
+            //j+1 for one subarray
             for (int k = j + 2; k < nums.length - 1; k++) {
                 int skn = sum[nums.length - 1] - sum[k];
                 int sjk = sum[k - 1] - sum[j];
