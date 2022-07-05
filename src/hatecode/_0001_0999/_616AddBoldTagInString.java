@@ -26,8 +26,9 @@ Output:
                     end = Math.max(end, start + d.length());
                 }
             }
-                //confident that when start == end, (prevStart, end) need to be bold, no need extend, it does not contains
-                // start char
+            
+            //confident that when start == end, (prevStart, end) 
+            //need to be bold, no need extend, it does not contain start char
             System.out.println(start + "----"+ end);
             //if end cannot go any farther, means from prev to current position none of them need to be bold
             if (start == end) {
@@ -45,7 +46,7 @@ Output:
         return sb.toString();
     }
     
-    //this is most intution solution, so first we get all intervals then we merge them
+    //this is most intuition solution, so first we get all intervals then we merge them
     //and last we print them. also this is the idea  i think about then first sights on 
     //this question
     public String addBoldTag2(String s, String[] dict) {
