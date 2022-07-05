@@ -46,7 +46,7 @@ Output:
         return sb.toString();
     }
     
-    //simplest solution
+    //simplest solution， it used a storage to avoid merge process
     public String addBoldTag_BitStorages(String s, String[] dict) {
         boolean[] bold = new boolean[s.length()];
         for (int i = 0, end = 0; i < s.length(); i++) {
