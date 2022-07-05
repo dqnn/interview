@@ -29,7 +29,7 @@ Output:
                 //confident that when start == end, (prevStart, end) need to be bold, no need extend, it does not contains
                 // start char
             System.out.println(start + "----"+ end);
-            //if end cannot go any farther, means frm prev to current position none of them need to be bold
+            //if end cannot go any farther, means from prev to current position none of them need to be bold
             if (start == end) {
                 sb.append("<b>" + s.substring(prevStart, start) + "</b>");
             }
@@ -64,7 +64,7 @@ Output:
         System.out.println(Arrays.toString(intervals.toArray()));
         intervals = merge(intervals);
         System.out.println(Arrays.toString(intervals.toArray()));
-        //this is to print, and prev is to rememebr last start position
+        //this is to print, and prev is to remember last start position
         int prev = 0;
         StringBuilder sb = new StringBuilder();
         for (Interval interval : intervals) {
