@@ -72,10 +72,7 @@ Output:
         
         return result.toString();
     }
-    
-    
-    
-    
+
     //this is most intuition solution, so first we get all intervals then we merge them
     //and last we print them. also this is the idea  i think about then first sights on 
     //this question
