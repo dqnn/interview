@@ -6,15 +6,19 @@ public class _1026MaximumDifferenceBetweenNodeAndAncestor {
 /*
 
 1026. Maximum Difference Between Node and Ancestor
-Given the root of a binary tree, find the maximum value V for which there exists different nodes A and B where V = |A.val - B.val| and A is an ancestor of B.
+Given the root of a binary tree, find the maximum value V for which there 
+//exists different nodes A and B where V = |A.val - B.val| 
+//and A is an ancestor of B.
 
-(A node A is an ancestor of B if either: any child of A is equal to B, or any child of A is an ancestor of B.)
+(A node A is an ancestor of B if either: any child of A is equal to B, 
+or any child of A is an ancestor of B.)
 Input: [8,3,10,1,6,null,14,null,null,4,7,13]
 Output: 7
 
 */
     //thinking process:
-    //given a binary tree, find max diff between two nodes A and B, A is ancestor of B
+    //given a binary tree, find max diff between two nodes A and B, 
+    //A is ancestor of B
     
     //so assume we have have the function, like helper() and we are processing one node
     //how can we figure out the max diff for this sub tree?
