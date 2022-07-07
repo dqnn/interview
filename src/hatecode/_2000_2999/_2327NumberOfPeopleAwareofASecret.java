@@ -18,6 +18,13 @@ Output: 5
     //O(n)/O(n)
     
     //thinking process: 
+    //the problem is to say: delay =2, forget = 4
+    /*
+     *  1 day: 1 person know this secret
+     *  2 day:
+     *  3 day: 1 tells another person 2.
+     *  5 day: 1 forget this story
+     */
     //dp[i] is on i-day, how many people freshly know the secret
     public int peopleAwareOfSecret(int n, int delay, int forget) {
         int mod = (int) 1e9 + 7;
