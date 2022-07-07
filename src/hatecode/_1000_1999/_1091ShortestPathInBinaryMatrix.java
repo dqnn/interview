@@ -29,7 +29,8 @@ Output: 4
     //given 2D matrix, 0 is empty, 1 is blocked, find the shortest path from top left
     //to right bottom
     
-    //we use BFS to find shortest, but make sure we should get all elements in queue in one bfs
+    //we use BFS to find shortest, but make sure we should get all elements 
+    //in queue in one bfs
     public int shortestPathBinaryMatrix(int[][] m) {
         if(m == null || m.length < 1 || m[0].length < 1 || m[0][0] == 1) return -1;
         
