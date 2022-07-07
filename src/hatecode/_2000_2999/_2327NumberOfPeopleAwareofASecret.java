@@ -43,8 +43,6 @@ Output: 5
     }
     
     
-    
-    
     //dp[i] means on day i, how many people know the secrets
     //dp[i] =  sum (dp[i - delay] + dp[i-delay+1]...dp[i-1]) - sum (dp[i- forget])
     public int peopleAwareOfSecret_BF(int n, int delay, int forget) {
