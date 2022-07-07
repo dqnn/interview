@@ -58,6 +58,10 @@ Output: [1,2,3,4]
     //best solution, but need to understand: suppose array [1,2,3,4,5], k=4, x=3, each so we
     //want to know for ai, aj, which is more close to 3, if we minus 3 for every element in above 
     // array, [-2,-1,0,1,2], 
+    
+    ///---------mid-----x-------mid+k-----------
+    //see above distance, if A[x] -A[m] > A[m + k] - A[m] which means
+    //left side has more numbers which they are more far away than right side
     public List<Integer> findClosestElements1(int[] arr, int k, int x) {
         List<Integer> temp = Arrays.stream(arr).boxed().collect(Collectors.toList());
         //the end is len - k, 
