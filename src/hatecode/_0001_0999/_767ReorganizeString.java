@@ -3,9 +3,11 @@ import java.util.*;
 public class _767ReorganizeString {
 /*
 767. Reorganize String
-Given a string S, check if the letters can be rearranged so that two characters that are adjacent to each other are not the same.
+Given a string S, check if the letters can be rearranged so that two characters
+ that are adjacent to each other are not the same.
 
-If possible, output any possible result.  If not possible, return the empty string.
+If possible, output any possible result.  If not possible, return the 
+empty string.
 
 Example 1:
 
@@ -17,6 +19,8 @@ Input: S = "aaab"
 Output: ""
 */
     //O(n) O(26), if 2 * count(char) > len(s) + 1, then we return "";
+    
+    //
     public String reorganizeString(String s) {
         if (s == null || s.length() < 1) return s;
         Map<Character, Integer> map = new HashMap<>();
@@ -25,7 +29,8 @@ Output: ""
         }
         Queue<Map.Entry<Character, Integer>> q = new PriorityQueue<>((a, b)->(b.getValue() - a.getValue()));
         q.addAll(map.entrySet());
-        //here is the forumla
+        //here is the forumla,it means the most frequent character must be smaller than half of the length of string s
+        // + 1 because odd even numbers
         if (2* q.peek().getValue() > s.length() + 1) return "";
         StringBuilder sb = new StringBuilder();
         while(q.size() >= 2) {
