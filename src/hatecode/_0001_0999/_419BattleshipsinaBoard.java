@@ -38,10 +38,10 @@ public class _419BattleshipsinaBoard {
     
      //interview friendly, 
     //thinking process:
-    //given a 2D board, count how many islands which on same row or column, and one row or column could 
-    //only have 1 island, return how many are there. 
+    //given a 2D board, count how many islands which on same row or column, 
+    //and one row or column could only have 1 island, return how many are there. 
     
-    //one battle ship may be horizonte placed or vertically placed, we would like try to
+    //one battle ship may be horizontal placed or vertically placed, we would like try to
     //check up or left cell whether they are battleship or not, if yes, then we find a standalone
     //ship, if adjacent still x, then they are together
     //由于board中的战舰之间确保有'.'隔开，因此遍历board，若某单元格为'X'，
