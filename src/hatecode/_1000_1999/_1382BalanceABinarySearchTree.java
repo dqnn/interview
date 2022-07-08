@@ -22,6 +22,10 @@ Explanation: This is not the only correct answer, [3,1,4,null,2] is also correct
      * the problem is to say, given one binary search tree, 
      * it may not be balanced, you need to change so for every 
      * root node, its left and right sub tree has 1 diff
+     * 
+     * 
+     * so we change to a list, so like 109, we can find its middle, then 
+     * continue to divide both sides
      */
     public TreeNode balanceBST(TreeNode root) {
         List<TreeNode> list = new ArrayList<>();
