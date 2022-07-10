@@ -116,7 +116,7 @@ return 13.
         while (l + 1 < r) {
             int m = (r - l) / 2 + l;
             int num = count(matrix, m);
-            //
+            //we want prioritize right side boundary
             if (num >= k) r = m;
             else l = m;
         }
