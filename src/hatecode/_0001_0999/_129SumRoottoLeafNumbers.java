@@ -36,16 +36,18 @@ public class _129SumRoottoLeafNumbers {
         return helper(root, 0);
     }
 
-    public int helper(TreeNode root, int num) {
-        //we do not need this line 
-        if (root == null) return 0;
+    //we need 
+    private int helper(TreeNode root, int cur) {
+        //we need this code since if single leaf node with a parent node
         
-        //this is actual exit code,
+        if (root == null) return 0;
+        cur = cur * 10 + root.val;
+        //leaf node, we have to use or it will be doubled
         if (root.left == null && root.right == null) {
-            return num * 10 + root.val;
+           return cur;
         }
-        return helper(root.left, num * 10 + root.val) +
-                helper(root.right, num * 10 + root.val);
+        
+        return  helper(root.left, cur) + helper(root.right, cur) ;
     }
     
     int res = 0;
