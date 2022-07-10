@@ -104,7 +104,7 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
         if (target < -sum || target > sum) return 0;
         int n = A.length;
         int[][] dp = new int[n + 1][sum * 2 + 1];
-        dp[0][sum] = 1;
+        dp[0][sum] = 1; 
         int leftBound = 0;
         int rightBound = sum * 2;
         for (int i = 1; i <= n; i++) {

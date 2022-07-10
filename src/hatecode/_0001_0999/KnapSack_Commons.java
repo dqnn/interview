@@ -3,7 +3,15 @@ package hatecode._0001_0999;
 import java.util.*;
 
 public class KnapSack_Commons {
+/*
+ * Identify this problem as one of the categories below before continuing.
 
+0/1 Knapsack
+Unbounded Knapsack
+Shortest Path (eg: Unique Paths I/II)
+Fibonacci Sequence (eg: House Thief, Jump Game)
+Longest Common Substring/Subsequeunce
+ */
     //list of back pack problems and explain
 /*
  * Backpack I Problem 单次选择 去找最大重量
