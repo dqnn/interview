@@ -26,7 +26,8 @@ public class _129SumRoottoLeafNumbers {
      * @param root
      * @return
      */
-    //so typical dfs and binary tree ops, sum of tree path top-bottom
+    //so typical dfs and binary tree ops, 
+    //sum of tree path top-bottom
     
     // 1. helper return value, best is to use class field, not return 
     //anything. 
@@ -36,7 +37,10 @@ public class _129SumRoottoLeafNumbers {
     }
 
     public int helper(TreeNode root, int num) {
+        //we do not need this line 
         if (root == null) return 0;
+        
+        //this is actual exit code,
         if (root.left == null && root.right == null) {
             return num * 10 + root.val;
         }
