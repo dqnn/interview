@@ -76,7 +76,12 @@ return 13.
     }
 
     // time : O(n * log(max - min)) space : O(1)
-    // The key point for any binary search is to figure out the "Search Space". For me, I think there are two kind of "Search Space" -- index and range(the range from the smallest number to the biggest number). Most usually, when the array is sorted in one direction, we can use index as "search space", when the array is unsorted and we are going to find a specific number, we can use "range".
+    // The key point for any binary search is to figure out the "Search Space". 
+    //For me, I think there are two kind of "Search Space" -- 
+    //index and range(the range from the smallest number to the biggest number). 
+    //Most usually, when the array is sorted in one direction, we can use 
+    //index as "search space", when the array is unsorted and we are going to 
+    //find a specific number, we can use "range".
 
 //Let me give you two examples of these two "search space"
 
@@ -85,20 +90,38 @@ return 13.
 //range -- https://leetcode.com/problems/find-the-duplicate-number/ (Unsorted Array)
 // The reason why we did not use index as "search space" for this problem is the matrix is sorted in two directions,
     //we can not find a linear way to map the number and its index.
+/* 
+ * l         m          r 
+ * ---------------------
+ * |.count().|
+ * 
+ * count() is smaller than m, because l= 0, r =n - 1, m should be more to l compared to r, 
+ * 1  5  9
+ * 10 11 13
+ * 12 13 15
+ * 
+ * 1st round: l = 1, r = 15,  m = 8, count(A, 8) = 2, l = 8,
+ * 2st round:  l=8, r = 15, m =12, count(A, 12) = 5, 
+ * 3rd round: l = 12,r=15, m =13, count(A,13) = 6, 
+ * 4rd round: l = 13, r=15, m=14, count(A,14) = 8,
+ * if num > k = 8, then we will miss the correct answer
+ * 
+ */
     public int kthSmallest2(int[][] matrix, int k) {
         int n = matrix.length;
-        int left = matrix[0][0];
+        int l = matrix[0][0];
         // asc by row and column, so we can conclude that m[0][0] is min m[r][c] is max
-        int right = matrix[n - 1][n - 1];
+        int r = matrix[n - 1][n - 1];
         // left + 1 ? 
-        while (left + 1 < right) {
-            int mid = (right - left) / 2 + left;
-            int num = count(matrix, mid);
-            if (num >= k) right = mid;
-            else left = mid;
+        while (l + 1 < r) {
+            int m = (r - l) / 2 + l;
+            int num = count(matrix, m);
+            //
+            if (num >= k) r = m;
+            else l = m;
         }
-        if (count(matrix, right) <= k - 1) return right;
-        return left;
+        if (count(matrix, r) <= k - 1) return r;
+        return l;
     }
     // count how many elements smaller than target
     //we can scan row by row but that would be slower then column
@@ -110,7 +133,7 @@ return 13.
             // we scan the matrix from bottom to up, from n-1 --> 0
             // for column
             if (matrix[i][j] < target) {
-                res += i + 1; // i + 1 means how many elments each column, this will decide where i is
+                res += i + 1; // i + 1 means how many elements each column, this will decide where i is
                 //scan horizon
                 j++; // we move to right on same row
             } else i--; // which means we jump to row above
@@ -118,33 +141,8 @@ return 13.
         return res;
     }
     
-    public int kthSmallest3(int[][] matrix, int k) {
-        int n = matrix.length;
-        int lo = matrix[0][0], hi = matrix[n - 1][n - 1];
-        while (lo <= hi) {
-            int mid = lo + (hi - lo) / 2;
-            int count = getLessEqual(matrix, mid);
-            if (count < k) lo = mid + 1;
-            else hi = mid - 1;
-        }
-        return lo;
-    }
-    
-    private int getLessEqual(int[][] matrix, int val) {
-        int res = 0;
-        int n = matrix.length, i = n - 1, j = 0;
-        while (i >= 0 && j < n) {
-            if (matrix[i][j] > val) i--;
-            else {
-                res += i + 1;
-                j++;
-            }
-        }
-        return res;
-    }
-    
-    
-    // another binary search solutions, embeded while in for loop to find how many numbers before mid
+    // another binary search solutions, embedded while in for loop to find how 
+    //many numbers before mid
     public int kthSmallest4(int[][] matrix, int k) {
         // num of rows and cols in matrix
         int rows = matrix.length, cols = matrix[0].length;
