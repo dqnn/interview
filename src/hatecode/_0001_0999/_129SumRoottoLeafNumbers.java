@@ -42,7 +42,7 @@ public class _129SumRoottoLeafNumbers {
         
         if (root == null) return 0;
         cur = cur * 10 + root.val;
-        //leaf node, we have to use or it will be doubled
+        //leaf node, we have to use or cur will be doubled
         if (root.left == null && root.right == null) {
            return cur;
         }
