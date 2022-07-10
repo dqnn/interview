@@ -1,8 +1,6 @@
 package hatecode._0001_0999;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Project Name : Leetcode
@@ -51,50 +49,82 @@ Note: Do not use class member/global/static variables to store states. Your seri
     
     //we do not want to use null to use more space, we just use level traverse to add each node value. 
     //from left to right
-    public String serialize(TreeNode root) {
-        if (root == null) return "";
-        StringBuilder res = new StringBuilder();
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.isEmpty()) {
-            TreeNode cur = stack.pop();
-            res.append(cur.val + " ");
-            if (cur.right != null) stack.push(cur.right);
-            if (cur.left != null) stack.push(cur.left);
-        }
-        return res.toString();
-    }
-
-    // Decodes your encoded data to tree.
-    public TreeNode deserialize(String data) {
-        if (data == "") return null;
-        String[] str = data.split(" ");
-        Queue<Integer> queue = new LinkedList<>();
-        //add all of then into queue
-        for (String s : str)  queue.offer(Integer.parseInt(s));
-
-        return getNode(queue);
-    }
-    //we use BST tree characteristic left < root < right, so we split the 
-    //queue into 2 left and right and recursive to setup the tree
     
-    //getNode(Queue) input is a queue, output is a TreeNode which is root of the deserialized tree
-    
-    //so key points: 1. first character must be root, then for all left characters, we dive them into two
-    //parts, one is left tree, another is right tree, 
-    //so root is fixed, left tree elments in queue, first are alaways root, actually the node of next level
-    //start, thats why we could always recursive to finish the job
-    public TreeNode getNode(Queue<Integer> queue) {
-        if (queue.isEmpty()) return null;
-        TreeNode root = new TreeNode(queue.poll());
-        Queue<Integer> smallerQ = new LinkedList<>();
-        //this is all left tree
-        while (!queue.isEmpty() && queue.peek() < root.val) {
-            smallerQ.offer(queue.poll());
+    public class Codec_BST {
+
+        // Encodes a tree to a single string.
+        public String serialize(TreeNode root) {
+            StringBuilder sb = new StringBuilder();
+            serialize(root, sb);
+            return sb.toString();
         }
-        root.left = getNode(smallerQ);
-        //then left in queue is right tree
-        root.right = getNode(queue);
-        return root;
+        //[5,3,6,2,4]-->"5,3,2,4,6"
+        /*
+         *         5
+         *       /   \
+         *      3     6
+         *     / \
+         *    2   4
+         */
+        public void serialize(TreeNode root, StringBuilder sb) {
+            if (root == null) return;
+            sb.append(root.val).append(",");
+            serialize(root.left, sb);
+            serialize(root.right, sb);
+        }
+
+        // Decodes your encoded data to tree.
+        public TreeNode deserialize(String data) {
+            if (data.isEmpty()) return null;
+            Queue<String> q = new LinkedList<>(Arrays.asList(data.split(",")));
+            return deserialize(q, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        }
+        
+        public TreeNode deserialize(Queue<String> q, int lower, int upper) {
+            if (q.isEmpty()) return null;
+            String s = q.peek();
+            int val = Integer.parseInt(s);
+            if (val < lower || val > upper) return null;
+            q.poll();
+            TreeNode root = new TreeNode(val);
+            root.left = deserialize(q, lower, val);
+            root.right = deserialize(q, val, upper);
+            return root;
+        }
+    }
+    
+    public class Codec_BT {
+
+        // Encodes a tree to a single string.
+        public String serialize(TreeNode root) {
+            StringBuilder sb = new StringBuilder();
+            serialize(root, sb);
+            return sb.toString();
+        }
+        //[5,3,6,2,4] ---> 5,3,2,#,#,4,#,#,6,#,#,
+        public void serialize(TreeNode root, StringBuilder sb) {
+            if (root == null) {
+                sb.append("#").append(",");
+            } else {
+                sb.append(root.val).append(",");
+                serialize(root.left, sb);
+                serialize(root.right, sb);
+            }
+        }
+
+        // Decodes your encoded data to tree.
+        public TreeNode deserialize(String data) {
+            Queue<String> q = new LinkedList<>(Arrays.asList(data.split(",")));
+            return deserialize(q);
+        }
+        
+        public TreeNode deserialize(Queue<String> q) {
+            String s = q.poll();
+            if (s.equals("#")) return null;
+            TreeNode root = new TreeNode(Integer.parseInt(s));
+            root.left = deserialize(q);
+            root.right = deserialize(q);
+            return root;
+        }
     }
 }
