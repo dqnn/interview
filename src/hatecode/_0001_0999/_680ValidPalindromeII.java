@@ -26,29 +26,31 @@ Output: True
     }
     
     //interview friendly: O(n) O(1)
-    public boolean isPalindromeRange(String s, int j) {
-        s = s.substring(0, j) + s.substring(j+1);
-        int right = s.length() - 1, left = 0;
-        while(left <= right) {
-            if (s.charAt(left) != s.charAt(right)) return false;
-            left++;
-            right--;
+    public boolean validPalindrome_Best(String s) {
+            int l = 0, r = s.length() - 1;
+            
+            while (l < r) {
+                if (s.charAt(l) == s.charAt(r)) {
+                    l++; 
+                    r--;
+                } else {
+                    return helper(s, l+1, r) || helper(s, l, r-1);
+                }
+            }
+            
+            return true;
         }
-       return true;
-   }
-   public boolean validPalindrome2(String s) {
-       int r = s.length() - 1, l = 0;
-       while(l <= r) {
-           if (s.charAt(l) != s.charAt(r)) {
-               return (isPalindromeRange(s, l) ||
-                       isPalindromeRange(s, r));
-           } else {
-               l++;
-               r--;
-           }
-       }
-       return true;
-   }
+        
+        private boolean helper(String s, int l, int r) {
+            while(l < r) {
+                if (s.charAt(l) == s.charAt(r)) {
+                    l++; 
+                    r--;
+                } else return false;
+            }
+            
+            return true;
+        }
    
    //here to say if we want to remove most K characters
    boolean validPalindromeForRemovingKChars(String s, int k) {
