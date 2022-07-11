@@ -48,7 +48,7 @@ if no, increase the counter by 1; if yes, pop it out;
  */
     public int minAddToMakeValid2(String S) {
         //only store "("
-        Deque<Character> stack = new ArrayDeque<>();
+        Stack<Character> stack = new Stack<>();
         //count )
         int count = 0;
         for (char c : S.toCharArray()) {
