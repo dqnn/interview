@@ -42,6 +42,11 @@ Output: "lee(t(c)o)de"
     //one follow up: return all possible valid string
     
     //O(n)/O(1)
+    
+    //the idea is to say: we count l ('(') and r (')'), 
+    //first we know how many ) in string s, then in 2nd loop 
+    //we want to make sure whether each ( ) are matched, if they
+    //are matched then we need it, if not, we just remove them.
     public String minRemoveToMakeValid(String s) {
         if (s == null || s.length() < 1) return s;
         
