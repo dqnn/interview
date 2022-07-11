@@ -30,7 +30,11 @@ According to the definition of LCA on Wikipedia: "The lowest common ancestor of 
     
     //thinking process: 
     
-    //if two runs in a circle with different speed, they will meet eventually
+    //if two runs in a circle with different speed, 
+    //they will meet eventually, LC 160
+    
+    //s = v * t, v are the same, time is also the same
+    //S = (q->root + p->root), they have same distance finally
     public Node lowestCommonAncestor(Node p, Node q) {
         if (p == null || q == null) return null;
         
