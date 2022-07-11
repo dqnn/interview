@@ -33,7 +33,13 @@ public class _236LowestCommonAncestorofaBinaryTree {
     //this needs to be remembered, this method is to return starting from root, whether it 
     //has lowest common ancestor for p and q, if not return null, if yes, return the node
     public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-       // returns real root which is LCA since 
+       //the return function is key, 
+        
+        //so  p or q will return because no matter which will meet
+        //first, it will be the common ancestor because another will be lower.
+        //if it is not there, then it will be in another branch, root or higher node
+        //will be ancestor
+        // returns real root which is LCA since 
         //it’s doesn’t matter where second (p or q) is – root is LCA anyway.
         if (root == null || root == p || root == q) {
             return root;
@@ -51,7 +57,10 @@ public class _236LowestCommonAncestorofaBinaryTree {
         //only in left or right branch
         return left == null ? right : left;
     }
-    //iterative solutions
+    
+    
+    
+    //iterative solutions O(n)/O(n)
     public TreeNode lowestCommonAncestor_Iterative(TreeNode root, TreeNode p, TreeNode q) {
         Map<TreeNode, TreeNode> parent = new HashMap<>();
         Deque<TreeNode> stack = new ArrayDeque<>();
