@@ -17,6 +17,23 @@ public class _235LowestCommonAncestorofaBinarySearchTree {
      * @param q
      * @return
      */
+    
+    //O(lgn)/O(1)
+    public TreeNode lowestCommonAncestor_Best(TreeNode root, TreeNode p, TreeNode q) {
+        TreeNode cur = root;
+        
+        while(true) {
+            if (p.val < cur.val && q.val < cur.val) {
+                cur = cur.left;
+            } else if (p.val > cur.val && q.val > cur.val) {
+                cur = cur.right;
+            } else break;
+        }
+        
+        return cur;
+    }
+    
+    //O(lgn)/O(h)
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null || p == null || q == null) {
             return null;
