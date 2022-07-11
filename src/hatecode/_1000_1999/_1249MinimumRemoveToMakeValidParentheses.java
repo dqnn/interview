@@ -40,7 +40,38 @@ Output: "lee(t(c)o)de"
     
     //similar question: 921,
     //one follow up: return all possible valid string
+    
+    //O(n)/O(1)
     public String minRemoveToMakeValid(String s) {
+        if (s == null || s.length() < 1) return s;
+        
+        int l = 0, r = 0;
+        for(int i = 0; i<s.length();i++) {
+            if (s.charAt(i) ==')') r++;
+        }
+        
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i<s.length(); i++) {
+            char c = s.charAt(i);
+            if (c =='(') {
+                l++;
+                if (r > 0) {
+                    r --;
+                    sb.append(c);
+                } 
+            } else if (c ==')') {
+                if (l > 0) {
+                    l--;
+                    sb.append(c);
+                } else r--;
+            } else sb.append(c);
+        }
+        
+        return sb.toString();
+    }
+    
+    //O(n)/O(n)
+    public String minRemoveToMakeValid_BF(String s) {
         int count = 0;
         Stack<Integer> stack = new Stack<>();
         for(int i = 0; i <s.length(); i++) {
