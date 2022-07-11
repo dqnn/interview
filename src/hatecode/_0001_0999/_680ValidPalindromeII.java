@@ -75,4 +75,29 @@ Output: True
        return validPalindromeForRemovingKChars(s.substring(0, s.length() - 1), k - 1) || 
               validPalindromeForRemovingKChars(s.substring(1, s.length()), k - 1);
    }
+   
+   
+   //another way of removing K characters
+   boolean validPalindromeForRemovingKChars_2(String s, int k) {
+       if (s.length() <= 1) {
+           return true;
+       }
+
+       int l = 0, r =s.length() - 1;
+       while (l < r) {
+           if (s.charAt(l) == s.charAt(r)) {
+               l++; 
+               r--;
+               continue;
+           }
+       }
+
+       if (k == 0) {
+           return false;
+       }
+
+       // Try to remove the first or last character
+       return validPalindromeForRemovingKChars(s.substring(l+1, r+1), k - 1) || 
+              validPalindromeForRemovingKChars(s.substring(l, r), k - 1);
+   }
 }
