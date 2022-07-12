@@ -47,6 +47,14 @@ Output: 8
         return res;
     }
     
+    
+    //one variation is to use bit operation, 
+    //
+    /*
+    int multipleTwoSparseMatrix(int[] A, int[] B) {
+        
+    }
+    */
    
 }
 
