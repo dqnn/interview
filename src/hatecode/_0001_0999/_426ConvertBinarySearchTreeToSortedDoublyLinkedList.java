@@ -35,7 +35,8 @@ dashed line means the predecessor relationship.
         }
     }
     //interview friendly, 
-    //thinking process: the problem is given BST, covert to sorted double linked list
+    //thinking process: the problem is given BST, 
+    //covert to sorted double linked list
     //BST, sorted, so we want to try inorder visit, 
     //the inorder visit: we find most left leaf which will be head of the double linked list
     // so we use dummy.next = node, node.prev = dummy, and we move  prev  point to this node

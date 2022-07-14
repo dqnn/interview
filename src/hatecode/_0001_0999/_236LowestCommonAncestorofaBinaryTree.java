@@ -57,9 +57,7 @@ public class _236LowestCommonAncestorofaBinaryTree {
         //only in left or right branch
         return left == null ? right : left;
     }
-    
-    
-    
+  
     //iterative solutions O(n)/O(n)
     public TreeNode lowestCommonAncestor_Iterative(TreeNode root, TreeNode p, TreeNode q) {
         Map<TreeNode, TreeNode> parent = new HashMap<>();
