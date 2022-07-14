@@ -22,7 +22,8 @@ Example 1:
 Input: "())"
 Output: 1
 */
-  //left mean ( we need to add
+  //O(n)/O(1)
+    //left mean ( we need to add
   //right means current opened, ( not matched
     
     //there was one similar problem in LC which is to say with K add/replace/delete, 
