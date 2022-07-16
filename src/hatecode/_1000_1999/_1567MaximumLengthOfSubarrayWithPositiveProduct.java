@@ -26,7 +26,7 @@ Output: 4*/
     //as above example, pos means from 0 - A[i] as last number,
     //the max positive length of the subarray
     
-    //
+    //same as neg, max lengh of negative product results
     public int getMaxLen(int[] A) {
         if (A == null || A.length < 1) return 0;
         
