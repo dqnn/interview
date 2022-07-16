@@ -98,6 +98,7 @@ public class _249GroupShiftedStrings {
             int key1 = str.charAt(i) - str.charAt(i-1);
             key1 = key1 < 0 ? 26 + key1 : key1;
             sb1.append(key1);
+            //we actually do not need this
             if (i != str.length() - 1) {
                 sb1.append("#");
             }
