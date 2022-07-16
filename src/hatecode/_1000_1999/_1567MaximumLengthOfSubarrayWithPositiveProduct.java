@@ -24,7 +24,9 @@ Output: 4*/
      */
     
     //as above example, pos means from 0 - A[i] as last number,
-    //the max length of the subarray
+    //the max positive length of the subarray
+    
+    //
     public int getMaxLen(int[] A) {
         if (A == null || A.length < 1) return 0;
         
