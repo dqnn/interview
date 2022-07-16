@@ -74,7 +74,8 @@ Now let's briefly write down the algorithm before writing our codes.
      */
 
     private int partition(int[] nums, int left, int right) {
-        //TODO: why always left, i changed to others, it was incorrect
+        //TODO: why always left, i changed to others, 
+        //it was incorrect
         int pivot = nums[left];
         int l = left + 1;
         int r = right;
