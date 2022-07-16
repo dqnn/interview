@@ -62,23 +62,23 @@ In other words we can replace pre_j with the variable sum.
 
 sum - k = pre_i. That's why we have sum - k and not k - sum
  */
-    public int subarraySum2(int[] nums, int k) {
+    public int subarraySum2(int[] A, int k) {
         int res = 0;
         int sum = 0;
         HashMap<Integer, Integer> map = new HashMap<>();
+        //this is to avoid whole array sum == k
+        //[1,2,3] k = 6, we need to have this array
         map.put(0, 1);
 
-        for (int i = 0; i < nums.length; i++) {
-            sum += nums[i];
-            if (map.containsKey(sum - k)) {
-                res += map.get(sum - k);
-            }
+        for(int i = 0; i < A.length; i++) {
+            sum += A[i];
+            res += map.getOrDefault(sum - k, 0);
             map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
         return res;
     }
     
-  //using two pointers
+  //using two pointers， O(n^2)/O(1)
     public int subarraySum_TwoPointers(int[] nums, int k) {
         if (nums == null || nums.length < 1) {
             return 0;
