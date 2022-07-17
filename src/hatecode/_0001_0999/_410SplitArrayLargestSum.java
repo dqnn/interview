@@ -46,7 +46,9 @@ Output: 18
     }
     
     //this is to say:
-    //cut A into k subarrays, 
+    //cut A into k subarrays, if one array sum >= m && res >=k, then we can
+    //say the real answer should be smaller than m, we can torwading the wrong direction, 
+    //
     private boolean helper(int[] A, int m, int k) {
         int res = 1;
         int sum = 0;
