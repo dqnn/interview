@@ -23,7 +23,8 @@ Output: 18
      * you can cut the array to k subarray, 
      * return the min of max sum of subarrays,
      * A = [7,2,5,10,8], m = 2, you can cut A to 2 subarrays, 
-     * sum = 32, so it must be bigger >= 16, 
+     * sum = 32, so it must be bigger >= 16, so you can only get 18
+     * 
      */
     public int splitArray(int[] A, int k) {
        int l = 0, r = 0;
@@ -44,7 +45,8 @@ Output: 18
        return l;
     }
     
-    
+    //this is to say:
+    //cut A into k subarrays, 
     private boolean helper(int[] A, int m, int k) {
         int res = 1;
         int sum = 0;
