@@ -36,6 +36,12 @@ Output: 5
      * A = [9,7,5], k = 3
      * you can cut 7 = 2 + 5, 9 = 4 + 5, you can can have 
      * 3 5, max value is 5, so return 5, you can throw others away
+     * 
+     * we use binary search to finish the work,
+     * binary search start from 1, right value is the max(A),
+     * 
+     * every time you can try isCutPossible() to cut integers in A to length,
+     *  if the count >= k which means we can be bigger, if not, smaller
      */
     public int maxLength(int[] A, int k) {
         int l = 1;
