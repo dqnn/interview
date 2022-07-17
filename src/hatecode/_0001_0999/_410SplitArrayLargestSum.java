@@ -115,6 +115,7 @@ so we use visited[start][m] as mem to record which we have visited
     //all num are non-negative, so suppose all sum, and max number. and if we can divide 
     //m groups, each group avg(sum) compare to mid = (max + sum) / 2
     // if we found we have more groups if we compare each group to continous sum
+    //which means it is not possible, target is too small
     public boolean valid(long target, int[] nums, int m) {
         int curGroupCnt = 1;
         long total = 0;
