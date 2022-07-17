@@ -16,7 +16,7 @@ Example 1:
 Input: nums = [7,2,5,10,8], m = 2
 Output: 18
 */
-    //thinking process: 
+    //thinking process: O(nlgn)/O(1)
     public int splitArray(int[] A, int k) {
        int l = 0, r = 0;
        for(int a : A) {
