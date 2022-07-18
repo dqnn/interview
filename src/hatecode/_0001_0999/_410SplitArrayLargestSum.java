@@ -113,8 +113,8 @@ so we use visited[start][m] as mem to record which we have visited
         return (int)l;
     }
     
-    //we can cut A into k groups, each group can have max sum
-    //bigger than target
+    //we can cut A into k groups, each group can have sum 
+    //less than target, 
     public boolean valid(long target, int[] A, int k) {
         int curGroupCnt = 0;
         long total = 0;
