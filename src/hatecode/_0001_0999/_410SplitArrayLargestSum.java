@@ -92,9 +92,9 @@ so we use visited[start][m] as mem to record which we have visited
     }
     
     //O(nlogsum) best solutions
-    public int splitArray3(int[] nums, int m) {
+    public int splitArray3(int[] A, int m) {
         int max = 0; long sum = 0;
-        for (int num : nums) {
+        for (int num : A) {
             max = Math.max(num, max);
             sum += num;
         }
@@ -103,7 +103,7 @@ so we use visited[start][m] as mem to record which we have visited
         long l = max; long r = sum;
         while (l <= r) {
             long mid = l + (r - l) /2;
-            if (valid(mid, nums, m)) {
+            if (valid(mid, A, m)) {
                 r = mid - 1;
             } else {
                 l = mid + 1;
@@ -112,8 +112,8 @@ so we use visited[start][m] as mem to record which we have visited
         //so we return left as minimized sum
         return (int)l;
     }
-    //all num are non-negative, so suppose all sum, and max number. and if we can divide 
-    //m groups, each group avg(sum) compare to mid = (max + sum) / 2
+    //all num are non-negative, so suppose all sum, and max number. 
+    //and if we can divide A into m groups, each group avg(sum) compare to mid = (max + sum) / 2
     // if we found we have more groups if we compare each group to continous sum
     //which means it is not possible, target is too small
     public boolean valid(long target, int[] nums, int m) {
