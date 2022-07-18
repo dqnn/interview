@@ -112,14 +112,13 @@ so we use visited[start][m] as mem to record which we have visited
         //so we return left as minimized sum
         return (int)l;
     }
-    //all num are non-negative, so suppose all sum, and max number. 
-    //and if we can divide A into m groups, each group avg(sum) compare to mid = (max + sum) / 2
-    // if we found we have more groups if we compare each group to continous sum
-    //which means it is not possible, target is too small
-    public boolean valid(long target, int[] nums, int m) {
-        int curGroupCnt = 1;
+    
+    //we can cut A into k groups, each group can have max sum
+    //bigger than target
+    public boolean valid(long target, int[] A, int k) {
+        int curGroupCnt = 0;
         long total = 0;
-        for(int num : nums) {
+        for(int num : A) {
             total += num;
             if (total > target) {
                 //we reset total from each group by a new number
@@ -127,7 +126,7 @@ so we use visited[start][m] as mem to record which we have visited
                 total = num;
                 curGroupCnt++;
                 //exceed total group number
-                if (curGroupCnt > m) return false;
+                if (curGroupCnt >= k) return false;
             }
         }
         return true;
