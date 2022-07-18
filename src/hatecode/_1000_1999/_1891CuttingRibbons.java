@@ -41,7 +41,8 @@ Output: 5
      * binary search start from 1, right value is the max(A),
      * 
      * every time you can try isCutPossible() to cut integers in A to length,
-     *  if the count >= k which means we can be bigger, if not, smaller
+     *  if the count >= k which means length can be bigger so we move
+     *  //l = m + 1, if not, smaller
      */
     public int maxLength(int[] A, int k) {
         int l = 1;
@@ -55,7 +56,8 @@ Output: 5
             } else r = m ;
         }
         
-        
+        //here is key, l = r, we did not try l actually,
+        //
         return isCutPossible(A, l, k) ? l : l-1;
     }
     
