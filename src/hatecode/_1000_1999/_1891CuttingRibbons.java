@@ -43,6 +43,11 @@ Output: 5
      * every time you can try isCutPossible() to cut integers in A to length,
      *  if the count >= k which means length can be bigger so we move
      *  //l = m + 1, if not, smaller
+     *  
+     *  TODO:
+     *  1.understand 419 and 1891, helper methods in 419?
+     *  2. in 1891, why l cannot be sum/k as left value?
+     *  3. in 1891, why last still have to call isCutPossible()
      */
     public int maxLength(int[] A, int k) {
         int l = 1;
