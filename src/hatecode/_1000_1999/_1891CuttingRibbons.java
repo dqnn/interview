@@ -57,6 +57,7 @@ Output: 5
         }
         
         //here is key, l = r, we did not try l actually,
+        //A =[9,7,5], k = 3, l=5, r =6, 
         //
         return isCutPossible(A, l, k) ? l : l-1;
     }
