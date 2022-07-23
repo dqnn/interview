@@ -56,6 +56,7 @@ public class _043MultiplyStrings {
   *   0  8
   * 0 4
   * ------------------
+    0 5  5   3  5
   [ 0,1  2, 3, 4]
   *  digit[A.length() + B.length()]
   *  we can see A[1] = 2, B[0] = 5, product = 10, then the smallest result starts from 0 at i + j + 1, 
