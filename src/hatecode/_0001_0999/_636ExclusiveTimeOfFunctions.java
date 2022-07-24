@@ -33,8 +33,9 @@ Output:[3, 4]
  */
     //thinking process: we have logs id: start: time, 3 parts, so our mission is to 
     // use id as array index, since the log has clean sub problem space so we 
-    //can use stack to store the previous result, and we can find that there is child time need to be excluded
-    //so need to update parent time attribute in stack, here we use peek(). 
+    //can use stack to store the previous result, and we can find that there is 
+    //child time need to be excluded so need to update parent time attribute in
+    //stack, here we use peek(). 
     
     //the key of the problem:
     //using a iterative way to solve a recursive question,the pattern is 
