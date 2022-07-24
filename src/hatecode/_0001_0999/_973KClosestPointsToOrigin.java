@@ -38,7 +38,12 @@ Since sqrt(8) < sqrt(10), (-2, 2) is closer to the origin.
         return res;
     }
     
-    //O(n) solution, quick sort
+    //O(n) solution, quick select
+    /*
+     * TC: O(n) = n + 1/2 *n + 1/4 *n+ ...n * 1/lg2^n
+     *          = n (1 + 1/2+ 1/4 + .... 1/lg2^n)
+     *          = 2n
+     */
     public int[][] kClosest(int[][] points, int K) {
         int len =  points.length, l = 0, r = len - 1;
         while (l <= r) {
@@ -58,7 +63,7 @@ Since sqrt(8) < sqrt(10), (-2, 2) is closer to the origin.
         int[] pivot = A[l];
         //start swap
         while (l < r) {
-           //r wil stop when A[r] < pviot which means should be in left bucket
+           //r will stop when A[r] < pviot which means should be in left bucket
             while (l < r && compare(A[r], pivot) >= 0) r--;
             A[l] = A[r];
             //l will stop when A[l] > pivot, so left should be in right bucket
