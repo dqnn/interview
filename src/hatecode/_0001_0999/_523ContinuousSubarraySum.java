@@ -43,6 +43,7 @@ sum_i - sum_j = (m - n) *k
         Map<Integer, Integer> map = new HashMap<>();
         //to avoid sum = k * n, then sum = 0, we 
         //like [0,0], k =0, examples, 
+        // keyNote
         map.put(0, -1);
         int sum = 0;
         for(int i = 0; i< nums.length;i++) {
@@ -53,6 +54,7 @@ sum_i - sum_j = (m - n) *k
                 //not [i, j] did not include i, it starts from 
                 //[i+1, j],so j - i -1 + 1>=2
                 if (i - map.get(sum) > 1) return true;
+            //keyNote: we need else here, we want to maxmize the length of the array
             } else map.put(sum, i);
         }
         return false;
