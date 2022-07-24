@@ -98,8 +98,26 @@ so we use visited[start][m] as mem to record which we have visited
             max = Math.max(num, max);
             sum += num;
         }
+        
+        
         if (m == 1) return (int)sum;
         //binary search
+        //note: in this problem, 
+        //l must be max(A), reason:
+        /*
+         *  [1, 4, 4], m = 3, we will find if we use l = 0 or 
+         *  l = sum(A)/3= 3, group will always 3, then valid function will always 
+         *  correct, if m = A.length, then we can add following code:
+         *  
+         *  if (A.length == k) {
+                return l;
+            }
+            l = Math.max(l, r/A.length);
+            
+            so for binary search, we need to make sure the l, r and function are 
+            correct combination
+         *  
+         */
         long l = max; long r = sum;
         while (l <= r) {
             long mid = l + (r - l) /2;
@@ -138,6 +156,12 @@ so we use visited[start][m] as mem to record which we have visited
                  * if sum <= target, then group is not incorrect, but due to 
                  * we use >= in last loop, we can break early.
                  *  see valid_V2 for easier understanding
+                 *  
+                 *  [1, 4,  4], 3, sum = 6,
+                 *  
+                 *  
+                 *  when using valid(), group = 1
+                 *  when using valid_V2(), group  = 2
                  */
                 if (curGroupCnt >= k) return false;
             }
