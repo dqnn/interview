@@ -128,9 +128,41 @@ so we use visited[start][m] as mem to record which we have visited
                 //but this could help to make sure previous group less than mid
                 total = num;
                 curGroupCnt++;
-                //exceed total group number
+                //exceed total group number, note we use >=,
+                //the last element in array is ignored, because
+                /*
+                 * we have 2 cases here:
+                 * 1. when i == A.length - 1, if sum > target, then 
+                 * we get correct groups,
+                 * 
+                 * if sum <= target, then group is not incorrect, but due to 
+                 * we use >= in last loop, we can break early.
+                 *  see valid_V2 for easier understanding
+                 */
                 if (curGroupCnt >= k) return false;
             }
+        }
+        return true;
+    }
+    
+    //here is the method to calcuate correct groups, 
+    private boolean valid_V2(int[] A, int m, int k) {
+        int group = 0;
+        int sum = 0;
+        for(int i = 0; i< A.length; i++) {
+            sum += A[i];
+            if (sum > m) {
+                sum = A[i];
+                group++;
+                //System.out.println("m=" + m + " group=" + group);
+            } 
+            if (i == A.length - 1) {
+                group++;
+                //System.out.println("m=" + m + " group=" + group);
+            }
+            if (group > k) return false;
+           
+            
         }
         return true;
     }
