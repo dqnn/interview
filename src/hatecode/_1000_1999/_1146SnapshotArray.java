@@ -1,6 +1,7 @@
 package hatecode._1000_1999;
 
 import java.util.*;
+import java.util.stream.*;
 public class _1146SnapshotArray {
 /*
 1146. Snapshot Array
@@ -49,6 +50,41 @@ snapshotArr.get(0,0);  // Get the value of array[0] with snap_id = 0, return 5
     //optimized than BF
     public int get(int index, int snap_id) {
         return A[index].floorEntry(snap_id).getValue();
+    }
+    
+    //better in interview, since it is more straightward compared to TreeMap[]
+   class SnapshotArray_TreeMapInMap {
+
+        Map<Integer, TreeMap<Integer, Integer>> map;
+        int snap_id=0;
+        int[] A;
+        public SnapshotArray_TreeMapInMap(int len) {
+            A = new int[len];
+            map = new HashMap<>();
+            //we need this because if floorEntry will return null if there is no version at all
+            /*
+             * ["SnapshotArray","snap", "get",  "get",  "set",  "get",  "set",  "get",  "set"]
+                    [[2],       [],     [1,0],  [0,0],  [1,8],  [1,0],  [0,20], [0,0],  [0,7]]
+             */
+            IntStream.range(0, len).forEach(i->map.computeIfAbsent(i, v->new TreeMap<>()).put(0, 0));
+            //lastHash = A.hashCode();
+        }
+        
+        public void set(int index, int val) {
+            map.computeIfAbsent(index, v->new TreeMap<>()).put(snap_id, val);
+        }
+        
+        public int snap() {
+            return snap_id++;
+        }
+        
+        public int get(int index, int snap_id) {
+            //System.out.println(index + "--" + snap_id);
+           // if (!map.containsKey(index) || map.get(index).size() == 0) return A[index];
+            
+            //System.out.println(map);
+            return map.get(index).floorEntry(snap_id).getValue();
+        }
     }
     
     //brute force solution
