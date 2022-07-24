@@ -113,10 +113,11 @@ so we use visited[start][m] as mem to record which we have visited
         return (int)l;
     }
     
-    //we can cut A into k groups, each group can have sum 
-    //less than target, 
+    //we want m is the largest sum of the sub array && the array can be cut into 
+    // m parts,
     
-    //
+    // so one of two conditions cannot be satisfied, which means we choose a bigger 
+    //m, we need to move r, else move l.
     public boolean valid(long target, int[] A, int k) {
         int curGroupCnt = 0;
         long total = 0;
