@@ -32,6 +32,7 @@ Output: [1,2,4,7,5,3,6,8,9]
         for(int idx = 0; idx< r * c; idx++) {
             res[idx] = m[i][j];
             //up right
+            //diag
             if ( (i + j) % 2 == 0) {
                 // here means top right, we need to process j first because
                 //if put line 44 here, index will overflow because j ++

@@ -55,7 +55,8 @@ so it will remove middle (, and become )(, last it will reverse again to become 
 ()()), we can remove s[1] or s[3], 
 
  */
-    //Time Complexity: every time we only remove only 1 character, and have new range to check
+    //Time Complexity: 
+    //every time we only remove only 1 character, and have new range to check
     //this algo has greedy and dfs, we only examine first r characters which is not valid and we 
     //try to remove first invalid character
     public static List<String> removeInvalidParentheses_Best(String s) {
@@ -115,7 +116,7 @@ so it will remove middle (, and become )(, last it will reverse again to become 
     //the key is isFound， the reason why we have isFound is becz 1 we want minimal ops on removing elements, if we can find one string is valid with same length in a tree level, so that's it, in one tree 
     //level, the pattern should be the same, so we just need to stop adding more into the queue. 
    
-    //for time & space complextiy:
+    //for time & space complextiy:O(2^n)/O(2^n)???
     //Time: n = s.length(), so isValidParentheses is O(n), 
     public List<String> removeInvalidParentheses2(String s) {
         List<String> res = new ArrayList<>();
