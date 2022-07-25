@@ -2,6 +2,8 @@ package hatecode._0001_0999;
 public class _670MaximumSwap {
 /*
 670. Maximum Swap
+
+402 remove K digits
 Given a non-negative integer, you could swap two digits 
 at most once to get the maximum valued number. 
 Return the maximum valued number you could get.
@@ -22,11 +24,13 @@ Output: 7236
         char[] chs = Integer.toString(n).toCharArray();
         
         int[] buckets = new int[10];
+        
+        //if we have dup digit, we just record the max i
         for(int i = 0; i <chs.length; i++) {
             buckets[chs[i] - '0'] = i;
         }
         //the loop is to say, scan chs from left to right, 
-        //left is significant, for position i, we are able to find a bigger digit from 9 to 0
+        //left is significant, for position i, we are able to find a bigger digit from 9 to chs[i]
         //
         for(int i = 0; i< chs.length; i++) {
             for(int k = 9; k > chs[i] - '0'; k--) {

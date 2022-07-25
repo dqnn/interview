@@ -1,7 +1,5 @@
 package hatecode._0001_0999;
 public class _498DiagonalTraverse {
-    
-    
     /*
     498. Diagonal Traverse
 Given an m x n matrix mat, return an array of all the elements of the array in a diagonal order.
@@ -15,8 +13,6 @@ Input: mat = [[1,2],[4,5]]
 Output: [1,2,4,7,5,3,6,8,9]
       1. 2
       3. 4
-      
-      
     */
     
     //thinking process: O(mn)/O(1)
