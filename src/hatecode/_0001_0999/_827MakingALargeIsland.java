@@ -14,7 +14,8 @@ Input: [[1, 0], [0, 1]]
 Output: 3
 */
     
-    
+    //KeyNote: this should be 1 because suppose [[0, 0]], all-zero matrix, you can 
+    //turn 1 to block
     int maxArea = 1;
     //O(MN)/O(N)
     public int largestIsland(int[][] grid) {
@@ -100,6 +101,8 @@ Output: 3
             if (aFather != bFather) {
                 parent[bFather] = aFather;
                 area[aFather] += area[bFather];
+                //KeyNote: suppose [[1,1],[1,1]], after union, we do not need to change the cell value,
+                //so it will be the value
                 maxArea = Math.max(maxArea, area[aFather]);
             }
         }
