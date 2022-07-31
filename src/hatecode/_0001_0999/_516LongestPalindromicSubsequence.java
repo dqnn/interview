@@ -11,7 +11,8 @@ package hatecode._0001_0999;
 public class _516LongestPalindromicSubsequence {
     /**
      * 516. Longest Palindromic Subsequence
-     * Given a string s, find the longest palindromic subsequence's length in s. You may assume that the maximum length of s is 1000.
+     * Given a string s, find the longest palindromic subsequence's length in s. 
+     * You may assume that the maximum length of s is 1000.
 
      Example 1:githu
      Input:
@@ -33,7 +34,7 @@ public class _516LongestPalindromicSubsequence {
      * @param s
      * @return
      */
-    /*the longest palindromic subsequence's length of substring(i, j), 
+    /*dp[i][j]: the longest palindrome subsequence's length of substring(i, j), 
     here i, j represent left, right indexes in the string
     State transition:
         dp[i][j] = dp[i+1][j-1] + 2 if s.charAt(i) == s.charAt(j)
