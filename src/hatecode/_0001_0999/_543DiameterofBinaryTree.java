@@ -44,9 +44,12 @@ public class _543DiameterofBinaryTree {
 
         int left = helper(node.left);
         int right = helper(node.right);
-        // whole max should be accessed by this
+        // assume current root as subtree has the max value
         res = Math.max(res, left + right);
-        // we always return left or right plus 1.
+        // we suppose the max path does not exist in current subtree, 
+        //so we return back the max path as left/right side path,
+        //+1 because we want to add the link between current root and 
+        //its left/rigth
         return Math.max(left, right) + 1;
     }
     
