@@ -43,8 +43,8 @@ Output: false
     
     //we use a map to store all possible strobogrammatic numbers, and for this number, we compare left and right
     //they either to be the same or in map, or it is not. left and right move step to middle in each iteration
-    public boolean isStrobogrammatic(String num) {
-        if (num == null || num.length() < 1) return true;
+    public boolean isStrobogrammatic(String A) {
+        if (A == null || A.length() < 1) return true;
         
         HashMap<Character, Character> map = new HashMap<>();
         map.put('6', '9');
@@ -52,19 +52,20 @@ Output: false
         map.put('0', '0');
         map.put('8', '8');
         map.put('1', '1');
-        int left = 0, right = num.length() - 1;
-        // left == right means the len of the String is odd, if we use left < right, then we will miss the middle 
-        //number is strobogrammatic or not.
-        while (left <= right) {
-            //if (!(map.containsKey(s.charAt(l) +  ""))  || !map.containsKey(s.charAt(r) + "")) also work
-            if (!map.containsKey(num.charAt(left))) {
-                return false;
+        int l = 0, r = A.length() - 1;
+        //need to care when A.length = odd numbers
+        while(l <= r) {
+            char left = A.charAt(l);
+            char right = A.charAt(r);
+            if (!map.containsKey(left) || !map.containsKey(right)) return false;
+            
+            //here is better, because like "6", "9", we require at least
+            //A.length = 2, so we can avoid the long condition compute
+            if (map.get(left) != right) {
+              return false;
             }
-            if (map.get(num.charAt(left)) != num.charAt(right)) {
-                return false;
-            }
-            left++;
-            right--;
+            l++;
+            r--;
         }
         return true;
     }
