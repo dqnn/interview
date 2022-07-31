@@ -37,4 +37,24 @@ public class _415AddStrings {
         }
         return sb.reverse().toString();
     }
+    
+    //put carry our of while
+    public String addStrings_easier_to_understand(String A, String B) {
+        int a = A.length() -1, b = B.length()-1;
+        StringBuilder sb = new StringBuilder();
+        int carry = 0;
+        while(a >= 0 || b>=0) {
+            carry += a>=0 ? A.charAt(a) - '0' : 0;
+            carry += b>=0 ? B.charAt(b) - '0' : 0;
+            
+            sb.insert(0, carry%10);
+            carry = carry /10;
+            a--;
+            b--;
+        }
+        
+        if (carry > 0) sb.insert(0, carry);
+        
+        return sb.toString();
+    }
 }
