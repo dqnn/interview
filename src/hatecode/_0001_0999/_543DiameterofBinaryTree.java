@@ -49,7 +49,7 @@ public class _543DiameterofBinaryTree {
         // we suppose the max path does not exist in current subtree, 
         //so we return back the max path as left/right side path,
         //+1 because we want to add the link between current root and 
-        //its left/rigth
+        //its left/right
         return Math.max(left, right) + 1;
     }
     
