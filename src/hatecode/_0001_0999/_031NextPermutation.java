@@ -84,31 +84,31 @@ public class _031NextPermutation {
     
     //this is the same as remove K digits 412
     
-    public static void nextPermutation2(int[] nums) {
+    public static void nextPermutation2(int[] A) {
         //edge case
-        if (nums == null || nums.length == 1) return;
+        if (A == null || A.length == 1) return;
 
-        int end = nums.length -2;
+        int end = A.length -2;
         int j = end;
         //we find the the pattern like 1,2,3, 
         //note j point to 2 and stop
-        for(; j>=0 && nums[j] >= nums[j+1];) {
+        for(; j>=0 && A[j] >= A[j+1];) {
             j--;
         }
         //this means the all array is desc, we just need to reverse it
         if(j < 0) { // it sorted desc
-            Arrays.sort(nums);
+            Arrays.sort(A);
             return;
         }
         //here is the key: we scan from back to j, if we find one number 
         //which is bigger than j, then we swap and sort
         //j point to 7 in [1,2,7,4,3,1]
         for(int i =end+1; i>j;i--) {
-            if(nums[j] < nums[i]) {
-                int temp = nums[j];
-                nums[j] = nums[i];
-                nums[i]  = temp;
-                Arrays.sort(nums, j+1, end+2);
+            if(A[j] < A[i]) {
+                int temp = A[j];
+                A[j] = A[i];
+                A[i]  = temp;
+                Arrays.sort(A, j+1, end+2);
                 break;
             }
         }
