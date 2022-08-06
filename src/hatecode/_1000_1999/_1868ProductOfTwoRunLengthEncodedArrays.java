@@ -28,7 +28,20 @@ Explanation: encoded1 expands to [1,1,1,2,2,2] and encoded2 expands to [6,6,6,3,
 prodNums = [6,6,6,6,6,6], which is compressed into the run-length encoded array [[6,6]].
 */
     
-    //thinking process: 
+    //thinking process: O(n)/O(1)
+    
+    //the problem is to say: given 2D array, e1 and e2,
+    //[1,3]=[1,1,1], the multiple of two array means after expanding
+    //e1[i] * e2[i]
+    
+    //return the compressed results.
+    /* e1 = [[1,3],[2,3]], e2 = [[6,3],[3,3]] -===> [[6,6]]
+     * [1,1,1,2,2,2] x [6,6,6,3,3,3]=[6,6,6,6,6,6]-->[6,6]
+     * 
+     * 
+     * we use two pointers,one point to e1 another to e2.
+     * 
+     */
     public List<List<Integer>> findRLEArray(int[][] e1, int[][] e2) {
         int p1 = 0, p2 =0;
         
@@ -37,6 +50,7 @@ prodNums = [6,6,6,6,6,6], which is compressed into the run-length encoded array 
             int len = Math.min(e1[p1][1], e2[p2][1]);
             int mul = e1[p1][0] * e2[p2][0];
             
+            //handle cases like [[1,3],[2,3]] * [[6,3],[3,3]] --> [[6,6]]
             if (res.size() > 0 && res.get(res.size()-1).get(0) == mul) {
                 int nLen = res.get(res.size()-1).get(1) + len;
                 res.set(res.size()-1, Arrays.asList(mul, nLen));
