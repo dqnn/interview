@@ -45,6 +45,7 @@ Output: "ca"
         for(int i =0; i< s.length(); i++) {
             if(!stack.isEmpty() && s.charAt(i) == stack.peek()) {
                 stack.pop();
+            // we will ignore the current c if they are the same, if not, push to stack
             } else stack.push(s.charAt(i));
         }
         /* this also works

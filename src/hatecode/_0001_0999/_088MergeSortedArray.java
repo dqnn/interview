@@ -9,7 +9,8 @@ package hatecode._0001_0999;
  */
 public class _088MergeSortedArray {
     /**
-Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
+Given two sorted integer arrays nums1 and nums2, merge nums2 into 
+nums1 as one sorted array.
 
 Note:
 

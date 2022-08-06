@@ -16,12 +16,18 @@ Explanation:
 [1,1,1,0,0,1,1,1,1,1,1]
 */
     
-    //thinking process: 
+    //thinking process: O(n)/O(1)
+    //the problem is to say: given one integer array only conains 0 and 1 and integer k, find the longest 
+    //consective ones, you can remove up to k 0
+    //
     //two pointers templates
     //first we try best to move right, then get the max length,
     //then we will try to recover, we move to right as right as possible
     //if we played 0->1 too many then we will recover from left, 
     //"remove" 0 from the window by moving l. 
+    
+    //we always use a window=len(1) + K 0, and we aways try to compare these length when 
+    //moving from left to right
     public int longestOnes(int[] A, int k) {
         if (A == null || A.length < 1) return 0;
         
