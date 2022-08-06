@@ -82,6 +82,8 @@ public class _031NextPermutation {
     //e.g. {1,2,7,4,3,1}
     //first we want to find adjacent two digits left is smaller than right
     
+    //this is the same as remove K digits 412
+    
     public static void nextPermutation2(int[] nums) {
         //edge case
         if (nums == null || nums.length == 1) return;
