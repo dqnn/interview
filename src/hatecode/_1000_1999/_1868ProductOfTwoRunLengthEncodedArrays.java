@@ -41,6 +41,22 @@ prodNums = [6,6,6,6,6,6], which is compressed into the run-length encoded array 
      * 
      * we use two pointers,one point to e1 another to e2.
      * 
+     * it is pretty likely the interval merge, but slightly different.
+     * 
+     * consider each range, the length maybe different, so we can only get
+     * smaller and compute them, then we gradually move to right.
+     * 
+     * when adding to result list, we need to merge last element of the array since 
+     * why we only need to merge with last one?
+     * 
+     * because the result is only 1-D array, we always appending our results and we only need to
+     * compare the last one, becuase if they are not different, we do nont need to merge,
+     * see below example
+     * [[1,3],[2,1],[3,2],[3,1]]
+        [[2,3],[3,3],[2,1]]
+        
+        ----> [[2,3],[6,1],[9,2],[6,1]]
+
      */
     public List<List<Integer>> findRLEArray(int[][] e1, int[][] e2) {
         int p1 = 0, p2 =0;
