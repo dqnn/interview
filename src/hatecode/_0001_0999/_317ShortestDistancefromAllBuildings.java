@@ -59,7 +59,7 @@ public class _317ShortestDistancefromAllBuildings {
     //then that element in nums will be considered. we get the min one
     
     
-    //as for bfs, we use a queue to store the elements around the elements
+    //as for BFS, we use a queue to store the elements around the elements
     //and each time, we use a visits array to store visited elements in bfs arrays. 
     
     //one point: 296. Best Meeting Point, because there are obstacles and building we cannot pass,so
