@@ -45,7 +45,7 @@ public class _986IntervalListIntersectionslution {
     
   //interview friendly, thinking process: 
     // so the problems is to say, given two sets of intervals, they have no overlap on itselfves so  
-    //the overlap has to happen between two of them, like bianry add, linkedlist add
+    //the overlap has to happen between two of them, like binary add, linkedlist add
     public Interval[] intervalIntersection(Interval[] A, Interval[] B) {
         if (A == null || A.length == 0 || B == null || B.length == 0) {
             return new Interval[] {};
