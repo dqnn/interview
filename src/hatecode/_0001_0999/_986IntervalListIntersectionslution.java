@@ -59,6 +59,7 @@ public class _986IntervalListIntersectionslution {
             Interval b = B[j];
 
             // find the overlap... if there is any...
+            //this is the key compared to other ways of merge interval
             int startMax = Math.max(a.start, b.start);
             int endMin = Math.min(a.end, b.end);
             
