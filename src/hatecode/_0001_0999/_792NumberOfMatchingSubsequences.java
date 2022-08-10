@@ -4,7 +4,8 @@ import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
 public class _792NumberOfMatchingSubsequences {
 /*792. Number of Matching Subsequences
-Given string S and a dictionary of words words, find the number of words[i] that is a subsequence of S.
+Given string S and a dictionary of words words, 
+find the number of words[i] that is a subsequence of S.
 
 Example :
 Input: 
@@ -14,7 +15,7 @@ Output: 3
 */
     
     //need to understand more a little bit
-    public int numMatchingSubseq3(String S, String[] words) {
+  public int numMatchingSubseq3(String S, String[] words) {
     List<StringCharacterIterator>[] waiting = new List[128];
     for (int c = 0; c <= 'z'; c++) waiting[c] = new ArrayList<>();
     
