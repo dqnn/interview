@@ -101,4 +101,44 @@ Output: 0
         
         return res;
     }
+    
+    //Greedy + Binary search
+    //the solution is based on Greedy and BS,
+    
+    //we only do BS on have potential better answer than previous one
+    public int leftMostColumnWithOne_Best_Interview_friendly(BinaryMatrix m) {
+        List<Integer> dim = m.dimensions();
+        
+        int r = dim.get(0), c = dim.get(1);
+        int i = 0, j = c - 1;
+        int res = Integer.MAX_VALUE;
+        while(i < r && j < c) {
+          //if current cell[i,j] == 1, the one down to it is 0, then next line is not what we want,
+          //we should skip it,
+            if (m.get(i, j) == 0) {
+                i++;
+                continue;
+            }
+            
+            int mid = helper_Best(m, i, j);
+            res = Math.min(res, mid);
+            i++;
+            j = mid;
+        }
+        
+        return res == Integer.MAX_VALUE ? -1: res;
+    }
+    
+    private int helper_Best(BinaryMatrix m, int i, int j) {
+        int l = 0, r = j;
+        while(l < r) {
+            int mid = l + (r -l)/2;
+            if (m.get(i, mid) == 0) {
+                l = mid + 1;
+            } else r = mid;
+        }
+        
+        //no matter 1 or 0, we return l;
+        return l; 
+    }
 }
