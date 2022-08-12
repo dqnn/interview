@@ -73,11 +73,10 @@ list, we don't need to worry about null pointer
     }
 
     private Map<Integer, Node> map;
-    private int                capacity = 0;
+    private int capacity = 0;
     //this is the key
-    private Node               tail     = new Node(), 
-            head = new Node();
-    private int                size     = 0;
+    private Node  tail = new Node(), head = new Node();
+    private int size     = 0;
 
     public _146LRUCache(int capacity) {
         map = new HashMap<>();
