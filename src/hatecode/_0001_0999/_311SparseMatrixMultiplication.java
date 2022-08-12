@@ -71,9 +71,13 @@ row number.
     //follow up 
     /*
      * 1. big sparse matrix, cannot save in RAM, how to calculate?  use map to store the index and value !=0
-     * 2. if sorted and matrix is huge, how to calculate? 
-     * 3. if not sorted, matrix is huge, some parts are dense while some are sparse[-11,10,-9,0,0,0,0,1,3,4,5], how to calculate?
-     * 4. 
+     * 2. if sorted and matrix is huge, how to calculate? 1.  binary search to find the  0 range, then use two pointers to calculate
+     * 3. if not sorted/not-sorted, matrix is huge, some parts are dense while some are sparse[-11,10,-9,0,0,0,0,1,3,4,5], how to calculate?
+     * -- same as 2 if sorted.
+     * ---if not sorted, we can use TP to calculate
+     * 
+     * ans:
+     * 1. 
      */
     public int[][] multiply(int[][] m1, int[][] m2) {
         Map<Integer, Map<Integer, Integer>> map1 = new HashMap<>();
