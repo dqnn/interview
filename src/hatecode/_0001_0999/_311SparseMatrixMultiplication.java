@@ -70,7 +70,10 @@ row number.
     //https://github.com/SCIN/Facebook-Interview-Coding-1/blob/master/Sparce%20Matrix%20Multiplication.java 
     //follow up 
     /*
-     * 1. 
+     * 1. big sparse matrix, cannot save in RAM, how to calculate?  use map to store the index and value !=0
+     * 2. if sorted and matrix is huge, how to calculate? 
+     * 3. if not sorted, matrix is huge, some parts are dense while some are sparse, how to calculate?
+     * 4. 
      */
     public int[][] multiply(int[][] m1, int[][] m2) {
         Map<Integer, Map<Integer, Integer>> map1 = new HashMap<>();
