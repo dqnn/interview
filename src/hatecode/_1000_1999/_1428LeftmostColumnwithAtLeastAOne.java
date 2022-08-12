@@ -102,7 +102,7 @@ Output: 0
         return res;
     }
     
-    //Greedy + Binary search
+    //Greedy + Binary search worst: O(MlgN)
     //the solution is based on Greedy and BS,
     
     //we only do BS on have potential better answer than previous one
