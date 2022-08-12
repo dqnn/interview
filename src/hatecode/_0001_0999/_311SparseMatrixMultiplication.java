@@ -66,6 +66,12 @@ row number.
     
     //since it is sparse matrix, so we use two maps to store the value which are not 
     // 0, then compute  - * |. 
+    
+    //https://github.com/SCIN/Facebook-Interview-Coding-1/blob/master/Sparce%20Matrix%20Multiplication.java 
+    //follow up 
+    /*
+     * 1. 
+     */
     public int[][] multiply(int[][] m1, int[][] m2) {
         Map<Integer, Map<Integer, Integer>> map1 = new HashMap<>();
         
