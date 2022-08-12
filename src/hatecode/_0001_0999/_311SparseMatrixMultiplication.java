@@ -76,8 +76,6 @@ row number.
      * -- same as 2 if sorted.
      * ---if not sorted, we can use TP to calculate
      * 
-     * ans:
-     * 1. 
      */
     public int[][] multiply(int[][] m1, int[][] m2) {
         Map<Integer, Map<Integer, Integer>> map1 = new HashMap<>();
