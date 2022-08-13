@@ -17,6 +17,7 @@ Input: weights = [1,2,3,4,5,6,7,8,9,10], D = 5
 Output: 15
 */
     //thinking process: 
+    //
        public int shipWithinDays(int[] nums, int m) {
         int max = 0; long sum = 0;
         for (int num : nums) {
