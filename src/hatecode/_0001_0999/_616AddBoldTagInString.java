@@ -46,7 +46,7 @@ Output:
         return sb.toString();
     }
     
-    //simplest solution， it used a storage to avoid merge process
+    //simplest solution， it used a storage to avoid merge process， bitmap
     public String addBoldTag_BitStorages(String s, String[] dict) {
         boolean[] bold = new boolean[s.length()];
         for (int i = 0, end = 0; i < s.length(); i++) {
@@ -64,6 +64,7 @@ Output:
                 result.append(s.charAt(i));
                 continue;
             }
+            //here is the merge process, we merge them but counting the true bits
             int j = i;
             while (j < s.length() && bold[j]) j++;
             result.append("<b>" + s.substring(i, j) + "</b>");
