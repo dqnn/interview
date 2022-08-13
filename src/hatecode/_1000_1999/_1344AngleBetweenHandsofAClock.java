@@ -20,7 +20,8 @@ Output: 165
     //the problem is to say: given hour and minutes integer, return 
     //the angle(smaller one) between minute hand and hour hand
     
-    //
+    //first calculate hour handle to 12 angle, 
+    //then calculate minute one 
     public double angleClock(int hour, int minutes) {
         
          // Degree covered by hour hand (hour area + minutes area)
