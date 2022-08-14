@@ -18,6 +18,26 @@ Output: 15
 */
     //thinking process: 
     //
+    public int shipWithinDays_Better(int[] A, int days) {
+        int max = 0, sum = 0;
+        for(int a: A) {
+            sum += a;
+            max=Math.max(max, a);
+        }
+        
+        int l = max, r = sum;
+        
+        while(l < r) {
+            int m = l + (r-l)/2;
+            //we can transport A within days with m limit each day
+            if (valid(m, A, days)) {
+                r = m;
+            } else l = m + 1;
+        }
+        
+        return l;
+    }
+    
        public int shipWithinDays(int[] nums, int m) {
         int max = 0; long sum = 0;
         for (int num : nums) {
@@ -38,10 +58,21 @@ Output: 15
         if (valid(l, nums, m)) return (int)l;
         else return (int)r;
     }
-    //all num are non-negative, so suppose all sum, and max number. and if we can divide 
+       
+    //all num are non-negative, so suppose all sum, and max number. 
+       //and if we can divide 
     //m groups, each group avg(sum) compare to mid = (max + sum) / 2
     // if we found we have more groups if we compare each group to continous sum
     public boolean valid(long target, int[] nums, int m) {
+        
+        //why initialize as 1?
+        /*
+         * if whole array < m, and if we groupCnt=0,then result will be 0, 
+         *  so actually when we met > m, we already have two sub arrays.
+         * 
+         * if we assign groupCnt =0, then when we visit last element,
+         * if sum < m, we need to +1, because it also one additional sub array
+         */
         int curGroupCnt = 1;
         long total = 0;
         for(int num : nums) {
