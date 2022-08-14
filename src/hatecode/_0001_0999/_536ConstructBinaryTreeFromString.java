@@ -14,10 +14,43 @@ Output: return the tree root node representing the following tree:
    / \   / 
   3   1 5   
 */
-    //thinking process:
+    //thinking process: O(n)/O(n)
     //so the difference between this question and decode string is decode string requires the output of string and here
     //we only need to return the root node, 
+    
+    //note, when we extract numbers from string, we need to 
+    //move i to j - 1 after the j finalized
     public TreeNode str2tree(String s) {
+        if(s == null || s.length() < 1) return null;
+        
+        Stack<TreeNode> stack = new Stack<>();
+        for(int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c >= '0' && c <='9' || c =='-') {
+                int j = i + 1;
+                while(j < s.length() && s.charAt(j) <='9' && s.charAt(j) >='0') {
+                    j++;
+                }
+                int val = Integer.valueOf(s.substring(i, j));
+                TreeNode cur = new TreeNode(val);
+                if (!stack.isEmpty()) {
+                    TreeNode parent = stack.peek();
+                    if (parent.left !=null) parent.right = cur;
+                    else parent.left = cur;
+                }
+                stack.push(cur);
+                i = j - 1;
+                
+            } else if (c ==')') {
+                stack.pop();
+            }
+        }
+        
+        return stack.isEmpty()? null : stack.peek();
+    }
+    
+    
+    public TreeNode str2tree_simpler(String s) {
         if (s == null || s.length() < 1) return null;
         
         Stack<TreeNode> stack = new Stack<>();
