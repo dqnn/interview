@@ -19,7 +19,7 @@ Output: return the tree root node representing the following tree:
     //we only need to return the root node, 
     
     //note, when we extract numbers from string, we need to 
-    //move i to j - 1 after the j finalized
+    //move i to j - 1 after the j finalized because they already visited
     public TreeNode str2tree(String s) {
         if(s == null || s.length() < 1) return null;
         
