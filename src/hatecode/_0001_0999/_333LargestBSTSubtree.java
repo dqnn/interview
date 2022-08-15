@@ -55,6 +55,9 @@ Can you figure out ways to solve it with O(n) time complexity?
     
     /*
      * tuple to transfer data between nodes: 
+     * the following is the biggest trick in the problem, 
+     * it can be used for null as any BST left or right, [MAX, MIN, 0]
+     * it also can not be any nodes of any BST, [MIN, MAX, 0]
      * [min, max, size],min means the smallest value, ... 
      * 
      * thinking of following sub tree, 
