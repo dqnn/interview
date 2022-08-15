@@ -70,6 +70,8 @@ Similar problems:
                 res[stack.pop()]++;
             }
             
+            //need to record the previous element, which means previous one 
+            //can defintely saw its next
             if (!stack.isEmpty()) {
                 res[stack.peek()]++;
             }
