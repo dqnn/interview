@@ -51,9 +51,13 @@ Can you figure out ways to solve it with O(n) time complexity?
     //thinking process: O(n)/O(h)
     
     //the problem is to say: given one binary tree root node, 
-    //return the max size of sub BST. 
+    //return the max size of sub BST. the size means the count of nodes in such BST
     
-    //
+    /*
+     * [min, max, size],min means the smallest value, ... 
+     * 
+     * 
+     */
     public int largestBSTSubtree_IF(TreeNode root) {
         int[] res = helper_IF(root);
         
