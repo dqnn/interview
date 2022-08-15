@@ -49,7 +49,14 @@ Similar problems:
 */
     //thinking process: O(n)/O(1)
     
-    //the problem is to say: 
+    //the problem is to say: given one integer array A, it presents peoples height
+    //when we look from left to right, return one array res, res[i] means how many people
+    //he can see from position i to right.
+    /* heights = [10,6,8,5,11,9]
+     *           [3, 1,2,1,1, 0] 
+     * notes: 0 can see 1 2 and 4, he cannot see 3 because 3 is hidden by 2
+     * 
+     */
     public int[] canSeePersonsCount(int[] A) {
         
         int n = A.length;
