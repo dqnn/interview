@@ -56,6 +56,8 @@ Similar problems:
      *           [3, 1,2,1,1, 0] 
      * notes: 0 can see 1 2 and 4, he cannot see 3 because 3 is hidden by 2
      * 
+     * 
+     * we use monotonic stack to record the decreased heights from left to right
      */
     public int[] canSeePersonsCount(int[] A) {
         
