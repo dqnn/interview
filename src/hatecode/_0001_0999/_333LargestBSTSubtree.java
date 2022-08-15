@@ -47,6 +47,36 @@ Can you figure out ways to solve it with O(n) time complexity?
 
      */
 
+    
+    //thinking process: O(n)/O(h)
+    
+    //the problem is to say: given one binary tree root node, 
+    //return the max size of sub BST. 
+    
+    //
+    public int largestBSTSubtree_IF(TreeNode root) {
+        int[] res = helper_IF(root);
+        
+        return res[2];
+    }
+    
+    
+    private int[] helper_IF(TreeNode root) {
+        if (root == null) return new int[]{Integer.MAX_VALUE, Integer.MIN_VALUE, 0};
+        
+        int[] left = helper_IF(root.left);
+        int[] right = helper_IF(root.right);
+        
+        if (left[1] < root.val && root.val < right[0]) {
+            int min = Math.min(left[0], root.val);
+            int max = Math.max(right[1], root.val);
+            return new int[]{min, max, left[2] + right[2] + 1};
+        } else {
+            return new int[]{Integer.MIN_VALUE, Integer.MAX_VALUE, Math.max(left[2], right[2])};
+        }
+    }
+    
+    
     int res = 0;
 
     // key points:
