@@ -54,9 +54,21 @@ Can you figure out ways to solve it with O(n) time complexity?
     //return the max size of sub BST. the size means the count of nodes in such BST
     
     /*
+     * tuple to transfer data between nodes: 
      * [min, max, size],min means the smallest value, ... 
      * 
+     * thinking of following sub tree, 
      * 
+     *            10
+     *           /   \
+     *         7       12
+     *  [MAX, MIN, 0], this can be anynodes's left or right child of BST
+     *  when we visit 10, we have to know the left/right child tuple, 
+     *  left --> 7 [MAX, MIN, 0]
+     *  right--> 7 [MAX, MIN, 0]
+     *  
+     *  then 7--> 10, [7, 7, 1]
+     *  same for 12--> [12, 12, 1]
      */
     public int largestBSTSubtree_IF(TreeNode root) {
         int[] res = helper_IF(root);
@@ -76,6 +88,7 @@ Can you figure out ways to solve it with O(n) time complexity?
             int max = Math.max(right[1], root.val);
             return new int[]{min, max, left[2] + right[2] + 1};
         } else {
+            //if not BST, then current node cannot be in any BST, 
             return new int[]{Integer.MIN_VALUE, Integer.MAX_VALUE, Math.max(left[2], right[2])};
         }
     }
