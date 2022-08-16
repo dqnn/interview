@@ -33,9 +33,10 @@ Explanation: 2 people friend request each other.
     //them up. 
     
     //so the key point is we need to find how many at age i-- countInAge[i], 
-    //next is to find for this 
-    //how many people this group can send request to. which is calcuated by age, 
+    //next is to find 
+    //how many people this group can send request to. which is calculated by age, 
     //sumInAge[i] - sumInAge[i / 2 + 7]; they will not include themselves
+    
     //
     public int numFriendRequests(int[] ages) {
         if (ages == null || ages.length < 1) return 0;
