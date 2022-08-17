@@ -79,7 +79,6 @@ public class _348DesignTicTacToe {
     //we do not check whether the cell was occupied before, 
     //this will leave to the play to decide. 
     
-    
     public int move(int i, int j, int player) {
         int toAdd = player == 1 ? 1 : -1;
 
