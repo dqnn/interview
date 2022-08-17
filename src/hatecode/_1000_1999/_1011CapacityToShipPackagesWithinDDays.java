@@ -25,7 +25,13 @@ Output: 15
             max=Math.max(max, a);
         }
         
-        int l = max, r = sum;
+        //here r could be more narrowed down.
+        // suppose each day we only ship one item, 
+        //then we will have A.length -days items left, 
+        //so the length of max array will be A.length -days + 1
+        int l = max, r = Math.max(1, A.length - days + 1) * max;
+        //r = sum;
+        
         
         while(l < r) {
             int m = l + (r-l)/2;
