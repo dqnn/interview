@@ -89,7 +89,8 @@ public class _348DesignTicTacToe {
         
         if (Math.abs(rows[i]) == size 
                 || Math.abs(cols[j]) == size
-                || Math.abs(diagonal) == size || Math.abs(antiDiagonal) == size) {
+                || Math.abs(diagonal) == size 
+                || Math.abs(antiDiagonal) == size) {
             return player;
         }
         return 0;
