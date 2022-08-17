@@ -45,7 +45,7 @@ public class _380InsertDeleteGetRandom {
     }
 
     /** Removes a value from the set. Returns true if the set contained the specified element. */
-    // the key is to have a list to mantain a list of objects, we don't need them to 
+    // the key is to have a list to maintain a list of objects, we don't need them to 
     //be in an order
     // so we always remove last and insert the value to the index which we want to remove. 
     // use override to remove,!!!!!!!
