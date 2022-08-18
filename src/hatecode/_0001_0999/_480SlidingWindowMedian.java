@@ -76,10 +76,10 @@ Given an array nums, there is a sliding window of size k which is moving from th
     
     //O(Nlgk)/O(N)
     //thinking process: 
-    //so given a int array and integer k, return for each window size K in array, the median
+    //so given an integer array and integer k, return for each window size K in array, the median
     //return as array
     //we mainly use two priorityQueue to store the results, we cut the array into two parts 
-    //and sort all in asc order, so for right, first is smallest while for left, last is biggest
+    //and sort all in ascend order, so for right, first is smallest while for left, last is biggest
     //then median is middle or left.last or last.first
     
     //if the array has dup number, then we may not be able to use this
