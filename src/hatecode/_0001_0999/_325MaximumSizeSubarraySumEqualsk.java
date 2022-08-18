@@ -67,7 +67,12 @@ Can you do it in O(n) time?
         }
         return res;
     }
-    //another short solution
+    //interview friendly, O(n)/O(1)
+    
+    /*
+     * the problem is to  say: given one integer array A, we want to 
+     * 
+     */
     public int maxSubArrayLen2(int[] A, int k) {
         int sum = 0, max = 0;
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
