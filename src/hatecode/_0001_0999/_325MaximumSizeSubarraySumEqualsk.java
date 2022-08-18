@@ -71,7 +71,9 @@ Can you do it in O(n) time?
     
     /*
      * the problem is to  say: given one integer array A, we want to 
+     * find the max length of subarray which sum = k
      * 
+     * we use hashMap to store <sum, index>, then two SUM
      */
     public int maxSubArrayLen2(int[] A, int k) {
         int sum = 0, max = 0;
