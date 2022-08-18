@@ -60,7 +60,9 @@ public class _078Subsetss {
     //this is too elegant
     public static void helper(List<List<Integer>> res, List<Integer> list, int[] nums, int pos) {
     		// we rely on next visit to add the list into the res, so index > index > nums.length, no =
-    	    if (nums == null || pos < 0 || pos > nums.length) {
+        //note here pos > nums.length, because we want to make sure
+        //because when i + 1 reach the end of array, we have to include the next list
+        if (nums == null || pos < 0 || pos > nums.length) {
             return;
         }
 
