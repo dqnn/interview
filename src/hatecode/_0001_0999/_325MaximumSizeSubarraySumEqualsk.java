@@ -45,6 +45,7 @@ Can you do it in O(n) time?
         if (nums == null || nums.length == 0) return 0;
         int res = 0;
         HashMap<Integer, Integer> map = new HashMap<>();
+        //here if sum == k, then it is just i + 1
         map.put(0, -1);
 
         // we have sum them up
@@ -73,7 +74,7 @@ Can you do it in O(n) time?
         for (int i = 0; i < A.length; i++) {
             sum = sum + A[i];
             if (sum == k) max = i + 1;
-            else if (map.containsKey(sum - k)) max = Math.max(max, i - map.get(sum - k));
+            else if (map.containsKey(sum - k)) max = Math.max(max, i - map.get(sum - k) + 1 - 1);
             if (!map.containsKey(sum)) map.put(sum, i);
         }
         return max;
