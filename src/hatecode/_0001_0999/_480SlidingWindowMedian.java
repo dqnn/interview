@@ -86,7 +86,7 @@ Given an array nums, there is a sliding window of size k which is moving from th
     public double[] medianSlidingWindow(int[] nums, int k) {
         double[] res = new double[nums.length - k + 1];
         
-        //we add them into the treeset
+        //we add them into the TreeSet
         TreeSet<Integer> left = getSet(nums), right = getSet(nums);
         for(int i = 0; i< nums.length; i++) {
             if (left.size() <= right.size()) {
