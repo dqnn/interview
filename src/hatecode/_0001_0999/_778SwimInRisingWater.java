@@ -16,16 +16,23 @@ Input: [[0,2],[1,3]]
 Output: 3
 Explanation:
 At time 0, you are in grid location (0, 0).
-You cannot go anywhere else because 4-directionally adjacent neighbors have a higher elevation than t = 0.
+You cannot go anywhere else because 4-directionally 
+adjacent neighbors have a higher elevation than t = 0.
 
 You cannot reach point (1, 1) until time 3.
 When the depth of water is 3, we can swim anywhere inside the grid.
 
 
-//the problem is to say in a 2D matrix, rain is falling and grid[i][j] means the time the rain needed to covere which means the time you have to wait, then you can across, src->dst, so BFS
+//the problem is to say in a 2D matrix, rain is falling and grid[i][j] means 
+ *the time the rain needed to cover which means the time you have to wait, 
+ *then you can across, src->dst, so BFS
 */
   
     //O(n^2 lgn)
+    
+    /*
+     * 
+     */
     public int swimInWater(int[][] grid) {
         if (grid == null || grid.length < 1 || grid[0].length < 1) return 0;
         
