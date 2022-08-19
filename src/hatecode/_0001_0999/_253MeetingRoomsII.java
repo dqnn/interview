@@ -69,7 +69,7 @@ this graph demonstrated how to solve this problem
     public int minMeetingRooms2(Interval[] schedule) {
         Arrays.sort(schedule, (a, b) -> Integer.compare(a.start, b.start));
         //the PQ keeps how many meeting  rooms are needed for current meeting schedule
-        PriorityQueue<Interval> pq = new PriorityQueue<>(schedule.length, (a, b) -> a.end - b.end);
+        PriorityQueue<Interval> pq = new PriorityQueue<>(schedule.length, (a, b) -> Integer.compare(a.end, b.end));
         //we add smallest start time into queue
         pq.offer(schedule[0]);
         for (int i = 1; i < schedule.length; i++) {
@@ -88,16 +88,19 @@ this graph demonstrated how to solve this problem
         return pq.size();
     }
     //latest LC change to array, but logic is the same
-    public int minMeetingRooms(int[][] in) {
-        if (in == null || in.length < 1) return 0;
-        Arrays.sort(in, (a, b)->(a[0] - b[0]));
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b)->(a[1] - b[1]));
-        pq.offer(in[0]);
-        for(int i =1; i< in.length;i++) {
+    //we should always use Integer.compare to avoid overflow
+    public int minMeetingRooms(int[][] A) {
+        
+        Arrays.sort(A, (a, b)->(Integer.compare(a[0], b[0])));
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b)->(Integer.compare(a[1], b[1])));
+        pq.offer(A[0]);
+        
+        for(int i = 1; i<A.length; i++) {
             int[] cur = pq.poll();
-            if (in[i][0] >= cur[1]) {
-                cur[1] = in[i][1];
-            } else pq.offer(in[i]);
+            if (A[i][0] >= cur[1]) {
+                cur[1] = A[i][1];
+            } else pq.offer(A[i]);
+            
             pq.offer(cur);
         }
         
