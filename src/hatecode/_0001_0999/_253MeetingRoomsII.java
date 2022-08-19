@@ -67,7 +67,7 @@ this graph demonstrated how to solve this problem
     //there are two types of such kind question, one is merge interval, another one is to see how many 
     //intervals to occupy space, like this problem
     public int minMeetingRooms2(Interval[] schedule) {
-        Arrays.sort(schedule, (a, b) -> a.start - b.start);
+        Arrays.sort(schedule, (a, b) -> Integer.compare(a.start, b.start));
         //the PQ keeps how many meeting  rooms are needed for current meeting schedule
         PriorityQueue<Interval> pq = new PriorityQueue<>(schedule.length, (a, b) -> a.end - b.end);
         //we add smallest start time into queue
