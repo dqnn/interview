@@ -58,7 +58,9 @@ Explanation: Diameter is shown in red color.
     
     private int helper(Node root) {
         if(root == null) return 0;
-        if (root.children == null || root.children.size() == 0) return 1;
+        
+        //we can remove this line, it also works
+        //if (root.children == null || root.children.size() == 0) return 1;
         
         PriorityQueue<Integer> pq= new PriorityQueue<>((a, b)->(a -b));
         for(Node e: root.children) { 
