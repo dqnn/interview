@@ -1,5 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
+import java.util.function.Supplier;
 public class _480SlidingWindowMedian {
 /*
 480. Sliding Window Median
@@ -83,45 +84,32 @@ Given an array nums, there is a sliding window of size k which is moving from th
     //then median is middle or left.last or last.first
     
     //if the array has dup number, then we may not be able to use this
-    public double[] medianSlidingWindow(int[] nums, int k) {
-        double[] res = new double[nums.length - k + 1];
-        
-        //we add them into the TreeSet
-        TreeSet<Integer> left = getSet(nums), right = getSet(nums);
-        for(int i = 0; i< nums.length; i++) {
-            if (left.size() <= right.size()) {
-                right.add(i);
-                int m = right.first();
-                right.remove(m);
-                left.add(m);
-            } else {
-                left.add(i);
-                int m = left.last();
-                left.remove(m);
-                right.add(m);
-            }
+    public double[] medianSlidingWindow(int[] A, int k) {
+        double[] res = new double[A.length -k + 1];
+        TreeSet<Integer> left = getTreeSet(A), right = getTreeSet(A);
+    
+        //this way, we are guarnteed that left.size() == right.size() or 
+        //left.size() = right.size() + 1
+        for(int i = 0; i< A.length; i++) {
+            left.add(i);
+            right.add(left.pollLast());
+            if (left.size() < right.size()) left.add(right.pollFirst());
             
-            //qualified window 
-            if(left.size() + right.size() == k) {
-                double med;
-                if(left.size() == right.size())  med = ((double)nums[left.last()] + nums[right.first()]) / 2;
-                else if (left.size() < right.size())  med = (double)nums[right.first()];
-                else  med = (double)nums[left.last()];
-                
-                //first i = k - 1 
-                int start = i - k + 1;
-                res[start] = med;
-                
-                if (!left.remove(start))  right.remove(start);
+            if (left.size() + right.size() == k) {
+                Supplier<Double> median = left.size() == right.size() ? () ->A[left.last()]/2.0 + A[right.first()]/2.0 : ()->A[left.last()]/1.0;
+                res[i-k+1]=  median.get();
+                //res[i-k+1] = left.size() == right.size() ? A[left.last()]/2.0 + A[right.first()]/2.0 : A[left.last()]/1.0;
+                if (!left.remove(i-k+1)) right.remove(i-k+1);
             }
         }
+        
         return res;
     }
     
-    public TreeSet<Integer> getSet(int[] nums) {
-        //(a, b)->(nums[a] == nums[b] ?(a - b) : (nums[a] < nums[b] ? -1:1)) is better than 
-        //nums[a] - nums[b] because there will be overflow cases, always using -1 : 1
-        return new TreeSet<>((a, b)->(nums[a] == nums[b] ?(a - b) : (nums[a] < nums[b] ? -1:1)));
+    private TreeSet<Integer> getTreeSet(int[] A) {
+        //cannot use A[i]- A[j] because of overflow integers
+        //return new TreeSet<>((i, j)->(A[i] == A[j] ? i - j : A[i]- A[j]));
+        return new TreeSet<>((i, j)->(A[i] == A[j] ? i -j : Integer.compare(A[i], A[j])));
     }
     
     
