@@ -35,7 +35,8 @@ For example, given [0, 1, 3, 50, 75], return [“2”, “4->49”, “51->74”
     // if lowe < nums[i], we need to append lower-> nums[i] - 1. here we need to differ 
     // on nums[i] and nums[i] - 1
     
-    //interview friendly, find missing ranges given an array and lower, upper bound
+    //interview friendly,  O(n)/O(n) pure logic coding problem
+    //find missing ranges given an array and lower, upper bound
     
     //so since nums already sorted, so lets consider what's the relationship between low variable num with num
     //[0, 1, 3, 50, 75],0, 99, two numbers we have 3 cases, 
