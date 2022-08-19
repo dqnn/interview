@@ -56,6 +56,7 @@ For example, given [0, 1, 3, 50, 75], return [“2”, “4->49”, “51->74”
                 l = a + 1;
             }
             
+            //terminate early
             if (a >= r || l > r) break;
             
         }
