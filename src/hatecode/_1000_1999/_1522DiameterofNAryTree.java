@@ -41,11 +41,13 @@ Input: root = [1,null,3,2,4,null,5,6]
 Output: 3
 Explanation: Diameter is shown in red color.
 */
-    //thinking process: O(n)/O(h)
+    //thinking process: O(nlg2)/O(h)
     /*
      * the problem is to say: given one N-trie tree, return the diameter of the tree.
      * 
-     * it is the same as 
+     * it is the same as  543. Diameter of Binary Tree
+     * 
+     * we here use PQ to sort the tree
      */
     int res = Integer.MIN_VALUE;
     public int diameter(Node root) {
