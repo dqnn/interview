@@ -62,6 +62,8 @@ For example, given [0, 1, 3, 50, 75], return [“2”, “4->49”, “51->74”
                 alower = (long)num + 1;
             }
         }
+        
+        // edge case: 
         if (alower == aupper) res.add(String.valueOf(alower));
         else if (alower < aupper) res.add(alower + "->" + aupper);
         return res;
