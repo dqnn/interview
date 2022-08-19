@@ -45,27 +45,23 @@ For example, given [0, 1, 3, 50, 75], return [“2”, “4->49”, “51->74”
     
     //so we continue this process until over but we need to detect the upper, also two cases same as above. 
     //if low == upper, just 1 number, if not, it will be a range
-    public List<String> findMissingRanges(int[] A, int lower, int upper) {
+    public List<String> findMissingRanges(int[] A, int l, int r) {
         List<String> res = new ArrayList<>();
-        //convert to long because we may need to care about the edge case, like num = Integer.MAX_VALUE, it 
-        //will have overflow
-        long alower = (long)lower, aupper = (long)upper;
-        for (int num : A) {
-            if (num == alower) {
-                alower++;
-            } else if (alower < num) {
-                if (alower + 1 == num) {
-                    res.add(String.valueOf(alower));
-                } else {
-                    res.add(alower + "->" + (num - 1));
-                }
-                alower = (long)num + 1;
+        
+        for(int a : A) {
+            if (a == l) l += 1;
+            else if (a > l) {
+                if (l + 1 == a) res.add(l+"");
+                else res.add(l + "->" + (a-1));
+                l = a + 1;
             }
+            
+            if (a >= r || l > r) break;
+            
         }
         
-        // edge case: 
-        if (alower == aupper) res.add(String.valueOf(alower));
-        else if (alower < aupper) res.add(alower + "->" + aupper);
+        if (l == r) res.add("" + l);
+        else if (l < r) res.add(l + "->" + r);
         return res;
     }
 }
