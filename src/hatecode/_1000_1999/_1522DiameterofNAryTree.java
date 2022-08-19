@@ -43,7 +43,9 @@ Explanation: Diameter is shown in red color.
 */
     //thinking process: O(n)/O(h)
     /*
-     * the problem is to say: 
+     * the problem is to say: given one N-trie tree, return the diameter of the tree.
+     * 
+     * it is the same as 
      */
     int res = Integer.MIN_VALUE;
     public int diameter(Node root) {
