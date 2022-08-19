@@ -25,7 +25,7 @@ For example, given [0, 1, 3, 50, 75], return [“2”, “4->49”, “51->74”
      time : O(n)
      space : O(1)
 
-     * @param nums
+     * @param A
      * @param lower
      * @param upper
      * @return
@@ -45,12 +45,12 @@ For example, given [0, 1, 3, 50, 75], return [“2”, “4->49”, “51->74”
     
     //so we continue this process until over but we need to detect the upper, also two cases same as above. 
     //if low == upper, just 1 number, if not, it will be a range
-    public List<String> findMissingRanges(int[] nums, int lower, int upper) {
+    public List<String> findMissingRanges(int[] A, int lower, int upper) {
         List<String> res = new ArrayList<>();
         //convert to long because we may need to care about the edge case, like num = Integer.MAX_VALUE, it 
         //will have overflow
         long alower = (long)lower, aupper = (long)upper;
-        for (int num : nums) {
+        for (int num : A) {
             if (num == alower) {
                 alower++;
             } else if (alower < num) {
