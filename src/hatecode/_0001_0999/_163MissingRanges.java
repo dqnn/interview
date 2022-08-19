@@ -62,6 +62,8 @@ For example, given [0, 1, 3, 50, 75], return [“2”, “4->49”, “51->74”
         
         //we already went through the list, so we want to 
         //compare the r with the l
+        //for example:  A= [3, 5] l = 2,  r =8, 
+        //when we visited A, l = 6, r = 8, then we need to add rest to result strings
         if (l == r) res.add("" + l);
         else if (l < r) res.add(l + "->" + r);
         return res;
