@@ -89,6 +89,9 @@ this graph demonstrated how to solve this problem
     }
     //latest LC change to array, but logic is the same
     //we should always use Integer.compare to avoid overflow
+    
+    //we mainly want to get the intervals which overlapped,
+    //then we count how many intervals in pq last
     public int minMeetingRooms(int[][] A) {
         
         Arrays.sort(A, (a, b)->(Integer.compare(a[0], b[0])));
