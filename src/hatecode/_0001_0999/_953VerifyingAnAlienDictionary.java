@@ -32,11 +32,22 @@ public class _953VerifyingAnAlienDictionary {
         for (int i = 0; i < order.length(); i++)
             mapping[order.charAt(i) - 'a'] = i;
         for (int i = 1; i < words.length; i++)
-            if (compare(words[i - 1], words[i]) > 0)
+            if (compare_simple(words[i - 1], words[i]) > 0)
                 return false;
         return true;
     }
 
+    //simple version of compare function
+    private int compare_simple(String s1, String s2) {
+        int m = s1.length(), n = s2.length();
+        for(int i =0, j= 0; i <m && j < n ;i++, j++) {
+            char c1 = s1.charAt(i), c2 = s2.charAt(j);
+            if (c1 != c2) return mapping[c1-'a'] - mapping[c2-'a'];
+        }
+        
+        return  m - n;
+    }
+    
     int compare(String s1, String s2) {
         int n = s1.length(), m = s2.length(), cmp = 0;
         for (int i = 0, j = 0; i < n && j < m && cmp == 0; i++, j++) {
