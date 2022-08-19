@@ -60,6 +60,8 @@ For example, given [0, 1, 3, 50, 75], return [“2”, “4->49”, “51->74”
             
         }
         
+        //we already went through the list, so we want to 
+        //compare the r with the l
         if (l == r) res.add("" + l);
         else if (l < r) res.add(l + "->" + r);
         return res;
