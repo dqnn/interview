@@ -42,21 +42,20 @@ When the depth of water is 3, we can swim anywhere inside the grid.
         if (grid == null || grid.length < 1 || grid[0].length < 1) return 0;
         
         int n = grid.length;
-        PriorityQueue<int[]> q = new PriorityQueue<>((a, b)->(a[2] - b[2]));
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b)->Integer.compare(a[2], b[2]));       
         boolean[][] visited = new boolean[n][n];
-        
-        q.offer(new int[]{0,0,grid[0][0]});
+        pq.offer(new int[]{0,0,grid[0][0]});
         visited[0][0] = true;
         int[][] dirs = {{-1,0}, {1, 0}, {0, -1}, {0, 1}};
-        while(!q.isEmpty()) {
-            int[] node = q.poll();
+        while(!pq.isEmpty()) {
+            int[] node = pq.poll();
             if (node[0] == n-1 && node[1] == n-1) return node[2];
             for(int[] dir : dirs) {
                 int x = node[0] + dir[0];
                 int y = node[1] + dir[1];
                 if (x <0 || x>=n || y < 0 || y >=n || visited[x][y]) continue;
                 visited[x][y] = true;
-                q.offer(new int[]{x, y, Math.max(node[2], grid[x][y])});
+                pq.offer(new int[]{x, y, Math.max(node[2], grid[x][y])});
             }
         }
         return -1;
