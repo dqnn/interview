@@ -166,9 +166,14 @@ return 13.
             else hi = mid - 1;
         }
         // 1) Q: Why we return lo at the end:
-        //    A: Here lo=hi+1, for hi, we found <k elems, for lo, we found >=k elem, lo must have duplicates in matrix, return lo
+        //    A: Here lo=hi+1, for hi, we found <k elems, 
+        //   for lo, we found >=k elem, lo must have duplicates 
+        //    in matrix, return lo
         // 2) Q: Why lo exist in the matrix
-        //    A: for lo which is only 1 more than hi, we could find some extra nums in matrix so that there r >=k elems, so lo it self must exist in the matrix to meet the requirement
+        //    A: for lo which is only 1 more than hi, 
+        //we could find some extra nums in matrix so that 
+        //there r >=k elems, so lo it self must exist in the 
+        // matrix to meet the requirement
         return lo;
     }
     /*
