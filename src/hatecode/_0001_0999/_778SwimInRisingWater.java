@@ -27,7 +27,11 @@ When the depth of water is 3, we can swim anywhere inside the grid.
  *the time the rain needed to cover which means the time you have to wait, 
  *then you can across, src->dst, 
  *
- *Essentially, you need to compare the 
+ *Essentially, for 2D matrix visit, need to understand whetherwe need visited 
+ * for this case, we need visit because if already visited this cell, then previous value
+ * should be smaller,we do not want to visit again.
+ * 
+ * 
 */
   
     //O(n^2 lgn)
