@@ -25,7 +25,9 @@ When the depth of water is 3, we can swim anywhere inside the grid.
 
 //the problem is to say in a 2D matrix, rain is falling and grid[i][j] means 
  *the time the rain needed to cover which means the time you have to wait, 
- *then you can across, src->dst, so BFS
+ *then you can across, src->dst, 
+ *
+ *Essentially, you need to compare the 
 */
   
     //O(n^2 lgn)
