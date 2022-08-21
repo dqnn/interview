@@ -107,6 +107,12 @@ return 13.
  * if num > k = 8, then we will miss the correct answer
  * 
  */
+    //thinking process: O((m +n) * logD), D = max(m) - min(m)
+    //the problem is to find the k-the smallest element. 
+    
+    //we use binary search to find the element, search space is r = max(m), l =min(m);
+    
+    //
     public int kthSmallest2(int[][] matrix, int k) {
         int n = matrix.length;
         int l = matrix[0][0];
@@ -115,17 +121,17 @@ return 13.
         // left + 1 ? 
         while (l + 1 < r) {
             int m = (r - l) / 2 + l;
-            int num = count(matrix, m);
+            int num = countLessThanM(matrix, m);
             //we want prioritize right side boundary
             if (num >= k) r = m;
             else l = m;
         }
-        if (count(matrix, r) <= k - 1) return r;
+        if (countLessThanM(matrix, r) <= k - 1) return r;
         return l;
     }
     // count how many elements smaller than target
     //we can scan row by row but that would be slower then column
-    private int count(int[][] matrix, int target) {
+    private int countLessThanM(int[][] matrix, int target) {
         int n = matrix.length;
         int res = 0;
         int i = n - 1, j = 0;
