@@ -107,12 +107,17 @@ return 13.
  * if num > k = 8, then we will miss the correct answer
  * 
  */
-    //thinking process: O((m +n) * logD), D = max(m) - min(m)
+    /*thinking process: O((m +n) * logD), D = max(m) - min(m)
     //the problem is to find the k-the smallest element. 
     
     //we use binary search to find the element, search space is r = max(m), l =min(m);
     
-    //
+    //we want to find an integer m, which can make count(m)==k, M[i][j] <=m, there maybe duplicate 
+    //elements in the matrix, but the count must <= k.
+    
+    why we count elements < m in the matrix? 
+    
+    */
     public int kthSmallest2(int[][] matrix, int k) {
         int n = matrix.length;
         int l = matrix[0][0];
