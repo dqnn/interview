@@ -109,7 +109,10 @@ Explanation: We cannot get t from s by only one step.
             }
         }
       //All previous chars are the same, the only possibility 
-        //is deleting the end char in the longer one of s and t 
-        return Math.abs(s.length() - t.length()) == 1;
+        //is deleting the end char in the longer one of s and t
+        //previously already checked 
+       // return Math.abs(s.length() - t.length()) == 1;
+        
+        return true;
     }
 }
