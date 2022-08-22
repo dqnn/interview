@@ -62,6 +62,8 @@ Output: [1,2,3,4]
     ///---------mid-----x-------mid+k-----------
     //see above distance, if A[x] -A[m] > A[m + k] - A[m] which means
     //left side has more numbers which they are more far away than right side
+    
+    //why this return l? l < r 
     public List<Integer> findClosestElements1(int[] arr, int k, int x) {
         List<Integer> temp = Arrays.stream(arr).boxed().collect(Collectors.toList());
         //the end is len - k, 

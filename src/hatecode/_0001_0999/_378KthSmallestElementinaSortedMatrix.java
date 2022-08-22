@@ -118,32 +118,32 @@ return 13.
     why we count elements < m in the matrix? 
     
     */
-    public int kthSmallest2(int[][] matrix, int k) {
-        int n = matrix.length;
-        int l = matrix[0][0];
+    public int kthSmallest2(int[][] M, int k) {
+        int n = M.length;
+        int l = M[0][0];
         // asc by row and column, so we can conclude that m[0][0] is min m[r][c] is max
-        int r = matrix[n - 1][n - 1];
+        int r = M[n - 1][n - 1];
         // left + 1 ? 
         while (l + 1 < r) {
             int m = (r - l) / 2 + l;
-            int num = countLessThanM(matrix, m);
+            int num = countLessThanM(M, m);
             //we want prioritize right side boundary
             if (num >= k) r = m;
             else l = m;
         }
-        if (countLessThanM(matrix, r) <= k - 1) return r;
+        if (countLessThanM(M, r) <= k - 1) return r;
         return l;
     }
     // count how many elements smaller than target
     //we can scan row by row but that would be slower then column
-    private int countLessThanM(int[][] matrix, int target) {
-        int n = matrix.length;
+    private int countLessThanM(int[][] M, int target) {
+        int n = M.length;
         int res = 0;
         int i = n - 1, j = 0;
         while (i >= 0 && j < n) {
             // we scan the matrix from bottom to up, from n-1 --> 0
             // for column
-            if (matrix[i][j] < target) {
+            if (M[i][j] < target) {
                 res += i + 1; // i + 1 means how many elements each column, this will decide where i is
                 //scan horizon
                 j++; // we move to right on same row
