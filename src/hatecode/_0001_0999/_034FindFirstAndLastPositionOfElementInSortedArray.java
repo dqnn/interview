@@ -30,7 +30,7 @@ public class _034FindFirstAndLastPositionOfElementInSortedArray {
      * @param target
      * @return
      */
-    //thinking process:
+    //interview friendly: thinking process:O(lgn)/O(1)
     //given a sorted array which contains dup elements, we want to find an element which starts and end 
     //position in array. 
     
@@ -39,6 +39,8 @@ public class _034FindFirstAndLastPositionOfElementInSortedArray {
     //if = condition is on r(followed by) which means we want to find first(smallest, move to left 
     
     //one exception case for BS is that if cannot find it, return -1
+    
+    //we need to use 3rd template to finish 
     public int[] searchRange(int[] nums, int target) {
         if (nums == null || nums.length == 0) return new int[]{-1, -1};
         int start = findFirst(nums, target);

@@ -39,6 +39,7 @@ public class _109ConvertSortedListToBinarySearchTree {
      * @return
      */
 
+    //thinking process: O()/O()
     public TreeNode sortedListToBST(ListNode head) {
         if (head == null) return null;
         return toBST(head, null);
@@ -50,7 +51,7 @@ public class _109ConvertSortedListToBinarySearchTree {
         ListNode fast = head;
         // this is one way to find the middle node since fast = 2 * slow speed
         // this is not high accuracy way to find the middle way but it should be like
-        // s + (e - s) / 2, the same
+        //R s + (e - s) / 2, the same
         // fast != null maybe len % 2 =0, so fast and fast.next will be getting null
         // depends the length of the list, if it is odd, then fast will be null or
         // fast.next will be tail first.
