@@ -48,7 +48,7 @@ public class _304RangeSumQuery2DImmutable {
                 // the four number 
                 //  x x
                 //  x x 
-                //right bottom down is ij, so 
+                //right bottom down is i j, so 
                 sum[i][j] = sum[i - 1][j] + sum[i][j - 1] - sum[i - 1][j - 1] + matrix[i - 1][j - 1];
             }
         }
