@@ -52,7 +52,6 @@ public class _304RangeSumQuery2DImmutable {
                 sum[i][j] = sum[i - 1][j] + sum[i][j - 1] - sum[i - 1][j - 1] + matrix[i - 1][j - 1];
             }
         }
-
     }
 
     public int sumRegion(int row1, int col1, int row2, int col2) {
