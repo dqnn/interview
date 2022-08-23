@@ -83,7 +83,6 @@ Fill each empty room with the distance to its nearest gate. If it is impossible 
                     if(x >=0 && x<r && y >=0 &&y < c && rooms[x][y] != -1 && rooms[x][y] != 0 && rooms[x][y] > d) {
                         q.offer(new int[]{x, y});
                         rooms[x][y] = Math.min(rooms[x][y], d);
-                        
                     }
                 }
             }
