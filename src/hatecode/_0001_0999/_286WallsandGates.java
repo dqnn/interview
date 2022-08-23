@@ -45,8 +45,8 @@ Fill each empty room with the distance to its nearest gate. If it is impossible 
     // space : O(n)
     // thinking process:
     
-    //this problem is to say in a 2D array,  we cannot have visited for this question, because later 
-    //the cell has to be changed
+    //this problem is to say in a 2D array,  we cannot have visited for this question,
+    //because later as to be changed
     //we have 3 types of elements, INF empty room, -1 means wall, 0 means gate
     // so we need to find for each room, the smallest steps to gate, 
     // each move(4 directions) will be 1. and mark each room with steps to nearest gate
