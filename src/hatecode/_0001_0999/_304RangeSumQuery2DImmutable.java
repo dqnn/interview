@@ -38,6 +38,14 @@ public class _304RangeSumQuery2DImmutable {
     private int[][] sum;
 
     // it is more like area calculation
+    
+    /*
+     * thinking process: O(n*m)/O(n*m)
+     * the problem is to say, given a 2D matrix, and with top left and right bottom points,
+     * return area
+     * 
+     * 
+     */
     public _304RangeSumQuery2DImmutable(int[][] matrix) {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return;
         int m = matrix.length;
@@ -53,8 +61,13 @@ public class _304RangeSumQuery2DImmutable {
             }
         }
     }
+    
+    //this is simpler version, 
+    public int sumRegion(int r1, int c1, int r2, int c2) {
+        return sum[r2+1][c2+1] - sum[r1+1-1][c2+1]- sum[r2+1][c1+1-1] + sum[r1+1-1][c1+1-1];
+    }
 
-    public int sumRegion(int row1, int col1, int row2, int col2) {
+    public int sumRegion_Complex(int row1, int col1, int row2, int col2) {
         int iMin = Math.min(row1, row2);
         int iMax = Math.max(row1, row2);
         int jMin = Math.min(col1, col2);
