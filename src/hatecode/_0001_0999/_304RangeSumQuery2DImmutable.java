@@ -44,7 +44,11 @@ public class _304RangeSumQuery2DImmutable {
      * the problem is to say, given a 2D matrix, and with top left and right bottom points,
      * return area
      * 
+     * following are keys:
+     * 1. sum[i][j] means area(0,0)->(i-1, j-1) area
+     * 2. since top left and right bottom, we can easily get the other parts area 
      * 
+     * Notes: r1+1-1 means top right upper coordination
      */
     public _304RangeSumQuery2DImmutable(int[][] matrix) {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return;
