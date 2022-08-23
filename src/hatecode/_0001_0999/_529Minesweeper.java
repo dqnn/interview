@@ -129,7 +129,6 @@ Output:
                 }
             }
         }
-        
         return board;
     }
 }
