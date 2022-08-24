@@ -43,17 +43,13 @@ public class _103BinaryTreeZigzagLevelOrderTraversal {
             List<Integer> list = new ArrayList<>();
             for (int i = 0; i < size; i++) {
                 TreeNode cur = queue.poll();
-                if (x) {
-                    list.add(cur.val);
-                } else {
-                    list.add(0, cur.val);
-                }
-                if (cur.left != null) {
-                    queue.offer(cur.left);
-                }
-                if (cur.right != null) {
-                    queue.offer(cur.right);
-                }
+                if (x) list.add(cur.val);
+                else list.add(0, cur.val);
+                
+                if (cur.left != null) queue.offer(cur.left);
+                
+                if (cur.right != null) queue.offer(cur.right);
+               
             }
             res.add(list);
             x = x ? false : true;
