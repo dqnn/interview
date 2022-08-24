@@ -152,7 +152,7 @@ public class _269AlienDictionary {
             res.append(c);
             if (map.containsKey(c)) {
                 for (char ch : map.get(c)) {
-                    //means we have removed other relationship util it become the root 
+                    //means we have removed one relationship util this node become the root 
                     //of the left graph
                     if (--degree[ch - 'a'] == 1) {
                         queue.offer(ch);
