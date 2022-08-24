@@ -16,6 +16,10 @@ Output: [0,1,9,16,100]
 */
     //thinking process: O(n)/O(1)
     /*
+     * the problem is to say: given one sorted integer array,
+     * return the array if each element is squared
+     * 
+     * we use two pointer, one is from left another is from right,
      * 
      */
     public int[] sortedSquares(int[] A) {
