@@ -84,7 +84,8 @@ public class _076MinimumWindowSubstring {
                 if(map.containsKey(lc)) {
                     map.put(lc, map.getOrDefault(lc, 0) + 1);
                     //the character we removed is what we need
-                    //because this is in while(count == 0), which means lc must be new
+                   //we need to make sure map.get(lc) > 0 because map.get(lc) <= 0 which
+                    //means we have enough lc in substring to balance
                     if(map.get(lc) > 0) count++;
                 }
                 //this part is where we add our customize code
