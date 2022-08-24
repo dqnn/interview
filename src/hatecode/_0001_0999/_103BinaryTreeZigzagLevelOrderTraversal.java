@@ -52,7 +52,7 @@ public class _103BinaryTreeZigzagLevelOrderTraversal {
                
             }
             res.add(list);
-            x = x ? false : true;
+            x = !x;
         }
         return res;
     }
