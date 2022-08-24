@@ -226,6 +226,7 @@ following calculations.
         map.put('-', 0);
         map.put('*', 1);
         map.put('/', 1);
+        
         int n = s.length();
         for (int i = 0; i < n; i++) {
             char c = s.charAt(i);
@@ -234,9 +235,9 @@ following calculations.
             } else if (Character.isDigit(c)) {
                 
                 //calculate the number before operator
-                int val = Character.getNumericValue(c);
+                int val = c - '0';
                 while (i + 1 < n && Character.isDigit(s.charAt(i + 1))) {
-                    val = val * 10 + Character.getNumericValue(s.charAt(i + 1));
+                    val = val * 10 + s.charAt(i + 1) - '0';
                     i++;
                 }
                 operands.push(val);
