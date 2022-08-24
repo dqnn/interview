@@ -143,9 +143,9 @@ public class _269AlienDictionary {
         }
         //add the root to the results and BFS the Map
         //wrt, er, 
-        //    w-> r
-        //    \  /
-        //     e  <- t
+        //      
+        //      
+        //     w->e->r ->t ->f
         StringBuilder res = new StringBuilder();
         while (!queue.isEmpty()) {
             char c = queue.poll();
