@@ -143,8 +143,6 @@ public class _269AlienDictionary {
         }
         //add the root to the results and BFS the Map
         //wrt, er, 
-        //      
-        //      
         //     w->e->r ->t ->f
         StringBuilder res = new StringBuilder();
         while (!queue.isEmpty()) {
