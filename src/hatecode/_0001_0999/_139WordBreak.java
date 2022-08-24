@@ -34,7 +34,7 @@ public class _139WordBreak {
      * @param wordDict
      * @return
      */
-    // thinking progress:
+    // thinking progress:O(n^3)/O(n)
     // the problem is say yes or no when wordDict contains substrings of s or 
     //not space separated
     
