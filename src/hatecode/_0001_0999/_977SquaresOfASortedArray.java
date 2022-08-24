@@ -20,7 +20,7 @@ Output: [0,1,9,16,100]
      * return the array if each element is squared
      * 
      * we use two pointer, one is from left another is from right,
-     * 
+     * find the bigger and place the right most every time
      */
     public int[] sortedSquares(int[] A) {
         int n = A.length;
