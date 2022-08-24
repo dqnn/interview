@@ -101,8 +101,9 @@ public class _269AlienDictionary {
         }
 
         //this finally will process: w->e->r->t->f. plus line 92, f in degree = 2
-        //[wrt, wrf, er, ett, rftt]- > compare wrt, wrf, w->{r, f}, r->{w, f}, 
-        //wrf->er, w->{r,f,e}, r->{w,f,e},f->{e, r}, and we update all 
+        // map = {r=[t], t=[f], e=[r], w=[e]}
+        
+        //and we update all 
         // possible paths to previous to next word,
         //the order of the words showed the character order,we extract all possible info into the maps
         //and degree, the map only will save from previous character to next different ones. it will only
