@@ -125,9 +125,7 @@ class Skiplist2 {
     }
 }
 
-    
-    
-    
+
     
     //this is naive solution
     Map<Integer, TreeSet<Integer>> map;
