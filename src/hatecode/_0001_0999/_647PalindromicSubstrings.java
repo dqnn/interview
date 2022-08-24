@@ -40,7 +40,12 @@ Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
         
         return res;
     }
-    
+    /*
+     * helper is mainly want to find palindrome substrings in following format
+     * ----i, j------
+     * 
+     * if they have one same character, then at least 1 substring palindrome
+     */
     private int helper(String s, int i, int j) {
         int count = 0;
         while(i >=0 &&j < s.length() && s.charAt(i) == s.charAt(j)) {
