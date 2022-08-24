@@ -86,6 +86,8 @@ public class _076MinimumWindowSubstring {
                     //the character we removed is what we need
                    //we need to make sure map.get(lc) > 0 because map.get(lc) <= 0 which
                     //means we have enough lc in substring to balance
+                    
+                    //for example: CBCCCCCCCCCCCA, CBA, {'C'->-11}, means we have enough C
                     if(map.get(lc) > 0) count++;
                 }
                 //this part is where we add our customize code
