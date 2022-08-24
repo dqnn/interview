@@ -14,18 +14,24 @@ Input: [-4,-1,0,3,10]
 Output: [0,1,9,16,100]
 
 */
-    //straight forward
+    //thinking process: O(n)/O(1)
+    /*
+     * 
+     */
     public int[] sortedSquares(int[] A) {
-        if (A == null || A.length < 1) return new int[]{};
-        PriorityQueue<Integer> q = new PriorityQueue<>((a, b) ->(a-b));
-        
-        for(int temp : A) {
-            q.offer(temp * temp);
+        int n = A.length;
+        int[] res = new int[n];
+        int i = 0, j = n -1;
+        for(int p = n-1; p >=0; p--) {
+            if (Math.abs(A[i]) <= Math.abs(A[j])) {
+                res[p] = A[j] * A[j];
+                j--;
+            } else {
+                res[p] = A[i] * A[i];
+                i++;
+            }
         }
-        for(int i = 0; i< A.length; i++) {
-            A[i] = q.poll();
-        }
         
-        return A;
+        return res;
     }
 }
