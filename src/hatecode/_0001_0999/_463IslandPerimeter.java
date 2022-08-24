@@ -32,6 +32,7 @@ Output: 16
     //interview friendly: 
     //the key is understand the island perimeter, 4 * nodes - 2 *neighbous
     // because both have 1 side become 0 now, so we need to - 2 each time
+    //we only count down and right side neighbour
     public int islandPerimeter(int[][] grid) {
         int islands = 0, neighbours = 0;
 
