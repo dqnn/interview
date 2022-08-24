@@ -200,6 +200,28 @@ following calculations.
     }
     
     //use reverse polish notation to calculate expressions
+    /*
+"2*(5+5*2)/3+(6/2+8)"
+[]-----[]
+[2]-----[]
+[2]-----[*]
+[2]-----[*, (]
+[2, 5]-----[*, (]
+[2, 5]-----[*, (, +]
+[2, 5, 5]-----[*, (, +]
+[2, 5, 5]-----[*, (, +, *]
+[2, 5, 5, 2]-----[*, (, +, *]
+[2, 15]-----[*]
+[30]-----[/]
+[30, 3]-----[/]
+[10]-----[+]
+[10]-----[+, (]
+[10, 6]-----[+, (]
+[10, 6]-----[+, (, /]
+[10, 6, 2]-----[+, (, /]
+[10, 3]-----[+, (, +]
+[10, 3, 8]-----[+, (, +]
+     */
     static Map<Character, Integer> map;
     public static int calculate_Polish(String s) {
         
@@ -229,10 +251,9 @@ following calculations.
         
         int n = s.length();
         for (int i = 0; i < n; i++) {
+            System.out.println(operands + "-----" + operators);
             char c = s.charAt(i);
-            if (c == ' ') {
-                continue;
-            } else if (Character.isDigit(c)) {
+            if (Character.isDigit(c)) {
                 
                 //calculate the number before operator
                 int val = c - '0';
