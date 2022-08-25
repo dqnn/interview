@@ -52,6 +52,7 @@ Note:
     //memo function typical is to be result of recursive function, so 
     public int knightDialer(int N) {
         //0->{4,6}, 1->{6,8},map[i] means i can move to map[i][j]
+        //this also gave us some hints that if the 2D matrix is small, we can simply the nexthopmap always
         int[][] nextHopMap = {{4, 6}, {6, 8}, {7, 9}, {4, 8}, {0, 3, 9}, {}, {0, 1, 7}, {2, 6}, {1, 3}, {2, 4}};
         //memo[i][j] means if we start from j, i moves, how many number can be formed
         int[][] memo = new int[N + 1][10];
