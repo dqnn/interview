@@ -52,7 +52,7 @@ Note:
     //memo function typical is to be result of recursive function, so 
     public int knightDialer(int N) {
         //0->{4,6}, 1->{6,8},map[i] means i can move to map[i][j]
-        int[][] nextHopMap = new int[][]{{4, 6}, {6, 8}, {7, 9}, {4, 8}, {0, 3, 9}, {}, {0, 1, 7}, {2, 6}, {1, 3}, {2, 4}};
+        int[][] nextHopMap = {{4, 6}, {6, 8}, {7, 9}, {4, 8}, {0, 3, 9}, {}, {0, 1, 7}, {2, 6}, {1, 3}, {2, 4}};
         //memo[i][j] means if we start from j, i moves, how many number can be formed
         int[][] memo = new int[N + 1][10];
         for (int i = 1; i <= N; i++)  Arrays.fill(memo[i], -1);
