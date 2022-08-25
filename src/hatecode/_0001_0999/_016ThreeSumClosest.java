@@ -28,57 +28,25 @@ public class _016ThreeSumClosest {
     
     //so brute force is O(n^3) then we can improve can sort first then we can 
     //use two pointers to move the end and start
-    public int threeSumClosest(int[] nums, int target) {
-        int res = nums[0] + nums[1] + nums[nums.length - 1];
-        Arrays.sort(nums);
-        for (int i = 0; i < nums.length - 2; i++) {
-            int start = i + 1, end = nums.length - 1;
-            while (start < end) {
-                int sum = nums[i] + nums[start] + nums[end];
-                if (sum > target) {
-                    end--;
-                } else start++;
-                if (Math.abs(sum - target) < Math.abs(res - target)) {
+    public int threeSumClosest(int[] A, int target) {
+        Arrays.sort(A);
+        
+        int res = A[0] + A[1] + A[A.length-1];
+        
+        for(int i = 0; i< A.length; i++) {
+            int s = i +1, e= A.length -1;
+            while(s < e) {
+                int sum = A[i] + A[s] + A[e];
+                if (sum > target) e--;
+                else if (sum < target) s++;
+                else return target;
+                
+                if (Math.abs(res - target) > Math.abs(sum - target)) {
                     res = sum;
                 }
             }
         }
+        
         return res;
-    }
-    // my own solution, should be the same
-    public int threeSumClosest2(int[] nums, int target) {
-        //edge case 
-        if (nums == null || nums.length < 3) {
-            return -2;
-        }
-        
-        if (nums.length == 3) {
-            return nums[0] + nums[1] + nums[2];
-        }
-        
-        Arrays.sort(nums);
-        int delta = Integer.MAX_VALUE, result = Integer.MAX_VALUE;
-        for(int i=0; i<=nums.length-3; i++) {
-            int p =i+1, p2 = nums.length -1;
-            while(p<p2){
-                int movingSum = nums[p] + nums[p2];
-                int newDeltaWithoutAbs = target - nums[p] - nums[p2] - nums[i];
-                if(newDeltaWithoutAbs == 0) {
-                    return target;
-                } else {
-                    if (delta > Math.abs(newDeltaWithoutAbs)) {
-                        delta = Math.abs(newDeltaWithoutAbs);
-                        result = nums[p]  + nums[p2] + nums[i];
-                    }
-                    if (newDeltaWithoutAbs > 0) {
-                        p++;
-                    } else {
-                        p2--;
-                    }
-                }
-            }
-        }
-        
-        return result;
     }
 }
