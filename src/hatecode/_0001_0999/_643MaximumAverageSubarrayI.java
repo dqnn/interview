@@ -17,6 +17,10 @@ Explanation: Maximum average is (12 - 5 - 6 + 50) / 4 = 51 / 4 = 12.75
     */
     
     //thinking process: O(n)/O(1)
+    /*
+     * the problem is to say: given one array, return max sum for length = k
+     * sub array
+     */
     
     //leverage A[i] - A[i-k]
     public double findMaxAverage(int[] A, int k) {
