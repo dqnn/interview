@@ -18,7 +18,8 @@ Output: 1
 
 */
     //this should be a hard problem
-    //be careful one case that if 1 is at bottom then it probably not best
+    //be careful one case that if 1 is at bottom then 
+    //it probably not best
     public int shortestBridge(int[][] A) {
         int r = A.length, c = A[0].length;
         boolean[][] visited = new boolean[r][c];
