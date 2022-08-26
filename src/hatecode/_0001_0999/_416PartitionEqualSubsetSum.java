@@ -71,4 +71,26 @@ public class _416PartitionEqualSubsetSum {
         
         return dp[sum];
     }
+    
+    
+    public boolean canPartition_TLE(int[] A) {
+        int sum = 0;
+        for(int i : A) sum += i;
+        
+        if (sum % 2 != 0) return false;
+        
+        return helper(A, 0, 0, sum/2);
+        
+    }
+    
+    
+    private boolean helper(int[] A, int pos, int cur, int target) {
+        if (pos >= A.length || cur > target) return false;
+        if (cur == target) return true;
+        for(int i = pos; i < A.length; i++) {
+            if (helper(A, i+1, cur + A[i], target)) return true;
+        }
+        
+        return false;
+    }
 }
