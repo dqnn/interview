@@ -46,7 +46,6 @@ Output: [0,2,3,1]
     public int[] getOrder(int[][] A) {
         if (A == null || A.length < 1) return new int[0];
         
-       
         PriorityQueue<int[]> pq= new PriorityQueue<>((a, b)->(a[0] != b[0] ? Integer.compare(a[0], b[0]) 
                                                                            : a[1] == b[1] ? Integer.compare(a[2], b[2]) 
                                                                                           : Integer.compare(a[1], b[1])));
