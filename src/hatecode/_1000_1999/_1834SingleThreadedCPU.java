@@ -34,6 +34,13 @@ Output: [0,2,3,1]
      * [[1,2],[2,4],[3,2],[4,1]] --> [0,2,3,1]
      * 
      * 
+     * we use two PQs, first is to sort by enqueueTime asc, processtime asc, index asc.
+     * 2nd PQ we will locally sort by process time only because all are qualified candidates 
+     * to process,
+     * 
+     * but they are edge cases need to take care:
+     * one is the cur time, it needs to be updated everytime
+     * 1. [[1,100],[10000,10000]]
      */
     public int[] getOrder(int[][] A) {
         if (A == null || A.length < 1) return new int[0];
