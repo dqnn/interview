@@ -21,11 +21,12 @@ Input: [[0,1],[1,0]]
 Output: 1
 
 */
-    //this should be a hard problem
-    //be careful one case that if 1 is at bottom then 
-    //it probably not best
+    //thinking process: O(mn)O(mn)
     /*
-     * 
+     * 1. first build the queue, the queue only contains the [i][j] which is first
+     * round of water elements, 
+     * 2. then we BFS on these elements, if we found anyone not visited before and it is 
+     * land, then we found it
      */
     int[][] dirs = {{-1,0}, {1,0}, {0,1}, {0,-1}};
     public int shortestBridge(int[][] A) {
