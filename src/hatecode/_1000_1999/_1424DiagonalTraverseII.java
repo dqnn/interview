@@ -22,7 +22,9 @@ Output: [1,6,2,8,7,3,9,4,12,10,5,13,11,14,15,16]
   /*
    * thinking process: O(mn)/O(mn)
    * 
-   * the problem is to say: 
+   * the problem is to say:  dialogonal visit the 2D matrix array
+   * 
+   * r +c = constant, so we can use this to visit the matrix
    */
     public int[] findDiagonalOrder(List<List<Integer>> A) {
         Map<Integer, List<Integer>> map = new HashMap<>();
