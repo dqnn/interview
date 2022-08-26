@@ -39,7 +39,8 @@ Output: [0,2,3,1]
      * to process,
      * 
      * but they are edge cases need to take care:
-     * one is the cur time, it needs to be updated everytime
+     * one is the cur time, it needs to be updated everytime, either 
+     * from 2nd pq, or 1st pq.
      * 1. [[1,100],[10000,10000]]
      */
     public int[] getOrder(int[][] A) {
