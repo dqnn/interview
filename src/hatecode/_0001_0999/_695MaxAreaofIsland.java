@@ -19,6 +19,12 @@ Explanation: The answer is not 11, because the island must be connected 4-direct
 */
   
     // DFS
+    /*
+     * thinking process: O(mn)/O(mn)
+     * 
+     * typical way to traverse the 2D matrix and calculate the elements
+     * how many are land
+     */
     int[][] dirs = {{-1, 0}, {1, 0}, {0,1}, {0,-1}};
     public int maxAreaOfIsland(int[][] grid) {
         if (grid == null || grid.length == 0 || grid[0].length == 0) return 0;
