@@ -27,6 +27,13 @@ Output: [0,2,3,1]
     
     /*
      * the problem is to say: 
+     * given a 2D array,  [[]], each element [1, 2] means the task start from
+     * time 1 and will take time 2 to finish, 
+     * 
+     * return an array of the process orders, for example
+     * [[1,2],[2,4],[3,2],[4,1]] --> [0,2,3,1]
+     * 
+     * 
      */
     public int[] getOrder(int[][] A) {
         if (A == null || A.length < 1) return new int[0];
