@@ -20,6 +20,12 @@ Output: 3
     /*
      * thinking process: O(n)/O(h)
      * the problem compared to 236 is that p q may not be in the tree.
+     * we have to search in whole tree, 
+     * 
+     * 236 use a short cut if (root == null || p == root || q==root) to short cut
+     * because they are guarteened that p and q are in the tree. so we can return if we 
+     * can find one and only need to find one in one branch
+     * 
      * 
      */
     int count= 0;
@@ -33,6 +39,7 @@ Output: 3
        // if (count == 2) return null;
         if (root == null ) return null;
         
+        //we have to search whole tree
         TreeNode l = helper(root.left, p, q);
         TreeNode r = helper(root.right, p, q);
         if (p == root || q == root) {
