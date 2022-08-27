@@ -36,7 +36,7 @@ Output: 6
      space : O(1)
 
      *
-     * @param height
+     * @param A
      * @return
      */
     /*
@@ -47,16 +47,16 @@ of partial container. Fix the higher one and flow water from the lower part. For
 if current height of left is lower, we fill water in the left bin. Until left meets right, 
 we filled the whole container.
 */
-    public int trap(int[] height) {
-        if (height == null || height.length < 3) {
+    public int trap(int[] A) {
+        if (A == null || A.length < 3) {
             return 0;
         }
         
-        int left = 0, right = height.length - 1;
-        int leftMax = 0, rightMax = 0;
+        int l = 0, r = A.length - 1;
+        int lMax = 0, rMax = 0;
         int res = 0;
         
-        while(left < right) {
+        while(l < r) {
             //if height[left] < height[right], we move to right, because 
             //it is decided by the smaller one not big one. if some in the middle are bigger 
             //then the calculation is correct, if smaller,also correct
@@ -68,14 +68,14 @@ we filled the whole container.
             //if we meet bigger one, then bigger one will become the base. 
             
             //this problems combines DP and divide and conqure
-            if (height[left] < height[right]) {
-                leftMax = Math.max(height[left], leftMax);
-                res += leftMax - height[left];
-                left++;
+            if (A[l] < A[r]) {
+                lMax = Math.max(A[l], lMax);
+                res += lMax - A[l];
+                l++;
             } else {
-                rightMax = Math.max(height[right], rightMax);
-                res += rightMax - height[right];
-                right--;
+                rMax = Math.max(A[r], rMax);
+                res += rMax - A[r];
+                r--;
             }
         }
         return res;
