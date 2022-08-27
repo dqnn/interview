@@ -39,7 +39,7 @@ Output: 3
        // if (count == 2) return null;
         if (root == null ) return null;
         
-        //we have to search whole tree
+        //we have to search whole tree with post order visiting the tree
         TreeNode l = helper(root.left, p, q);
         TreeNode r = helper(root.right, p, q);
         if (p == root || q == root) {
