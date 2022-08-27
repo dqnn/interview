@@ -28,7 +28,7 @@ Output: [1,5]
      * 
      * when P1, p2 are the same, then we can start to move p3
      * 
-     * 
+     * if we have K arrays, then we need to use a PQ.
      * 
      */
     public List<Integer> arraysIntersection(int[] A1, int[] A2, int[] A3) {
