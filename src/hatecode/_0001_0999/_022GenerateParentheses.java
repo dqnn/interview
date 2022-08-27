@@ -29,6 +29,10 @@ public class _022GenerateParentheses {
 
     //interview friendly:
     //O(4^n/n^1/2)/O(4^n/n^1/2) see LC solution
+    
+    /*
+     * left and right means how many "(" and ")" need to be added to string
+     */
     public List<String> generateParenthesis(int n) {
         List<String> res = new ArrayList<>();
         if (n < 1) return res;
@@ -44,7 +48,7 @@ public class _022GenerateParentheses {
             res.add(pre);
             return;
         }
-        
+        //means left and right still need to be added to results
         if (left > 0) helper(res, pre + "(", left - 1, right + 1);
         if (right > 0) helper(res, pre + ")", left, right - 1);
     }
