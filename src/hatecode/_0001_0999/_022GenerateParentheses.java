@@ -48,7 +48,8 @@ public class _022GenerateParentheses {
             res.add(pre);
             return;
         }
-        //means left and right still need to be added to results
+        //means left and right still need to be added to results, we do not need 
+        //worry about the dup results
         if (left > 0) helper(res, pre + "(", left - 1, right + 1);
         if (right > 0) helper(res, pre + ")", left, right - 1);
     }
