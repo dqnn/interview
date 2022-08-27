@@ -57,14 +57,14 @@ we filled the whole container.
         int res = 0;
         
         while(l < r) {
-            //if height[left] < height[right], we move to right, because 
+            //if A[left] < A[right], l++, because 
             //it is decided by the smaller one not big one. if some in the middle are bigger 
             //then the calculation is correct, if smaller,also correct
             //we scan from left to right and find the max bin, 
             //the max maybe current one or previous one, so res will be means how much can fill the gaps
             
             //split the bottle where we can fill the water and add them together, 
-            //so we use maxium length to subtract each one, then we get each piece of water we can fill
+            //so we use max length to subtract each one, then we get each piece of water we can fill
             //if we meet bigger one, then bigger one will become the base. 
             
             //this problems combines DP and divide and conqure
