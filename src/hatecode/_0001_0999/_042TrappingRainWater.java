@@ -10,7 +10,7 @@ import java.util.Stack;
  * Date : Sep, 2018
  * Description : 42. Trapping Rain Water
  */
-public class TrappingRainWater {
+public class _042TrappingRainWater {
     /**
 Given n non-negative integers representing an elevation map where the width of each bar is 1, 
 compute how much water it is able to trap after raining.
