@@ -19,6 +19,16 @@ Output: [1,5]
      * the problem is to say:
      * given 3 strictly increasing arrays, return their intersection sets
      * 
+     * since we only have 3 sorted arrays, so we use 3 pointers to them,
+     * then compare each pair, 
+     * 
+     * at p1,p2,p3 if they are not the same, then we have to move smaller pointers
+     * to bigger ones, we do not have to care about P1 with p3 because 
+     * even they do not move, they also do not have same number,
+     * 
+     * when P1, p2 are the same, then we can start to move p3
+     * 
+     * 
      * 
      */
     public List<Integer> arraysIntersection(int[] A1, int[] A2, int[] A3) {
