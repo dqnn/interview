@@ -142,7 +142,8 @@ Output:
                 for (int j = 0; j < c; j++) {
                     int val = Math.abs(board[i][j]);
                     if (val == 0) continue;
-                    if (j < c - 2 && Math.abs(board[i][j + 1]) == val && Math.abs(board[i][j + 2]) == val) {
+                    if (j < c - 2 && Math.abs(board[i][j + 1]) == val 
+                                  && Math.abs(board[i][j + 2]) == val) {
                         found = true;
                         int ind = j;
                         while (ind < c && Math.abs(board[i][ind]) == val) board[i][ind++] = -val;
