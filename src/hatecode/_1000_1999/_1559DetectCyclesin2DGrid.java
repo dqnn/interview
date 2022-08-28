@@ -22,7 +22,16 @@ Explanation: There are two valid cycles shown in different colors in the image b
 */
     /*
      * thinking process: O(n*m)/o(nm)
-     * the problem is to say: given a 2D matrix, we need to 
+     * the problem is to say: given a 2D matrix, we need to find a circle which it same value
+     * there is two keys:
+     * a. visited elements, we should not visited again. because any elments on that
+     * line will not be able to form a circle
+     * b. we need previous, current element coordination, because see below
+     *  (pre)a  b (cur) 
+     *          a
+     * when we at cur, we will calculate next, but we do not want to go back,
+     * so we have to include previous _i and _j
+     * 
      */
   
     public boolean containsCycle(char[][] A) {
