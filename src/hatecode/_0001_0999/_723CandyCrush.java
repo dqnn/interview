@@ -142,12 +142,18 @@ Output:
                 for (int j = 0; j < c; j++) {
                     int val = Math.abs(board[i][j]);
                     if (val == 0) continue;
+                    //identify at least 3 on same row.
                     if (j < c - 2 && Math.abs(board[i][j + 1]) == val 
                                   && Math.abs(board[i][j + 2]) == val) {
                         found = true;
+                        
+                        //j as start index, mark all val as 0 one same row,
+                        //it will mark as many as possible, not only 3
                         int ind = j;
                         while (ind < c && Math.abs(board[i][ind]) == val) board[i][ind++] = -val;
                     }
+                    
+                    //find 0 on same column 
                     if (i < r - 2 && Math.abs(board[i + 1][j]) == val && Math.abs(board[i + 2][j]) == val) {
                         found = true;
                         int ind = i;
