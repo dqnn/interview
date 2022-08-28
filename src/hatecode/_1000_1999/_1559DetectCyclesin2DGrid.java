@@ -62,7 +62,7 @@ Explanation: There are two valid cycles shown in different colors in the image b
             int y = j + d[1];
             
             if (x >=0 && x < r && y >=0 && y < c && A[i][j] == A[x][y]) {
-                if (!(x == _i && y == _j) ) {
+                if (x != _i ||  y != _j) {
                     if (visited[x][y]) return true;
                     else if (helper(A, x, y, i, j, visited)) return true;
                 }
