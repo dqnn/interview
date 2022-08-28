@@ -134,30 +134,30 @@ Output:
     
     //another elegant solution from discussion
     public int[][] candyCrush_Elegant(int[][] board) {
-        int N = board.length, M = board[0].length;
+        int r = board.length, c = board[0].length;
         boolean found = true;
         while (found) {
             found = false;
-            for (int i = 0; i < N; i++) {
-                for (int j = 0; j < M; j++) {
+            for (int i = 0; i < r; i++) {
+                for (int j = 0; j < c; j++) {
                     int val = Math.abs(board[i][j]);
                     if (val == 0) continue;
-                    if (j < M - 2 && Math.abs(board[i][j + 1]) == val && Math.abs(board[i][j + 2]) == val) {
+                    if (j < c - 2 && Math.abs(board[i][j + 1]) == val && Math.abs(board[i][j + 2]) == val) {
                         found = true;
                         int ind = j;
-                        while (ind < M && Math.abs(board[i][ind]) == val) board[i][ind++] = -val;
+                        while (ind < c && Math.abs(board[i][ind]) == val) board[i][ind++] = -val;
                     }
-                    if (i < N - 2 && Math.abs(board[i + 1][j]) == val && Math.abs(board[i + 2][j]) == val) {
+                    if (i < r - 2 && Math.abs(board[i + 1][j]) == val && Math.abs(board[i + 2][j]) == val) {
                         found = true;
                         int ind = i;
-                        while (ind < N && Math.abs(board[ind][j]) == val) board[ind++][j] = -val;           
+                        while (ind < r && Math.abs(board[ind][j]) == val) board[ind++][j] = -val;           
                     }
                 }
             }
             if (found) { // move positive values to the bottom, then set the rest to 0
-                for (int j = 0; j < M; j++) {
-                    int storeInd = N - 1;
-                    for (int i = N - 1; i >= 0; i--) {
+                for (int j = 0; j < c; j++) {
+                    int storeInd = r - 1;
+                    for (int i = r - 1; i >= 0; i--) {
                         if (board[i][j] > 0) {
                             board[storeInd--][j] = board[i][j];
                         }
