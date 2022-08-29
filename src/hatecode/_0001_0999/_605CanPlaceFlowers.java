@@ -30,7 +30,15 @@ public class _605CanPlaceFlowers {
     
     /*
      * the problem is to say: given a integer array with 0 or 1 as value of its elements,
-     * 1 means flower, 0 means empty, return 
+     * 1 means flower, 0 means empty, we must plant flower in adjacent cell. return whether 
+     * we can plant n flowers more.
+     * 
+     *first need to clarify input and edge cases.
+     * if n == 0 or A is empty, then we just return true. 
+     * 
+     * then both edges we can plant if its adjacent are not empty.
+     * 
+     * just plant as many as possible, it is greedy problem
      */
     public static boolean canPlaceFlowers(int[] flowerbed, int n) {
         int count = 0;
