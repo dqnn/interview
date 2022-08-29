@@ -25,9 +25,16 @@ public class _605CanPlaceFlowers {
      * @param n
      * @return
      */
+    
+    //thinking process: O(n)/O(1)
+    
+    /*
+     * the problem is to say: given a integer array with 0 or 1 as value of its elements,
+     * 1 means flower, 0 means empty, return 
+     */
     public static boolean canPlaceFlowers(int[] flowerbed, int n) {
         int count = 0;
-        // this templates needed to be remmebered
+        // this templates needed to be remembered
         for (int i = 0; i < flowerbed.length; i++) {
             if (flowerbed[i] == 0) {
                 if (i == 0 || flowerbed[i - 1] == 0) {
