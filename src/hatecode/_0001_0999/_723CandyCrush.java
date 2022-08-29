@@ -138,7 +138,7 @@ Output:
      * each row and column
      * 
      * the problem is to say: given a 2D matrix with all positive integers, each integer 
-     * reprents one color, if we have 3 elements(same row or column) have same color,
+     * represents one color, if we have 3 elements(same row or column) have same color,
      * we can vanish them, then all elements above them will drop to fill their space, 
      * 
      * continue to play this game, return the stable board, the vanished or moved space can filled with 0.
