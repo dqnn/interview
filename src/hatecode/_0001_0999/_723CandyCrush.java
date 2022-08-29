@@ -132,7 +132,26 @@ Output:
         }
     }
     
-    //another elegant solution from discussion
+    /*
+     * interview friendly:
+     * 
+     * the problem is to say: given a 2D matrix with all positive integers, each integer 
+     * reprents one color, if we have 3 elements(same row or column) have same color,
+     * we can vanish them, then all elements above them will drop to fill their space, 
+     * 
+     * continue to play this game, return the stable board, the vanished or moved space can filled with 0.
+     * 
+     * 
+     * so several key question here:
+     * 1. how to find 3 elements in a row or column, especiall like "L" style, 
+     *     1
+     *     1
+     *     1 1 1
+     * 2. how to "drop"? 
+     * 3. how to simulate this behavior until it become stable?
+     * 
+     * 
+     */
     public int[][] candyCrush_Elegant(int[][] board) {
         int r = board.length, c = board[0].length;
         boolean found = true;
