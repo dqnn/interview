@@ -21,11 +21,30 @@ Explanation: The figure above represents the given tree where red vertices have 
     /*
      * thinking process: O(E + V)/O(E+V) E is edges, V is Node
      * 
-     * the problem is to say: given one edges[i, j] as 2D array, i connected to j vise either,
-     * hasApple is  list of booleans which means whether the node is Apple or not, 
+     * the problem is to say: given one edges[i, j] as 2D array, i connected 
+     * to j vise either,
+     * hasApple is  list of booleans which means whether the node 
+     * is Apple or not, 
      * 
-     * return the minimal time to collect all apples, notes: you need to come back to node root.
+     * return the minimal time to collect all apples, notes: you need to 
+     * come back to node root.
      * 
+     * the hard of this problem is you need to back to root, 
+     * if it only collect apples, then it would be easy. BFS + PQ
+     * 
+     * but here it required to back to root, so we need to identify the smallest 
+     * time cost pattern.
+     * 
+     * it should be able able to figure out that 
+     * suppose root has 2 child, left's child has apple
+     * 
+     *      root
+     *     /    
+     *    left
+     *   /   \
+     * p1   apple
+     * root->left->p1->left->p2->left->root has smallest path, so
+     * the cost from each subtree node to its child would be 2
      * 
      */
     public int minTime(int n, int[][] edges, List<Boolean> hasApple) {
