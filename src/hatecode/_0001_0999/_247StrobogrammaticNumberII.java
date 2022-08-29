@@ -34,7 +34,8 @@ public class _247StrobogrammaticNumberII {
     //the problem is to output list of strobogrammatic numbers 
     //which the length less than n
     
-    //so from I we can know there will two pointers, but here if we continue to use two pointers, 
+    //so from I we can know there will two pointers, but here if we continue to 
+    //use two pointers, 
     //we need several for loop and base n = 1 to solve this problem, 
     //TODO: why we use recursive instead of for loop
     
