@@ -60,14 +60,21 @@ Explanation: The figure above represents the given tree where red vertices have 
     
     
     private int helper(Map<Integer, List<Integer>> map, Map<Integer, Boolean> visited, int node, List<Boolean> hasApple, int cost) {
+        //if already visited, we do not want to go, so for current branch, it will be 0
         if (visited.containsKey(node)) return 0;
         visited.put(node, true);
+        
+        /*
+         * for this sub tree, we have to initialize as 0 because
+         * later we need to check whether its subtree has no apple, if it is none,
+         * then we do not want to go to that branch 
+         */
         
         int res = 0;
         for(int n: map.get(node)) {
             res += helper(map, visited, n, hasApple, 2);
         }
-        
+        //first check all child nodes, 2nd check current node, 
         if (res == 0 && !hasApple.get(node)) return 0;
         return res + cost;
     }
