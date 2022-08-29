@@ -133,7 +133,9 @@ Output:
     }
     
     /*
-     * interview friendly:
+     * interview friendly: O(mn * mn * k)/O(mn)
+     * TC: best O(mn * mn * k), k for while(true), we visit MN but internally we scan 
+     * each row and column
      * 
      * the problem is to say: given a 2D matrix with all positive integers, each integer 
      * reprents one color, if we have 3 elements(same row or column) have same color,
