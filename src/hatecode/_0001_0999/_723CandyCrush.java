@@ -150,33 +150,37 @@ Output:
      * 2. how to "drop"? 
      * 3. how to simulate this behavior until it become stable?
      * 
-     * 
+     * for 1, we can easily find out 3 in row or column with same value, but here we mark their negative value, 
+     * so later we can override them easily with A[i][j] > 0. 
+     * 2. we drop the balls by visiting each column from bottom to up, if we found one element> 0, 
+     * then we can start to override, 
+     * 3. how to simulate, use while(true) until we cannot find any 3 in row or column
      */
-    public int[][] candyCrush_Elegant(int[][] board) {
-        int r = board.length, c = board[0].length;
+    public int[][] candyCrush_Elegant(int[][] A) {
+        int r = A.length, c = A[0].length;
         boolean found = true;
         while (found) {
             found = false;
             for (int i = 0; i < r; i++) {
                 for (int j = 0; j < c; j++) {
-                    int val = Math.abs(board[i][j]);
+                    int val = Math.abs(A[i][j]);
                     if (val == 0) continue;
                     //identify at least 3 on same row.
-                    if (j < c - 2 && Math.abs(board[i][j + 1]) == val 
-                                  && Math.abs(board[i][j + 2]) == val) {
+                    if (j < c - 2 && Math.abs(A[i][j + 1]) == val 
+                                  && Math.abs(A[i][j + 2]) == val) {
                         found = true;
                         
                         //j as start index, mark all val as 0 one same row,
                         //it will mark as many as possible, not only 3
                         int ind = j;
-                        while (ind < c && Math.abs(board[i][ind]) == val) board[i][ind++] = -val;
+                        while (ind < c && Math.abs(A[i][ind]) == val) A[i][ind++] = -val;
                     }
                     
                     //find 0 on same column 
-                    if (i < r - 2 && Math.abs(board[i + 1][j]) == val && Math.abs(board[i + 2][j]) == val) {
+                    if (i < r - 2 && Math.abs(A[i + 1][j]) == val && Math.abs(A[i + 2][j]) == val) {
                         found = true;
                         int ind = i;
-                        while (ind < r && Math.abs(board[ind][j]) == val) board[ind++][j] = -val;           
+                        while (ind < r && Math.abs(A[ind][j]) == val) A[ind++][j] = -val;           
                     }
                 }
             }
@@ -184,14 +188,14 @@ Output:
                 for (int j = 0; j < c; j++) {
                     int storeInd = r - 1;
                     for (int i = r - 1; i >= 0; i--) {
-                        if (board[i][j] > 0) {
-                            board[storeInd--][j] = board[i][j];
+                        if (A[i][j] > 0) {
+                            A[storeInd--][j] = A[i][j];
                         }
                     }
-                    for (int k = storeInd; k >= 0; k--) board[k][j] = 0;
+                    for (int k = storeInd; k >= 0; k--) A[k][j] = 0;
                 }
             }
         }
-        return board;
+        return A;
     }
 }
