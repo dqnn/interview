@@ -70,7 +70,6 @@ Explanation: The figure above represents the given tree where red vertices have 
         }
         
         if (res == 0 && !hasApple.get(node)) return 0;
-        
         return res + cost;
     }
 }
