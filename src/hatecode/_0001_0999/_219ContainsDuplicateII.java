@@ -35,7 +35,7 @@ public class _219ContainsDuplicateII {
                 }
             }
             //we want to update the index so we can have smaller diff if A[i] already
-            //exisit in array
+            //exsit in array
             map.put(nums[i], i);
         }
         return false;
