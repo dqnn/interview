@@ -38,6 +38,8 @@ public class _029DivideTwoIntegers {
     public int divide(int ld, int d) {
         int sign = 1;
         if ((ld > 0 && d < 0) || (ld < 0 && d > 0)) sign = -1;
+        
+        //like ld = -2^31, d = -1, it will overflow
         // here we have to handle dividend is Integer.MIN_VALUE this case, so it cannot be 
         // Integer.MIN_VALUE = -2^31, Integer.MAX_VALUE = 2^31 - 1. so they are different
         long ldividend = Math.abs((long)ld);
