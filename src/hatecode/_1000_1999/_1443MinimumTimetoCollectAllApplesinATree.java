@@ -22,6 +22,10 @@ Explanation: The figure above represents the given tree where red vertices have 
      * thinking process: O(E + V)/O(E+V) E is edges, V is Node
      * 
      * the problem is to say: given one edges[i, j] as 2D array, i connected to j vise either,
+     * hasApple is  list of booleans which means whether the node is Apple or not, 
+     * 
+     * return the minimal time to collect all apples, notes: you need to come back to node root.
+     * 
      * 
      */
     public int minTime(int n, int[][] edges, List<Boolean> hasApple) {
