@@ -21,7 +21,6 @@ Output: 3412
     public int largestInteger_BF(int num) {
         char[] A = String.valueOf(num).toCharArray();
         
-        StringBuilder sb = new StringBuilder();
         for(int i = 0; i<A.length; i++) {
             for(int j = i+1; j< A.length; j++) {
                 if (A[j] > A[i] && (A[j] - A[i])% 2 == 0) {
