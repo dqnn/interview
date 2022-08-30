@@ -36,7 +36,7 @@ A total of 4 operations were used.
      *  1-----2-------3-------4-------1------------2--
      *  any points outside both ends will have bigger distances
      *  
-     *2. 
+     *2. sort, find the median one, then sum from left to right
      * 
      */
   public int minOperations(int[][] grid, int x) {
@@ -61,6 +61,12 @@ A total of 4 operations were used.
         return res;
     }
     
+  /*
+   * thinking process: O(mn)/O(mn)
+   * 
+   * we use quick select to find median elements, half are smaller and half are 
+   * bigger, but still got TLE
+   */
     public int minOperations_quickSelect_TLE(int[][] grid, int x) {
         int r = grid.length, c =grid[0].length;
         if (r *c <= 1) return 0;
