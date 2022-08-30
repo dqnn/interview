@@ -32,7 +32,6 @@ A total of 4 operations were used.
      * [2,4,6,8] x = 2--> 2(1), 4(0), 6(1), 8(2) = 1+0+1+2 = 4 
      * 
      * 
-     * 
      */
   public int minOperations(int[][] grid, int x) {
         int r = grid.length, c =grid[0].length;
