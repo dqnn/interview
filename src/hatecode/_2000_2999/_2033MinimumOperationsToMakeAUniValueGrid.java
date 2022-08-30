@@ -23,6 +23,11 @@ Explanation: We can make every element equal to 4 by doing the following:
 - Subtract x from 8 twice.
 A total of 4 operations were used.
 */
+    /*
+     * thinking process: O(mnlgmn)/O(mn)
+     * 
+     * 
+     */
   public int minOperations(int[][] grid, int x) {
         int r = grid.length, c =grid[0].length;
         if (r *c <= 1) return 0;
