@@ -44,6 +44,7 @@ public class _298BinaryTreeLongestConsecutiveSequence {
     /*
      * thinking process: O(n)/O(h)
      * 
+     * if value is expected,we update the cur. and res
      */
     private int res = 0;
 
