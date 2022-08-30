@@ -86,14 +86,13 @@ A total of 4 operations were used.
            
            res += Math.abs(A[i] - A[med])/x;
        }
-                         
+
        return res;
     }
     
     private int findMed(int[] A, int l, int r) {
         int len = A.length - 1;
         while(true) {
-            
             int med = partition(A, l, r);
             System.out.println(l + "----" +med+"---"+ r);
             if (med  == len / 2) return med;
