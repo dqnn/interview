@@ -41,6 +41,10 @@ public class _298BinaryTreeLongestConsecutiveSequence {
      * @return
      */
 
+    /*
+     * thinking process: O(n)/O(h)
+     * 
+     */
     private int res = 0;
 
     public int longestConsecutive(TreeNode root) {
@@ -51,9 +55,8 @@ public class _298BinaryTreeLongestConsecutiveSequence {
 
     public void helper(TreeNode root, int max, int target) {
         if (root == null) return;
-        if (root.val == target) {
-            max++;
-        } else max = 1;
+        if (root.val == target) max++;
+        else max = 1;
         res = Math.max(res, max);
         helper(root.left, max, root.val + 1);
         helper(root.right, max, root.val + 1);
