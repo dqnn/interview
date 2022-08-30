@@ -66,6 +66,8 @@ A total of 4 operations were used.
    * 
    * we use quick select to find median elements, half are smaller and half are 
    * bigger, but still got TLE
+   * 
+   * need to remember how to write partition and findMed() here
    */
     public int minOperations_quickSelect_TLE(int[][] grid, int x) {
         int r = grid.length, c =grid[0].length;
