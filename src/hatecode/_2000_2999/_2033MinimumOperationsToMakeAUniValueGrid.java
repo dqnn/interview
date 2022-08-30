@@ -78,10 +78,8 @@ A total of 4 operations were used.
                 A[i * c + j] = grid[i][j];
             }
         }
-    
-                         
+
        int med = findMed(A, 0, A.length - 1);
-                         
        int res = 0;
        for(int i = 0; i <A.length; i++) {
            if (Math.abs(A[i] - A[med]) % x != 0) return -1;
