@@ -31,6 +31,7 @@ A total of 4 operations were used.
      * 
      * [2,4,6,8] x = 2--> 2(1), 4(0), 6(1), 8(2) = 1+0+1+2 = 4 
      * 
+     * 1. how to prove the median element will be the correct answer.
      * 
      * 
      */
