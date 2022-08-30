@@ -26,6 +26,12 @@ A total of 4 operations were used.
     /*
      * thinking process: O(mnlgmn)/O(mn)
      * 
+     * the problem is to say: given one integer array and one integer x, 
+     * return how many steps needed for whole array to be same number.
+     * 
+     * [2,4,6,8] x = 2--> 2(1), 4(0), 6(1), 8(2) = 1+0+1+2 = 4 
+     * 
+     * 
      * 
      */
   public int minOperations(int[][] grid, int x) {
