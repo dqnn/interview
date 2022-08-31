@@ -29,7 +29,7 @@ Explanation: The second '(' has two matching '))', but the first '(' has only ')
      * the problem is to say:
      * given one string s, only contains ( ), ( )) is balanced. 
      * 
-     * so return min characters need to issert to make it balanced
+     * so return minimal characters need to issert to make it balanced
      * 
      * 
      */
