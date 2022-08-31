@@ -23,7 +23,12 @@ Input: s = "(()))"
 Output: 1
 Explanation: The second '(' has two matching '))', but the first '(' has only ')' matching. We need to add one more ')' at the end of the string to be "(())))" which is balanced.
 */
-    
+    /*
+     * interview friendly. O(n)/O(1)
+     * 
+     * the problem is to say:
+     * given one string s, only contains ( ), we want to 
+     */
     public int minInsertions_Best(String s) {
         int res = 0, open = 0;
         int n = s.length();
