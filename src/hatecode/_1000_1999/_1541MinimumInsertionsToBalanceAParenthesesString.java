@@ -32,6 +32,10 @@ Explanation: The second '(' has two matching '))', but the first '(' has only ')
      * so return minimal characters need to issert to make it balanced
      * 
      * 
+     * we use open to stands for count of (, res means the final result.
+     * 
+     * 
+     * 
      */
     public int minInsertions_Best(String s) {
         int res = 0, open = 0;
