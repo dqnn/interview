@@ -18,7 +18,16 @@ Example 2:
 Input: S = "aaab"
 Output: ""
 */
-    //O(n) O(26), if 2 * count(char) > len(s) + 1, then we return "";
+    //O(n) O(26), 
+    /*
+     * this problem contains special use case:
+     * lllvo, lvlol,, we cannot lvoll, so we have to prioritize the 
+     * most frequency elements
+     * 
+     * 
+     */
+    
+    //if 2 * count(char) > len(s) + 1, then we return "";
     
     //
     public String reorganizeString(String s) {
