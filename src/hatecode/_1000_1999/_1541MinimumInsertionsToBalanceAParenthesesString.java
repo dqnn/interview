@@ -27,7 +27,11 @@ Explanation: The second '(' has two matching '))', but the first '(' has only ')
      * interview friendly. O(n)/O(1)
      * 
      * the problem is to say:
-     * given one string s, only contains ( ), we want to 
+     * given one string s, only contains ( ), ( )) is balanced. 
+     * 
+     * so return min characters need to issert to make it balanced
+     * 
+     * 
      */
     public int minInsertions_Best(String s) {
         int res = 0, open = 0;
