@@ -67,7 +67,9 @@ Output: ""
         
         for(int i = 0; i<26;i++) {
             if (i == maxIdx) continue;
+            
             while(count[i] > 0) {
+              //only run once
                 if (idx >= res.length) {
                     idx = 1;
                 }
