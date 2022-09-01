@@ -43,6 +43,10 @@ Output: "abcd"
     }
     
     //interview friendly, O(n)/O(n)
+    
+    /*
+     * we will overwrite the characters in i position, copied from position j
+     */
     public String removeDuplicates_TP(String s, int k) {
         int n = s.length(), count[] = new int[n];
         char[] A = s.toCharArray();
