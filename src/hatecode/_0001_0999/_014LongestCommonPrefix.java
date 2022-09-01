@@ -30,6 +30,8 @@ public class _014LongestCommonPrefix {
             while (res.length() > 0 && A[i].indexOf(res) != 0) {
                 res = res.substring(0, res.length() - 1);
             }
+            //return earlier
+            if (res.isEmpty()) return "";
         }
         return res;
     }
