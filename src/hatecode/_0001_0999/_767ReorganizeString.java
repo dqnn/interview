@@ -31,7 +31,13 @@ Output: ""
      * 
      */
     /* thinking process: O(n)/O(1)
-     *
+     * 
+     * we count each character frequency, then we check whether we can 
+     * have a valid answer. maxLen <= (s.length()+1)/2, aab
+     * 
+     * then we place most frequency on 0, 2,4...
+     * then we start to place other elements on 1, 3 ...
+     * 
      * 
      */
     public String reorganizeString(String s) {
