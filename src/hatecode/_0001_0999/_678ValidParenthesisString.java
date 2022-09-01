@@ -62,7 +62,8 @@ The string size will be in the range [1, 100].
 
 scan from left to right, and record counts of unpaired ‘(’ for all possible cases. 
 For ‘(’ and ‘)’, it is straightforward, just increment and decrement all counts respectively.
-When the character is '*', there are three cases, ‘(’, empty, or ‘)’, 
+When the character is '*', there are three cases, 
+‘(’, empty, or ‘)’, 
 we can think those three cases as three branches in the ongoing route.
 Take “(**())” as an example. There are 6 chars:
 ----At step 0: only one count = 1.
