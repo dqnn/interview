@@ -30,11 +30,56 @@ Output: ""
      * 
      * 
      */
+    /* thinking process: O(n)/O(1)
+     *
+     * 
+     */
+    public String reorganizeString(String s) {
+        int[] count = new int[26];
+
+        for(char c: s.toCharArray()) {
+            count[c-'a']++;
+        }
+        
+        int max = -1, maxIdx = -1;
+        for(int i = 0; i<26;i++) {
+            if (count[i] > max) {
+                max = count[i];
+                maxIdx = i;
+            }
+        }
+        
+        if (max > (s.length() + 1)/2) return "";
+        
+        char[] res = new char[s.length()];
+        int idx = 0;
+        while(count[maxIdx] > 0) {
+            res[idx] = (char)(maxIdx + 'a');
+            idx += 2;
+            count[maxIdx]--;
+        }
+        
+        for(int i = 0; i<26;i++) {
+            if (i == maxIdx) continue;
+            while(count[i] > 0) {
+                if (idx >= res.length) {
+                    idx = 1;
+                }
+                
+                res[idx] = (char)(i+'a');
+                idx += 2;
+                count[i]--;
+            }
+        }
+        
+        return new String(res);
+        
+    }
     
     //if 2 * count(char) > len(s) + 1, then we return "";
     
-    //
-    public String reorganizeString(String s) {
+    
+    public String reorganizeString_BF(String s) {
         if (s == null || s.length() < 1) return s;
         Map<Character, Integer> map = new HashMap<>();
         for(char ch : s.toCharArray()) {
