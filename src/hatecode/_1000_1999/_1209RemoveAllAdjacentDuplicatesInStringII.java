@@ -42,15 +42,19 @@ Output: "abcd"
         return s;
     }
     
+    //interview friendly, O(n)/O(n)
     public String removeDuplicates_TP(String s, int k) {
-        int i = 0, n = s.length(), count[] = new int[n];
-        char[] stack = s.toCharArray();
-        for (int j = 0; j < n; ++j, ++i) {
-            stack[i] = stack[j];
-            count[i] = i > 0 && stack[i - 1] == stack[j] ? count[i - 1] + 1 : 1;
+        int n = s.length(), count[] = new int[n];
+        char[] A = s.toCharArray();
+        int i = 0, j =0;
+        while(j < A.length) {
+            A[i] = A[j];
+            count[i] =  i >0 && A[i-1] == A[i] ? count[i-1] + 1: 1;
             if (count[i] == k) i -= k;
+            i++;
+            j++;
         }
-        return new String(stack, 0, i);
+        return new String(A, 0, i);
     }
     
     public String removeDuplicates_StringBuilder(String s, int k) {
