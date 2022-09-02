@@ -30,11 +30,25 @@ Note:
 The string size will be in the range [1, 100].
 */
 
-    //interview friendly:
+    //interview friendly:O(n)/O(1)
     //cmax max number of ( could be paired,
     //cmin min number of ( must be paired
     
     //a string is valid: 1: cmax >=0, 2 cmin = 0 in the end for every position
+    
+    /*
+     * so the problem is to say: 
+     * given one string s, return whether the string of parenthesis is matched 
+     * or not
+     * 
+     * since * has 3 possibilities, so example "(*))" we will have 3 strings, 
+     * just need any one string is valid, then we can return true, else false.
+     * 
+     * so we are looking for a way to record the range (), see 34 35 for the definitions 
+     * of cmax and cmin, 
+     * 
+     * cmin must be 0 at the end, cmax at least >=0. 
+     */
     public boolean checkValidString_Interviewe_Friendly(String s) {
         int cmin = 0, cmax = 0;
         for (int i = 0; i < s.length(); ++i) {
