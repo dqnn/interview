@@ -40,7 +40,8 @@ The string size will be in the range [1, 100].
         for (int i = 0; i < s.length(); ++i) {
             char c = s.charAt(i);
             if (c == '(') {
-                cmax++;cmin++;
+                cmax++;
+                cmin++;
             } else if (c == ')') {
                 cmax--;
                 cmin = Math.max(cmin - 1, 0);
