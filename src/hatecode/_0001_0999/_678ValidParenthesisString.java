@@ -68,9 +68,11 @@ we can think those three cases as three branches in the ongoing route.
 Take “(**())” as an example. There are 6 chars:
 ----At step 0: only one count = 1.
 ----At step 1: the route will be diverted into three branches.
-so there are three counts: 1 - 1, 1, 1 + 1 which is 0, 1, 2, for ‘)’, empty and ‘(’ respectively.
+so there are three counts: 1 - 1, 1, 1 + 1 which is 0, 1, 2, for ‘)’,
+ empty and ‘(’ respectively.
 ----At step 2 each route is diverged into three routes again. 
 so there will be 9 possible routes now.
+
 --  For count = 0, it will be diverted into 0 – 1, 0, 0 + 1, which is -1, 0, 1, 
 but when the count is -1, that means there are more ‘)’s than ‘(’s, 
 and we need to stop early at that route, since it is invalid. we end with 0, 1.
