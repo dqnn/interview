@@ -29,13 +29,14 @@ Explanation: The second '(' has two matching '))', but the first '(' has only ')
      * the problem is to say:
      * given one string s, only contains ( ), ( )) is balanced. 
      * 
-     * so return minimal characters need to issert to make it balanced
+     * so return minimal characters need to insert to make it balanced
      * 
      * 
      * we use open to stands for count of unmatched ( in string, we do
-     * not add ( to string, res means the final result.
+     * not add ( to string, 
+     * res means the to make the smallest unit matched, how many ( or ) need to insert
      * 
-     * the difficulty of this problem is when meet ')', how we insert charcters,
+     * the difficulty of this problem is when meet ')', how we insert characters,
      * 
      * the use cases below: 
      * 1. ) open = 0, right is ) --->  res++, and just skip right i++
