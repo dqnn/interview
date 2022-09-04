@@ -61,7 +61,8 @@ Output: [2,-1,2]
      *  for each index i, we want to try to find next greater element for A[i],
      *  if <= than A[i], pop out until it is empty, but last will put i into stack. 
      *  
-     *   0 will be top of the stack, 
+     *   0 will be top of the stack,  so it will be like circuit array, 
+     *   
      */
     public int[] nextGreaterElements2(int[] A) {
         int n = A.length;
