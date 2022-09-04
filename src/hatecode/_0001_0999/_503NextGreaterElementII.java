@@ -54,6 +54,14 @@ Output: [2,-1,2]
     /*
      * the problem is to say: given one circuit array A, find next greater element 
      * 
+     *  first we use a stack to store all index from n -1 to 0.
+     *  
+     *  2nd loop, from n-1 to 0, 
+     *  
+     *  for each index i, we want to try to find next greater element for A[i],
+     *  if <= than A[i], pop out until it is empty, but last will put i into stack. 
+     *  
+     *   0 will be top of the stack, 
      */
     public int[] nextGreaterElements2(int[] A) {
         int n = A.length;
