@@ -63,6 +63,9 @@ Output: [2,-1,2]
      *  
      *   0 will be top of the stack,  so it will be like circuit array, 
      *   
+     *   from right to left, the array index will be pushed to stack as top, so for 
+     *   any elements in array, it is like scan from its right --> head, circuit
+     *   
      */
     public int[] nextGreaterElements2(int[] A) {
         int n = A.length;
