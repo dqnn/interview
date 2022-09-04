@@ -5,9 +5,12 @@ public class _676ImplementMagicDictionary {
 676. Implement Magic Dictionary
 Implement a magic directory with buildDict, and search methods.
 
-For the method buildDict, you'll be given a list of non-repetitive words to build a dictionary.
+For the method buildDict, you'll be given a list of non-repetitive words to 
+build a dictionary.
 
-For the method search, you'll be given a word, and judge whether if you modify exactly one character into another character in this word, the modified word is in the dictionary you just built.
+For the method search, you'll be given a word, and judge whether if you modify 
+exactly one character into another character in this word, the modified word is
+ in the dictionary you just built.
 
 Example 1:
 Input: buildDict(["hello", "leetcode"]), Output: Null
@@ -106,6 +109,36 @@ Input: search("leetcoded"), Output: False
             }
         }
         return false;
+    }
+    
+    
+    //BF,  O(mn)/O(mn)
+    class MagicDictionary {
+
+        Set<String> set;
+        public MagicDictionary() {
+            set = new HashSet<>();
+        }
+        
+        public void buildDict(String[] dictionary) {
+            for(String str: dictionary){
+                set.add(str);
+            }
+        }
+        
+        public boolean search(String s) {
+            char[] chs = s.toCharArray();
+            for(int i = 0; i<chs.length; i++) {
+                for(char p = 'a'; p <='z'; p++) {
+                    if (chs[i] ==p) continue;
+                    char temp = chs[i];
+                    chs[i] = p;
+                    if (set.contains(new String(chs))) return true;
+                    chs[i] = temp;
+                }
+            }
+            return false;
+        }
     }
 }
 
