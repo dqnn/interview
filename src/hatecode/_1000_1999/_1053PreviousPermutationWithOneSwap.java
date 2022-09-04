@@ -16,7 +16,7 @@ Output: [3,1,2]
 */
     //thinking process:O(n)/O(1)
     
-    //next permutation has some similiar thinking like this
+    //next permutation has some similar thinking like this
     //[3,2,1] return the previous smaller array, [3,1,2], the opposite of 31
     
     //same thoughts process to 31,
@@ -29,6 +29,9 @@ Output: [3,1,2]
     //2nd step is to find right can be switch, 
     //A[r] should be smaller than A[l], and it should be closest. 
     
+    //[1,9,4,6,7] --> 1,7,4,6,9
+    
+    //[1,9,4,6,7]--> 1,9,4,7,6 next greater permutation
     public int[] prevPermOpt1(int[] A) {
         if(A == null || A.length < 1) return new int[0];
         
@@ -40,6 +43,7 @@ Output: [3,1,2]
         
         //look for 2,5,6,7, smaller than 4,right = 2
         while (A[l] <= A[r]) r--;
+        //while(l < r && A[l]<= A[r]) r--;
         //process the equal value case, like 1,4,2,2,5,6,7
         while (A[r - 1] == A[r]) r--;
         //switch
