@@ -50,9 +50,9 @@ Output: [2,-1,2]
         return idx == -1 ? -1 : nums[idx];
     }
     
-    //this is so briliant solution
-    public int[] nextGreaterElements2(int[] nums) {
-        int n = nums.length;
+    //this is so brilliant solution
+    public int[] nextGreaterElements2(int[] A) {
+        int n = A.length;
         int[] result = new int[n];
         
         Stack<Integer> stack = new Stack<>();
@@ -62,15 +62,15 @@ Output: [2,-1,2]
         
         for (int i = n - 1; i >= 0; i--) {
             result[i] = -1;
-            while (!stack.isEmpty() && nums[stack.peek()] <= nums[i]) {
+            while (!stack.isEmpty() && A[stack.peek()] <= A[i]) {
                 stack.pop();
             }
             if (!stack.isEmpty()){
-                result[i] = nums[stack.peek()];
+                result[i] = A[stack.peek()];
             }
-            stack.add(i);
+            stack.push(i);
         }
-        
+
         return result;
     }
 }
