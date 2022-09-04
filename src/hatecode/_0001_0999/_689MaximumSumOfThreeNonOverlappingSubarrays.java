@@ -121,7 +121,7 @@ id[i][j] stands for in i th sum, the first starting index for that sum.
 /*
 Trace details:
 
-nums=[1,2,1,2,6,7,5,1], k=2
+A=[1,2,1,2,6,7,5,1], k=2
 
 preSum = [1, 3, 4, 6, 12, 19, 24, 25]
 
@@ -166,22 +166,22 @@ i=4
     cur3Sum = 3 + 13 + 6 = 22
     maxSum = 23 
  */
-    public int[] maxSumOfThreeSubarrays_Non_DP(int[] nums, int k) {
+    public int[] maxSumOfThreeSubarrays_Non_DP(int[] A, int k) {
         int[] result = new int[3]; 
-        if(nums == null || nums.length == 0) {
+        if(A == null || A.length == 0) {
             return result;
         }
         
-        int n = nums.length;
+        int n = A.length;
         //preKSum[i] means i as last index, window = K sum
         int[] preKSum = new int[n];
         
         // k prefix
-        preKSum[0] = nums[0];
+        preKSum[0] = A[0];
         for (int i = 1; i < n; i++) {
-            preKSum[i] = preKSum[i - 1] + nums[i];
+            preKSum[i] = preKSum[i - 1] + A[i];
             //clever subtract
-            if (i >= k) preKSum[i] -= nums[i - k];
+            if (i >= k) preKSum[i] -= A[i - k];
         }
         
         // scan from left to right, starting from k - 1, because left[i] means the for k -1->i index, 

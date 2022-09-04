@@ -78,7 +78,7 @@ Input: search("leetcoded"), Output: False
     
     
     
-    //this is solution without 26*
+    //this is solution without 26* but with a lot of memory
     Map<String, List<int[]>> map = new HashMap<>();
    
     //will build a map like following
