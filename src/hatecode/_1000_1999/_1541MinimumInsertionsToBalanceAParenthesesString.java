@@ -38,7 +38,7 @@ Explanation: The second '(' has two matching '))', but the first '(' has only ')
      * 
      * the difficulty of this problem is when meet ')', how we insert characters,
      * 
-     * the use cases below: 
+     * the use cases below when cur character is ): 
      * 1. ) open = 0, right is ) --->  res++, and just skip right i++
      * 2. ) open = 0, right is ( --->  res++, insert ) 
      * 3. ) open > 0, right is ) --->  open--, match the ))

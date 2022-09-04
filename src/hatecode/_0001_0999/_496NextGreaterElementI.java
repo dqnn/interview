@@ -56,8 +56,14 @@ The length of both nums1 and nums2 would not exceed 1000.
      * @param nums2
      * @return
      */
-    //thinking process: the problem is to find the next greater element for each element in nums1
-    //for example 1 in above
+    //thinking process:  O(n+m)/O(m) n = num1.length, m = num2.length
+    // the problem is to find the next greater element in num 2for each element in nums1
+    //[4,1,2], [1,3,4,2]
+    //4 in num2 right is [4, 2], no one is bigger than 4, so return -1.
+    //1 in num2 [3,4,2], so return 3
+    //2 in num2 is [], so return -1.
+    
+    //
     
     //the solution is another thinking of how to store the element relationship, increasing sequence
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
