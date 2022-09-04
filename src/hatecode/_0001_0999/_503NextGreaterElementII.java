@@ -50,7 +50,11 @@ Output: [2,-1,2]
         return idx == -1 ? -1 : nums[idx];
     }
     
-    //this is so brilliant solution
+    //interview friendly this is so brilliant solution O(n)/O(n)
+    /*
+     * the problem is to say: given one circuit array A, find next greater element 
+     * 
+     */
     public int[] nextGreaterElements2(int[] A) {
         int n = A.length;
         int[] result = new int[n];
