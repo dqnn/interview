@@ -121,55 +121,17 @@ id[i][j] stands for in i th sum, the first starting index for that sum.
 /*
 Trace details:
 
-A=[1,2,1,2,6,7,5,1], k=2
+        A=[1, 2, 1, 2, 6, 7, 5, 1], k=2
 
-preSum = [1, 3, 4, 6, 12, 19, 24, 25]
+prekSum = [1, 3, 3, 2, 5, 10, 10, 1]
+left =    [0, 1, 1, 1, 4, 5, 5, 5]
+right =   [0, 6, 6, 6, 6, 6, 6, 7]
 
-leftMaxPos = [0, 0, 0, 0, 3, 4, 4, 4]
-
-rightMaxPos = [4, 4, 4, 4, 4, 5, 6, 0]
-
-for i=2, i<=4
-i=2
-    0 1 2 3 4 5 6 7
-    - - ^ - - - - -
-
-    curLeftMaxPos = leftMaxPos[2-1]  = 0
-    curRightMaxPos= rightMaxPos[2+2] = 4
-
-    cur3Sum = 3 + 3 + 13 = 19
-    maxSum = 19
-    results[0] = 0;
-    results[1] = 2;
-    results[2] = 4; 
-
-i=3     
-    0 1 2 3 4 5 6 7
-    - - - ^ - - - -
-
-    curLeftMaxPos = leftMaxPos[3-1]  = 0
-    curRightMaxPos= rightMaxPos[2+2] = 5
-
-    cur3Sum = 3 + 8 + 12 = 23
-    maxSum = 23
-    results[0] = 0;
-    results[1] = 3;
-    results[2] = 5; 
-
-i=4 
-    0 1 2 3 4 5 6 7
-    - - - - ^ - - -
-
-    curLeftMaxPos = leftMaxPos[4-1]  = 0
-    curRightMaxPos= rightMaxPos[4+2] = 6
-
-    cur3Sum = 3 + 13 + 6 = 22
-    maxSum = 23 
  */
     public int[] maxSumOfThreeSubarrays_Non_DP(int[] A, int k) {
-        int[] result = new int[3]; 
+        int[] res = new int[3]; 
         if(A == null || A.length == 0) {
-            return result;
+            return res;
         }
         
         int n = A.length;
@@ -210,13 +172,13 @@ i=4
             int sum3 = preKSum[left[i - k]] + preKSum[i] + preKSum[right[i + k]];
             if (sum3 > max) {
                 max = sum3;
-                result[0] = left[i - k] - k + 1;
-                result[1] = i - k + 1;
-                result[2] = right[i + k] -k + 1;
+                res[0] = left[i - k] - k + 1;
+                res[1] = i - k + 1;
+                res[2] = right[i + k] -k + 1;
             }
         }
         
-        return result;
+        return res;
     }
     //this is used to solve the n segments as follow up, still not understand this. 
     //reference: 
