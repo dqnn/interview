@@ -55,7 +55,8 @@ Output: [[1,2,null,4],[6],[7]]
     /*
      * 
      */
-    private TreeNode helper(TreeNode node, List<TreeNode> res, Set<Integer> rm, boolean is_root) {
+    private TreeNode helper(TreeNode node, List<TreeNode> res, Set<Integer> rm,
+            boolean is_root) {
         if(node == null) return null;
         boolean deleted = rm.contains(node.val);
         if(is_root && !deleted) res.add(node);
