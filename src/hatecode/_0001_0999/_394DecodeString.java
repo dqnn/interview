@@ -43,7 +43,7 @@ public class _394DecodeString {
      */
 
     //interview friendly: 
-    //similiar to caculator pattern: 
+    //similar to caculator pattern: 
     // the whole process:
     // we get each character from the string, it has 4 cases,
     // digit [ ] and others
