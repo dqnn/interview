@@ -51,10 +51,8 @@ public class _394DecodeString {
     // if we encounter [, we have to push previous string whatever into 
     //resStack, and have temp variable res = "" to get new string.
     // if we encounter ], which means res got ab of [ab], and we have to get
-    // previous
-    // count number which is in counterStack, and we iterate counter times and
-    // assign
-    // to res, so finally res should be get all strings
+    // previous count number which is in counterStack, and we iterate 
+    //counter times and assign to res, so finally res should be get all strings
 
     public String decodeString(String s) {
         if (s == null || s.length() < 1)  return "";
