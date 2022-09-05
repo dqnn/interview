@@ -48,6 +48,30 @@ The 10 and -5 collide resulting in 10.  The 5 and 10 never collide.
         }
         return stack.stream().mapToInt(i->i).toArray();
     }
+    //another simple stack solution
+    public int[] asteroidCollision_Stack(int[] A) {
+        Stack<Integer> stack = new Stack<>();
+        for(int a : A) {
+            if (a == 0) continue;
+            boolean smallerThanLeft = false;
+            while(!stack.isEmpty() && (stack.peek() > 0 && a < 0)) {
+                int left = Math.abs(stack.peek());
+                if (left <= Math.abs(a)) {
+                    stack.pop();
+                    if (left == Math.abs(a)) {
+                         smallerThanLeft = true;
+                         break;
+                    }
+                } else {
+                    smallerThanLeft = true;
+                    break;
+                }
+            }
+            if (!smallerThanLeft)  stack.push(a);
+        }
+        
+        return stack.stream().mapToInt(i->i).toArray();
+    }
     //no storage solution, as follow up 
     public int[] asteroidCollision2(int[] asteroids) {
         if (asteroids.length < 2) {
