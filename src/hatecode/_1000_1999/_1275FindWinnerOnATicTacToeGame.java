@@ -31,7 +31,11 @@ Output: "B"
 Explanation: B wins.
 */
     
-    
+    /*
+     * thinking process: O(n)/O(1)
+     * 
+     * same as 348, 794 Tic Tac Toe
+     */
     public String tictactoe(int[][] A) {
         int n  = 3;
         int[] r = new int[n];
@@ -52,6 +56,7 @@ Explanation: B wins.
             
             curPlayer *= -1;
         }
+        //we only have 9 cells
         return A.length < 9 ? "Pending": "Draw";
     }
     
