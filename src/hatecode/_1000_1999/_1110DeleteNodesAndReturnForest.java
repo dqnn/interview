@@ -53,7 +53,7 @@ Output: [[1,2,null,4],[6],[7]]
     }
     
     /*
-     * 
+     * after we removed the node, some nodes will be become root, 
      */
     private TreeNode helper(TreeNode node, List<TreeNode> res, Set<Integer> rm,
             boolean is_root) {
