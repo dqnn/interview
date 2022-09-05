@@ -21,9 +21,11 @@ import hatecode._0001_0999.TreeNode;
 public class _1740FindDistanceinABinaryTree {
 /*
 1740. Find Distance in a Binary Tree
-    Given the root of a binary tree and two integers p and q, return the distance between the nodes of value p and value q in the tree.
+    Given the root of a binary tree and two integers p and q, return 
+    the distance between the nodes of value p and value q in the tree.
 
-The distance between two nodes is the number of edges on the path from one to the other.
+The distance between two nodes is the number of edges on the path from 
+one to the other.
 
  
 
