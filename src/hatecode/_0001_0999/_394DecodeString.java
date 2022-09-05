@@ -48,8 +48,8 @@ public class _394DecodeString {
     // we get each character from the string, it has 4 cases,
     // digit [ ] and others
     // if it digit we get the number and put into counterStack
-    // if we encounter [, we have to push previous string whatever into resStack,
-    // and have temp variable res = "" to get new string.
+    // if we encounter [, we have to push previous string whatever into 
+    //resStack, and have temp variable res = "" to get new string.
     // if we encounter ], which means res got ab of [ab], and we have to get
     // previous
     // count number which is in counterStack, and we iterate counter times and
