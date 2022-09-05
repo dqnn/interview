@@ -46,8 +46,9 @@ Return the node with the largest depth such that it contains all the deepest nod
         }
     }
     
-    //same as above, but code is more cleaner, this is the same as lowest ancestors
-    //
+    //same as above, but code is more cleaner, this is the same as 
+    //lowest ancestors
+    //we need to get the common node when d1 = d2, if not try to deeper
     public TreeNode subtreeWithAllDeepest(TreeNode root) {
         return deep(root).node;
     }
