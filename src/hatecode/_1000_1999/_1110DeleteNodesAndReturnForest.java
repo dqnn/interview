@@ -60,6 +60,5 @@ Output: [[1,2,null,4],[6],[7]]
         node.left = helper(node.left, res, rm, deleted);
         node.right =  helper(node.right, res, rm, deleted);
         return deleted ? null : node;
-        
     }
 }
