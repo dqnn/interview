@@ -7,7 +7,11 @@ An image smoother is a filter of the size 3 x 3 that can be applied to each cell
 
 Given an m x n integer matrix img representing the grayscale of an image, return the image after applying the smoother on each cell of it.
 */
-    
+    /*
+     * thinking process: O(mn)/O(mn)
+     * 
+     * A[i][j]= sum(9 cells around (i, j))/count
+     */
     public int[][] imageSmoother(int[][] A) {
         int r = A.length, c = A[0].length;
         
@@ -31,29 +35,31 @@ Given an m x n integer matrix img representing the grayscale of an image, return
         }
         return res;
     }
-    
+    /*
+     * better since it is using middle 16 bytest o store sum
+     */
     public int[][] imageSmoother_Better(int[][] M) {
-		// in-place solution
-		int m = M.length, n = M[0].length;
-		if (m == 0 || n == 0)
-			return new int[0][0];
-		int[][] dirs = {{-1,-1},{-1,0},{-1,1}, {0, -1}, {0, 1},{1,-1}, {1,0},{1,1}};
-		for (int i = 0; i < m; ++i)
-			for (int j = 0; j < n; ++j) {
-				int sum = M[i][j], cnt = 1;
-				for (int k = 0; k < dirs.length; ++k) {
-					int x = i + dirs[k][0], y = j + dirs[k][1];
-					if (x < 0 || x > m - 1 || y < 0 || y > n - 1)
-						continue;
-					sum += (M[x][y] & 0xFF);
-					cnt++;
-				}
-				M[i][j] |= ((sum / cnt) << 8);
-			}
-		
-		for (int i = 0; i < m; ++i)
-			for (int j = 0; j < n; ++j)
-				M[i][j] >>= 8;
-		return M;
-	}
+        // in-place solution
+        int m = M.length, n = M[0].length;
+        if (m == 0 || n == 0)
+            return new int[0][0];
+        int[][] dirs = { { -1, -1 }, { -1, 0 }, { -1, 1 }, { 0, -1 }, { 0, 1 }, { 1, -1 }, { 1, 0 }, { 1, 1 } };
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j) {
+                int sum = M[i][j], cnt = 1;
+                for (int k = 0; k < dirs.length; ++k) {
+                    int x = i + dirs[k][0], y = j + dirs[k][1];
+                    if (x < 0 || x > m - 1 || y < 0 || y > n - 1)
+                        continue;
+                    sum += (M[x][y] & 0xFF);
+                    cnt++;
+                }
+                M[i][j] |= ((sum / cnt) << 8);
+            }
+
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j)
+                M[i][j] >>= 8;
+        return M;
+    }
 }
