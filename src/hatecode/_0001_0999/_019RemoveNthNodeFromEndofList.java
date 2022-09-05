@@ -22,6 +22,7 @@ public class _019RemoveNthNodeFromEndofList {
      * @param n
      * @return
      */
+    // 1<=n<=list length
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode dummy = new ListNode(0);
         ListNode slow = dummy;
