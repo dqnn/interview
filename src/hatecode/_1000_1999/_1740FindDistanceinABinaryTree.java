@@ -33,7 +33,13 @@ Example 1:
 Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 0
 Output: 3
 */
-    
+    /*
+     * thinking process: O(n)/O(n)
+     * 
+     * the problem is to look for distance for specific two nodes in the tree
+     * 
+     * turn the tree to a graph, then convert the problem to a graph problem with BFS
+     */
     public int findDistance(TreeNode root, int src, int dst) {
         if (root == null) return -1;
         
