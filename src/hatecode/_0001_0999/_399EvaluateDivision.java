@@ -87,7 +87,7 @@ the reverse link is 1/k. Query is to find a path between two nodes.
         return res;
     }
     //ld is src, d is end, so we need to add ld into visited when we visit
-    //if we can find it, then we should makr it visited, then go into the loop
+    //if we can find it, then we should make it visited, then go into the loop
     public double find(String ld, String d, double value, Set<String> visited) {
         if (visited.contains(ld)) return -1;
         if (!map.containsKey(ld)) {
