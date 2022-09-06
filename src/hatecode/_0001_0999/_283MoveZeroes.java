@@ -33,21 +33,21 @@ public class _283MoveZeroes {
 
      time : O(n);
      space : O(1);
-     * @param nums
+     * @param A
      */
     // num of operation : nums.length;
-    public void moveZeroes1(int[] nums) {
-        if (nums == null || nums.length == 0) return;
+    public void moveZeroes1(int[] A) {
+        if (A == null || A.length == 0) return;
         int start = 0;
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < A.length; i++) {
             // so this position is not 0, then we have to move start to next position
             // until it is 0
-            if (nums[i] != 0) {
-                nums[start++] = nums[i];
+            if (A[i] != 0) {
+                A[start++] = A[i];
             } 
         }
-        while (start < nums.length) {
-            nums[start++] = 0;
+        while (start < A.length) {
+            A[start++] = 0;
         }
     }
 
