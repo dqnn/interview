@@ -51,7 +51,7 @@ public class _341FlattenNestedListIterator {
     //queue/stack without changing their original order
     Stack<NestedInteger> stack;
 
-    // so similiar question like this requires to understand the problem correctly, like this 
+    // so similar question like this requires to understand the problem correctly, like this 
     // the nestedInteger
     public _341FlattenNestedListIterator(List<NestedInteger> nestedList) {
         stack = new Stack<>();
