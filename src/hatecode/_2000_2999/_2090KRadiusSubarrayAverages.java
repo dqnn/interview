@@ -22,7 +22,13 @@ Input: nums = [7,4,3,9,1,8,5,2,6], k = 3
 Output: [-1,-1,-1,5,4,4,-1,-1,-1]
 */
     /*
+     * thinking process: O(n)/O(n)
      * 
+     * the problem is to say given a windows size, 2*k + 1, returan avg value 
+     * 
+     * others cells as -1.
+     * 
+     * no more technical 
      */
     public int[] getAverages_BF(int[] A, int k) {
         if (k == 0) return A;
