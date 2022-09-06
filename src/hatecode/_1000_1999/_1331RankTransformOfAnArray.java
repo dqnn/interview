@@ -19,10 +19,13 @@ Input: arr = [40,10,20,30]
 Output: [4,1,2,3]
 */
     /*
+     * interview friendly
      * thinking process: O(nlgn)/O(n)
      * 
      * the problem is to say: given one array, return the index starting 1 
      * after the original array is sorted
+     * 
+     * this used a map to calculate its index.
      */
     public int[] arrayRankTransform(int[] A) {
         if (A == null ||A.length < 1) return A;
