@@ -26,6 +26,19 @@ Example 3:
 Input: s = "()()"
 Output: 2
 */
+    /*
+     * thinking process: O(n)/O(n)
+     * 
+     * the problem is to say: given a balanced string of parethesis, 
+     * () --> 1 
+     * ()() --> 2
+     * (()) --> 2* 1= 2
+     * 
+     * return the score of the string.
+     * 
+     * it is easy to think about stack, but it is same problem with decode string,
+     * calculator, etc
+     */
     public int scoreOfParentheses_Stack(String s) {
         Stack<Integer> stack = new Stack<>();
         
@@ -42,6 +55,11 @@ Output: 2
         return score;
     }
     
+    /*
+     * O(n)/O(1)
+     * 
+     * using an array as stack to store the temrary things
+     */
     public int scoreOfParentheses(String S) {
         int res[] = new int[50], i = 0;
         for (char c : S.toCharArray())
