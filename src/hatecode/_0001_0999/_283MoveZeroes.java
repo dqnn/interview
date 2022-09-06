@@ -53,17 +53,17 @@ public class _283MoveZeroes {
 
     // num of operation : 2 * num of non-zero
     // lots of zeros
-    public void  moveZeroes2(int[] nums) {
-        if (nums == null || nums.length == 0) return;
+    public void  moveZeroes2(int[] A) {
+        if (A == null || A.length <= 1) return;
         
         // so if not 0, then we use j to move next and switch position, 
         // if we have 0, then j will stop there until i move to next non-zero postion, then switch,
         // until we move all 0 to the end of the array
-        for (int i = 0, j = 0; i < nums.length; i++) {
-            if (nums[i] != 0) {
-                int temp = nums[i];
-                nums[i] = nums[j];
-                nums[j++] = temp;
+        for (int i = 0, j = 0; i < A.length; i++) {
+            if (A[i] != 0) {
+                int temp = A[i];
+                A[i] = A[j];
+                A[j++] = temp;
             }
         }
     }
