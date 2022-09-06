@@ -18,7 +18,12 @@ Example 1:
 Input: arr = [40,10,20,30]
 Output: [4,1,2,3]
 */
-    
+    /*
+     * thinking process: O(nlgn)/O(n)
+     * 
+     * the problem is to say: given one array, return the index starting 1 
+     * after the 
+     */
     public int[] arrayRankTransform(int[] A) {
         if (A == null ||A.length < 1) return A;
         
