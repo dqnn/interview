@@ -105,7 +105,11 @@ the recursive relationship between states in our dynamic programming.
     
     //another simpler DP, O(N)/O(N)
     //thinking process: 
-    //we use dp[] 0, 1, 2 to whether number i is good number or not. 
+    /*
+     *  dp[i] = 0, invalid number
+        dp[i] = 1, valid and same number
+        dp[i] = 2, valid and different number
+     */
     //so when i < 10, we can easily to get value for each dp[i]
     //when i >= 10, we break i into i /10 and i % 10, 
     //if we can leverage previous conclusion
