@@ -63,7 +63,8 @@ circularQueue.Rear();  // return 4
         return true;
     }
     
-    /** Delete an element from the circular queue. Return true if the operation is successful. */
+    /** Delete an element from the circular queue. 
+     * Return true if the operation is successful. */
     public boolean deQueue() {
         if (isEmpty()) return false;
         head = (head + 1) % a.length;
