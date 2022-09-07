@@ -18,6 +18,8 @@ Output: [1,null,0,null,1]
     /*
      * thinking process: O(n)/O(n)
      * 
+     * similar to 1110. Delete Nodes And Return Forest
+     * 
      * the problem is to say: given one binary tree, 
      * if parent, left and right has no 1, then remove it from original tree
      * 
