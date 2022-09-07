@@ -74,11 +74,11 @@ the recursive relationship between states in our dynamic programming.
  */ //O(lg(N))/O(lg(N)) 10 is base? need more time on this solution
     public int rotatedDigits(int N) {
         char[] A = String.valueOf(N).toCharArray();
-        int K = A.length;
+        int n = A.length;
 
-        int[][][] memo = new int[K+1][2][2];
-        memo[K][0][1] = memo[K][1][1] = 1;
-        for (int i = K - 1; i >= 0; --i) {
+        int[][][] memo = new int[n+1][2][2];
+        memo[n][0][1] = memo[n][1][1] = 1;
+        for (int i = n - 1; i >= 0; --i) {
             for (int eqf = 0; eqf <= 1; ++eqf)
                 for (int invf = 0; invf <= 1; ++invf) {
                     // We will compute ans = memo[i][eqf][invf],
