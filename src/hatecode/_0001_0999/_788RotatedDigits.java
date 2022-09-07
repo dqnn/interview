@@ -52,55 +52,37 @@ Output: 4
     }
     
  /*
- We can use dynamic programming to solve this efficiently. 
- Our state will be how many digits i we have written, whether 
- we have previously written a jth digit lower than the jth digit of N, 
- and whether we have previously written a digit from 2569. 
- We will represent this state by three variables: i, equality_flag, 
- involution_flag.
+  * Best on TC: O(lgn)/O(lgn)
+  */
+    /*
+     * Pow 7 as base means we have 7 choices, sets 2
+     * Pow 3 as base means we have to remove 3 choices, sets1
+     */
+    public int rotatedDigits(int A) {
+        char[] chs = String.valueOf(A).toCharArray();
+        int res = 0;
+        HashSet<Integer> digits = new HashSet<>();
+        HashSet<Integer> set1 = new HashSet<>(Arrays.asList(0,1,8));
+        HashSet<Integer> set2 = new HashSet<>(Arrays.asList(0, 1, 8, 2, 5, 6, 9));
 
-dp(i, equality_flag, involution_flag) will represent 
-the number of ways to write the suffix of N corresponding to 
-these above conditions. The answer we want is dp(0, True, False).
-
-Algorithm
-
-If equality_flag is true, the ith digit (0 indexed) will be at most the ith digit of N. For each digit d, we determine if we can write d based on the flags that are currently set.
-
-In the below implementations, we showcase both top-down and 
-bottom-up approaches. The four lines in the top-down approach (Python) 
-from for d in xrange(... to before memo[...] = ans clearly illustrates 
-the recursive relationship between states in our dynamic programming.
-
-
- */ //O(lg(N))/O(lg(N)) 10 is base? need more time on this solution
-    public int rotatedDigits(int N) {
-        char[] A = String.valueOf(N).toCharArray();
-        int n = A.length;
-
-        int[][][] dp = new int[n+1][2][2];
-        dp[n][0][1] = dp[n][1][1] = 1;
-        for (int i = n - 1; i >= 0; --i) {
-            for (int eqf = 0; eqf <= 1; ++eqf)
-                for (int invf = 0; invf <= 1; ++invf) {
-                    // We will compute ans = memo[i][eqf][invf],
-                    // the number of good numbers with respect to N = A[i:].
-                    // If eqf is true, we must stay below N, otherwise
-                    // we can use any digits.
-                    // Invf becomes true when we write a 2569, and it
-                    // must be true by the end of our writing as all
-                    // good numbers have a digit in 2569.
-                    int ans = 0;
-                    for (char d = '0'; d <= (eqf == 1 ? A[i] : '9'); ++d) {
-                        if (d == '3' || d == '4' || d == '7') continue;
-                        boolean invo = (d == '2' || d == '5' || d == '6' || d == '9');
-                        ans += dp[i+1][d == A[i] ? eqf : 0][invo ? 1 : invf];
-                    }
-                    dp[i][eqf][invf] = ans;
+        for (int i = 0; i < chs.length; i++) {
+            int digit = chs[i] - '0';
+            for (int j = 0; j < digit; j++) {
+                if (set2.contains(j)) {
+                    res += (int)Math.pow(7, chs.length - i - 1);
                 }
+                if (set1.containsAll(digits) && set1.contains(j)) {
+                    res -= (int)Math.pow(3, chs.length - i - 1);
+                }
+            }
+            digits.add(digit);
+            if (!set2.contains(digit)) {
+                return res;
+            }
+
         }
 
-        return dp[0][1][0];
+        return res + (!set1.containsAll(digits) ? 1 : 0);
     }
     
     //another simpler DP, O(N)/O(N)
