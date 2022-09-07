@@ -21,6 +21,14 @@ Output: [1,null,0,null,1]
      * the problem is to say: given one binary tree, 
      * if parent, left and right has no 1, then remove it from original tree
      * 
+     * to demonstrate, let's pick one random subtree in the origin tree,
+     * 
+     * suppose the recursive call to current subtree, how we can decide to remove this 
+     * subtree or not?
+     * 
+     * to remove it, we need to make sure left, right is null and root is 0,
+     * if left or right is not null, then there is element not 0
+     * 
      * 
      */
     public TreeNode pruneTree(TreeNode root) {
