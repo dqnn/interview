@@ -5,9 +5,12 @@ import java.util.Arrays;
 public class _1288RemoveCoveredIntervals {
 /*
 1288. Remove Covered Intervals
-Given an array intervals where intervals[i] = [li, ri] represent the interval [li, ri), remove all intervals that are covered by another interval in the list.
+Given an array intervals where intervals[i] = [li, ri] 
+represent the interval [li, ri), remove all intervals that are 
+covered by another interval in the list.
 
-The interval [a, b) is covered by the interval [c, d) if and only if c <= a and b <= d.
+The interval [a, b) is covered by the interval [c, d) 
+if and only if c <= a and b <= d.
 
 Return the number of remaining intervals.
 
