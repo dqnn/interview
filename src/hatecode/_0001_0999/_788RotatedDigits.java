@@ -57,6 +57,9 @@ Output: 4
     /*
      * Pow 7 as base means we have 7 choices, sets 2
      * Pow 3 as base means we have to remove 3 choices, sets1
+     * 
+     * for example, 
+     * 
      */
     public int rotatedDigits(int A) {
         char[] chs = String.valueOf(A).toCharArray();
