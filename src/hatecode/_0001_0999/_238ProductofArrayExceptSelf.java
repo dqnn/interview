@@ -51,7 +51,10 @@ as extra space for the purpose of space complexity analysis.)
         return res;
     }
     
- // this is pretty brilliant solution that two visits solve this problem
+ /*
+  * thinking process: O(n)/O(n)
+  *  this is pretty brilliant solution that two visits solve this problem
+  */
     public int[] productExceptSelf2(int[] nums) {
         //edge case
         if (nums == null || nums.length < 1) {
