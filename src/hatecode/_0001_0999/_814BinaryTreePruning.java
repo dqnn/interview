@@ -16,6 +16,11 @@ Input: root = [1,null,0,0,1]
 Output: [1,null,0,null,1]
 */
     /*
+     * thinking process: O(n)/O(n)
+     * 
+     * the problem is to say: given one binary tree, 
+     * if parent, left and right has no 1, then remove it from original tree
+     * 
      * 
      */
     public TreeNode pruneTree(TreeNode root) {
