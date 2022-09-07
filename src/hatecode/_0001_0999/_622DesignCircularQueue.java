@@ -52,7 +52,8 @@ circularQueue.Rear();  // return 4
         this.size = 0;
     }
     
-    /** Insert an element into the circular queue. Return true if the operation is successful. */
+    /** Insert an element into the circular queue. 
+     * Return true if the operation is successful. */
     //[1,2,3]
     public boolean enQueue(int value) {
         if (isFull()) return false;
