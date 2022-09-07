@@ -58,7 +58,10 @@ Algorithm
 
 If equality_flag is true, the ith digit (0 indexed) will be at most the ith digit of N. For each digit d, we determine if we can write d based on the flags that are currently set.
 
-In the below implementations, we showcase both top-down and bottom-up approaches. The four lines in the top-down approach (Python) from for d in xrange(... to before memo[...] = ans clearly illustrates the recursive relationship between states in our dynamic programming.
+In the below implementations, we showcase both top-down and 
+bottom-up approaches. The four lines in the top-down approach (Python) 
+from for d in xrange(... to before memo[...] = ans clearly illustrates 
+the recursive relationship between states in our dynamic programming.
 
 
  */ //O(lg(N))/O(lg(N)) 10 is base? need more time on this solution
