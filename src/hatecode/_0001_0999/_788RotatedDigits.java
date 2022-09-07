@@ -5,7 +5,11 @@ public class _788RotatedDigits {
 788. Rotated Digits
 X is a good number if after rotating each digit individually by 180 degrees, we get a valid number that is different from X.  Each digit must be rotated - we cannot choose to leave it alone.
 
-A number is valid if each digit remains a digit after rotation. 0, 1, and 8 rotate to themselves; 2 and 5 rotate to each other; 6 and 9 rotate to each other, and the rest of the numbers do not rotate to any other number and become invalid.
+A good number is valid if each digit remains a digit after rotation. 
+0, 1, and 8 rotate to themselves; 2 and 5 rotate to each other; 
+6 and 9 rotate to each other, 
+and the rest of the numbers do not rotate to any other number 
+and become invalid.
 
 Now given a positive number N, how many numbers X from 1 to N are good?
 
@@ -14,8 +18,10 @@ Input: 10
 Output: 4
 */
     //O(NlgN)/O(lgN), 10 is base brute force, 
-    //the problem is to say we given a number, if each digit is 0,1, 8 then rotate it value does not change, 
-    //while 2,5, 6, 9 will, others will be not be good number, so count how many good numbers from 1 to N 
+    //the problem is to say we given a number, if each digit is 0,1, 8 
+    //then rotate it value does not change, 
+    //while 2,5, 6, 9 will, others will be not be good number, 
+    //so count how many good numbers from 1 to N 
     
     
     // so we know only if they at least contain 2,5,6,9 then it would be good, but they cannot have others, like 3,4,7
