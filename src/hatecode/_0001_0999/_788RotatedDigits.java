@@ -38,6 +38,8 @@ Output: 4
             boolean validDigit = false;
             char[] chs = String.valueOf(i).toCharArray();
             
+            //we do not need to worry about 1, 8 0 numbers, because if a number
+            //like 18, 10, validDigits will be false
             for(int j = 0; j< chs.length; j++) {
                 if (invalidNumSet.contains(chs[j])) break;
                 if(validset.contains(chs[j])) validDigit = true;
