@@ -20,7 +20,10 @@ Output: [0,1,1,2,3,4]
     /*
      * thinking process: O(n+m)/O(h)
      * 
+     * the problem is to say: given two BST, return sorted values in list.
      * 
+     * it is pretty similar to sorted K lists.  but here they stored in trees not in 
+     * lists, 
      */
     public List<Integer> getAllElements(TreeNode r1, TreeNode r2) {
         
