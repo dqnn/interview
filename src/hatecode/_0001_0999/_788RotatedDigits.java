@@ -17,7 +17,7 @@ Example:
 Input: 10
 Output: 4
 */
-    //O(NlgN)/O(lgN), 10 is base brute force, 
+    //O(NlgN)/O(lgN), 10 is base, brute force, 
     //the problem is to say we given a number, if each digit is 0,1, 8 
     //then rotate it value does not change, 
     //while 2,5, 6, 9 will, others will be not be good number, 
