@@ -23,7 +23,8 @@ Explanation: Valid pairs are:
      * 
      * the problem is to say: given one string array and one string target
      * 
-     * 
+     * you can concat two string in array, if same as target, then the indexes(i,j)
+     * is pair, return how many paris, notes, (2, 4) and (4,2) are different 
      */
     public int numOfPairs(String[] A, String target) {
         Map<String, Integer> map = new HashMap<>();
