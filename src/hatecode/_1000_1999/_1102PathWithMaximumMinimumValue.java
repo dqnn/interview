@@ -22,7 +22,7 @@ Output: 4
     //given a matrix, each cell has an integer value, so find one path from 
     //left top to bottom right, then return the min value during this path,
     
-    //so bfs, 
+    //so bfs, but one difference here is that 
     public int maximumMinimumPath(int[][] A) {
         final int[][] dirs = {{0,1},{1,0},{0,-1},{-1,0}};
         Queue<int[]> pq = new PriorityQueue<>((a, b) -> (b[0] - a[0]));
