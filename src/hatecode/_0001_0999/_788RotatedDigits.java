@@ -50,7 +50,12 @@ Output: 4
     }
     
  /*
- We can use dynamic programming to solve this efficiently. Our state will be how many digits i we have written, whether we have previously written a jth digit lower than the jth digit of N, and whether we have previously written a digit from 2569. We will represent this state by three variables: i, equality_flag, involution_flag.
+ We can use dynamic programming to solve this efficiently. 
+ Our state will be how many digits i we have written, whether 
+ we have previously written a jth digit lower than the jth digit of N, 
+ and whether we have previously written a digit from 2569. 
+ We will represent this state by three variables: i, equality_flag, 
+ involution_flag.
 
 dp(i, equality_flag, involution_flag) will represent the number of ways to write the suffix of N corresponding to these above conditions. The answer we want is dp(0, True, False).
 
