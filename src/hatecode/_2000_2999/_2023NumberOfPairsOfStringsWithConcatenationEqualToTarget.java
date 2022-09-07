@@ -18,6 +18,13 @@ Explanation: Valid pairs are:
 - (2, 3): "77" + "77"
 - (3, 2): "77" + "77"
 */
+    /*
+     * thinking process: O(n)/O(n)
+     * 
+     * the problem is to say: given one string array and one string target
+     * 
+     * 
+     */
     public int numOfPairs(String[] A, String target) {
         Map<String, Integer> map = new HashMap<>();
         
