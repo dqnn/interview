@@ -24,6 +24,10 @@ Output: [0,1,1,2,3,4]
      * 
      * it is pretty similar to sorted K lists.  but here they stored in trees not in 
      * lists, 
+     * 
+     * here we used 2 stacks to stored the values from r1 and r2, then we first add
+     * all left child nodes to stacks, then we pop from top since they are the smallest
+     * 
      */
     public List<Integer> getAllElements(TreeNode r1, TreeNode r2) {
         
@@ -46,7 +50,7 @@ Output: [0,1,1,2,3,4]
         
     }
     
-    
+
     private void helper(Stack<TreeNode> s, TreeNode root) {
         while(root != null) {
             s.push(root);
