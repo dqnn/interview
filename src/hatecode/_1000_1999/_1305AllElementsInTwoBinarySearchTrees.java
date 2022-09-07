@@ -28,6 +28,7 @@ Output: [0,1,1,2,3,4]
      * here we used 2 stacks to stored the values from r1 and r2, then we first add
      * all left child nodes to stacks, then we pop from top since they are the smallest
      * 
+     * the technical are the same compared to sort K sorted lists
      */
     public List<Integer> getAllElements(TreeNode r1, TreeNode r2) {
         
