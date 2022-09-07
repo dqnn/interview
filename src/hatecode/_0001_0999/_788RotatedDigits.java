@@ -71,6 +71,7 @@ Output: 4
                 if (set2.contains(j)) {
                     res += (int)Math.pow(7, chs.length - i - 1);
                 }
+                //all previous chars are 0, 1, 8 including j 
                 if (set1.containsAll(digits) && set1.contains(j)) {
                     res -= (int)Math.pow(3, chs.length - i - 1);
                 }
