@@ -35,6 +35,8 @@ T = [73, 74, 75, 71, 69, 72, 76, 73], your output should be
         int[] res = new int[n];
         for(int i = 0; i<A.length; i++) {
             //the stack is monotonic decrease array
+            //[73,74,75,71,69,72,76,73] --> [75,71,69], when 72, we easily know
+            //69 needs 1 day, 71 needs 2 days
             while(!stack.isEmpty() && A[i] > A[stack.peek()]) {
                 int idx = stack.pop();
                 res[idx] = i - idx;
