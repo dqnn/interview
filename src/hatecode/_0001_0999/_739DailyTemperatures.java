@@ -34,7 +34,7 @@ T = [73, 74, 75, 71, 69, 72, 76, 73], your output should be
         int n = A.length;
         int[] res = new int[n];
         for(int i = 0; i<A.length; i++) {
-            //the stack is monntonic decrease array
+            //the stack is monotonic decrease array
             while(!stack.isEmpty() && A[i] > A[stack.peek()]) {
                 int idx = stack.pop();
                 res[idx] = i - idx;
