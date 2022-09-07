@@ -28,7 +28,24 @@ T = [73, 74, 75, 71, 69, 72, 76, 73], your output should be
     
     //we use a stack to store how many days are there smaller than current days,so for temperature day temp1
     //we pop until we meet a warmer day, the index diff is how many days need to wait
-    public int[] dailyTemperatures(int[] T) {
+    public int[] dailyTemperatures(int[] A) {
+        Stack<Integer> stack = new Stack<>();
+        
+        int n = A.length;
+        int[] res = new int[n];
+        for(int i = 0; i<A.length; i++) {
+            while(!stack.isEmpty() && A[i] > A[stack.peek()]) {
+                int idx = stack.pop();
+                res[idx] = i - idx;
+            }
+            stack.push(i);
+        }
+        
+        return res;
+    }
+    
+    //a little tricky scan from right to left on the array
+    public int[] dailyTemperatures_Stack(int[] T) {
         if (T == null || T.length < 1) {
             return null;
         }
