@@ -59,7 +59,9 @@ Output: 4
  We will represent this state by three variables: i, equality_flag, 
  involution_flag.
 
-dp(i, equality_flag, involution_flag) will represent the number of ways to write the suffix of N corresponding to these above conditions. The answer we want is dp(0, True, False).
+dp(i, equality_flag, involution_flag) will represent 
+the number of ways to write the suffix of N corresponding to 
+these above conditions. The answer we want is dp(0, True, False).
 
 Algorithm
 
@@ -76,8 +78,8 @@ the recursive relationship between states in our dynamic programming.
         char[] A = String.valueOf(N).toCharArray();
         int n = A.length;
 
-        int[][][] memo = new int[n+1][2][2];
-        memo[n][0][1] = memo[n][1][1] = 1;
+        int[][][] dp = new int[n+1][2][2];
+        dp[n][0][1] = dp[n][1][1] = 1;
         for (int i = n - 1; i >= 0; --i) {
             for (int eqf = 0; eqf <= 1; ++eqf)
                 for (int invf = 0; invf <= 1; ++invf) {
@@ -92,13 +94,13 @@ the recursive relationship between states in our dynamic programming.
                     for (char d = '0'; d <= (eqf == 1 ? A[i] : '9'); ++d) {
                         if (d == '3' || d == '4' || d == '7') continue;
                         boolean invo = (d == '2' || d == '5' || d == '6' || d == '9');
-                        ans += memo[i+1][d == A[i] ? eqf : 0][invo ? 1 : invf];
+                        ans += dp[i+1][d == A[i] ? eqf : 0][invo ? 1 : invf];
                     }
-                    memo[i][eqf][invf] = ans;
+                    dp[i][eqf][invf] = ans;
                 }
         }
 
-        return memo[0][1][0];
+        return dp[0][1][0];
     }
     
     //another simpler DP, O(N)/O(N)
