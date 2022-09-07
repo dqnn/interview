@@ -40,6 +40,10 @@ circularQueue.Rear();  // return 4
     //1. tail begin with -1. most for indicate current tail is last elment
     //2 we always use size to indicate isFull(). isEmpty(). also we should use these functions
     //as many as possible
+    
+    /*
+     * another simple and extendable solution is to use double linked list
+     */
     int[] a;
     int head, tail,size;
     public _622DesignCircularQueue(int k) {
