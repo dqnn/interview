@@ -70,6 +70,8 @@ public class _332ReconstructItinerary {
     //this is back tracking problems, so then sub problems done, 
     //last we will add to head as starting
     //top down solutions
+    
+    //note, even map does contains s, we need to add s because that's a destination
     private void helper(String s, List<String> res, Map<String, PriorityQueue<String>> map) {
         while(map.containsKey(s) && !map.get(s).isEmpty()) {
             helper(map.get(s).poll(), res, map);
