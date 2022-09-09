@@ -3,9 +3,6 @@ package hatecode._0001_0999;
 import java.util.*;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : ReconstructItinerary
  * Date : Sep, 2018
  * Description : 332. Reconstruct Itinerary
  */
