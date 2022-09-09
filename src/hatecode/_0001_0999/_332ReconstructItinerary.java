@@ -49,8 +49,9 @@ public class _332ReconstructItinerary {
     //list, we need to retreat back and try next route that's backtracking
     
     //how to understand this problem：
-    //this is not a typical graph problems, the graph actually is always changing, because we always use 
-    //poll to change the graph, another reason to use PQ is smallest lexi order
+    //this is not a typical graph problems, the graph actually is always 
+    //changing, because we always use poll to change the graph, 
+    //another reason to use PQ is smallest lexi order
     
     //so the follow up question is if we want all of possible itinerary, how to change the code
     //one quick answer to copu the PQ every time, :-) need time to think about other solutions
