@@ -78,6 +78,17 @@ public class _332ReconstructItinerary {
         }
         res.add(0, s);
     }
+    //this cannot work because we return early if s is not in map as key, but we still want to add
+    // to result, so we cannot return early
+    private void helper_B(String s, List<String> res, Map<String, PriorityQueue<String>> map) {
+        if (!map.containsKey(s) || map.get(s).isEmpty()) return;
+        while(!map.get(s).isEmpty()) {
+            String next = map.get(s).poll();
+            helper(next, res, map);
+        }
+        
+        res.add(0, s);
+    }
 
     public List<String> findItinerary2(String[][] tickets) {
         HashMap<String, PriorityQueue<String>> map = new HashMap<>();
