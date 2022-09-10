@@ -51,6 +51,7 @@ public class _435NonoverlappingIntervals {
     /*
      * thinking process: O(nlgn)/O(1)
      * 
+     * given set of intervals, find the max number of intervals are not over lapping
      * we can just remove the overlapped ones, becuase some maybe long 
      * [[-73, -26], [-65, -11], [-63, 2], [-62, -49], [-52, 31], [-40, -26], 
      * [-31, 49], [30, 47], [58, 95], [66, 98], [82, 97], [95, 99]]
