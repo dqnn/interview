@@ -28,16 +28,19 @@ public class _026RemoveDuplicatesfromSortedArray {
      time : O(n);
      space : O(1);
 
-     * @param nums
+     * @param A
      * @return
      */
-    public static int removeDuplicates(int[] nums) {
-        if (nums == null || nums.length == 0) return 0;
+    /*
+     * thinking process: O(n)/O(1)
+     */
+    public static int removeDuplicates(int[] A) {
+        if (A == null || A.length == 0) return 0;
         // here count means point to first repeated chars
         int count = 1;
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i - 1] != nums[i]) {
-                nums[count++] = nums[i];
+        for (int i = 1; i < A.length; i++) {
+            if (A[i - 1] != A[i]) {
+                A[count++] = A[i];
             }
         }
         return count;
