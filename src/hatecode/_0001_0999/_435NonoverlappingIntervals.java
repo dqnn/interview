@@ -43,7 +43,18 @@ public class _435NonoverlappingIntervals {
      * @param intervals
      * @return
      */
+    /*
+     * thinking process: O(nlgn)/O(1)
+     * 
+     * we can just remove the overlapped ones, becuase some maybe long 
+     * [[-73, -26], [-65, -11], [-63, 2], [-62, -49], [-52, 31], [-40, -26], 
+     * [-31, 49], [30, 47], [58, 95], [66, 98], [82, 97], [95, 99]]
+     * 
+     * there some cases cannot merge easily, so we have use its oppsite to calculate
+     * 
+     * try to caculate which are not need merge
 
+     */
     public int eraseOverlapIntervals(Interval[] intervals) {
         if (intervals.length == 0) return 0;
 
@@ -51,6 +62,7 @@ public class _435NonoverlappingIntervals {
         int end = intervals[0].end;
         int count = 1;
         for (int i = 1; i < intervals.length; i++) {
+            //if no overlap
             if (intervals[i].start >= end) {
                 end = intervals[i].end;
                 count++;
