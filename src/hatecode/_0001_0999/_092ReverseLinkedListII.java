@@ -68,7 +68,13 @@ and then t will change to 4 again, so we continue this process
         
         ListNode dummy = new ListNode(-1);
         dummy.next = head;
-
+        
+        // s moved m - 1 steps, e moved n steps
+        /* 
+         * dummy->[1,2,3,4,5], left = 2, right = 4
+         * 
+         * s point to 1, e point to 4, but it should point 5 since we pass e.next
+         */
         ListNode s = dummy, e = dummy;
         m--;
         while ( m-- >0) s = s.next;
