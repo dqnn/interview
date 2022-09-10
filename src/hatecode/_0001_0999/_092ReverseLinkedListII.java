@@ -83,6 +83,7 @@ and then t will change to 4 again, so we continue this process
         return dummy.next;
     }
     
+    //only 1 node, since e is not in scope now, s inclusive, e is exclusive
     private ListNode reverse(ListNode s, ListNode e) {
         if(s == e || s.next == e) return s;
         ListNode cur = s.next;
