@@ -26,7 +26,12 @@ Output:
     //[10,16], [2,8], [1,6], [7,12]] -> after sort
     //[1,6],[2,8],[7,12],[10,16]
     /*
+     * the problem is to say: given list of intervals, 
+     * each interval means a balloons width, any point of contact will destroy it.
      * 
+     * so return the min of arrows needed. 
+     * 
+     * we can merge them, used merged ones to compare next,if no overlap, then we increase
      */
     public int findMinArrowShots(int[][] p) {
         if (p == null || p.length < 1) return 0;
@@ -51,10 +56,7 @@ Output:
         return res;
     }
     //simple code, as follow up, to make it simpler
-    /*
-     * the problem is to say: given list of intervals, 
-     * each interval means a balloons 
-     */
+
     public int findMinArrowShots2(int[][] points) {
         if (points.length == 0) {
             return 0;
