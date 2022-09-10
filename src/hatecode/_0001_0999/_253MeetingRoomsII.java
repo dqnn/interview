@@ -3,10 +3,6 @@ package hatecode._0001_0999;
 import java.util.*;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : MeetingRoomsII
- * Date : Aug, 2018
  * Description : 253. Meeting Rooms II
  */
 public class _253MeetingRoomsII {
