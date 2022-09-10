@@ -76,6 +76,7 @@ this graph demonstrated how to solve this problem
             if (schedule[i].start >= interval.end) {
                 interval.end = schedule[i].end;
             } else {
+                //have overlap, needs to add to PQ
                 pq.offer(schedule[i]);
             }
             //original meeting still being pop put, and we need to put it back.
