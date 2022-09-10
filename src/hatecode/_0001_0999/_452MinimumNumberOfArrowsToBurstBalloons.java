@@ -51,6 +51,10 @@ Output:
         return res;
     }
     //simple code, as follow up, to make it simpler
+    /*
+     * the problem is to say: given list of intervals, 
+     * each interval means a balloons 
+     */
     public int findMinArrowShots2(int[][] points) {
         if (points.length == 0) {
             return 0;
