@@ -25,6 +25,9 @@ Output:
 */
     //[10,16], [2,8], [1,6], [7,12]] -> after sort
     //[1,6],[2,8],[7,12],[10,16]
+    /*
+     * 
+     */
     public int findMinArrowShots(int[][] p) {
         if (p == null || p.length < 1) return 0;
         //please explain why we need to sort by second column, in many situations, 
