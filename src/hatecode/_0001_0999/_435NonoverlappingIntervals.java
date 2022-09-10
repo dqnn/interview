@@ -4,9 +4,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : NonoverlappingIntervals
  * Date : Aug, 2018
  * Description : 435. Non-overlapping Intervals
  */
