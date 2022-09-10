@@ -57,16 +57,16 @@ Output:
         }
         Arrays.sort(points, (a, b) -> a[1] - b[1]);
         int arrowPos = points[0][1];
-        int arrowCnt = 1;
+        int res = 1;
         for (int i = 1; i < points.length; i++) {
             //means they have overlap, so continue,if not 
             //we have a new target
             if (arrowPos >= points[i][0]) {
                 continue;
             }
-            arrowCnt++;
+            res++;
             arrowPos = points[i][1];
         }
-        return arrowCnt;
+        return res;
     }
 }
