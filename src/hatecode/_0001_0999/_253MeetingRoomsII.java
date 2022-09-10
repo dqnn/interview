@@ -59,7 +59,8 @@ this graph demonstrated how to solve this problem
         return res;
     }
 
-    // this is to use pq to merge intervals
+    // O(nlgn)/O(n)
+    //this is to use pq to merge intervals
     //there are two types of such kind question, one is merge interval, another one is to see how many 
     //intervals to occupy space, like this problem
     public int minMeetingRooms2(Interval[] schedule) {
