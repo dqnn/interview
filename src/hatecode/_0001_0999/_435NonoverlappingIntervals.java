@@ -57,7 +57,7 @@ public class _435NonoverlappingIntervals {
      * 
      * there some cases cannot merge easily, so we have use its oppsite to calculate
      * 
-     * try to caculate which are not need merge
+     * try to calculate which are not need merge
 
      */
     public int eraseOverlapIntervals(Interval[] intervals) {
