@@ -9,6 +9,11 @@ import java.util.Comparator;
  */
 public class _435NonoverlappingIntervals {
     /**
+     * 
+     * 56 Merge Intervals <- very similar, i did it with just 3 lines different
+       252 Meeting Rooms
+       253 Meeting Rooms II
+       452 Minimum Number of Arrows to Burst Balloons
      * Given a collection of intervals, find the minimum number of intervals you need to remove to make the rest 
      * of the intervals non-overlapping.
 
