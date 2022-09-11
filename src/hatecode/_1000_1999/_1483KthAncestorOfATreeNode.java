@@ -91,6 +91,10 @@ dp trans:
                 int prev = dp[i][j-1]; 
                 //no more ancestors in 1/2 step
                 if(prev == -1) dp[i][j] = -1;
+                /*
+                 * when j = 1, we just climb 1(2^1 - 1) more step,
+                 * if j = 5, then it will be dp[i][4], so it 
+                 */
                 else{
                     dp[i][j] = dp[prev][j-1];                
                 }
