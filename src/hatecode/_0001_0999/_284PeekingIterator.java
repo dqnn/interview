@@ -30,6 +30,9 @@ Follow up: How would you extend your design to be generic and work with all type
      * @param iterator
      */
 
+    /*
+     * 
+     */
     private Iterator<Integer> iterator;
     private Integer next = null;
 
