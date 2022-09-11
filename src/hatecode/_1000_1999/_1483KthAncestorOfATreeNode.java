@@ -96,7 +96,7 @@ dp trans:
                  * if j = 5, then it will be dp[i][4], so it 
                  */
                 else{
-                    dp[i][j] = dp[prev][j-1];                
+                    dp[i][j] = dp[prev][j-1];
                 }
             }
         }
