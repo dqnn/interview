@@ -93,7 +93,7 @@ dp trans:
                 if(prev == -1) dp[i][j] = -1;
                 /*
                  * when j = 1, we just climb 1(2^1 - 1) more step,
-                 * if j = 5, then it will be dp[i][4], so it 
+                 * if j = 5, then it will be dp[i][4], so it will climb 4 steps 
                  */
                 else{
                     dp[i][j] = dp[prev][j-1];
