@@ -45,6 +45,7 @@ A different order such as [7,6,3,5], target = 9 will be like:
 [6,3]
 
     */
+    //pow is used to handle 1e9
     public int numSubseq(int[] A, int target) {
         Arrays.sort(A);
         
