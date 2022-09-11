@@ -19,7 +19,7 @@ Even though [1,3,5,7] is an increasing subsequence, it is not continuous as elem
     /*
      * thinking process: O(n)/O(1)
      * the problem is to say: given one integer array A, you need to find the max
-     * length of increasing subarray in A
+     * length of increasing sub Array in A
      */
     public int findLengthOfLCIS(int[] A) {
         if (A == null || A.length < 1) return 0;
