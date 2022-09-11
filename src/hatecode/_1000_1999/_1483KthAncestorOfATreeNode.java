@@ -46,7 +46,8 @@ dp trans:
     dp[i][j] = dp[dp[i][j-1]][j-1] 
         meaning: A(j, 2^i) = A( A(j, 2^i-1), 2^i-1)
             To find the (2^i)-th ancestor of j, 
-            recursively find j-th node's 2^(i-1)th ancestor's 2^(i-1)th ancestor. (2^(i) = 2^(i-1) + 2^(i-1))
+            recursively find j-th node's 2^(i-1)th ancestor's 2^(i-1)th 
+            ancestor. (2^(i) = 2^(i-1) + 2^(i-1))
 ["TreeAncestor","getKthAncestor","getKthAncestor","getKthAncestor"]
 [[15,[-1,0,0,1,1,2,2,3,3,4,4,5,5,6,6]],[3,1],[5,2],[6,3]]
 
