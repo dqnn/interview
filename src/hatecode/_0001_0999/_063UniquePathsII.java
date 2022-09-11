@@ -65,7 +65,7 @@ Round 2
     // thinking process:
     //so from top left to right bottom, typical back tracking, 
     // so i j is controlled by i-1, j and i j -1 so we want to 
-    // have dp foruma to carry on
+    // have dp formula to carry on
     public int uniquePathsWithObstacles2(int[][] m) {
         int r = m.length;
         int c = m[0].length;
