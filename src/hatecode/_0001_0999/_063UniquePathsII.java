@@ -79,12 +79,37 @@ Round 2
                     dp[i + 1][j + 1] = 0;
                     continue;
                 }
+                // we need to skip dp[0][1], starting point is dp[1][1]
                 if (!(i == 0 && j == 0)) {
                     dp[i + 1][j + 1] = dp[i][j + 1] + dp[i + 1][j];
                 }
             }
         }
         return dp[r][c];
+    }
+    
+    // just make sure DP need to start from initialized ones
+    public int uniquePathsWithObstacles_2D(int[][] A) {
+        if (A == null || A.length < 1 || A[0].length < 1) return 0;
+        
+        
+        int r = A.length, c =A[0].length;
+        if (A[0][0] == 1 || A[r-1][c-1] == 1) return 0;
+        int[][] dp =new int[r][c];
+        
+        dp[0][0] = 1;
+        for(int i = 0; i< r; i++) {
+            for(int j = 0; j< c;j++) {
+                if (A[i][j] == 1) {
+                    dp[i][j] = 0;
+                    continue;
+                }
+                if (i > 0) dp[i][j] += dp[i-1][j];
+                if (j > 0) dp[i][j] += dp[i][j-1];
+            }
+        }
+        
+        return dp[r-1][c-1];
     }
     
     //so this version is the heritance of V1, we continue to use 2D DP and 
