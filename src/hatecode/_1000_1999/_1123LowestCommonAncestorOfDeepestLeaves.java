@@ -55,6 +55,11 @@ The answer returned is a TreeNode object (not an array) with serialization "[1,2
     private int helper(TreeNode node, int depth) {
         //why need to get deepest before exit function?
         /*
+         *     0
+         *    /  \
+         *   1    2
+         *         \
+         *          3
          * 
          */
         deepest = Math.max(deepest, depth);
