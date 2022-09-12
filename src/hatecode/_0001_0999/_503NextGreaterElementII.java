@@ -66,7 +66,20 @@ Output: [2,-1,2]
      *   
      *   from right to left, the array index will be pushed to stack as top, so for 
      *   any elements in array, it is like scan from its right --> head, circuit
+     *   [2,3,4,-1,4]
      *   
+     *   stack:  0 
+     *           1
+     *           2
+     *           3
+     *           4
+     *           5
+     *           
+     *           then we visit from right to left, first is 4 compare to A[0]
+     *           stack will be empty, and we push i =5 to stack
+     *           5
+     *           
+     *     
      */
     public int[] nextGreaterElements2(int[] A) {
         int n = A.length;
