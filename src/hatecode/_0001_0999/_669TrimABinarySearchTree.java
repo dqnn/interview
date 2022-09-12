@@ -44,6 +44,8 @@ Output: [3,2,null,1]
     private TreeNode helper(TreeNode root, int l, int r) {
         if (root == null) return null;
         
+        //even current node need to be removed, but we still have to 
+        //look for nodes which are in the range
         if (root.val < l) return helper(root.right, l, r);
         else if (root.val > r) return helper(root.left, l, r);
         
