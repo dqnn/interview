@@ -32,8 +32,8 @@ Output: [3,2,null,1]
     public TreeNode trimBST(TreeNode root, int low, int high) {
         return helper(root, low, high);
     }
-    
-    
+
+
     private TreeNode helper(TreeNode root, int l, int r) {
         if (root == null) return null;
         
