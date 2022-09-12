@@ -103,7 +103,7 @@ collection.getRandom();
 
         //now process the list then, recover
         int lastVal = list.remove(list.size() - 1);
-     // menas lastVal is not the value we want to remove
+     // means lastVal is not the value we want to remove
         if (index != list.size()) {
             //replace O(1)
             list.set(index, lastVal);
