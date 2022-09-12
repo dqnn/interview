@@ -64,7 +64,7 @@ collection.getRandom();
     //list, but the problem for others are incorrect, we need to correct, 
     //How we fix this: 
     //we just choose last element in list, so we want to insert this elment into a correct position, so that
-    //each one elemnt will be correct position again,
+    //each one element will be correct position again,
     
     //we can always pick last one in list, it is O(1), then we replce the idx with this value, and update
     //the index in map, so everyone is happy~
