@@ -46,6 +46,9 @@ public class _617MergeTwoBinaryTrees {
      * 
      * so the problem is to add their nodes. we can use pre-order visit to first 
      * sum the subtree root node value, them merge left then right
+     * 
+     * we use pre order visit to scan the tree, sum them where possible if not like
+     * r1 is null or r2 is null, we just return another one, if not ,we return the merged ones
      */
     public static TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
         // we are doing this way to return correct node
