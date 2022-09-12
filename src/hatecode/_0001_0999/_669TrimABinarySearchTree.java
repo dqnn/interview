@@ -18,7 +18,16 @@ Output: [3,2,null,1]
     /*
      * thinking process: O(n)/O(h)
      * 
-     * the problem is to say: 
+     * the problem is to say: given one BST, low and high, remove the nodes which are 
+     * not in [low, high], but for some children should still in the tree, see
+     * fillowing example 
+     *            3
+     *          /   \ 
+     *         0     4
+     *          \    
+     *           2
+     *          /
+     *         1
      */
     public TreeNode trimBST(TreeNode root, int low, int high) {
         return helper(root, low, high);
