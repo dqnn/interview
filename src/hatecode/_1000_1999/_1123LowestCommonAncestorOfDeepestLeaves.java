@@ -53,6 +53,10 @@ The answer returned is a TreeNode object (not an array) with serialization "[1,2
 
     //need to understand this recursive function deeply
     private int helper(TreeNode node, int depth) {
+        //why need to get deepest before exit function?
+        /*
+         * 
+         */
         deepest = Math.max(deepest, depth);
         if (node == null) {
             return depth;
