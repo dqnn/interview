@@ -13,7 +13,7 @@ Return the minimum number of steps to walk from the upper left corner (0, 0) to 
     //thinking process: O(mnk)/O(mn)
     
     //the problem is to say, given a 2D matrix, 1 is block while 0 is empty you can cross,
-    //you have k chanes to clear the obstacle in that cell, return 
+    //you have k chances to clear the obstacle in that cell, return 
     //smallest path
     public int shortestPath(int[][] g, int k) {
         
