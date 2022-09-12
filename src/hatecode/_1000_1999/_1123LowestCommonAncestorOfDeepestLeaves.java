@@ -61,7 +61,8 @@ The answer returned is a TreeNode object (not an array) with serialization "[1,2
          *         \
          *          3
          * 
-         * 
+         * the result is 3, if we return early, then deepest will be updated. 
+         * null will be last level 
          */
         deepest = Math.max(deepest, depth);
         if (node == null) {
