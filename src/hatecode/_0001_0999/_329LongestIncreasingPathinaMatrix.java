@@ -61,7 +61,7 @@ public class _329LongestIncreasingPathinaMatrix {
         if(memo[i][j] > 0) return memo[i][j];
         int[][] dirs = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
         int r = m.length, c = m[0].length;
-        //each path at least 1 elements
+        //each path at least 1 element
         int max = 1;
         for(int[] dir : dirs) {
             int x = i + dir[0];
