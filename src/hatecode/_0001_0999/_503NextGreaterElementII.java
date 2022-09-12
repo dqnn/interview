@@ -52,7 +52,8 @@ Output: [2,-1,2]
     
     //interview friendly this is so brilliant solution O(n)/O(n)
     /*
-     * the problem is to say: given one circuit array A, find next greater element 
+     * the problem is to say: given one circuit array A, 
+     * find next greater element 
      * 
      *  first we use a stack to store all index from n -1 to 0.
      *  
