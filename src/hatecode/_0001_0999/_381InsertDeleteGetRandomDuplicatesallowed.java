@@ -78,7 +78,8 @@ collection.getRandom();
         rmd = new Random();
     }
 
-    /** Inserts a value to the collection. Returns true if the collection did not already contain the specified element. */
+    /** Inserts a value to the collection. Returns true if the collection did 
+     * not already contain the specified element. */
     public boolean insert(int val) {
         boolean ret = map.containsKey(val);
         map.computeIfAbsent(val, v->new LinkedHashSet<>()).add(list.size());
