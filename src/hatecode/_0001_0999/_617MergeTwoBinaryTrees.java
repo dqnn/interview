@@ -37,6 +37,10 @@ public class _617MergeTwoBinaryTrees {
      * @return
      */
 
+    /*
+     * thinking process: O(n)/O(h)
+     * the problem is to say: 
+     */
     public static TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
         // we are doing this way to return correct node
         if (t1 == null) return t2;
