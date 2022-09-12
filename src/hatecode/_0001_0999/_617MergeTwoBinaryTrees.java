@@ -40,7 +40,12 @@ public class _617MergeTwoBinaryTrees {
     /*
      * thinking process: O(n)/O(h)
      * the problem is to say:  given two binary trees r1 and r2, 
-     * we will need to 
+     * it is like put r2 onto r1, same postion will be merged by sum of their values
+     * 
+     * return the merge binary tree.
+     * 
+     * so the problem is to add their nodes. we can use pre-order visit to first 
+     * sum the subtree root node value, them merge left then right
      */
     public static TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
         // we are doing this way to return correct node
