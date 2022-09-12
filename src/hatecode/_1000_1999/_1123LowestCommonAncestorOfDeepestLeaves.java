@@ -33,7 +33,7 @@ The answer returned is a TreeNode object (not an array) with serialization "[1,2
     //thinking process: O(n)/O(H), worst space complexity: O(n)
     
     //given a tree, find the deepest nodes lowest common ancestor
-    //same as 865
+    //same as 865, they are the same
     
     //compared to 865, we can find that 865 will have two nodes while here
     //we do not, but ask for deepest nodes, so we use recursive to find the 
