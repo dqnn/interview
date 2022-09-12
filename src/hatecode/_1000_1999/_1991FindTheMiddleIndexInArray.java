@@ -25,7 +25,6 @@ Output: 3
      * the problem is to say, given one array, find one elment in the array,
      * sum(element left) = = sum (element right), element itself is not included
      * 
-     * 
      */
     public int findMiddleIndex(int[] A) {
         if (A == null || A.length < 1) return -1;
