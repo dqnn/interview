@@ -28,6 +28,13 @@ Output: [3,2,null,1]
      *           2
      *          /
      *         1
+     *         
+     *   -----> 
+     *           3
+     *         /   \
+     *        2     4
+     *       /
+     *      1   
      */
     public TreeNode trimBST(TreeNode root, int low, int high) {
         return helper(root, low, high);
