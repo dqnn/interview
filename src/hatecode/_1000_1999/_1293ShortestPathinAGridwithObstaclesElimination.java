@@ -14,7 +14,9 @@ Return the minimum number of steps to walk from the upper left corner (0, 0) to 
     
     //the problem is to say, given a 2D matrix, 1 is block while 0 is empty you can cross,
     //you have k chances to clear the obstacle in that cell, return 
-    //smallest path
+    //smallest steps you can from left top to bottom right
+    
+    //
     public int shortestPath(int[][] g, int k) {
 
         Queue<int[]> q = new LinkedList<>();
