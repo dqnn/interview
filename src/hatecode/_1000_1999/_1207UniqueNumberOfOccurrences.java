@@ -16,9 +16,10 @@ Output: true
 */
     //thinking process: O(n)/O(1)
     
-    //the problem is to say, given array A, return each element's occurrence is unique.
+    //the problem is to say, given array A, return each element's occurrence 
+    //is unique.
     
-    //we use set to record each element's occurence, and use map to record them, their 
+    //we use set to record each element's occurrence, and use map to record them, their 
     //length should be same
     public boolean uniqueOccurrences(int[] A) {
         if (A == null || A.length < 1) return true;
