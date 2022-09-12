@@ -55,7 +55,8 @@ collection.getRandom();
 
     //since we use iterator, so linkedHashSet should be better theoretically 
     //thinking process:
-    //the problem is to say: implement a getRandom() and insert() function, getRandom will return us a 
+    //the problem is to say: implement a getRandom() and insert() function, 
+    //getRandom will return us a 
     //value which equally possibility to be picked up by their value frequency in list
     
     //map will record the value and the index of the value in list, 
