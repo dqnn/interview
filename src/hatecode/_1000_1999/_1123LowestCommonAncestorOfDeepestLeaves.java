@@ -6,7 +6,8 @@ public class _1123LowestCommonAncestorOfDeepestLeaves {
 /*
 1123. Lowest Common Ancestor of Deepest Leaves
 865. Smallest Subtree with all the Deepest Nodes
-Given a rooted binary tree, return the lowest common ancestor of its deepest leaves.
+Given a rooted binary tree, return the lowest common ancestor of its 
+deepest leaves.
 
 Recall that:
 
