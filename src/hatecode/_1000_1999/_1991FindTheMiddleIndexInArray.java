@@ -23,7 +23,7 @@ Output: 3
      * thinking process: O(n)/O(1);
      * 
      * the problem is to say, given one array, find one elment in the array,
-     * sum(element left) = = sum (element right)
+     * sum(element left) = = sum (element right), element itself is not included
      * 
      * 
      */
