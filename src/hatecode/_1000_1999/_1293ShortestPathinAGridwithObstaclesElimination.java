@@ -16,8 +16,7 @@ Return the minimum number of steps to walk from the upper left corner (0, 0) to 
     //you have k chances to clear the obstacle in that cell, return 
     //smallest path
     public int shortestPath(int[][] g, int k) {
-        
-        int res = 0;
+
         Queue<int[]> q = new LinkedList<>();
         //[i][j][step][left number to consume]
         int r=g.length, c=g[0].length;
