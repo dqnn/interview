@@ -27,7 +27,8 @@ the time complexity is O(n log n).
      * @param nums
      * @return
      */
-    //O(n) because even 2 loops but inside while is not starting from 0 everytime, so it is constant time, 
+    //O(n) because even 2 loops but inside while is not starting from 
+    //0 every time, so it is constant time, 
     
     //thinking process, the templates for two pointers
     public int minSubArrayLen(int s, int[] nums) {
