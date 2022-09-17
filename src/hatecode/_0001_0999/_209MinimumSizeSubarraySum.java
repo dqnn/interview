@@ -24,26 +24,26 @@ the time complexity is O(n log n).
      space : O(1)
 
      * @param s
-     * @param nums
+     * @param A
      * @return
      */
     //O(n) because even 2 loops but inside while is not starting from 
     //0 every time, so it is constant time, 
     
     //thinking process, the templates for two pointers
-    public int minSubArrayLen(int s, int[] nums) {
+    public int minSubArrayLen(int s, int[] A) {
         // res is the length of subarray
         int res = Integer.MAX_VALUE;
         //left is sliding window left
         int left = 0, sum = 0;
-        for (int i = 0; i < nums.length; i++) {
-            sum += nums[i];
+        for (int i = 0; i < A.length; i++) {
+            sum += A[i];
             // left is before i's position,
             while (left <= i && sum >= s) {
                 // we move pointer left to i so res is the shortest length
                 res = Math.min(res, i -left + 1);
                 // remove from the sum
-                sum -= nums[left++];
+                sum -= A[left++];
             }
         }
         return res == Integer.MAX_VALUE ? 0 : res;
