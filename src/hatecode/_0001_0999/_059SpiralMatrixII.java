@@ -35,7 +35,7 @@ public class _059SpiralMatrixII {
     //so the problem is to output n*n matrix from 1-n, 
     //we do not need to if (colB <= colE) because we know it is 
     // nxn matrix. 
-    //I need these two if becuase their colE and rowE are different,
+    //I need these two if because their colE and rowE are different,
     //so we need 
     public int[][] generateMatrix(int n) {
 
