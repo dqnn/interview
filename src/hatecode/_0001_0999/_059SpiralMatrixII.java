@@ -39,7 +39,7 @@ public class _059SpiralMatrixII {
     //so we need 
     public int[][] generateMatrix(int n) {
 
-        int[][] matrix = new int[n][n];
+        int[][] res = new int[n][n];
         int rowBegin = 0;
         int rowEnd = n - 1;
         int colBegin = 0;
@@ -48,25 +48,25 @@ public class _059SpiralMatrixII {
 
         while (rowBegin <= rowEnd && colBegin <= colEnd) {
             for (int i = colBegin; i <= colEnd; i++) {
-                matrix[rowBegin][i] = num++;
+                res[rowBegin][i] = num++;
             }
             rowBegin++;
 
             for (int i = rowBegin; i <= rowEnd; i++) {
-                matrix[i][colEnd] = num++;
+                res[i][colEnd] = num++;
             }
             colEnd--;
 
             for (int i = colEnd; i >= colBegin; i--) {
-                matrix[rowEnd][i] = num++;
+                res[rowEnd][i] = num++;
             }
             rowEnd--;
 
             for (int i = rowEnd; i >= rowBegin; i--) {
-                matrix[i][colBegin] = num++;
+                res[i][colBegin] = num++;
             }
             colBegin++;
         }
-        return matrix;
+        return res;
     }
 }
