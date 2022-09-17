@@ -35,15 +35,15 @@ the time complexity is O(n log n).
         // res is the length of subarray
         int res = Integer.MAX_VALUE;
         //left is sliding window left
-        int left = 0, sum = 0;
+        int l = 0, sum = 0;
         for (int i = 0; i < A.length; i++) {
             sum += A[i];
             // left is before i's position,
-            while (left <= i && sum >= s) {
+            while (l <= i && sum >= s) {
                 // we move pointer left to i so res is the shortest length
-                res = Math.min(res, i -left + 1);
+                res = Math.min(res, i -l + 1);
                 // remove from the sum
-                sum -= A[left++];
+                sum -= A[l++];
             }
         }
         return res == Integer.MAX_VALUE ? 0 : res;
