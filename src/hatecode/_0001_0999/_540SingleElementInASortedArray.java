@@ -16,11 +16,11 @@ Output: 10
     //thinking process: O(logN)/O(1)
     //if it is sorted, then BS is on the plate, whole length must be odd number
     //so if mid is even, 
-    public int singleNonDuplicate_Standard(int[] nums) {
-        if (nums == null || nums.length < 1)
+    public int singleNonDuplicate_Standard(int[] A) {
+        if (A == null || A.length < 1)
             return 0;
 
-        int n = nums.length;
+        int n = A.length;
         //this binary search templates is tricky, 
         //traditionally this should be r = n as 2nd template,
         //but since our TODO: add more comments here
@@ -29,7 +29,7 @@ Output: 10
         while (l < r) {
             int mid = l + (r - l) / 2;
             int temp = mid % 2 == 0 ? mid + 1 : mid - 1;
-            if (nums[mid] == nums[temp]) {
+            if (A[mid] == A[temp]) {
                 // if mid is even, then nums[mid] = nums[mid + 1], single number is >= mid + 2
                 // if mid is odd, then nums[mid] = nums[mid - 1], single number is >= mid + 1
                 // so we choose mid + 1
@@ -41,7 +41,7 @@ Output: 10
                 r = mid;
             }
         }
-        return nums[l];
+        return A[l];
     }
     
     public int singleNonDuplicate(int[] nums) {
