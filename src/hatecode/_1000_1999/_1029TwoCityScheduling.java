@@ -19,9 +19,10 @@ Input: [[10,20],[30,200],[400,50],[30,20]]
 Output: 110
 */
     //thinking process:
-    //given a 2d array A, A[i][0] means i-th person cost to city a, 
-    //A[i][1] means cost to b, so we want to know the minimal cost if 
-    //we group them into 2 cities. 
+    //given a 2d array A, each i-th person cost to city a A[i][0], cost to 
+    /*
+     * city b is A[i][1], 
+     */
     
     //we want to sort by how much saved if we go to b instead of a
     //[[10,20],[30,200],[400,50],[30,20]]->
