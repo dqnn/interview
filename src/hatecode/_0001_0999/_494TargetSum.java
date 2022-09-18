@@ -27,10 +27,10 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
     
     //we map the dp to 2* sum + , [-sum, sum] elements, 
     //
-    public int findTargetSumWays2(int[] nums, int S) {
-        int totalSum = Arrays.stream(nums).sum();
+    public int findTargetSumWays2(int[] A, int S) {
+        int totalSum = Arrays.stream(A).sum();
         //this can be removed
-        for (int num : nums) {  //calculate the totalSum keeping all the elements in the array positive
+        for (int num : A) {  //calculate the totalSum keeping all the elements in the array positive
             totalSum += num;  
         }
         if (totalSum < S || -totalSum > S) { //If the target sum S is not reachable by the range
@@ -42,12 +42,12 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
         dp[totalSum] = 1; 
         //We start from no elements in the array, so there is one way to have 
         //sum = 0 that there is no element
-        for (int i = 0; i < nums.length; i++) { //Start from deciding to add the first element as positive or negative
+        for (int i = 0; i < A.length; i++) { //Start from deciding to add the first element as positive or negative
             int[] next = new int[2 * totalSum + 1];
             for (int j = 0; j < 2 * totalSum + 1; j++) {
                 if (dp[j] != 0) {  //if current sum j - totalSum is already reached by the previous searched numbers
-                    next[j + nums[i]] += dp[j]; //plus the num of ways to have sum = j - totalSum to the num of ways to have sum = j + nums[i] - totalSum 
-                    next[j - nums[i]] += dp[j];
+                    next[j + A[i]] += dp[j]; //plus the num of ways to have sum = j - totalSum to the num of ways to have sum = j + nums[i] - totalSum 
+                    next[j - A[i]] += dp[j];
                 }//The previous reached range is  -totalSum < [-currSum, currSum ] < totalSum.
                 //Since currSum + nums[i] no larger than totalSum, -currSum - nums[i] no smaller than -totalSum, so it won't exceed the boundary
             }
