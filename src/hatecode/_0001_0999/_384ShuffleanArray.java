@@ -3,11 +3,6 @@ package hatecode._0001_0999;
 import java.util.Random;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : ShuffleanArray
- * Creator : professorX
- * Date : Sep, 2018
  * Description : TODO
  * Tags: Math, Permutations
  */
