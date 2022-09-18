@@ -26,6 +26,9 @@ Output: 110
      * 
      * Greedy, 
      * 
+     * [10, 100], we use 10-100 = -90, to see if choose B, how many we can save,
+     * we sort by this number, first half we will choose A since save is minimal, 
+     * , next half we choose B since B is cheaper
      */
     
     //we want to sort by how much saved if we go to b instead of a
