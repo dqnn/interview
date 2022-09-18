@@ -3,10 +3,6 @@ package hatecode._0001_0999;
 import java.util.*;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : FindMedianfromDataStream
- * Creator : professorX
  * Date : Nov, 2017
  * Description : 295. Find Median from Data Stream
  * 
@@ -52,59 +48,41 @@ public class _295FindMedianfromDataStream {
 
     // here is a sorted list eg: 
     //https://chromium.googlesource.com/android_tools/+/refs/heads/master/sdk/sources/android-25/android/support/v7/util/SortedList.java?autodive=0%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F
-    private PriorityQueue<Long> small;
-    private PriorityQueue<Long> large;
-
-    public _295FindMedianfromDataStream() {  // MedianFinder()
-        small = new PriorityQueue<>();// they are all asc
-        large = new PriorityQueue<>();// 
-    }
-
-    // the key is here, we use two list to store half of them, 
-    // we do this like large only be allowed to be 1 more elment than small.
-    // and the way how we preserve the small is awesome
-    public void addNum(int num) {
-        large.add((long)num);
-        small.add(-large.poll());
-        if (large.size() < small.size()) {
-            large.add(-small.poll());
-        }
-    }
-
-    public double findMedian() {
-        return large.size() > small.size() ? large.peek() : (large.peek() - small.peek()) / 2.0;
-    }
     
     //interview friendly:
-    private Queue<Integer> min;
-    private Queue<Integer> max;
-
-    //so for the right, we always add the big number in minStack, this can help to 
-    //keep the bigger number
-    public void MedianFinder() {
-        this.min = new PriorityQueue<>((a, b)->(a-b));
-        this.max = new PriorityQueue<>((a, b)->(b-a));
+    //left is PQ sorted by desc, right is asc,
+    //we always add number to left first, then if we found 
+    /*
+     * 1. left.size() > r.size() + 1, then we move biggest from left to right
+     * 2. left.peek() > right.peek(). then move to right.
+     * 
+     * so we can always sure that left.size = right.size or left size = right size + 1
+     */
+    PriorityQueue<Integer> l, r;
+    public _295FindMedianfromDataStream() {
+        l = new PriorityQueue<>((a, b)->Integer.compare(b, a));
+        r = new PriorityQueue<>();
     }
     
-    public void addNum2(int num) {
-        if(min.isEmpty()) min.offer(num);
-        else if(min.peek() <= num) min.offer(num);
-        else max.offer(num);
+    public void addNum(int n) {
+      l.add(n);
+      if (l.size() > r.size() + 1) {
+          r.add(l.poll());
+      }
+      
+      while(!r.isEmpty() && l.peek() > r.peek()) {
+          r.add(l.poll());
+          l.add(r.poll());
+      }
+   // System.out.println("l =" + l +"  r=" + r);
         
-        rebalance();
-    }
-    //here is the key, min is on right side of the sorted array, so i prefer it has one more elment
-    //than left, so this case will be normal, it will only rebalance is two cases:
-    //1, right is 2 more elements than left
-    //2 left has more elements than right
-    private void rebalance() {
-        if(min.size() > max.size() + 1) {
-            max.offer(min.poll());
-        } else if(max.size() > min.size()) min.offer(max.poll());
     }
     
-    public double findMedian2() {
-        if(min.size() == max.size()) return (min.peek() + max.peek()) / 2d;
-        else return min.peek() * 1d;
+    public double findMedian() {
+        if (l.size() == r.size()) {
+            return 1.0* (l.peek() + r.peek())/2.0;
+        } else {
+            return 1.0* l.peek();
+        }
     }
 }
