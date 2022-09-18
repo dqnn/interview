@@ -71,7 +71,9 @@ public class _343IntegerBreak {
     }
     
     /*
-    This is a typical knapsack problem. We can assume that the volume of the knapsack is n. The items we can choose range from 1 to n - 1(because we must divide n into at least two positive parts). The point is that we can choose each item many times.
+    This is a typical knapsack problem. We can assume that the volume of the knapsack is n. 
+    The items we can choose range from 1 to n - 1(because we must divide n into 
+    at least two positive parts). The point is that we can choose each item many times.
 The first loop means the items we can choose(i means first i items).
 And in the second loop, j means the sum of items that we are going to choose.
 For each item, we have two choices, pick it up or not. And we should choose the max result.
