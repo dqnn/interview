@@ -110,7 +110,9 @@ For each item, we have two choices, pick it up or not. And we should choose the 
      *           /   \             / \
      *         i-k,  dp[i-k]      k   dp[k]
      *         
-     * we basically want to 
+     * we basically want to say when we know dp[7], we want to know dp[8]
+     * then k = 1,  we know dp[7] * dp[1] or dp[7] * dp[1] or 7 * dp[1] or dp[7] * 1
+     * k = 2, the same as above
      */
     public int integerBreak_DP(int n) {
         if (n <= 0) return 0;
