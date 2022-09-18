@@ -91,4 +91,24 @@ public class _112PathSum {
             helper(node.right, sum);
         }
     }
+    
+    /*
+     * simple solution, O(n)/O(1)
+     */
+    public boolean hasPathSum_Simple(TreeNode root, int targetSum) {
+        if (root == null) return false;
+        return helper(root, targetSum, root.val);
+    }
+    
+    private boolean helper(TreeNode root, int target, int cur) {
+        if (root == null) return false;
+        if (root.left == null && root.right == null && target == cur){
+            return true;
+        }
+        
+        boolean left = helper(root.left, target, cur + (root.left == null ? 0 : root.left.val));
+        boolean right = helper(root.right, target, cur + (root.right == null ? 0 : root.right.val));
+        
+        return left || right;
+    }
 }
