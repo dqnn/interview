@@ -1,14 +1,8 @@
 package hatecode._0001_0999;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : ThreeSumSmaller
- * Creator : professorX
- * Date : Sep, 2018
  * Description : 259. 3Sum Smaller
  */
 public class _259ThreeSumSmaller {
