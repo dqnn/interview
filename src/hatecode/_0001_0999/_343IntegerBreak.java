@@ -89,8 +89,7 @@ For each item, we have two choices, pick it up or not. And we should choose the 
                 // a = [1, n-1), b = [1, ]
                 dp[j] = Math.max(dp[j], dp[j - i] * i);
                 if(j == n){
-                    if(max < dp[j])
-                        max = dp[j];
+                    if(max < dp[j]) max = dp[j];
                 }
             }
         }
