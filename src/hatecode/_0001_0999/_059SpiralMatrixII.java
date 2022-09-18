@@ -40,32 +40,32 @@ public class _059SpiralMatrixII {
     public int[][] generateMatrix(int n) {
 
         int[][] res = new int[n][n];
-        int rowBegin = 0;
-        int rowEnd = n - 1;
-        int colBegin = 0;
-        int colEnd = n - 1;
+        int rb = 0;
+        int re = n - 1;
+        int cb = 0;
+        int ce = n - 1;
         int num = 1;
 
-        while (rowBegin <= rowEnd && colBegin <= colEnd) {
-            for (int i = colBegin; i <= colEnd; i++) {
-                res[rowBegin][i] = num++;
+        while (rb <= re && cb <= ce) {
+            for (int i = cb; i <= ce; i++) {
+                res[rb][i] = num++;
             }
-            rowBegin++;
+            rb++;
 
-            for (int i = rowBegin; i <= rowEnd; i++) {
-                res[i][colEnd] = num++;
+            for (int i = rb; i <= re; i++) {
+                res[i][ce] = num++;
             }
-            colEnd--;
+            ce--;
 
-            for (int i = colEnd; i >= colBegin; i--) {
-                res[rowEnd][i] = num++;
+            for (int i = ce; i >= cb; i--) {
+                res[re][i] = num++;
             }
-            rowEnd--;
+            re--;
 
-            for (int i = rowEnd; i >= rowBegin; i--) {
-                res[i][colBegin] = num++;
+            for (int i = re; i >= rb; i--) {
+                res[i][cb] = num++;
             }
-            colBegin++;
+            cb++;
         }
         return res;
     }
