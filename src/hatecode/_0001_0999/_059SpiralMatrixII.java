@@ -47,8 +47,8 @@ public class _059SpiralMatrixII {
         int num = 1;
 
         while (rb <= re && cb <= ce) {
-            for (int i = cb; i <= ce; i++) {
-                res[rb][i] = num++;
+            for (int j = cb; j <= ce; j++) {
+                res[rb][j] = num++;
             }
             rb++;
 
@@ -57,8 +57,8 @@ public class _059SpiralMatrixII {
             }
             ce--;
 
-            for (int i = ce; i >= cb; i--) {
-                res[re][i] = num++;
+            for (int j = ce; j >= cb; j--) {
+                res[re][j] = num++;
             }
             re--;
 
