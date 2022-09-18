@@ -25,7 +25,7 @@ Follow up: Could you solve it in O(n2) runtime?
 
      nums = [-2, 0, 1, 3], and target = 2.
 
-     * @param nums
+     * @param A
      * @param target
      * @return
      */
@@ -36,23 +36,23 @@ Follow up: Could you solve it in O(n2) runtime?
     
     //we use a for and while loop to get the answer
     //
-    public int threeSumSmaller(int[] nums, int target) {
+    public int threeSumSmaller(int[] A, int target) {
         int res = 0;
         //we sort first then we can use two pointers to move
-        Arrays.sort(nums);
+        Arrays.sort(A);
         // i max =  nums.length - 3 becz left is i + 1, so left max is nums.length - 2
         //right will be last,so we don't need overlap
-        for (int i = 0; i < nums.length - 2; i++) {
-            int left = i + 1;
-            int right = nums.length - 1;
+        for (int i = 0; i < A.length - 2; i++) {
+            int l = i + 1;
+            int r = A.length - 1;
             //left is i + 1, right is last one
-            while (left < right) {
-                if (nums[i] + nums[left] + nums[right] < target) {
+            while (l < r) {
+                if (A[i] + A[l] + A[r] < target) {
                     //we use right-left, since we find all numbers 
                     //between it is correct
-                    res += right - left;
-                    left++;
-                } else right--;
+                    res += r - l;
+                    l++;
+                } else r--;
             }
         }
         return res;
