@@ -1,14 +1,9 @@
 package hatecode._0001_0999;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : SwapNodesinPairs
- * Creator : professorX
- * Date : Sep, 2018
  * Description : TODO
  */
-public class _24SwapNodesinPairs {
+public class _024SwapNodesinPairs {
     /**
      * 24. Swap Nodes in Pairs
      * Given a linked list, swap every two adjacent nodes and return its head.
