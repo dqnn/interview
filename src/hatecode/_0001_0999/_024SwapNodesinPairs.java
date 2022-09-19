@@ -48,7 +48,10 @@ public class _024SwapNodesinPairs {
         return dummy.next;
     }
     
-    //reverse templates
+    //thinking process: O(n)/O(1)
+    /*
+     * this could help easily extend for every 3 nodes or 4 nodes
+     */
     public ListNode swapPairs_Templates(ListNode head) {
         if (head == null || head.next == null) return head;
         
@@ -66,6 +69,10 @@ public class _024SwapNodesinPairs {
         return dummy.next;
     }
     
+    /*
+     * this us template code that we will reverse linkedlist
+     * 
+     */
     private ListNode reverse(ListNode s, ListNode e) {
         ListNode cur = s.next;
         ListNode res = cur;
