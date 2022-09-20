@@ -51,6 +51,9 @@ public class _024SwapNodesinPairs {
     //thinking process: O(n)/O(1)
     /*
      * this could help easily extend for every 3 nodes or 4 nodes
+     *  dummy--> 1 --> 2 --> 3 --> 4
+     *            
+     *  
      */
     public ListNode swapPairs_Templates(ListNode head) {
         if (head == null || head.next == null) return head;
