@@ -56,8 +56,15 @@ public class _024SwapNodesinPairs {
      *   |                   |
      *   s                   e
      *   
-     *   reverse will reverse above sub partition list.
-     *   
+     *   reverse() will reverse above sub partition list.
+     *  dummy--> 1 --> 2 --> 3 --> 4
+     *   |       |           |
+     *   |       |           |
+     *   prev   res           cur
+     *  dummy--> 2 --> 1 --> 3 --> 4
+     *   |       |     |     |
+     *   |       |     |     |
+     *          res    prev  cur
      *  
      */
     public ListNode swapPairs_Templates(ListNode head) {
