@@ -31,7 +31,7 @@ Explanation: The array contains less than 2 elements, therefore return 0.
      space : O(n)
 
 
-     * @param nums
+     * @param A
      * @return
      */
     // this is bucket sort, so
@@ -43,15 +43,15 @@ Explanation: The array contains less than 2 elements, therefore return 0.
     //bucket index actually is the index of the elment in a sorted array. 
     
     //so 
-    public static int maximumGap(int[] nums) {
-        if (nums == null || nums.length < 2) return 0;
+    public static int maximumGap(int[] A) {
+        if (A == null || A.length < 2) return 0;
 
-        int len = nums.length;
-        int max = nums[0];
-        int min = nums[0];
-        for (int i = 0; i < nums.length; i++) {
-            max = Math.max(max, nums[i]);
-            min = Math.min(min, nums[i]);
+        int len = A.length;
+        int max = A[0];
+        int min = A[0];
+        for (int i = 0; i < A.length; i++) {
+            max = Math.max(max, A[i]);
+            min = Math.min(min, A[i]);
         }
         // this is the way how we calc the bucket gap or bucket capacity
         int gap = (int)Math.ceil((double)(max - min) / (len - 1));
@@ -59,7 +59,7 @@ Explanation: The array contains less than 2 elements, therefore return 0.
         int[] bucketsMax = new int[len - 1];
         Arrays.fill(bucketsMax, Integer.MIN_VALUE);
         Arrays.fill(bucketsMin, Integer.MAX_VALUE);
-        for (int num : nums) {
+        for (int num : A) {
             if (num == min || num == max) continue;
             // this is how we calc the bucket idx，actually it is the index after we sort the array
             int bucket = (num - min) / gap;
