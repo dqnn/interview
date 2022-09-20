@@ -40,7 +40,7 @@ Explanation: The array contains less than 2 elements, therefore return 0.
     // we have 5, third we have 7
     
     //so we get the array max and min, and calculate the delta by size of the elements, so for every elmement, 
-    //bucket index actually is the index of the elment in a sorted array. 
+    //bucket index actually is the index of the element in a sorted array. 
     
     //so 
     public static int maximumGap(int[] A) {
