@@ -42,12 +42,12 @@ public class _053MaximumSubarray {
     //interview friendly, so every time, we get max number by two ways:
     //1 current number 
     //2. A[i]  + previous sum
-    public int maxSubArray2(int[] nums) {
-        int res = nums[0];
-        int sum = nums[0];
-        for (int i = 1; i < nums.length; i++) {
-            // this is easier, so comare SUM(0-i) and nums[i] each time. 
-            sum = Math.max(nums[i], sum + nums[i]); //tricky
+    public int maxSubArray2(int[] A) {
+        int res = A[0];
+        int sum = A[0];
+        for (int i = 1; i < A.length; i++) {
+            // this is easier, so compare SUM(0-i) and nums[i] each time. 
+            sum = Math.max(A[i], sum + A[i]); //tricky
             res = Math.max(res, sum);
         }
         return res;
