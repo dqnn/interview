@@ -61,7 +61,7 @@ Explanation: The array contains less than 2 elements, therefore return 0.
         Arrays.fill(bucketsMin, Integer.MAX_VALUE);
         for (int num : nums) {
             if (num == min || num == max) continue;
-            // this is how we calc the bucket idx，acutally it is the index after we sort the array
+            // this is how we calc the bucket idx，actually it is the index after we sort the array
             int bucket = (num - min) / gap;
             bucketsMin[bucket] = Math.min(num, bucketsMin[bucket]);
             bucketsMax[bucket] = Math.max(num, bucketsMax[bucket]);
