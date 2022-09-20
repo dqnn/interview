@@ -64,7 +64,7 @@ public class _024SwapNodesinPairs {
      *  dummy--> 2 --> 1 --> 3 --> 4
      *   |       |     |     |
      *   |       |     |     |
-     *          res    prev  cur
+     *        s=res    prev  cur
      *  
      */
     public ListNode swapPairs_Templates(ListNode head) {
