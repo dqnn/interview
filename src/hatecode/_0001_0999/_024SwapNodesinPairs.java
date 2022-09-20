@@ -52,7 +52,12 @@ public class _024SwapNodesinPairs {
     /*
      * this could help easily extend for every 3 nodes or 4 nodes
      *  dummy--> 1 --> 2 --> 3 --> 4
-     *            
+     *   |                   |
+     *   |                   |
+     *   s                   e
+     *   
+     *   reverse will reverse above sub partition list.
+     *   
      *  
      */
     public ListNode swapPairs_Templates(ListNode head) {
