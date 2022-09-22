@@ -54,6 +54,11 @@ Explanation: The array contains less than 2 elements, therefore return 0.
             min = Math.min(min, A[i]);
         }
         // this is the way how we calc the bucket gap or bucket capacity
+        /*
+         * [3,6,9,1] gap = 3
+         *  bucketsMin=[3, 6, 2147483647]
+            bucketsMax=[3, 6, -2147483648]
+         */
         int gap = (int)Math.ceil((double)(max - min) / (len - 1));
         int[] bucketsMin = new int[len - 1];
         int[] bucketsMax = new int[len - 1];
