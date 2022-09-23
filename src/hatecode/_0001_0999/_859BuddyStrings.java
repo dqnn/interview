@@ -78,6 +78,8 @@ public class _859BuddyStrings {
      */
     public boolean buddyStrings2(String A, String B) {
         if (A.length() != B.length()) return false;
+        
+        //if A has dup character then it is true
         if (A.equals(B)) {
             Set<Character> s = new HashSet<Character>();
             for (char c : A.toCharArray()) s.add(c);
