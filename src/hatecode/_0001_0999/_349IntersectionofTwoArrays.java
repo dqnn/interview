@@ -96,22 +96,12 @@ public class _349IntersectionofTwoArrays {
     }
 
     // time : O(n) space : O(n + m);
-    public int[] intersection3(int[] nums1, int[] nums2) {
-        if (nums1 == null || nums2 == null || nums1.length < 1 || nums2.length < 1)  {
-            return new int[] {};
-        }
+    public int[] intersection_Stream(int[] A1, int[] A2) {
+        Set<Integer> set1 = new HashSet<>(), res = new HashSet<>();
         
-        Set<Integer> set = new HashSet<>();
-        Set<Integer> ret = new HashSet<>();
-        for(int i = 0; i < nums1.length; i++) {
-            set.add(nums1[i]);
-        }
+        Arrays.stream(A1).forEach(e->set1.add(e));
         
-        for (int j = 0; j < nums2.length; j++) {
-                if (set.contains(nums2[j])) {
-                    ret.add(nums2[j]);
-                }
-            }
-        return ret.stream().mapToInt(i->i).toArray();
+        Arrays.stream(A2).filter(e->set1.contains(e)).forEach(x->res.add(x));
+        return res.stream().mapToInt(e->e).toArray();
     }
 }
