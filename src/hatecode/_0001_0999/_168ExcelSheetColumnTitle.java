@@ -55,7 +55,7 @@ public class _168ExcelSheetColumnTitle {
      * reminder. So to reduce that 1 char gap, (n-1) was used.
      * 
      * Let's say for 52. It gives reminder, (n-1)%26 => (51%26) = 25 and in next
-     * interation it gives 0, which makes AZ. But just keeping n to n, (n)%26 =>
+     * interaction it gives 0, which makes AZ. But just keeping n to n, (n)%26 =>
      * (52%26) reminder would be 0 and 2 in next iteration which gives undesirable
      * results in the end (CA)
      */
