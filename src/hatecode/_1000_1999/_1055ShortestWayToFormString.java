@@ -63,6 +63,7 @@ public class _1055ShortestWayToFormString {
             map[i] = Arrays.copyOf(map[i + 1],26);
             map[i][cs[i] - 'a'] = i + 1; 
         }
+        
         int j = 0, res = 1;
         for (int i = 0; i < ts.length; i++) {
             if (j == n) {
