@@ -86,7 +86,8 @@ public class _437PathSumIII {
         map.put(0, 1);
         return helper(root, 0, sum, map);
     }
-    // helper will return  how many paths begining from this node which satisfy the requirements
+    // helper will return  how many paths beginning from this node 
+    //which satisfy the requirements
     public int helper(TreeNode node, int curSum, int sum, Map<Integer, Integer> map) {
         if (node == null) {
             return 0;
