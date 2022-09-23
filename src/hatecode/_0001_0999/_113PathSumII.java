@@ -50,7 +50,7 @@ public class _113PathSumII {
                 // the current element if we did not get the correct path
                 // so the whole scan is more likely, we pre-order visit the tree and if we find a leaf node which
                 // satisfy our needs, we just add to the result, the whole pipeline will remove the element if we cannot
-                // find more correct way when we rereat to high level of the tree.
+                // find more correct way when we retreat to high level of the tree.
             }
         }
         helper(res, list, root.left, sum - root.val);
