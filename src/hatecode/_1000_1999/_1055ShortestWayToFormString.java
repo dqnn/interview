@@ -50,6 +50,37 @@ public class _1055ShortestWayToFormString {
         return at >= list.size() ? -1 : list.get(at);
     }
     
+    /*
+     * interview friendly: 
+     */
+    public int shortestWay_best(String src, String dst) {
+        char[] cs = src.toCharArray(), ts = dst.toCharArray();
+        
+        int n = src.length();
+        int[][] map = new int[n][26];
+        map[n - 1][cs[n - 1] - 'a'] = cs.length; 
+        for (int i = n - 2; i >= 0; i--) {
+            map[i] = Arrays.copyOf(map[i + 1],26);
+            map[i][cs[i] - 'a'] = i + 1; 
+        }
+        int j = 0, res = 1;
+        for (int i = 0; i < ts.length; i++) {
+            if (j == n) {
+                j = 0;
+                res++;
+            }
+            j = map[j][ts[i] - 'a'];
+            if (map[0][ts[i] - 'a'] == 0) return -1;
+            if (j == 0) {
+                res++;
+                i--;
+            }
+        }
+        return res;
+    }
+    
+    
+    
     //s=abc, t=abcbc
     //greedy thinking, so we have lastIndex in s, each time, we would compare
     //t.charAt(i) from lastIndex in s, if we can find the the char in s(index), then we move
