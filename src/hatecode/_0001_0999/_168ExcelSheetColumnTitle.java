@@ -50,7 +50,8 @@ public class _168ExcelSheetColumnTitle {
      * @return
      */
     /*
-     * As per the requirement, 1 -> A, 2 -> B... But here in Ascii reminder is added
+     * As per the requirement, 1 -> A, 2 -> B... 
+     * But here in Ascii reminder is added
      * to build the output, 0+65 = A, 1+65 = B, etc. Results will be saved using
      * reminder. So to reduce that 1 char gap, (n-1) was used.
      * 
