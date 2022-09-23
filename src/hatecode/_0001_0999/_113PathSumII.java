@@ -9,6 +9,8 @@ import java.util.List;
 public class _113PathSumII {
     /**
      * 113. Path Sum II
+     * 112. Path Sum I
+     * 437. Path Sum III
      * Given a binary tree and a sum, find all root-to-leaf paths 
      * where each path's sum equals the given sum.
 
