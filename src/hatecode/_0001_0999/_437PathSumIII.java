@@ -5,9 +5,6 @@ import java.util.HashSet;
 import java.util.Map;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : PathSumIII
  * Date : Sep, 2018
  * Description : 437. Path Sum III
  */
