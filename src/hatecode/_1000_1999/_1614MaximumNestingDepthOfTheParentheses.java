@@ -30,6 +30,8 @@ Output: 3
      * thinking process: O(n)/O(1)
      * 
      * given one valid string s, return the max depth of parenthesis
+     * 
+     * just use one variable to record max open count
      */
     public int maxDepth(String s) {
         int res = 0, cur = 0;
