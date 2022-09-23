@@ -29,7 +29,7 @@ Output: 3
     /*
      * thinking process: O(n)/O(1)
      * 
-     * 
+     * given one valid string s, return the max depth of parenthesis
      */
     public int maxDepth(String s) {
         int res = 0, cur = 0;
