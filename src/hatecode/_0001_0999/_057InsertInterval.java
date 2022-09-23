@@ -76,7 +76,14 @@ Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
         }
         return res;
     }
-    // simpler way of solutions
+    /*
+     * interview friendly: O(n)/O(n)
+     * 
+     * the problem is to say:
+     * given a sorted list of intervals which they are sorted by start, then with a new interval, 
+     * 
+     * return the merged list
+     */
     public List<Interval> insert2(List<Interval> intervals, Interval newInterval) {
         List<Interval> result = new ArrayList<Interval>();
         //edge case
