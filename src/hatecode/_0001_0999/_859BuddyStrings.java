@@ -75,6 +75,10 @@ public class _859BuddyStrings {
      * interview friendly: O(n+m)/O(n+m)
      * 
      * the problem is to say:
+     * 
+     * give 2 strings, return true if we can swap two characters in A and equals to B
+     * 
+     * 
      */
     public boolean buddyStrings2(String A, String B) {
         if (A.length() != B.length()) return false;
