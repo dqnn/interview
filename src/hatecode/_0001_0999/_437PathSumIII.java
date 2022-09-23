@@ -95,7 +95,8 @@ public class _437PathSumIII {
         curSum += node.val;
         int res = map.getOrDefault(curSum - sum, 0);
         map.put(curSum, map.getOrDefault(curSum, 0) + 1);
-        // this is using backtracking, so we use map as memeory to go through the rest nodes,
+        // this is using backtracking, so we use map as memory to go 
+        //through the rest nodes,
         res += helper(node.left, curSum, sum, map) + helper(node.right, curSum, sum, map);
         map.put(curSum, map.get(curSum) - 1);
         return res;
