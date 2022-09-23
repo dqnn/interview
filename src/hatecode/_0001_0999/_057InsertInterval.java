@@ -83,6 +83,9 @@ Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
      * given a sorted list of intervals which they are sorted by start, then with a new interval, 
      * 
      * return the merged list
+     * 
+     * we can use if else to either merged to a  new one or put original one to list
+     * but at last we have to put the new one to result list
      */
     public List<Interval> insert2(List<Interval> intervals, Interval newInterval) {
         List<Interval> result = new ArrayList<Interval>();
