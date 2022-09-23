@@ -25,6 +25,15 @@ public class _895MaximumFrequencyStack {
         fre2Stack.computeIfAbsent(f, v->new Stack<>()).push(x);
     }
 
+    //note for fre2Stack we will have many copies of elements 
+    /*
+     * [[], [5], [7], [5], [7], [4], [5], [], [], [], []]
+     * 1--> [4, 7, 5]
+     * 2--> [7,5]
+     * 3->[5]
+     * 
+     * when 5 is out, then maxF-1, then we start to poll 7 
+     */
     public int pop() {
         int x = fre2Stack.get(maxFreq).pop();
         key2Fre.put(x, maxFreq - 1);
