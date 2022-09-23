@@ -1,6 +1,8 @@
 package hatecode._0001_0999;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -69,6 +71,11 @@ public class _859BuddyStrings {
         return sb.toString().equals(B);
     }
     
+    /*
+     * interview friendly: O(n+m)/O(n+m)
+     * 
+     * the problem is to say:
+     */
     public boolean buddyStrings2(String A, String B) {
         if (A.length() != B.length()) return false;
         if (A.equals(B)) {
