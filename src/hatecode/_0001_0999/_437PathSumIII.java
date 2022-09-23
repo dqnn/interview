@@ -70,7 +70,11 @@ public class _437PathSumIII {
         return res;
     }
 
-    // time : O(n) space : O(n)
+    /*
+     * interview friendly, O(n)/O(n)
+     * 
+     * 
+     */
     public int pathSum2(TreeNode root, int sum) {
         if (root == null) {
             return 0;
