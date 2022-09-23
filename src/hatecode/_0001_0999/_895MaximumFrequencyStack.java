@@ -9,7 +9,7 @@ public class _895MaximumFrequencyStack {
      * 
      * push(int x), which pushes an integer x onto the stack. 
      * pop(), which removes and returns the most frequent element in the stack. 
-     * If there is a tie formost frequent element, the element closest to the 
+     * If there is a tie foremost frequent element, the element closest to the 
      * top of the stack is removed
      * and returned.
      * 
