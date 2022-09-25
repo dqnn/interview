@@ -16,7 +16,7 @@ Following are the important characteristics of a lambda expression.
 1. Optional type declaration − No need to declare the type of a parameter. 
  The compiler can inference the same from the value of the parameter.
 
-2. Optional parenthesis around parameter − No need to declare a single parameter in parenthesis. 
+2. Optional parentheses around parameter − No need to declare a single parameter in parenthesis. 
 For multiple parameters, parentheses are required.
 
 3. Optional curly braces − No need to use curly braces in expression body if the body contains a single statement.
