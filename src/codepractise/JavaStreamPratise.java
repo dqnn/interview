@@ -16,7 +16,7 @@ Following are the important characteristics of a lambda expression.
 1. Optional type declaration − No need to declare the type of a parameter. 
  The compiler can inference the same from the value of the parameter.
 
-2. Optional parentheses around parameter − No need to declare a single parameter in parenthesis. 
+2. Optional parentheses around parameter − No need to declare a single parameter in parentheses. 
 For multiple parameters, parentheses are required.
 
 3. Optional curly braces − No need to use curly braces in expression body if the body contains a single statement.
@@ -181,11 +181,11 @@ System.out.println("Average of all numbers : " + stats.getAverage());
         System.out.println("10 x 5 = " + tester.operate(10, 5, multiplication));
         System.out.println("10 / 5 = " + tester.operate(10, 5, division));
           
-        //without parenthesis
+        //without parentheses
         GreetingService greetService1 = message ->
         System.out.println("Hello " + message);
           
-        //with parenthesis
+        //with parentheses
         GreetingService greetService2 = (message) ->
         System.out.println("Hello " + message);
           

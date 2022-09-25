@@ -29,7 +29,7 @@ Output: 3
     /*
      * thinking process: O(n)/O(1)
      * 
-     * given one valid string s, return the max depth of parenthesis
+     * given one valid string s, return the max depth of parentheses
      * 
      * just use one variable to record max open count
      */
