@@ -26,17 +26,17 @@ Output: "lee(t(c)o)de"
     //thinking process: O(n)/O(n)
     
     //the problem is to say: given one string s, which contains letters and 
-    // ( ), if we want valid parenthesis with min removal of the parenthesis, 
+    // ( ), if we want valid parentheses with min removal of the parentheses, 
     //return the string.
     
-    //if we want to remove invalid parenthesis, we can only remove ( or ), 
+    //if we want to remove invalid parentheses, we can only remove ( or ), 
     //the key is how to find the incorrect ones, we can start from examples, since the 
     //letters does not impact the results, we can start from simple example, 
     // ((), suppose we can close the smallest unit, then we can simplify the problem,
     // it will be ( left, this reminds us the data strcutre of Stack. 
     
     //if we have another case, like )(), we cannot close the first one, then we need a counter 
-    //to record the  how many left or right parenthesis we have. 
+    //to record the  how many left or right parentheses we have. 
     
     //similar question: 921,
     //one follow up: return all possible valid string

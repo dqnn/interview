@@ -12,7 +12,7 @@ Example 2:
 
 Input: "F?1:T?4:5"
 Output: "4"
-Explanation: The conditional expressions group right-to-left. Using parenthesis, it is read/evaluated as:
+Explanation: The conditional expressions group right-to-left. Using parentheses, it is read/evaluated as:
 
              "(F ? 1 : (T ? 4 : 5))"                   "(F ? 1 : (T ? 4 : 5))"
           -> "(F ? 1 : 4)"                 or       -> "(T ? 4 : 5)"

@@ -33,7 +33,7 @@ public class _022GenerateParentheses {
     /*
      * left and right means how many "(" and ")" need to be added to string
      */
-    public List<String> generateParenthesis(int n) {
+    public List<String> generateparentheses(int n) {
         List<String> res = new ArrayList<>();
         if (n < 1) return res;
         
@@ -54,7 +54,7 @@ public class _022GenerateParentheses {
         if (right > 0) helper(res, pre + ")", left, right - 1);
     }
     
-    public List<String> generateParenthesis2(int n) {
+    public List<String> generateparentheses2(int n) {
         List<String> list = new ArrayList<String>();
         backtrack(list, "", 0, 0, n);
         return list;
@@ -72,7 +72,7 @@ public class _022GenerateParentheses {
     }
     
     
-    public List<String> generateParenthesis3(int n) {
+    public List<String> generateparentheses3(int n) {
         List<String> res = new ArrayList<>();
         if (n < 1) {
             return res;
