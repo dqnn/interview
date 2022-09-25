@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class _678ValidParenthesisString {
+public class _678ValidparenthesesString {
 /*
-678. Valid Parenthesis String
+678. Valid parentheses String
 Given a string containing only three types of characters: '(', ')' and '*', 
 write a function to check whether this string is valid. We define the validity 
 of a string by these rules:
 
-Any left parenthesis '(' must have a corresponding right parenthesis ')'.
-Any right parenthesis ')' must have a corresponding left parenthesis '('.
-Left parenthesis '(' must go before the corresponding right parenthesis ')'.
-'*' could be treated as a single right parenthesis ')' or a single left parenthesis 
+Any left parentheses '(' must have a corresponding right parentheses ')'.
+Any right parentheses ')' must have a corresponding left parentheses '('.
+Left parentheses '(' must go before the corresponding right parentheses ')'.
+'*' could be treated as a single right parentheses ')' or a single left parentheses 
 '(' or an empty string.
 An empty string is also valid.
 Example 1:
@@ -38,7 +38,7 @@ The string size will be in the range [1, 100].
     
     /*
      * so the problem is to say: 
-     * given one string s, return whether the string of parenthesis is matched 
+     * given one string s, return whether the string of parentheses is matched 
      * or not
      * 
      * since * has 3 possibilities, so example "(*))" we will have 3 strings, 
@@ -135,7 +135,7 @@ all routes have more ‘)’ than ‘(’ --> all routes are invalid --> stop an
     }
     
     /*
-How to check valid parenthesis w/ only ( and )? Easy. Count each char from left to right. 
+How to check valid parentheses w/ only ( and )? Easy. Count each char from left to right. 
 When we see (, count++; when we see ) count--; if count < 0, it is invalid () is more than (); 
 At last, count should == 0.
 This problem added *. The easiest way is to try 3 possible ways when we see it. Return true 

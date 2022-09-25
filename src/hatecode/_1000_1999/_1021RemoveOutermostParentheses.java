@@ -19,10 +19,10 @@ Output: "()()()"
 */
     //thinking process: 
     //the problem is to say: given a valid parenthese string s, 
-    //for each substring valid parenthesis, if we removed the outest parenthese
+    //for each substring valid parentheses, if we removed the outest parenthese
  // the rest still valid, just return it. 
- //the primitive string of parenthesis is to say it is the cleanest, no way to remove any parenthese, 
- //(()())(()) ->(()()) + (()), just for each primitive, remove the outest parenthesis and return.
+ //the primitive string of parentheses is to say it is the cleanest, no way to remove any parenthese, 
+ //(()())(()) ->(()()) + (()), just for each primitive, remove the outest parentheses and return.
  // 
     //outest parentness, like ()()->""
     //this is used opened as indicator we can remove outest parentness

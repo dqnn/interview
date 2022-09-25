@@ -6,9 +6,9 @@ public class _1541MinimumInsertionsToBalanceAParenthesesString {
 1541. Minimum Insertions to Balance a Parentheses String
 Given a parentheses string s containing only the characters '(' and ')'. A parentheses string is balanced if:
 
-Any left parenthesis '(' must have a corresponding two consecutive right parenthesis '))'.
-Left parenthesis '(' must go before the corresponding two consecutive right parenthesis '))'.
-In other words, we treat '(' as an opening parenthesis and '))' as a closing parenthesis.
+Any left parentheses '(' must have a corresponding two consecutive right parentheses '))'.
+Left parentheses '(' must go before the corresponding two consecutive right parentheses '))'.
+In other words, we treat '(' as an opening parentheses and '))' as a closing parentheses.
 
 For example, "())", "())(())))" and "(())())))" are balanced, ")()", "()))" and "(()))" are not balanced.
 You can insert the characters '(' and ')' at any position of the string to balance it if needed.
