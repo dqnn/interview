@@ -55,7 +55,43 @@ so it will remove middle (, and become )(, last it will reverse again to become 
 ()()), we can remove s[1] or s[3], 
 
  */
+    /*
+     * easier to understand 
+     */
+    public List<String> removeInvalidParentheses(String s) {
+        List<String> res = new ArrayList<>();
+        helper(s, res, 0, 0, '(', ')');
+        return res;
+    }
+
+    public void helper(String s, List<String> res, int iStart, int jStart, char openParen, char closedParen) {
+        int numOpenParen = 0, numClosedParen = 0;
+        for (int i = iStart; i < s.length(); i++) {
+            if (s.charAt(i) == openParen) numOpenParen++;
+            if (s.charAt(i) == closedParen) numClosedParen++;
+            if (numClosedParen > numOpenParen) { // We have an extra closed parent we need to remove
+                for (int j = jStart; j <= i; j++) // Try removing one at each position, skipping duplicates
+                    if (s.charAt(j) == closedParen && (j == jStart || s.charAt(j - 1) != closedParen))
+                    // Recursion: iStart = i since we now have valid # closed parenthesis thru i. jStart = j prevents duplicates
+                        helper(s.substring(0, j) + s.substring(j + 1, s.length()), res, i, j, openParen, closedParen);
+                return; // Stop here. The recursive calls handle the rest of the string.
+            }
+        }
+        // No invalid closed parenthesis detected. 
+        //Now check opposite direction, or reverse back to original direction.
+        String reversed = new StringBuilder(s).reverse().toString();
+        if (openParen == '(')
+            helper(reversed, res, 0, 0, ')','(');
+        else
+            res.add(reversed);
+    }
+    
     //Time Complexity: 
+    /*
+     * The program only generates valid answers. Every path in the search generates one valid answer. The whole search space is a tree with k leaves. The number of nodes in the tree is roughly O(k). But this is not always true, for example a degenerated tree.
+To generate one node it requires O(n) time from the string concatenation among other things. So roughly O(nk). Accurately O(nm) where m is the total "number of recursive calls" or "nodes in the search tree". Then you need to relate m to n in the worst case.
+I wouldn't worry too much about the accurate complexity analysis of this problem. It would require more mathematics than an interview cares.
+     */
     //every time we only remove only 1 character, and have new range to check
     //this algo has greedy and dfs, we only examine first r characters which is not valid and we 
     //try to remove first invalid character
