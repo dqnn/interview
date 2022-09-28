@@ -32,7 +32,7 @@ Output: 4
      *   
      *   the problem is to say: 
      *   given one integer array A, and hours as integer,  each integer A[i] means the 
-     *   bananas in that pile, 
+     *   bananas in that pile, you can take k bananas each time, return min number of bananas need to eat one time, 
      *   
      *   
      * 
