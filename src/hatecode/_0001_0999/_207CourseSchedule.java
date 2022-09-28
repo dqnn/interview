@@ -55,8 +55,8 @@ public class _207CourseSchedule {
     
     
     
-    //So the question is to ask given how many classes, and their depdency, to test whether we can 
-    //pass all courses
+    //So the question is to ask given how many classes, and their dependency, to 
+    //test whether we can pass all courses
     //we are doing a little different compared to alien dictionary, for example, we here the indegree is 
     //adding on the parent, not on the child itself, u mean depdency itself.
     public boolean canFinish_Improved(int courses, int[][] deps) {
