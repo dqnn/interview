@@ -55,6 +55,8 @@ Output: 4
         return (int)l;
     }
     
+    //return true if we can eat all bananas in A in h hours if each time is 
+    // m bananas
     private boolean helper(int[] A, long m, int h) {
         long res = 0;
         for(int a : A) {
