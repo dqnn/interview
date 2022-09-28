@@ -4,11 +4,6 @@ import java.util.*;
 import java.util.stream.*;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : CourseSchedule
- * Creator : professorX
- * Date : Nov, 2017
  * Description : 207. Course Schedule
  */
 public class _207CourseSchedule {
