@@ -57,6 +57,12 @@ public class _207CourseSchedule {
     
     //So the question is to ask given how many classes, and their dependency, to 
     //test whether we can pass all courses
+    /*
+     * numCourses = 3, prerequisites = [[1,0],[2,1]]
+     * we have 2 courses, 0, 1 and 2, you need to take 0 to get 1, and to get 2 you 
+     * need to take 1, so return true
+     *  
+     */
     //we are doing a little different compared to alien dictionary, for example, we here the indegree is 
     //adding on the parent, not on the child itself, u mean depdency itself.
     public boolean canFinish_Improved(int courses, int[][] deps) {
