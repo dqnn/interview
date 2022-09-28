@@ -64,7 +64,7 @@ public class _207CourseSchedule {
      *  
      */
     //we are doing a little different compared to alien dictionary, for example, we here the indegree is 
-    //adding on the parent, not on the child itself, u mean depdency itself.
+    //adding on the parent, not on the child itself, u mean dependency itself.
     public boolean canFinish_Improved(int courses, int[][] deps) {
         if(courses <= 1) return true;
 
