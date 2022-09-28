@@ -30,7 +30,7 @@ Output: 4
     
     /*  thinking process: O(n)/O(1)
      *   
-     * 
+     *   
      * 
      */
     public int minEatingSpeed(int[] A, int h) {
