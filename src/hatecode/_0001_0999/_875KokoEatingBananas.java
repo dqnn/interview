@@ -30,7 +30,9 @@ Output: 4
     
     /*  thinking process: O(n)/O(1)
      *   
-     *   
+     *   the problem is to say: 
+     *   given one integer array A, and hours as integer,  each integer A[i] means the 
+     *   bananas in that pile, 
      * 
      */
     public int minEatingSpeed(int[] A, int h) {
