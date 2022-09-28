@@ -3,11 +3,6 @@ package hatecode._0001_0999;
 import java.util.Arrays;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : NumberofConnectedComponentsinanUndirectedGraph
- * Creator : professorX
- * Date : Sep, 2018
  * Description : 323. Number of Connected Components in an Undirected Graph
  */
 public class _323NumberofConnectedComponentsinanUndirectedGraph {
@@ -44,8 +39,7 @@ public class _323NumberofConnectedComponentsinanUndirectedGraph {
      * @param edges
      * @return
      */
-    // n is nodes, edges are thread connected nodes
-    // since 
+    // thinking process: O(n)/O(n)
     public static int countComponents(int n, int[][] edges) {
 
         // firstly, we resume each node is one component
