@@ -34,7 +34,8 @@ Output: 4
      *   given one integer array A, and hours as integer,  each integer A[i] means the 
      *   bananas in that pile, you can take k bananas each time, return min number of bananas need to eat one time, 
      *   
-     *   
+     *   if we make k too small, then we cannot eat all piles of bananas in h hours,
+     *   if too big, then we need A.length hours,
      * 
      */
     public int minEatingSpeed(int[] A, int h) {
