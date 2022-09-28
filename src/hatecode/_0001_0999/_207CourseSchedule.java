@@ -62,6 +62,8 @@ public class _207CourseSchedule {
      * we have 2 courses, 0, 1 and 2, you need to take 0 to get 1, and to get 2 you 
      * need to take 1, so return true
      *  
+     *  this problem is like alien dictionary to reduce indegree every time
+     *  we need to find a path which start from 0 indegree to last element
      */
     //we are doing a little different compared to alien dictionary, for example, we here the indegree is 
     //adding on the parent, not on the child itself, u mean dependency itself.
