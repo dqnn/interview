@@ -78,7 +78,7 @@ public class _038CountandSay {
         else if(n == 5) return "111221";
         
         String prev = countAndSay(n-1);
-        //for 111221 case, if we do not append F, then last 11 wil be missed
+        //for 111221 case, if we do not append F, then last 11 will be missed
         prev += "F";
         int count = 1;
         char ch = prev.charAt(0);
