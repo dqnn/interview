@@ -37,8 +37,6 @@ leetcode File Name : CountandSay
  * Input: 4 Output: "1211"
  */
 
-
-
 public class _038CountandSay {
     /**
  1.     1
