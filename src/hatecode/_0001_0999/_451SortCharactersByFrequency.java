@@ -6,8 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-public class SortCharactersByFrequency {
+public class _451SortCharactersByFrequency {
 /*
+ * 451. Sort Characters By Frequency
 Given a string, sort it in decreasing order based on the frequency of characters.
 
 Example 1:
