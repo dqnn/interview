@@ -70,7 +70,8 @@ Note that 'A' and 'a' are treated as two different characters.
 
         return sb.toString();
     }
-    // O(nlgn)/O(n) solution, we use map and PriorityQueue to sort
+    // interview friendly
+    //O(nlgn)/O(n) solution, we use map and PriorityQueue to sort
     //note assumption is each char frequency is constant
     public String frequencySort2(String s) {
         if (s == null || s.length() < 1) {
