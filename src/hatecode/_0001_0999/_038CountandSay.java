@@ -54,7 +54,8 @@ public class _038CountandSay {
      * @return
      */
     // so this problem essentially:
-    // you need to understand countAndSay2(n) is the readoff to countAndSay2(n -1).
+    // you need to understand countAndSay2(n) is the read off to 
+    //countAndSay2(n -1).
     // from example we can see
     // 3 is 21,
     // so 4 is the "read off" to 3, 1211. 12--> 2, 11-->1, we can split the problem
