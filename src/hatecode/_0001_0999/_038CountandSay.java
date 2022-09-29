@@ -57,12 +57,16 @@ public class _038CountandSay {
      * @return
      */
     // so this problem essentially:
-    // you need to understand countAndSay2(n) is the read off to 
-    //countAndSay2(n -1).
-    // from example we can see
-    // 3 is 21,
-    // so 4 is the "read off" to 3, 1211. 12--> 2, 11-->1, we can split the problem
-    // 1 get the previous number digits and then read off again, and return.
+    /*
+     *  n = 1 -- > 1
+     *  n = 2, looked countAndSay(1), we just found 1 1, one 1
+     *  n = 3, looked at countAndSay(2), we found  2 1, 2 one, (1 1)
+     *  n = 4, countAndSay(3),  
+     *       2         1
+     *      / \       /  \
+     *     1   2     1    1
+     */
+
     public String countAndSay(int n) {
         if(n < 1) return "";
         if(n == 1) return "1";
