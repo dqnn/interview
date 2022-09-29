@@ -75,7 +75,7 @@ Note that 'A' and 'a' are treated as two different characters.
     //note assumption is each char frequency is constant
     /*
      * follow-up: 
-     * 
+     * if same frequency, maintain the same order as previous
      */
     public String frequencySort2(String s) {
         if (s == null || s.length() < 1) {
