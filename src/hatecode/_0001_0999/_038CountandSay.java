@@ -64,7 +64,9 @@ public class _038CountandSay {
      *  n = 4, countAndSay(3),  
      *       2         1
      *      / \       /  \
-     *     1   2     1    1
+     *     1   2     1    1    --> 1个2, 2 个 1
+     *     
+     *
      */
 
     public String countAndSay(int n) {
