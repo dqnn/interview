@@ -201,6 +201,7 @@ so we use visited[start][m] as mem to record which we have visited
     }
     
     private boolean helper(int[] A, int m, int k) {
+        //skip last group and whole group sum <= m
         int group = 1;
         int sum = 0;
         for(int a : A) {
