@@ -59,7 +59,8 @@ Try to solve it in O(n log k) time and O(n) extra space.
     }
     
      // interview friendly 
-    //thinking process: given a list of strings, return top k high frequency strings
+    //thinking process: 
+    //given a list of strings, return top k high frequency strings
     //so we use map as count for each string and add them into a pq, the key is we only need
     //k position in pq,so we can reduce the complexity there. 
     //N means n elements, lgk means we need lgk time to find correct position in pq
