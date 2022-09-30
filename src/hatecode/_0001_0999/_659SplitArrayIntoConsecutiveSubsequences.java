@@ -39,16 +39,16 @@ You can split them into two consecutive subsequences :
     
     //they key is candidateToAppendPreSeqMap, this means the keys are the qualified numbers which belongs to 
     //previous sequence, the values are the times they can append
-    public boolean isPossible(int[] nums) {
-        if (nums == null || nums.length < 1) return false;
+    public boolean isPossible(int[] A) {
+        if (A == null || A.length < 1) return false;
         //keep how many numbers are there
         Map<Integer, Integer> num2FreMap = new HashMap<>();
-        for(int num : nums) num2FreMap.put(num, num2FreMap.getOrDefault(num, 0) + 1);
+        for(int num : A) num2FreMap.put(num, num2FreMap.getOrDefault(num, 0) + 1);
         //candidateToAppendPreSeqMap means the possible that qualified numbers and frequency we need for previous sequence
         Map<Integer, Integer> candidateToAppendPreSeqMap = new HashMap<>();
         
         //second pass, 
-        for(int i : nums) {
+        for(int i : A) {
             if (num2FreMap.get(i) == 0) continue;
             //this is trying to append pre consective sequence  and we cannot change the if else 
             //order, this has to be before the starting real sequence order
