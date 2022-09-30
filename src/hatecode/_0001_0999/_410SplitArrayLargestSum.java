@@ -192,12 +192,28 @@ so we use visited[start][m] as mem to record which we have visited
         while( l < r) {
             int m = l + (r - l)/ 2;
             //we need more sub arrays to get and max sum <= m, which means we need bigger m
-            if (valid_V2(A, m, k)) {
+            if (helper(A, m, k)) {
                 l = m + 1;
             } else r = m;
         }
         
         return l;
+    }
+    
+    private boolean helper(int[] A, int m, int k) {
+        int group = 1;
+        int sum = 0;
+        for(int a : A) {
+            sum += a;
+            if (sum > m) {
+                group ++;
+                sum = a;
+            }
+            
+            if (group > k) return true;
+        }
+        
+        return false;
     }
     
     //here is the method to calculate correct groups, 
