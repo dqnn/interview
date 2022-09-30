@@ -169,6 +169,31 @@ so we use visited[start][m] as mem to record which we have visited
         return true;
     }
     
+    /*
+     * use 1st template to get the min max sum of subarray
+     */
+    public int splitArray_FirstTemplate(int[] A, int k) {
+        if (A == null || A.length < 1) return 0;
+        
+        int l = Integer.MIN_VALUE;
+        int r = 0;
+        
+        for(int a : A) {
+            l = Math.max(l, a);
+            r += a;
+        }
+        
+        while( l < r) {
+            int m = l + (r - l)/ 2;
+            //we need more subarrays to get and max sum <= m, which means we need bigger m
+            if (valid_V2(A, m, k)) {
+                l = m + 1;
+            } else r = m;
+        }
+        
+        return l;
+    }
+    
     //here is the method to calcuate correct groups, 
     private boolean valid_V2(int[] A, int m, int k) {
         int group = 0;
