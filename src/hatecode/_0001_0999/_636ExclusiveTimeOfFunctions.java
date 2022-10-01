@@ -63,7 +63,7 @@ Output:[7, 1]
                 stack.push(curLog);
             } else {
                 Log preStartLog = stack.pop();
-                int time = curLog.time- preStartLog.time + 1; //endtime-starttime
+                int time = curLog.timep- preStartLog.timep + 1; //endtime-starttime
                 //like (()()), parent has 2 child, so it has add 2 childTime
                 if(!stack.isEmpty()) stack.peek().childTime += time;
                 //last function childTime is 0; and we have duplicate one
@@ -76,25 +76,20 @@ Output:[7, 1]
         }
         return res;
     }
-    private static Log fromString(String log) {
-            String[] line = log.split(":");
-            System.out.println(line);
-            return new Log(Integer.valueOf(line[0]),
-                          Integer.valueOf(line[2]),
-                          0, line[1].equals("start"));
-    }
+    private static Log fromString(String A) {
+        String[] in = A.split(":");
+        Log res = new Log();
+        res.id = Integer.valueOf(in[0]);
+        res.isStart = "start".equals(in[1]);
+        res.timep = Integer.valueOf(in[2]);
+        return res;
+}
     
-    static class Log {
+    static class Log{
         int id;
-        int time;
+        int timep;
         int childTime;
         boolean isStart;
-        public Log(int id, int time, int child, boolean isStart) {
-            this.id = id;
-            this.time = time;
-            this.childTime = child;
-            this.isStart = isStart;
-        }
     }
     
     public static void main(String[] args) {
