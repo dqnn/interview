@@ -44,6 +44,7 @@ Explanation: The longest valid parentheses substring is "()()"
      *  ( ---->  prev = 0  stack=[3,4]  res = 2
      *  ) ---->  prev = 0  stack=[3]   res = max(2, 5-3) = 2
      *  ) ---->  prev = 0, stack=[]    res = max(2, 6-0) = 6
+     *  ) ---->  prev = 7  stack=[]    res = 6
      *  
      */
     
