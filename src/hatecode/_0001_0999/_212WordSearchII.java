@@ -50,13 +50,13 @@ public class _212WordSearchII {
         TrieNode root = buildTrie(words);
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
-                dfs(board, i, j, root, res);
+                helper(board, i, j, root, res);
             }
         }
         return res;
     }
 
-    public void dfs(char[][] board, int i, int j, TrieNode p, List<String> res) {
+    public void helper(char[][] board, int i, int j, TrieNode p, List<String> res) {
         if (i < 0 || i >= board.length || j < 0 || j >= board[0].length) return;
         char c = board[i][j];
         if (c == '#' || p.next[c - 'a'] == null) return;
@@ -66,10 +66,10 @@ public class _212WordSearchII {
             p.word = null;
         }
         board[i][j] = '#';
-        dfs(board, i - 1, j, p, res);
-        dfs(board, i + 1, j, p, res);
-        dfs(board, i, j + 1, p, res);
-        dfs(board, i, j - 1, p, res);
+        helper(board, i - 1, j, p, res);
+        helper(board, i + 1, j, p, res);
+        helper(board, i, j + 1, p, res);
+        helper(board, i, j - 1, p, res);
         board[i][j] = c;
     }
 
