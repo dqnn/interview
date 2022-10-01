@@ -40,7 +40,14 @@ public class _419BattleshipsinaBoard {
     //thinking process:
     //given a 2D board, count how many islands which on same row or column, 
     //and one row or column could only have 1 island, return how many are there. 
-    
+    /*
+     * X..X
+       ...X
+       ...X
+       
+       above is only 2 battleships
+       
+     */
     //one battle ship may be horizontal placed or vertically placed, we would like try to
     //check up or left cell whether they are battleship or not, if yes, then we find a standalone
     //ship, if adjacent still x, then they are together
