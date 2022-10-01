@@ -46,7 +46,10 @@ public class _077Combinations {
             res.add(new ArrayList<>(list));
             return;
         }
-        for (int i = start; i <= n; i++) {
+        
+        // we do not have to go to n, because we only need n - k + 1 more elements
+        //for (int i = start; i <= n; i++) {
+        for (int i = start; i <= n - k + 1; i++) {
             list.add(i);
             helper(res, list, n, k - 1, i + 1);// i + 1 means no duplications
             list.remove(list.size() - 1);
