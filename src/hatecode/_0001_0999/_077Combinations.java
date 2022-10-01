@@ -1,7 +1,8 @@
 package hatecode._0001_0999;
 
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
+import java.util.stream.*;
 
 /**
  * Date : Aug, 2017
@@ -55,4 +56,25 @@ public class _077Combinations {
             list.remove(list.size() - 1);
         }
     }
+    
+    /*
+     * TODO: understand the iterative solution
+     */
+    public List<List<Integer>> combine_Iterative(int n, int k) {
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        int i = 0;
+        int[] p = new int[k];
+        while (i >= 0) {
+            p[i]++;
+            if (p[i] > n)
+                --i;
+            else if (i == k - 1) {
+                result.add(Arrays.stream(p).boxed().collect(Collectors.toList()));
+            } else {
+                ++i;
+                p[i] = p[i - 1];
+            }
+        }
+        return result;
+    }    
 }
