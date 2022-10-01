@@ -56,21 +56,21 @@ public class _419BattleshipsinaBoard {
 //如果左邻居或者上邻居单元格是'X'，则说明当前单元格是左边或者上边战舰的一部分；
     //so if they are in one row or column we can only check its left side, because
     //with loop, we can check its value in next iteration
-    public int countBattleships(char[][] nums) {
+    public int countBattleships(char[][] A) {
         // edge case
-        if (null == nums || nums.length < 1) {
+        if (null == A || A.length < 1) {
             return 0;
         }
 
-        int r = nums.length, c = nums[0].length;
+        int r = A.length, c = A[0].length;
         int cnt = 0;
         for (int i = 0; i < r; i++) {
             for (int j = 0; j < c; j++) {
-                if (nums[i][j] == 'X') {
-                    if (i > 0 && (nums[i - 1][j] == 'X')) {
+                if (A[i][j] == 'X') {
+                    if (i > 0 && (A[i - 1][j] == 'X')) {
                         continue;
                     }
-                    if (j > 0 && (nums[i][j - 1] == 'X')) {
+                    if (j > 0 && (A[i][j - 1] == 'X')) {
                         continue;
                     }
                     cnt++;
