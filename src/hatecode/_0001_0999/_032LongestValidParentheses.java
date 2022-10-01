@@ -59,7 +59,8 @@ Explanation: The longest valid parentheses substring is "()()"
         }
         
         Stack<Integer> stack = new Stack<>();
-        //start = -1, because length of string is end-start + 1, but considering "()" you will 
+        //prev is the last valid parentheses start index
+        //prev = -1, because length of string is end-start + 1, but considering "()" you will 
         //need -1 to make the length as 2, also for "(()))" for last ")" it will be a new start
         //for next valid parentheses, so in this problem we always make start as -1 is better
         int prev = -1, res = 0;
