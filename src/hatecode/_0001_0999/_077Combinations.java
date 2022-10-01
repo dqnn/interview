@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : Combinations
- * Creator : professorX
  * Date : Aug, 2017
  * Description : TODO
  */
