@@ -90,7 +90,18 @@ Output:[7, 1]
         int id;
         //time point integer,
         int timep;
-        //time span spent on child processes
+        //time span spent on child processes,
+        /*
+         * for example, 
+         * [ "0:start:0",
+             "0:start:2",
+             "0:end:5",
+             "1:start:6",
+             "1:end:6",
+             "0:end:7"]
+            
+         * 
+         */
         int childTime;
         //flag to see it is start or stop
         boolean isStart;
