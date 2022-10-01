@@ -34,8 +34,8 @@ public class _212WordSearchII {
      */
 //thinking process:
     
-    // given a list words and 2D array of chars, visit in 2D board by adjacent cells, so output a list which lies 
-    //in words and board
+    // given a list words and 2D array of chars, visit in 2D board by adjacent cells, 
+    //return a list which exists in given words list
     
     // we can use search path by brutal force, but that would not be efficient, so we created 
     //triNode to improve
