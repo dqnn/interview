@@ -45,7 +45,7 @@ public class _621TaskScheduler {
     //suppose AAAABBB n =2, AXXAXXAXXAXX, X means empty space,
     //we want to replace with other tasks, so if different then CPU
     //can work without resting, if all same tasks, then it would be 
-    // (n + 1) * (max - 1), n + 1 because add task A's 1 unit time
+    // (n + 1) * (max - 1), n(cooling time) + 1 because add task A's 1 unit time
     // count - 1 because we want count max - 1 A's chunk of time, here
     //4 -1 =3. 
     
