@@ -36,7 +36,10 @@ The number of tasks is in the range [1, 10000].
 The integer n is in the range [0, 100].
  */
 public class _621TaskScheduler {
-    //thinking process: 
+    /*
+     * interview friendly
+     * thinking process:  O(n)/O(1)
+     */
     //the problem is to say we have list of tasks which described in 
     //upper case, and if same task, cpu has to be cool down for n =2 time,
     //each task could take 1 unit time. so given list of tasks, 
@@ -63,7 +66,8 @@ public class _621TaskScheduler {
             cnt[ch - 'A'] +=1; 
             count = Math.max(count, cnt[ch-'A']);
         }
-        //n + 1 positions for count - 1 units,  
+        //n + 1 positions for count - 1 units, 
+        //AAAABBB n =2 --> it will be 3 * 3 = 9
         int res = (n + 1) * (count - 1);
         //because if we have other characters have same count, it has be outside count-1, so we need to add
         //them as 1 more position
