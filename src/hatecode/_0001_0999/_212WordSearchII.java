@@ -28,7 +28,7 @@ public class _212WordSearchII {
      time : O(m * n * TrieNode)
      space : TrieNode
 
-     * @param board
+     * @param A
      * @param words
      * @return
      */
@@ -45,12 +45,12 @@ public class _212WordSearchII {
     //brute force is O(mn 4^k)
     
     //remember how to build triNode and how to search from it
-    public List<String> findWords(char[][] board, String[] words) {
+    public List<String> findWords(char[][] A, String[] words) {
         List<String> res = new ArrayList<>();
         TrieNode root = buildTrie(words);
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[0].length; j++) {
-                helper(board, i, j, root, res);
+        for (int i = 0; i < A.length; i++) {
+            for (int j = 0; j < A[0].length; j++) {
+                helper(A, i, j, root, res);
             }
         }
         return res;
