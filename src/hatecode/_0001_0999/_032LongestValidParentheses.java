@@ -60,7 +60,7 @@ Explanation: The longest valid parentheses substring is "()()"
                 //means we need to start new round of matching or just end
                 if (stack.isEmpty())  start = i;
                 else {
-                    // so we meet ")" and stack is not empty which means it has "(" at least
+                    // so we meet ")" and stack is not empty which means it has 1 "(" at least
                     //if stack is not empty, means we still have "C" not matched, so we continue to move and  
                     // use top in stack as start pointer to calc the length of the qualified string
                     stack.pop();
