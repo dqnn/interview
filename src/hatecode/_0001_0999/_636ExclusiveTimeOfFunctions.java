@@ -31,6 +31,11 @@ logs =
  "0:end:6"]
 Output:[3, 4]
  */
+    /*
+     *  0  1  2  3  4  5  6  7
+     0  ------         ---
+     1        ---------       
+     */
     //thinking process: we have logs id: start: time, 3 parts, so our mission is to 
     // use id as array index, since the log has clean sub problem space so we 
     //can use stack to store the previous result, and we can find that there is 
