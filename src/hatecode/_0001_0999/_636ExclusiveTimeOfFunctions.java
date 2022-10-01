@@ -92,14 +92,21 @@ Output:[7, 1]
         int timep;
         //time span spent on child processes,
         /*
-         * for example, 
+         * for example, n = 3
          * [ "0:start:0",
-             "0:start:2",
-             "0:end:5",
-             "1:start:6",
-             "1:end:6",
+             "1:start:2",
+             "1:end:5",
+             "2:start:6",
+             "2:end:6",
              "0:end:7"]
             
+            0 --> 1 --- > 2
+            when we meet 1 ends
+            we calculated time spent on 1 is 5 -2 +1 = 4.
+            so in stack peek(). we have to add its child time 4 
+            
+            when calculate the exclusive time for 1, it will be 
+            res[1] += time - its children time. here is 0
          * 
          */
         int childTime;
