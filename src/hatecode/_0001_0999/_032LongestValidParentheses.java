@@ -64,7 +64,7 @@ Explanation: The longest valid parentheses substring is "()()"
                     //if stack is not empty, means we still have "C" not matched, so we continue to move and  
                     // use top in stack as start pointer to calc the length of the qualified string
                     stack.pop();
-                    // this is if stack is not empty, we calc from the current top ( idx
+                    // this is if stack is not empty, we calculate from the current top ( idx
                     //start last time which it is legal
                     res = Math.max(res, stack.isEmpty() ? i - start : i - stack.peek());
                 }
