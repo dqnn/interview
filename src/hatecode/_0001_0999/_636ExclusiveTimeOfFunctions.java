@@ -26,15 +26,21 @@ Input:
 n = 2
 logs = 
 ["0:start:0",
- "1:start:2",
- "1:end:5",
- "0:end:6"]
-Output:[3, 4]
+ "0:start:2",
+ "0:end:5",
+ "1:start:6",
+ "1:end:6",
+ "0:end:7"]
+Output:[7, 1]
  */
     /*
      *  0  1  2  3  4  5  6  7
-     0  ------         ---
-     1        ---------       
+     0  -------               ---
+     0         -----------
+     1                    ---       
+     
+     (())
+     see above graph,
      */
     //thinking process: we have logs id: start: time, 3 parts, so our mission is to 
     // use id as array index, since the log has clean sub problem space so we 
