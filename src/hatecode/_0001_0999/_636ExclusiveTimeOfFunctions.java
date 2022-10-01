@@ -86,9 +86,13 @@ Output:[7, 1]
 }
     
     static class Log{
+        //process id
         int id;
+        //time point integer,
         int timep;
+        //time span spent on child processes
         int childTime;
+        //flag to see it is start or stop
         boolean isStart;
     }
     
