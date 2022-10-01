@@ -52,6 +52,15 @@ public class _621TaskScheduler {
     // count - 1 because we want count max - 1 A's chunk of time, here
     //4 -1 =3. 
     
+    /*
+     * this solution has 3 tricks;
+     * 1. (n+1)*(count-1), this counts base time sum, note, we exclude 1 because 
+     * for now we not sure they are the last one or not
+     * 2. we have to loop cnt  because we want to add if there is a tie in original 
+     * char array.
+     * 3. 
+     */
+    
     // then we want to know how many chars to have same max count, 
     //and we only need to count task for last chunk no need to be idle
     //so we only need to replace all chars here this could be how many 
