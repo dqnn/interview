@@ -58,12 +58,12 @@ Output:[7, 1]
         Stack<Log> stack = new Stack<>();
         int[] res = new int[n];
         for(String log : logs) {
-            Log logObj = fromString(log);
-            if (logObj.isStart) {
-                stack.push(logObj);
+            Log curLog = fromString(log);
+            if (curLog.isStart) {
+                stack.push(curLog);
             } else {
-                Log startLog = stack.pop();
-                int time = logObj.time- startLog.time + 1; //endtime-starttime
+                Log preStartLog = stack.pop();
+                int time = curLog.time- preStartLog.time + 1; //endtime-starttime
                 //like (()()), parent has 2 child, so it has add 2 childTime
                 if(!stack.isEmpty()) stack.peek().childTime += time;
                 //last function childTime is 0; and we have duplicate one
@@ -71,7 +71,7 @@ Output:[7, 1]
                 
                 //we have to += because one process can be start multiple times, like 
                 //0:s:0, 0:e:2, 0:s:3, 0:e:5
-                res[logObj.id] += time - startLog.childTime;
+                res[curLog.id] += time - preStartLog.childTime;
             }
         }
         return res;
