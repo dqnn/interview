@@ -25,19 +25,23 @@ public class _067AddBinary {
     public static String addBinary(String a, String b) {
         if (a == null || b == null) return b;
         StringBuilder sb = new StringBuilder();
-        int i = a.length() - 1;
-        int j = b.length() - 1;
-        int sum = 0;
-        while (i >= 0 || j >= 0) {
-            if (i >= 0) sum += a.charAt(i--) - '0';
-            if (j >= 0) sum += b.charAt(j--) - '0';
-            sb.append(sum % 2);
-            sum = sum / 2;
+        int i = a.length()-1, j =b.length()-1;
+        
+        int cur = 0;
+        while(i >=0 || j >=0) {
+            if (i >=0)  cur += a.charAt(i) -'0';
+            if (j >=0)  cur += b.charAt(j) - '0';
+            sb.insert(0, cur % 2); // no need to reverse
+            cur = cur/2;
+            i--;
+            j--;
         }
-        if (sum != 0) {
-            sb.append(sum);
+        
+        if (cur != 0) {
+            sb.insert(0, cur);
         }
-        return sb.reverse().toString();
+        
+        return sb.toString();
     }
     //this is to use stack to avoid reverse(), 
     public String addBinary2(String a, String b) {
