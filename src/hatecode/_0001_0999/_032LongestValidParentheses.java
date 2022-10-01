@@ -37,7 +37,13 @@ Explanation: The longest valid parentheses substring is "()()"
      */
     //")()(()))" should be good example
     /*
-     * 
+     *  )  --->  prev = 0, stack = []  res = min
+     *  ( ---->  prev = 0  stack = [1] res = min
+     *  ) ---->  prev = 0  stack = []  res = 2-0= 2
+     *  ( ---->  prev = 0  stack=[3]   res = 2
+     *  ( ---->  prev = 0  stack=[3,4]  res = 2
+     *  ) ---->  prev = 0  stack=[
+     *  
      */
     
     
@@ -54,7 +60,7 @@ Explanation: The longest valid parentheses substring is "()()"
         //start = -1, because length of string is end-start + 1, but considering "()" you will 
         //need -1 to make the length as 2, also for "(()))" for last ")" it will be a new start
         //for next valid parentheses, so in this problem we always make start as -1 is better
-        int start = -1, res = 0;
+        int prev = -1, res = 0;
         for(int i = 0; i< s.length(); i++) {
             //System.out.println(stack);
             if (s.charAt(i) == '(')  stack.push(i);
@@ -62,7 +68,7 @@ Explanation: The longest valid parentheses substring is "()()"
                 // so if stack is empty, then we know we already matched all "C", so current i as idx 
                 // the position in S is end pointer, 
                 //means we need to start new round of matching or just end
-                if (stack.isEmpty())  start = i;
+                if (stack.isEmpty())  prev = i;
                 else {
                     // so we meet ")" and stack is not empty which means it has 1 "(" at least
                     //if stack is not empty, means we still have "C" not matched, so we continue to move and  
@@ -70,7 +76,7 @@ Explanation: The longest valid parentheses substring is "()()"
                     stack.pop();
                     // this is if stack is not empty, we calculate from the current top ( idx
                     //start last time which it is legal
-                    res = Math.max(res, stack.isEmpty() ? i - start : i - stack.peek());
+                    res = Math.max(res, stack.isEmpty() ? i - prev : i - stack.peek());
                 }
             }
         }
