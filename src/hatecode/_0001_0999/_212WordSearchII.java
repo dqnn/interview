@@ -56,21 +56,21 @@ public class _212WordSearchII {
         return res;
     }
 
-    public void helper(char[][] board, int i, int j, TrieNode p, List<String> res) {
-        if (i < 0 || i >= board.length || j < 0 || j >= board[0].length) return;
-        char c = board[i][j];
+    public void helper(char[][] A, int i, int j, TrieNode p, List<String> res) {
+        if (i < 0 || i >= A.length || j < 0 || j >= A[0].length) return;
+        char c = A[i][j];
         if (c == '#' || p.next[c - 'a'] == null) return;
         p = p.next[c - 'a'];
         if (p.word != null) {
             res.add(p.word);
             p.word = null;
         }
-        board[i][j] = '#';
-        helper(board, i - 1, j, p, res);
-        helper(board, i + 1, j, p, res);
-        helper(board, i, j + 1, p, res);
-        helper(board, i, j - 1, p, res);
-        board[i][j] = c;
+        A[i][j] = '#';
+        helper(A, i - 1, j, p, res);
+        helper(A, i + 1, j, p, res);
+        helper(A, i, j + 1, p, res);
+        helper(A, i, j - 1, p, res);
+        A[i][j] = c;
     }
 
     public TrieNode buildTrie(String[] words) {
