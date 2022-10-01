@@ -42,7 +42,7 @@ public class _212WordSearchII {
     // so if board[i][j] match the char in triNode tree, then we continue, if not, we just 
     //return from this path.
     
-    //bruth force is O(mn 4^k)
+    //brute force is O(mn 4^k)
     
     //remember how to build triNode and how to search from it
     public List<String> findWords(char[][] board, String[] words) {
