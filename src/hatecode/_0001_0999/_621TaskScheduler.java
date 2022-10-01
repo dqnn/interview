@@ -58,7 +58,7 @@ public class _621TaskScheduler {
      * for now we not sure they are the last one or not
      * 2. we have to loop cnt  because we want to add if there is a tie in original 
      * char array.
-     * 3. 
+     * 3. for the edge case, n = 0, we have to return original length b
      */
     
     // then we want to know how many chars to have same max count, 
