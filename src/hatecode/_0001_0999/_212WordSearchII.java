@@ -84,11 +84,14 @@ public class _212WordSearchII {
                 }
                 p = p.next[i];
             }
+            //this is good shot if we want to append last character with original
+            //string
             p.word = word;
         }
         return root;
     }
 
+    // 
     class TrieNode {
         TrieNode[] next = new TrieNode[26];
         //this was to mark it is the end of the string
