@@ -33,33 +33,33 @@ public class _040CombinationSumII {
 
      time : O(2^n);
      space : O(n);
-     * @param candidates
+     * @param A
      * @param target
      * @return
      */
 
-    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+    public List<List<Integer>> combinationSum2(int[] A, int target) {
         List<List<Integer>> res = new ArrayList<>();
-        if (candidates == null || candidates.length == 0) return res;
-        Arrays.sort(candidates);// why we sort
-        helper(res, new ArrayList<>(), candidates, target, 0);
+        if (A == null || A.length == 0) return res;
+        Arrays.sort(A);// why we sort
+        helper(res, new ArrayList<>(), A, target, 0);
         return res;
     }
 
-    public void helper(List<List<Integer>> res, List<Integer> list, int[] candidates, int target, int start) {
-        if (start > candidates.length) {
-            return;
+    public void helper(List<List<Integer>> res, List<Integer> list, int[] A, int target, int start) {
+        if (start > A.length || target < 0) {
+            return; //we have to have this because we may have extra computation
         }
-        if (target < 0)
-            return; // we have to have this because we may have extra computation
         if (target == 0) {
             res.add(new ArrayList<>(list));
             return;
         }
-        for (int i = start; i < candidates.length; i++) {
-            if (i != start && candidates[i] == candidates[i - 1]) continue;//duplicate situations
-            list.add(candidates[i]);
-            helper(res, list, candidates, target - candidates[i], i + 1); // so the index would be i if allows duplicate
+        
+        
+        for (int i = start; i < A.length; i++) {
+            if (i != start && A[i] == A[i - 1]) continue;//duplicate situations
+            list.add(A[i]);
+            helper(res, list, A, target - A[i], i + 1); // so the index would be i if allows duplicate
                                                                           // ones
             list.remove(list.size() - 1);
         }
