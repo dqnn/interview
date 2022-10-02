@@ -56,6 +56,30 @@ Output:
         }
         return res;
     }
+    
+    
+    public int findMinArrowShots_mergeIntervals(int[][] A) {
+        Arrays.sort(A, (a, b)->(a[0] == b[0] ? Integer.compare(b[1], a[1]) : Integer.compare(a[0], b[0])));
+        
+        int s = A[0][0], e = A[0][1];
+        
+        List<int[]> res = new ArrayList<>();
+        for(int i = 1; i<A.length; i++) {
+            
+            if (e >= A[i][0]) {
+                s = Math.max(s, A[i][0]);
+                e = Math.min(e, A[i][1]);
+            } else {
+                res.add(new int[]{s, e});
+                s = A[i][0];
+                e = A[i][1];
+            }
+        }
+        
+        res.add(new int[]{s, e});
+        
+        return res.size();
+    }
     //simple code, as follow up, to make it simpler
 
     public int findMinArrowShots2(int[][] points) {
