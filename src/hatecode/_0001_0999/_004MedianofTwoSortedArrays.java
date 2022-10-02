@@ -92,9 +92,13 @@ public class _004MedianofTwoSortedArrays {
                 r = i - 1; // i is too big
             }
             else { // i is perfect, handle some edge case
+                
                 int maxLeft = 0;
+                // case 1: first cut is on i = 0 which means maxLeft is B[j-1]
                 if (i == 0) { maxLeft = B[j-1]; }
+                // case 2: 2nd cut is at j = 0, which means maxLeft is A[i-1]
                 else if (j == 0) { maxLeft = A[i-1]; }
+                // case 3: normal case, we choose the biggger one on the two cuts left side 
                 else { maxLeft = Math.max(A[i-1], B[j-1]); }
                 
                 //the only middle, if not it is even case
