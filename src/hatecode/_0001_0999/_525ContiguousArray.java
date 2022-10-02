@@ -18,6 +18,12 @@ Explanation: [0, 1] is the longest contiguous subarray with equal number of 0 an
      * 
      * the problem is to say: 
      * 
+     * given one array only have 0 and 1, need to find one subarray which has same count of 
+     * 0 and 1, return the max length of the sub array.
+     * 
+     * two sum, when meeting 0 then use -1, so we are looking for one subarray which sum = 0.
+     * 
+     * Sj -Si = 0, so Sj = Si
      */
     public int findMaxLength(int[] A) {
         Map<Integer, Integer> map = new HashMap<>();
