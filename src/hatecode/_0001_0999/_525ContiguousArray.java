@@ -12,43 +12,27 @@ Input: [0,1]
 Output: 2
 Explanation: [0, 1] is the longest contiguous subarray with equal number of 0 and 1.
 */
-    public int findMaxLength_BF(int[] nums) {
-        int maxlen = 0;
-        for (int start = 0; start < nums.length; start++) {
-            int zeroes = 0, ones = 0;
-            for (int end = start; end < nums.length; end++) {
-                if (nums[end] == 0) {
-                    zeroes++;
-                } else {
-                    ones++;
-                }
-                if (zeroes == ones) {
-                    maxlen = Math.max(maxlen, end - start + 1);
-                }
-            }
-        }
-        return maxlen;
-    }
-    
+   
+    /*
+     * interview friendly, thinking process : O(n)/O(n)
+     * 
+     * the problem is to say: 
+     * 
+     */
     public int findMaxLength(int[] A) {
-        if (A == null || A.length < 2) return 0;
-        int n = A.length;
-        for(int i = 0; i<n; i++) {
-            if (A[i] == 0) A[i] = -1;
-        }
-        
         Map<Integer, Integer> map = new HashMap<>();
         map.put(0, -1);
-        int sum = 0, max = 0;
-        for(int i = 0; i< n; i++) {
-            sum += A[i];
-            if (map.containsKey(sum)) {
-                max = Math.max(max, i - map.get(sum));
-            } else {
-                map.put(sum, i);
-            }
+        int sum = 0;
+        int res = Integer.MIN_VALUE;
+        for(int i = 0; i<A.length; i++) {
+            sum += A[i] == 0 ? -1 : 1;
+            
+            if(map.containsKey(sum)) {
+                res = Math.max(res, i - map.get(sum));
+            } else map.put(sum, i);
         }
-        return max;
+               
+        return res == Integer.MIN_VALUE ? 0 : res;
     }
     /*
    dp[i][0] means from nums 0->i-1 0 count
