@@ -104,6 +104,7 @@ public class _004MedianofTwoSortedArrays {
                 //the only middle, if not it is even case
                 if ( (m + n) % 2 == 1 ) { return maxLeft; }
 
+                //the same as above 
                 int minRight = 0;
                 if (i == m) { minRight = B[j]; }
                 else if (j == n) { minRight = A[i]; }
