@@ -59,8 +59,8 @@ public class _046Permutations {
         helper2(res, 0, nums);
         return res;
     }
-    public static void helper2(List<List<Integer>> res, int start, int[] nums) {
-        if (start == nums.length) {
+    public static void helper2(List<List<Integer>> res, int pos, int[] nums) {
+        if (pos == nums.length) {
             List<Integer> list = new ArrayList<>();
             for (int num : nums) {
                 list.add(num);
@@ -68,10 +68,10 @@ public class _046Permutations {
             res.add(new ArrayList<>(list));
             return;
         }
-        for (int i = start; i < nums.length; i++) {
-            swap(nums, start, i);
-            helper2(res, start + 1, nums);
-            swap(nums, start, i);
+        for (int i = pos; i < nums.length; i++) {
+            swap(nums, pos, i);
+            helper2(res, pos + 1, nums);
+            swap(nums, pos, i);
         }
     }
     public static void swap(int[] nums, int l, int r) {
