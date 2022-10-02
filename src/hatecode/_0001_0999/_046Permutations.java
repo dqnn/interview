@@ -27,27 +27,27 @@ public class _046Permutations {
      The number of recursive calls, T(n) satisfies the recurrence T(n) = T(n - 1) + T(n - 2) + ... + T(1) + T(0),
      which solves to T(n) = O(2^n). Since we spend O(n) time within a call, the time complexity is O(n2^n);
 
-     * @param nums
+     * @param A
      * @return
      */
     // time : O(n! * n) space : O(n);
-    public static List<List<Integer>> permute(int[] nums) {
+    public static List<List<Integer>> permute(int[] A) {
         List<List<Integer>> res = new ArrayList<>();
-        if (nums == null || nums.length == 0) return res;
-        helper(res, new ArrayList<>(), nums);
+        if (A == null || A.length == 0) return res;
+        helper(res, new ArrayList<>(), A);
         return res;
     }
     //permutation does not need pos becuase we do not care where we are, and we return if we found
     //enough elements in array
-    public static void helper(List<List<Integer>> res, List<Integer> list, int[] nums) {
-        if (list.size() == nums.length) {
+    public static void helper(List<List<Integer>> res, List<Integer> list, int[] A) {
+        if (list.size() == A.length) {
             res.add(new ArrayList<>(list));
             return;
         }
-        for (int i = 0; i < nums.length; i++) {
-            if (list.contains(nums[i])) continue;  // O(n)
-            list.add(nums[i]);
-            helper(res, list, nums);
+        for (int i = 0; i < A.length; i++) {
+            if (list.contains(A[i])) continue;  // O(n)
+            list.add(A[i]);
+            helper(res, list, A);
             list.remove(list.size() - 1);
         }
     }
