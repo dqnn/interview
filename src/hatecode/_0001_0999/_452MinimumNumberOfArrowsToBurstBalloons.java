@@ -27,7 +27,8 @@ Output:
     //[1,6],[2,8],[7,12],[10,16]
     /*
      * the problem is to say: given list of intervals, 
-     * each interval means a balloons width, any point of contact will destroy it.
+     * each interval means a balloons width coordination, 
+     * any point of contact will destroy it.
      * 
      * so return the min of arrows needed. 
      * 
