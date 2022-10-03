@@ -1,4 +1,6 @@
 package hatecode._0001_0999;
+
+import java.util.*;
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -53,4 +55,33 @@ Output: false
     }
     
     //another solutioin is BFS, and we do bianry search on each level, but we need to know each parent node
+    public boolean isCousins_BFS(TreeNode root, int x, int y) {
+        Queue<TreeNode> q = new LinkedList<>();
+        
+        q.offer(root);
+        
+        while(!q.isEmpty()) {
+            boolean isX = false, isY = false;
+            int size = q.size();
+            while(size-- > 0) {
+                TreeNode e = q.poll();
+                if (e.left != null && e.right != null) {
+                    if (e.left.val == x && e.right.val == y || 
+                    e.left.val == y && e.right.val == x) return false;
+                }
+                
+                
+                if (e.val == x) isX = true;
+                if (e.val == y) isY = true;
+                
+                if (isX && isY) return true;
+                if (e.left != null) q.offer(e.left);
+                if (e.right != null) q.offer(e.right);
+            }
+            isX = false;
+            isY = false;
+        }
+        
+        return false;
+    }
 }
