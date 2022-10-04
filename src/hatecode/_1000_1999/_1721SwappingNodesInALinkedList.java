@@ -56,7 +56,7 @@ Output: [7,9,6,6,8,7,3,0,9,5]
             prev2.next = left;
             left.next = right;
             right.next = leftNodeAfter;
-        //if they are ajacent nodes, first--second
+        //if they are adjacent nodes, first--second
         } else if (prev2 == left) {
             prev1.next = right;
             right.next = left;
