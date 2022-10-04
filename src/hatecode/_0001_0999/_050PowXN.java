@@ -25,6 +25,7 @@ public class _050PowXN {
             return  1.0 / pow(x, n);
         }
     }
+    
     public static double pow (double x, int n) {
         if (n == 0) {
             return 1;
