@@ -23,6 +23,9 @@ Example 2:
 Input: head = [7,9,6,6,7,8,3,0,9,5], k = 5
 Output: [7,9,6,6,8,7,3,0,9,5]
 */
+    /*
+     * thinking process: O(n)/O(1)
+     */
     public ListNode swapNodes(ListNode head, int k) {
         if (head.next == null) return head;
         
@@ -43,27 +46,27 @@ Output: [7,9,6,6,8,7,3,0,9,5]
             advanced = advanced.next;
         }
 
-        ListNode first = prev1.next;
-        ListNode second = prev2.next;
-        ListNode firstNodeAfter = first.next;
-        ListNode secondNodeAfter = second.next;
+        ListNode left = prev1.next;
+        ListNode right = prev2.next;
+        ListNode leftNodeAfter = left.next;
+        ListNode rightNodeAfter = right.next;
         
         //if first become 2nd node next
-        if (second.next == first) {
-            prev2.next = first;
-            first.next = second;
-            second.next = firstNodeAfter;
+        if (right.next == left) {
+            prev2.next = left;
+            left.next = right;
+            right.next = leftNodeAfter;
         //if they are ajacent nodes, first--second
-        } else if (prev2 == first) {
-            prev1.next = second;
-            second.next = first;
-            first.next = secondNodeAfter;
+        } else if (prev2 == left) {
+            prev1.next = right;
+            right.next = left;
+            left.next = rightNodeAfter;
         //normal status, first---some other nodes---second nodes
         } else {
-            prev1.next = second;
-            second.next = firstNodeAfter;
-            prev2.next = first;
-            first.next = secondNodeAfter;
+            prev1.next = right;
+            right.next = leftNodeAfter;
+            prev2.next = left;
+            left.next = rightNodeAfter;
         }
 
 
