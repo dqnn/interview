@@ -42,10 +42,10 @@ public class _442FindAllDuplicatesinArray {
             return res;
         }
         
-        int len = A.length;
+        int n = A.length;
         // try to use starting from 0 always and use the i+1. which is better than 1 since you
         // will ignore some elements
-        for(int i = 0; i <= len - 1; i++) {
+        for(int i = 0; i <= n - 1; i++) {
             int index = Math.abs(A[i]) - 1;
             if (A[index] > 0) {
                 A[index] = 0 - A[index];
