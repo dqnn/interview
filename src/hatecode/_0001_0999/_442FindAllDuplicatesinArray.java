@@ -35,22 +35,22 @@ Output:
 public class _442FindAllDuplicatesinArray {
     // so should be sensitive about the index,if it is within context of n, then we should consider 
     // take advantage of the value to be index. 
-    public List<Integer> findDuplicates(int[] nums) {
+    public List<Integer> findDuplicates(int[] A) {
         //edge case
         List<Integer> res = new ArrayList<>();
-        if (nums == null || nums.length < 2) {
+        if (A == null || A.length < 2) {
             return res;
         }
         
-        int len = nums.length;
+        int len = A.length;
         // try to use starting from 0 always and use the i+1. which is better than 1 since you
         // will ignore some elements
         for(int i = 0; i <= len - 1; i++) {
-            int index = Math.abs(nums[i]) - 1;
-            if (nums[index] > 0) {
-                nums[index] = 0 - nums[index];
+            int index = Math.abs(A[i]) - 1;
+            if (A[index] > 0) {
+                A[index] = 0 - A[index];
             } else {
-                res.add(Math.abs(nums[i]));
+                res.add(Math.abs(A[i]));
             }
             
         }
