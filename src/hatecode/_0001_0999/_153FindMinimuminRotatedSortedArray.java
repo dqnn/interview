@@ -1,11 +1,7 @@
 package hatecode._0001_0999;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : FindMinimuminRotatedSortedArray
- * Creator : professorX
- * Date : July, 2018
+
  * Description : TODO
  */
 public class _153FindMinimuminRotatedSortedArray {
@@ -21,21 +17,24 @@ public class _153FindMinimuminRotatedSortedArray {
 
      * time : O(logn)
      * space : O(1);
-     * @param nums
+     * @param A
      * @return
      */
-    public int findMin(int[] nums) {
-        if (nums == null || nums.length == 0) return -1;
+    /*
+     * thinking process: O(lgn)/O(1)
+     */
+    public int findMin(int[] A) {
+        if (A == null || A.length == 0) return -1;
         int start = 0;
         //templates for binary search
-        int end = nums.length - 1;
+        int end = A.length - 1;
         // the exit condition is < end, not start < end
         while (start + 1 < end) {
             int mid = (end - start) / 2 + start;
             // original array is rotated to be placed in the first several positions, 
             //if we found mid elements still smaller than end, which means mid must be in first part
             // so we narrow down the search scope
-            if (nums[mid] < nums[end]) {
+            if (A[mid] < A[end]) {
                 end = mid;
             } else {
                 // or mid should be in first part, so narrow down the search scope
@@ -49,8 +48,8 @@ public class _153FindMinimuminRotatedSortedArray {
              */
         }
         // the position returned is start, 
-        if (nums[start] < nums[end]) return nums[start];
-        else return nums[end];
+        if (A[start] < A[end]) return A[start];
+        else return A[end];
     }
     
     //O(n), O(1)
