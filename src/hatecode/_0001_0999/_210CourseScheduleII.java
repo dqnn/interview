@@ -4,11 +4,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : CourseScheduleII
- * Creator : professorX
- * Date : Dec, 2017
  * Description : 210. Course Schedule II
  */
 public class _210CourseScheduleII {
@@ -58,14 +53,19 @@ public class _210CourseScheduleII {
      * @param prerequisites
      * @return
      */
-    public int[] findOrder(int num, int[][] prereq) {
+    /*
+     * thinking process: O(n)/O()
+     * 
+     * 
+     */
+    public int[] findOrder(int A, int[][] prereq) {
         // edge case
-        if (num < 0 || prereq == null) {
+        if (A < 0 || prereq == null) {
             return null;
         }
 
-        int[] res = new int[num];
-        int[] indegree = new int[num];
+        int[] res = new int[A];
+        int[] indegree = new int[A];
         int k = 0; // array index move pointer
         for (int[] pair : prereq) {
             indegree[pair[0]] += 1;
@@ -92,6 +92,6 @@ public class _210CourseScheduleII {
             }
         }
         // here just handle the exception case when prereq = []
-        return k == num ? res : new int[0];
+        return k == A ? res : new int[0];
     }
 }
