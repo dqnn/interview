@@ -61,16 +61,16 @@ public class _210CourseScheduleII {
      * 
      * 
      */
-    public int[] findOrder(int A, int[][] prereq) {
+    public int[] findOrder(int n, int[][] A) {
         // edge case
-        if (A < 0 || prereq == null) {
+        if (n < 0 || A == null) {
             return null;
         }
 
-        int[] res = new int[A];
-        int[] indegree = new int[A];
+        int[] res = new int[n];
+        int[] indegree = new int[n];
         int k = 0; // array index move pointer
-        for (int[] pair : prereq) {
+        for (int[] pair : A) {
             indegree[pair[0]] += 1;
         }
 
@@ -78,13 +78,14 @@ public class _210CourseScheduleII {
         for (int i = 0; i < indegree.length; i++) {
             if (indegree[i] == 0) {
                 queue.offer(i);
+                //all courses are independently, so we add them all
                 res[k++] = i;
             }
         }
 
         while (!queue.isEmpty()) {
             int pre = queue.poll();
-            for (int[] pair : prereq) {
+            for (int[] pair : A) {
                 if (pair[1] == pre) {
                     indegree[pair[0]] -= 1;
                     if (indegree[pair[0]] == 0) {
@@ -95,6 +96,6 @@ public class _210CourseScheduleII {
             }
         }
         // here just handle the exception case when prereq = []
-        return k == A ? res : new int[0];
+        return k == n ? res : new int[0];
     }
 }
