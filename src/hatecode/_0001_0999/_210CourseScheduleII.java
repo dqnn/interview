@@ -54,7 +54,10 @@ public class _210CourseScheduleII {
      * @return
      */
     /*
-     * thinking process: O(n)/O()
+     * thinking process: O(V+E)/O(n)
+     * 
+     * the problem is to say: give n courses and its path as array[1,0], return a 
+     * path which you can finish all courses
      * 
      * 
      */
