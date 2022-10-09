@@ -22,8 +22,30 @@ public class _153FindMinimuminRotatedSortedArray {
      */
     /*
      * thinking process: O(lgn)/O(1)
+     * rotated array, and only returned 1 data, so we use l <r template
+     * 
+     * we have to compare A[r] not A[l], becz A[m] > A[l] it may be on 1st
+     * thread or 2nd thread, but A[m] > A[r] we are sure it is on 1st thread
+     * 
+     * 
+     * 
      */
+    
     public int findMin(int[] A) {
+        int l = 0, r = A.length - 1;
+        
+        while(l < r) {
+            int m = l + (r - l)/ 2;
+            if (A[m] > A[r]) {
+                l = m + 1;
+            } else {
+                r = m;
+            }
+        }
+        
+        return A[l];
+    }
+    public int findMin_2Template(int[] A) {
         if (A == null || A.length == 0) return -1;
         int start = 0;
         //templates for binary search
