@@ -69,12 +69,13 @@ public class _005LongestPalindromicSubstring {
         return res;
     }
     
-    public void helper(String s, int left, int right) {
-        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
-            left--;
-            right++;
+    public void helper(String s, int l, int r) {
+        while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
+            l--;
+            r++;
         }
-        String cur = s.substring(left + 1, right);
+        //since s.charAt(l) != s.charAt(r), we remove both char at l and r
+        String cur = s.substring(l + 1, r);
         if (cur.length() > res.length()) {
             res = cur;
         }
