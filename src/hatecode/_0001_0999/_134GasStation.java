@@ -1,11 +1,6 @@
 package hatecode._0001_0999;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : GasStation
- * Creator : professorX
- * Date : Nov, 2017
  * Description : 134. Gas Station
  */
 public class _134GasStation {
@@ -44,8 +39,14 @@ public class _134GasStation {
      * @return
      */
     //thinking process:
-    //given an array with each cost as another array. fiind out index which as starting index we can 
+    //given an array with each cost as another array. find out index which as starting index we can 
     //travel around the array
+    /*
+     * Input: gas = [1,2,3,4,5], cost = [3,4,5,1,2]
+     * gas[i] means gas volumn at position i, cost[i] means the cost from i ->i+1
+     * 
+     * 
+     */
     
     //for any two points, if the sum >=0, then we always can find a point which can travel whole circle, 
     //
