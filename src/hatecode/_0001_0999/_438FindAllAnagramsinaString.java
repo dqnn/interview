@@ -86,8 +86,6 @@ https://leetcode.com/problems/find-all-anagrams-in-a-string/
         //Two Pointers: begin - left pointer of the window; end - right pointer of the window
         int l = 0, r = 0;
         
-        //the length of the substring which match the target string.
-        int len = Integer.MAX_VALUE; 
         
         //loop at the begining of the source string, default we always move r to right
         while(r < s.length()){
