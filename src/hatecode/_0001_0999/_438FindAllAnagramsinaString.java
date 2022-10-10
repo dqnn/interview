@@ -62,6 +62,13 @@ https://leetcode.com/problems/find-all-anagrams-in-a-string/
     //but here is more elegant version,
      //this is pretty good TP code questions
     //TP templates
+    /*
+     *   s: "cbaebabacd" t: "abc"
+     *   
+     *   map  a->1, b->1, c->1
+     *   
+     *   
+     */
     public List<Integer> findAnagrams(String s, String t) {
         //init a collection or int value to save the result according the question.
         List<Integer> res = new ArrayList<>();
