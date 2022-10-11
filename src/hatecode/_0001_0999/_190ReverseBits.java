@@ -1,11 +1,6 @@
 package hatecode._0001_0999;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : ReverseBits
- * Creator : professorX
- * Date : Sep, 2018
  * Description : 190. Reverse Bits
  */
 public class _190ReverseBits {
@@ -20,6 +15,9 @@ public class _190ReverseBits {
 
      * @param n
      * @return
+     */
+    /*
+     * thinking process: O
      */
     public int reverseBits(int n) {
         if (n == 0) return 0;
