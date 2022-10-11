@@ -4,11 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : FindAllNumbersDisappearedinanArray
- * Creator : professorX
- * Date : Nov, 2017
  * Description : 448. Find All Numbers Disappeared in an Array
  */
 public class _448FindAllNumbersDisappearedinanArray {
@@ -30,22 +25,22 @@ public class _448FindAllNumbersDisappearedinanArray {
      time : O(n)
      space : O(n)
 
-     * @param nums
+     * @param A
      * @return
      */
 
-    public List<Integer> findDisappearedNumbers(int[] nums) {
+    public List<Integer> findDisappearedNumbers(int[] A) {
         List<Integer> res = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++) {
-            int index = Math.abs(nums[i]) - 1;
-            if (nums[index] > 0) {
-                nums[index] = -nums[index];
+        for (int i = 0; i < A.length; i++) {
+            int index = Math.abs(A[i]) - 1;
+            if (A[index] > 0) {
+                A[index] = -A[index];
             }
         }
         //[4,3,2,7,8,2,3,1] -->[-4, -3, -2, -7, 8, 2, -3, -1]
         // so the disappeared num is the index + 1 we did not set the value
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] > 0) {
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] > 0) {
                 res.add(i + 1);
             }
         }
