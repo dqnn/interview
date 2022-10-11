@@ -48,8 +48,16 @@ public class _437PathSumIII {
      */
 
     // time : O(n ^ 2) space : O(n)
+    //Time: O(n^2) in worst case (no branching); O(nlogn) in best case (balanced tree).
     /*
      * it is starting from every node  i->j 
+     *  For each node, three searches are needed, and the time cost for each search 
+     *  is the height of the tree, that's O(h). 
+     *  worst case: tree is like Linked List, h == n, O(h) = O(n); 
+     *  Best case:  Tree is Balanced, which means height == logn, O(h) == O(logn);
+    Since the number of nodes is n, for each node search is O(h) =>
+    best case: O(nlogn)
+    worst case: O(nn)
      */
     public int pathSum(TreeNode root, int sum) {
         if (root == null) {
