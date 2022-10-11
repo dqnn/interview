@@ -63,16 +63,16 @@ Explanation: There exist two distinct solutions to the 4-queens puzzle as shown 
         helper(res, chess, 0);
         return res;
     }
-    private void helper(List<List<String>> res, char[][] chess, int r) {
-        if (r == chess.length) {
+    private void helper(List<List<String>> res, char[][] chess, int i) {
+        if (i == chess.length) {
             res.add(toString(chess));
             return;
         }
-        for (int c = 0; c < chess.length; c++) {
-            if (valid(chess, r, c)) {
-                chess[r][c] = 'Q';
-                helper(res, chess, r + 1);
-                chess[r][c] = '.';
+        for (int j = 0; j < chess.length; j++) {
+            if (valid(chess, i, j)) {
+                chess[i][j] = 'Q';
+                helper(res, chess, i + 1);
+                chess[i][j] = '.';
             }
         }
     }
