@@ -68,6 +68,11 @@ Explanation: There exist two distinct solutions to the 4-queens puzzle as shown 
             res.add(toString(chess));
             return;
         }
+        //here is the key: 
+        /*
+         * we start from column 0 to n,  each time we will check if we place 
+         * Q on [i,j] is valid, if it is, we continue place Q on next row. and so on
+         */
         for (int j = 0; j < chess.length; j++) {
             if (valid(chess, i, j)) {
                 chess[i][j] = 'Q';
@@ -76,6 +81,8 @@ Explanation: There exist two distinct solutions to the 4-queens puzzle as shown 
             }
         }
     }
+    
+    //we only check 0->r && 0->c part
     private boolean valid(char[][] chess, int r, int c) {
         // check all cols
         for (int i = 0; i < r; i++) {
