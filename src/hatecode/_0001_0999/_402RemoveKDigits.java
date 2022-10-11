@@ -52,8 +52,8 @@ Note that the output must not contain leading zeroes.
     //be different that second one is a 0. 
     // so the correct way is to remove digits which is bigger than its right.so we can always 
     //to get the smallest, this is the pattern
-    public static String removeKdigits2(String num, int k) {
-        int len = num.length();
+    public static String removeKdigits2(String A, int k) {
+        int len = A.length();
         // corner case
         if (k == len)
             return "0";
@@ -65,14 +65,14 @@ Note that the output must not contain leading zeroes.
         //stack help to keep the order of the chars in string, so after this while loop,
         //we already removed max j digits, we cannot remove digits they are the same, so 
         //we need another loop to remove the rest then we can reverse them
-        while (i < num.length()) {
+        while (i < A.length()) {
             // whenever meet a digit which is less than the previous digit, discard the
             // previous one
-            while (k > 0 && !stack.isEmpty() && stack.peek() > num.charAt(i)) {
+            while (k > 0 && !stack.isEmpty() && stack.peek() > A.charAt(i)) {
                 stack.pop();
                 k--;
             }
-            stack.push(num.charAt(i));
+            stack.push(A.charAt(i));
             i++;
         }
         // corner case like "1111"
