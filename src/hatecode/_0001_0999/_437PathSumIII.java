@@ -48,6 +48,9 @@ public class _437PathSumIII {
      */
 
     // time : O(n ^ 2) space : O(n)
+    /*
+     * it is starting from every node  i->j 
+     */
     public int pathSum(TreeNode root, int sum) {
         if (root == null) {
             return 0;
@@ -102,5 +105,27 @@ public class _437PathSumIII {
         res += helper(node.left, curSum, sum, map) + helper(node.right, curSum, sum, map);
         map.put(curSum, map.get(curSum) - 1);
         return res;
+    }
+    
+    //below cannot work because it will dup 
+    class Solution_Incorrect {
+        int res = 0;
+        public int pathSum(TreeNode root, int targetSum) {
+            helper(root, 0, targetSum);
+            
+            return res;
+        }
+        
+        private void helper(TreeNode root, int curSum, int targetSum) {
+            if (root == null) return;
+           
+            if (curSum + root.val == targetSum) res++;
+            
+            helper(root.left, curSum + root.val, targetSum);
+            helper(root.right, curSum + root.val, targetSum);
+            
+            helper(root.left, root.val, targetSum);
+            helper(root.right, root.val, targetSum);
+        }
     }
 }
