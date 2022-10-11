@@ -23,6 +23,7 @@ public class _190ReverseBits {
         if (n == 0) return 0;
         int res = 0;
         for (int i = 0; i < 32; i++) {
+            //this needs to be first line because we want to move left firstly.
             res <<= 1;
             if ((n & 1) == 1) res++;
             n >>= 1;
