@@ -115,7 +115,7 @@ public class _437PathSumIII {
         return res;
     }
     
-    //below cannot work because it will dup 
+    //below cannot work because it will dup  from each node
     class Solution_Incorrect {
         int res = 0;
         public int pathSum(TreeNode root, int targetSum) {
