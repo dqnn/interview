@@ -2,6 +2,7 @@ package hatecode._0001_0999;
 
 import java.util.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Description : 51. N-Queens
@@ -64,7 +65,7 @@ Explanation: There exist two distinct solutions to the 4-queens puzzle as shown 
     }
     private void helper(List<List<String>> res, char[][] chess, int r) {
         if (r == chess.length) {
-            res.add(construct(chess));
+            res.add(toString(chess));
             return;
         }
         for (int c = 0; c < chess.length; c++) {
@@ -96,12 +97,8 @@ Explanation: There exist two distinct solutions to the 4-queens puzzle as shown 
         }
         return true;
     }
-    private List<String> construct(char[][] chess) {
-        List<String> path = new ArrayList<>();
-        for (int i = 0; i < chess.length; i++) {
-            path.add(new String(chess[i]));
-        }
-        return path;
+    private List<String> toString(char[][] chess) {
+        return Arrays.stream(chess).map(e->new String(e)).collect(Collectors.toList());
     }
     
     
