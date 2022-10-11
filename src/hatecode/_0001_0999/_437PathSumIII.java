@@ -73,7 +73,8 @@ public class _437PathSumIII {
     /*
      * interview friendly, O(n)/O(n)
      * 
-     * 
+     * the problem is to say: given one binary tree and one target integer, find the path count
+     * which their sum equals to target, the node not have to start with root, but it should down
      */
     public int pathSum2(TreeNode root, int sum) {
         if (root == null) {
