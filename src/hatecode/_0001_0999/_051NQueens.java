@@ -51,50 +51,57 @@ Explanation: There exist two distinct solutions to the 4-queens puzzle as shown 
  */
     // this is typical queens problems, so templates
     public List<List<String>> solveNQueens(int n) {
-        List<List<String>> res = new ArrayList<>();
-        if (n <= 0) return res;
-        helper(res, new int[n], 0);
+        char[][] chess = new char[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                chess[i][j] = '.';
+            }
+        }
+        List<List<String>> res = new ArrayList<List<String>>();
+
+        helper(res, chess, 0);
         return res;
     }
-    public void helper(List<List<String>> res, int[] queens, int pos) {
-        if (pos == queens.length) {
-            addSolution(res, queens);
+    private void helper(List<List<String>> res, char[][] chess, int r) {
+        if (r == chess.length) {
+            res.add(construct(chess));
             return;
         }
-        //following means if i place queen i in place queen[pos], is that going to be valid?
-        for (int i = 0; i < queens.length; i++) {
-            queens[pos] = i;
-            if (isValid(queens, pos)) {
-                helper(res, queens, pos + 1);
+        for (int c = 0; c < chess.length; c++) {
+            if (valid(chess, r, c)) {
+                chess[r][c] = 'Q';
+                helper(res, chess, r + 1);
+                chess[r][c] = '.';
             }
         }
     }
-
-    public boolean isValid(int[] queens, int pos) {
-        for (int i = 0; i < pos; i++) {
-            if (queens[i] == queens[pos]) { // 同一列
+    private boolean valid(char[][] chess, int r, int c) {
+        // check all cols
+        for (int i = 0; i < r; i++) {
+            if (chess[i][c] == 'Q') {
                 return false;
-            } else if (Math.abs(queens[pos] - queens[i]) == Math.abs(i - pos)) { //是否在对角线上
+            }
+        }
+        //check 45 degree
+        for (int i = r - 1, j = c + 1; i >= 0 && j < chess.length; i--, j++) {
+            if (chess[i][j] == 'Q') {
+                return false;
+            }
+        }
+        //check 135
+        for (int i = r - 1, j = c - 1; i >= 0 && j >= 0; i--, j--) {
+            if (chess[i][j] == 'Q') {
                 return false;
             }
         }
         return true;
     }
-
-    public void addSolution(List<List<String>> res, int[] queens) {
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < queens.length; i++) {
-            StringBuilder sb = new StringBuilder();
-            for (int j = 0; j < queens.length; j++) {
-                if (queens[i] == j) {
-                    sb.append('Q');
-                } else {
-                    sb.append('.');
-                }
-            }
-            list.add(sb.toString());
+    private List<String> construct(char[][] chess) {
+        List<String> path = new ArrayList<>();
+        for (int i = 0; i < chess.length; i++) {
+            path.add(new String(chess[i]));
         }
-        res.add(list);
+        return path;
     }
     
     
