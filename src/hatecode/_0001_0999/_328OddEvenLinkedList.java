@@ -1,10 +1,6 @@
 package hatecode._0001_0999;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : OddEvenLinkedList
- * Date : Aug, 2018
  * Description : TODO
  */
 public class _328OddEvenLinkedList {
