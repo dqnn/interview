@@ -49,6 +49,8 @@ The first node is considered odd, the second node even and so on ...
      *    2-----4
      *    |
      *   even
+     *   
+     *   
      */
     public ListNode oddEvenList(ListNode head) {
         if (head == null || head.next == null) return head;
