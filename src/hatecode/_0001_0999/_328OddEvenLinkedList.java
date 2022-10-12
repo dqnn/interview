@@ -51,13 +51,14 @@ The first node is considered odd, the second node even and so on ...
      *   even
      *   
      * 1-----3--4--5
-     *       |
-     *      odd
-     *    2--4--5
+     *       |    /
+     *      odd  /
+     *    2--4  /
      *       |
      *      even 
      *   
-     *   
+     *   every time we will only adjust two elements next pointers, then last we 
+     *   put the even list after the odd list
      */
     public ListNode oddEvenList(ListNode head) {
         if (head == null || head.next == null) return head;
