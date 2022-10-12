@@ -32,7 +32,7 @@ public class _297SerializeandDeserializeBinaryTree {
     
     // BFS on tree, we use Queue to store the node and it can be null to be added into queue
     // we can use space or "," to split string please note when decode we has no case on node from queue
-    // is null because we never add null into queue because we node is initlized as null. 
+    // is null because we never add null into queue because we node is initialized as null. 
     //
     public String serialize(TreeNode root) {
        if (root == null) return "";
