@@ -43,12 +43,19 @@ The first node is considered odd, the second node even and so on ...
     //            even->2->4, 2 will point to 4 instead of 3 since we use next.next
     /*
      * 1--2--3--4--5
-     * 1-----3
+     * 1-----3--4--5
      * |
      * odd
-     *    2-----4
+     *    2-----4--5
      *    |
      *   even
+     *   
+     * 1-----3--4--5
+     *       |
+     *      odd
+     *    2--4--5
+     *       |
+     *      even 
      *   
      *   
      */
