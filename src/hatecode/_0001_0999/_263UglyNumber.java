@@ -38,7 +38,7 @@ Input is within the 32-bit signed integer range: [−231,  231 − 1].
      time : O(n)
      space : O(1)
 
-     * @param num
+     * @param n
      * @return
      */
     // thinking process: we only think about num is 2, 3, 5 numbers, so
@@ -46,13 +46,13 @@ Input is within the 32-bit signed integer range: [−231,  231 − 1].
     // % 2, 3,5, last check it equals 1 or not. 
     
     //this is math problem
-    public boolean isUgly(int num) {
-        if (num == 1) return true;
-        if (num == 0) return false;
-        while (num % 2 == 0) num /= 2;
-        while (num % 3 == 0) num /= 3;
-        while (num % 5 == 0) num /= 5;
-        return num == 1;
+    public boolean isUgly(int n) {
+        if (n == 1) return true;
+        if (n == 0) return false;
+        while (n % 2 == 0) n /= 2;
+        while (n % 3 == 0) n /= 3;
+        while (n % 5 == 0) n /= 5;
+        return n == 1;
     }
 
     public boolean isUgly2(int num) {
