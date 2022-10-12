@@ -41,6 +41,15 @@ The first node is considered odd, the second node even and so on ...
     //odd -> 1, even -> 2
     // next step: odd->1 -> 3, 1 will point to 3 instead of 2
     //            even->2->4, 2 will point to 4 instead of 3 since we use next.next
+    /*
+     * 1--2--3--4--5
+     * 1-----3
+     * |
+     * odd
+     *    2-----4
+     *    |
+     *   even
+     */
     public ListNode oddEvenList(ListNode head) {
         if (head == null || head.next == null) return head;
         ListNode odd = head;
