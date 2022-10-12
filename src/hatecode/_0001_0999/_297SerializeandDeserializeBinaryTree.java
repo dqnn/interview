@@ -4,10 +4,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : SerializeandDeserializeBinaryTree
- * Date : Sep, 2018
  * Description : TODO
  */
 public class _297SerializeandDeserializeBinaryTree {
