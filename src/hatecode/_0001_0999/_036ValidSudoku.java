@@ -53,7 +53,7 @@ public class _036ValidSudoku {
             for (int j = 0; j < A[0].length; j++) {
                 //if row has duplicated number
                 if (A[i][j] != '.' && !rows.add(A[i][j])) return false;
-                // here we have a trick, stablize i and loop on column as j. 
+                // here we have a trick, stabilize i and loop on column as j. 
                 if (A[j][i] != '.' && !cols.add(A[j][i])) return false;
                 //cube index calc，and this is base, the big cell index in
                 //9x9 matrix
@@ -87,7 +87,8 @@ public class _036ValidSudoku {
             if (board[i][col] == board[i][j]) return false;
         }
         for (int row = (i / 3) * 3; row < (i / 3 + 1) * 3; row++) {
-            for (int col = (j / 3) * 3; col < (j / 3 + 1) * 3; col++) {
+            for (int col = 
+                    (j / 3) * 3; col < (j / 3 + 1) * 3; col++) {
                 if (row == i && col == j) continue;
                 if (board[row][col] == board[i][j]) return false;
             }
