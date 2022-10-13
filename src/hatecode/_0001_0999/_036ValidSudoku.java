@@ -57,10 +57,10 @@ public class _036ValidSudoku {
                 if (A[j][i] != '.' && !cols.add(A[j][i])) return false;
                 //cube index calc，and this is base, the big cell index in
                 //9x9 matrix, this is the key of the problem
-                int rowIndex = 3 * (i / 3);
-                int colIndex = 3 * (i % 3);
+                int iBase = 3 * (i / 3);
+                int jBase = 3 * (i % 3);
 
-                if (A[rowIndex + j / 3][colIndex + j % 3] != '.' && !cube.add(A[rowIndex + j / 3][colIndex + j % 3]))
+                if (A[iBase + j / 3][jBase + j % 3] != '.' && !cube.add(A[iBase + j / 3][jBase + j % 3]))
                     return false;
             }
         }
