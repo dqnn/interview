@@ -67,7 +67,6 @@ from 2^n, we do the second subset pick up. So nodes at last layer of recursion t
 
         // descending sort array
         Arrays.sort(nums, (a ,b)->Integer.compare(b, a));
-        
 
         return backtrack(nums, 0, bucket, target);
     }
