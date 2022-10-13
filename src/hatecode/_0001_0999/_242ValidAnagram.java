@@ -4,11 +4,6 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : ValidAnagram
- * Creator : professorX
- * Date : Sep, 2018
  * Description : 242. Valid Anagram
  */
 public class _242ValidAnagram {
