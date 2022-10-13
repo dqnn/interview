@@ -17,27 +17,27 @@ public class _350IntersectionofTwoArraysII {
      Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].
 
 
-     * @param nums1
-     * @param nums2
+     * @param A
+     * @param B
      * @return
      */
 
     // HashMap, time : O(n), space : O(n);
-    public  int[] intersect(int[] nums1, int[] nums2) {
+    public  int[] intersect(int[] A, int[] B) {
         HashMap<Integer, Integer> map = new HashMap<>();
         List<Integer> ret = new ArrayList<>();
-        for (int i = 0; i < nums1.length; i++) {
-            if (map.containsKey(nums1[i])) {
-                map.put(nums1[i],map.get(nums1[i]) + 1);
+        for (int i = 0; i < A.length; i++) {
+            if (map.containsKey(A[i])) {
+                map.put(A[i],map.get(A[i]) + 1);
             } else {
-                map.put(nums1[i], 1);
+                map.put(A[i], 1);
             }
         }
-        for (int i = 0; i < nums2.length; i++) {
-            if (map.containsKey(nums2[i])) {
-                if (map.get(nums2[i]) > 0) {
-                    ret.add(nums2[i]);
-                    map.put(nums2[i], map.get(nums2[i]) - 1);
+        for (int i = 0; i < B.length; i++) {
+            if (map.containsKey(B[i])) {
+                if (map.get(B[i]) > 0) {
+                    ret.add(B[i]);
+                    map.put(B[i], map.get(B[i]) - 1);
                 }
             }
         }
@@ -46,21 +46,21 @@ public class _350IntersectionofTwoArraysII {
     }
 
     // Arrays.sort time : O(nlogn) space : O(n);
-    public int[] intersect2(int[] nums1, int[] nums2) {
-        if (nums1 == null || nums2 == null || nums1.length < 1 || nums2.length < 1) {
+    public int[] intersect2(int[] A, int[] B) {
+        if (A == null || B == null || A.length < 1 || B.length < 1) {
             return new int[]{};
         }
         List<Integer> res = new ArrayList<>();
-        Arrays.sort(nums1);
-        Arrays.sort(nums2);
+        Arrays.sort(A);
+        Arrays.sort(B);
         int i = 0, j = 0;
-        while (i < nums1.length && j < nums2.length) {
-            if (nums1[i] > nums2[j]) {
+        while (i < A.length && j < B.length) {
+            if (A[i] > B[j]) {
                 j++;
-            } else if (nums1[i] < nums2[j]) {
+            } else if (A[i] < B[j]) {
                 i++;
             } else {
-                res.add(nums2[j]);
+                res.add(B[j]);
                 i++;
                 j++;
             }
