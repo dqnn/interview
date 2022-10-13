@@ -14,25 +14,31 @@ Example 1:
 Input: nums = [4, 3, 2, 3, 5, 2, 1], k = 4
 Output: True
 */
-    //TODO: understand how we construct to search the answer. can we do a dp like LC 416
-    public boolean canPartitionKSubsets(int[] nums, int k) {
-        int sum = Arrays.stream(nums).sum();
+    /*
+     * thinking process: O(2^kn)/O()
+     * the problem is to say: given one integer array and number k,
+     * partition array to k groups, sum of each group are the same
+     * 
+     * 
+     */
+    public boolean canPartitionKSubsets(int[] A, int k) {
+        int sum = Arrays.stream(A).sum();
         
         if (k <= 0 || sum % k != 0) return false;
-        int[] visited = new int[nums.length];
-        return canPartition(nums, visited, 0, k, 0, 0, sum / k);
+        int[] visited = new int[A.length];
+        return canPartition(A, visited, 0, k, 0, 0, sum / k);
     }
 
-    public boolean canPartition(int[] nums, int[] visited, int start_index, int k, 
+    public boolean canPartition(int[] A, int[] visited, int pos, int k, 
             int cur_sum, int cur_num, int target) {
         if (k == 1) return true;
         if (cur_sum == target && cur_num > 0)
-            return canPartition(nums, visited, 0, k - 1, 0, 0, target);
+            return canPartition(A, visited, 0, k - 1, 0, 0, target);
 
-        for (int i = start_index; i < nums.length; i++) {
+        for (int i = pos; i < A.length; i++) {
             if (visited[i] == 0) {
                 visited[i] = 1;
-                if (canPartition(nums, visited, i + 1, k, cur_sum + nums[i], cur_num++, target))
+                if (canPartition(A, visited, i + 1, k, cur_sum + A[i], cur_num++, target))
                     return true;
                 visited[i] = 0;
             }
