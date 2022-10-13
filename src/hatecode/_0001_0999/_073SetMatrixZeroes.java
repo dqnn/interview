@@ -1,11 +1,6 @@
 package hatecode._0001_0999;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : SetMatrixZeroes
- * Creator : professorX
- * Date : Sep, 2018
  * Description : 73. Set Matrix Zeroes
  */
 public class _073SetMatrixZeroes {
