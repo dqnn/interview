@@ -35,7 +35,7 @@ public class _036ValidSudoku {
     // time : O(n^2) space : O(n)
     // thinking process:
     // the problem is to say i want to validate 3 rules on a 2D matrix, row, column and 3x3 cell 
-    // only contains 1-9 digits
+    // only contains 1-9 digits, you only need validate the cell which contains digits
     
     
     //so for rule validating problems and this is 2D matrix, so we should consider backtracking immediately, 
@@ -56,7 +56,7 @@ public class _036ValidSudoku {
                 // here we have a trick, stabilize i and loop on column as j. 
                 if (A[j][i] != '.' && !cols.add(A[j][i])) return false;
                 //cube index calc，and this is base, the big cell index in
-                //9x9 matrix
+                //9x9 matrix, this is the key of the problem
                 int rowIndex = 3 * (i / 3);
                 int colIndex = 3 * (i % 3);
 
