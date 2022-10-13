@@ -25,12 +25,19 @@ Output: [9,7,8]
      *b       | |
      *c        |  |
      * 
-     * we need to merge b and c interval, 
+     * brute force:
+     * we can use map to record each character start and end index, 
+     * a->[0, 8], b->[1, 5]
+     * then we merge them if they have overlap, 
      * 
-     * last[] = [8, 5, 7, 14, 15, ...]
+     * we can simplify the process, we just need to record its most right index,
      * 
-     * when we visit s, each character c, we will got its most right index,
-     * then we know 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
      */
     public List<Integer> partitionLabels(String s) {
         List<Integer> res = new ArrayList<>();
