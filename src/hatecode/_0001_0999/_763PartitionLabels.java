@@ -22,8 +22,10 @@ Output: [9,7,8]
     /*
      * s = ababcbacadefegdehijhklij 
      *     |       |
-     *        | |
-     *         |  |
+     *b       | |
+     *c        |  |
+     * 
+     * we need to merge b and c interval, 
      * 
      * last[] = [8, 5, 7, 14, 15, ...]
      * 
