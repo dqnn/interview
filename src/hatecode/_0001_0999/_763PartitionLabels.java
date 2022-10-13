@@ -18,7 +18,14 @@ Output: [9,7,8]
     
     //so we use sliding window, and we remember each char last character, everytime for each char
     //we can get the char last position, but thats not ideal, 
-    //so we need to find the char disappear last in the string and as end char. 
+    //so we need to find the char disappear last in the string and as end char.
+    /*
+     * s = ababcbacadefegdehijhklij 
+     * 
+     * last[] = [8, 5, 7, 14, 15, ...]
+     * 
+     * when we visit s,  
+     */
     public List<Integer> partitionLabels(String s) {
         List<Integer> res = new ArrayList<>();
         if (s == null || s.length() < 1) return res;
