@@ -21,10 +21,14 @@ Output: [9,7,8]
     //so we need to find the char disappear last in the string and as end char.
     /*
      * s = ababcbacadefegdehijhklij 
+     *     |       |
+     *        | |
+     *         |  |
      * 
      * last[] = [8, 5, 7, 14, 15, ...]
      * 
-     * when we visit s,  
+     * when we visit s, each character c, we will got its most right index,
+     * then we know 
      */
     public List<Integer> partitionLabels(String s) {
         List<Integer> res = new ArrayList<>();
