@@ -3,12 +3,6 @@ package hatecode._0001_0999;
 import java.util.HashSet;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : ValidSudoku
- * Creator : professorX
- * Date : Sep, 2017
- * Description : 36. Valid Sudoku
  Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according 
  to the following rules:
 
@@ -50,23 +44,23 @@ public class _036ValidSudoku {
     //this number or not. so you can see 3 if clause. 
     
     //also note how to calc the coordination of cubes, column index and row index 
-    public boolean isValidSudoku1(char[][] board) {
+    public boolean isValidSudoku1(char[][] A) {
         //row scan mode to 
-        for (int i = 0; i < board.length; i++) {
+        for (int i = 0; i < A.length; i++) {
             HashSet<Character> rows = new HashSet<>();
             HashSet<Character> cols = new HashSet<>();
             HashSet<Character> cube = new HashSet<>();
-            for (int j = 0; j < board[0].length; j++) {
+            for (int j = 0; j < A[0].length; j++) {
                 //if row has duplicated number
-                if (board[i][j] != '.' && !rows.add(board[i][j])) return false;
+                if (A[i][j] != '.' && !rows.add(A[i][j])) return false;
                 // here we have a trick, stablize i and loop on column as j. 
-                if (board[j][i] != '.' && !cols.add(board[j][i])) return false;
+                if (A[j][i] != '.' && !cols.add(A[j][i])) return false;
                 //cube index calc，and this is base, the big cell index in
                 //9x9 matrix
                 int rowIndex = 3 * (i / 3);
                 int colIndex = 3 * (i % 3);
 
-                if (board[rowIndex + j / 3][colIndex + j % 3] != '.' && !cube.add(board[rowIndex + j / 3][colIndex + j % 3]))
+                if (A[rowIndex + j / 3][colIndex + j % 3] != '.' && !cube.add(A[rowIndex + j / 3][colIndex + j % 3]))
                     return false;
             }
         }

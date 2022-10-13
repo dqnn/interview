@@ -54,7 +54,7 @@ Could you devise a constant space solution?
      *  first round we scan 0->r-1 and 1->c-1, leave first col , we also use
      *  col0 to indicate whether there is 0 in column 0;
      *  
-     *  
+     *  in 2nd round, 
      */
     
     public void setZeroes(int[][] matrix) {
