@@ -4,11 +4,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : InvertBinaryTree
- * Creator : professorX
- * Date : July, 2018
  * Description : TODO
  */
 public class _226InvertBinaryTree {
@@ -59,7 +54,7 @@ public class _226InvertBinaryTree {
         return root;
     }
     
-    //using recursive
+    //using recursive, post-order
     public TreeNode invertTree3(TreeNode root) {
         return helper(root);
     }
@@ -75,5 +70,21 @@ public class _226InvertBinaryTree {
         node.right = temp;
         
         return node;
+    }
+    
+    public TreeNode invertTree_PreOrder(TreeNode root) {
+        helper_PreOrder(root);
+        return root;
+    }
+    
+    private void helper_PreOrder(TreeNode root) {
+        if (root == null) return;
+        
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+        
+        helper_PreOrder(root.left);
+        helper_PreOrder(root.right);
     }
 }
