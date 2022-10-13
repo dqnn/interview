@@ -9,11 +9,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : LongestConsecutiveSequence
- * Creator : professorX
- * Date : Nov, 2017
  * Description : 128. Longest Consecutive Sequence
  */
 public class _128LongestConsecutiveSequence {
