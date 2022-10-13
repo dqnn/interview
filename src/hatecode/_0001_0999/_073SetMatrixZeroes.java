@@ -49,7 +49,14 @@ Could you devise a constant space solution?
      */
     //thinking process:
     //the problem is to set row i and column j in matrix to 0 when cell is 0
-    //
+    
+    /*
+     *  first round we scan 0->r-1 and 1->c-1, leave first col , we also use
+     *  col0 to indicate whether there is 0 in column 0;
+     *  
+     *  
+     */
+    
     public void setZeroes(int[][] matrix) {
         if (matrix == null || matrix.length < 1 || matrix[0].length < 1) {
             return;
