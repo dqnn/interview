@@ -32,11 +32,9 @@ Output: [9,7,8]
      * 
      * we can simplify the process, we just need to record its most right index,
      * 
-     * 
-     * 
-     * 
-     * 
-     * 
+     * we get most right character index as l, then we go thorough from 0->r, to see
+     * whether we can extend r, if not, we can got first partition, then we update
+     * l to r + 1;
      * 
      */
     public List<Integer> partitionLabels(String s) {
