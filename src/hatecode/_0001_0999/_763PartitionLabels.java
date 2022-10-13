@@ -46,12 +46,12 @@ Output: [9,7,8]
         int[] last = new int[26];
         for(int i = 0; i< s.length(); i++) last[s.charAt(i) - 'a'] = i;
         
-        int left = 0, prev = 0;
+        int r = 0, l = 0;
         for(int i = 0; i< s.length(); i++) {
-            left = Math.max(left, last[s.charAt(i) - 'a']);
-            if (left == i) {
-                res.add(i - prev + 1);
-                prev = left + 1;
+            r = Math.max(r, last[s.charAt(i) - 'a']);
+            if (r == i) {
+                res.add(i - l + 1);
+                l = r + 1;
             }
         }
         return res;
