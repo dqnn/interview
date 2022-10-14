@@ -1,11 +1,6 @@
 package hatecode._0001_0999;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : ReverseNodesinkGroup
- * Creator : professorX
- * Date : Sep, 2018
  * Description : 25. Reverse Nodes in k-Group
  */
 public class _025ReverseNodesinkGroup {
