@@ -7,11 +7,6 @@ import java.util.Queue;
 import java.util.stream.IntStream;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : LargestNumber
- * Creator : professorX
- * Date : July, 2018
  * Description : 179. Largest Number
  */
 public class _179LargestNumber {
@@ -25,16 +20,16 @@ public class _179LargestNumber {
      time : O(nlogn)
      space : O(n)
 
-     * @param nums
+     * @param A
      * @return
      */
-    public String largestNumber(int[] nums) {
-        if (nums == null || nums.length == 0) {
+    public String largestNumber(int[] A) {
+        if (A == null || A.length == 0) {
             return "";
         }
-        String[] res = new String[nums.length];
-        for (int i = 0; i < nums.length; i++) {
-            res[i] = String.valueOf(nums[i]);
+        String[] res = new String[A.length];
+        for (int i = 0; i < A.length; i++) {
+            res[i] = String.valueOf(A[i]);
         }
         Arrays.sort(res, new Comparator<String>(){
             @Override

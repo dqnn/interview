@@ -110,6 +110,11 @@ You may not alter the values in the list's nodes, only nodes itself may be chang
             prev = cur;
             cur = next;
         }
+        /*
+         *      * 0->3<-2<-1  4->5->6
+                * |        |  |
+         *      start     prev end/cur/res.next
+         */
         //cur point to 4, prev = 3, 
         //but we want 1, so we reset begin, begin is 0, begin point to 3
         start.next = prev;
