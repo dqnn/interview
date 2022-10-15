@@ -31,7 +31,12 @@ Output: [[4,5,3],[2],[1]]
     /*
      * thinking process: O(n)/O(n)
      * 
-     * the problem is to say: given 
+     * the problem is to say: given one BT, each time we will remove the leaves,
+     * return the leaves as list of list.
+     * 
+     * we define height as distance to leaves, leaves as 0, null nodes as -1.
+     * 
+     * use a map to store map<height, List of nodes>, we use post order to visit the tree
      */
     
     public List<List<Integer>> findLeaves_interview(TreeNode root) {
