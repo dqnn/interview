@@ -1,11 +1,6 @@
 package hatecode._0001_0999;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : DecodeWays
- * Creator : professorX
- * Date : Nov, 2017
  * Description : 91. Decode Ways
  */
 public class _091DecodeWays {
