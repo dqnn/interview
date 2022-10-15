@@ -75,6 +75,9 @@ Output: [[4,5,3],[2],[1]]
         //return -1 to make leaf level as 0
         if(null==node)  return -1;
         int level = 1 + Math.max(helper(node.left, res), helper(node.right, res));
+        /*
+         * here is the key, we use result size 
+         */
         if(res.size()<level+1)  res.add(new ArrayList<>());
         res.get(level).add(node.val);
         //this is optional
