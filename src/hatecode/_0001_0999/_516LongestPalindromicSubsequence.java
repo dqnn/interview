@@ -1,11 +1,6 @@
 package hatecode._0001_0999;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : LongestPalindromicSubsequence
- * Creator : professorX
- * Date : Aug, 2018
  * Description : TODO
  */
 public class _516LongestPalindromicSubsequence {
