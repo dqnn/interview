@@ -42,7 +42,7 @@ Could you come up with a one-pass algorithm using only constant space?
     //1. current this one is that we always the value we want to partition, so we 
     //want to compare
     //another paritition method is always choosing the first element in array, and 
-    //paritition values by this array value
+    //partition values by this array value
     //and this is the same method we re-arrange numbers zero, non-zero but keeping them in original order
     public void sortColors(int[] A) {
         if (A == null || A.length == 0) return;
