@@ -47,7 +47,10 @@ public class _084LargestRectangleinHistogram {
         int res = 0;
         for (int i = 0; i <= heights.length; i++) {
             // so we make i == 0 because if height is [1,2,3,4], we want last to visit back all numbers /
-            //when i = 4
+            //when i = 4，
+            
+            //[2,4,5,6,3,1], when 1 added to stack, we want to visit back 1 so 
+            //we want i = A.length
             int h = i == heights.length ? 0 : heights[i];
             //only when previous is bigger than current h, we will go to pop stack
             // but the are is only from 0 ~ i - 1, if it is ascend array and h[i] < h[i - 1]
