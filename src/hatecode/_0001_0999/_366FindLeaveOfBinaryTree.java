@@ -28,7 +28,34 @@ Input: [1,2,3,4,5]
 
 Output: [[4,5,3],[2],[1]]
 */
-    public List<List<Integer>> findLeaves_Height(TreeNode root) {
+    /*
+     * thinking process: O(n)/O(n)
+     * 
+     * the problem is to say: given 
+     */
+    
+    public List<List<Integer>> findLeaves_interview(TreeNode root) {
+        Map<Integer, List<Integer>> map = new HashMap<>();
+        int rootHeight = helper(root, map);
+        List<List<Integer>> res = new ArrayList<>();
+        for(int i = 0; i<=rootHeight; i++) {
+            res.add(map.get(i));
+        }
+        
+        return res;
+    }
+    
+    private int helper(TreeNode root, Map<Integer, List<Integer>> map) {
+        if (root == null) return -1;
+        
+        int h = Math.max(helper(root.left, map), helper(root.right, map)) + 1;
+        
+        map.computeIfAbsent(h, v->new ArrayList<>()).add(root.val);
+        return h;
+        
+    }
+    
+    public List<List<Integer>> findLeaves_Height_recursive(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         helper(root, res);
         return res;
