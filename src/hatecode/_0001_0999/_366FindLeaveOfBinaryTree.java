@@ -79,6 +79,8 @@ Output: [[4,5,3],[2],[1]]
          * here is the key, we use result size 
          */
         if(res.size()<level+1)  res.add(new ArrayList<>());
+        //for above example ,when we went to 3, the array already there, so we just 
+        //add it to list
         res.get(level).add(node.val);
         //this is optional
         node.left = node.right = null;
