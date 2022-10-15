@@ -60,6 +60,10 @@ Output: [[4,5,3],[2],[1]]
         
     }
     
+    //this still use the height concept but we remove map.
+    /*
+     * the reason is 
+     */
     public List<List<Integer>> findLeaves_Height_recursive(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         helper(root, res);
