@@ -3,11 +3,6 @@ package hatecode._0001_0999;
 import java.util.Stack;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : EvaluateReversePolishNotation
- * Creator : professorX
- * Date : Sep, 2017
  * Description : 150. Evaluate Reverse Polish Notation
  */
 public class _150EvaluateReversePolishNotation {
@@ -49,7 +44,7 @@ public class _150EvaluateReversePolishNotation {
     }
     
     //one question from google interview doc, not from LC,
-    //given two noes, return their result is same or not
+    //given two nodes, return their result is same or not
     /* root A,    root B, same as A
        +
      /    \
