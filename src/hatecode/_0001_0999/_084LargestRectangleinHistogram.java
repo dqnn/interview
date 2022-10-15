@@ -3,11 +3,6 @@ package hatecode._0001_0999;
 import java.util.Stack;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : LargestRectangleinHistogram
- * Creator : professorX
- * Date : Dec, 2017
  * Description : 84. Largest Rectangle in Histogram
  */
 public class _084LargestRectangleinHistogram {
