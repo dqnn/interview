@@ -52,6 +52,7 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum
         // because A[i] is the maxium steps we can walk from that position
         //i <= max means i cannot reach more than max, because 
         // [3,2,1,0,4], wehen i = 4, 4 + 4 =8 > len - 1= 4, but we cannot reach to the end
+        // i <= max we can use it
         for (int i = 0; i <= max && i < A.length; i++) {
             max = Math.max(A[i] + i, max);
         }
