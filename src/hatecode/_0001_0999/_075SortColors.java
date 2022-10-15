@@ -1,11 +1,6 @@
 package hatecode._0001_0999;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : SortColors
- * Creator : professorX
- * Date : Sep, 2018
  * Description : 75. Sort Colors
  */
 public class _075SortColors {
@@ -32,7 +27,7 @@ Could you come up with a one-pass algorithm using only constant space?
      time : O(n)
      space : O(1)
 
-     * @param nums
+     * @param A
      */
     //thinking process:
     //since we only have 0, 1, 2 three types of data, so 0 must be put in first places, 
@@ -49,22 +44,22 @@ Could you come up with a one-pass algorithm using only constant space?
     //another paritition method is always choosing the first element in array, and 
     //paritition values by this array value
     //and this is the same method we re-arrange numbers zero, non-zero but keeping them in original order
-    public void sortColors(int[] nums) {
-        if (nums == null || nums.length == 0) return;
+    public void sortColors(int[] A) {
+        if (A == null || A.length == 0) return;
         // indicate 0 count
         int l = 0;
         //indicate 2 count
-        int r = nums.length - 1;
+        int r = A.length - 1;
         int idx = 0;
         while (idx <= r) {
             //left move to right only when nums[index] = 0
-            if (nums[idx] == 0) {
-                swap(nums, idx++, l++);
-            } else if (nums[idx] == 1) {
+            if (A[idx] == 0) {
+                swap(A, idx++, l++);
+            } else if (A[idx] == 1) {
                 idx++;
             //right move to left only left when nums[index] = 2
             } else {
-                swap(nums, idx, r--);
+                swap(A, idx, r--);
             }
         }
     }
