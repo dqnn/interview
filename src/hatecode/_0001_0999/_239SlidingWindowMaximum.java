@@ -4,11 +4,6 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : SlidingWindowMaximum
- * Creator : professorX
- * Date : Sep, 2018
  * Description : 239. Sliding Window Maximum
  */
 public class _239SlidingWindowMaximum {
@@ -45,27 +40,27 @@ Could you solve it in linear time?
      time : O(n)
      space : O(n)
 
-     * @param nums
+     * @param A
      * @param k
      * @return
      */
 
-    public int[] maxSlidingWindow(int[] nums, int k) {
-        if (nums == null || nums.length == 0) {
+    public int[] maxSlidingWindow(int[] A, int k) {
+        if (A == null || A.length == 0) {
             return new int[0];
         }
         Deque<Integer> deque = new LinkedList<>();
-        int[] res = new int[nums.length + 1 - k];
-        for (int i = 0; i < nums.length; i++) {
+        int[] res = new int[A.length + 1 - k];
+        for (int i = 0; i < A.length; i++) {
             if (!deque.isEmpty() && deque.peekFirst() == i - k) {
                 deque.poll();
             }
-            while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
+            while (!deque.isEmpty() && A[deque.peekLast()] < A[i]) {
                 deque.removeLast();
             }
             deque.offerLast(i);
             if ((i + 1) >= k) {
-                res[i + 1 - k] = nums[deque.peek()];
+                res[i + 1 - k] = A[deque.peek()];
             }
         }
         return res;
