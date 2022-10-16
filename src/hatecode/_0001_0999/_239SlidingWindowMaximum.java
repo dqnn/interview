@@ -55,7 +55,12 @@ Could you solve it in linear time?
      * we can use l and r to move as sliding window, and we sort k numbers inside the window,
      * will be O((n - k ) * klgk), we have n -k window, each window will klgk
      * 
-     * we improve it with 
+     * we improve it with q deque, how:
+     * 1. every time when we add new element A[i] to queue, we will pollLast()
+     * elements which are less than A[i],
+     * 2. for every point i - k == peekFirst(), this means right move to correct position
+     * for window size= k;
+     * 3.  
      */
     public int[] maxSlidingWindow(int[] A, int k) {
         if (A == null || A.length == 0) {
