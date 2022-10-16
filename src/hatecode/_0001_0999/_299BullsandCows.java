@@ -41,7 +41,7 @@ public class _299BullsandCows {
                 // count[1] -- --> 0 this time cow++, because previous it was 1
                 // count[3] ++ ---> 1
                 // count[1] -- ---> - 1
-                // this templates is to have a storage which store the content it visited
+                // this templates is to have a storage which stores the content it visited
                 // we use array index to store the number we want to visit,
                 // ++ means we visited in secret and -- means we visited in guess, then
                 // if s count < 0 which means it was -- by guess branches.
