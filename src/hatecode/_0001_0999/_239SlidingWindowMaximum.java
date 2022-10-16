@@ -51,7 +51,7 @@ Could you solve it in linear time?
      * the problem is to say: given one integer array A and one integer k as sliding window
      * size k, return each max value within the sliding window. for example as above
      * 
-     * 
+     * the brute force is to say: 
      * 
      */
     public int[] maxSlidingWindow(int[] A, int k) {
