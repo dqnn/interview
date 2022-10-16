@@ -52,7 +52,10 @@ Could you solve it in linear time?
      * size k, return each max value within the sliding window. for example as above
      * 
      * the brute force is to say: 
+     * we can use l and r to move as sliding window, and we sort k numbers inside the window,
+     * will be O((n - k ) * klgk), we have n -k window, each window will klgk
      * 
+     * we improve it with 
      */
     public int[] maxSlidingWindow(int[] A, int k) {
         if (A == null || A.length == 0) {
