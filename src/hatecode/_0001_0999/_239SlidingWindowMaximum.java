@@ -57,7 +57,7 @@ Could you solve it in linear time?
      * 
      * we improve it with q deque, how:
      * 1. every time when we add new element A[i] to queue, we will pollLast()
-     * elements which are less than A[i],
+     * elements which are less than A[i], this could make sure peek() will return max
      * 2. for every point i - k == peekFirst(), this means right move to correct position
      * for window size= k;
      * 3.  
