@@ -45,6 +45,15 @@ Could you solve it in linear time?
      * @return
      */
 
+    /*
+     * thinking process: O(n)/o(k)
+     * 
+     * the problem is to say: given one integer array A and one integer k as sliding window
+     * size k, return each max value within the sliding window. for example as above
+     * 
+     * 
+     * 
+     */
     public int[] maxSlidingWindow(int[] A, int k) {
         if (A == null || A.length == 0) {
             return new int[0];
