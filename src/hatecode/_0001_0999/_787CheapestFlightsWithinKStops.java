@@ -32,7 +32,7 @@ public class _787CheapestFlightsWithinKStops {
         for(int[] fl : flights) {
             map.computeIfAbsent(fl[0], v->new HashMap<>()).put(fl[1],fl[2]);
         }
-        Queue<int[]> q = new PriorityQueue<>((a,b)->(a[2] - b[2]));
+        Queue<int[]> q = new PriorityQueue<>((a,b)->Integer.compare(a[2], b[2]));
         q.offer(new int[]{src, K + 1, 0});
         while(!q.isEmpty()) {
             int[] fy = q.poll();
