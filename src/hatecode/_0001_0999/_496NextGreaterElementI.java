@@ -1,13 +1,8 @@
 package hatecode._0001_0999;
 
-import java.util.HashMap;
-import java.util.Stack;
+import java.util.*;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : NextGreaterElementI
- * Date : Aug, 2018
  * Description : 496. Next Greater Element I
  */
 public class _496NextGreaterElementI {
@@ -52,8 +47,8 @@ The length of both nums1 and nums2 would not exceed 1000.
      time : O(n)
      space : O(n)
 
-     * @param nums1
-     * @param nums2
+     * @param A
+     * @param B
      * @return
      */
     //thinking process:  O(n+m)/O(m) n = num1.length, m = num2.length
@@ -66,7 +61,7 @@ The length of both nums1 and nums2 would not exceed 1000.
     //
     
     //the solution is another thinking of how to store the element relationship, increasing sequence
-    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+    public int[] nextGreaterElement(int[] A, int[] B) {
         // the map is used to store the number relationship in nums2, and from left 
         //to right, only two closest number can have such relation if first < second
         // [1,3,4,2]--> map 1->3, 3->4, 
@@ -76,7 +71,7 @@ The length of both nums1 and nums2 would not exceed 1000.
         //num = 6, map: 3->4, 4->6, 5->6, stack is empty. so 
         //this template aimed to find in one array, the closest greater/smaller number
         //these two are perfect match for element relationship
-        for (int num : nums2) {
+        for (int num : B) {
             // we are using stack to find next great 
             while (!stack.isEmpty() && stack.peek() < num) {
                 map.put(stack.pop(), num);
@@ -84,10 +79,6 @@ The length of both nums1 and nums2 would not exceed 1000.
             // adding to stack
             stack.push(num);
         }
-        int[] res = new int[nums1.length];
-        for (int i = 0; i < res.length; i++) {
-            res[i] = map.getOrDefault(nums1[i], -1);
-        }
-        return res;
+        return Arrays.stream(A).map(e->map.getOrDefault(e, -1)).toArray();
     }
 }
