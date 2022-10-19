@@ -7,6 +7,13 @@ package hatecode._0001_0999;
  */
 public class _268MissingNumber {
     /**
+     * 
+     * 
+     * 41. First Missing Positive
+     * 1060. Missing Element in Sorted Array
+     * 163. Missing Ranges
+     * 1228  Missing Number In Arithmetic Progression
+     * 
      * Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
 
      For example,
