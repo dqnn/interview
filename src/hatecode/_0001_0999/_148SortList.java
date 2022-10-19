@@ -31,9 +31,11 @@ public class _148SortList {
 
     //if total count is even, then it would return middle - 1, fast will point to 
     // the 2nd node from right
+    //if total number is odd, then it would return middle - 1
     
     /*
-     * 
+     * this function return previous real middle 
+     * 1->2->3->4, it would return pointer to point 2
      */
     private ListNode getMiddle(ListNode head) {
         ListNode slow = head;
