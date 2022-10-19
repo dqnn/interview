@@ -29,6 +29,12 @@ public class _148SortList {
         return merge(sortList(head), sortList(next));
     }
 
+    //if total count is even, then it would return middle - 1, fast will point to 
+    // the 2nd node from right
+    
+    /*
+     * 
+     */
     private ListNode getMiddle(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
