@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : PalindromePartitioning
- * Date : Sep, 2018
  * Description : 131. Palindrome Partitioning
  */
 public class _131PalindromePartitioning {
