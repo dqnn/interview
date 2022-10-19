@@ -47,6 +47,10 @@ public class _148SortList {
         }
         return slow;
     }
+    /*
+     * this function merge two nodes accroding to their value
+     * 
+     */
     private ListNode merge(ListNode a, ListNode b) {
         ListNode dummy = new ListNode(0);
         ListNode cur = dummy;
