@@ -7,8 +7,6 @@ package hatecode._0001_0999;
  */
 public class _268MissingNumber {
     /**
-     * 
-     * 
      * 41. First Missing Positive
      * 1060. Missing Element in Sorted Array
      * 163. Missing Ranges
