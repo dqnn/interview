@@ -40,18 +40,18 @@ rotate 4 steps to the right: 2->0->1->NULL
     // previous element which will become the head of the new linkedlist
     public ListNode rotateRight(ListNode head, int k) {
         if (head == null || head.next == null) return head;
-        ListNode index = head;
-        int len = 1;
+        ListNode tail = head;
+        int size = 1;
         //got to know the length of the list
-        while (index.next != null) {
-            index = index.next;
-            len++;
+        while (tail.next != null) {
+            tail = tail.next;
+            size++;
         }
         //to a circle
-        index.next = head;
+        tail.next = head;
         
         //find the new head and break the pointer
-        for (int i = 1; i < len - k % len; i++) {
+        for (int i = 1; i < size - k % size; i++) {
             head = head.next;
         }
         ListNode res = head.next;
