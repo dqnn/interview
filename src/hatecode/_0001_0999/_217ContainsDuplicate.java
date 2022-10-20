@@ -1,15 +1,9 @@
 package hatecode._0001_0999;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.*;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : ContainsDuplicate
- * Creator : professorX
- * Date : Oct, 2017
  * Description : 217. Contains Duplicate
  * Given an array of integers, find if the array contains any duplicates.
 
@@ -39,6 +33,12 @@ public class _217ContainsDuplicate {
             if (!set.add(nums[i])) return true;
         }
         return false;
+    }
+    
+    public boolean containsDuplicate_Lambda(int[] A) {
+        Set<Integer> set = Arrays.stream(A).boxed().collect(Collectors.toSet());
+        
+        return set.size() != A.length;
     }
 
     // time : O(nlogn) space : O(1)
