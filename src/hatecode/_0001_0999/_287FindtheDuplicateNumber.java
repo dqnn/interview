@@ -24,6 +24,9 @@ public class _287FindtheDuplicateNumber {
 
     // time : O(nlogn) space : O(1)
     //the array is from 1->n, contious, some number will be dup, may or may not be once, 
+    /*
+     * 
+     */
     //
     public int findDuplicate(int[] A) {
         int l = 0;
