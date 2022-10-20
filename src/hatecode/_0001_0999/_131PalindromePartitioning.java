@@ -65,8 +65,8 @@ Output:
     }
     
     //this is better solutions
-    //we use a dp to record which substring is palidrome, so we can greatly reduce the time complexity
-    //dp[j][i] means from  substring j->i, is palindrome or not. 
+    //we use a dp to record which substring is palindrom, so we can greatly reduce the time complexity
+    //dp[j][i] means from  substring j->i, is palindrom or not. 
     //and then in backtracking loop, we only go deeper when we find one substring is palindrome. 
     //O(n * 2^n)/O(n^2)
     public List<List<String>> partition_DP_AND_BackGRACKING(String s) {
