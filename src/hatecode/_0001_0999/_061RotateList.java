@@ -50,7 +50,7 @@ rotate 4 steps to the right: 2->0->1->NULL
         //to a circle
         index.next = head;
         
-        //find the ne head and break the pointer
+        //find the new head and break the pointer
         for (int i = 1; i < len - k % len; i++) {
             head = head.next;
         }
