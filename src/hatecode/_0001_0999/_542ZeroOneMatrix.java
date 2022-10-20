@@ -45,17 +45,17 @@ Output:
         
         int[][] dirs =  {{-1,0}, {1, 0}, {0,1}, {0,-1}};
         while(!q.isEmpty()) {
-            int[] next = q.poll();
+            int[] cur = q.poll();
             for(int[] dir:dirs) {
-                int x = next[0] + dir[0];
-                int y = next[1] + dir[1];
+                int nx = cur[0] + dir[0];
+                int ny = cur[1] + dir[1];
                 //we defined 1 value will be Integer.MAX_VALUE, so if m[x][y] <= m[cell[0]][cell[1]] + 1
                 //which means it is 0, so we would never update 0 cell and if m[x][y] is smaller then means we find a 
                 //shorter path to this 1 cell
-                if (x < 0 || x >=r || y < 0 || y >=c || m[x][y] <= m[next[0]][next[1]] + 1)
+                if (nx < 0 || nx >=r || ny < 0 || ny >=c || m[nx][ny] <= m[cur[0]][cur[1]] + 1)
                     continue;
-                q.offer(new int[]{x, y});
-                m[x][y] = m[next[0]][next[1]] + 1;
+                q.offer(new int[]{nx, ny});
+                m[nx][ny] = m[cur[0]][cur[1]] + 1;
             }
         }
         
