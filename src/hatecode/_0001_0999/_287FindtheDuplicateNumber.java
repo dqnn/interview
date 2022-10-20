@@ -4,11 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Project Name : Leetcode
- * Package Name : leetcode
- * File Name : FindtheDuplicateNumber
- * Creator : professorX
- * Date : Nov, 2017
  * Description : 287. Find the Duplicate Number
  */
 public class _287FindtheDuplicateNumber {
@@ -23,22 +18,22 @@ public class _287FindtheDuplicateNumber {
      https://segmentfault.com/a/1190000003817671
 
 
-     * @param nums
+     * @param A
      * @return
      */
 
     // time : O(nlogn) space : O(1)
     //the array is from 1->n, contious, some number will be dup, may or may not be once, 
     //
-    public int findDuplicate(int[] nums) {
+    public int findDuplicate(int[] A) {
         int l = 0;
-        int r = nums.length - 1;
+        int r = A.length - 1;
         while (l <= r) {
             int mid = (r - l) / 2 + l;
             int count = 0;
             // here count how many numbers are small than mid, 
-            for (int i = 0; i < nums.length; i++) {
-                if (nums[i] <= mid) {
+            for (int i = 0; i < A.length; i++) {
+                if (A[i] <= mid) {
                     count++;
                 }
             }
