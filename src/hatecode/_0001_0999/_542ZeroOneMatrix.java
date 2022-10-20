@@ -21,6 +21,12 @@ Output:
  [0,1,0],
  [0,0,0]]
 */
+    
+    /*
+     * thinking process: O(nm)/O(none zero)
+     * 
+     * 
+     */
     public int[][] updateMatrix(int[][] m) {
         if (m == null || m.length < 1 || m[0].length < 1) return m;
         
