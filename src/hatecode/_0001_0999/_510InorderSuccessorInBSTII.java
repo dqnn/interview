@@ -3,7 +3,8 @@ package hatecode._0001_0999;
 public class _510InorderSuccessorInBSTII {
 /*
 510. Inorder Successor in BST II
-Given a binary search tree and a node in it, find the in-order successor of that node in the BST.
+Given a binary search tree and a node in it, 
+find the in-order successor of that node in the BST.
 
 The successor of a node p is the node with the smallest key greater than p.val.
 */
