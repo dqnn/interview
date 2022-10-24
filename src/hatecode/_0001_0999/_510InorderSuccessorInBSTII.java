@@ -34,7 +34,7 @@ The successor of a node p is the node with the smallest key greater than p.val.
      *            / \    /  \
      *           1   2   6   12
      *                       /
-     *                      10 
+     *                      10(x) 
      *                   
      */
     //2 is x already the most right leaf node, then it would be null
