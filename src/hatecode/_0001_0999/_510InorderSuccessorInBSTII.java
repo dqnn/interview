@@ -16,7 +16,8 @@ The successor of a node p is the node with the smallest key greater than p.val.
     }
     
     //thinking process: given a Node in BST, find the smallest successor in the tree. 
-  //if right child is null which means the successor is in parent, and still we compare to parent value < x.val 
+  //so inorder visit, its right child will be its next successor, so we focuse on right child
+    // if right child is null which means the successor is in parent, and still we compare to parent value < x.val 
     //then it means we need to climb to the parent node which has smallest node here:
     //1 is in left child branch, then there will be one answer
     //2 is x already the most right leaf node, then it would be null
