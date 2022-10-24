@@ -20,6 +20,23 @@ The successor of a node p is the node with the smallest key greater than p.val.
     // if right child is null which means the successor is in parent, and still we compare to parent value < x.val 
     //then it means we need to climb to the parent node which has smallest node here:
     //1 is in left child branch, then there will be one answer
+    /*
+     *               5
+     *              /  \
+     *             3
+     *            / \
+     *           1   x(2)
+     *           
+     * as above, if x's successor will be 5, 
+     *               5
+     *              /  \
+     *             3      9
+     *            / \    /  \
+     *           1   2   6   12
+     *                       /
+     *                      10 
+     *                   
+     */
     //2 is x already the most right leaf node, then it would be null
     
     //another case is it has right branch, then next smallest successor is guaranteed
