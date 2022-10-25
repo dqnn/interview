@@ -25,21 +25,15 @@ The successor of a node p is the node with the smallest key greater than p.val.
      *              /  \
      *             3
      *            / \
-     *           1   x(2)
+     *           1   x(4)
      *           
      * as above, if x's successor will be 5, 
-     *               5
-     *              /  \
-     *             3      9
-     *            / \    /  \
-     *           1   2   6   12
-     *                       /
-     *                      10(x) 
+
      *                   
      */
     //2 is x already the most right leaf node, then it would be null
     
-    //another case is it has right branch, then next smallest successor is guaranteed
+    //3  if its right not null, then we looks for its most left child.
     public Node inorderSuccessor(Node x) {
         if (x == null) return null;
         
