@@ -33,7 +33,7 @@ The successor of a node p is the node with the smallest key greater than p.val.
      */
     //2 is x already the most right leaf node, then it would be null
     
-    //3  if its right not null, then we looks for its most left child.
+    //3  if its right not null, then we looks for its most left
     public Node inorderSuccessor(Node x) {
         if (x == null) return null;
         
