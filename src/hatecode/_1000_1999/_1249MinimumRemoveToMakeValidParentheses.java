@@ -1,6 +1,7 @@
 package hatecode._1000_1999;
 
 import java.util.*;
+import java.util.stream.*;
 
 public class _1249MinimumRemoveToMakeValidParentheses {
     
@@ -50,10 +51,8 @@ Output: "lee(t(c)o)de"
     public String minRemoveToMakeValid(String s) {
         if (s == null || s.length() < 1) return s;
         
-        int l = 0, r = 0;
-        for(int i = 0; i<s.length();i++) {
-            if (s.charAt(i) ==')') r++;
-        }
+        int l = 0;
+        long r = IntStream.range(0, s.length()).filter(i->s.charAt(i)==')').count();
         
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i<s.length(); i++) {
