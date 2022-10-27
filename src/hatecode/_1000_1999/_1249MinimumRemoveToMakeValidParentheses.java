@@ -88,7 +88,7 @@ Output: "lee(t(c)o)de"
                 //here is )() case, we only pop when count > 0, here
                 //count = 0 but we do have one ( in stack
                 if (count>0) {
-                    stack.pop();
+                     stack.pop();
                      count--;
                 } else stack.push(i);
             }

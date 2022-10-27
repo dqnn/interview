@@ -52,7 +52,7 @@ so it will remove middle (, and become )(, last it will reverse again to become 
  */
     
     
-    //Time Complexity: 
+    // interview friendly, Time Complexity: 
     /*
      * The program only generates valid answers. Every path in the search generates one valid answer. 
      * The whole search space is a tree with k leaves. The number of nodes in the tree is roughly O(k). 
