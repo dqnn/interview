@@ -48,6 +48,11 @@ Output: 2
                 stack.push(score);
                 score = 0;
             } else {
+                /*
+                 * we have 2 cases:
+                 * 1. ((), previous is 0, then we just get 1
+                 * 2. (()(), we need + previous, so use pop, then )) case
+                 */
                 score = stack.pop() + Math.max(2 * score, 1);
             }
         }
