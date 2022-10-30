@@ -47,6 +47,7 @@ Explanation: The second '(' has two matching '))', but the first '(' has only ')
      * 
      */
     public int minInsertions_Best(String s) {
+        //open stands for unbalanced (, res means additional ) needed
         int res = 0, open = 0;
         int n = s.length();
         for(int i = 0;i<n; i++) {
