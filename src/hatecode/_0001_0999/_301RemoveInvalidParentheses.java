@@ -29,20 +29,20 @@ public class _301RemoveInvalidParentheses {
      time : 不知道
      space : O(n)
     related problems
-     301. Remove Invalid Parentheses
-     1021. Remove Outermost Parentheses
-     856. Score of Parentheses
-     921. Minimum Add to Make Parentheses Valid
-     1541. Minimum Insertions to Balance a Parentheses String
-     1249. Minimum Remove to Make Valid Parentheses
-     32. Longest Valid Parentheses
-     22. Generate Parentheses
-     20. Valid Parentheses
-     678. Valid parentheses String
-     1190. Reverse Substrings Between Each Pair of Parentheses
-     1614. Maximum Nesting Depth of the Parentheses
-     1111. Maximum Nesting Depth of Two Valid Parentheses Strings
-     241. Different Ways to Add Parentheses
+     301. Remove Invalid Parentheses, "()())()" -> ["()()()", "(())()"]
+     1021. Remove Outermost Parentheses, (()())(())-->()()()
+     856. Score of Parentheses   (()())-->4
+     921. Minimum Add to Make Parentheses Valid  ())-->1
+     1541. Minimum Insertions to Balance a Parentheses String (()))-->1
+     1249. Minimum Remove to Make Valid Parentheses lee(t(c)o)de)-->lee(t(c)o)de
+     32. Longest Valid Parentheses   ")()())"-->4
+     22. Generate Parentheses  n = 2-->["()()", "(())"]
+     20. Valid Parentheses  ()[]{} --> True
+     678. Valid parentheses String  "(*))" --> True
+     1190. Reverse Substrings Between Each Pair of Parentheses  (abcd)->dcba
+     1614. Maximum Nesting Depth of the Parentheses "(1+(2*3)+((8)/4))+1" --> 3
+     1111. Maximum Nesting Depth of Two Valid Parentheses Strings (()())-->[0,1,1,1,1,0]
+     241. Different Ways to Add Parentheses  "2*3-4*5" --> [-34, -14, -10, -10, 10]
      
 
 
