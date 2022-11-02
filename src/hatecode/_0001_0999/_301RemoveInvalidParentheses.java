@@ -23,8 +23,7 @@ public class _301RemoveInvalidParentheses {
      "()())()" -> ["()()()", "(())()"]
      "(a)())()" -> ["(a)()()", "(a())()"]
      ")(" -> [""]
-     Credits:
-     Special thanks to @hpplayer for adding this problem and creating all test cases.
+    
 
      time : 不知道
      space : O(n)
