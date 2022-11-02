@@ -40,27 +40,33 @@ Explanation: The second '(' has two matching '))', but the first '(' has only ')
      * 
      * the use cases below when cur character is ): 
      * 1. ) open = 0, right is ) --->  res++, and just skip right i++
-     * 2. ) open = 0, right is ( --->  res++, insert ) 
+     * 2. ) open = 0, right is ( --->  res+=2, insert ) and (
      * 3. ) open > 0, right is ) --->  open--, match the ))
      * 4. ) open > 0, right is ( --->  open--, insert ) 
      *    
      * 
      */
     public int minInsertions_Best(String s) {
-        //open stands for unbalanced (, res means additional ) needed
         int res = 0, open = 0;
         int n = s.length();
         for(int i = 0;i<n; i++) {
             char c = s.charAt(i);
             if (c =='(') open++;
             else {
-                //if latter is ')', we skip it
-               if (i+1<n &&s.charAt(i+1)==')') i++;
-               else res++; //next still '(', then current ')', so need to insert ')'
-               
-            //need to insert '('
-               if(open==0) res++; 
-               else open--;
+                //we can optimize the piece of code, but it is easier to understand this way
+                if (open == 0) {
+                    res++;
+                    if (i + 1 < n && s.charAt(i+1) == ')')  {
+                        i++;
+                    } else res++;
+                } else if (open > 0) {
+                    open--;
+                    if (i + 1 < n && s.charAt(i+1) == ')')  {
+                        i++;
+                    } else {
+                        res++;
+                    }
+                }
             }
         }
         return res + open * 2;
