@@ -53,7 +53,7 @@ Explanation: The second '(' has two matching '))', but the first '(' has only ')
             char c = s.charAt(i);
             if (c =='(') open++;
             else {
-                //we can optimize the piece of code, but it is easier to understand this way
+                //we  can optimize the piece of code, but it is easier to understand this way
                 if (open == 0) {
                     res++;
                     if (i + 1 < n && s.charAt(i+1) == ')')  {
