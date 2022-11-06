@@ -52,7 +52,7 @@ Explanation: The longest valid parentheses substring is "()()"
     //thinking process: interview friendly: 
     //we have two uses cases:
     /*
-     * (())
+     * (()) 
      * ()()
      * 
      * for 1st one, 
