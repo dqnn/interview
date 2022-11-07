@@ -55,7 +55,14 @@ Explanation: The longest valid parentheses substring is "()()"
      * (()) 
      * ()()
      * 
-     * for 1st one, 
+     * we push the index to stack when meet （，
+     * if we meet ）， then we need to check stack is empty or not， 
+     * if empty， we need to update prev = i， because current ） is not valid
+     *  if not， then we pop the stack， and check whether the stack is empty again， 
+     *  we always use prev to indicate the the character just before the valid string of 
+     *  parenthese。 
+     *  
+     *  
      */
     public int longestValidParentheses(String s) {
         if (s == null || s.length() < 1) {
