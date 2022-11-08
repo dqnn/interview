@@ -65,6 +65,7 @@ The string size will be in the range [1, 100].
                 cmax++;
                 cmin = Math.max(cmin - 1, 0);
             }
+            //like （*)))
             if (cmax < 0) return false;
         }
         return cmin == 0;
