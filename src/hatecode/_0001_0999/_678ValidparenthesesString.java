@@ -61,7 +61,7 @@ The string size will be in the range [1, 100].
             } else if (c == ')') {
                 cmax--;
                 cmin = Math.max(cmin - 1, 0);
-            } else {
+            } else { //handle *
                 cmax++;
                 cmin = Math.max(cmin - 1, 0);
             }
