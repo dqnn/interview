@@ -31,6 +31,8 @@ The string size will be in the range [1, 100].
 */
 
     //interview friendly:O(n)/O(1)
+    //cmin and cmax means lower and upper bound of valid '(' counts， to be more
+    //specific：
     //cmax max number of ( could be paired,
     //cmin min number of ( must be paired
     
