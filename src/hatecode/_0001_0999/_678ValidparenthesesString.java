@@ -39,7 +39,7 @@ The string size will be in the range [1, 100].
     /*
      *  ()**()
      *  cmax = 3
-     *  cmin = 2
+     *  cmin = 1
      */
     
     //a string is valid: 1: cmax >=0, 2 cmin = 0 in the end for every position
