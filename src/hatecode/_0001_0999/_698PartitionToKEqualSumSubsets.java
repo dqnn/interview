@@ -1,6 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class _698PartitionToKEqualSumSubsets {
 /*
@@ -68,7 +69,8 @@ from 2^n, we do the second subset pick up. So nodes at last layer of recursion t
         int target = sum / k;
 
         // descending sort array
-        Arrays.sort(nums, (a ,b)->Integer.compare(b, a));
+        Integer[] A = Arrays.stream(nums).boxed().toArray(Integer[]::new);
+        Arrays.sort(A, (a ,b)->Integer.compare(b, a));
 
         return backtrack(nums, 0, bucket, target);
     }
