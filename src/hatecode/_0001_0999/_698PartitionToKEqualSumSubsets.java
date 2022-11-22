@@ -1,5 +1,7 @@
 package hatecode._0001_0999;
-import java.util.Arrays;
+
+import java.util.*;
+
 public class _698PartitionToKEqualSumSubsets {
 /*
 698. Partition to K Equal Sum Subsets
