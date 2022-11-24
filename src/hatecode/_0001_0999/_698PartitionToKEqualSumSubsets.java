@@ -74,7 +74,7 @@ from 2^n, we do the second subset pick up. So nodes at last layer of recursion t
 
         return backtrack(nums, 0, bucket, target);
     }
-
+ 
     private boolean backtrack(int[] nums, int index, int[] bucket, int target) {
         // 结束条件：每个数字都做出了选择
         if (index == nums.length) {
