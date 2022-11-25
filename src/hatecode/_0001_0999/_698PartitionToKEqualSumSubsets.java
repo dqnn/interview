@@ -22,7 +22,7 @@ Output: True
      * the problem is to say: given one integer array and number k,
      * partition array to k groups, sum of each group are the same
      * 
-     * I believe tine complexity is: O(2^nk). Some says O( k2^n) is not correct. Getting one subset is 2^n doest not mean picking up k subsets is k2^n
+     * I believe the complexity is: O(2^nk). Some says O( k2^n) is not correct. Getting one subset is 2^n doest not mean picking up k subsets is k2^n
 Because we are doing recursion, each subset is not independent but always Dependent (drawing a recursion tree). After first subset with 2^n, for each possibility
 from 2^n, we do the second subset pick up. So nodes at last layer of recursion tree become 2^n * 2^n. Finally after k subsets, it is 2^n * ...* 2^n which is O(2^(nk))
      */
