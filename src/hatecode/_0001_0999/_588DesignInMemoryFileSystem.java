@@ -30,7 +30,12 @@ Output
 
 */
 
-    
+    /*
+     * the problem is to say: implement a in-memory file system, contains
+     * mkdir, ls, addContent to file, note, it actually append to file
+     * 
+     * 
+     */
     class File{
         boolean isD;
         String name;
