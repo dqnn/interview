@@ -34,7 +34,10 @@ Output
      * the problem is to say: implement a in-memory file system, contains
      * mkdir, ls, addContent to file, note, it actually append to file
      * 
-     * 
+     * the key of this problem:
+     * 1. abstract a file object, directory or file
+     * 2. use TreeMap to sort
+     * 3. split, first will be always empty.
      */
     class File{
         boolean isD;
