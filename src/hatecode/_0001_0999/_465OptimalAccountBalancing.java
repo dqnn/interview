@@ -64,6 +64,9 @@ debt = [-4,4,0]
         return res;
     }
     
+    /*
+     * 
+     */
     private void helper(List<Integer> debt, int s, int count) {
         //ignore leading 0 in the debt array
         while(s < debt.size() && debt.get(s) == 0) s++;
