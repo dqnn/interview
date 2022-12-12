@@ -83,11 +83,51 @@ debt = [-4,4,0]
     }
     
     
-    /*
+    /* Interview friendly, O(n*2^n)/O(2^n)
      * //so we think about there are two list, one is positive ones, another one is 
     //negative ones, so we want to know for these 2 lists, to make them all 0, how many
     //add(+) needs to happen, or min add
     
     //we can sort each list, and we can matched ones, which should be fastest
      */
+    
+    /*
+     * for example, [2,-7,4,3,-2]
+     * 
+     * --> [2,-2] , [-7,4,3]
+     * so the least transaction is 1 + 2 = 3, 
+     * suppose we have N accounts with none 0 balance and M set which sum(set) = 0, and set cannot be 
+     * divided again, then answer is N - M
+     * 
+     */
+    public int minTransfers_interview_friendly(int[][] T) {
+        Map<Integer, Integer> map = new HashMap<>();
+        
+        for(int[] t : T) {
+            map.put(t[0], map.getOrDefault(t[0], 0) - t[2]);
+            map.put(t[1], map.getOrDefault(t[1], 0) + t[2]);
+        }
+        
+        List<Integer> debts = map.values().stream().filter(e->e != 0).collect(Collectors.toList());
+        int n = debts.size();
+        int[] dp = new int[1 << n];
+        int[] sums = new int[1 << n];
+        for (int cur = 0; cur < (1 << n); cur++) {
+            int setBit = 1;
+            for (int i = 0; i < n; i++) {
+                if ((cur & setBit) == 0) {
+                    int next = cur | setBit;
+                    sums[next] = sums[cur] + debts.get(i);
+                    if (sums[next] == 0) {
+                        dp[next] = Math.max(dp[next], dp[cur] + 1);
+                    } else {
+                        dp[next] = Math.max(dp[next], dp[cur]);
+                    }
+                }
+                setBit <<= 1;
+            }
+        }
+        return n - dp[dp.length - 1];
+    }
+    
 }
