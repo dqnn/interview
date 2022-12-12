@@ -1,5 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
+import java.util.stream.Collectors;
 public class _465OptimalAccountBalancing {
     /*
      * 465. Optimal Account Balancing A group of friends went on holiday and
@@ -50,34 +51,34 @@ debt = [-4,4,0]
     //add(+) needs to happen, or min add
     
     //we can sort each list, and we can matched ones, which should be fastest
-    public int minTransfers(int[][] transactions) {
-        Map<Integer, Integer> m = new HashMap<>();
-        for (int[] t : transactions) {
-            m.put(t[0], m.getOrDefault(t[0], 0) - t[2]);
-            m.put(t[1], m.getOrDefault(t[1], 0) + t[2]);
-        }
-        //we can filter 0 first
+    int res = Integer.MAX_VALUE;
+    public int minTransfers(int[][] T) {
+        Map<Integer, Integer> map = new HashMap<>();
         
-        return settle(0, new ArrayList<>(m.values()));
+        for(int[] t : T) {
+            map.put(t[0], map.getOrDefault(t[0], 0) - t[2]);
+            map.put(t[1], map.getOrDefault(t[1], 0) + t[2]);
+        }
+        
+        List<Integer> list = map.values().stream().filter(e->e != 0).collect(Collectors.toList());
+        helper(list, 0, 0);
+        
+        return res;
     }
-
- 
-    private int settle(int start, List<Integer> debt) {
-        while (start < debt.size() && debt.get(start) == 0) start++;
-        if (start == debt.size()) return 0;
-        int r = Integer.MAX_VALUE;
-        for (int i = start + 1, prev = 0; i < debt.size(); i++) {
-            //not understand why need prev
-            if (prev != debt.get(i) &&  debt.get(start) * debt.get(i) < 0) {
-                //reset data on position i 
-                debt.set(i, debt.get(i) + debt.get(start));
-                // + 1 beause 1 tansaction happened
-                r = Math.min(r, 1 + settle(start + 1, debt));
-                //reset back
-                debt.set(i, debt.get(i) - debt.get(start));
-                prev = debt.get(i);
+    
+    private void helper(List<Integer> debt, int s, int count) {
+        while(s < debt.size() && debt.get(s) == 0) s++;
+        if (s == debt.size()) {
+            res = Math.min(res, count);
+            return;
+        }
+        
+        for(int i = s + 1; i < debt.size(); i++) {
+            if (debt.get(s) * debt.get(i) < 0) {
+                debt.set(i, debt.get(i) + debt.get(s));
+                helper(debt, s+1, count+1);
+                debt.set(i, debt.get(i) - debt.get(s));
             }
         }
-        return r < Integer.MAX_VALUE ? r : 0;
     }
 }
