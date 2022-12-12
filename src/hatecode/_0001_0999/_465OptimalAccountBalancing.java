@@ -110,7 +110,10 @@ debt = [-4,4,0]
         
         List<Integer> debts = map.values().stream().filter(e->e != 0).collect(Collectors.toList());
         int n = debts.size();
+        
+        // dp[mask] = number of sets whose sum = 0
         int[] dp = new int[1 << n];
+        // sums[mask] = sum of numbers in mask
         int[] sums = new int[1 << n];
         for (int cur = 0; cur < (1 << n); cur++) {
             int setBit = 1;
