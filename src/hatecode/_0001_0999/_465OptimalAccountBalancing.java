@@ -43,14 +43,12 @@ debt = [-4,4,0]
     //3 min transfer amount in min transactions
     //https://www.win.tue.nl/~wstomv/publications/INFE023.pdf 
     //interview friendly, 
-    //thinking process: 
+    //thinking process: worst case: O(n!)/O(n)
     //no matter which type, we will calc each person's debt[]
     //debt[i] > 0 means his credit, <0 means he owe, =0 means he is done
-    //so we think about there are two list, one is positive ones, another one is 
-    //negative ones, so we want to know for these 2 lists, to make them all 0, how many
-    //add(+) needs to happen, or min add
     
-    //we can sort each list, and we can matched ones, which should be fastest
+    
+    
     int res = Integer.MAX_VALUE;
     public int minTransfers(int[][] T) {
         Map<Integer, Integer> map = new HashMap<>();
@@ -67,6 +65,7 @@ debt = [-4,4,0]
     }
     
     private void helper(List<Integer> debt, int s, int count) {
+        //ignore leading 0 in the debt array
         while(s < debt.size() && debt.get(s) == 0) s++;
         if (s == debt.size()) {
             res = Math.min(res, count);
@@ -76,9 +75,19 @@ debt = [-4,4,0]
         for(int i = s + 1; i < debt.size(); i++) {
             if (debt.get(s) * debt.get(i) < 0) {
                 debt.set(i, debt.get(i) + debt.get(s));
+                //here s has to start from s+1
                 helper(debt, s+1, count+1);
                 debt.set(i, debt.get(i) - debt.get(s));
             }
         }
     }
+    
+    
+    /*
+     * //so we think about there are two list, one is positive ones, another one is 
+    //negative ones, so we want to know for these 2 lists, to make them all 0, how many
+    //add(+) needs to happen, or min add
+    
+    //we can sort each list, and we can matched ones, which should be fastest
+     */
 }
