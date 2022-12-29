@@ -86,7 +86,9 @@ public class _241DifferentWaystoAddParentheses {
      * 思路：类似burst balloon dp[i][j] = max of for (k : i ~ j max(dp[i][k - 1] *
      * dp[k][j], dp[i][k - 1] + dp[k][j]))
      * 
-     * follow up: 1. 如果有负数该怎么办， 2. 如果想要拿到最大的式子该怎么办
+     * follow up: 
+     1. 如果有负数该怎么办， 
+     2. 如果想要拿到最大的式子该怎么办
      */
     //O(n^3)/O(n^2)
     public static int maxExprResult(int[] A) {  

@@ -136,7 +136,7 @@ debt = [-4,4,0]
                 //this means current subset cur does not have person setBit, if setBit in this set, 
                 //we just continue
                 if ((cur & setBit) == 0) {
-                    int next = cur | setBit;
+                    int next = cur | setBit; // next: next subset. 
                     sums[next] = sums[cur] + debts.get(i);
                     if (sums[next] == 0) {
                         dp[next] = Math.max(dp[next], dp[cur] + 1);
