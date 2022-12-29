@@ -43,7 +43,16 @@ debt = [-4,4,0]
     //3 min transfer amount in min transactions
     //https://www.win.tue.nl/~wstomv/publications/INFE023.pdf 
     //interview friendly, 
-    //thinking process: worst case: O(n!)/O(n)
+    //thinking process: worst case: O(n!)/O(n), 
+    /*
+    F(n)= (n-1) * F(n-1)
+
+    there are 0, 1, 2, ... n - 1 persons, denote F(n) as its TC, so lets seperate 0, then 
+    you have 1, 2,... n-1, it is F(n-1)
+
+    for the first loop, we need to visit n-1 times since n- 1 elements in 1,2,,,n-1.
+    */
+    
     //no matter which type, we will calc each person's debt[]
     //debt[i] > 0 means his credit, <0 means he owe, =0 means he is done
     
@@ -114,13 +123,18 @@ debt = [-4,4,0]
         List<Integer> debts = map.values().stream().filter(e->e != 0).collect(Collectors.toList());
         int n = debts.size();
         
-        // dp[mask] = number of sets whose sum = 0
+         /*
+         dp[mask] = number of sets whose sum = 0 when mask in [0, mask]
+         mask: one subset of origin set n, for example, n elements have 2^n -1 sets
+          */
         int[] dp = new int[1 << n];
         // sums[mask] = sum of numbers in mask
         int[] sums = new int[1 << n];
         for (int cur = 0; cur < (1 << n); cur++) {
             int setBit = 1;
             for (int i = 0; i < n; i++) {
+                //this means current subset cur does not have person setBit, if setBit in this set, 
+                //we just continue
                 if ((cur & setBit) == 0) {
                     int next = cur | setBit;
                     sums[next] = sums[cur] + debts.get(i);
