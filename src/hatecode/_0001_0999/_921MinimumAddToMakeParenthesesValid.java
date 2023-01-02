@@ -23,23 +23,23 @@ Input: "())"
 Output: 1
 */
   //O(n)/O(1)
-    //left mean ( we need to add
-  //right means current opened, ( not matched
+    //l mean ( we need to add
+  //r means current opened, ( not matched
     
     //there was one similar problem in LC which is to say with K add/replace/delete, 
     //it could be valid parentheses, forget the problem number....WTF
     public int minAddToMakeValid(String s) {
-        int left = 0, right = 0;
+        int l = 0, r = 0;
         for (char c: s.toCharArray()) {
             // (())
-            if(c =='(') right++;
+            if(c =='(') r++;
             //((())
-            else if (right > 0) right--;
+            else if (r > 0) r--;
             //))
-            else left ++;
+            else l ++;
         }
 
-        return left + right;
+        return l + r;
     }
 /*
 1. if encounter '(', push '(' into stack;
