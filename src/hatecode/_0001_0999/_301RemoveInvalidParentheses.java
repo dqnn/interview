@@ -28,12 +28,17 @@ public class _301RemoveInvalidParentheses {
      time : 不知道
      space : O(n)
     related problems
+    ---- minimal removeal to make balanced 
      301. Remove Invalid Parentheses, "()())()" -> ["()()()", "(())()"]
      1021. Remove Outermost Parentheses, (()())(())-->()()()
-     856. Score of Parentheses   (()())-->4
+     1249. Minimum Remove to Make Valid Parentheses lee(t(c)o)de)-->lee(t(c)o)de
+     
+
+     --- minimal add to make it balanced 
      921. Minimum Add to Make Parentheses Valid  ())-->1
      1541. Minimum Insertions to Balance a Parentheses String (()))-->1, ()) is valid
-     1249. Minimum Remove to Make Valid Parentheses lee(t(c)o)de)-->lee(t(c)o)de
+
+     856. Score of Parentheses   (()())-->4
      32. Longest Valid Parentheses   ")()())"-->4
      22. Generate Parentheses  n = 2-->["()()", "(())"]
      20. Valid Parentheses  ()[]{} --> True
