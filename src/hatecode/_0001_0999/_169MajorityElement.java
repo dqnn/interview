@@ -47,16 +47,31 @@ public class _169MajorityElement {
         return res;
     }
 
-    // Moore voting algorithm
-    // 每次都找出一对不同的元素，从数组中删掉，直到数组为空或只有一种元素。
-    // 不难证明，如果存在元素e出现频率超过半数，那么数组中最后剩下的就只有e。
-    // [1,2,3,3,3]
-    // time : O(n) space : O(1)
     //interview friendly
-    //核心思想就是对坪消耗
-    //virtual array,  find a element in nums which can be 
+    /*
+    Moore voting algorithm
+     thinking process: O(n) space : O(1)
+     the problem is to say: find the major element in the array which occurrency is more than A.length/2;
+
+     key thoughts:
+     we use counter and major, 
+     1. when counter = 0, means we have to replace the major, at position i, count for major element decrease to 0, 
+     other elements after it may become the new major elements
+     2. when count !=0,  we will increase count if major == A[i], if not decrease.
+
+     we do not worry about missing the potential elements in 0-i, because major must be the answer if 
+     there is major  from 0-i
+     
+     [2,2,1,1,1,2,2]
+
+     
+
+    
+    */
     public int majorityElement3(int[] nums) {
+        //we use counter to record, at position i, what is the count for major element major.
         int count = 0;
+        //we use major to record the major element
         int major = 0;
         for (int num : nums) {
             if (count == 0) major = num;
