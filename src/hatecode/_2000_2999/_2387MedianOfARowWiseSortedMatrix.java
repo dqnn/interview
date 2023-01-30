@@ -37,13 +37,19 @@ m and n are both odd.
     interview friendly, 
     thinking process: O(m * lgn)/O(1)
     the problem si to say: given one matrix, sorted by row, find the median element of the matrix.
+   
+    since each element is in [1, 1e6] range, so we can guess one in that range and count how many 
+    elements are <= than the guess number, 
+    1. if it is greater than m *n/2+1 (include the median number),
+    then guess number is too big, we should move r to left.
+    2. if it is smaller than m*n/2+1, then guess number 
 
     */
     public int matrixMedian(int[][] A) {
     
         int m = A.length, n= A[0].length;
         int l = 1, r = (int) 1e6;
-        int lelementsCnt = m * n / 2 + 1;
+        int leftEleCnt = m * n / 2 + 1;
         
         while(l < r) {
             int mid = l + (r - l)/ 2;
