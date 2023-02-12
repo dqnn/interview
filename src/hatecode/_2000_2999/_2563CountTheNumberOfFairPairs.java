@@ -73,17 +73,17 @@ Explanation: There are 6 fair pairs: (0,3), (0,4), (0,5), (1,3), (1,4), and (1,5
      /*
     find the most right number which are equal or less than most
     */
-    private int findRight(int[] A, int l, int r, int most) {
+    private int findRight(int[] A, int l, int r, int upper) {
         
-        if (A[l] > most) return -1;
+        if (A[l] > upper) return -1;
         
         while(l + 1 < r) {
             int m = l + (r - l)/2;
-            if (A[m] <= most) l = m ;
+            if (A[m] <= upper) l = m ;
             else r = m;
         }
         
-        if (A[r] <= most) return r;
+        if (A[r] <= upper) return r;
         else return l;
     }
 }
