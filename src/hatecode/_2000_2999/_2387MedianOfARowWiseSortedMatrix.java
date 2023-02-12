@@ -1,3 +1,7 @@
+package hatecode._2000_2999;
+
+import java.util.PriorityQueue;
+
 public class _2387MedianOfARowWiseSortedMatrix {
 /*
 2387. Median of a Row Wise Sorted Matrix
@@ -49,7 +53,7 @@ m and n are both odd.
     
         int m = A.length, n= A[0].length;
         int l = 1, r = (int) 1e6;
-        int leftEleCnt = m * n / 2 + 1;
+        int lelementsCnt = m * n / 2 + 1;
         
         while(l < r) {
             int mid = l + (r - l)/ 2;

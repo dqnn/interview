@@ -1,4 +1,9 @@
-class Bitset {
+package hatecode._2000_2999;
+
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
+public class _2166DesignBitset {
 /*
 2166. Design Bitset
 A Bitset is a data structure that compactly stores bits.
@@ -47,7 +52,7 @@ class Navie_Solution {
 
 
     int[] A;
-    public Bitset(int size) {
+    public Navie_Solution(int size) {
         A = new int[size];
     }
     
