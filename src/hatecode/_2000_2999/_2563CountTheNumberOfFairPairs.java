@@ -17,6 +17,19 @@ Output: 6
 Explanation: There are 6 fair pairs: (0,3), (0,4), (0,5), (1,3), (1,4), and (1,5).
 */
 
+/*
+   thinking process : O(nlgn)/O(1)
+   the problem is to say: given an integer array with lower and upper integer, find how many pairs
+   nums = [0,1,7,4,4,5], lower = 3, upper = 6, there will be 6
+
+   so BF force will be two loops, O(n^2)/O(1), 
+   
+   since it require pair, so if we fix one number, then we just need to looks for how many numbers 
+   in the array fit the requirements, 
+
+   then we can think about BS. 
+
+*/
     
     public long countFairPairs2(int[] A, int l, int u) {
         int n = A.length;
@@ -42,6 +55,9 @@ Explanation: There are 6 fair pairs: (0,3), (0,4), (0,5), (1,3), (1,4), and (1,5
         
     }
     //[0,1,4,4,5,7]
+    /*
+    find the most left number which are equal or great than least
+    */
     private int findLeft(int[] A, int l, int r, int least) {
         
         if (A[r] < least) return -1;
@@ -54,6 +70,9 @@ Explanation: There are 6 fair pairs: (0,3), (0,4), (0,5), (1,3), (1,4), and (1,5
         return l;
     }
     
+     /*
+    find the most right number which are equal or less than most
+    */
     private int findRight(int[] A, int l, int r, int most) {
         
         if (A[l] > most) return -1;
