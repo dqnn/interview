@@ -93,4 +93,4 @@ class Navie_Solution {
  * boolean param_5 = obj.one();
  * int param_6 = obj.count();
  * String param_7 = obj.toString();
- */
+ */ 
