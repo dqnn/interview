@@ -47,7 +47,7 @@ Output: 4
     public int search_Template3(int[] nums, int target) {
         if (nums == null || nums.length < 1) return -1;
         //note, this r = nums.length not nums.length -1
-        int l = 0, r = nums.length;
+        int l = 0, r = nums.length - 1;
         
         while(l < r) {
             int mid = l + ((r- l) >> 1);
@@ -55,7 +55,8 @@ Output: 4
             else if (nums[mid] > target) r = mid;
             else l = mid + 1;
         }
-        
-        return -1;
+        //note, you need to check l == r case, [5], 5 
+        if (nums[l] == target) return l;
+        else return -1;
     }
 }
