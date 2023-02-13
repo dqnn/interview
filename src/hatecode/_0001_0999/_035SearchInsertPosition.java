@@ -50,4 +50,21 @@ public class _035SearchInsertPosition {
             return end + 1;
         }
     }
+
+    /*
+     * 2nd template, so it needs post-processing to handle the the element last
+     */
+    public int searchInsert2(int[] A, int t) {
+        int l = 0, r = A.length - 1;
+        
+        while(l < r) {
+            int m = l + (r - l)/2;
+            if (A[m] == t) return m;
+            else if (A[m] > t) r = m;
+            else l = m + 1;
+        }
+        
+        if(A[l] >= t) return l;
+        else return l + 1;
+    }
 }
