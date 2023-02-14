@@ -90,4 +90,27 @@ public class _153FindMinimuminRotatedSortedArray {
         }
         return pre;
     }
+
+    /*
+     * 3rd template,
+     * 
+     * we need to post-processing the A[l] and A[r]
+     * 
+     * we only need to process 2 cases:
+     * 1. A[m] and A[r] have same monotonic 
+     * if not, they are on different sides 
+     */
+    public int findMin_template_3(int[] A) {
+        int l = 0, r = A.length - 1;
+        
+        while(l + 1 < r) {
+            int m = l + (r - l)/2;
+            if ( A[m] <= A[r]) {
+                r = m;
+            } else l = m;
+        }
+        
+        if (A[l] <= A[r]) return A[l];
+        else return A[r];
+    }
 }
