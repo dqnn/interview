@@ -39,7 +39,9 @@ public class _441ArrangingCoins {
         }
         
         /*
+         * so use math, we can see the result should be less than sqrt(n).
          * 
+         * so we use bit to store 
          */
         public int arrangeCoins_Bit(int n) {
             int mask = 1 << 15;
