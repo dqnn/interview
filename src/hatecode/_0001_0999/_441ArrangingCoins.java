@@ -38,16 +38,19 @@ public class _441ArrangingCoins {
             
         }
         
+        /*
+         * 
+         */
         public int arrangeCoins_Bit(int n) {
-        int mask = 1 << 15;
-        long result = 0;
-        while (mask > 0) {
-            result |= mask;
-            if (result * (result + 1) / 2 > n) {
-                result ^= mask;
+            int mask = 1 << 15;
+            long result = 0;
+            while (mask > 0) {
+                result |= mask;
+                if (result * (result + 1) / 2 > n) {
+                    result ^= mask;
+                }
+                mask >>= 1;
             }
-            mask >>= 1;
+            return (int) result;
         }
-        return (int) result;
-    }
     }
