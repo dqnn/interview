@@ -35,7 +35,7 @@ public class _441ArrangingCoins {
             
             while(l < r) {
                 long m = l + (r-l)/2;
-                
+                //how many left, bigger than next th
                 if ((n - m * (m+1)/2) >= m + 1) {
                     l = m + 1;
                 } else r = m;
