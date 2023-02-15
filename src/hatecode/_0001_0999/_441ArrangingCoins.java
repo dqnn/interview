@@ -19,6 +19,14 @@ public class _441ArrangingCoins {
      * thinking process; O(lgn)/O(1)
      * 
      * the problem is to say: given n coins, so need to make stairs up to bottom, 
+     * return the correct value
+     *   n = 5
+     * 
+     *    1
+     *    1  1
+     *    1  1  
+     * 
+     * return 2, starts as 0 index
      */
         public int arrangeCoins(int n) {
             if (n == 1) return 1;
