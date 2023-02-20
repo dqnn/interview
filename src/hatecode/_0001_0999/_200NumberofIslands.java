@@ -172,7 +172,12 @@ public class _200NumberofIslands {
         for(int i = 0; i < r; i++) {
             for(int j =0; j< c; j++) {
                 if (g[i][j] == '1') {
-                    int[][] dirs = {{-1, 0}, {1,0}, {0,1}, {0,-1}};
+                /* 
+                 * here is the improvemnts, we only need to look to right and down, so we don;t
+                 * have to look back
+                 */
+                    //int[][] dirs = {{-1, 0}, {1,0}, {0,1}, {0,-1}};
+                    int[][] dirs = {{1,0}, {0,1}};
                     for(int[] dir : dirs) {
                         int x = i + dir[0];
                         int y = j + dir[1];

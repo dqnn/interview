@@ -230,7 +230,7 @@ following calculations.
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            //add 0 before -3+(2+1) or -(1+2)
+            //-3+(2+1) --> 0 - 3 + (2+1), 2-(+1-2) --> 2- (0+1-2)
             if ((c == '+' || c == '-') && (i == 0 || s.charAt(i - 1) == '(')) {
                 sb.append(0);
             }
