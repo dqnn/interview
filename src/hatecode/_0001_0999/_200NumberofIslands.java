@@ -124,6 +124,10 @@ public class _200NumberofIslands {
     }
     
     //UF with two scan
+    /*
+     * thinking process: O(M*N*a()) a is Ackerman function/O(mn)
+     * 
+     */
     class DUS {
         int[] parent;
         int[] size;
