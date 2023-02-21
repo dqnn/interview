@@ -29,7 +29,7 @@ Output: 16
 */  //thinking process: we only count down and right neighbors, so we reduce 
     //the overlap ones
     
-    //interview friendly: 
+    //interview friendly: O(mn)/O(1) 
     //the key is understand the island perimeter, 4 * nodes - 2 *neighbous
     // because both have 1 side become 0 now, so we need to - 2 each time
     //we only count down and right side neighbour

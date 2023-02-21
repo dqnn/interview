@@ -21,6 +21,8 @@ Explanation: The answer is not 11, because the island must be connected 4-direct
     // DFS
     /*
      * thinking process: O(mn)/O(mn)
+     * the problem is to say: given one matrix, 1 represents island while 0 represents water,
+     * so return the max area of the islands, cell 1 means area 1
      * 
      * typical way to traverse the 2D matrix and calculate the elements
      * how many are land
@@ -58,4 +60,86 @@ Explanation: The answer is not 11, because the island must be connected 4-direct
         }
         return res;
     }
+
+
+
+    class DSU {
+        int[] parent;
+        int[] size;
+        int max;
+        public DSU(int cap) {
+            parent = new int[cap];
+            size = new int[cap];
+            for(int i = 0; i< cap; i++) {
+                parent[i] = i;
+                size[i] = 1;
+            }
+            max = cap > 0 ? 1 : 0;
+        }
+        
+        public int find(int x) {
+            while(x != parent[x]) {
+                x = parent[x];
+            }
+            
+            return x;
+        }
+        
+        public void union(int x, int y) {
+            x = find(x);
+            y = find(y);
+            if (x == y) return;
+            if(size[x] < size[y]) {
+                parent[x] = y;
+                size[y] += size[x];
+                
+            } else {
+                parent[y] = x;
+                size[x] += size[y];
+            }
+            
+            max = Math.max(max, Math.max(size[x], size[y]));
+        }
+    }
+    
+    
+    /*
+     * thinking process: O(mn*a(n))/O(mn)
+     * 
+     * the problem is to say: given one matrix, return the max area of the matrix
+     * 
+     * 
+     * use UF size to record each block size, then when we union two cells, we increase 
+     * the size and get the max, there are two edge cases:
+     * [[0,0,0,0,0]] it should be 0
+     * and [[1]] should be 1
+     */
+    public int maxAreaOfIsland_UF(int[][] grid) {
+        if (grid == null || grid.length == 0 || grid[0].length == 0) return 0;
+        int r = grid.length;
+        int c = grid[0].length;
+        
+        DSU dsu = new DSU(r *c);
+
+        int[][] dirs = {{1, 0}, {0, 1}};
+        
+        int count = 0;
+        for (int i=0; i<r; i++) {
+            for (int j=0; j<c; j++) {
+                if (grid[i][j] == 1) {
+                    int p1 = c * i + j;
+                    for(int[] d: dirs) {
+                        int ni = i + d[0];
+                        int nj = j + d[1];
+                        if (ni >=0 && ni < r && nj >=0 && nj < c && grid[ni][nj] == 1) {
+                            int p2 = c* ni + nj;
+                            dsu.union(p1, p2);
+                        }
+                    }
+                } else count++;
+            }
+        }
+        return count == r*c ? 0: dsu.max;
+    }
+
 }

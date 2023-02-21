@@ -34,7 +34,7 @@ and
 11
 are considered different island shapes, because we do not consider reflection / rotation.
  */
-    //the question is to say, ask how many different shape of these lands have ? 
+    //the question is to say, ask how many different shape of these lands have from your eyes into the screen
     
     // so we use a char o, u, d,l,r to describe our next direction, after each, we will marki,j =0
     //so next would not consider this one. 
