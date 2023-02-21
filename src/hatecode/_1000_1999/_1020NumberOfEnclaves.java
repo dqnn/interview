@@ -31,7 +31,7 @@ Output: 3
             for(int j =0; j< c; j++) {
                 if (A[i][j] == 1)  {
                     total++;
-                    if (i == 0 || i == r-1 || j == 0 || j == c-1) {
+                    if (i * j == 0 || i == r-1 || j == c-1) {
                         helper(A, i, j, visited);
                     }
                 }
