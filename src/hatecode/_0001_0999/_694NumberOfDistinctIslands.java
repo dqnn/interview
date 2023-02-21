@@ -2,8 +2,9 @@ package hatecode._0001_0999;
 
 import java.util.*;
 
-public class NumberOfDistinctIslands {
+public class _694NumberOfDistinctIslands {
 /*
+ 694 Number Of Distinct Islands
 Given a non-empty 2D array grid of 0's and 1's, an island is a group of 1's
  (representing land) connected 4-directionally (horizontal or vertical.)
   You may assume all four edges of the grid are surrounded by water.
