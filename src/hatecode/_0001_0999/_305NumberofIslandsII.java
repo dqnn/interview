@@ -122,7 +122,7 @@ public class _305NumberofIslandsII {
         System.out.println(numIslands2(3,3,in));
     }
     
-    //interview friendly, 
+  
     // so the difference between ordinary UF than this one is that 
     //this one situation changes,here as we traverse the positions array, we will see
     //more and more islands connected,and isolated will become less, so we need a way to 
@@ -203,6 +203,91 @@ public class _305NumberofIslandsII {
                 }
                 count--;
                 return true;
+            }
+        }
+
+/*
+ *   //interview friendly, O(n*a(n)), a(n) is ackerman function/O(n)
+ * 
+ *   we re-use the count in DSU, 
+ * 1. first we intialize count as 0, 
+ * 2. everytime when we set P from points of islands, we first check whether it is already built, if yes,then
+ * we just return.  there are case like3
+3,3, [[0,0],[0,1],[1,2],[1,2]] which has dup points
+*  3. every union, we will decrease count as 1. 
+ */
+        class Solution_UseCountInDSU {
+    
+            class DSU {
+                int count;
+                int[] parent;
+                int[] size;
+                public DSU(int cap) {
+                    parent = new int[cap];
+                    Arrays.fill(parent, -1);
+                    size = new int[cap];
+                    count = 0;
+                    Arrays.fill(size, -1);
+                }
+                
+                public void set(int x) {
+                    if (find(x) != -1) return;
+                    parent[x] = x;
+                    size[x] = 1;
+                    count++;
+                   
+                }
+                
+                public int find(int x) {
+                    if (parent[x] == -1) return -1;
+                    
+                    while(x != parent[x]) {
+                        x = parent[x];
+                    }
+                    
+                    return x;
+                }
+                
+                
+                public void union(int x, int y) {
+                     x = find(x);
+                     y = find(y);
+                    
+                    if (x == y) return;
+                    
+                    if (size[x] > size[y]) {
+                        parent[y] = x;
+                    } else parent[x] = y;
+                    
+                    count--;
+                }
+            }
+            
+            
+            public List<Integer> numIslands2(int r, int c, int[][] A) {
+                List<Integer> res = new ArrayList<>();
+                
+                
+                DSU dsu = new DSU(r * c);
+                int[][] dirs = {{-1, 0}, {1, 0}, {0, 1}, {0,-1}};
+                for(int[] p : A) {
+                    int x = p[0], y =p[1];
+                    int p1 = c * x + y;
+                    dsu.set(p1);
+                    
+                    for(int[] d: dirs) {
+                        int nx = x + d[0];
+                        int ny = y + d[1];
+                        int p2 = nx * c + ny;
+                        
+                        if (nx >=0 && nx < r && ny >=0 &&ny < c && dsu.find(p2) != -1) {
+                            dsu.union(p1,p2);
+                        }
+                    }
+                    res.add(dsu.count);
+                }
+                
+                return res;
             }
         }
 }
