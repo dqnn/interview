@@ -16,7 +16,10 @@ Example 1:
 Input: [[0,0,0,0],[1,0,1,0],[0,1,1,0],[0,0,0,0]]
 Output: 3
 */
-    //simple DFS, we climb from boundaries into land
+    /*
+     * thinking process: O(mn)/O(mn)
+     * the problem is to say: given one matrix, 
+     */
     int N = 0;
     public int numEnclaves(int[][] A) {
         if (A == null || A.length < 1 || A[0].length < 1) return 0;
@@ -39,7 +42,8 @@ Output: 3
     
     private void helper(int[][] A, int i, int j, Set<String> visited) {
         
-        if (i < 0 || i >=A.length || j < 0 || j >= A[0].length || A[i][j] == 0 || visited.contains(i +"->" + j)) return;
+        if (i < 0 || i >=A.length || j < 0 || j >= A[0].length 
+                || A[i][j] == 0 || visited.contains(i +"->" + j)) return;
         
         visited.add(i +"->" + j);
         N++;
@@ -50,5 +54,40 @@ Output: 3
             int y = j + dir[1];
             helper(A, x, y, visited);
         }
+    }
+
+    class Solution_FloodFill {
+        int[][] grid;
+        public int numEnclaves(int[][] A) {
+            this.grid = A;
+            for(int i=0;i<grid.length;i++){
+                fill(i,0);
+                fill(i,grid[0].length-1);
+            }
+            for(int j=0;j<grid[0].length;j++){
+                fill(0,j);
+                fill(grid.length-1, j);
+            }
+    
+            int res = 0;
+            for(int i=1;i<grid.length;i++){
+                for(int j=1;j<grid[0].length;j++){
+                    res += grid[i][j];
+                }
+            }
+            return res;
+        }
+    
+        private void fill(int i,int j){
+            if(i<0||j<0||i>=grid.length || j>=grid[0].length || grid[i][j]==0){
+                return;
+            }
+            grid[i][j]=0;
+            fill(i-1,j);
+            fill(i+1,j);
+            fill(i,j-1);
+            fill(i,j+1);
+        }
+    
     }
 }
