@@ -80,6 +80,7 @@ Output: 1
         int r = A.length, c = A[0].length;
         if (i >=0 && i < r && j >=0 && j < c && !visited[i][j]) {
             visited[i][j] = true;
+            // here we only add water to the queue
             if (A[i][j] == 1) {
                 for(int[] d: dirs) {
                     int x = i + d[0];
