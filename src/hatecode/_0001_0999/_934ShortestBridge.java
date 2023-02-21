@@ -23,6 +23,9 @@ Output: 1
 */
     //thinking process: O(mn)O(mn)
     /*
+    the problem is to say: given one matrix and there is only 2 islands in the matrix, you can flip
+    0 to 1 make them connected, return the min number of cells needs to be flipped.
+    
      * 1. first build the queue, the queue only contains the [i][j] which is first
      * round of water elements, 
      * 2. then we BFS on these elements, if we found anyone not visited before and it is 
