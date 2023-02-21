@@ -25,7 +25,7 @@ Output: 1
     /*
     the problem is to say: given one matrix and there is only 2 islands in the matrix, you can flip
     0 to 1 make them connected, return the min number of cells needs to be flipped.
-    
+
      * 1. first build the queue, the queue only contains the [i][j] which is first
      * round of water elements, 
      * 2. then we BFS on these elements, if we found anyone not visited before and it is 
@@ -74,7 +74,8 @@ Output: 1
         return -1;
     }
     
-    //we only add these most out round of 0 into queue, not all of them
+    //we only add these most out round of 0 into queue, not all of them,
+    // the waters just around one island
     private void helper(int[][] A, int i, int j, boolean[][] visited, Queue<int[]> q) {
         int r = A.length, c = A[0].length;
         if (i >=0 && i < r && j >=0 && j < c && !visited[i][j]) {
