@@ -54,4 +54,50 @@ Output: [1]
         
         return res;
     }
+
+    /*
+     * O(n) quick select 
+     */
+    Map<Integer, Integer> map = new HashMap<>();
+    public int[] topKFrequent_QuickSelect(int[] A, int k) {
+        
+         Arrays.stream(A).forEach(e->map.put(e, map.getOrDefault(e, 0) + 1));
+         int[] keys = new ArrayList<>(map.keySet()).stream().mapToInt(x->x).toArray();
+         System.out.println(map);
+         int l = 0, r = keys.length - 1;
+         while(true) {
+             int pos = partition(keys, l, r);
+             
+             if (pos + 1 == k) return Arrays.copyOf(keys, pos+1);
+             else if (pos + 1 < k) l = pos + 1;
+             else r = pos - 1;
+         }
+     }
+    
+    private int partition(int[] A, int left, int right) {
+        int p = left;
+        int l = left + 1, r = right;
+        
+        while(l <= r) {
+            int frep = map.get(A[p]);
+            int frel = map.get(A[l]);
+            int frer = map.get(A[r]);
+            if(frep < frer && frep > frel) {
+                swap(A, l, r);
+                l++;
+                r--;
+            }
+            
+            if (frep <= frel) l++;
+            if (frep >= frer) r--;
+        }
+        swap(A, left, r);
+        return r;
+    }
+    
+    private void swap(int[] A, int l, int r) {
+        int temp = A[l];
+        A[l] = A[r];
+        A[r] = temp;
+    }
 }

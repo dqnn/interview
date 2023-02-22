@@ -75,11 +75,17 @@ Now let's briefly write down the algorithm before writing our codes.
 
     private int partition(int[] nums, int left, int right) {
         //TODO: why always left, i changed to others, 
-        //it was incorrect
+        
         int pivot = nums[left];
         int l = left + 1;
         int r = right;
         while (l <= r) {
+            //we cannot change if to while because 
+            /*
+             * suppose 
+             * [3,2,1,5,6,4] k = 2, if we use while, 
+             * 
+             */
             if (nums[l] < pivot && nums[r] > pivot) {
                 swap(nums, l++, r--);
             }
