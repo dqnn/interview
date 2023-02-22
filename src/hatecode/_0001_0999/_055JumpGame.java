@@ -38,6 +38,11 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum
     // [2,3,1,1,4]
     //  -----max
     //    -------max
+    /*
+     * the problem is to say: given one integer array, return each element in the array
+     * means how far you can jump from that element. 
+     * return true if you can jump to the last element.
+     */
 
     public boolean canJump(int[] A) {
         if (A == null || A.length <= 1) {
@@ -48,6 +53,7 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum
             return false;
         }
         int max = 0;
+        //here is the key
         //so we loop all elements and for each elements and store the max always
         // because A[i] is the maxium steps we can walk from that position
         //i <= max means i cannot reach more than max, because 
@@ -57,6 +63,22 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum
             max = Math.max(A[i] + i, max);
         }
         return max >= A.length - 1;
+    }
+
+    /*
+     * dp[i] means the max index you can jump from i-th position 
+     * dp[i] = max(dp[i-1], A[i] + i), i <= dp[i-1]
+     * because if i out of dp[i-1], then we cannot jump from 0-> i-1 to i.
+     */
+    public boolean canJump_DP(int[] A) {
+        int[] dp = new int[A.length];
+        
+        dp[0] = A[0];
+        for(int i = 1;  i<= dp[i-1] && i< A.length; i++) {
+            dp[i] = Math.max(dp[i-1], A[i] + i);
+        }
+        
+        return dp[A.length - 1] >= A.length - 1;
     }
     // we from last to begining
     public boolean canJump2(int[] A) {
