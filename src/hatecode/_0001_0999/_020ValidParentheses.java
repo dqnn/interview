@@ -1,6 +1,6 @@
 package hatecode._0001_0999;
 
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Created by professorX on 27/07/2017.
@@ -73,5 +73,27 @@ public class _020ValidParentheses {
         }
         return head == 0;
 
+    }
+
+    public boolean isValid_Map_Stack(String s) {
+        Stack<Character> stack  = new Stack<>();
+        
+        Map<Character, Character> map = Map.of(']', '[',
+                                               '}', '{',
+                                               ')', '('
+                                              );
+        for(int i = 0; i<s.length(); i++) {
+            char c = s.charAt(i);
+            if (!map.containsKey(c)) {
+                stack.push(c);
+            } else {
+                if (stack.isEmpty() || map.get(c) != stack.peek()) {
+                    return false;
+                }
+                stack.pop();
+            }
+        }
+        
+        return stack.isEmpty();
     }
 }
