@@ -32,8 +32,9 @@ Output: 2
      * the problem is to say: given a balanced string of parethesis, 
      * () --> 1 
      * ()() --> 2
+     * ()()() --> 3
      * (()) --> 2* 1= 2
-     * 
+     * ((())) --> 2*2* 1= 4
      * return the score of the string.
      * 
      * it is easy to think about stack, but it is same problem with decode string,
