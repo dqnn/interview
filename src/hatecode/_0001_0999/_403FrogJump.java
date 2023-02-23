@@ -120,6 +120,47 @@ Return true.
         }
         return false;
     } 
+
+    /*
+     * interview friendly O(n^2)/O(n^2) worst time
+     * 
+     * each state can be determined by [i, step], i means the index, step means previous step needed to be on 
+     * current stone
+     */
+    public boolean canCross_BFS(int[] A) {
+        int n = A.length;
+        
+        if (n == 1) return true;
+        if (A[1] - A[0] > 1) return false;
+        //[i, pre_step]
+        Queue<int[]> q = new LinkedList<>();
+        Set<String> visited = new HashSet<>();
+        
+        q.offer(new int[]{1, 1});
+        visited.add("0-1");
+        
+        while(!q.isEmpty()) {
+            //q.stream().forEach(e->System.out.println(Arrays.toString(e)));
+            int[] e = q.poll();
+            int i = e[0];
+            int k = e[1];
+            if (e[0] == n - 1) return true;
+            
+            
+            for(int j = i + 1; j < n && (A[j] - A[i] <= k + 1); j++) {
+                int curK =  A[j] - A[i];
+                if (curK == k || curK == k + 1 || curK == k - 1) {
+                    String key = j + "-" + curK;
+                    if (visited.contains(key)) continue;
+                    q.offer(new int[]{j, curK});
+                    visited.add(key);
+                }
+                
+            }
+        }
+        
+        return false;
+    }
     
     //DP solution, O(n^2)/O(n^2), best solution
     //so the key point is that first jump must be 1, so 
