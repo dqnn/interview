@@ -48,6 +48,25 @@ Output: "lee(t(c)o)de"
     //first we know how many ) in string s, then in 2nd loop 
     //we want to make sure whether each ( ) are matched, if they
     //are matched then we need it, if not, we just remove them.
+
+    /* l: at position i, count of '(' from 0 ->i.
+       r: at position i, how many ) are unmatched from i + 1 --> A.length - 1
+     * 
+     * for '(' it is easy because we know how many ) totally, we just make sure r > 0 then we 
+     * can append to stringBuilder
+     * 
+     * for ')' it would take more steps:
+     * 1. if l > 0, then it is matched, we decrement l and append to string builder
+     * 2. if l <= 0, it is not matched, so we need to remove it while decrease r; 
+     * 
+     * see ))((,
+     * 
+     *  i  l   r   sb
+     *  0  0   1   []
+     *  1  0   0   []
+     *  2  1   0   []
+     *  3  2   0   []
+     */
     public String minRemoveToMakeValid(String s) {
         if (s == null || s.length() < 1) return s;
         
@@ -67,6 +86,7 @@ Output: "lee(t(c)o)de"
                 if (l > 0) {
                     l--;
                     sb.append(c);
+                // here is the key, we have to skip this ) becz this is unmatched
                 } else r--;
             } else sb.append(c);
         }
