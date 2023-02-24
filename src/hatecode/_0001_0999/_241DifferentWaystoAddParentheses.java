@@ -98,6 +98,12 @@ public class _241DifferentWaystoAddParentheses {
      2. 如果想要拿到最大的式子该怎么办
      */
     //O(n^3)/O(n^2)
+    /*
+     * dp[i][j]: i->j max value
+     * 
+     * we can try every combination for each number in A
+     * 
+     */
     public static int maxExprResult(int[] A) {  
         int n = A.length;  
         int[][] dp = new int[n][n];  
