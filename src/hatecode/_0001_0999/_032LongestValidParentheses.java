@@ -63,8 +63,6 @@ Explanation: The longest valid parentheses substring is "()()"
      *  parenthese。 
      * 
      * i is the new round of matching substring previous character position 
-     * 
-     *  
      *  
      */
     public int longestValidParentheses(String s) {
@@ -87,6 +85,8 @@ Explanation: The longest valid parentheses substring is "()()"
                 //means we need to start new round of matching or just end
                 //example: )()
                 if (stack.isEmpty())  prev = i;
+
+                //example: ()  or ()()
                 else {
                     // so we meet ")" and stack is not empty which means it has 1 "(" at least
                     //if stack is not empty, means we still have "C" not matched, so we continue to move and  
@@ -94,6 +94,8 @@ Explanation: The longest valid parentheses substring is "()()"
                     stack.pop();
                     // this is if stack is not empty, we calculate from the current top ( idx
                     //start last time which it is legal
+
+                    //peek is some similar to prev, but we use it to count legit substring of parenthese
                     res = Math.max(res, stack.isEmpty() ? i - prev : i - stack.peek());
                 }
             }
