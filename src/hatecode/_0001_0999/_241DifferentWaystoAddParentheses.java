@@ -84,6 +84,7 @@ public class _241DifferentWaystoAddParentheses {
          
          map.put(s, res);
          return res;
+        }
     
     /*
      * similiar question in Googe interview 一个只有正整数的list， 
