@@ -136,7 +136,7 @@ public class _241DifferentWaystoAddParentheses {
         return dp[n-1];  
     }  
     public static void main(String[] args) {
-        int[] in = {2,2,-2};
+        int[] in = {2,2,-3, -1};
         System.out.println(maxExprResult_Better(in));
         System.out.println(maxExprResult(in));
     }
