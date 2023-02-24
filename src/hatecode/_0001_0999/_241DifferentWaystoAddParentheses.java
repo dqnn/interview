@@ -81,7 +81,8 @@ public class _241DifferentWaystoAddParentheses {
     }
     
     /*
-     * similiar question in Googe interview 一个只有正整数的list， 其中插入+， * 或者（），求得到式子最大的值。
+     * similiar question in Googe interview 一个只有正整数的list， 
+     * 其中插入+， * 或者（），求得到式子最大的值。
      * e.g. [1，2，1，2 ]-> (1+2)*(1+2)=9. dp解， follow up， 如果有负数该怎么办， 如果想要拿到最大的式子该怎么办。
      * 思路：类似burst balloon dp[i][j] = max of for (k : i ~ j max(dp[i][k - 1] *
      * dp[k][j], dp[i][k - 1] + dp[k][j]))
