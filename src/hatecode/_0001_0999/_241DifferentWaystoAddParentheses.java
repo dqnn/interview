@@ -48,6 +48,9 @@ public class _241DifferentWaystoAddParentheses {
      * thinking process: O(2^)/O(2^n) each position we have 2 options, add ( or not add
      * but it has nothing to do with parenthese
      * 
+     * we break the string when we encounter the operator, it is like where we insert closed parenthesis
+     * 
+     * 
      */
 
      Map<String, List<Integer>> map = new HashMap<>();
