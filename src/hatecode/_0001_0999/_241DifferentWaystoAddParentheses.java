@@ -44,41 +44,43 @@ public class _241DifferentWaystoAddParentheses {
      * @param input
      * @return
      */
-    // recursive is pretty important method to write code,
-    // main problem = split into two sub problems and we can use their results to
-    // get
-    // to the root node, this is top down recursive
-    public List<Integer> diffWaysToCompute(String input) {
-        List<Integer> res = new ArrayList<>();
-        for (int i = 0; i < input.length(); i++) {
-            char c = input.charAt(i);
-            // if it contains "/" then also should be here, need more investigation?
-            // i think here avoid /0 case, so we did not introduce "/" in this problem
-            if (c == '-' || c == '+' || c == '*' || c == '/') {
-                String a = input.substring(0, i);
-                String b = input.substring(i + 1);
-                // recursive to get the result of first half
-                List<Integer> al = diffWaysToCompute(a);
-                List<Integer> bl = diffWaysToCompute(b);
-                for (int x : al) {
-                    for (int y : bl) {
-                        if (c == '-') {
-                            res.add(x - y);
-                        } else if (c == '+') {
-                            res.add(x + y);
-                        } else if (c == '*') {
-                            res.add(x * y);
-                        }
-                    }
-                }
-            }
-        }
-        // just one integer in expressions, here is exception case
-        if (res.size() == 0) {
-            res.add(Integer.valueOf(input));
-        }
-        return res;
-    }
+    /*
+     * thinking process: O(2^)/O(2^n) each position we have 2 options, add ( or not add
+     * but it has nothing to do with parenthese
+     * 
+     */
+
+     Map<String, List<Integer>> map = new HashMap<>();
+     public List<Integer> diffWaysToCompute(String s) {
+         if (map.containsKey(s)) return map.get(s);
+         
+         List<Integer> res = new ArrayList<>();
+         for(int i = 0; i<s.length(); i++) {
+             char c = s.charAt(i);
+             
+             if (c == '+' || c== '-' || c=='*' || c=='/') {
+                 List<Integer> a1 = diffWaysToCompute(s.substring(0, i));
+                 List<Integer> b1 = diffWaysToCompute(s.substring(i+1));
+                 for(int x : a1) {
+                     for(int y : b1) {
+                         if (c =='+') {
+                             res.add(x + y);
+                         } else if (c =='-'){
+                             res.add(x - y);
+                         } else if (c== '*'){
+                             res.add(x * y);
+                         } else {
+                             res.add(x / y);
+                         }
+                     }
+                 }
+             }
+         }
+         
+         if (res.size() == 0) return Arrays.asList(Integer.valueOf(s));
+         
+         map.put(s, res);
+         return res;
     
     /*
      * similiar question in Googe interview 一个只有正整数的list， 
