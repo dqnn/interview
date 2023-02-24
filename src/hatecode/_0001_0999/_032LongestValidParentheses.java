@@ -61,6 +61,9 @@ Explanation: The longest valid parentheses substring is "()()"
      *  if not， then we pop the stack， and check whether the stack is empty again， 
      *  we always use prev to indicate the the character just before the valid string of 
      *  parenthese。 
+     * 
+     * i is the new round of matching substring previous character position 
+     * 
      *  
      *  
      */
@@ -82,6 +85,7 @@ Explanation: The longest valid parentheses substring is "()()"
                 // so if stack is empty, then we know we already matched all "C", so current i as idx 
                 // the position in S is end pointer, 
                 //means we need to start new round of matching or just end
+                //example: )()
                 if (stack.isEmpty())  prev = i;
                 else {
                     // so we meet ")" and stack is not empty which means it has 1 "(" at least
