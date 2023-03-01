@@ -110,7 +110,9 @@ DP
             return res;
         }
         //this is the key here:
-        //1. length is k + 1
+        //1. length is k + 1, noStock[i]: for 0->n, the max profit if we have up to i transaction, 
+        // result is no stock, ownStock[i]: for 0->n, the max profit if we have up to i transaction, 
+        // result is own stock
         //2. k transaction is inner loop for each price
         //3. transaction j > 0,no =, because we have to use j-1 in as index
         //4. the formula, noStock->ownStock[j], we use same index j, not j-1, but for 
