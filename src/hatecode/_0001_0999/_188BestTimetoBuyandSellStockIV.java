@@ -115,7 +115,7 @@ DP
         // result is own stock
         //2. k transaction is inner loop for each price
         //3. transaction j > 0,no =, because we have to use j-1 in as index
-        //4. the formula, noStock->ownStock[j], we use same index j, not j-1, but for 
+        //4. the formula, noStock->ownStock[j], we use same index j', not j-1, but for 
         //ownstock, the formula is noStock->ownStock[j-1]
         //because when state from ownStock to noStock, because we sell stocks at current price
         //but when we buy the stock, our moneday did not change from last time, so we use 
