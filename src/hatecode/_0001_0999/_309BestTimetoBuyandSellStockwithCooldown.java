@@ -33,7 +33,7 @@ public class _309BestTimetoBuyandSellStockwithCooldown {
      time : O(n)
      space : O(1)
 
-     * @param prices
+     * @param A
      * @return
      */
     //interview friendly
@@ -69,34 +69,34 @@ immediate after selling, we cannot stay here.)
 S2 state here is to make sure we have a cool state, that after we sell, from S1->S2, 
 we cannot buy on next day, so we have to make S2-->S0 so we can rest 1 day 
  */
-    public int maxProfit(int[] prices) {
-        int len = prices.length;
-        if (len <= 1) {
+    public int maxProfit(int[] A) {
+        int n = A.length;
+        if (n <= 1) {
             return 0;
         }
        
-        int[] s0 = new int[len]; //start state (or state after rest)
-        int[] s1 = new int[len]; //state after buying
-        int[] s2 = new int[len]; //state after selling
+        int[] cool = new int[n]; //start state (or state after rest)
+        int[] ownStock = new int[n]; //state after buying
+        int[] noStock = new int[n]; //state after selling
 
-        s0[0] = 0;
-        s1[0] = -prices[0];
+        cool[0] = 0;
+        ownStock[0] = -A[0];
         //we mark it as MIN, which means any profit will be better than initial value,
         //this is mostly for final output
-        s2[0] = Integer.MIN_VALUE;
+        noStock[0] = Integer.MIN_VALUE;
 
-        for (int i = 1; i < len; i++) {
+        for (int i = 1; i < n; i++) {
             /* for current state of s0, we may stay on s0 state to rest many days, or transfer from s2 state to rest one day */
-            s0[i] = Math.max(s0[i - 1], s2[i - 1]);
+            cool[i] = Math.max(cool[i - 1], noStock[i - 1]);
 
             /* for current state of s1, we may stay on s1 state to rest many days (wait better opportunity to buy), or transfer from s0 state to buy at current price */
-            s1[i] = Math.max(s1[i - 1], s0[i - 1] - prices[i]);
+            ownStock[i] = Math.max(ownStock[i - 1], cool[i - 1] - A[i]);
 
             /* for current state of s2, we may stay on s2 state to rest many days (wait better opportunity to sell), or transfer from s1 state to sell (at current price) on the second day after buying */
-            s2[i] = Math.max(s2[i - 1], s1[i - 1] + prices[i]);
+            noStock[i] = Math.max(noStock[i - 1], ownStock[i - 1] + A[i]);
         }
         //only at s0 or s2 we do not have stocks
-        return Math.max(s0[len - 1], s2[len - 1]);
+        return Math.max(cool[n - 1], noStock[n - 1]);
     }
     
     public int maxProfit_reference(int[] prices) {
