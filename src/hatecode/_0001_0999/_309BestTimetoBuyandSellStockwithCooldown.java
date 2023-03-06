@@ -99,10 +99,10 @@ we cannot buy on next day, so we have to make S2-->S0 so we can rest 1 day
         return Math.max(cool[n - 1], noStock[n - 1]);
     }
     
-    public int maxProfit_reference(int[] prices) {
+    public int maxProfit_reference(int[] A) {
         int sell = 0, prevSell = 0;
         int buy = Integer.MIN_VALUE, prevBuy = 0;
-        for (int price : prices) {
+        for (int price : A) {
             prevBuy = buy;
             buy = Math.max(prevSell - price, prevBuy);
             prevSell = sell;
