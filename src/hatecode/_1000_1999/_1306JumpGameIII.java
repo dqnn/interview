@@ -49,10 +49,7 @@ public class _1306JumpGameIII {
             int s = i - A[i];
             int e = i + A[i];
             //System.out.println(String.format("%d --- %d", s, e));
-            if (canReach(A, s) || canReach(A, e)) return true; 
-            
-            
-            return false;
+            return canReach_mem(A, s) || canReach_mem(A, e);
         }
         /*
             interview friendly
