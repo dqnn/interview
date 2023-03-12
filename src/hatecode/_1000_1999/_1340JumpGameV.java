@@ -23,6 +23,16 @@ public class _1340JumpGameV {
      * also for each element in that range, all elements are smaller than A[i]
      * 
      * return the max steps you can jump
+     * 
+     * dp[i]: start from index i, the max jumps you can get, use DFS to get each dp[i]
+     * 
+     * so dp[i] = max(dp[i],  1 + dp[i-d, i+d]),  notes we have 2 tricks in this solution:
+     * 1. cannot initialize as 1 for dp, because in helper, we need to return dp[i] != 0, then we 
+     * assign 1 as default value to dp[i], if we initialize as 1, then some index will only have 1, like 
+     * A = [6,4,14,6,8,13,9,7,10,6,12], d = 2, i = 1, it will be 1 step only. 
+     * if we use 1, it will be error.
+     * 2. for [i-d, i+d] range, you will need to make sure all elements are smaller than A[i], if not, others are ignored
+     * 3. BFS will be not good as DFS and will TLE because you cannot have memorization
      */
     public int maxJumps(int[] A, int d) {
         int n = A.length;
