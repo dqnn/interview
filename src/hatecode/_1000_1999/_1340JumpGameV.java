@@ -1,6 +1,7 @@
 package hatecode._1000_1999;
 
-import java.util.Arrays;
+import java.util.*;
+import java.util.stream.IntStream;
 
 public class _1340JumpGameV {
     /*
@@ -17,7 +18,7 @@ public class _1340JumpGameV {
     /*
      * thinking process: O(kn)/O(n)
      * 
-     * 
+     * the problem is to
      */
        public int maxJumps(int[] A, int d) {
            int[] dp = new int[A.length];//default 0
@@ -26,7 +27,7 @@ public class _1340JumpGameV {
            }
            return Arrays.stream(dp).max().getAsInt();
        }
-       
+
        private int helper(int i, int[] dp, int d, int[] A) {
            if (dp[i] != 0) return dp[i];//already calculated, return it
            dp[i] = 1;
