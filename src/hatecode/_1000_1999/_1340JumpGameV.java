@@ -24,28 +24,35 @@ public class _1340JumpGameV {
      * 
      * return the max steps you can jump
      */
-       public int maxJumps(int[] A, int d) {
-           int[] dp = new int[A.length];//default 0
-           for (int i = 0; i < A.length; i++) {
-               helper(i, dp, d, A);
-           }
-           return Arrays.stream(dp).max().getAsInt();
-       }
-
-       private int helper(int i, int[] dp, int d, int[] A) {
-           if (dp[i] != 0) return dp[i];//already calculated, return it
-           dp[i] = 1;
-           for (int j = i + 1; j < A.length && j <= i + d; j++) {
-               if (A[i] > A[j]) dp[i] = Math.max(dp[i], 1 + helper(j, dp, d, A));
-               else break;
-           }
-           for (int j = i - 1; 0 <= j && j >= i - d; j--) {
-               if (A[i] > A[j]) dp[i] = Math.max(dp[i], 1 + helper(j, dp, d, A));
-               else break;
-           }
-           return dp[i];
-       }
-       
+    public int maxJumps(int[] A, int d) {
+        int n = A.length;
+        int[] dp = new int[n];
+        //Arrays.fill(dp, 1);
+        for(int i = 0; i<n; i++) {
+            helper(A, i, dp, d);
+        }
+        
+        return Arrays.stream(dp).max().getAsInt();
+    }
+    private int helper(int[] A, int i, int[] dp, int d) {
+       if ( i == A.length) return 0;
+        
+       if (dp[i] != 0) return dp[i];
+        dp[i] = 1;
+        for(int j = i-1; j >=0 && j >= i-d; j--) {
+            if (A[j] < A[i]) {
+                dp[i] = Math.max(dp[i], 1 + helper(A, j, dp, d));
+            } else break;
+        }
+        
+        for(int j = i+1; j<A.length && j<= i+d; j++) {
+            if (A[j] < A[i]) {
+                dp[i] = Math.max(dp[i], 1 + helper(A, j, dp, d));
+            }else break;
+        }
+        
+        return dp[i];
+    }
        
        public int maxJumps_BFS(int[] A, int d) {
            int n = A.length;
