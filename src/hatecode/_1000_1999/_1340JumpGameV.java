@@ -18,7 +18,11 @@ public class _1340JumpGameV {
     /*
      * thinking process: O(kn)/O(n)
      * 
-     * the problem is to
+     * the problem is to say, given one integer array and integer d, 
+     * you can start every step, and jump to any element within [i-d, i+d] within array boundary
+     * also for each element in that range, all elements are smaller than A[i]
+     * 
+     * return the max steps you can jump
      */
        public int maxJumps(int[] A, int d) {
            int[] dp = new int[A.length];//default 0
