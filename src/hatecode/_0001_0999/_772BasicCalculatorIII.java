@@ -199,7 +199,27 @@ following calculations.
         System.out.println(_772BasicCalculatorIII.calculate_Polish(temp));
     }
     
+    // interview friendly
     //use reverse polish notation to calculate expressions
+    /*
+     * we can  use 1 + 2 as starter example, 
+     *              2
+     *    +         1                              3
+     * operators  operands  ---- >  operators   operands
+     * 
+     * we pop 2 operands and 1 operators then operate them,  put the result to operands
+     * 
+     * let's try another example: 3* 1 + 2
+     * 
+     *              1                              2
+     *    *         3                  +           3= 1* 3                  5
+     * operators  operands  ---- >  operators   operands----> operators   operands
+     * 
+     * 
+     * same as experssions with (), 3* (1+ 2)
+     * 
+     * 
+     */
     /*
 "2*(5+5*2)/3+(6/2+8)"
 []-----[]
