@@ -109,8 +109,10 @@ private int racecar(int i, int[] dp) {
     return Math.min(dp[target][0], dp[target][1]);
   }
     
-    //BSF solution, O(target * log(target))/O(target * log(target))
-    //The reasoning is as follows: in the worst case, all positions in the range [-target, target] will be visited and for each position there can be as many as 2 * log(target) different speeds.
+    //BSF solution, O(t*lg(t))/O(t*lg(t)), each step we have 2 options A or R
+    //The reasoning is as follows: in the worst case, all positions in the range [-target, target] 
+    //will be visited and for each position there can be as many as 2 * log(target) 
+    //different speeds.
     public int racecar_BSF(int t) {
         Deque<int[]> q = new LinkedList<>();
         q.offerLast(new int[]{0,1});
@@ -127,7 +129,12 @@ private int racecar(int i, int[] dp) {
                 
                 int[] next = new int[] {cur[0] + cur[1], 2 * cur[1] };  // accelerate instruction
                 String key = getKey(next);
-                //target 
+                //target
+                /*
+                 * next[0] < (t << 1)
+                 * ==> Math.abs(next[0] - target) < target
+                 * it make sure the point is in the range of (0, target)
+                 */
                 if (!visited.contains(key) && next[0] > 0 && next[0] < (t << 1)) {
                     q.offerLast(next);
                     visited.add(key);
