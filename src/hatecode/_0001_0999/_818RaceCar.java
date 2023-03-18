@@ -65,7 +65,8 @@ public class _818RaceCar {
              *          e     2^n
              * n + 1 means steps taken to n + 1 point
              * 2^n - 1 - e: thinking about we start from last point with speed =0, it is like 
-             * mirror when we start from 0 with speed 1
+             * mirror when we start from 0 with speed 1,
+             * we need to - 1 because 
              */
             dp[e] = n + 1 + helper((1 << n) - 1 - e, dp);
 
