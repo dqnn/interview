@@ -25,7 +25,52 @@ public class _818RaceCar {
      * sequence is "AA". Your position goes from 0->1->3.
      */
     
-    //dp solution, top down 
+    
+     public int racecar_DP(int e) {
+        // Create a DP array to store solutions to subproblems
+        int[] dp = new int[e + 1];
+        // Call the DP function to find the minimum number of steps to reach the target
+        return helper(e, dp);
+    }
+
+    // DP function to find the minimum number of steps to reach the target
+    private int helper(int e, int[] dp) {
+        // Base case: if the target is 0, return 0
+        if (e == 0) {
+            return 0;
+        }
+
+        // If we have already solved this subproblem, return the solution from the DP array
+        if (dp[e] > 0) {
+            return dp[e];
+        }
+
+        // Find the minimum number of steps to reach the target using the reverse strategy
+        int n = (int) (Math.log(e) / Math.log(2)) + 1;
+
+        // If we can reach the target by accelerating only once, return that number of steps
+        if (1 << n == e + 1) {
+            dp[e] = n;
+        } else {
+            // Otherwise, find the minimum number of steps to reach the target using a combination of
+            // accelerating and reversing
+
+            // First, reverse to reach a point before the target
+            dp[e] = n + 1 + helper((1 << n) - 1 - e, dp);
+
+            // Then, for each possible number of times to accelerate and reverse (up to n-1 times),
+            // find the minimum number of steps required to reach the target from the current point
+            for (int m = 0; m < n - 1; m++) {
+                int current = (1 << (n - 1)) - (1 << m);
+                dp[e] = Math.min(dp[e], helper(e - current, dp) + n + m + 1);
+            }
+        }
+
+        // Save the solution to this subproblem in the DP array and return it
+        return dp[e];
+    }
+    
+     //dp solution, top down 
     public int racecar(int target) {
         int[] dp = new int[target + 1];
         Arrays.fill(dp, 1, dp.length, -1);
