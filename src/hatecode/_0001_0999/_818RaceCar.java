@@ -25,7 +25,9 @@ public class _818RaceCar {
      * sequence is "AA". Your position goes from 0->1->3.
      */
     
-    
+    /*
+     * interview friendly, thinking process: O(elge)/O(e)
+     */
      public int racecar_DP(int e) {
         // Create a DP array to store solutions to subproblems
         int[] dp = new int[e + 1];
@@ -53,7 +55,7 @@ public class _818RaceCar {
          * 
          */
 
-        // case 1:
+        // case 1, e = 15, then n = 4, it is smallest length
         if (1 << n == e + 1) {
             dp[e] = n;
         } else {
@@ -62,9 +64,14 @@ public class _818RaceCar {
 
             //case 3: in some middle point,[0, e], speed direction still towards to e
             //case 4: in some middle point,[0, e], speed direction still towards left
+        /*
+         * //            |->cur<-|
+        //    |----------|------|
+       //                m      2^(n - 1)
+         */
             for (int m = 0; m < n - 1; m++) {
-                int current = (1 << (n - 1)) - (1 << m);
-                dp[e] = Math.min(dp[e], helper(e - current, dp) + n + m + 1);
+                int cur = (1 << (n - 1)) - (1 << m);
+                dp[e] = Math.min(dp[e], helper(e - cur, dp) + n + m + 1);
             }
         }
 
