@@ -76,6 +76,8 @@ public class _818RaceCar {
         //    |----------|------|
        //                m      2^(n - 1)
         
+         dp[e]: face right
+         helper(e - cur, dp)
          */
             for (int m = 0; m < n - 1; m++) {
                 int cur = (1 << (n - 1)) - (1 << m);
