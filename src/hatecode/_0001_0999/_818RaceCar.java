@@ -27,8 +27,75 @@ public class _818RaceCar {
     
     /*
      * interview friendly, thinking process: O(elge)/O(e)
+     * 
+     * 这道题我们首先要认识到一件事，就是position的变化规律。
+
+
+ position: 0 -> 1 -> 3 -> 7 -> 15
+ speed:    1 -> 2 -> 4 -> 8 -> 16
+可以看到，position的以上这些变化其实就是 2^n - 1 ，(n = 0, 1, 2, 3, 4)，所以我们对position的加减操作也是只能基于值为 2^n - 1 的这些数来操作的。
+
+现在我们开始考虑如何到达 target。基于这些可以操作的数，我们到达target一共有三种可能的情况。
+
+target本身就是 2^n-1，那我们只需要走n步,即使用n个A就可以到达；
+
+我们走 n 步，越过了 target，这时候我们再通过 R 回头，然后我们此时和target的距离就是 (2^n - 1) - target。因为往前走的距离是 2^n-1，此时已经超过了 target，那么还需要走的距离就是 (2^n-1-target),我们只需要再得到回头走的这段距离需要的步数，加上 n + 1，就是到达 target 所需要的步数。为什么需要n + 1 呢？因为我们回头了嘛，需要一个 R。
+注意，此时重复子问题已经出现了，dp妖娆的身姿若隐若现。
+
+我们走 n 步，没有越过 target，这时候我们就先回头，往回走一点，假设这时回头走了back步，back肯定是小于 n 的，不然我们刚开始就白走了。但是要回头走多少呢？我们肯定没法直接决定出一个精确的数值，所以需要在这里循环，试往回走多少能用的步数最小。之前走了 n 步，然后又走了back步，这时候距离target还剩 target - ((2^n-1) - (2^back-1)) 要走。
+此时要到达target，我们需要走的步数就是 n + 1 + back + 1 + (走 target - ((2^n-1) - (2^back-1)) 所需要的步数)，同理，加的两个1是两次回头所需要的R。
+现在来考虑dp方程怎么写。
+
+我们设dp[i]就等于 target = i时，需要的最小步数。
+
+对应的我们上面分析的三种情况如下：
+
+i = 2^n - 1, 即走n步直接到达i：dp[i] = n
+
+先走 forward 步越过了i,再回头根据上面的分析，我们需要回头走的距离是2^forward - 1 - i。
+dp[i] = min(dp[i], forward + 1 + dp[2^forward - 1 - i])
+
+先走 forward 步，此时还没有到 i，直接回头，走一段之后再回头向前走到达i。我们先回头走的距离是 2^back-1，然后再回头走到i的距离是 i - ((2^forward-1)-(2^back-1))
+dp[i] = min(dp[i], forward + 1 + back + 1 + dp[i - ((2^forward-1)-(2^back-1))])
+
      */
-     public int racecar_DP(int e) {
+    public int racecar_DP(int target) {
+        //处理边界
+        if (target <= 0) {
+            return 0;
+        }
+
+        int[] dp = new int[target + 1];
+        Arrays.fill(dp, Integer.MAX_VALUE);
+
+        for (int i = 1; i <= target; i++) {
+            //先向前走 forward 步
+            for (int forward = 1; (1 << forward) - 1 < 2 * i; forward++) {
+                //向前走了forwardDistance
+                int forwardDistance = (1 << forward) - 1;
+                //对应第一种情况，走了forward步直接到达i
+                if (forwardDistance == i) {
+                    dp[i] = forward;
+                } else if (forwardDistance > i) { //对应第二种情况，越过了i
+                    // +1 是因为回头需要一个R指令
+                    dp[i] = Math.min(dp[i], 
+                            forward + 1 + dp[forwardDistance - i]);
+                } else { //对应第三种情况，没有越过i
+                    //先回头走backward步
+                    for (int backward = 0; backward < forward; backward++) {
+                        int backwardDistance = (1 << backward) - 1;
+                        //第一个+1是还没到达i，先回头，使用一个R
+                        //第二个+1是回头走了backwardDistance，再使用R回头走向i
+                        dp[i] = Math.min(dp[i], 
+                                forward + 1 + backward + 1 + dp[i - forwardDistance + backwardDistance]);
+                    }
+                }
+            }
+        }
+        return dp[target];
+    }
+     
+     public int racecar_DP_UpDown(int e) {
         // Create a DP array to store solutions to subproblems
         int[] dp = new int[e + 1];
         // Call the DP function to find the minimum number of steps to reach the target
@@ -51,7 +118,7 @@ public class _818RaceCar {
         int n = (int) (Math.log(e) / Math.log(2)) + 1;
 
         /*
-         * we have 4 cases:
+         * we have 3 cases:
          * 
          */
 
@@ -63,26 +130,26 @@ public class _818RaceCar {
             /*             <--
              * ---------|-----|
              *          e     2^n
-             * n + 1 means steps taken to n + 1 point
+             * n + 1 means steps taken to position n, and reverse direction at n take 1 (R)
              * 2^n - 1 - e: thinking about we start from last point with speed =0, it is like 
-             * mirror when we start from 0 with speed 1,
+             * mirror when we start from 0 with speed 1, it is the same as we start from 0 to e - 1
+             * since distance is the same
              * we need to - 1 because 
              */
             dp[e] = n + 1 + helper((1 << n) - 1 - e, dp);
 
-            //case 3: in some middle point,[0, e], speed direction still towards to e
-            //case 4: in some middle point,[0, e], speed direction still towards left
+            //case 3: in some middle point,[0, e], speed direction reverse towards to e
         /*
          * //            |->cur<-|
-        //    |----------|------|
-       //                m      2^(n - 1)
+        //    |----------|-------|---
+       //                m       e   2^n 
         
          dp[e]: face right
          helper(e - cur, dp)
          */
-            for (int m = 0; m < n - 1; m++) {
-                int cur = (1 << (n - 1)) - (1 << m);
-                dp[e] = Math.min(dp[e], helper(e - cur, dp) + n + m + 1);
+            for (int back = 0; back < n - 1; back++) {
+                int cur = (1 << (n - 1)) - (1 << back);
+                dp[e] = Math.min(dp[e], helper(e - cur, dp) + n + back + 1);
             }
         }
 
