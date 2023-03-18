@@ -48,18 +48,20 @@ public class _818RaceCar {
         // Find the minimum number of steps to reach the target using the reverse strategy
         int n = (int) (Math.log(e) / Math.log(2)) + 1;
 
-        // If we can reach the target by accelerating only once, return that number of steps
+        /*
+         * we have 4 cases:
+         * 
+         */
+
+        // case 1:
         if (1 << n == e + 1) {
             dp[e] = n;
         } else {
-            // Otherwise, find the minimum number of steps to reach the target using a combination of
-            // accelerating and reversing
-
-            // First, reverse to reach a point before the target
+            // case 2: passed the e, rewind back to some point and start
             dp[e] = n + 1 + helper((1 << n) - 1 - e, dp);
 
-            // Then, for each possible number of times to accelerate and reverse (up to n-1 times),
-            // find the minimum number of steps required to reach the target from the current point
+            //case 3: in some middle point,[0, e], speed direction still towards to e
+            //case 4: in some middle point,[0, e], speed direction still towards left
             for (int m = 0; m < n - 1; m++) {
                 int current = (1 << (n - 1)) - (1 << m);
                 dp[e] = Math.min(dp[e], helper(e - current, dp) + n + m + 1);
