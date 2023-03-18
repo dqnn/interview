@@ -55,11 +55,18 @@ public class _818RaceCar {
          * 
          */
 
-        // case 1, e = 15, then n = 4, it is smallest length
+        // case 1, for example: e = 15, then n = 4, it is smallest length
         if (1 << n == e + 1) {
             dp[e] = n;
         } else {
             // case 2: passed the e, rewind back to some point and start
+            /*             <--
+             * ---------|-----|
+             *          e     2^n
+             * n + 1 means steps taken to n + 1 point
+             * 2^n - 1 - e: thinking about we start from last point with speed =0, it is like 
+             * mirror when we start from 0 with speed 1
+             */
             dp[e] = n + 1 + helper((1 << n) - 1 - e, dp);
 
             //case 3: in some middle point,[0, e], speed direction still towards to e
@@ -68,6 +75,7 @@ public class _818RaceCar {
          * //            |->cur<-|
         //    |----------|------|
        //                m      2^(n - 1)
+        
          */
             for (int m = 0; m < n - 1; m++) {
                 int cur = (1 << (n - 1)) - (1 << m);
