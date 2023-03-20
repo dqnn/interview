@@ -24,7 +24,11 @@ public class _711NumberOfDistinctIslandsII {
      * 
      * return how many are distinct islands
      * 
-     *  
+     *  several keys:
+     * 1. understand 8 transformations, they are key to this problem.
+     * 2. for each transformation, we will get "key" from each connected lands,
+     * we sort all nodes in this land, join them with x:y to relative top left node coordination 
+     * 3. 
      * 
      */
         public int numDistinctIslands2(int[][] A) {
@@ -80,6 +84,7 @@ public class _711NumberOfDistinctIslandsII {
                     list2.add(new int[]{y * d[1], x * d[0]});
                 }
                 
+                //we consider the 2 are the same shape?
                 forms.add(getKey(list1));
                 forms.add(getKey(list2));
             }
