@@ -15,6 +15,18 @@ public class _711NumberOfDistinctIslandsII {
     Explanation: The two islands are considered the same because if we make a 180 degrees clockwise rotation on the first island, then two islands will have the same shapes.
     
     */
+     
+    /*
+     * thinking process: O(mn)/O(mn)
+     * the problem is to say: given one matrix, 1 and 0, 1 means land, 
+     * you can rotate the shape of land with 0, 90, 180, 270, even you can mirror the the land
+     * x or y, totally 8 transformers
+     * 
+     * return how many are distinct islands
+     * 
+     *  
+     * 
+     */
         public int numDistinctIslands2(int[][] A) {
             int r = A.length, c= A[0].length;
             
@@ -60,8 +72,8 @@ public class _711NumberOfDistinctIslandsII {
             List<String> forms = new ArrayList<>();
             for(int[] d : dirs) {
                 
-                List<int[]> list1 = new ArrayList();
-                List<int[]> list2 = new ArrayList();
+                List<int[]> list1 = new ArrayList<>();
+                List<int[]> list2 = new ArrayList<>();
                 for(int[] a : A) {
                     int x = a[0], y = a[1];
                     list1.add(new int[]{x * d[0], y * d[1]});
