@@ -32,7 +32,7 @@ Output: 20190301
     public int earliestAcq(int[][] logs, int N) {
         if(logs == null || logs.length < 1 ) return 0;
 
-        Arrays.sort(logs, (a, b)->(a[0] - b[0]));
+        Arrays.sort(logs, (a, b)->(Integer.compare(a[0], a[1])));
         DSU dsu = new DSU(N);
         
         for(int[] log : logs) {
