@@ -42,10 +42,13 @@ MyCalendar.book(20, 30); // returns true
         return true;
     }
     //O(nlgn)/O(n)
+    /*
+     * interview friendly: 
+     */
     TreeMap<Integer, Integer> calendar;
 
     void MyCalendar2() {
-        calendar = new TreeMap();
+        calendar = new TreeMap<>();
     }
 
     public boolean book2(int start, int end) {
