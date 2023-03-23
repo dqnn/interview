@@ -51,6 +51,7 @@ so we can directly search for idx in sum array using templates 2
         // search position 
         while(l < r){
             int mid = l + ((r-l)>>2);
+            // =  implies it will return the postion after the same number
             if(sum[mid] <= target)
                 l = mid + 1;
             else
