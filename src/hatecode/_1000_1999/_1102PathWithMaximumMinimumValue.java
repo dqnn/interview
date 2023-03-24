@@ -24,6 +24,18 @@ Output: 4
     
     //so bfs, but one difference here is that for visited elements, if we have max
     //path then we can re-visit here again
+
+    /*
+     * thinking process: O(rclgrc)/o(rc)
+     * this problem is not easy for DFS, because it is max of min value of the path from top left 
+     * to right bottom. you have to memorize the smallest value from that path. it is not easy to deisgn
+     * a mem for DFS,
+     * for example, let's say mem[i][j] is smallest value from (i,j)->(r-1,c-1), but you may have a smaller 
+     * value, so mem here cannot help. 
+     * 
+     * you will have to find a greedy path with PQ.
+     * 
+     */
     public int maximumMinimumPath(int[][] A) {
         final int[][] dirs = {{0,1},{1,0},{0,-1},{-1,0}};
         Queue<int[]> pq = new PriorityQueue<>((a, b) -> (b[0] - a[0]));
