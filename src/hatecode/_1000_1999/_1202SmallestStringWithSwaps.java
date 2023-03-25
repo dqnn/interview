@@ -20,6 +20,10 @@ Explaination:
 Swap s[0] and s[3], s = "bcad"
 Swap s[1] and s[2], s = "bacd"
 */
+
+   /* 
+    * thinking process: O()
+    */
     
     class DSU {
         private int[] parent;
