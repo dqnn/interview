@@ -32,7 +32,8 @@ public class _1504CountSubmatricesWithAllOnes {
 
         so it will be O(r * (c + r * (c + c))) --> O(rcr)
 
-        the problem is to say: given one matrix only contains 1 and 0, 
+        the problem is to say: given one matrix only contains 1 and 0, return how many submattix in the given matirx.
+        
 
         https://leetcode.com/problems/maximal-rectangle/
         https://leetcode.com/problems/largest-rectangle-in-histogram
