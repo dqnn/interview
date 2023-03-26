@@ -37,7 +37,12 @@ public class _2034StockPriceFluctuation {
     /*
 
     thinking process: O(lgn)/O(n)
-     the problem is to say: 
+     the problem is to say: give tuple [timestamp, price] means 1 stock price @ timestamp
+     you need to return latest stock price, max and min price for all history, notes: some price will be 
+     updated later 
+
+     use t2price to record all prices with timestamp
+     price2timestamp to record all possible timestamp
     */
         TreeMap<Integer, Integer> t2price;
         TreeMap<Integer, Set<Integer>> price2t;
