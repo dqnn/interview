@@ -33,8 +33,24 @@ public class _1504CountSubmatricesWithAllOnes {
         so it will be O(r * (c + r * (c + c))) --> O(rcr)
 
         the problem is to say: given one matrix only contains 1 and 0, return how many submattix in the given matirx.
+       
+        we can start 1D array, like 
+        [1] --    1
+        [1,1]--   3 = 1 + 2
+        [1,1,1]-- 6 = 1 + 2 + 3
+        [1,0,1]-- 2 = 1 + 0 + 1
+
+        it will be like 1+2+3, but we have to start from 1 again if it breaks by 0. 
+        from here we can write the code helper() as below
+
+        but there still one problem we did not solve which like below:
+        1 1
+        1 1
+
+        the whole submatrtx is one matrix and it cannot be solved above row scan
         
 
+     similar problems: 
         https://leetcode.com/problems/maximal-rectangle/
         https://leetcode.com/problems/largest-rectangle-in-histogram
         */
