@@ -48,7 +48,23 @@ public class _1504CountSubmatricesWithAllOnes {
         1 1
 
         the whole submatrtx is one matrix and it cannot be solved above row scan
-        
+        to solve this problem, we have to scan the whole submatrix so we can know whether 
+        whole submatrix is valid one, 
+
+        there is a trick that we can continue to use int[] h to dot multiple each row, as below:
+        for( N )
+           for( N ) h[j] &= A[k][j]
+           res += helper(h)
+        so suppose we have 2 rows, this loop will dot multiple each row then we can know 
+        whole submatrix status, 
+        for example if 
+        [1,1]
+        [1,0]
+        h = [1, 0]
+        then it would only add 1 matrix to results, remember: the above loop here is to count:
+        how many submatrix there which each submatrix include first row, the trick is that the count of addtional 
+        submtrix are the same as helper(h). 
+
 
      similar problems: 
         https://leetcode.com/problems/maximal-rectangle/
