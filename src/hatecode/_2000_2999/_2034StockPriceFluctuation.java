@@ -41,7 +41,11 @@ public class _2034StockPriceFluctuation {
      you need to return latest stock price, max and min price for all history, notes: some price will be 
      updated later 
 
-     use t2price to record all prices with timestamp
+     use t2price to record  timestam<->price
+     price2t to record: price<->{1,2,3,5,4}, this can be used to find max and min and latest price
+
+     everytime, when we update, we will remove the entry from t2price if it exists, then add.
+     
      price2timestamp to record all possible timestamp
     */
         TreeMap<Integer, Integer> t2price;
