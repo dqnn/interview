@@ -34,6 +34,10 @@ public class _1504CountSubmatricesWithAllOnes {
 
         it will be like 1+2+3, but we have to start from 1 again if it breaks by 0. 
      * 
+     * h[i]
+     *  [1, 0, 1]
+        [2, 1, 0]
+        [3, 2, 0]
      * 
      *   similar problems: 
         https://leetcode.com/problems/maximal-rectangle/

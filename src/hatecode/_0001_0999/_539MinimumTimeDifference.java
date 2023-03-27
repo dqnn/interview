@@ -49,34 +49,44 @@ Output: 1
     //a. is cycle overlap, 
     //b. within one cycle, we minus, 
     //and iterate on previous i 
-    public int findMinDifference_Better(List<String> timePoints) {
-        boolean[] mark = new boolean[24 * 60];
-        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
-        for(String time : timePoints){
-            String[] t = time.split(":");
-            int h = Integer.parseInt(t[0]);
-            int m = Integer.parseInt(t[1]);
-            if(mark[h * 60 + m]){
-                return 0;
-            }
-            min = Math.min(min, h * 60 + m);
-            max = Math.max(max, h * 60 + m);
-            mark[h * 60 + m] = true;
+    /*
+     * 0 -----min-----max---24*60
+     * 
+     * min and max are dynamic, so have to store the pointer to min, max, prev to calculate the 
+     * result
+     * 
+     * at last, we compare res to max-min, because it may diff 1m 
+     */
+    public int findMinDifference2(List<String> A) {
+        if (A == null || A.size() < 1) return 0;
+        
+        int n = A.size();
+        boolean[] mark = new boolean[24*60];
+        for(String s : A) {
+            String[] str = s.split(":");
+            int h = Integer.valueOf(str[0]);
+            int m = Integer.valueOf(str[1]);
+            int key = h * 60 + m;
+            if (mark[key]) return 0;
+            mark[key] = true;
         }
-        int minDiff = Integer.MAX_VALUE, prev = 0;
-        for(int i = min; i <= max; i++){   //set the range from min to max as an optimization.
-            if(mark[i]){
-                if(i == min){   
-                    //the min and max is the special case, it looks like :
-                    //0---min----max-----1440, so we have two directions to calculate the distance
-                    minDiff = Math.min(minDiff, Math.min(max - min, 1440 - max + min));
-                }else{
-                    //normal case: just one direction.
-                    minDiff = Math.min(minDiff, i - prev);
+        
+        int prev = -1, min= Integer.MAX_VALUE, max = Integer.MIN_VALUE, res = Integer.MAX_VALUE;
+        for(int i = 0; i<mark.length; i++) {
+            if (mark[i]) {
+                if(prev == -1) {
+                    min = i;
+                } else {
+                    res = Math.min(res, i - prev);
                 }
+                max = i;
                 prev = i;
             }
         }
-        return minDiff;
+        
+        res = Math.min(res, 23*60 + 60 - (max -min)); 
+        return res;
+        
+    }
     }
 }
