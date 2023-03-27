@@ -21,7 +21,60 @@ public class _1504CountSubmatricesWithAllOnes {
     There is 1 rectangle of side 3x1.
     Total number of rectangles = 6 + 2 + 3 + 1 + 1 = 13.
     */
-       /*
+      
+    /*
+     * interview friendly O(rc)/O(c)
+     * 
+     * we use 
+     * 
+     *   similar problems: 
+        https://leetcode.com/problems/maximal-rectangle/
+        https://leetcode.com/problems/largest-rectangle-in-histogram
+     */
+    public int numSubmat_Best(int[][] A) {
+        
+        int M = A.length, N = A[0].length;
+
+        int res = 0;
+
+        int[] h = new int[N];
+        for (int i = 0; i < M; ++i) {
+            for (int j = 0; j < N; ++j) {
+                h[j] = (A[i][j] == 0 ? 0 : h[j] + 1);
+            }
+            res += helper2(h);
+        }
+
+        return res;
+    }
+    
+    private int helper2(int[] A) {
+        int n = A.length;
+        int[] sum = new int[n];
+        Stack<Integer> stack = new Stack<>();
+        
+        for(int i = 0; i<n; i++) {
+            
+            while(!stack.isEmpty() && A[stack.peek()] >= A[i]) stack.pop();
+            
+            if (!stack.isEmpty()) {
+                int prevIndex = stack.peek();
+                sum[i] = sum[prevIndex];
+                sum[i]  += A[i] * (i -prevIndex);
+            } else {
+                sum[i] = A[i] * (i + 1);
+            }
+            
+            
+            stack.push(i);
+        }
+        
+        return Arrays.stream(sum).sum();
+        
+    }
+    
+    
+    /*
         * thinking process: O(r^2c)/O(c)
         notes: for internal loop:
          for(int i = 0; i<r;i++)  --- r 
@@ -64,11 +117,6 @@ public class _1504CountSubmatricesWithAllOnes {
         then it would only add 1 matrix to results, remember: the above loop here is to count:
         how many submatrix there which each submatrix include first row, the trick is that the count of addtional 
         submtrix are the same as helper(h). 
-
-
-     similar problems: 
-        https://leetcode.com/problems/maximal-rectangle/
-        https://leetcode.com/problems/largest-rectangle-in-histogram
         */
         
         public int numSubmat(int[][] A) {
