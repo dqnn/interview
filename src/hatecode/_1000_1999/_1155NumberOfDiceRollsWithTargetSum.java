@@ -67,16 +67,20 @@ Output: 1
     //interview friendly firstly but not space optimized
     //we store res + 1 because most results are 0, we still want to remember that 
     //we already done the computation
+    /*
+     * f(d, k, target)--> calculte how many combinmations of sum for  d dices, k faces
+     * 
+     */
     int[][] dp = new int[31][1001];
     int M = 1000000007;
     //top-down
-    int numRollsToTarget_DP(int d, int f, int target) {
+    int numRollsToTarget_DP(int d, int k, int target) {
         if (d == 0 || target <= 0) return d == target ? 1 : 0;
         if (dp[d][target] > 0) return dp[d][target] - 1;
         
         int res = 0;
-        for (int i = 1; i <= f; ++i)
-            res = (res + numRollsToTarget(d - 1, f, target - i)) % M;
+        for (int i = 1; i <= k; ++i)
+            res = (res + numRollsToTarget(d - 1, k, target - i)) % M;
         
         dp[d][target] = res + 1;
         return res;
