@@ -99,6 +99,8 @@ answer: 优先拿掉不导致component数量增加的棋子。
     //a move action is just to remove a stone which share same col or row with other stones
     //so one move can only remove one stone, and if we want most moves, then the strategy is we did
     //not increase the components count
+
+    //esstentially speaking: it is the same problem: number of islands
     
     
     //another follow up for this solution is the DSU size, suppose the 2D is infinite, how can we deal
