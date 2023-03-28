@@ -46,7 +46,19 @@ Output: 1
     
     //bottom up solution, DP with dfs, but not space optimization, be careful about the 
     //MOD
-    public int numRollsToTarget_DP2(int d, int f, int target) {
+    /*
+     * dp[i][j]: for i dices, sum of them are j, how many sequences are there?
+     * 
+     * dp[i][j] = dp[i-1][j-1] + d[i-1][j-2]....+dp[i-1][j-k]
+     * 
+     * thinking from sequence perspective, it would be crystal clear
+     * 
+     * how we initialize dp.
+     * since sum of all sequences  equals to target, so it would be dp[0][0] means 
+     * we used all dices and target reduced to 0.
+     * 
+     *      */
+    public int numRollsToTarget_DP2(int d, int k, int target) {
         int MOD = (int)Math.pow(10, 9) + 7;
         long[][] dp = new long[d + 1][target + 1];
         
@@ -54,9 +66,9 @@ Output: 1
         dp[0][0] = 1;
         for (int i = 1; i <= d; i++) {
             for (int j = 1; j <= target; j++) {
-                for (int k = 1; k <= f; k++) {
-                    if (j >= k) {
-                        dp[i][j] = (dp[i][j] + dp[i - 1][j - k]) % MOD;
+                for (int p = 1; p <= k; p++) {
+                    if (j >= p) {
+                        dp[i][j] = (dp[i][j] + dp[i - 1][j - p]) % MOD;
                     } else break;
                 }
             }
@@ -68,7 +80,14 @@ Output: 1
     //we store res + 1 because most results are 0, we still want to remember that 
     //we already done the computation
     /*
-     * f(d, k, target)--> calculte how many combinmations of sum for  d dices, k faces
+     * f(d, k, target)--> how many sequsences(its len = d, its sum is target), 
+     * for example 
+     * f(1,6,3) will have (3), just one sequence
+     * f(2,6,7) will have (1,6), (2,5), (3,4), (4,3), (5,2), (6,1)--> 6 sequences
+     * 
+     * so f(d, k, t)= f(d-1, k,t-1)+...+f(d-k,k, t-k)
+     * which means sequence (1,...x), (2....y) ... (3....), each length = d and sum = t
+     * 
      * 
      */
     int[][] dp = new int[31][1001];
@@ -76,6 +95,9 @@ Output: 1
     //top-down
     int numRollsToTarget_DP(int d, int k, int target) {
         if (d == 0 || target <= 0) return d == target ? 1 : 0;
+        //some dp[d][target] will have 0 results, but we need it to say we have computed dp[d][target] 
+        //so we want it dp[d][target] > 0, then return 
+        //but when we return the real result, we still return the real result
         if (dp[d][target] > 0) return dp[d][target] - 1;
         
         int res = 0;
