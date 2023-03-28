@@ -9,13 +9,13 @@ roll the dice so the sum of the face up numbers equals target.
 
 Example 1:
 
-Input: d = 1, f = 6, target = 3
+Input: d = 1, k = 6, target = 3
 Output: 1
 */
   
     //thinking process: O(d* target)/O(target)
     
-    //the problem is to say: given d dices, one which f faces, the value on each face is 
+    //the problem is to say: given d dices, one which k faces, the value on each face is 
     //1...f, each dice you can play once, so return how many ways of values sequence sum = target, 
     //the result m % 10^9 + 7
     
