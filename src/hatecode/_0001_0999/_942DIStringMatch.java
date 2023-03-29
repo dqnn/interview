@@ -40,6 +40,13 @@ S only contains characters "I" or "D".
     //to management the relationship between adjacent numbers, IDID->0,4,1,3,2 from this example
     //we can see first I must be 0 and first D must be N, each will decrease no matter res[i] or not
     
+    /*
+     * start from left, if 'I' we increase from 0 since we have most space left for other 'I'
+     * if 'D' we start from n = s.length(), since we leave most space for other 'D'
+     * 
+     * when last character, we still use same logic for I and D
+     */
+
     //
     public int[] diStringMatch(String S) {
         if (S == null || S.length() < 1) {
