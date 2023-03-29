@@ -46,6 +46,29 @@ Square ending at i-1,j
 Square ending at i,j-1
 So maximum size of square ending at i,j will be minimum of the above three squares plus 1
 also this is the reason we want to start with (1,1)
+
+
+how to understand the min of other 3 values, dp[i-1][j], dp[i-1][j-1], dp[i][j-1]
+    
+      3    4      
+1.    4    ？   
+
+
+      4    2
+2.    3    ？
+
+
+      3    4
+3.    1    ？
+
+
+for 1， we will see ? will be constrained by 3,  
+for 2, we will see ? will be constrained by 2 
+for 3, we will see ? will be constrained by 1
+worst case is that itself is 1 
+    
+   
+   
   */
     //O(mn)/O(mn)
     public int maximalSquare(char[][] matrix) {
