@@ -114,6 +114,12 @@ answer: 优先拿掉不导致component数量增加的棋子。
     //DSU then, so we need to use Map<Integer, Integer>, 
     //here is a trick that since we use Map to do union find, then we has no worry about the size,the example 
     //is following
+
+    /*
+     * find(x) is good example for showing how to store the relationship if we did not pre-define the 
+     * mapping of parent.
+     * 
+     */
     public int removeStones(int[][] stones) {
         int N = stones.length;
         DSU dsu = new DSU();
@@ -125,23 +131,25 @@ answer: 优先拿掉不导致component数量增加的棋子。
     }
 
 class DSU {
-    private Map<Integer, Integer> f;
+    private Map<Integer, Integer> map;
     private int components = 0;
     public DSU(){
-        this.f = new HashMap<>();
+        this.map = new HashMap<>();
     }
     public int find(int x) {
-        if (f.putIfAbsent(x, x) == null) components++;
-        if (x != f.get(x))
-            f.put(x, find(f.get(x)));
-        return f.get(x);
+        if (map.putIfAbsent(x,x) == null) components++;
+        while (x != map.get(x)) {
+            x = map.get(x);
+        }
+        
+        return x;
     }
 
     public void union(int x, int y) {
         x = find(x);
         y = find(y);
         if (x != y) {
-            f.put(x, y);
+            map.put(x, y);
             components--;
         }
     }
