@@ -26,6 +26,16 @@ public class _1657DetermineIfTwoStringsAreClose {
      * thinking process: O(nlgn)/O(n)
      * 
      * the problem is to say: given 2 words w1 and w2. 
+     * you can swap the characters.
+     * or you can swap all same characters, for example aaab->bbba
+     * 
+     * if you w1 equals w2 after above operations, then we call it close, return whether 
+     * they are close or not
+     * 
+     * 2 key characters:
+     * 1. for swap positions, accb-->a1b1c2, needs sort
+     * 2. for swap batch charactes, abbb->13, just counter of each character, and sort
+     *  
      */
         public boolean closeStrings(String w1, String w2) {
             if (w1.length() != w2.length()) return false;
