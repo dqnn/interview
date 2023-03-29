@@ -136,6 +136,10 @@ class DSU {
     public DSU(){
         this.map = new HashMap<>();
     }
+
+    /*
+     * note: find only return the root, it would not do any path optimization
+     */
     public int find(int x) {
         if (map.putIfAbsent(x,x) == null) components++;
         while (x != map.get(x)) {
