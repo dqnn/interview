@@ -22,7 +22,7 @@ Output: 6
     //the min height
     
     //the problem is to set one dimension, return another min/max dimension, knapsacks
-    //we assume dp[i] = dp[i-1] + books[i-1][1], then from j = 1...i-1, we want to 
+    //we assume dp[i] = dp[i-1] + books[i-1]m[1], then from j = 1...i-1, we want to 
     //use book[i-1] to compare book[j], 
     //get max height
     //test height, whether we can place this book one same row

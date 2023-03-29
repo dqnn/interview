@@ -15,7 +15,7 @@ public class _2101DetonateTheMaximumBombs {
     
     */
         
-        /*
+        /*m
          * thinking process: O(n^2/O(n))
          * 
          * the problem is to say: 
