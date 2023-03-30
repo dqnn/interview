@@ -33,7 +33,7 @@ Return:
     //the result when we dfs. 
     
     //since two ocean, so we would like to use two 2D matrix left and right to record the result of each cell,
-    //last is to check whether we can flow to both side
+    //last is to check whether we can flow to both side, this is the key
     List<int[]> res;
     int[][] dirs = {{-1, 0},{1, 0},{0, -1},{0, 1}};
 
