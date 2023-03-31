@@ -31,9 +31,12 @@ Replace the two 'A's with two 'B's or vice versa.
         if (s == null || s.length() < 1 || k < 0) return 0;
         int len = s.length();
         int[] count = new int[26];
+        //maxCnt will record length of longest substring with same character for [0, r]
         int l = 0, maxCnt = 0, maxLen = 0;
         for(int r = 0; r < len;r++) {
             maxCnt = Math.max(maxCnt, ++count[s.charAt(r) - 'A']);
+            // here is the key: if we found the left characters count are smaller than k, then 
+            //we can start to replace the character
             while(r - l + 1 - maxCnt > k) {
                 count[s.charAt(l) - 'A']--;
                 l ++;
