@@ -31,14 +31,14 @@ Replace the two 'A's with two 'B's or vice versa.
         if (s == null || s.length() < 1 || k < 0) return 0;
         int len = s.length();
         int[] count = new int[26];
-        int start = 0, maxCnt = 0, maxLen = 0;
-        for(int end = 0; end < len;end++) {
-            maxCnt = Math.max(maxCnt, ++count[s.charAt(end) - 'A']);
-            while(end - start + 1 - maxCnt > k) {
-                count[s.charAt(start) - 'A']--;
-                start ++;
+        int l = 0, maxCnt = 0, maxLen = 0;
+        for(int r = 0; r < len;r++) {
+            maxCnt = Math.max(maxCnt, ++count[s.charAt(r) - 'A']);
+            while(r - l + 1 - maxCnt > k) {
+                count[s.charAt(l) - 'A']--;
+                l ++;
             }
-            maxLen = Math.max(maxLen, end - start + 1);
+            maxLen = Math.max(maxLen, r - l + 1);
         }
         return maxLen;
         
