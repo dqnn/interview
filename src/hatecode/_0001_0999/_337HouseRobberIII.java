@@ -59,6 +59,7 @@ Determine the maximum amount of money the thief can rob tonight without alerting
     
     
     // we store the node computation as result in map, this is improvement
+    //<root, integer> means rob from root(included), the max money we can get
     public int rob2(TreeNode root) {
         return helper(root, new HashMap<>());
     }
@@ -89,9 +90,9 @@ Determine the maximum amount of money the thief can rob tonight without alerting
      * these two cases, so "information is lost as the recursion goes deeper and deeper", which results 
      * in repeated subproblems.
      * 
-     * 
-     * 
      * so we use res[2] res[0] not robbed, res[1] robbed
+     * 
+     * 
      */
     
     
