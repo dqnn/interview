@@ -19,6 +19,11 @@ Bellman does relaxation for n-1 times and Dijkstra Algo only 1 time.
 Bellman can handle negative weights but Dijkstra Algo can't.
 Bellman visit a vertex more then once but Dijkstra Algo only once.
  */
+   /*
+    * interview frinendly: 
+
+      the problem is to say:
+    */
     public int networkDelayTime_BellManFord(int[][] times, int N, int K) {
         List<List<int[]>> graph = new ArrayList<>();
         // we add 0->N+ 1 array list, why we choose N + 1 since node is from 1->N, 
