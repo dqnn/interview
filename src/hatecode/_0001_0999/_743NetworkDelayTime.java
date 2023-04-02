@@ -25,7 +25,21 @@ Bellman visit a vertex more then once but Dijkstra Algo only once.
       the problem is to say: given list of tuple [i,j,k] means from node i -> j, time cost is k,
       then given source node and total n nodes, return the min time that singal can travel all nodes
 
-      
+      it is easy to think about BFS since you want to visit all adjacent nodes at one wave.
+      but that is not good enough, because
+      1. travel time cost is not the same, some are faster while some are slower
+      2. some nodes may have multiple paths from source to this node, and they have different time cost, we prefer lower one
+      3. how we can use mem to avoid double visit or repeated adding to queue
+
+
+      we use inQueue[i] to indicate whether i is already in queue, if already in queue then we do not 
+      have to add i into queue again, but note: we actually we do not need inQueue because everytime
+      we will update the dist[i] whenever we have a shorter path.
+
+      so we avoid add duplicated node to queue but we always update dist[v] to have a smaller value which
+     means we already processed this case, we do not need to process again.
+     dist[i] is the key, 
+
     */
     public int networkDelayTime_BellManFord(int[][] times, int N, int K) {
         List<List<int[]>> graph = new ArrayList<>();
