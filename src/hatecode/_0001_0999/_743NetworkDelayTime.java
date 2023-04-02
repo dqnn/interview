@@ -40,6 +40,13 @@ Bellman visit a vertex more then once but Dijkstra Algo only once.
      means we already processed this case, we do not need to process again.
      dist[i] is the key, 
 
+        
+        \    /
+        3\  / 4
+           5
+
+    no matter which comes to 5, we will dist[5] = 3, we do not have add 5 into queue again, because 
+    we already updated dist[5], if add again then it is totally duplicated
     */
     public int networkDelayTime_BellManFord(int[][] times, int N, int K) {
         List<List<int[]>> graph = new ArrayList<>();
