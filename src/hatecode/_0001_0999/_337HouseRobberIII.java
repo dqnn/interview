@@ -97,6 +97,12 @@ Determine the maximum amount of money the thief can rob tonight without alerting
     
     
     // this is the same as first version, 
+    /*
+     * int[] robSub(root)
+     * [0] means: root is not robbed
+     * [1] means root is robbed
+     * res[1] = root.val + robSub(root.left)[0] + robSub(root.right)[0] 
+     */
     public int rob3(TreeNode root) {
         int[] res = robSub(root);
         return Math.max(res[0], res[1]);
