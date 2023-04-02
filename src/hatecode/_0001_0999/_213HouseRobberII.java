@@ -64,13 +64,13 @@ I chose i = n and i + 1 = 0 for simpler coding. But, you can choose whichever tw
         return Math.max(rob(nums, 0, nums.length - 2), rob(nums, 1, nums.length - 1));
     }
 
-    public int rob(int[] nums, int lo, int hi) {
+    public int rob(int[] A, int lo, int hi) {
         int prevNo = 0;
         int prevYes = 0;
         for (int i = lo; i <= hi; i++) {
             int temp = prevNo;
             prevNo = Math.max(prevNo, prevYes);
-            prevYes = nums[i] + temp;
+            prevYes = A[i] + temp;
         }
         return Math.max(prevNo, prevYes);
     }
