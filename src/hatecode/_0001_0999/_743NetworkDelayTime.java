@@ -22,7 +22,10 @@ Bellman visit a vertex more then once but Dijkstra Algo only once.
    /*
     * interview frinendly: 
 
-      the problem is to say:
+      the problem is to say: given list of tuple [i,j,k] means from node i -> j, time cost is k,
+      then given source node and total n nodes, return the min time that singal can travel all nodes
+
+      
     */
     public int networkDelayTime_BellManFord(int[][] times, int N, int K) {
         List<List<int[]>> graph = new ArrayList<>();
