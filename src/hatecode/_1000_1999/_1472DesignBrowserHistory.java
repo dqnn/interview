@@ -31,6 +31,10 @@ public class _1472DesignBrowserHistory {
          * forward(int steps): forward steps
          * 
          * 
+         * so we use the list to store the urls, 
+         * total: to store how many urls are in current scope.
+         * cur: which url cur point to
+         * 
          * 
          */
         List<String> list;
