@@ -13,7 +13,6 @@ public class Shelf {
     int cap;
 
     
-
     public Shelf(int cap) {
         this.cap= cap;
     }
