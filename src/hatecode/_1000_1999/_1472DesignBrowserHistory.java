@@ -35,6 +35,9 @@ public class _1472DesignBrowserHistory {
          * total: to store how many urls are in current scope.
          * cur: which url cur point to
          * 
+         * when we visit(string url), we will dectect whether we should append 
+         * the url to end of the array or overwrite the one in the array.
+         * 
          * 
          */
         List<String> list;
