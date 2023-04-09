@@ -38,7 +38,19 @@ public class _1472DesignBrowserHistory {
          * when we visit(string url), we will dectect whether we should append 
          * the url to end of the array or overwrite the one in the array.
          * 
+         * notes: we should use list.size() to decide whether we should overwrite, 
          * 
+         * example as below: it is possible because we did not remvoe any urls from array if we visiting again
+         * 
+         * if we use total, 
+         * 
+         * a->b->c->d->e->f
+         *             |
+         *           cur/total
+         * 
+         * if cur == total, then we will append new url g to end of list, will be 
+         * a->b->c->d->e->f->g, which will be wrong, it should be:
+         * a->b->c->d->e->g
          */
         List<String> list;
         int total = 0;
