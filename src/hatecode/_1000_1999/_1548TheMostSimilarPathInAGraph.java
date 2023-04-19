@@ -32,7 +32,12 @@ public class _1548TheMostSimilarPathInAGraph {
      * thinking process: O()
      * 
      * the problem is to say: given a graph with n nodes and one target path,  you need to return a 
-     * path with min edit distance which 
+     * path with min edit distance
+     * 
+     * edit distance means you can replace, 
+     * if the node does not exist in graph, then you will replace to one exists in the graph.
+     * 
+     * 
      */
         public List<Integer> mostSimilar(int n, int[][] roads, String[] names, String[] targetPath) {
             if (targetPath == null || targetPath.length < 1) return new ArrayList<>();
