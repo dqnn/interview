@@ -37,6 +37,14 @@ public class _1548TheMostSimilarPathInAGraph {
      * edit distance means you can replace, 
      * if the node does not exist in graph, then you will replace to one exists in the graph.
      * 
+     * 2 examples as following:
+     * n = 5, roads = [[0,2],[0,3],[1,2],[1,3],[1,4],[2,4]], targetPath =[0, 3,4,2]
+     * 
+     * If we are 
+     * 
+     * n = 4, roads = [[1,0],[2,0],[3,0],[2,1],[3,1],[3,2]], targetPath= [-1,-1,-1,-1,-1]
+     * 
+     * 
      * 
      */
         public List<Integer> mostSimilar(int n, int[][] roads, String[] names, String[] targetPath) {
