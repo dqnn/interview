@@ -1,0 +1,83 @@
+import java.util.*;
+
+public class _1548TheMostSimilarPathInAGraph {
+    /*
+    1548. The Most Similar Path in a Graph
+    We have n cities and m bi-directional roads where roads[i] = [ai, bi] connects city ai with city bi. Each city has a name consisting of exactly three upper-case English letters given in the string array names. Starting at any city x, you can reach any city y where y != x (i.e., the cities and the roads are forming an undirected connected graph).
+    
+    You will be given a string array targetPath. You should find a path in the graph of the same length and with the minimum edit distance to targetPath.
+    
+    You need to return the order of the nodes in the path with the minimum edit distance. The path should be of the same length of targetPath and should be valid (i.e., there should be a direct road between ans[i] and ans[i + 1]). If there are multiple answers return any one of them.
+    
+    The edit distance is defined as follows:
+    
+    Example 1:
+    
+    
+    Input: n = 5, roads = [[0,2],[0,3],[1,2],[1,3],[1,4],[2,4]], names = ["ATL","PEK","LAX","DXB","HND"], targetPath = ["ATL","DXB","HND","LAX"]
+    Output: [0,2,4,2]
+    Explanation: [0,2,4,2], [0,3,0,2] and [0,3,1,2] are accepted answers.
+    [0,2,4,2] is equivalent to ["ATL","LAX","HND","LAX"] which has edit distance = 1 with targetPath.
+    [0,3,0,2] is equivalent to ["ATL","DXB","ATL","LAX"] which has edit distance = 1 with targetPath.
+    [0,3,1,2] is equivalent to ["ATL","DXB","PEK","LAX"] which has edit distance = 1 with targetPath.
+    Example 2:
+    
+    
+    Input: n = 4, roads = [[1,0],[2,0],[3,0],[2,1],[3,1],[3,2]], names = ["ATL","PEK","LAX","DXB"], targetPath = ["ABC","DEF","GHI","JKL","MNO","PQR","STU","VWX"]
+    Output: [0,1,0,1,0,1,0,1]
+    Explanation: Any path in this graph has edit distance = 8 with targetPath.
+    */
+
+    /*
+     * thinking process: O()
+     * 
+     * the problem is to say: 
+     */
+        public List<Integer> mostSimilar(int n, int[][] roads, String[] names, String[] targetPath) {
+            if (targetPath == null || targetPath.length < 1) return new ArrayList<>();
+            
+            Map<Integer, List<Integer>> map = new HashMap<>();
+            for(int[] r : roads) {
+                map.computeIfAbsent(r[0], v->new ArrayList<>()).add(r[1]);
+                map.computeIfAbsent(r[1], v->new ArrayList<>()).add(r[0]);
+            }
+            
+    
+            
+            Deque<Pair<Integer, List<Integer>>> q = new ArrayDeque<>();
+            for(int i = 0; i<n; i++) {
+                List<Integer> list = new ArrayList<>();
+                list.add(i);
+                if (targetPath[0].equals(names[i])) {
+                    q.offerFirst(new Pair(i, list));
+                } else q.offer(new Pair(i, list));
+                    
+            }
+            
+            int m = targetPath.length;
+            boolean[][] visited = new boolean[n][m];
+            
+            while(!q.isEmpty()) {
+                Pair<Integer, List<Integer>> e = q.poll();
+                int city = e.getKey();
+                List<Integer> path = e.getValue();
+                
+                if (path.size() == m) return path;
+                
+                for(int nCity: map.get(city)) {
+                    if (visited[nCity][path.size()-1]) continue;
+                    visited[nCity][path.size()-1] = true;
+                    
+                    List<Integer> temp = new ArrayList<>(path);
+                    temp.add(nCity);
+                    
+                    
+                    if (targetPath[temp.size()-1].equals(names[nCity])) {
+                        q.offerFirst(new Pair(nCity, temp));
+                    } else q.offer(new Pair(nCity, temp));
+                }
+            }
+            
+            return new ArrayList<>();
+        }
+    }

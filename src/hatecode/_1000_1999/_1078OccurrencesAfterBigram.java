@@ -1,9 +1,9 @@
-package hatecode._1000_1999;
+package hatecode._0001_0999;
 
 import java.util.*;
-
 public class _1078OccurrencesAfterBigram {
 /*
+ * tags:easy
 1078. Occurrences After Bigram
 Given words first and second, consider occurrences in some text of the form "first second third", where second comes immediately after first, and third comes immediately after second.
 
@@ -14,25 +14,18 @@ Example 1:
 Input: text = "alice is a good girl she is a good student", first = "a", second = "good"
 Output: ["girl","student"]
 */
-  
-    //thinking process: O(n)/O(n)
-    
-    //so the problem is to say to find "A B C" pattern, and return list of C, A, B
-    //is the given words
-    
-    //so just iterate the whole sentences and return
-    
-    //another way is to remember each string's hashcode and do compare, but it would 
-    //require extra space
-    public String[] findOcurrences(String text, String first, String second) {
-        if(text == null || text.length() < 1) return new String[0];
-        
-        String[] words = text.split(" ");
+    //split and count
+    public String[] findOcurrences(String s, String first, String second) {
         List<String> res = new ArrayList<>();
-        for (int i = 2; i < words.length; ++i) {
-            if (first.equals(words[i - 2]) && second.equals(words[i - 1]))
-                res.add(words[i]);
+        if(s == null || s.length() < 1) return new String[]{};
+        String[] strs = s.split(" ");
+        for(int i = 1; i< strs.length - 1;i++) {
+            if (strs[i].equals(second) && strs[i - 1].equals(first)) {
+                res.add(strs[i+1]);
+            }
         }
+        
         return res.toArray(new String[res.size()]);
+        
     }
 }
