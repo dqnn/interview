@@ -37,8 +37,18 @@ public class _2055PlatesBetweenCandles {
      * 
      * |  *  * *  * * | 
      *       l    r
+     * *  *  | *  * * | * *
+     *  l->             <-r
      * 
+     * for above 2 examples, 1st the answer should be 0, but l should look to right while r look to left
      * 
+     * 2nd example is better demonstration of l and r, only and only if l < r, there is plates between 2 candles
+     * 
+     * so we can have TreeSet, because we can use treeSet.subSet(from, inclusive, to, inclusive) to get 
+     * all elements for query[a, b], 
+     * then we can count howe many '|' are there, this will lead to TLE
+     * 
+     * another solution is to use nextCandle and prevCandle, record each index as value
      */
         
         public int[] platesBetweenCandles(String s, int[][] A) {
