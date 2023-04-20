@@ -51,11 +51,17 @@ public class _2055PlatesBetweenCandles {
      * another solution is to use nextCandle and prevCandle, record each index as value, for example,
      * 
      * left:
+     * 0  1  2  3  4  5
      * *  |  *  *  |  * 
      * -1 1  1  1  4  4 
      * right:
      * *  |  *  *  |  * 
      * 1  1  4  4  4  MAX
+     * 
+     * 
+     * query=[0,5], then l = 1, r = 4, then sum[l] = 1, sum[5] = 2, so 4 - 1 + 1 - 2 = 2 
+     * 
+     * same to othes
      * 
      * 
      */
