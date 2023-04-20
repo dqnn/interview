@@ -96,7 +96,6 @@ public class _2055PlatesBetweenCandles {
         }
         
         
-        
         public int[] platesBetweenCandles_TreeSet(String s, int[][] A) {
             if (s == null || s.length() < 1 || A == null || A.length < 1) return new int[]{};
             
