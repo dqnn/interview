@@ -48,7 +48,16 @@ public class _2055PlatesBetweenCandles {
      * all elements for query[a, b], 
      * then we can count howe many '|' are there, this will lead to TLE
      * 
-     * another solution is to use nextCandle and prevCandle, record each index as value
+     * another solution is to use nextCandle and prevCandle, record each index as value, for example,
+     * 
+     * left:
+     * *  |  *  *  |  * 
+     * -1 1  1  1  4  4 
+     * right:
+     * *  |  *  *  |  * 
+     * 1  1  4  4  4  MAX
+     * 
+     * 
      */
         
         public int[] platesBetweenCandles(String s, int[][] A) {
