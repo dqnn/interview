@@ -29,6 +29,16 @@ public class _2055PlatesBetweenCandles {
      * return how many * in its substring[A[i][0],  A[i][1]], inclusive 
      * 
      * 
+     * the problem is to use prev candle index and next candle index to count how many plates between it, but 
+     * we also have to substract the plates inside the two indexes. 
+     * 
+     * another factor needs to note we need to query next index for left index, and previous candle index for right
+     * index, reason see below 
+     * 
+     * |  *  * *  * * | 
+     *       l    r
+     * 
+     * 
      */
         
         public int[] platesBetweenCandles(String s, int[][] A) {
