@@ -40,7 +40,19 @@ public class _1548TheMostSimilarPathInAGraph {
      * 2 examples as following:
      * n = 5, roads = [[0,2],[0,3],[1,2],[1,3],[1,4],[2,4]], targetPath =[0, 3,4,2]
      * 
-     * If we are 
+     * we have to try all possible combinations, for example, if node not in list, then you will need to repalce it with 
+     * one in list, which one should we pick? then we have to add each one. 
+     * 
+     * Pair<Integer, List<Integer>>, key is the nodeId, value is the visited path, we will add all possbile 
+     * pairs to queue, if it matches the node in target path, then we add to queue front, if not, add to bottom, so 
+     * it will be like DFS to get the result. 
+     * 
+     * we also used boolean[m][n] visited to record all possible paths, 
+     * visited[i][j] means for node i with path[0,1,2..j-1] we already done the computation. 
+     * 
+     * why we choose visited[i][j] because our goal is to return a path with min edit distance, 
+     * 
+     * 
      * 
      * n = 4, roads = [[1,0],[2,0],[3,0],[2,1],[3,1],[3,2]], targetPath= [-1,-1,-1,-1,-1]
      * 
@@ -59,6 +71,8 @@ public class _1548TheMostSimilarPathInAGraph {
     
             
             Deque<Pair<Integer, List<Integer>>> q = new ArrayDeque<>();
+            //for each node, we add to the queue, if matches first node in targetPath, then we add to 
+            //front of the queue
             for(int i = 0; i<n; i++) {
                 List<Integer> list = new ArrayList<>();
                 list.add(i);
@@ -79,13 +93,14 @@ public class _1548TheMostSimilarPathInAGraph {
                 if (path.size() == m) return path;
                 
                 for(int nCity: map.get(city)) {
+                    //we processed previous node, so it will be path.size() - 1
                     if (visited[nCity][path.size()-1]) continue;
                     visited[nCity][path.size()-1] = true;
                     
                     List<Integer> temp = new ArrayList<>(path);
                     temp.add(nCity);
                     
-                    
+                    //if path city matches, then we add to path
                     if (targetPath[temp.size()-1].equals(names[nCity])) {
                         q.offerFirst(new Pair(nCity, temp));
                     } else q.offer(new Pair(nCity, temp));
