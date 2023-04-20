@@ -20,6 +20,16 @@ public class _2055PlatesBetweenCandles {
     Input: s = "**|**|***|", queries = [[2,5],[5,9]]
     Output: [2,3]
     */
+    /*
+    interview friendly
+     * thinking process: O(n + Q)/O(n) Q is A's length
+     * 
+     * the problem is to say: given string s which is constructed with "|" and "*", 
+     * and query A, A[i][0] and A[i][1] means the index start and end for string s,  
+     * return how many * in its substring[A[i][0],  A[i][1]], inclusive 
+     * 
+     * 
+     */
         
         public int[] platesBetweenCandles(String s, int[][] A) {
             if (s == null || s.length() < 1 || A == null || A.length < 1) return new int[]{};
