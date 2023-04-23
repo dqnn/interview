@@ -22,8 +22,38 @@ public class _2250CountNumberOfRectanglesContainingEachPoint {
     */
 
     /*
+     * thinking process: O(nlgn + plgn)/O(n)
      * 
+     * the problem is to say: given one 2D array contains rectangle top right coordination, 
+     * bootom left is [0, 0], all positive integers.
+     * 
+     * p is a list of points [x, y], for each p[i], you need to find how many rectangle contains 
+     * this point and return this list.
+     * 
+     * for example 
+     * ___________ 3
+     *           |
+     *       2   |
+     *  -----    |
+     *       |   |
+     *       |   |
+     *       |   |
+     * ______|___|
+     *       2   3
+     * 
+     * for above rectangle, 2 rectangles, point(3,2) will only be in 1, point [1,1] will be in 2
+     * for points on the edge, we count it into smaller one,but it does not matter in this problem
+     * 
+     * We use map <y_axis_value, list of sorted x axis value> to store all values, 
+     * then iterate on the p, for each one, we will do binary search on the x values, there is on trick here, 
+     * 
+     * 1. we should always find the most left index
+     * 2. if we cannot find x in array, then if x > A.get(l), then we should return l + 1, becz no rectangle found
+     * else return l 
+     * 3. we should list.size() - index, acutally should be size()- (index+1) + 1, 
+    
      */
+
         public int[] countRectangles(int[][] A, int[][] p) {
             int n = A.length;
             Map<Integer, List<Integer>> map = new HashMap<>();
