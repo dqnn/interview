@@ -37,7 +37,14 @@ public class _1889MinimumSpaceWastedFromPackaging {
      * you can put 2,3 -> 4, 5 ->8,  then 4-2 + 4-3 + 8- 5 = 6 which is better 
      * 
      * 
+     * 1. we sort A firstly then get its sum, 
+     * 2. we go to B and sort B[i],
+     * then for each element in B[i], we use Binary search to find its index i which can fit all stones from 
+     * 0->i, here is tricky:
+     * a. if A[l] > t, then we should return -1, because we cannot hold any stone, the bag will be wasted
+     * b. see others in code
      * 
+     * 3. it will be count how many bags we will use to hold these stones, then we will substract the sum 
      */
         public int minWastedSpace(int[] A, int[][] B) {
             Arrays.sort(A);
