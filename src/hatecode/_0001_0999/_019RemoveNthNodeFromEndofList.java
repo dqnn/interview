@@ -22,6 +22,20 @@ public class _019RemoveNthNodeFromEndofList {
      * @param n
      * @return
      */
+
+     /*   head 
+           |-n nodes|
+      *  |---------------------------------|
+         |          |
+        dummy      fast
+        slow                
+                           |--n+1----------|
+         |---------------------------------|
+         |                 |               |
+        dummy                             fast
+                           slow
+      slow and fast have n + 1 nodes
+      */
     // 1<=n<=list length
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode dummy = new ListNode(0);
@@ -36,7 +50,11 @@ public class _019RemoveNthNodeFromEndofList {
             fast = fast.next;
             slow = slow.next;
         }
+        // null point to the removed node
+        // ListNode temp = slow.next;
+        // temp.next = null;
         slow.next = slow.next.next;
+        
         return dummy.next;
     }
 }
