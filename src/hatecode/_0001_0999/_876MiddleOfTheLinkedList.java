@@ -20,7 +20,9 @@ public class _876MiddleOfTheLinkedList {
     */
 
         /*
-         * since fast will jump 2 steps while slow just one step, so we will 
+         * since fast will jump 2 steps while slow just one step, so eventually 
+         * if length is even, fast will point to null because there will be n -1 steps, 
+         * slow will always point to the correct node 
          * 
          */
         public ListNode middleNode(ListNode head) {
