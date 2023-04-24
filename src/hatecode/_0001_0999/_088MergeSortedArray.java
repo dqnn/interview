@@ -4,7 +4,7 @@ package hatecode._0001_0999;
  * Project Name : Leetcode
  * Package Name : leetcode
  * File Name : MergeSortedArray
- * Date : Aug, 2018
+ * Date : April, 2023
  * Description : 88. Merge Sorted Array
  */
 public class _088MergeSortedArray {
