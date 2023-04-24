@@ -53,4 +53,21 @@ public class _058LengthofLastWord {
         String[] strs = s.trim().split(" ");
         return strs[strs.length - 1].length();
     }
+
+    public int lengthOfLastWord_Simple(String s) {
+        int n  = s.length()-1;
+        
+        while( n>=0 && s.charAt(n) == ' '){
+            n--;
+        }
+        
+        int res = 0;
+        
+        while(n >= 0 && s.charAt(n) != ' '){
+            res++;
+            n--;
+        }
+        
+        return res;
+    }
 }
