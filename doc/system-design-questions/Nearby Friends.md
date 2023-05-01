@@ -11,6 +11,7 @@
 - 10 million can be DAU
 - on averge, a user can have 400 friends, assume all of them are near by 
 - display 20 nearby friends per page
-- QPS: 10x10^6/86400 = 10 x 10 x1.25 =125 
+- QPS: 10x10^6/30s = 3.3 x 10^5/s but we have to push 10m x 400 5rr
+- 
 
 
