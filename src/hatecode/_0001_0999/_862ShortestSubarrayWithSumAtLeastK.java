@@ -21,7 +21,10 @@ Output: 3
  */
     /*
      * 
-     * thinking process: 
+     * thinking process: O(n)/O(n)
+     * 
+     * the problem is to say: given one array, return the max length of its sum at least k, 
+     * 
      * TODO: how we can from sliding window to Deque?
 P[x]=y 表示数列的前缀和，考虑点 x1 ,x2 若 x1<x2 ,且P[x1]>=p[x2]，那么选择x2肯定来的比x1短；
 考虑y1<y2,若 满足 y1 ，y2都是x点，那么y1肯定比y2好。
@@ -32,7 +35,9 @@ P[x]=y 表示数列的前缀和，考虑点 x1 ,x2 若 x1<x2 ,且P[x1]>=p[x2]，
     //
     public static int shortestSubarray(int[] A, int K) {
         int N = A.length, res = N + 1;
-        int[] sum = new int[N + 1];
+
+        //to avoid overflow, use long instead of int
+        long[] sum = new long[N + 1];
         for (int i = 0; i < N; i++) sum[i + 1] = sum[i] + A[i];
         Deque<Integer> q = new ArrayDeque<>();
         for (int i = 0; i < N + 1; i++) {
