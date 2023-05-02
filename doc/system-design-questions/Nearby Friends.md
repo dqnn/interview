@@ -30,6 +30,7 @@
 - location databse history mean all history this user has, when system starts, it will load the history to cache 
 - user location database cache, this is to store the last location, userid, timestamp, latitude,longtitude 
 - pub/sub, this is redis channel, it is pretty cheap to create a channel for this user. when a location updates, websocket handler will be invoked, it will broadcast its new location updates, then all subsribers will calculate the distance with the user, if it is in the range, then we will push the message to the user's phone else the updates will be dropped
-   
+# Scale 
+- sharding, consistent hashing on user id
 
 
