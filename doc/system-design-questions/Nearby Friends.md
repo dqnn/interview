@@ -14,16 +14,20 @@
 - QPS: 10x10^6/30s = 3.3 x 10^5/s but we have to push 10m x 400 5rr
 
 # Overall Arch
-![image](https://user-images.githubusercontent.com/19477057/235686088-6b70f79c-8cbf-4b22-9cc2-ddf25ad4565e.png)
+![image](https://user-images.githubusercontent.com/19477057/235701187-ac757775-585e-4fb0-98a6-24e406713059.png)
+
 - Notes 
-  - you will need to demonstrate this from two users, 1 just 2 have friends
+  - you will need to demonstrate this from two users, 1 just 2 have friends, how my location will be send to my friends phone
   - Websocket vs restful API
   - websocket is full-duplex communications between clients and server, both  can send message while for restful, server is passive and only respond to its request. they both send message via one TCP connection, but resultful are stateless while websocket have states, both can transfer text message and unstructural data. websocket is small memory when we want low latency and huge updates from server/clients, and it requires no response. restful is a fit if there is stateless requests which does not require real-time communications
 # Each componnet
 ## load balance 
 - load balance is to distribute traffc to its hosts behind it, it has several ways to distribute traffic, for example, load based or evenly distributed etc
 ## user database, location databse history, location database cache, pub sub
-- 
+- use db stores user profile related meta data, like user name, user id, email, etc
+- location databse history mean all history this user has
+- user location database cache, this is to store the last location, userid, timestamp, latitude,longtitude 
+- pub/sub, this is redis channel, it is pretty cheap to create a channel for this user. when a location updates, websocket handler will be invoked, it will broadcast its new location updates, then all subsribers will calculate the distance with the user, if it is in the range, then we will push the message to the user's phone else the updates will be dropped
    
 
 
