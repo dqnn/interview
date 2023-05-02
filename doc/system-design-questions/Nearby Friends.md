@@ -18,6 +18,8 @@
 
 - Notes 
   - you will need to demonstrate this from two users, 1 just 2 have friends, how my location will be send to my friends phone
+  - write, how i send my location updates to the system
+  - read, how my friends get my location updates
   - Websocket vs restful API
   - websocket is full-duplex communications between clients and server, both  can send message while for restful, server is passive and only respond to its request. they both send message via one TCP connection, but resultful are stateless while websocket have states, both can transfer text message and unstructural data. websocket is small memory when we want low latency and huge updates from server/clients, and it requires no response. restful is a fit if there is stateless requests which does not require real-time communications
 # Each componnet
