@@ -33,4 +33,9 @@
 # Scale 
 - sharding, consistent hashing on user id
 
+# Nearby friends
+- We can divide each area into 4 geohash location, each geohash will have a channel, when users subscribe to this channel then for each user location update, the websocket handler will send message to that geohash channel if location matches, and push this notification to the user phone 
+
+
+
 
