@@ -34,8 +34,17 @@
 - sharding, consistent hashing on user id
 # Data Model 
 ## WebSocket
+### WebSocketAPIBaseRequest:
+- version
+- request-id
+- correction-vector 
+### WebSocketAPIBaseResponse:
+- version
+- request-id
+- correction-vector 
+- latency 
 ### void UpdateLocation(LocationUpdateRequest r), response: None 
--  LocationUpdateRequest 
+-  LocationUpdateRequest extends from WebSocketAPIBaseRequest
   - request-id: non- mandatory 
   - cv-id: non-mandatory 
   - timestamp: mandatory 
@@ -43,17 +52,17 @@
   - longtidude: mandatory 
   - userid: mandatory 
 ### void SendUserLocationUpdates(SendUserLocationUpdatesRequest r), response: None 
--  SendUserLocationUpdatesRequest
+-  SendUserLocationUpdatesRequest extends from WebSocketAPIBaseRequest
   - request-id: non- mandatory 
   - cv-id: non-mandatory 
   - timestamp: mandatory 
   - latitude: mandatory 
   - longtidude: mandatory 
   - userid: mandatory '
-### SubsribeToUserResponse SubsribeToUser(SubsribeToUser r), response: latest friend updates
-- SubsribeToUser(SubsribeToUserRequest r),  
+### SubsribeToUserResponse SubsribeToUser(SubsribeToUserRequest r), response: latest friend updates
+- SubsribeToUserRequest extends from WebSocketAPIBaseRequest
   - userId: mandatory 
-- SubsribeToUserResponse
+- SubsribeToUserResponse extends from WebSocketAPIBaseResponse
   - userId: mandatory
   - longtitude: 
   - latitude: 
