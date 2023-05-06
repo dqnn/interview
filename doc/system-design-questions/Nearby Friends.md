@@ -32,6 +32,36 @@
 - pub/sub, this is redis channel, it is pretty cheap to create a channel for this user. when a location updates, websocket handler will be invoked, it will broadcast its new location updates, then all subsribers will calculate the distance with the user, if it is in the range, then we will push the message to the user's phone else the updates will be dropped
 # Scale 
 - sharding, consistent hashing on user id
+# Data Model 
+## WebSocket
+### void UpdateLocation(LocationUpdateRequest r), response: None 
+-  LocationUpdateRequest 
+  - request-id: non- mandatory 
+  - cv-id: non-mandatory 
+  - timestamp: mandatory 
+  - latitude: mandatory 
+  - longtidude: mandatory 
+  - userid: mandatory 
+### void SendUserLocationUpdates(SendUserLocationUpdatesRequest r), response: None 
+-  SendUserLocationUpdatesRequest
+  - request-id: non- mandatory 
+  - cv-id: non-mandatory 
+  - timestamp: mandatory 
+  - latitude: mandatory 
+  - longtidude: mandatory 
+  - userid: mandatory '
+### SubsribeToUserResponse SubsribeToUser(SubsribeToUser r), response: latest friend updates
+- SubsribeToUser(SubsribeToUserRequest r),  
+  - userId: mandatory 
+- SubsribeToUserResponse
+  - userId: mandatory
+  - longtitude: 
+  - latitude: 
+### void UnSubsribeToUser(SubsribeToUser r), response: None 
+-  UnSubsribeToUser(SubsribeToUserRequest r)
+  - userId: mandatory     
+ 
+     
 
 # Nearby friends
 - We can divide each area into 4 geohash location, each geohash will have a channel, when users subscribe to this channel then for each user location update, the websocket handler will send message to that geohash channel if location matches, and push this notification to the user phone 
