@@ -33,7 +33,7 @@
 # Scale 
 - sharding, consistent hashing on user id
 # Data Model 
-## WebSocket
+## WebSocket APIs
 ### WebSocketAPIBaseRequest:
 - version
 - request-id
@@ -69,7 +69,8 @@
 ### void UnSubsribeToUser(SubsribeToUser r), response: None 
 -  UnSubsribeToUser(SubsribeToUserRequest r)
   - userId: mandatory     
- 
+## Restful APIs
+### pretty common 
      
 
 # Nearby friends
