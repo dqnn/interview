@@ -1,4 +1,6 @@
+package _2000_2999;
 
+import java.util.*;
 
 public class _2670FindTheDistinctDifferenceArray {
     /*
@@ -18,6 +20,34 @@ Example 1:
 Input: nums = [1,2,3,4,5]
 Output: [-3,-1,1,3,5]
     */
+
+    /*
+     * thinking process: O(n)/O(n)
+     * 
+     * the problem is to say:
+     */
+    
+    
+    public int[] distinctDifferenceArray(int[] A) {
+        if (A == null || A.length < 1) return new int[]{};
+    
+        Set<Integer> set = new HashSet<>();
+        Map<Integer, Integer> map = new HashMap<>();
+        
+        Arrays.stream(A).forEach(e->map.put(e, map.getOrDefault(e, 0) + 1));
+        
+        int[] res = new int[A.length];
+        for(int i = 0; i< A.length; i++){
+            int a =A[i];
+            set.add(a);
+            map.put(a, map.get(a) - 1);
+            if (map.get(a) == 0) map.remove(a);
+            res[i] = set.size() - map.size();
+        }
+        
+        return res;
+    }
+
     public int[] distinctDifferenceArray_simple(int[] A) {
         if (A == null || A.length < 1) return new int[]{};
         
@@ -37,26 +67,6 @@ Output: [-3,-1,1,3,5]
         int[] res = new int[n];
         IntStream.range(0, n-1).forEach(i->res[i] = l[i] - r[i+1]);
         res[n-1] = l[n-1];
-        
-        return res;
-    }
-    
-    public int[] distinctDifferenceArray(int[] A) {
-        if (A == null || A.length < 1) return new int[]{};
-    
-        Set<Integer> set = new HashSet<>();
-        Map<Integer, Integer> map = new HashMap<>();
-        
-        Arrays.stream(A).forEach(e->map.put(e, map.getOrDefault(e, 0) + 1));
-        
-        int[] res = new int[A.length];
-        for(int i = 0; i< A.length; i++){
-            int a =A[i];
-            set.add(a);
-            map.put(a, map.get(a) - 1);
-            if (map.get(a) == 0) map.remove(a);
-            res[i] = set.size() - map.size();
-        }
         
         return res;
     }
