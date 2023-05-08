@@ -27,6 +27,7 @@ Output: [-3,-1,1,3,5]
      * the problem is to say:given one integer array A, 
      * return another array, each element = distinct value count left (inclusive) - right distinct value count
      * 
+     * use set to record all distinct value before A[i], and use map to record global all
      */
     
     
