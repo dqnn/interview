@@ -23,6 +23,11 @@ public class _2671FrequencyTracker {
     Output
     [null, null, null, true]
     */
+    /*
+     * the problem is to say: frequency with integers. plain ones but one good stratedy is to check whether 
+     * 
+     * we have such element in add and deleteOne
+     */
         Map<Integer, Integer> kv;
         Map<Integer, Set<Integer>> fre2k;
         public FrequencyTracker() {
