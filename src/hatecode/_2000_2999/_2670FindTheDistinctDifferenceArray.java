@@ -24,7 +24,9 @@ Output: [-3,-1,1,3,5]
     /*
      * thinking process: O(n)/O(n)
      * 
-     * the problem is to say:
+     * the problem is to say:given one integer array A, 
+     * return another array, each element = distinct value count left (inclusive) - right distinct value count
+     * 
      */
     
     
