@@ -35,6 +35,11 @@ public class _2662MinimumCostOfAPathWithSpecialRoads {
      * this is pretty common question, but here the difference is that it does not specify a map, you need to 
      * figure out a map(graph) then run BFS or dijstra on a PQ
      * 
+     * PQ is dijstra algorithms
+     * 
+     * Bellman-floyd is to use a Queue to visit each one, ans store the results into array, dist[n]
+     * then ask for max in the array, 
+     * 
      * 
      * 
      * 
