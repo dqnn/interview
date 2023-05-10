@@ -32,7 +32,12 @@ public class _2662MinimumCostOfAPathWithSpecialRoads {
      * 
      * figure out min cost from s to e.
      * 
-     * this is pretty common question, but here 
+     * this is pretty common question, but here the difference is that it does not specify a map, you need to 
+     * figure out a map(graph) then run BFS or dijstra on a PQ
+     * 
+     * 
+     * 
+     * 
      */
         public int minimumCost(int[] s, int[] e, int[][] roads) {
             if(s[0] == e[0] && s[1]== e[1]) return 0;
