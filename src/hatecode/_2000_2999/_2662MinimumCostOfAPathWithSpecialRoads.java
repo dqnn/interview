@@ -21,6 +21,12 @@ public class _2662MinimumCostOfAPathWithSpecialRoads {
     Input: start = [1,1], target = [4,5], specialRoads = [[1,2,3,3,2],[3,4,4,5,1]]
     Output: 5
     */
+
+    /*
+     * thinking process: O(n)
+     * 
+     * 
+     */
         public int minimumCost(int[] s, int[] e, int[][] roads) {
             if(s[0] == e[0] && s[1]== e[1]) return 0;
             
