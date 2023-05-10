@@ -25,7 +25,14 @@ public class _2662MinimumCostOfAPathWithSpecialRoads {
     /*
      * thinking process: O(n)
      * 
+     * the problem is to say: 
+     * given one two points, start and end, 
      * 
+     * [1,2,3,3,2]--> [1,2] -> [3,3] with cost 2
+     * 
+     * figure out min cost from s to e.
+     * 
+     * this is pretty common question, but here 
      */
         public int minimumCost(int[] s, int[] e, int[][] roads) {
             if(s[0] == e[0] && s[1]== e[1]) return 0;
