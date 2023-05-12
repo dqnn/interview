@@ -32,6 +32,15 @@ Input 3: destination coordinate (rowDest, colDest) = (4, 4)
 Output: true
 */
     //DFS O(mn)/O(mn)
+    /*
+     * thinking process: O(mn)/O(mn)
+     * the problem is to say: given two points on board m, whether a ball can rolling from src to 
+     * dst point,
+     * 
+     * the problem is different than common problem is that it would have to implement a rolling function in dfs or bfs
+     * 
+     
+     */
     public boolean hasPath(int[][] m, int[] src, int[] dst) {
         if (m == null || m.length < 1 || m[0].length < 1) return true;
         int r = m.length, c=m[0].length;
