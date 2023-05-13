@@ -36,6 +36,10 @@
     /*
      * thinking process: O(S⋅(log2max(M,N)−log4S))/O(log2max(M,N))
      * 
+     * Let M be the range of possible x-coordinate values between bottomLeft[0] and topRight[0] and let 
+ N be the range of possible y-coordinate values between bottomLeft[1] and topRight[1]. Thus, the maximum possible number of points in the rectangle is 
+M⋅N. Finally, let S be the maximum number of ships in the sea.
+
      * The log2Max(M, N) represents the maximum number of levels in the recursion tree. 
      * However, not all of those levels will have 4 * S calls. The first level will have 1 call, 
      * the second level will have 4 calls, and so on. So (log2Max(M, N) - log4S) 
