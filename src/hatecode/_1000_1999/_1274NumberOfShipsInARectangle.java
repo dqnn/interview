@@ -32,6 +32,13 @@
     Output: 3
     Explanation: From [0,0] to [4,4] we can count 3 ships within the range.
     */
+
+    /*
+     * thinking process: O(n)
+     * T(n) = 4 T(n/2), 
+     * 
+     * 
+     */
         public int countShips(Sea sea, int[] A, int[] B) {
             
             Map<String, Integer> map = new HashMap<>();
