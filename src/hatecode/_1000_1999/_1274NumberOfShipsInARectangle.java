@@ -34,8 +34,20 @@
     */
 
     /*
-     * thinking process: O(n)
-     * T(n) = 4 T(n/2), 
+     * thinking process: O(S⋅(log2max(M,N)−log4S))/O(log2max(M,N))
+     * 
+     * The log2Max(M, N) represents the maximum number of levels in the recursion tree. 
+     * However, not all of those levels will have 4 * S calls. The first level will have 1 call, 
+     * the second level will have 4 calls, and so on. So (log2Max(M, N) - log4S) 
+     * represents the number of levels that have the maximum number of recursive calls.
+
+
+     * 
+     * the problem is to say: given one API, you can pass two points to see whether there is ship in that 
+     * rectangle, it only return true or false;
+     * 
+     * then given 2 points, return how many ships in the rectable. 
+     * 
      * 
      * 
      */
