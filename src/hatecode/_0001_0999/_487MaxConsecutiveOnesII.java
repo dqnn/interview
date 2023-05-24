@@ -10,7 +10,63 @@ Output: 4
 Explanation: Flip the first zero will get the the maximum number of consecutive 1s.
     After flipping, the maximum number of consecutive 1s is 4.
 */
-    //same as Max Consecutive Ones III, just change k = 1; others are the same
+
+/*
+ * thinking process: O(n)/O(1)
+ * 
+ * interview friendly: the problem is to say: given one array with only 1 and 0, you can only flip 0 to 1 
+ * only 1 time, try to find the max length of successive 1 in array. 
+ * 
+ * we can use recursive way to find 
+ */
+public int findMaxConsecutiveOnes(int[] A) {
+
+    if (A == null || A.length < 1) return 0;
+    int n = A.length;
+    int res = 0;
+    int zero = 0, k = 1;
+    for(int l = 0, r = 0; r < n; r++) {
+        if (A[r] == 0) zero++;
+        while(zero > k) {
+            if (A[l++] == 0) {
+                zero--;
+            }
+        }
+        
+        res = Math.max(res, r -l + 1);
+    }
+    
+    return res;
+
+}
+
+public int findMaxConsecutiveOnes_recursive(int[] A) {
+    if (A == null || A.length < 1) return 0;
+    
+    return helper(A, 0, 0, 1);
+}
+
+private int helper(int[] A, int i, int cur, int k) {
+    if (i == A.length) return cur;
+    
+    if (A[i] == 1) {
+        return helper(A, i + 1,  cur+1, k);
+    } else {
+        if (k <=0)
+            return Math.max(cur, helper(A, i + 1, 0, k));
+        else return Math.max(helper(A, i + 1, cur + 1, k-1), helper(A, i + 1, 0, k));
+    }
+}
+
+
+
+
+
+
+
+
+
+   //same as Max Consecutive Ones III, just change k = 1; others are the same
     public int findMaxConsecutiveOnes(int[] A) {
         if (A == null ||A.length < 1) return 0;
         int n = A.length, l = 0, r= -1;
