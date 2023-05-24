@@ -25,6 +25,9 @@ Explanation: Flip the first zero will get the the maximum number of consecutive 
  * 
  * r will continue to right, every time if we visit A[i] == 0, then zero++, 
  * 
+ * if we found zero counter > k, k = 1 here, which means we can shrink the window, until zero <=k. 
+ * 
+ * then it is an eligible window to count how many successive 1s
   */
 public int findMaxConsecutiveOnes(int[] A) {
 
