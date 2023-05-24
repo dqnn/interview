@@ -17,8 +17,15 @@ Explanation: Flip the first zero will get the the maximum number of consecutive 
  * interview friendly: the problem is to say: given one array with only 1 and 0, you can only flip 0 to 1 
  * only 1 time, try to find the max length of successive 1 in array. 
  * 
- * we can use recursive way to find 
- */
+ * we can use recursive way to find the max succesive ones, for example 
+ * at position i, if A[i] == 0, then you have 2 paths, flip or not flip, 
+ *                if A[i] == 1, you only have 1 path 
+ * 
+ * another bettwe way is to use two pointers, left and right,
+ * 
+ * r will continue to right, every time if we visit A[i] == 0, then zero++, 
+ * 
+  */
 public int findMaxConsecutiveOnes(int[] A) {
 
     if (A == null || A.length < 1) return 0;
