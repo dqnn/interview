@@ -28,6 +28,10 @@ Explanation: Flip the first zero will get the the maximum number of consecutive 
  * if we found zero counter > k, k = 1 here, which means we can shrink the window, until zero <=k. 
  * 
  * then it is an eligible window to count how many successive 1s
+ * 
+ * for sliding window here we found the condition how to move the left pointer, if we found there are more than k
+ * zeros ,then we should move left pointers
+ * 
   */
 public int findMaxConsecutiveOnes(int[] A) {
 
