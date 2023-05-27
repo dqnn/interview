@@ -32,6 +32,7 @@ Explanation: Flip the first zero will get the the maximum number of consecutive 
  * for sliding window here we found the condition how to move the left pointer, if we found there are more than k
  * zeros ,then we should move left pointers
  * 
+ * 
   */
 public int findMaxConsecutiveOnes(int[] A) {
 
