@@ -46,8 +46,22 @@ public class _2713MaximumStrictlyIncreasingCellsInAMatrix {
     5 <-> [[0,0], [1,1]]
     
     2. then we visit this map from smaller value to greater value
+
+    3. we use row[i] to represent biggest value in row i, col[j] represent biggest value in col[j]
+
+    4. visit the map, so each time, if we can enter cell [i, j] which means we have one more step
     
-    
+    from previous cell (we do not know where) but we need to step + 1, same as col 
+
+    Notes: we have to mark all row and col values from max again, because if all values are the same then 
+    only latter will be updated, for example
+
+    A = [  [1, 1]
+           [1, 1]  ]
+
+    then 1 <-> [[0,0][0,1][1,0][1,1]]
+
+    you will see col = [1,1] 
 
 
      */ 
