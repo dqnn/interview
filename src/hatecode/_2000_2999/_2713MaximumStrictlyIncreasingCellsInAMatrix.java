@@ -42,6 +42,12 @@ public class _2713MaximumStrictlyIncreasingCellsInAMatrix {
 
     return how many steps you can go from 1st cell.  counting from 1
     
+    1. we use TreeMap<Integer, List<int[]>> to store cell value<-> coordination
+    5 <-> [[0,0], [1,1]]
+    
+    2. then we visit this map from smaller value to greater value
+    
+    
 
 
      */ 
