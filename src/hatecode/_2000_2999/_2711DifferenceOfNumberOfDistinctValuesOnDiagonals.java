@@ -28,7 +28,23 @@ Output: [[1,1,0],[1,0,1],[0,1,1]]
     */
 
    /*
-    thinking process: O(mn) 
+    thinking process: O(rc)/O(max(r, c))
+
+    the problem is to say: given one matrix, you will need to count distinct numbers from topleft  to current node (exclusive)
+    and this node to right bottom,  use res[i][j] = abs(topleft[i][j] - bottomright[i][j])
+
+    for example 
+
+      1
+        2
+          3
+            4
+              5
+
+
+   for number 3, it will be res[2][2] = abs(2 - 2) = 0, top left will be [1,2], bottom right will be [4, 5]
+
+   
    */
     
     public int[][] differenceOfDistinctValues(int[][] A) {
