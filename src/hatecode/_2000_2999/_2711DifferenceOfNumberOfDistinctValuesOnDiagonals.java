@@ -44,7 +44,14 @@ Output: [[1,1,0],[1,0,1],[0,1,1]]
 
    for number 3, it will be res[2][2] = abs(2 - 2) = 0, top left will be [1,2], bottom right will be [4, 5]
 
-   
+   the tricks in the problem:
+      1. loop only first row and first column, so we did not repeat visit elements 
+      2. for each element, firstly we will add elements the topleft set, then we visit back from bottom right, note
+      starting point is max(r-i, c- j) - 1, 
+      for above example, tl means from 1--> 5 direction the prefix of distinct numbers count
+      br means 5-> 1 direction, distinct numbers count
+
+      for element 3, first loop we already calculated res[2][2] = 3,  then we 
    */
     
     public int[][] differenceOfDistinctValues(int[][] A) {
