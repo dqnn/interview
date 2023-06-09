@@ -44,7 +44,28 @@ Output: 0
 
     
 
-    we can easily simulate the process, 
+    we can easily simulate the process, say our pq 
+    [0, 10, 1] means room 0 will be available a time 10, hold 1 meeting. 
+    we sort each element by room[1], if there is a tie, smaller room wins
+    we also need to sort the input array A, start time first, if there is a tie, end time earlier wins
+
+    then we visit array A, note we use for loop, no i incremental in for loop line because we want to aviod if next meeting is far away
+
+    while some meeting room potenitally will be re-used accoring to the rule, for example 
+    4  [[2,13], [3,12],[7,10], [17,19],[18,19]] 
+
+    we can see room 0 will take [2, 13] --> [0, 13, 1]
+               room 1 will take [3, 12] --> [1, 12, 1]
+               room 2 will take [7, 10] --> [2, 10, 1]
+
+    so should room 3 take [17,19], NOOOOO! because we will see 0 will be available at 13, 1 at 12 and 2 at 10, we need to resort them, 
+
+    that;s why line 90-92 came in. 
+
+    one meeting room can take a room when room available time equals time start meeting. 
+
+    so when we face this situation, we just mark the room available time same as next meeting start time, so they have chance to 
+    race in pq
      
 
 
