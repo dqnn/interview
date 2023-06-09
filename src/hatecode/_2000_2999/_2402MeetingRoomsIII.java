@@ -30,6 +30,9 @@ Output: 0
     */
     
     /*
+
+    thinking process: O((mlgm + nlgn + mn * lgn)/O(n))
+     m = A.length
      the problem is to say: given one integer n represents the meeting room, you have anothe array 
      A[i][j] means meeting start time and end time as interval,  there are some rules for the meeting schedule, 
 
@@ -38,6 +41,11 @@ Output: 0
      3. if two meeting room are available, thne pick the lowest room number
 
      return the meeting room which has the most meeting, if there is a tie, return the lower meeting room number
+
+    
+
+    we can easily simulate the process, 
+     
 
 
 
