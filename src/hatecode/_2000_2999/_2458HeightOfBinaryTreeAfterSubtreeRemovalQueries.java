@@ -43,9 +43,11 @@ Output: [2]
      each query will be independently 
 
      brute force is to visit tree each time and if we see the element in the tree, then we just try to see the max height of the tree.
-
+     this will be O(mn)
 
      
+
+
    */
     
         int maxH = 0;
