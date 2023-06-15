@@ -37,7 +37,9 @@ Output: 16
 
 
       the problem is tricky because it is more on you how to solve this problem instead of algo or DS, 
-      so 
+      so the key is how to find the latest time to catch the bus.
+
+      
 
 
    */
