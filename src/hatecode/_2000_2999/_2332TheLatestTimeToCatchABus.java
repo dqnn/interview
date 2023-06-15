@@ -32,7 +32,14 @@ Output: 16
    /*
       thinking process: O(nlgn + mlgm) 
 
-      the problem is to say: 
+      the problem is to say:  given passenger arrive time and bus depearture as integer array P and B, 
+      each bus capacity is cap, return the latest time if you want to catch on a bus. 
+
+
+      the problem is tricky because it is more on you how to solve this problem instead of algo or DS, 
+      so 
+
+
    */
     public int latestTimeCatchTheBus(int[] B, int[] P, int cap) {
         if (B == null || B.length < 1 || P == null || P.length < 1 || cap < 1) return -1;
