@@ -39,7 +39,29 @@ Output: 16
       the problem is tricky because it is more on you how to solve this problem instead of algo or DS, 
       so the key is how to find the latest time to catch the bus.
 
+
+      we can think with exetrem case:
+
+      1. suppose you are the only people, you only need to catch the last bus, the answer is last bus dep time
+      2. suppose bus have infinite cap, you only need to catch the last bus, the answer is last bus dep time
+      3. suppose bus cap is 1 and only 1 bus, you need to be first, the first passengae[0] - 1;
       
+
+      so we will just need to focus on last bus, if it has enough cap, then bus depar time is the answer.
+      if not, then we have to count back, if there is not successive numbers, first is the answer
+
+      B = [10,20], 
+      P = [2,17,18,19], 
+      cap = 2
+
+      10 will take 2, when 20 comes, it will only take 17,18, so the earliest is 16 
+
+       B = [10,20], 
+       P = [2,17], 
+       cap = 2     
+       
+       it will be 20, just the bus time, 
+
 
 
    */
@@ -50,6 +72,7 @@ Output: 16
         
         int n = B.length, m = P.length;
         
+        // c is capacity to know last bus is full or not, j is the pointer point to passenage not onboarding the bus
         int c = 0;
         int j = 0;
         for(int t : B) {
@@ -60,8 +83,11 @@ Output: 16
             }
         }
         
+        //j step back to point to last bus last person
+        j--;
         int res = c > 0 ? B[n-1] : P[j];
         
+        // count back
         while( j >=0 && res == P[j]) {
             j--;
             res--;
