@@ -54,8 +54,8 @@ we can jump lower to 4, lower(5) = higher(4) = false
  */
   //thinking process,  
     //the problem is to say we want to jump from i->j, we have two options, 
-    //even jump, find the smallest [i+1, len],2,4,6
-    //odd jump, find the largest in [i+1, len] 1,3,5
+    //even jump, find the smaller [i+1, len],2,4,6
+    //odd jump, find the larger in [i+1, len] 1,3,5
     
     //if we can get last element, then problem solved, but each 
     //element has fixed steps to last one, 
@@ -66,9 +66,37 @@ we can jump lower to 4, lower(5) = higher(4) = false
     //as the requirement, treeMap is perfect match here
     //even jumped, means first jump, you have to choose the smallest but larger than A[i]
     //2nd jump you have to choose the biggest among the largest
+
+    /*
+     * example  [10,13,12,14,15]
+     * high[4]=low[4] = true
+     * 
+     * we visit from 14--> 10, 
+     * high[3] = low[4] = true
+     * low[3] = false 
+     * 
+     * then visit 12 
+     * high[2] = low[3] = false 
+     * low[2] = fasle 
+     * 
+     * then visit 13 
+     * high[1] = low[3] = fasle 
+     * low[1] = high[2] = false 
+     * 
+     * then visit 10 
+     * high[0] = low[2] = false 
+     * low[0] = false 
+     * 
+     * 
+     * for every node, we can only jump odd firstly, so we only choose high[i] = true
+     */
     public int oddEvenJumps(int[] A) {
         if (A == null || A.length < 1) return 0;
         int n  = A.length, res = 1;
+        /*
+         high[i] = true means you can odd jump from position to last one, which means latter is bigger
+         low[i] = true means you can even jump from position to last one
+        */
         boolean[] higher = new boolean[n], lower = new boolean[n];
         higher[n - 1] = lower[n - 1] = true;
         
