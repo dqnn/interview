@@ -22,6 +22,13 @@ Output: 3
     // key points:
     /* Greedy: 
      * 1.  choose course which ends earlier.
+     * 
+     * A----------------------|
+     * B----------------|
+     * C  --------------| 
+     * 
+     * we should try B or C, because we use extra time to other course, at least choose B or C will have better results
+     * 
      * 2.  if ends same time, choose course which has shorter duration
      */
     public int scheduleCourse(int[][] A) {
