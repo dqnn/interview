@@ -20,11 +20,12 @@ Output: 3
     //q.size() is the courses numbers
 
     // key points:
-    /*
-     * 1. 
+    /* Greedy: 
+     * 1.  choose course which ends earlier.
+     * 2.  if ends same time, choose course which has shorter duration
      */
     public int scheduleCourse(int[][] A) {
-        if(courses == null || courses.length < 1) return 0;
+        if(A == null || A.length < 1) return 0;
         
         Arrays.sort(A, (a, b)->Integer.compare(a[1], b[1]));
         PriorityQueue<Integer> q = new PriorityQueue<>((a, b)->Integer.compare(b, a));
