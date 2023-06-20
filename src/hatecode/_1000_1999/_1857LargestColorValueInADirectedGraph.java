@@ -40,6 +40,23 @@ Explanation: The path 0 -> 2 -> 3 -> 4 contains 3 nodes that are colored "a" (re
      * 
      * 
      *   for directed graph, it is easy to think about DFS/BFS and toplogic sort, if we look into deeper, 
+     *   DFS can solve the problem with TLE. 
+     * 
+     *   if we think about toplogic sort, also the color value must exist in the  path which starts with indegree = 0. because if not, we 
+     * can always find indegree = 0 to that start node. this can help simplify the problem 
+     * 
+     *  we use Map<Integer, Set<Integer>> to store the graph, then we use indegree[n] to store each node indegree, when it is 0, we add to queue
+     *  the key point here is that count[n][26]
+     *  count[i][0] means for node i, the max count of frequency from path head to node i with color 'a'
+     *  count[i][1] means for node i, the max count of frequency from path head to node i with color 'b'
+     *  count[i][2] means for node i, the max count of frequency from path head to node i with color 'c'
+     * 
+     *  we roll up all the count from front to end. suppose we have two merged path like following 
+     * 
+     *   -------------|-----------------
+     *   -------------|
+     * 
+     *  it is still good, because we will use Math.max() always pick the bigger value
      * 
      * 
      */
