@@ -58,14 +58,18 @@ Explanation: The path 0 -> 2 -> 3 -> 4 contains 3 nodes that are colored "a" (re
      * 
      *  it is still good, because we will use Math.max() always pick the bigger value
      * 
+     * we use visited to record how many nodes visited in the topologic sort, if not equals to n, then it has circle, return -1.
      * 
      */
     
      public int largestPathValue(String colors, int[][] edges) {
         int n = colors.length();
+
+        //store the graph
         Map<Integer, Set<Integer>> map = new HashMap<>();
+        // count[i][0] means for node i, the max count of frequency from path head to node i with color 'a'
         int[][] count = new int[n][26];
-        
+        //initialize the graph and count
         for(int i = 0; i < n; i++) {
             count[i][colors.charAt(i)-'a']++;
             map.put(i, new HashSet<>());
@@ -76,13 +80,14 @@ Explanation: The path 0 -> 2 -> 3 -> 4 contains 3 nodes that are colored "a" (re
             map.get(e[0]).add(e[1]);
             indegree[e[1]]++;
         }
-         
+        //add indegree 0 nodes to queue
         Queue<Integer> q = new LinkedList<>();
         IntStream.range(0,n).filter(i->indegree[i] == 0).forEach(i->q.offer(i));
          
         int visited = 0;
         int res = 0;
-         
+        
+        //start BFS
         while(!q.isEmpty()) {
             int u = q.poll();
             visited++;
