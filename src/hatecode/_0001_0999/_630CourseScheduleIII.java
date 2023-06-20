@@ -18,13 +18,18 @@ Output: 3
     //then loop in that array, has a variable starts from 0, if we can find 
     //current > its end data, then we did not take this course and remove from q.
     //q.size() is the courses numbers
-    public int scheduleCourse(int[][] courses) {
+
+    // key points:
+    /*
+     * 1. 
+     */
+    public int scheduleCourse(int[][] A) {
         if(courses == null || courses.length < 1) return 0;
         
-        Arrays.sort(courses, (a, b)->(a[1] - b[1]));
-        PriorityQueue<Integer> q = new PriorityQueue<>((a, b)->(b -a));
+        Arrays.sort(A, (a, b)->Integer.compare(a[1], b[1]));
+        PriorityQueue<Integer> q = new PriorityQueue<>((a, b)->Integer.compare(b, a));
         int time = 0;
-        for(int[] c : courses)  {
+        for(int[] c : A)  {
             time += c[0];
             q.offer(c[0]);
             if (time > c[1]) time -= q.poll();
