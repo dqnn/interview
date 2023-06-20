@@ -30,7 +30,7 @@ Explanation: The path 0 -> 2 -> 3 -> 4 contains 3 nodes that are colored "a" (re
      * the problem is to say: given one colors string, abaca, means node 0 is color 'a', 1 is colored as 'b'. 
      * you have list of edges, like [[0,1],[0,2],[2,3],[3,4]], it means 0->1, 0 -> 2 etc, directed graph
      * 
-     * return the max color value in this graph, max color value means you on one path, the max color frequency, for example:
+     * return the max color value in this graph, max color value means you are on one path, the max color frequency, for example:
      * 
      *   a--> a--> c --> a
      *   |
@@ -39,7 +39,8 @@ Explanation: The path 0 -> 2 -> 3 -> 4 contains 3 nodes that are colored "a" (re
      *   return 3, because in the horizonte path, there are 3 'a'
      * 
      * 
-     *  
+     *   for directed graph, it is easy to think about DFS/BFS and toplogic sort, if we look into deeper, 
+     * 
      * 
      */
     
