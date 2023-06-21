@@ -46,26 +46,37 @@ public class _1229MeetingScheduler {
     //use a priorityqueue to store all slots which has duration bigger than duration.
     //sort them by start time so we can have all in a sorted order, then we poll first and compare 2nd
     //in pq, then we can get all qualified candidates
-    List<Integer> minAvailableDuration(int[][] slots1, int[][] slots2, int duration) {
-        List<Integer> res = new ArrayList<>();
-        if (slots1 == null || slots2 == null) return res;
+
+    /*
+     * we use PQ head element to compare the one who are next in PQ
+     */
+    public List<Integer> minAvailableDuration(int[][] slots1, int[][] slots2, int d) {
         
-        PriorityQueue<int[]> pq = new PriorityQueue<int[]>((a, b)->(a[0] - b[0]));
+        Arrays.sort(slots1, (a, b)->Integer.compare(a[0], b[0]));
+        Arrays.sort(slots2, (a, b)->Integer.compare(a[0], b[0]));
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b)->Integer.compare(a[0], b[0]));
+        
         for(int[] slot : slots1) {
-            if (slot[1] - slot[0] >= duration) pq.add(slot);
+            if (slot[1] - slot[0] >= d) pq.offer(slot);
         }
         
         for(int[] slot : slots2) {
-            if (slot[1] - slot[0] >= duration) pq.add(slot);
+            if (slot[1] - slot[0] >= d) pq.offer(slot);
         }
         
-        while(!pq.isEmpty()) {
-            int[] slot = pq.poll();
-            if (slot[1] > pq.peek()[0] + duration) {
-                res.add(slot[0]);
-                res.add(slot[0] + duration);
+        List<Integer> res = new ArrayList<>();
+        /*
+         * another way not use pq.isEmpty(), so we do not have add pq.isEmpty() at line 69
+         */
+        while(pq.size() > 1) {
+            int[] ele = pq.poll();
+            if (ele[1] >= pq.peek()[0] + d) {
+                res.add(pq.peek()[0]);
+                res.add(pq.peek()[0] +d);
+                return res;
             }
         }
+        
         return res;
     }
 }
