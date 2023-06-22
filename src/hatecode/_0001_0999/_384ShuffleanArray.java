@@ -52,8 +52,15 @@ public class _384ShuffleanArray {
         //so reservior sampling algorithms, 
         //we want to get k of n, and k all have same probability 
         //for k + i, each elements was to be selected is k/(k+i)
-        //suppose there are 3 5 in the array, and when we meet first 5, the probobality is 100% 
-        // but that's ok because later we are able to override, next 5, we have 50%, third we have 33%, 
+
+        // 1/k * (1 - 1/(K+1))* (1 - 1/(K+1))* (1 - 1/(K+1))..*(1-1/n)
+        /*
+         *  1/k: choose in in K, 
+         *  from k +1, one stay in reservior and not replace probability: 1/k* (1-1/(k+1)) = 1/k+1, continue until n
+         * so it will be 1/n 
+         * 
+         * we use the alorithms to this problem, we will know each element have same probablity to each index
+         */
         for (int i = 1; i < clone.length; i++) {
             //random will be [0,1,2...i], so  it would be 1/(i+1), 
             //the array suppose we have n digits, so random one will be 
