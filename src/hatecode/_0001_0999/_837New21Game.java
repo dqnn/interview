@@ -30,9 +30,16 @@ Output: 0.73278
      *  Alice continue play the game, she can get number from [1, w], then 
      * dp[x] = 1/w * (dp[x+1] + dp[x+2] + ... dp[x+w]) because it is evenly distribution, then since we already know the probability from [k, k+w)
      * 
-     * then we can refer dp[x] from [0, K),  we use s to store sum of the elements which in K window
+     *  thinking about below cells
      * 
-     * dp[0] means 
+     * -0----1----2----3----4----5----...----k----k+1----k+2----...----k+w
+     *                                            |______w_____________|
+     *                                              window w, 
+     * 
+     * dp[k] = 1/w * (dp[k+1]+...dp[k+w]) 
+     * 
+     * we can calculate back to dp[0], which means
+     * 
      */
     public double new21Game(int n, int k, int w) {
         double[] dp = new double[k + w];
