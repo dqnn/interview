@@ -14,6 +14,39 @@ Example 1:
 Input: N = 21, K = 17, W = 10
 Output: 0.73278
 */
+     
+
+    /*
+     * thinking process: O(k+w)/O(k+w)
+     * 
+     * the problem is to say: Alice is can get points everytime from [1,w], each number will have same probablity 
+     * if all points Alice get >= K, then stop, 
+     * return probabiliy that Alice points not greater than N? 
+     * 
+     * we can the points Alice get is x, dp[x] as the probability that x < N, then  if x >= K & K <= N, then it is 1, else it is 0, 
+     * it is determined since game over 
+     * 
+     * then if  0 <= x < k, then we 
+     */
+    public double new21Game(int n, int k, int w) {
+        double[] dp = new double[k + w];
+        
+        double s = 0;
+        for(int i = k; i < k +w; i++) {
+            dp[i] = (i <= n ? 1 : 0);
+            s += dp[i];
+        }
+        
+        for(int i = k - 1; i>=0; i--) {
+            dp[i] = s/w;
+            s=s-dp[i+w]+dp[i];
+        }
+        
+        return dp[0];
+        
+    }
+     
+
      //O(n)/O(n)
     //thinking process: 
     //so N, K, W 3 parameters, if score i < K, it will be 100% because we would not stop 
