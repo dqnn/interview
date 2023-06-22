@@ -26,7 +26,13 @@ Output: 0.73278
      * we can the points Alice get is x, dp[x] as the probability that x < N, then  if x >= K & K <= N, then it is 1, else it is 0, 
      * it is determined since game over 
      * 
-     * then if  0 <= x < k, then we 
+     * then if  0 <= x < k, then we can calculate as follow, 
+     *  Alice continue play the game, she can get number from [1, w], then 
+     * dp[x] = 1/w * (dp[x+1] + dp[x+2] + ... dp[x+w]) because it is evenly distribution, then since we already know the probability from [k, k+w)
+     * 
+     * then we can refer dp[x] from [0, K),  we use s to store sum of the elements which in K window
+     * 
+     * dp[0] means 
      */
     public double new21Game(int n, int k, int w) {
         double[] dp = new double[k + w];
