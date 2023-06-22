@@ -38,7 +38,13 @@ Output: 0.73278
      * 
      * dp[k] = 1/w * (dp[k+1]+...dp[k+w]) 
      * 
-     * we can calculate back to dp[0], which means
+     * explain dp[0]
+     * 
+     * we make dp[i] = 1, k+1<=i<=k+w, dp[i] = 0 when  k+w+1<=i<=n 
+     * we actually calculate when will alice will win, so dp[k] is the step to dp[k+1]..dp[k+w],  so is the same to dp[0] to dp[1].. dp[w]
+     * then dp[k] describe if we are at k, what is the probability to win, dp[0] means if we are at the starting point, what is the probability to win
+     * 
+     * 
      * 
      */
     public double new21Game(int n, int k, int w) {
