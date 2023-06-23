@@ -43,24 +43,25 @@ public class _086PartitionList {
     // if bigger or equals, we copy the value and placed after BigHead, 
     // at last, small move to last and we should use small.next = bigger.next so we can 
     //join them together. and return the smallerHead
+    //we do not have to create new nodes
     public ListNode partition(ListNode head, int x) {
-        ListNode smallHead = new ListNode(0),
-                bigHead = new ListNode(0),
-                small = smallHead,
-                big = bigHead;
-        while (head != null) {
-            ListNode temp = new ListNode(head.val);
+        ListNode big = new ListNode(-1), small = new ListNode(-1);
+        ListNode BigHead = big, smallHead = small;
+        
+        while(head != null) {
             if (head.val < x) {
-                small.next = temp;
+                small.next = head;
                 small = small.next;
             } else {
-                big.next = temp;
+                big.next = head;
                 big = big.next;
             }
             head = head.next;
         }
-        // this 
-        small.next = bigHead.next;
+        
+        big.next = null;
+        small.next = BigHead.next;
+        
         return smallHead.next;
     }
 }
