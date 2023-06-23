@@ -22,7 +22,11 @@ public class _1971FindIfPathExistsInGraph {
     - 0 → 2
     */
     /*
-     * thinking process: 
+     * thinking process: O(V+E)/O(V+E)
+     * 
+     * the problem is to say: given one bi-direction graph, return true if there is path from s to e
+     * 
+     * typical BFS
      */
         public boolean validPath(int n, int[][] edges, int s, int e) {
             if (edges == null || edges.length < 1 || edges[0].length < 1) return true;
