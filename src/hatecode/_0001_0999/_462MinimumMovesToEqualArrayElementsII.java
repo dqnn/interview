@@ -43,6 +43,7 @@ public class _462MinimumMovesToEqualArrayElementsII {
             int n = A.length;
             int l = 0, r = n -1;
             
+            // each element only visit once 
             while(true) {
                 int m = partition(A, l ,r);
                 if (m == n /2) {
