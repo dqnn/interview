@@ -68,10 +68,11 @@ public class _329LongestIncreasingPathinaMatrix {
             int y = j + dir[1];
             if(x < 0 || x >= r || y < 0 ||  y  >= c  ||  m[x][y] <= m[i][j]) continue;
 
-            int dis = helper(m, x, y, memo) + 1;
+            // int dis = helper(m, x, y, memo) + 1;
             //System.out.println(i + "," + j + "->" + x + "," + y + "=" + dis);
-            max = Math.max(max, dis);  
+            max = Math.max(max, 1 + helper(A, x, y, memo));
         }
+        // here is important, because evey [i, j] will be assigned one value
         memo[i][j] = max;
         return memo[i][j];
     }
