@@ -21,10 +21,20 @@ public class _462MinimumMovesToEqualArrayElementsII {
        /*
         * thinking process: O(n)/O(1)
 
-        the problem is to say: you  can increment or decrement element by 1, we can this action as one move, 
+        the problem is to say: given one array A, you  can increment or decrement element by 1, we can this action as one move, 
         we want to make all elements in A to be the same, return the min moves totally. 
 
-        
+
+        ------min--------------------max----------------
+
+        suppose min and max are min and max of the A,  any element outside [min, max] will make results bigger than one between min 
+        and max, 
+
+        so the element must be inside,  median, 
+
+        we can try to find the median by partition array since we only need to know the median without soring the array
+
+
         */
         public int minMoves2(int[] A) {
             if (A == null || A.length < 1) return -1;
