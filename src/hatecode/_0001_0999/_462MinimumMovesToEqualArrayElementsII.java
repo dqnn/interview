@@ -17,6 +17,15 @@ public class _462MinimumMovesToEqualArrayElementsII {
     Input: nums = [1,2,3]
     Output: 2
     */
+
+       /*
+        * thinking process: O(n)/O(1)
+
+        the problem is to say: you  can increment or decrement element by 1, we can this action as one move, 
+        we want to make all elements in A to be the same, return the min moves totally. 
+
+        
+        */
         public int minMoves2(int[] A) {
             if (A == null || A.length < 1) return -1;
             
