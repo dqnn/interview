@@ -36,7 +36,22 @@ public class _2448MinimumCostToMakeArrayEqual {
          * 
          * base: 
          * 1. it is easy to know the integer must exist [min, max]
-         * 2. 
+         * 2. f(x) means the total cost if integer is x, then f(x) is something like
+         
+         f(x)
+         * 
+         *  \            /
+         *   \          /
+         *    \        / 
+         *     \      /
+         *       \___/
+         * min-------------max---------> x
+         * 
+         * why? f(x) = |A(x) - x| * cost(x) , 
+         * 
+         * if cost(x) is 1, then f(x) is constant value,  if not, it will be bigger 
+         * 
+         * 3. we can compare f(x) with f(x+1) with bianry search, we can easily know which sides we are in currently 
          * 
          */
         public long minCost(int[] A, int[] cost) {
