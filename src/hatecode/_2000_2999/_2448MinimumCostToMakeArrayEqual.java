@@ -32,7 +32,7 @@ public class _2448MinimumCostToMakeArrayEqual {
          * 
          * all are positive integers
          * 
-         * 
+         * similar problem: 462. Minimum Moves to Equal Array Elements II
          */
         public long minCost(int[] A, int[] cost) {
             if (A == null || A.length < 1) return -1;
