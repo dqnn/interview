@@ -20,6 +20,20 @@ public class _2448MinimumCostToMakeArrayEqual {
     Input: nums = [1,3,5,2], cost = [2,3,1,14]
     Output: 8
     */
+
+        /*
+         * thinking process: O(Mlgn) M = max - min
+         * 
+         * the problem is to say: given one integer array A and cost array cost, 
+         * 
+         * you can increment or decrement A[i] with 1, each move will have cost[i]
+         * 
+         * the goal is to make all elements equal, return the min cost
+         * 
+         * all are positive integers
+         * 
+         * 
+         */
         public long minCost(int[] A, int[] cost) {
             if (A == null || A.length < 1) return -1;
             
