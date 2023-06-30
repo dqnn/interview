@@ -57,6 +57,8 @@ public class _2448MinimumCostToMakeArrayEqual {
         public long minCost(int[] A, int[] cost) {
             if (A == null || A.length < 1) return -1;
             
+
+            // setup search scope 
             int min = A[0], max = A[0];
             for(int a: A) {
                 min = Math.min(min, a);
