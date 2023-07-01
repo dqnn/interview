@@ -11,13 +11,40 @@ In a complete binary tree every level, except possibly the last, is completely f
 Input: [1,2,3,4,5,null,7]
 Output: false
 */
+    
+// also interview friendly: O(n)/O(n)
+   /*
+    * thinking process is same as BFS, but code is more clean, we use prev pointer as isFound flag, but it is more elegant
+    */
+    public boolean isCompleteTree_Best_1(TreeNode root) {
+        if (root == null) return true;
+        
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        
+        TreeNode prev = root;
+        while(!q.isEmpty()) {
+            TreeNode node = q.poll();
+            if (prev == null && node != null) return false;
+            
+            if (node != null) {
+                q.offer(node.left);
+                q.offer(node.right);
+            }
+            
+            prev = node;
+        }
+        
+        return true;
+    }
+    
     //interview friendly and thinking process
     //given complete BT definition, we want to detect whether one 
     //given tree is complete BT, if we take close look on the tree,
     //we can find that if we level scan the tree, there should not be null, 
     //if there are then it must be last and only one. 
     //or if not, it is not as left as possible or not previous node must not be filled. 
-    public boolean isCompleteTree_BEST(TreeNode root) {
+    public boolean isCompleteTree_BEST_2(TreeNode root) {
         if (root == null) return true;
         Queue<TreeNode> q = new LinkedList<>();
         q.offer(root);
