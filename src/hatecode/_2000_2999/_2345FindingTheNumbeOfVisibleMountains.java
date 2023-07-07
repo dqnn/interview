@@ -28,7 +28,24 @@ Output: 2
      * 
      * it is easy to thinking about stack, but stack is not good for process right part which means not in stack. 
      * 
-     * we convert A to intervals, [start, end], we do not need to care about peak, 
+     * we convert A to intervals, [start, end], we do not need to care about peak, so the problem could be:
+     * 1. previous interval contains next,  like following 
+     * 
+     *  |_______________________|
+     *  |______|
+     *    |_________|
+     *       |__________________|
+     * 
+     * 2. all contained, both will be dropped
+     *   |__________|
+     *   |__________|
+     * 
+     * 3. following  cases will be good 
+     * 
+     * |___________|
+     *   |____________|
+     * 
+     * so it is essentially one variant of interval problem 
      */
     public int visibleMountains_Best(int[][] A) {
         if (A == null || A.length < 1 || A[0].length < 1) return 0;
