@@ -64,8 +64,10 @@ Output: 2
         
         while(i < n) {
             res++;
+
+            // no need to compare
             if (i == n - 1) return res;
-            
+            //means previous one will be out, nex one will be determined by right condition
             if (A[i][0] == A[i+1][0]) res--;
             int curEnd = A[i][1];
             // here is to process right
