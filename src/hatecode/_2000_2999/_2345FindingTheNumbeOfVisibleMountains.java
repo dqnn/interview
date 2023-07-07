@@ -26,7 +26,9 @@ Output: 2
      * 
      * return how many montains can be visible,  a mountain can be visible if it is no included in another montain from left right
      * 
-     * it is easy to thinking about stack, but stack is not good for 
+     * it is easy to thinking about stack, but stack is not good for process right part which means not in stack. 
+     * 
+     * we convert A to intervals, [start, end], we do not need to care about peak, 
      */
     public int visibleMountains_Best(int[][] A) {
         if (A == null || A.length < 1 || A[0].length < 1) return 0;
