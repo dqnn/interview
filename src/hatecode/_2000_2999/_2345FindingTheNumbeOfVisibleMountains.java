@@ -83,7 +83,7 @@ Output: 2
     /*
      * thinking process: O(nlgn)/O(n)
      * 
-     * we use stack to store the qualified mountains, whether one mountain conains another one
+     * we use stack to store the qualified mountains, whether one mountain contains another one
      * 
      * 
      * 
