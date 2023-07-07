@@ -85,7 +85,10 @@ Output: 2
      * 
      * we use stack to store the qualified mountains, whether one mountain contains another one
      * 
+     * helper(prev, current, A) it will return true if prev is contained by current
      * 
+     * for left, we need to pop if current i contains prev moutains
+     * for right, we need to skip i if i is contained by previous or 
      * 
      */
     public int visibleMountains(int[][] peaks) {
