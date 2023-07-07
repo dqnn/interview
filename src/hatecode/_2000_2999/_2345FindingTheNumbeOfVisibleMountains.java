@@ -20,7 +20,7 @@ Output: 2
     
     */
     /*
-     * thinking process: O(n)/O(n)
+     * thinking process: O(n)/O(n) interview friendly
      * 
      * the problem is to say: given a 2D array [x, y] as mountain peak coordination, left and right have same distance with the height.
      * 
@@ -57,5 +57,28 @@ Output: 2
         return res;
         
     }
+
+    public int visibleMountains(int[][] peaks) {
+        Arrays.sort(peaks,(a,b)->a[0]==b[0]?a[1]-b[1]:a[0]-b[0]);
+        Stack<Integer> stack=new Stack<>();
+        
+        for(int i=0;i<peaks.length;i++){
+            while(!stack.isEmpty() && helper(stack.peek(),i,peaks)){
+                stack.pop();
+            }
+            if(!stack.isEmpty() && helper(i,stack.peek(),peaks) || i>0 && helper(i,i-1,peaks) ) continue;
+            stack.push(i);
+        }
+        return stack.size();
+      }
+  
+  
+      private boolean helper(int prev ,int curr,int[][] peaks){
+        int x1=peaks[prev][0];
+        int y1=peaks[prev][1];
+        int x2=peaks[curr][0];
+        int y2=peaks[curr][1];
+        return x2+y2>=x1+y1 && x2-y2<=x1-y1;
+      }
     
 }
