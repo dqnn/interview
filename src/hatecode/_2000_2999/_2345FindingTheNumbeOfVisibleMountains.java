@@ -83,6 +83,10 @@ Output: 2
     /*
      * thinking process: O(nlgn)/O(n)
      * 
+     * we use stack to store the qualified mountains, whether one mountain conains another one
+     * 
+     * 
+     * 
      */
     public int visibleMountains(int[][] peaks) {
         Arrays.sort(peaks,(a,b)->a[0]==b[0]?a[1]-b[1]:a[0]-b[0]);
