@@ -80,6 +80,8 @@ public class _315CountofSmallerNumbersAfterSelf {
     /*
      * each node will have s(start), e(end) and count (count of integers)
      * 
+     * A = [5,2,6,1]
+     * 
      * 
      */
     class Node{
