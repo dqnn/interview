@@ -82,7 +82,14 @@ public class _315CountofSmallerNumbersAfterSelf {
      * 
      * A = [5,2,6,1]
      * 
+     * we utilize segment tree to remember how many numbers are small than x 
+     * we define 
+     *  Node {
+     *  int s, e, count;
+     *  Node l, r;
+     * }
      * 
+     * when we build the tree, we 
      * 
      * 
      */
