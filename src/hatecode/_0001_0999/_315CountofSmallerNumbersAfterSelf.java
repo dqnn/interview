@@ -22,7 +22,7 @@ public class _315CountofSmallerNumbersAfterSelf {
      Example:
 
      Given nums = [5, 2, 6, 1]
-
+π
      To the right of 5 there are 2 smaller elements (2 and 1).
      To the right of 2 there is only 1 smaller element (1).
      To the right of 6 there is 1 smaller element (1).
@@ -75,26 +75,84 @@ public class _315CountofSmallerNumbersAfterSelf {
         return end;
     }
 
-    // TreeMap time exceed, do not understand
-    public List<Integer> countSmaller2(int[] nums) {
-        List<Integer> res = new ArrayList<>();
-        // edge case
-        if (nums == null || nums.length < 1) {
-            return res;
+
+    //below is to utilize SegmentTree to solve the problem
+    class Node{
+        int s, e, count;
+        Node l, r;
+        public Node(int s, int e) {
+            this.s =s;
+            this.e =e;
         }
-        TreeMap<Integer, Integer> map = new TreeMap<>();
-        int min = Integer.MIN_VALUE;
-        for (int i = nums.length - 1; i >= 0; i--) {
-            min = Math.min(min, nums[i]);
-            // use treeMap to get subset
-            Map<Integer, Integer> tempMap = map.subMap(min, true, nums[i], false);
-            int count = 0;
-            for (Integer e : tempMap.values()) {
-                count += e;
+    }
+    
+    class SegmentTree{
+        Node root;
+        public SegmentTree(int s, int e) {
+            this.root = buildTree(s, e);
+        }
+        
+        private Node buildTree(int s, int e) {
+            if (s > e) return null;
+            Node node = new Node(s, e);
+            if (s == e) {
+                node.count = 0;
             }
-            res.add(0, count);
-            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+            else {
+                int m = s + (e -s)/2;
+                node.l = buildTree(s, m);
+                node.r = buildTree(m+1, e);
+            }
+            
+            return node;
         }
-        return res;
+        
+        public int query(Node root, int s, int e) {
+            if (root == null || s > e) return 0;
+            else if (root.s == s && root.e == e) return root.count;
+            else {
+                int m = root.s + (root.e - root.s)/2;
+                if (e <= m) return query(root.l, s, e);
+                else if (s >= m) return query(root.r, s, e);
+                else return query(root.l, s, m) + query(root.r, m + 1, e);
+            }
+            
+        }
+        
+        public void update(Node root, int i, int v) {
+            if (root.s == i && root.e == i) {
+                root.count+=1;
+                return;
+            }
+            
+            int m = root.s + (root.e - root.s)/2;
+            if (root.s <=i && i <= m) {
+                update(root.l, i, v);
+            }
+            
+            if (m < i && i<=root.e) {
+                update(root.r, i, v);
+            }
+            
+            root.count= root.l.count + root.r.count;
+        }
+    }
+    
+    public List<Integer> countSmaller_SegmentTree(int[] A) {
+        if (A == null || A.length < 1) return new ArrayList<>();
+        
+        int[] res = new int[A.length];
+        int min = A[0], max=A[0];
+        for(int a : A) {
+            min = Math.min(min, a);
+            max = Math.max(max, a);
+        }
+        SegmentTree tree = new SegmentTree(min, max);
+        for(int i = A.length-1; i>=0; i--) {
+            res[i] = tree.query(tree.root, min, A[i]-1);
+            tree.update(tree.root, A[i], 1);
+        }
+        
+        return Arrays.stream(res).boxed().collect(Collectors.toList());
     }
 }
