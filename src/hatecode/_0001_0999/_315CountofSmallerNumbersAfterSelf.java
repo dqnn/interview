@@ -77,6 +77,11 @@ public class _315CountofSmallerNumbersAfterSelf {
 
 
     //below is to utilize SegmentTree to solve the problem
+    /*
+     * each node will have s(start), e(end) and count (count of integers)
+     * 
+     * 
+     */
     class Node{
         int s, e, count;
         Node l, r;
