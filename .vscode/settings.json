@@ -1,3 +1,6 @@
 {
-    "git.postCommitCommand": "push"
+    "git.postCommitCommand": "push",
+    "java.project.sourcePaths": [
+        "src"
+    ]
 }
