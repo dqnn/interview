@@ -45,6 +45,9 @@ public class _2407LongestIncreasingSubsequenceII {
         }
         
         /*
+         * this is interview friendly for the best TC.
+         * there are some edge cases and steps to utilize segment tree
+         * 
          * 
          */
         static class Node{
