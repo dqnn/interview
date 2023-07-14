@@ -1,3 +1,14 @@
+package hatecode._1000_1999;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
+import java.util.stream.IntStream;
+
 public class _1857LargestColorValueInADirectedGraph {
     /*
     1857. Largest Color Value in a Directed Graph
