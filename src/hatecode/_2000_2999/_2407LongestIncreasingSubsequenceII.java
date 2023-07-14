@@ -42,7 +42,7 @@ public class _2407LongestIncreasingSubsequenceII {
             return res;
         }
         
-        class Node{
+        static class Node{
             int s, e, count;
             Node l, r;
             public Node(int s, int e) {
@@ -55,7 +55,7 @@ public class _2407LongestIncreasingSubsequenceII {
             }
         }
         
-        class SegmentTree {
+        static class SegmentTree {
             Node root;
             public SegmentTree(int[] A, int k){
                 int min = A[0], max = min;
@@ -63,8 +63,7 @@ public class _2407LongestIncreasingSubsequenceII {
                     min = Math.min(min, a);
                     max = Math.max(max, a);
                 }
-                
-                this.root = buildTree(min - k, max + k);
+                this.root = buildTree(0, max);
             }
             
             public Node buildTree(int s, int e) {
@@ -84,41 +83,61 @@ public class _2407LongestIncreasingSubsequenceII {
                 if (root == null || i < root.s || i > root.e) return;
                 
                 if (root.s == i && root.e == i) {
-                    root.count +=v;
+                    root.count =v;
                     return;
                 }
                 
                 int m = root.s + (root.e- root.s)/2;
                 if (root.s <= i && i <= m) {
                     update(root.l, i, v);
-                } else if (m < i && i <root.e) {
+                } else if (m < i && i <=root.e) {
                     update(root.r, i, v);
                 } 
                 
-                root.count = root.l.count + root.r.count;
+                root.count = Math.max(root.l.count, root.r.count);
             }
             
             
             public int query(Node root, int l, int r) {
-                if (root==null || l > r) return 0;
+                if (root==null || l > root.e || r < root.s) return 0;
                 
-                if (root.s == l && root.e ==r) return root.count;
+                if (root.s == l && root.e == r) return root.count;
                 
                 int m = root.s + (root.e-root.s)/2;
                 if ( r <=m ) return query(root.l, l, r);
-                else if (l >= m) return query(root.r, l, r);
-                else return query(root.l, l, m) + query(root.r, m +1, r);
+                else if (l > m) return query(root.r, l, r);
+                else return Math.max(query(root.l, l, m), query(root.r, m +1, r));
             }
             
         }
         
         public static int lengthOfLIS(int[] A, int k) {
             if (A == null || A.length < 1) return 0;
-            SegmentTree tree = new SegmentTree(A, k);
+
+
+            int min = A[0], max = min;
+                for(int a : A) {
+                    min = Math.min(min, a);
+                    max = Math.max(max, a);
+                }
+
+                int delta = 0;
+                if (min < k) {
+                    delta =  k- min;
+                }
+
+                int[] clone = A.clone();
+                for(int i = 0; i< A.length; i++) {
+                    clone[i] += delta;
+                }
+
+            SegmentTree tree = new SegmentTree(clone, k);
             int res = 1;
-            for(int a : A) {
-                res = Math.max(res, 1+tree.query(tree.root, a-k, a-1));
-                tree.update(tree.root, a, 1);
+
+            for(int a : clone) {
+                int prev = tree.query(tree.root, a-k, a-1);
+                tree.update(tree.root, a, prev+1);
+                res = Math.max(res, prev+1);
             }
             
             return res;
@@ -126,7 +145,9 @@ public class _2407LongestIncreasingSubsequenceII {
         }
 
         public static void main(String[] args) {
-            System.out.println(lengthOfLIS(new int[]{4,2,1,4,3,4,5,8,15}, 3))
+            System.out.println(lengthOfLIS(new int[]{4,2,1,4,3,4,5,8,15}, 3));
+            System.out.println(lengthOfLIS(new int[]{7,4,5,1,8,12,4,7}, 5));
+            System.out.println(lengthOfLIS(new int[]{1,10}, 10));
         }
-        
+         
     }
