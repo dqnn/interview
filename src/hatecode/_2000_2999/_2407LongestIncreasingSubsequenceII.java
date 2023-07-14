@@ -46,6 +46,15 @@ public class _2407LongestIncreasingSubsequenceII {
         
         /*
          * this is interview friendly for the best TC.
+         * thinking process: O(nlgmax(A))/O(max(A))
+         * 
+         * the problem is to say: given one array A, and integer k, 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
          * there are some edge cases and steps to utilize segment tree
          * 
          * 1. each node will have 5 elements, s, e, val(here is count),l and r. val is most important one
@@ -94,7 +103,7 @@ public class _2407LongestIncreasingSubsequenceII {
                 return node;
             }
             
-            // 
+            // post order to update the node, v is updated value, we can add or assign depends on the problem
             public void update(Node root, int i, int v) {
                 if (root == null || i < root.s || i > root.e) return;
                 
@@ -106,6 +115,7 @@ public class _2407LongestIncreasingSubsequenceII {
                 int m = root.s + (root.e- root.s)/2;
                 if (root.s <= i && i <= m) {
                     update(root.l, i, v);
+                //note we have to use i > m cannot i >=m becuase m is not in righ branch
                 } else if (m < i && i <=root.e) {
                     update(root.r, i, v);
                 } 
@@ -121,6 +131,7 @@ public class _2407LongestIncreasingSubsequenceII {
                 
                 int m = root.s + (root.e-root.s)/2;
                 if ( r <=m ) return query(root.l, l, r);
+                // here l >m, not l >=m because m is only in left branch, for example [1,10], k =10. 
                 else if (l > m) return query(root.r, l, r);
                 else return Math.max(query(root.l, l, m), query(root.r, m +1, r));
             }
