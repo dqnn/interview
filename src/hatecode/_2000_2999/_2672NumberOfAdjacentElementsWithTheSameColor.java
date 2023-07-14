@@ -1,4 +1,4 @@
-package _2000_2999;
+package hatecode._2000_2999;
 
 import java.utils.*;
 

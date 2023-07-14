@@ -1,3 +1,5 @@
+package hatecode._2000_2999;
+
 public class _2711DifferenceOfNumberOfDistinctValuesOnDiagonals {
 
 /*

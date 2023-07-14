@@ -1,3 +1,8 @@
+package hatecode._2000_2999;
+
+import java.util.Arrays;
+import java.util.Stack;
+
 public class _2345FindingTheNumbeOfVisibleMountains {
     
     /*

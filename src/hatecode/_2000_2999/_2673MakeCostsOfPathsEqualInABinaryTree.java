@@ -1,3 +1,5 @@
+package hatecode._2000_2999;
+
 public class _2673MakeCostsOfPathsEqualInABinaryTree {
     /*
     2673. Make Costs of Paths Equal in a Binary Tree

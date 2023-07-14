@@ -1,3 +1,5 @@
+package hatecode._2000_2999;
+
 import java.util.*;
 
 public class _2407LongestIncreasingSubsequenceII {

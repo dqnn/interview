@@ -1,3 +1,5 @@
+package hatecode._2000_2999;
+
 /**
  * Definition for a street.
  * interface Street {

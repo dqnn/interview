@@ -1,3 +1,9 @@
+package hatecode._2000_2999;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeMap;
+
 public class _2713MaximumStrictlyIncreasingCellsInAMatrix {
     /*
     2713. Maximum Strictly Increasing Cells in a Matrix

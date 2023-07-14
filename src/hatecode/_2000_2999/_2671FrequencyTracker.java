@@ -1,4 +1,4 @@
-package _2000_2999;
+package hatecode._2000_2999;
 
 import java.util.*;
 
@@ -30,7 +30,7 @@ public class _2671FrequencyTracker {
      */
         Map<Integer, Integer> kv;
         Map<Integer, Set<Integer>> fre2k;
-        public FrequencyTracker() {
+        public _2671FrequencyTracker() {
             kv = new HashMap<>();
             fre2k = new HashMap<>();
         }

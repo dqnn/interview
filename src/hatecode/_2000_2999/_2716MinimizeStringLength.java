@@ -1,3 +1,8 @@
+package hatecode._2000_2999;
+
+import java.util.HashSet;
+import java.util.Set;
+
 public class _2716MinimizeStringLength {
 /*
 2716. Minimize String Length

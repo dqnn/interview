@@ -1,6 +1,7 @@
-package _2000_2999;
+package hatecode._2000_2999;
 
 import java.util.*;
+import java.util.stream.IntStream;
 
 public class _2615SumOfDistances {
     /*
