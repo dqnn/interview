@@ -48,7 +48,13 @@ public class _2407LongestIncreasingSubsequenceII {
          * this is interview friendly for the best TC.
          * thinking process: O(nlgmax(A))/O(max(A))
          * 
-         * the problem is to say: given one array A, and integer k, 
+         * the problem is to say: given one array A, and integer k, find the longest strictly(>) increasing sequence, return the max length of it.
+         * in the sequence, adjacent element have max difference is k. 
+         * 
+         * for example: A=[4,2,1,4,3,4,5,8,15], k = 3 ---> 5,  res =[1,3,4,5,8]
+         * 
+         * 
+         * 
          * 
          * 
          * 
