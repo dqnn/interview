@@ -51,11 +51,16 @@ public class _2407LongestIncreasingSubsequenceII {
          * the problem is to say: given one array A, and integer k, find the longest strictly(>) increasing sequence, return the max length of it.
          * in the sequence, adjacent element have max difference is k. 
          * 
-         * for example: A=[4,2,1,4,3,4,5,8,15], k = 3 ---> 5,  res =[1,3,4,5,8]
+         * for example: A=[4,2,1,2,3], k = 3 ---> 3,  res =[1,2,3]
          * 
+         * since min query number will be negative, and binary search cannot be performed on negative number ([-3,-1]--> [-3,-2], [-1,-1]-->[-3,-2], [-1,-1])
          * 
+         * so we can clone the array, A=[4,2,1,2,3]--> min = 1, max = 4, k = 3, so delta = min - k = 2, then we build the tree on [0,6]
          * 
+         * then for each element, we query(root, A[i]-k, A[i]-1), it will return how many elements between [A[i]-k, A[i]-1] 
+         * note: each node count property will store the max integer count for the node range
          * 
+         * then we know how many numbers in range [A[i] -k, A[i]-1], then we update this number to tree with +1, update(root, i, v)  i is the number, v is the value
          * 
          * 
          * 
