@@ -44,6 +44,9 @@ public class _2407LongestIncreasingSubsequenceII {
             return res;
         }
         
+        /*
+         * 
+         */
         static class Node{
             int s, e, count;
             Node l, r;
@@ -59,13 +62,8 @@ public class _2407LongestIncreasingSubsequenceII {
         
         static class SegmentTree {
             Node root;
-            public SegmentTree(int[] A, int k){
-                int min = A[0], max = min;
-                for(int a : A) {
-                    min = Math.min(min, a);
-                    max = Math.max(max, a);
-                }
-                this.root = buildTree(0, max);
+            public SegmentTree(int min, int max){
+                this.root = buildTree(min, max);
             }
             
             public Node buildTree(int s, int e) {
@@ -133,7 +131,7 @@ public class _2407LongestIncreasingSubsequenceII {
                     clone[i] += delta;
                 }
 
-            SegmentTree tree = new SegmentTree(clone, k);
+            SegmentTree tree = new SegmentTree(min-k + delta, max+delta);
             int res = 1;
 
             for(int a : clone) {
