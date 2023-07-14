@@ -61,6 +61,7 @@ public class _2407LongestIncreasingSubsequenceII {
          *
          */
         static class Node{
+            //count means the max count of integer for this node(range) which ends with the numbers in its [s, e]
             int s, e, count;
             Node l, r;
             public Node(int s, int e) {
@@ -79,6 +80,7 @@ public class _2407LongestIncreasingSubsequenceII {
                 this.root = buildTree(min, max);
             }
             
+            //post order to build the tree, we did not assign value to count which will be assigned when visiting A
             public Node buildTree(int s, int e) {
                 if (s > e) return null;
                 Node node = new Node(s, e);
@@ -92,6 +94,7 @@ public class _2407LongestIncreasingSubsequenceII {
                 return node;
             }
             
+            // 
             public void update(Node root, int i, int v) {
                 if (root == null || i < root.s || i > root.e) return;
                 
