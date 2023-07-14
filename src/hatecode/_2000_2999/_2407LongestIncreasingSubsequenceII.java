@@ -52,9 +52,13 @@ public class _2407LongestIncreasingSubsequenceII {
          * 2. each left node range [s, m], right [m+1, e]
          * 
          * there are 2 types of operations:
-         * 1. query on one element and query range 
+         * 1. query on one element and query range, this will include several examples:
+         *  a. min, max on range
+         *  b. query on one element
          * 
          * 
+         * 
+         *
          */
         static class Node{
             int s, e, count;
