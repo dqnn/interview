@@ -48,6 +48,12 @@ public class _2407LongestIncreasingSubsequenceII {
          * this is interview friendly for the best TC.
          * there are some edge cases and steps to utilize segment tree
          * 
+         * 1. each node will have 5 elements, s, e, val(here is count),l and r. val is most important one
+         * 2. each left node range [s, m], right [m+1, e]
+         * 
+         * there are 2 types of operations:
+         * 1. query on one element and query range 
+         * 
          * 
          */
         static class Node{
