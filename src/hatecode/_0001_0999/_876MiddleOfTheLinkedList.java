@@ -1,4 +1,4 @@
-package _0001_0999;
+package hatecode._0001_0999;
 
 import java.util.*;
 

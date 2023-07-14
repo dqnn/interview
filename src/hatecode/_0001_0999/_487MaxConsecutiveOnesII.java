@@ -34,7 +34,7 @@ Explanation: Flip the first zero will get the the maximum number of consecutive 
  * 
  * 
   */
-public int findMaxConsecutiveOnes(int[] A) {
+public int findMaxConsecutiveOnes_interview_friendly(int[] A) {
 
     if (A == null || A.length < 1) return 0;
     int n = A.length;
@@ -72,13 +72,6 @@ private int helper(int[] A, int i, int cur, int k) {
         else return Math.max(helper(A, i + 1, cur + 1, k-1), helper(A, i + 1, 0, k));
     }
 }
-
-
-
-
-
-
-
 
 
    //same as Max Consecutive Ones III, just change k = 1; others are the same

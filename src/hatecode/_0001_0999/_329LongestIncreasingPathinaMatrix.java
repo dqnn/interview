@@ -70,7 +70,7 @@ public class _329LongestIncreasingPathinaMatrix {
 
             // int dis = helper(m, x, y, memo) + 1;
             //System.out.println(i + "," + j + "->" + x + "," + y + "=" + dis);
-            max = Math.max(max, 1 + helper(A, x, y, memo));
+            max = Math.max(max, 1 + helper(m, x, y, memo));
         }
         // here is important, because evey [i, j] will be assigned one value
         memo[i][j] = max;

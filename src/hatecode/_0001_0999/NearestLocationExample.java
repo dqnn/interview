@@ -1,8 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
 
-import org.junit.Test;
-
 public class NearestLocationExample {
 /*
 top K closet restraunts to this customer, locations is the restaurant coordinations

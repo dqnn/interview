@@ -8,7 +8,7 @@ package hatecode._0001_0999;
  * Date : Jan, 2018
  * Description : 312. helper Balloons
  */
-public class _312helperBalloons {
+public class _312BurstBalloons {
     /**
      * Given n balloons, indexed from 0 to n-1. Each balloon is painted with a number on
      * it represented by array nums. You are asked to helper all the balloons.

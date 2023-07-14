@@ -1,7 +1,5 @@
 package hatecode._0001_0999;
 
-import org.junit.Test;
-
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
@@ -144,23 +142,5 @@ The read function will only be called once for each test case.
 //        File 
 // n    (x,4]   (5, +x)
 //we totally have 4 use cases, n range and file size range, the boundary is 4
-    
-   @Test
-   public void testRead4NCharsNlessthan4AndBufHasLessThan4Chars() {
-       
-   }
-   @Test
-   public void testRead4NCharsNlessThan4AndBufHasMoreThan4Chars() {
-       
-   }
-   
-   @Test
-   public void testRead4NCharsNMoreThan4AndBufHasLessThan4Chars() {
-       
-   }
-   @Test
-   public void testRead4NCharsNMoreThan4AndBufHasMoreThan4Chars() {
-       
-   }
    
 }

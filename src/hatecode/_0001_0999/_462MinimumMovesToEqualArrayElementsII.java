@@ -1,3 +1,5 @@
+package hatecode._0001_0999;
+
 import java.util.*;
 
 public class _462MinimumMovesToEqualArrayElementsII {
