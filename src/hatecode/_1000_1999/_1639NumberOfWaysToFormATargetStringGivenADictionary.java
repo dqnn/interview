@@ -49,12 +49,21 @@ Explanation: There are 6 ways to form target.
       0123
       
       
-      the way how to solve this problem is that: with the example, 
+      the way how to solve this problem is that: with the example, we can surely know 
       
-      
+
+  i   dp table: 
+     0 1 2 3      -----j  
+  0  1 0 0 0 
+  1  1 1 0 0 
+  2  1 2 1 0 
+  3  1 2 3 0 
+  4  1 4 5 6 
+     
+  
      
     */
-    public int numWays(String[] words, String t) {
+    public static int numWays(String[] words, String t) {
         
         int m = words[0].length(), n = t.length();
         
@@ -77,8 +86,28 @@ Explanation: There are 6 ways to form target.
                 dp[i][j] %=mod;
             }
         }
+        //printDPTable(dp);
         
         return (int)dp[m][n];
         
+    }
+
+    public static void printDPTable(long[][] dp) {
+        int m = dp.length;
+        int n = dp[0].length;
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(dp[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+
+    public static void main(String[] args) {
+        String[] words = {"acca", "bbbb", "caca"};
+        String target = "aba";
+        System.out.println(numWays(words, target));
     }
 }
