@@ -63,12 +63,6 @@ Explanation: There are 6 ways to form target.
      2. if we use column j character, then it will be dp[i-1][j-1] * cnt[i][target[j-1]-'a']
 
 
-    
-     
-     
-      
-    
-
 
       the way how to solve this problem is that: with the example, we can surely know 
     
