@@ -62,6 +62,10 @@ Explanation: There are 6 ways to form target.
      1. if we do not use column j character, then it will be dp[i-1][j] ways, because we always formed the 0-j string
      2. if we use column j character, then it will be dp[i-1][j-1] * cnt[i][target[j-1]-'a']
 
+   
+      initial value:
+      dp[i][0], we can see dp[0][1], how many ways to form 'a', it will be sum of each column of 'a' frequency = cnt[0--n]['a'-'a'] , it should be 1 because 
+      cnt * dp[*]
 
 
       the way how to solve this problem is that: with the example, we can surely know 
@@ -96,9 +100,12 @@ Explanation: There are 6 ways to form target.
         }
         
         for(int i = 0; i<=m; i++) {
+            // see below how we infer this value
             dp[i][0] = 1;
+            //min here because m and n are differnet, either reached will end the loop
             for(int j = 1; j<= Math.min(i, n); j++) {
                 dp[i][j] = dp[i-1][j];
+                //use character at i, then we have cnt[i][*] choices 
                 dp[i][j] += dp[i-1][j-1] * cnt[i][t.charAt(j-1) -'a'];
                 dp[i][j] %=mod;
             }
