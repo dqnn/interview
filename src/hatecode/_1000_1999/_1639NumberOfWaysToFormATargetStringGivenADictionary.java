@@ -49,8 +49,17 @@ Explanation: There are 6 ways to form target.
       0123
       
       
-      the way how to solve this problem is that: with the example, we can surely know 
+     j =0, to form 'a', we can start from column 0, 1, 3,   
+     
+     
       
+    
+
+
+      the way how to solve this problem is that: with the example, we can surely know 
+    
+      
+  reference: 
 
   i   dp table: 
      0 1 2 3      -----j  
@@ -60,7 +69,7 @@ Explanation: There are 6 ways to form target.
   3  1 2 3 0 
   4  1 4 5 6 
      
-  
+
      
     */
     public static int numWays(String[] words, String t) {
