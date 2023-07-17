@@ -26,7 +26,7 @@ Explanation: There are 6 ways to form target.
 "aba" -> index 0 ("a cca"), index 1 ("b b bb"), index 3 ("cac a")
 "aba" -> index 0 ("a cca"), index 2 ("bb b b"), index 3 ("cac a")
 "aba" -> index 0 ("a cca"), index 1 ("b b bb"), index 3 ("acc a") -- first string
-"aba" -> index 0 ("a cca"), index 2 ("b b bb"), index 3 ("acc a")
+"aba" -> index 0 ("a cca"), index 2 ("bb b b"), index 3 ("acc a")
 "aba" -> index 1 ("c a ca"), index 2 ("bb b b"), index 3 ("acc a")
 "aba" -> index 1 ("c a ca"), index 2 ("bb b b"), index 3 ("cac a")
     */
