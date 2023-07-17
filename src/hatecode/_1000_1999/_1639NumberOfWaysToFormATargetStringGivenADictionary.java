@@ -22,6 +22,13 @@ Example 1:
 
 Input: words = ["acca","bbbb","caca"], target = "aba"
 Output: 6
+Explanation: There are 6 ways to form target.
+"aba" -> index 0 ("a cca"), index 1 ("b b bb"), index 3 ("cac a")
+"aba" -> index 0 ("a cca"), index 2 ("bb b b"), index 3 ("cac a")
+"aba" -> index 0 ("a cca"), index 1 ("b b bb"), index 3 ("acc a") -- first string
+"aba" -> index 0 ("a cca"), index 2 ("b b bb"), index 3 ("acc a")
+"aba" -> index 1 ("c a ca"), index 2 ("bb b b"), index 3 ("acc a")
+"aba" -> index 1 ("c a ca"), index 2 ("bb b b"), index 3 ("cac a")
     */
     
     /*
@@ -32,14 +39,15 @@ Output: 6
       to make string target from left to right, 
 
       each time you can pick one character from words list, suppose you have one 0-j, then you can only choose from j + 1 column from the word list
-      
 
+      return how many ways you can form target string
 
        i        j
       acca      aba
       bbbb
       caca
       0123
+      
       
       
       
