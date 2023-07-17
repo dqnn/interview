@@ -49,7 +49,11 @@ Explanation: There are 6 ways to form target.
       0123
       
       
-     j =0, to form 'a', we can start from column 0, 1, 3,   
+     j =0, to form 'a', we can start from column 0, 1, 3,   if we choose, then 'b' have 2 choices, each last 'a' will have 2 choices, 
+
+     if 'a' start from 1, we still have 2 choices, 
+
+     so it is easy that we want to have frequency of each character, cnt[i][26], i is the column index, it represents the count 
      
      
       
