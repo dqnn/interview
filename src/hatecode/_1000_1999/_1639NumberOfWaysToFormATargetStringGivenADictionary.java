@@ -35,7 +35,7 @@ Explanation: There are 6 ways to form target.
       w = words.length, m = words[0].length, n = target.length
       thinking process: O(wn + m * min(m, n))/O(mn)
 
-      the problem is to say: given string list as words and target string, each string in words have same length, like below "i", you will need 
+      the problem is to say: given string list as words and target string, each string in words have same length, like below "i"(word matrix), you will need 
       to make string target from left to right, 
 
       each time you can pick one character from words list, suppose you have one 0-j, then you can only choose from j + 1 column from the word list
@@ -53,7 +53,17 @@ Explanation: There are 6 ways to form target.
 
      if 'a' start from 1, we still have 2 choices, 
 
-     so it is easy that we want to have frequency of each character, cnt[i][26], i is the column index, it represents the count 
+     so it is easy that we want to have frequency of each character, cnt[i][26], i is the column index, it represents the count of one character frequency 
+     for that column, the better part of this view is to help we won;t choose character before i
+
+     dp[i][j] means for word list matrix as above, the number of ways to form 0-j substring of target with 0-i columns from original word matrix
+
+     we have 2 cases:
+     1. if we do not use column j character, then it will be dp[i-1][j] ways, because we always formed the 0-j string
+     2. if we use column j character, then it will be dp[i-1][j-1] * cnt[i][target[j-1]-'a']
+
+
+    
      
      
       
