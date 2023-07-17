@@ -49,7 +49,7 @@ Explanation: There are 6 ways to form target.
       0123
       
       
-      
+      the way how to solve this problem is that: with the example, 
       
       
      
