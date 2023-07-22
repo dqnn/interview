@@ -67,8 +67,9 @@ Explanation: There are 6 ways to form target.
       dp[i][0], we can see dp[0][1], how many ways to form 'a', it will be sum of each column of 'a' frequency = cnt[0--n]['a'-'a'] , it should be 1 because 
       cnt * dp[*]
 
-
-      the way how to solve this problem is that: with the example, we can surely know 
+     
+      
+    
     
       
   reference: 

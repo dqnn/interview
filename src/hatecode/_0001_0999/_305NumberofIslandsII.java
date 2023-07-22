@@ -153,7 +153,6 @@ public class _305NumberofIslandsII {
                 if (x <0 || x >=m || y<0 ||y>=n || dus.find(key) == -1) continue;
                 //System.out.println(key + "->" + cur);
                 if (dus.union(key, cur)) {
-                    cur = key;
                     count--;
                 }
             }
@@ -185,6 +184,8 @@ public class _305NumberofIslandsII {
             }
             
             public void set(int x) {
+                // if input like [0,0],[0,1],[1,2],[1,2]], we need to avoid same input
+                if (parent[x] == -1) return;
                 parent[x] = x;
             }
             
