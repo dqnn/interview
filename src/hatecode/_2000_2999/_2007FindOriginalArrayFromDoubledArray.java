@@ -31,6 +31,8 @@ Other original arrays could be [4,3,1] or [3,1,4].
 
     the problem is to say: given one integer array A, each element will have its double value or it is 
     
+    
+
     */
     
     
