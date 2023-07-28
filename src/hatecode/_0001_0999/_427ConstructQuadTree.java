@@ -60,6 +60,8 @@ Notice that 0 represnts False and 1 represents True in the photo representing th
  * 
  * this way you do no have to store all elements in matrix, quad tree is one type of sparse matrix
  * 
+ * it is recursive way to build he quad tree, we visit each cell only once 
+ * 
  *  
  */
     public Node construct(int[][] g) {
