@@ -81,6 +81,8 @@ Notice that 0 represnts False and 1 represents True in the photo representing th
      */
     private Node helper(int[][] g, int x0, int y0, int x1, int y1) {
         if ((x0 + 1 == x1)  && (y0 + 1 == y1)) return new Node(g[x0][y0] ==1 , true);
+
+        // we can divide the matrix into 4 small matrix
         
         /*
           (x0, y0) 
