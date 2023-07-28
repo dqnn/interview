@@ -36,8 +36,15 @@ Other original arrays could be [4,3,1] or [3,1,4].
     1. use frequency count, 
     2. use treemap num->count, so we can start from small to big numbers
 
+    for example
+    [1,3,4,2,6,8]
     
-    
+    1-1,2-1,3-1,4-1,6-1,8-1
+
+    if we use freqency count, then we will start from 0 -> 8, for each element
+    we will detect whether 2*i exist, if not, then return new int[0]; 
+    if yes, then decrease f[2*i]--, f[i]--,  note: we should while on f[i] > 0, because we can 
+    have multiple i
 
 
     */
