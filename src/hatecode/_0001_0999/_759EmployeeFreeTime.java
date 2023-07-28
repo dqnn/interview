@@ -35,37 +35,13 @@ Output: [[3,4]]
      */
     //interview friendly but maybe the mid part will be asked to remove in interview, see
     //employeeFreeTime2 for the best answer
-    public List<Interval> employeeFreeTime(List<List<Interval>> schedule) {
-        List<Interval> res = new ArrayList<>();
-        if (schedule == null || schedule.size() < 1) {
-            return res;
-        }
-        Queue<Interval> q = new PriorityQueue<>((a, b)->(a.start - b.start));
-        schedule.forEach(e->q.addAll(e));
-        
-        int start = q.peek().start;
-        int end = q.peek().end;
-        int size = q.size();
-        List<Interval> mid = new ArrayList<>();
-        for(int i =0; i< size;i++) {
-            Interval interval = q.poll();
-            if(interval.start <= end) {
-                end = Math.max(end, interval.end);
-            } else {
-                mid.add(new Interval(start, end));
-                start = interval.start;
-                end = interval.end;
-            }
-        }
-        mid.add(new Interval(start, end));
-        size = mid.size();
-        for(int i = 0; i<= size - 2;i++) {
-            res.add(new Interval(mid.get(i).end, mid.get(i+1).start));
-        }
-        return res;
-    }
     
     //best one, note that when we visit the queue, we do not need start
+    /*
+     * O(nlgn)/O(n)
+     * 
+     * we can flat, merge first, then we get to know the free time for any adjacent interval
+     */
     public List<Interval> employeeFreeTime2(List<List<Interval>> schedule) {
         List<Interval> res = new ArrayList<>();
         if (schedule == null || schedule.size() < 1) {
