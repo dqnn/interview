@@ -73,6 +73,12 @@ Notice that 0 represnts False and 1 represents True in the photo representing th
         return root;
     }
     
+    /*
+     * top left 
+     *         bottom right 
+     * 
+     * we use r and c not (r-1) and (c-1) so we do not handle the /2 problem
+     */
     private Node helper(int[][] g, int x0, int y0, int x1, int y1) {
         if ((x0 + 1 == x1)  && (y0 + 1 == y1)) return new Node(g[x0][y0] ==1 , true);
         
@@ -80,6 +86,8 @@ Notice that 0 represnts False and 1 represents True in the photo representing th
           (x0, y0) 
                  
                   (x1, y1)
+
+        
                   
           
           (x0, y0)                        (x0, (y0+y1)/2)
