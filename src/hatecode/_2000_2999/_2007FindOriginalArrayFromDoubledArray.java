@@ -29,9 +29,16 @@ Other original arrays could be [4,3,1] or [3,1,4].
     /*
     thinking process: O(n + k)
 
-    the problem is to say: given one integer array A, each element will have its double value or it is 
+    the problem is to say: given one integer array A, each element will have its double value or it is doubled already.
+    returen the orginal one
+
+    we have 2 ways to solve this problem: 
+    1. use frequency count, 
+    2. use treemap num->count, so we can start from small to big numbers
+
     
     
+
 
     */
     
