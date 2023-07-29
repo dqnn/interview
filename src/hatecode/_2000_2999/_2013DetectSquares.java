@@ -34,8 +34,19 @@ Output
  * 2. count(int[] p), count how many squares with point p, duplicate points can be counted 
  * 
  * use map, x<-> (y, y's count) to store all points 
- * then when count,  we 
+ * then when count,  see below graph
  * 
+ * it will be using multipling the count of points
+ * 
+ *  col.get(y+d)
+ *  *(x, y+d)            * ymap.get(y+d)
+ * 
+ *  colmap.get(y)
+ *   *                    *(x, y)
+ * 
+ * 
+ *  col.get(y-d)
+ *   *                    *ymap.get(y-d)                 
  * 
  */
 
@@ -53,6 +64,10 @@ Output
         
         if (!map.containsKey(x)) return 0;
         int res = 0;
+
+        //ymap means same x, so it only have y +d and y -d
+        //colmap is a moving stick from left to right, 
+        //colmap.get(y) means point with (x, y)
         Map<Integer, Integer> ymap = map.get(x);
         for(int col : map.keySet()) {
             Map<Integer, Integer> colmap = map.get(col);
