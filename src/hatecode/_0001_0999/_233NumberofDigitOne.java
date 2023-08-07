@@ -50,7 +50,7 @@ public class _233NumberofDigitOne {
       */
     // integer string fromat, like "111"
     char s[];
-    //dp[i][j] means for position i -> n, how many 1 we can form,  for example if 111, 
+    //dp[i][j] means for position i -> n, the count  equals j with 1 from 0->i-1,  for example if 111, 
     /*
      * _11, dp[][]
      * 
