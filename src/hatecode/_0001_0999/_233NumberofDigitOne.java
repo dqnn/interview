@@ -48,7 +48,13 @@ public class _233NumberofDigitOne {
       
 
       */
+    // integer string fromat, like "111"
     char s[];
+    //dp[i][j] means for position i -> n, how many 1 we can form,  for example if 111, 
+    /*
+     * _11, dp[][]
+     * 
+     */
     int dp[][];
     public int countDigitOne_universal_soluion(int n) {
         s = Integer.toString(n).toCharArray();
