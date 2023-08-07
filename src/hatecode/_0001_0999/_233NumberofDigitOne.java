@@ -45,8 +45,8 @@ public class _233NumberofDigitOne {
       * thinking process: O()
 
       the problem is to say, given one integer n, return count of "1" in all integers which <=n. 
-
       
+
       */
     char s[];
     int dp[][];
