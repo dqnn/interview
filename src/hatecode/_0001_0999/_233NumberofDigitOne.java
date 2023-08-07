@@ -1,5 +1,7 @@
 package hatecode._0001_0999;
 
+import java.util.Arrays;
+
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
@@ -38,7 +40,41 @@ public class _233NumberofDigitOne {
      * @param n
      * @return
      */
-    // still not full understand， pure math problem
+    
+     /*
+      * thinking process: O()
+
+      the problem is to say, given one integer n, return count of "1" in all integers which <=n. 
+
+      
+      */
+    char s[];
+    int dp[][];
+    public int countDigitOne_universal_soluion(int n) {
+        s = Integer.toString(n).toCharArray();
+        var m = s.length;
+        dp = new int[m][m];
+        for (var i = 0; i < m; i++) Arrays.fill(dp[i], -1);
+        System.out.println(Arrays.deepToString(dp));
+        int res = f(0, 0, true);
+        return res;
+    }
+
+    int f(int i, int cnt1, boolean isLimit) {
+        if (i == s.length) return cnt1;
+        if (!isLimit && dp[i][cnt1] >= 0) return dp[i][cnt1];
+        var res = 0;
+        for (int d = 0, up = isLimit ? s[i] - '0' : 9; d <= up; ++d) // 枚举要填入的数字 d
+            res += f(i + 1, cnt1 + (d == 1 ? 1 : 0), isLimit && d == up);
+        if (!isLimit) dp[i][cnt1] = res;
+        return res;
+    }
+    
+    
+    
+    
+    
+     // still not full understand， pure math problem
     public int countDigitOne(int n) {
         int res = 0;
         for (long m = 1; m <= n; m *= 10) {
