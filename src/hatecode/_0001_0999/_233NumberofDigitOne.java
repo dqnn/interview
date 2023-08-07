@@ -51,7 +51,7 @@ public class _233NumberofDigitOne {
     // integer string fromat, like "111"
     char s[];
     //dp[i][j] means for position i -> n, the count  equals j with 1 from 0->i-1,  for example if 111, 
-    
+
     /*
      * _11, dp[][]
      * 
@@ -67,6 +67,12 @@ public class _233NumberofDigitOne {
         return res;
     }
 
+    /*
+     * 函数f(i: int, cnt1: int, is_limit: bool) 
+     * 表示在第i位前填了cnt1个1的前提下，总共有多少个1，
+     * 所以我们的目标是f(0,0,true)，表示第0位前填了0个1，这样一个前提。 同时，
+     * 在i == m时，f(i,cnt,is_limit)的前提是所有位数都已经填好了数字，并且有cnt个1，所以此时cnt就是总共1的数量
+     */
     int f(int i, int cnt1, boolean isLimit) {
         if (i == s.length) return cnt1;
         if (!isLimit && dp[i][cnt1] >= 0) return dp[i][cnt1];
