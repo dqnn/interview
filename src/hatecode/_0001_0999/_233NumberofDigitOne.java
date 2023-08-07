@@ -46,6 +46,14 @@ public class _233NumberofDigitOne {
 
       the problem is to say, given one integer n, return count of "1" in all integers which <=n. 
       
+    111: 
+      [[36, -1, -1], [20, 16, -1], [1, 11, 5]] without !isLimit
+
+      [[-1, -1, -1], [20, -1, -1], [1, 11, -1]] with !Limit
+
+
+
+
 
       */
     // integer string fromat, like "111"
@@ -80,7 +88,7 @@ public class _233NumberofDigitOne {
         for (int d = 0, up = isLimit ? s[i] - '0' : 9; d <= up; ++d) // 枚举要填入的数字 d
             res += f(i + 1, cnt1 + (d == 1 ? 1 : 0), isLimit && d == up);
         /*
-         * 下面代码中 Java/C++/Go 只需要记忆化 ( � , cnt 1 ) (i,cnt 1 ​ ) 这个状态，因为： 
+         * 下面代码中 Java/C++/Go 只需要记忆化 (i,cnt 1 ​ ) 这个状态，因为： 
          * 对于一个固定的 (i,cnt1​)，这个状态受到 isLimit isLimit 的约束在整个递归过程中至多会出现一次，没必要记忆化。 
          * 另外，如果只记忆化(i,cnt1)， dp dp 数组的含义就变成在不受到约束时的合法方案数，所以要在 !isLimit 成立时才去记忆化。
          * for example: 
