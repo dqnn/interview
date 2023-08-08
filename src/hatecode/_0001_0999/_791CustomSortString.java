@@ -1,5 +1,6 @@
 package hatecode._0001_0999;
 import java.util.*;
+import java.util.stream.IntStream;
 public class _791CustomSortString {
 /*
 791. Custom Sort String
@@ -66,6 +67,22 @@ Output: "cbad"
             }
         }
         
+        return sb.toString();
+    }
+
+
+    public String customSortString_SortFunction(String order, String s) {
+        if (s == null || s.length() < 1) return s;
+        
+        Map<Character, Integer> map = new HashMap<>();
+        IntStream.range(0, order.length()).forEach(i->map.put(order.charAt(i), i));
+        
+        Character[] chs = IntStream.range(0, s.length()).mapToObj(i->s.charAt(i)).toArray(Character[]::new);
+        
+        Arrays.sort(chs, (a, b)->Integer.compare(map.getOrDefault(a, Integer.MIN_VALUE), map.getOrDefault(b, Integer.MIN_VALUE)));
+        
+        StringBuffer sb = new StringBuffer();
+        Arrays.stream(chs).forEach(c->sb.append(c));
         return sb.toString();
     }
 }
