@@ -27,7 +27,10 @@ Any other string is not a valid abbreviation of "word".
                 j++;
                 continue;
             }
-            //first character could not be 0
+            //first character could not be 0, 
+            // p.charAt(j) <= '0' is tricky, bezu "he", "h01" should return false, so we would like to return false when first character is 0, how can we sure it is 
+            //first because we here it must within n and m while not equals, so it must be integers. please note we use if just under while, so it will 
+            //repeat detet the while condition upside
             if(p.charAt(j) <= '0' || p.charAt(j) > '9') return false;
             int start = j;
             // here to truncate the numbers, like w12l --> 12 out
