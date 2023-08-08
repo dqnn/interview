@@ -1,6 +1,7 @@
 package hatecode._1000_1999;
 
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 public class _1762BuildingsWithAnOceanView {
 /*
@@ -53,5 +54,21 @@ Output: [0,2,3]
                                 .mapToObj(i -> res.get(res.size()-1-i)).mapToInt(x->x).toArray();
         
         
+    }
+
+    public int[] findBuildings_Stack(int[] A) {
+        if (A == null || A.length<1) return new int[0];
+        
+        Stack<Integer> stack = new Stack<>();
+        for(int i = A.length - 1; i >=0; i--) {
+            if (stack.isEmpty() || A[stack.peek()] < A[i]) {
+                stack.push(i);
+            }
+        }
+        
+        List<Integer> res = stack.stream().collect(Collectors.toList());
+        Collections.reverse(res);
+        
+        return res.stream().mapToInt(Integer::intValue).toArray();
     }
 }
