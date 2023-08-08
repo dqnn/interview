@@ -274,6 +274,7 @@ following calculations.
                 
                 //calculate the number before operator
                 int val = c - '0';
+                //if not using i + 1, then you need to i -- after the loop 
                 while (i + 1 < n && Character.isDigit(s.charAt(i + 1))) {
                     val = val * 10 + s.charAt(i + 1) - '0';
                     i++;
