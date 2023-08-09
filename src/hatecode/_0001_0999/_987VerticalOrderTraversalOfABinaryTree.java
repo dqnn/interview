@@ -57,4 +57,52 @@ Output: [[9],[3,15],[20],[7]]
         helper(map, node.left, i-1, j-1);
         helper(map, node.right, i+1, j-1);
     }
+
+
+    /*
+     * below is TreeMap solution, y as column, x as row 
+     * 
+     * the critical part is when we sort, 
+     */
+    class Pair{
+        TreeNode node;
+        int x, y;
+        public Pair(TreeNode node, int x, int y) {
+            this.node = node;
+            this.x = x;
+            this.y = y;
+        }
+    }
+    public List<List<Integer>> verticalTraversal_TreeMap(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (root == null) return res;
+        
+        TreeMap<Integer, List<int[]>> map = new TreeMap<>();
+        Queue<Pair> q = new LinkedList<>();
+        q.offer(new Pair(root, 0, 0));
+        map.computeIfAbsent(0, v->new ArrayList<>()).add(new int[]{root.val, 0});
+        
+        while(!q.isEmpty()) {
+            Pair p = q.poll();
+            if (p.node.left != null) {
+                q.offer(new Pair(p.node.left, p.x+1, p.y-1));
+                map.computeIfAbsent(p.y-1, v->new ArrayList<>()).add(new int[]{p.node.left.val, p.x+1});
+            }
+            if (p.node.right != null) {
+                q.offer(new Pair(p.node.right, p.x+1, p.y+1));
+                map.computeIfAbsent(p.y+1, v->new ArrayList<>()).add(new int[]{p.node.right.val, p.x+1});
+            }
+        }
+        
+        for(List<int[]> list: map.values()) {
+
+            // so the problem is confusing what it is saying:
+            /*
+             * TreeMap 
+             */
+            Collections.sort(list, (a, b)->(a[1]== b[1]? Integer.compare(a[0], b[0]) : Integer.compare(a[1], b[1])));
+            res.add(list.stream().map(x->x[0]).collect(Collectors.toList()));
+        }
+        return res;
+    }
 }
