@@ -34,12 +34,17 @@ Output: 4
     public int shortestPathBinaryMatrix(int[][] m) {
         if(m == null || m.length < 1 || m[0].length < 1 || m[0][0] == 1) return -1;
         
+        int r = m.length - 1, c = m[0].length - 1;
+        //[[1,0,0],[1,1,0],[1,1,0]]
+        if (m[0][0] ==1 || m[r][c] == 1) return -1;
+        
+        
         Queue<int[]> q = new LinkedList<>();
         Set<String> visited = new HashSet<>();
         q.add(new int[]{0, 0});
         visited.add("0->0");
         int[][] dirs = {{0,1},{0,-1},{1,0},{-1,0},{1,-1},{-1,1},{-1,-1},{1,1}};
-        int r = m.length - 1, c = m[0].length - 1;
+        
         int res = 1;
         while(!q.isEmpty()) {
             int n = q.size();
