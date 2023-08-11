@@ -127,6 +127,9 @@ prekSum = [1, 3, 3, 3, 8, 13, 12, 6]
 left =    [0, 1, 1, 1, 4, 5,  5,  5]
 right =   [0, 5, 5, 5, 5, 5,  6,  7]
 
+left[i] means the for k -1->i index, the max window sum size end index is left[i]
+right[i] means the for n-1-> k -1 index, the max window sum size end index is right[i]
+
  */
     /*
      * thinking process: O(n)/O(n)
