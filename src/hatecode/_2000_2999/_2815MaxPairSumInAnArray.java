@@ -2,6 +2,7 @@ package hatecode._2000_2999;
 
 
 import java.util.*;
+import java.util.stream.IntStream;
 
 public class _2815MaxPairSumInAnArray {
     
@@ -41,7 +42,13 @@ Output: -1
     public int maxSum(int[] A) {
         if (A == null || A.length < 1) return 0;
         
-        //maxA[i] means 
+        //maxA[i] means maxA[6] means suppose we visit A[i], from 0->i, the A[1]..A[i], the max value which its digit contains 
+        //a '6' as its max digit
+
+        /*
+         * [51,71,17,24,42] 
+         * --- [-1,-1,-1,-1,42,51,-1,71,-1,-1]
+         */
         int[] maxA = new int[10];
         Arrays.fill(maxA, -1);
         
