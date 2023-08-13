@@ -27,7 +27,17 @@ Output: 0
  * the problem is to say: given list of integers, and integer x, you need calculate 
  * val = Math.abs(A[i] - A[j]), abs(i-j) >=x, return the min(val)
  * 
+ * so it is easy to thinking about 
  * 
+ * -----|----------|    A 
+ *      i          j
+ * 
+ * for A[j]
+ * so we can know abs(j-i) >=x, we want to know from 0-i. the ceiling and floor of A[j], it is easy to think about TreeSet.
+ * then we can calculate the difference and return 
+ * 
+ * Note: we do not need to worry about elements after A[j] which >=x , because we will visit them later. so we only need to care 
+ * data before us
  */
     public int minAbsoluteDifference(List<Integer> A, int x) {
         if (A == null || A.size() < 1 || x <= 0) return 0;
