@@ -22,6 +22,14 @@ Example 1:
 Input: nums = [2,5,3,9,5,3]
 Output: 3
 */
+
+    /*
+     * thinking process: O(n)/O(1)
+     * 
+     * the problem is to say, given one integer array A, return the index i, which minimize sum(0->i)/(i+1) - sum(i+1->n-1)/(n-i-1) 
+     * 
+     * 
+     */
     public int minimumAverageDifference(int[] A) {
         if (A == null || A.length < 1) return 0;
         
