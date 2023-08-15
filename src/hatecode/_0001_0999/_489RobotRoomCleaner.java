@@ -89,7 +89,7 @@ public class _489RobotRoomCleaner {
 
     //interview friendly:
     //thinking process:
-    //so provide 4 APIs for the robot, try to clean the room which is represented as map
+    //so provide 4 APIs for the robot, try to clean the room which is represented as map,evey step, we made one move
     //why we need for(d=0; d<4;d++) this and have a curDirection as recursive parameter because 
     //1. when we enter a new cell, we need to which direction we are, if we do not know, then we do not know
     //how to call API, turn left or turn right, how can we avoid visited ones? 
