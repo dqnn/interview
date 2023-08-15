@@ -28,11 +28,13 @@ Output: 3
      * 
      * the problem is to say, given one integer array A, return the index i, which minimize sum(0->i)/(i+1) - sum(i+1->n-1)/(n-i-1) 
      * 
+     * firstly we sum for all elements then gradully subtract the A[i]. 
      * 
      */
     public int minimumAverageDifference(int[] A) {
         if (A == null || A.length < 1) return 0;
         
+        //stream will overflow 
         //long sum = Arrays.stream(A).sum();
         long sum = 0;
         for(int a : A) sum += a;
