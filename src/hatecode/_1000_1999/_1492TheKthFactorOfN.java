@@ -20,7 +20,19 @@ Output: 3
     */
 
     /*
-     * thinking process: 
+     * thinking process: O(sqrt(n))/O(sqrt(n))
+     * 
+     * the problem is to say: given one integer n, return the kth factor. 
+     * for example n = 12, k = 3, so factors list = [1, 2, 3, 4, 6, 12] return 3 
+     * 
+     * we use l to store all factors n/i when n %i = 0,  (i * i = n), but we do not include i, like 2*2 =4, we should not include 2 in l
+     * because it will double count  in later 
+     * 
+     * n=12, k =5 
+     * 
+     * l = [12,6, 4]  cnt = 3
+     * 
+     * 
      */
     public int kthFactor(int n, int k) {
         if (n <= 0) return -1;
@@ -29,6 +41,7 @@ Output: 3
          List<Integer> l = new ArrayList<>();
          for(int i = 1; i * i <=n; i++) {
              if (n % i == 0) {
+                 //because we do not want to add i
                  if (i*i !=n) l.add(n/i);
                  if(++cnt == k) return i;
              }
