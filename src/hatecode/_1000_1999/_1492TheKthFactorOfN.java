@@ -56,6 +56,8 @@ Output: 3
      }
     
     
+
+     //brtual force 
     public int kthFactor_BF(int n, int k) {
         if (n <= 0) return -1;
         
