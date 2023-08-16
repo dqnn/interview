@@ -41,15 +41,17 @@ Output: 3
          List<Integer> l = new ArrayList<>();
          for(int i = 1; i * i <=n; i++) {
              if (n % i == 0) {
-                 //because we do not want to add i
+                 //because we only add  bigger half factors into l, while smaller ones will be in cnt
                  if (i*i !=n) l.add(n/i);
                  if(++cnt == k) return i;
              }
              
          }
          
+         //because k is more than all factors count , for example n = 12, k = 10
          if (l.size() + cnt < k) return -1;
          
+         //return the factor in latter half
          return l.get(l.size() - (k - cnt));
      }
     
