@@ -83,6 +83,14 @@ Explanation: Intervals [1,4] and [4,5] are considerred overlapping.
      *     Interval(int s, int e) { start = s; end = e; }
      * }
      */
+    /*
+     * interview friendly since best TC  O(n)/O(max)
+     * A = [[1,3],[2,5],[6,8]] 
+     * memo_start: [0,1,1,0,0,0,1,0,0]
+       memo_end:   [0,0,0,1,0,1,0,0,1]
+     * 
+     * every time, 
+     */
     public List<Interval> merge2(List<Interval> intervals) {
         List<Interval> ret = new ArrayList<>();
           int max = 0, start = -1, total = 0;
