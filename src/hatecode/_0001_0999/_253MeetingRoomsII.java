@@ -28,8 +28,10 @@ this graph demonstrated how to solve this problem
          |   |  |  |
                end
 
-     time : O(nlogn) space : O(n)
-
+    
+               time : O(nlogn) space : O(n)
+     
+     
      * @param intervals
      * @return
      */
@@ -109,6 +111,38 @@ this graph demonstrated how to solve this problem
         }
         
         return pq.size();
+    }
+
+    /*
+     interview friendly TC: O(n)/O(max)
+
+     the problem is to use +1 -1 on endpoints,so we can have count how many overlapped intervals
+    */
+    public int minMeetingRooms_Best(int[][] A) {
+        if (A == null || A.length < 1 || A[0].length < 1) {
+            return 0;
+        }
+        
+        int max = Integer.MIN_VALUE;
+        for(int[] a :A) {
+            max = Math.max(max, a[1]);
+        }
+        
+        int[] s = new int[max+1], e = new int[max+1];
+        
+        for(int[] a : A) {
+            s[a[0]]++;
+            e[a[1]]++;
+        }
+        
+        int res = 0, temp = 0;
+        for(int i = 0; i<=max; i++) {
+            temp += s[i];
+            temp -= e[i];
+            res = Math.max(res, temp);
+        }
+        
+        return res;
     }
     
     private static final int START = 1;
