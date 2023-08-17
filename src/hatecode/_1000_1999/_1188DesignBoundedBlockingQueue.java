@@ -79,7 +79,7 @@ queue.size();       // 2 elements remaining in the queue. size() is always calle
     public void enqueue(int element) throws InterruptedException {
         e.acquire();
         q.add(element);
-        d.release();//made semaphore + 1
+        d.release(1);//made semaphore + 1
     }
 
     public int dequeue() throws InterruptedException {
