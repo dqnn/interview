@@ -7,7 +7,7 @@ import java.util.Arrays;
  * Package Name : leetcode
  * File Name : MeetingRooms
  * Date : Agu, 2018
- * Description : 252. Meeting Rooms
+ * Description : 252. Meeting Roomπs
  */
 public class _252MeetingRooms {
     /**
@@ -24,7 +24,37 @@ public class _252MeetingRooms {
      * @param intervals
      * @return
      */
-    public boolean canAttendMeetings(Interval[] intervals) {
+   
+     // interview friendly, use + - on endpoints, so we can operate the total
+     public boolean canAttendMeetings(int[][] A) {
+        if (A == null || A.length < 1 || A[0].length < 1) return true;
+        
+        int max = Integer.MIN_VALUE;
+        for(int[] a:A) {
+            max = Math.max(max, a[1]);
+        }
+        
+        int[] s = new int[max+1], e = new int[max+1];
+        
+        for(int[] a : A) {
+            s[a[0]]++;
+            e[a[1]]++;
+        }
+        
+        int total = 0;
+        for(int i = 0; i<=max; i++) {
+            total += s[i];
+            total -= e[i];
+            if (total > 1) return false;
+        } 
+        
+        return true;
+    }
+    
+    
+    
+    
+     public boolean canAttendMeetings_BF(Interval[] intervals) {
         //if input is null or only 1 schedule then it is true
         if (intervals == null || intervals.length < 2) return true;
         // this is good, so we can sort by object easily, also PriorityQueue has similiar function
@@ -38,7 +68,7 @@ public class _252MeetingRooms {
         return true;
     }
     //LC changed the DS
-    public boolean canAttendMeetings(int[][] ins) {
+    public boolean canAttendMeetings_Sort(int[][] ins) {
         if(ins == null || ins.length < 1) return true;;
         Arrays.sort(ins, (a, b)->(a[0] - b[0]));
         
