@@ -67,12 +67,14 @@ public class _444SequenceReconstruction {
         
         for(List<Integer> seq: seqs) {
             if(seq.size() == 1) {
+                // this is to avoid case  seqs = [[1,2,3,4,5],[1,2,3,4],[1,2,3],[1],[4],[5]]
+                //if we do not have this check, latter [1], [4], [5] indegree will be override
                 if(!map.containsKey(seq.get(0))) {
                     map.put(seq.get(0), new HashSet<>());
                     indegree.put(seq.get(0), 0);
                 }
             } else {
-                //add to the map every two points
+                //add to the map  for every two points, 
                 for(int i = 0; i < seq.size() - 1; i++) {
                     if(!map.containsKey(seq.get(i))) {
                         map.put(seq.get(i), new HashSet<>());
@@ -83,8 +85,9 @@ public class _444SequenceReconstruction {
                         map.put(seq.get(i + 1), new HashSet<>());
                         indegree.put(seq.get(i + 1), 0);
                     }
-                    // if we can add the next integer to the set, which menas 
-                    //next point will have one more indegree
+                    // if we can add the next integer to the set, which means
+                    //next point will have one more indegree, if we already have the path, then we 
+                    //won't add twice
                     if(map.get(seq.get(i)).add(seq.get(i+1))) {
                         indegree.put(seq.get(i+1), indegree.get(seq.get(i+1)) + 1);
                     }
@@ -106,6 +109,7 @@ public class _444SequenceReconstruction {
             if(size > 1) return false;
 
             int curr = queue.poll();
+            //
             if(index == org.length || curr != org[index++]) return false;
             for(int next: map.get(curr)) {
                 indegree.put(next, indegree.get(next) - 1);
