@@ -3,7 +3,7 @@ import java.util.*;
 
 public class _444SequenceReconstruction {
     /*tag: indegree, graph, topsort
-     * 444. Sequence Reconstruction
+     * 444. Sequence Reconstruction, awesome question
      * Check whether the original sequence org can be uniquely reconstructed from
      * the sequences in seqs. The org sequence is a permutation of the integers from
      * 1 to n, with 1 ≤ n ≤ 104. Reconstruction means building a shortest common
