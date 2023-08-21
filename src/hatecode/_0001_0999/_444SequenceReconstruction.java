@@ -109,13 +109,16 @@ public class _444SequenceReconstruction {
             if(size > 1) return false;
 
             int curr = queue.poll();
-            //
+            /*
+             * [1,2,3]   [[1,2],[1,3],[2,3]]
+             * 
+             */
             if(index == org.length || curr != org[index++]) return false;
             for(int next: map.get(curr)) {
                 indegree.put(next, indegree.get(next) - 1);
                 if(indegree.get(next) == 0) queue.offer(next);
             }
         }
-        return index == org.length && index == map.size();
+        return index == org.length;
     }
 }
