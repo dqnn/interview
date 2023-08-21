@@ -93,7 +93,7 @@ public class _444SequenceReconstruction {
         }
 
         Queue<Integer> queue = new LinkedList<>();
-        for(Map.Entry<Integer, Integer> entry: indegree.entrySet()) {
+        for(var entry: indegree.entrySet()) {
             //add all first starters into queue
             if(entry.getValue() == 0) queue.offer(entry.getKey());
         }
