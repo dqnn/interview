@@ -36,13 +36,17 @@ public class _833FindAndReplaceInString {
 
     //better part of this solution is much more better O(n) compare to others but startsWith is not O(1), this is to ignore
     //the startsWith complexity
-    public static String findReplaceString4(String S, int[] indexes, String[] sources, String[] targets) {
+
+    /*
+     * replace string in S from A to B if S substring could match
+     */
+    public static String findReplaceString4(String S, int[] indexes, String[] A, String[] B) {
         if(S == null || S.length() < 1) return "";
 
         Map<Integer, Integer> table = new HashMap<>();
         for (int i=0; i<indexes.length; i++) {
             // if a match is found in the original string, record it
-            if (S.startsWith(sources[i], indexes[i])) {
+            if (S.startsWith(A[i], indexes[i])) {
                 table.put(indexes[i], i);
             }
         }
@@ -50,8 +54,8 @@ public class _833FindAndReplaceInString {
         for (int i=0; i<S.length(); ) {
             if (table.containsKey(i)) {
                 // if a replacement was recorded before
-                sb.append(targets[table.get(i)]);
-                i+=sources[table.get(i)].length();
+                sb.append(B[table.get(i)]);
+                i+=A[table.get(i)].length();
             } else {
                 // if no replacement happened at this index
                 sb.append(S.charAt(i));
