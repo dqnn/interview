@@ -25,10 +25,6 @@ Example 1:
 
 Input: n = 2, meetings = [[0,10],[1,5],[2,7],[3,4]]
 Output: 0
-
-
-     
-     
      
     */
     
@@ -37,7 +33,7 @@ Output: 0
     thinking process: O((mlgm + nlgn + mn * lgn)/O(n))
      m = A.length
      the problem is to say: given one integer n represents the meeting room, you have anothe array 
-     A[i][j] means meeting start time and end time as interval,  there are some rules for the meeting schedule, 
+     A[i] means meeting start time and end time as interval,  there are some rules for the meeting schedule, 
 
      1. meeting will be scheduled from lowest number 
      2. if no meeting room available, then delay the meeting to earliest room, the duratin stay the same
