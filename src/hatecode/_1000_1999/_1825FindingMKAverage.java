@@ -51,7 +51,9 @@ Output
  * when a new number like 3 come, it will always arrive l, if overflow(>k) then go to r, if r overflow, then goto mid
  * this way we can manage mid easier
  * 
- * but if window size > m, then we need to remove elements out of 
+ * but if window size > m, then we need to remove elements out of q, and also need to remove it out of l or r, or mid.
+ * 
+ * we do not need to care about mid, because it has no cap on size, we only need to remove from l or r. then balance with mid
  * 
  * 
  */
