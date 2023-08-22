@@ -78,6 +78,8 @@ public class _365WaterandJugProblem {
         if (b == 0) return a;
         return gcd(b, a % b);
     }
+
+    
     public int gcd2(int x, int y) {
         while ( y != 0) {
             int temp = y;
