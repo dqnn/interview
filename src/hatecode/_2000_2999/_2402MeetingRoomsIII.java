@@ -40,7 +40,7 @@ Output: 0
      A[i][j] means meeting start time and end time as interval,  there are some rules for the meeting schedule, 
 
      1. meeting will be scheduled from lowest number 
-     2. if no meeting room available, then delay the meeting to earliest room, he duratin stay the same
+     2. if no meeting room available, then delay the meeting to earliest room, the duratin stay the same
      3. if two meeting room are available, thne pick the lowest room number
 
      return the meeting room which has the most meeting, if there is a tie, return the lower meeting room number
