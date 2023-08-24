@@ -77,9 +77,27 @@ public class _2407LongestIncreasingSubsequenceII {
          *  b. query on one element
          * 
          * 
+         * example: A=[4,2,1,2,3]， tree will be like after buildTree() 
+         *
+         * A= [6,4,3,4,5]
+         *                  (0,6)
+         *                  /   \
+         *                (0,3)       (4,6)
+         *               /    \        /  \
+         *              (0,1) (2,3)   (4,5) (6,6)
+         *          /    \     / \      /\     
+         *      (0,0) (1,1)  (2,2)(3,3)(4,4)(5,5)  
+         * 
+         * 
+         * 
+         *  each leaf node is a number,  we only needs to update the count in each leaf node,  and pass the value from down to
+         * top with post order
          * 
          *
          */
+
+
+
         static class Node{
             //count means the max count of integer for this node(range) which ends with the numbers in its [s, e]
             int s, e, count;
@@ -183,6 +201,7 @@ public class _2407LongestIncreasingSubsequenceII {
         }
 
         public static void main(String[] args) {
+            System.out.println(lengthOfLIS(new int[]{4,2,1,2,3}, 3));
             System.out.println(lengthOfLIS(new int[]{4,2,1,4,3,4,5,8,15}, 3));
             System.out.println(lengthOfLIS(new int[]{7,4,5,1,8,12,4,7}, 5));
             System.out.println(lengthOfLIS(new int[]{1,10}, 10));
