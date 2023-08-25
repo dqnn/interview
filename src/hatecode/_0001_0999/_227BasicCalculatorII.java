@@ -37,7 +37,7 @@ public class _227BasicCalculatorII {
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < s.length(); i ++) {
             Character ch = s.charAt(i);
-            if (Character.isDigit(ch)) { // convert the number into integer
+            if (Character.isDigit(ch)) { // convert the number iπnto integer
                 num = ch - '0';
                 while ((i + 1 < s.length()) && Character.isDigit(s.charAt(i + 1))) {
                     num = num * 10 + s.charAt(i + 1) - '0';
