@@ -41,7 +41,30 @@ public class _249GroupShiftedStrings {
      * @return
      */
 
-    // clarification questions to ask
+    
+    /*
+     * short version for the solution, key is to find the character string of all strings
+     */
+     public List<List<String>> groupStrings_interviewFriendly(String[] ss) {
+        if (ss == null || ss.length < 1) return new ArrayList<>();
+        
+        Map<String, List<String>> map = new HashMap<>();
+        
+        for(var s : ss) {
+            StringBuilder sb = new StringBuilder();
+            int offset = s.charAt(0) -'a';
+            for(char c : s.toCharArray()) {
+                int val = (c - offset + 26+'a')%26;
+                sb.append((char)(val));
+            }
+            map.computeIfAbsent(sb.toString(), v->new ArrayList<>()).add(s);
+        }
+        
+        return new ArrayList<>(map.values());
+    }
+    
+    
+     // clarification questions to ask
     //1 . the answer should be sorted?
     //2  input is null, the output is object with null contents or just null
     //
