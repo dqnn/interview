@@ -1,6 +1,7 @@
 package hatecode._1000_1999;
 
 import java.util.*;
+import java.util.stream.IntStream;
 
 public class _1570DotProductOfTwoSparseVectors {
 /*
@@ -27,9 +28,7 @@ Output: 8
     //find the array which has less non 0 digits
     Map<Integer, Integer> map = new HashMap<>();
     _1570DotProductOfTwoSparseVectors(int[] A) {
-        for(int i = 0; i<A.length; i++) {
-            if (A[i]!=0) map.put(i, A[i]);
-        }
+        IntStream.range(0, A.length).filter(i -> A[i] != 0).forEach(i -> map.put(i, A[i]));
     }
     
 	// Return the dotProduct of two sparse vectors
@@ -39,9 +38,8 @@ Output: 8
         }
         //System.out.println(map);
         int res = 0;
-        for(Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            int i = entry.getKey(), j =entry.getValue();
-            res += j * vec.map.getOrDefault(i, 0);
+        for(int k : map.keySet()) {
+            res += map.get(k) * vec.map.getOrDefault(k, 0);
         }
         
         return res;
