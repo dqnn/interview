@@ -77,27 +77,29 @@ Output: True
    }
    
    
-   //another way of removing K characters
-   boolean validPalindromeForRemovingKChars_2(String s, int k) {
-       if (s.length() <= 1) {
-           return true;
-       }
+   //remove K characters at most
+   public boolean validPalindrome_removeKchars(String s) {
+    if (s == null || s.length() <= 1) return true;
+    int l = 0, r = s.length() - 1;
+    
+    return helper(s, l, r, 1);
+}
 
-       int l = 0, r =s.length() - 1;
-       while (l < r) {
-           if (s.charAt(l) == s.charAt(r)) {
-               l++; 
-               r--;
-               continue;
-           }
-       }
 
-       if (k == 0) {
-           return false;
-       }
-
-       // Try to remove the first or last character
-       return validPalindromeForRemovingKChars(s.substring(l+1, r+1), k - 1) || 
-              validPalindromeForRemovingKChars(s.substring(l, r), k - 1);
-   }
+private boolean helper(String s, int l, int r, int k) {
+    while( l < r) {
+        if (s.charAt(l) == s.charAt(r)) {
+            l++;
+            r--;
+        } else {
+            if (k > 0) {
+                
+                return helper(s, l + 1, r, k -1) || helper(s, l, r-1, k -1);
+                
+            } else return false;
+        }
+    }
+    
+    return true;
+}
 }
