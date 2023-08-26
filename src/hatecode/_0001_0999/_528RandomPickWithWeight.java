@@ -46,16 +46,20 @@ so we can directly search for idx in sum array using templates 2
     //we use template 2 to find the correct results
     public int pickIndex() {
         int len = sum.length  - 1;
-        int target = random.nextInt(sum[len]);
+        /*
+         * nextInt(n) return o ~ n - 1,  so + 1
+         */
+        int target = 1 + random.nextInt(sum[len]);
         int l = 0, r = len;
         // search position 
         while(l < r){
-            int mid = l + ((r-l)>>2);
-            // =  implies it will return the postion after the same number
-            if(sum[mid] <= target)
-                l = mid + 1;
+            int m = l + ((r-l)>>2);
+            // if sum[m]== target which means we found the target and we should return the index because 
+            // sum[m] means the range [sum[m] - A[m], sum[m]] numbers, it could be the upper bound
+            if(sum[m] < target)
+                l = m + 1;
             else
-                r = mid;
+                r = m;
         }
         return l;
     }
