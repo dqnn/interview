@@ -56,6 +56,9 @@ so we can directly search for idx in sum array using templates 2
             int m = l + ((r-l)>>2);
             // if sum[m]== target which means we found the target and we should return the index because 
             // sum[m] means the range [sum[m] - A[m], sum[m]] numbers, it could be the upper bound
+            /*
+             * 
+             */
             if(sum[m] < target)
                 l = m + 1;
             else
