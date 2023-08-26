@@ -90,6 +90,22 @@ public class _160IntersectionofTwoLinkedLists {
         // by moving it to the beginning of other list.
         // Once both of them go through reassigning, 
         // they will be equidistant from the collision point.
+
+        so they have same speed, we assign each other;s path if one reached end early so they will have same distance to run,
+         there are several cases:
+     A:          a1 → a2
+                         ↘
+                         c1 → c2 → c3
+                         ↗
+     B:     b1 → b2 → b3
+     
+     they have 1 step diffence, so a1 will reach root(c3) first, then it will start from b1. b1 will reach root after a1, then will
+      start a1 when peer stat in b2, this time they will meet at c1
+
+      even they are on same path, it will be the same since distance and speed are the same
+
+
+
         //
          */
         while (a != b) {
