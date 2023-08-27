@@ -74,7 +74,7 @@ Output: true
         return false;
     }
     
-    //BFS
+    //BFS, the key is use while to implement rolling 
     public boolean hasPath2(int[][] maze, int[] start, int[] destination) {
         boolean[][] visited = new boolean[maze.length][maze[0].length];
         int[][] dirs={{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
@@ -100,5 +100,4 @@ Output: true
         }
         return false;
     }
-    
 }
