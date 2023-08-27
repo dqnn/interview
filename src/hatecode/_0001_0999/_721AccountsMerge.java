@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeSet;
 
 public class _721AccountsMerge {
 /*
@@ -39,6 +40,9 @@ We could return these lists in any order, for example the answer [['Mary', 'mary
 be accepted.
  */
     //Time Complexity: O(AlogA), where A = SUM(ai)  Space: O(A)
+    /*
+     * the problem is to say: 
+     */
     
     public List<List<String>> accountsMerge(List<List<String>> accounts) {
         if (accounts == null || accounts.size() < 1) return new ArrayList<>();
@@ -49,6 +53,10 @@ be accepted.
         //email mapping to ID, id is from 0, 
         Map<String, Integer> emailToID = new HashMap<>();
         int id = 0;
+        
+        
+        
+        
         for (List<String> account: accounts) {
             String name = "";
             //["John", "johnsmith@mail.com", "john00@mail.com"],
@@ -110,6 +118,63 @@ class Unionhelper {
         parent[find(x)] = find(y);
     }
  }
+
+/*
+ * we visit A twice to simplify the code when we union the array
+ */
+ public List<List<String>> accountsMerge_Simple(List<List<String>> A) {
+        if (A == null || A.size() < 1) return new ArrayList<>();
+        
+        
+        Map<String, Integer> email2Id = new HashMap<>(); 
+        Map<String, String> email2Name = new HashMap<>(); 
+        int sum = 0;
+        int id = 0; 
+        for(List<String> list : A) {
+            sum += list.size() - 1;
+            String name = list.get(0);
+            for(int i = 1;i< list.size(); i++) {
+                String email = list.get(i);
+                if(!email2Id.containsKey(email)) {
+                    email2Id.put(email, id);
+                    email2Name.put(email, name);
+                }
+                id++;
+            }
+        }
+        DSU dsu = new DSU(sum);
+       
+        for(List<String> list: A) {
+            String name = list.get(0);
+            for(int i = 1; i< list.size() ; i++) {
+                String email = list.get(i);
+                int root = dsu.find(email2Id.get(email));
+                dsu.union(email2Id.get(email), email2Id.get(list.get(1)));
+            }
+        }
+        
+        Map<Integer, TreeSet<String>> map = new HashMap<>();
+        for(List<String> list: A) {
+            String name = list.get(0);
+            for(int i = 1; i< list.size() ; i++) {
+                String email = list.get(i);
+                int root = dsu.find(email2Id.get(email));
+                map.computeIfAbsent(root, v->new TreeSet<>()).add(email);
+            }
+        }
+        
+        List<List<String>> res = new ArrayList<>();
+        for(var entry : map.entrySet()) {
+            List<String> tmp = new ArrayList<>();
+            tmp.addAll(entry.getValue());
+            tmp.add(0, email2Name.get(entry.getValue().first()));
+            res.add(tmp);
+        }
+        
+        return res;
+        
+        
+    }
 
   public static void main(String[] args) {
       List<String>[] temp =new List[4];
