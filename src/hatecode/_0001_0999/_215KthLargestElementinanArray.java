@@ -92,6 +92,10 @@ Now let's briefly write down the algorithm before writing our codes.
             if (nums[l] >= pivot) l++;
             if (nums[r] <= pivot) r--;
         }
+        /*
+         * why we swap left and r, here l = r + 1, all elements on l's left are bigger than left, r is the the left, so
+         * we repalce them 
+         */
         swap(nums, left, r);
         return r;
     }
