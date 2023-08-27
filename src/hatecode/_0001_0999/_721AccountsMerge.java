@@ -42,6 +42,18 @@ be accepted.
     //Time Complexity: O(AlogA), where A = SUM(ai)  Space: O(A)
     /*
      * the problem is to say: 
+     * give list of name with email, one person may have multiple emails, we need to merge them into one 
+     * 
+     * essentially we need to connect emais together to simplify the questions. union find is the greatest tool
+     *  we first need to create id for each email and union them, tricks in this problem.
+     * 
+     * 1. we always union with first email, if there is one email, we union it with itself.  it simplifies code 
+     * 2. we create id for each email, so later we can find them easily
+     * 3. when we composite the result, we only have root, so we need to have a id mapping to name, but since we already have 
+     * email to name, so we can just get first element out and email2Name to get its name.
+     * 
+     * 
+     * overall, the thinking process is not simple, need to pratice more
      */
     
     public List<List<String>> accountsMerge(List<List<String>> accounts) {
