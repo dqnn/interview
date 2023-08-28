@@ -37,7 +37,7 @@ public class _162FindPeakElement {
 
     /*
      * the problem is to  ask return any index of peak elements, Note: there will be multiple peaks there.
-     * the reason why we can use BS is becz that 
+     * the reason why we can use BS is becz that A[i] != A[i+1], so there definitely peak when m placed.
      */
     public int findPeakElement(int[] A) {
         if (A == null || A.length < 1) return -1;
