@@ -34,6 +34,11 @@ public class _162FindPeakElement {
      */
     //since it is peak, which means left is increase while right is decrease so we can use BS
     //it is standard BS
+
+    /*
+     * the problem is to  ask return any index of peak elements, Note: there will be multiple peaks there.
+     * the reason why we can use BS is becz that 
+     */
     public int findPeakElement(int[] A) {
         if (A == null || A.length < 1) return -1;
         
