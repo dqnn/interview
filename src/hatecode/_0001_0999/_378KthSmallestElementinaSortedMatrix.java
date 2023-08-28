@@ -117,7 +117,24 @@ return 13.
     
     there are two tricks for this problem: 
     1.  how to apply binary search 
-    the search space is [A[0][0], A[m-1][n-1]],  
+    the search space is [A[0][0], A[m-1][n-1]],  we count how many elements are strict smaller than the mid = (l+r)/2,
+
+
+    why we have to use "strict smaller than m"
+
+    A=[[1,3,3,3,3,3,3,3,3]] k = 3
+
+    if we count how many less and equals, then  
+    round 1: l = 1, r = 3, countlessThan(2) = 1 , 
+    round 2: l = 2, r = 3, we exit the while loop since l + 1 == r
+
+    then we will first try to countlessThan(r = 3) = 9 which is pretty large than k then return 2 which is incorrect.
+
+    because we have dup elements in matrix, 
+
+     
+
+
     
     */
     public int kthSmallest2(int[][] A, int k) {
