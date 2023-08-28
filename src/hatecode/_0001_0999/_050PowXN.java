@@ -47,6 +47,8 @@ public class _050PowXN {
             if (times % 2 != 0) {
                 res *= x;
             }
+
+            //here is the key, every time, we will square x 
             x *= x;
             times /= 2;
         }
