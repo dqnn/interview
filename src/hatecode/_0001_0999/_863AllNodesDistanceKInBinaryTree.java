@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /*
  * 863. All Nodes Distance K in Binary Tree
@@ -82,12 +83,9 @@ Output: [7,4,1]
 
     public void buildMap(TreeNode node, TreeNode parent) {
         if (node == null) return;
-        if (!map.containsKey(node)) {
-            map.computeIfAbsent(node, v->new HashSet<>());
-        }
         if (null != parent) {
-            map.get(node).add(parent);
-            map.get(parent).add(node);
+            map.computeIfAbsent(node, v->new HashSet<>()).add(parent);
+            map.computeIfAbsent(parent, v->new HashSet<>()).add(node);
         }
         buildMap(node.left, node);
         buildMap(node.right, node);
@@ -125,11 +123,8 @@ Output: [7,4,1]
         
         while(!q.isEmpty()) {
             int size = q.size();
-            if (k == 0) {
-                for(int i = 0; i < size; i++) {
-                    res.add(q.poll().val);
-                }
-                return res;
+            if(k == 0) {
+                return q.stream().map(x->x.val).collect(Collectors.toList());
             }
             for(int i = 0; i < size; i++) {
                 TreeNode node = q.poll();
