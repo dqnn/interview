@@ -130,11 +130,11 @@ return 13.
 
     then we will first try to countlessThan(r = 3) = 9 which is pretty large than k then return 2 which is incorrect.
 
-    because we have dup elements in matrix, 
+    because we have dup elements in matrix, like here 3, if we countlessthan(3) = 8, then should we return l = 2? 
+    so we have to try to detect whether lessthank(r) == k -1, then means r is the (k-1)th biggest one. 
+    r is the dup one inside the matrix
 
      
-
-
     
     */
     public int kthSmallest2(int[][] A, int k) {
