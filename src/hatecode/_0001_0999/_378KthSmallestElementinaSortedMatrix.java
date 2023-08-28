@@ -115,23 +115,25 @@ return 13.
     //we want to find an integer m, which can make count(m)==k, M[i][j] <=m, there maybe duplicate 
     //elements in the matrix, but the count must <= k.
     
-    why we count elements < m in the matrix? 
+    there are two tricks for this problem: 
+    1.  how to apply binary search 
+    the search space is [A[0][0], A[m-1][n-1]],  
     
     */
-    public int kthSmallest2(int[][] M, int k) {
-        int n = M.length;
-        int l = M[0][0];
+    public int kthSmallest2(int[][] A, int k) {
+        int n = A.length;
+        int l = A[0][0];
         // asc by row and column, so we can conclude that m[0][0] is min m[r][c] is max
-        int r = M[n - 1][n - 1];
+        int r = A[n - 1][n - 1];
         // left + 1 ? 
         while (l + 1 < r) {
             int m = (r - l) / 2 + l;
-            int num = countLessThanM(M, m);
+            int num = countLessThanM(A, m);
             //we want prioritize right side boundary
             if (num >= k) r = m;
             else l = m;
         }
-        if (countLessThanM(M, r) <= k - 1) return r;
+        if (countLessThanM(A, r) <= k - 1) return r;
         return l;
     }
     // count how many elements smaller than target
