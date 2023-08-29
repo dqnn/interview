@@ -56,7 +56,8 @@ public class _240Searcha2DMatrixII {
     }
     
     //Binary Search, interview frinendly 
-    //O(logmn)
+    //TC: O(logmn) = O(lgm + lgn), every time we reduced half of the search space 
+    //space comlexity: O(max (logn, lgn))
     
     // so the array was increase in 2D, so if we want to find some element faster, 
     //the fastest way is bianry search, so we need to adjust the common BS to be 
