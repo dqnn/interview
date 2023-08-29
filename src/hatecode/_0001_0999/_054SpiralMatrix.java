@@ -1,7 +1,6 @@
 package hatecode._0001_0999;
 
 import java.util.*;
-import java.util.List;
 
 /**
  * Project Name : Leetcode
@@ -30,8 +29,67 @@ public class _054SpiralMatrix {
      * @return
      */
     
+    /*
+     * anothe interview friendly soliution
+     * 
+     * so we use L R U D to describe the boundary when we visit the matrix, d means the direction 
+     * one tricky part here is to understand  when we reach the limit, we need to change the boundary,
+     * 
+     * for example ,
+     * if we reach the most right column, it means we can not back to that row, then row (u += 1).
+     * if we reach the most bottom row, it means we can not back to that most right column, then R (R -= 1).
+     * 
+     */
+    public List<Integer> spiralOrder_Easy(int[][] A) {
+        if (A == null || A.length < 1 || A[0].length < 1) return new ArrayList<>();
+        
+        int m = A.length, n = A[0].length;
+        
+        int i = 0, j = 0;
+        int L = 0, R = n - 1, U = 0, D = m - 1;
+        
+        char d ='R';
+        List<Integer> res = new ArrayList<>();
+        while(i >=U && i <= D && j >=L && j <= R) {
+            res.add(A[i][j]);
+            switch(d) {
+                case 'R':
+                    if(j == R) {
+                        d = 'D';
+                        i++;
+                        U= U + 1;
+                    } else j++;
+                    break;
+                case 'D':
+                    if(i == D) {
+                        d ='L';
+                        j--;
+                        R = R - 1;
+                    }else i++;
+                    break;
+                case 'L':
+                    if (j == L) {
+                        d = 'U';
+                        i--;
+                        D = D - 1;
+                    } else j--;
+                    break;
+                case 'U':
+                    if (i == U) {
+                        d = 'R';
+                        j++;
+                        L = L + 1;
+                    } else i --;
+                break;
+            }
+        }
+        
+        return res;
+    }
     
-    //interview friendly, 
+    
+    
+     //interview friendly, 
     //this is much simpler solution, up means top start point, down means bottom start point, 
     // this means direction, same to left and right
     public List<Integer> spiralOrder(int[][] g) {
