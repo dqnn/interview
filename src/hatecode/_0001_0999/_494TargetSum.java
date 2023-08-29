@@ -59,6 +59,7 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
 
     //setup model in the position of operators, and using backtracking to solve it
     //O(ln)/O(n), l is range of sum, n is nums length
+    //the memo is a tricky solution, totally we have 2* sum + 1 state
     int sum = 0;
     public int findTargetSumWays(int[] nums, int target) {
         //memo[i][j] means for nums[0->i], sum = j combinations
