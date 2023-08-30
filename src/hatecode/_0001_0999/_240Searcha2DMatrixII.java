@@ -42,7 +42,8 @@ public class _240Searcha2DMatrixII {
         if (matrix == null || matrix.length == 0) return false;
         int row = 0;
         int col = matrix[0].length - 1;
-        // we choose top right element to starting to look up 
+        // we choose top right element to starting to look up,
+        //because i only ++ while j only -- 
         while (col >= 0 && row <= matrix.length - 1) {
             if (target == matrix[row][col]) {
                 return true;
@@ -65,17 +66,20 @@ public class _240Searcha2DMatrixII {
     
     //since it is 2D BS, so we need binary search, top left and bottom right coordination
 /*
- top left   |
-            |
-            |
- -----------| bottom right
+ zone 1  zone 2  |
+        -(middle)|
+ zone 3  zone 4  |
+ ----------------| bottom right
  
- so when we do binary search, the search is on coordinations not on on single number
+/*
+ * every time, 
+ * if target is on left side, (Topleft, middle), then we discard zone 4, try to search in zone 1, zone 2 and zone 3
+ * if target is on right side,(middle, bottom right), then we discard zone 1, try to search in zone 2, 3 and zone 4
+ * 
  */
-    //the key is to understand the binary search on i and j, 
-    //since the matrix is asc on x and y,  suppose top left: (x1, y1), (x2, y2) right bottom
-    //the middle point is nx = (x1+x2)/2, ny = (y1+y2)/2,  suppose target is on right
-    //but we cannot guarantee that (x1, ny+1), (nx+1, y1) also possible to have the number
+
+
+
     int[][] m;
     int target;
     public boolean searchMatrix2(int[][] matrix, int target) {
