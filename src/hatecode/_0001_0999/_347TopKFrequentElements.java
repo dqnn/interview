@@ -100,4 +100,23 @@ Output: [1]
         A[l] = A[r];
         A[r] = temp;
     }
+
+    /*
+     * TC: O(nlogk)
+     */
+    public int[] topKFrequent_PQ(int[] A, int k) {
+        if (A == null || A.length < 1) return new int[]{};
+        Map<Integer, Integer> map = new HashMap<>();
+        Arrays.stream(A).forEach(e->map.put(e, map.getOrDefault(e,0) + 1));
+        
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b)->(Integer.compare(a[1], b[1])));
+        for(var entry: map.entrySet()) {
+            pq.offer(new int[]{entry.getKey(), entry.getValue()});
+            if(pq.size() > k) {
+                pq.poll();
+            }
+        }
+        
+        return pq.stream().mapToInt(e->e[0]).toArray();
+    }
 }
