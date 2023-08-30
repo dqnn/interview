@@ -32,22 +32,26 @@ Output: 4
  */
     //standard solutions
     double min = Double.MAX_VALUE;
-    int res = -1;
-    public int closestValue(TreeNode root, double target) {
-        helper(root, target);
-        return res;
+    TreeNode res = null;
+    public int closestValue(TreeNode root, double t) {
+        helper(root, t);
+        return res.val;
     }
     
-    private void helper(TreeNode node, double target) {
-        if (node == null) return;
-        if (min > Math.abs(node.val - target)) {
-            min = Math.abs(node.val - target);
-            res = node.val;
+    private void helper(TreeNode node, double t) {
+        if(node == null) return;
+        
+        // if there is a tiem we choose the smaller one 
+        double diff = Math.abs(node.val - t);
+        if(diff < min || diff == min && res.val > node.val) {
+            min = diff;
+            res = node;
         }
-        if (node.val > target)
-            helper(node.left, target);
-        else if (node.val < target)
-            helper(node.right, target);
-        else {}
+        
+        if (node.val < t) {
+            helper(node.right, t);
+        } else {
+            helper(node.left, t);
+        }
     }
 }
