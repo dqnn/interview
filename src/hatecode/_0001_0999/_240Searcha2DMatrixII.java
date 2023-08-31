@@ -70,6 +70,14 @@ public class _240Searcha2DMatrixII {
         -(middle)|
  zone 3  zone 4  |
  ----------------| bottom right
+
+
+ (x1,y1)          (x1, my+1)
+
+         (mx,my)              (mx, y2)
+
+(mx+1, y1)         (mx+1, my+1)
+        (x2, my)             (x2, y2)
  
 /*
  * every time, 
