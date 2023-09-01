@@ -51,7 +51,7 @@ Output: 4
             //remove non-attendable events, remove events are ending earlier than current timestamp t
             while(!q.isEmpty() && q.peek()<t) q.poll();//we remove the ones that are not attendable anymore
             
-            //here means event end time >= t, we an attend
+            //here means event end time >= t, we an attend, here we only attend one meeting with if
             if(!q.isEmpty()){
                 q.poll();
                 res++;
