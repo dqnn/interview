@@ -63,22 +63,31 @@ this graph demonstrated how to solve this problem
 
     // O(nlgn)/O(n)
     //this is to use pq to merge intervals
-    //there are two types of such kind question, one is merge interval, another one is to see how many 
+    //there are 3 types of such kind question, 
+    /*
+    1. is to merge interval, another one is to see how many  
+    2. to see how many meetings rooms needed
+    3. to see how many meetings need to be cancelled 
+     */ 
     //intervals to occupy space, like this problem
     
     //because we still to compare the interval to interval in later intervals, so 
     //we put them in PQ sorted by end
+
+    /*
+     * [[1,3],[2,5],[6,8]] example, 
+     * 
+     */
     public int minMeetingRooms2(Interval[] schedule) {
         Arrays.sort(schedule, (a, b) -> Integer.compare(a.start, b.start));
-        //the PQ keeps how many meeting  rooms are needed for current meeting schedule
+        //PQ is sorted by end time which means the earliest schedule that a room is available 
         PriorityQueue<Interval> pq = new PriorityQueue<>(schedule.length, (a, b) -> Integer.compare(a.end, b.end));
         //we add smallest start time into queue
         pq.offer(schedule[0]);
         for (int i = 1; i < schedule.length; i++) {
             Interval interval = pq.poll();
-            //we have a new schedule and want to check first room that can we merge the the schedule 
-            //with current meeting,if the schedule start time bigger than current meeting room ends time then 
-            //we can merge else we need to open another meeting
+            //we are at meeting i, the earliest room is available at inteval.end, if current meeting i start time bigger than 
+            //earliest end time, then we can re-use the the room, if not, we need a new room, so we place the meeting i into PQ 
             if (schedule[i].start >= interval.end) {
                 interval.end = schedule[i].end;
             } else {

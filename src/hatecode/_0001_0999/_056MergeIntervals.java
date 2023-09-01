@@ -37,7 +37,7 @@ Explanation: Intervals [1,4] and [4,5] are considerred overlapping.
      * @param intervals
      * @return
      */
-    // interview friendly solutions:
+    // interview friendly solutions: [[1,3],[2,5],[6,8]] as example
     //
     public List<Interval> merge(List<Interval> intervals) {
         List<Interval> res = new ArrayList<>();

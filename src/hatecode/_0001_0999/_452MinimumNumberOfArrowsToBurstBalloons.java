@@ -36,9 +36,10 @@ Output:
      */
     public int findMinArrowShots(int[][] p) {
         if (p == null || p.length < 1) return 0;
-        //please explain why we need to sort by second column, in many situations, 
-        //this is not needed
-        Arrays.sort(p, (a, b)->(a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]));
+        //we do not have to sort by end, just need to sort by start position 
+        //Arrays.sort(p, (a, b)->(a[0] == b[0] ? Integer.compare(b[1], a[1]) : Integer.compare(a[0], b[0])));
+
+        Arrays.sort(p, (a, b)->(Integer.compare(a[0], b[0])));
         int start = p[0][0], end = p[0][1];
         int res = 1;
         for(int i =1; i < p.length;i++) {

@@ -32,18 +32,23 @@ Output: 4
     //it is like sweeping line 
     public int maxEvents(int[][] A) {
         Arrays.sort(A, (a,b)->a[0]==b[0]? a[1]-b[1] : a[0]-b[0]);
-        PriorityQueue<Integer> q = new PriorityQueue<>();//hold attandable events at each time t; 
+
+        //it stored each event end time, start from earliest event which stopped earliest
+        PriorityQueue<Integer> q = new PriorityQueue<>();
         //meaning the ones that haven't ended yet
         int maxT = Integer.MIN_VALUE;
         //get min and max time point of the array
         for (int[] event : A) maxT = Math.max(maxT, event[1]);
         int minT = A[0][0];
         int eventId=0, res =0;
+
+        /*
+         * it is like sweeping line, sweeping between [minT, maxT]
+         */
         for(int t=minT; t<=maxT; t++){
           //add attend-able events
-            while(eventId<A.length && A[eventId][0]<=t)
-                q.add(A[eventId++][1]);
-            //remove non-attendable events
+            while(eventId<A.length && A[eventId][0]<=t) q.add(A[eventId++][1]);
+            //remove non-attendable events, remove events are ending earlier than current timestamp t
             while(!q.isEmpty() && q.peek()<t) q.poll();//we remove the ones that are not attendable anymore
             
             //here means event end time >= t, we an attend

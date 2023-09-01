@@ -59,6 +59,10 @@ public class _435NonoverlappingIntervals {
      * there some cases cannot merge easily, so we have use its oppsite to calculate
      * 
      * try to calculate which are not need merge
+     * 
+     * one variation of the problem is to see minimal meeting needs to be removed if we want to attend most of meetings.
+     *  [ [1,2], [2,3], [3,4], [1,3] ], return 1, needs to remove [1,3]
+     * 
 
      */
     public int eraseOverlapIntervals(Interval[] intervals) {
