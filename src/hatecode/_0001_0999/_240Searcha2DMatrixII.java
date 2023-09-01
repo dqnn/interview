@@ -80,7 +80,7 @@ public class _240Searcha2DMatrixII {
      * (mx+1, y1)     (mx+1, my+1)
      * 
      * 
-     *       (x2, my) (x2, y2)
+     *       (x2, my)           (x2, y2)
      * 
      * /*
      * every time,
@@ -90,6 +90,23 @@ public class _240Searcha2DMatrixII {
      * try to search in zone 2, 3 and zone 4
      * 
      */
+
+     private boolean search(int[][] A,int t,int x1,int y1,int x2,int y2) {
+        if (x1 > x2 || y1 > y2) return false;
+        int mx = x1 + (x2 - x1) / 2;
+        int my = y1 + (y2 - y1) / 2;
+        if (t > A[mx][my]) {
+            return search(A, t, x1, my + 1, mx, y2) // zone 2
+                    || search(A, t, mx + 1, my + 1, x2, y2) // zone 3
+                    || search(A, t, mx + 1, y1, x2, my); // zone 4
+        } else if (t < A[mx][my]) {
+            return search(A, t, x1, my, mx - 1, y2) // q1
+                    || search(A, t, mx, y1, x2, my - 1) // q3
+                    || search(A, t, x1, y1, mx - 1, my - 1); // q2
+        } else {
+            return true;
+        }
+    }
 
     int[][] m;
     int target;
@@ -133,20 +150,20 @@ public class _240Searcha2DMatrixII {
             return false;
     }
 
-    private boolean search(int[][] A,int t,int x1,int y1,int x2,int y2) {
-        if (x1 > x2 || y1 > y2) return false;
-        int i = x1 + (x2 - x1) / 2;
-        int j = y1 + (y2 - y1) / 2;
-        if (t > A[i][j]) {
-            return search(A, t, x1, j + 1, i, y2) // zone
-                    || search(A, t, i + 1, y1, x2, j) // z
-                    || search(A, t, i + 1, j + 1, x2, y2); // q4
-        } else if (t < A[i][j]) {
-            return search(A, t, x1, j, i - 1, y2) // q1
-                    || search(A, t, i, y1, x2, j - 1) // q3
-                    || search(A, t, x1, y1, i - 1, j - 1); // q2
-        } else {
-            return true;
+    
+
+
+    public boolean searchMatrix_binarySearchByRow(int[][] A, int target) {
+        for (int i=0;i<A.length;i++){
+                int l  = 0;
+                int r = A[i].length-1;
+                while (l <= r){
+                        int m = l + (r - l) / 2; // find mid
+                        if (A[i][m] == target) return true; // if target matches then return true
+                        else if (A[i][m] < target) l = m+1; // if the value is less than target then increment the left pointer
+                        else r = m-1; // otherwise decrement the right pointer
+                } 
         }
+        return false;
     }
 }

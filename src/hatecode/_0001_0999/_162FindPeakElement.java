@@ -1,5 +1,6 @@
 package hatecode._0001_0999;
 
+import java.util.*;
 /**
  * Project Name : Leetcode
  * Package Name : leetcode
@@ -85,5 +86,46 @@ public class _162FindPeakElement {
             }
         }
         return -1;
+    }
+
+
+/*
+ * follow up: 
+ * 
+ * return how many peak elements in array A, peak element means there are at least k elemnents on its left and right
+ * for example A=[1,2,8,5,3,4] we return 2 because only 8 and 5
+ */
+    public static int findPeakElement(int[] A, int k) {
+        if (A == null || A.length < 1) return 0;
+
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b)->(Integer.compare(b, a)));
+
+        int[] l = new int[A.length];
+        int n = A.length;
+        Arrays.fill(l, -1);
+
+        for(int i = 0; i< n; i++) {
+            if(i >= 2 && i <= n-3 && pq.size() >=k && pq.peek() < A[i]) {
+                l[i] = 1;
+            }
+            pq.add(A[i]);
+            if (pq.size() > k) pq.poll();
+        }
+
+        pq.clear();
+        int res = 0;
+        for(int i = n-1; i >=0; i--) {
+            if(i >= 2 && i <= n-3 && pq.size() >=k && pq.peek() < A[i] && l[i] > 0) {
+                res++;
+            }
+            pq.add(A[i]);
+            if (pq.size() > k) pq.poll();
+        }
+
+        return res;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(findPeakElement(new int[]{1,2,8,5,3,4,1,1}, 2));
     }
 }

@@ -101,12 +101,8 @@ Explanation: Intervals [1,4] and [4,5] are considerred overlapping.
           //新建两个数组
           int[] memo_start = new int[max+1];
           int[] memo_end = new int[max+1];
-          
-          
-          //遍历interval数组，在memo_start和memo_end数组里记录他们的位置。。。
-          //这样都不用sort了，妈的，太牛逼了！！！
-          //这样这两个数组根据系数自然sort了
-          
+        
+          //遍历interval数组，在memo_start和memo_end数组里记录他们的位置。。
       
           for(Interval it : intervals){
               memo_start[it.start]++;
