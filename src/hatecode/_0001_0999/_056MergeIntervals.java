@@ -98,7 +98,7 @@ Explanation: Intervals [1,4] and [4,5] are considerred overlapping.
               if(it.end > max) 
                   max = it.end;//遍历数组，获取所有interval里面最大值
           }
-          //新建两个数组
+          //新建两个数组 len = Math.abs(min, max) + 1; 
           int[] memo_start = new int[max+1];
           int[] memo_end = new int[max+1];
         
@@ -108,7 +108,12 @@ Explanation: Intervals [1,4] and [4,5] are considerred overlapping.
               memo_start[it.start]++;
               memo_end[it.end]++;
           }
-          
+          /*
+           *      [1, 4],[1, 4]
+           *       0  1  2  3  4
+           *    s  0  2  0  0  0
+           *    e  0  0  0  0  2
+           */
           ///然后遍历其中一个memo数组
           for(int i = 0; i < memo_start.length; i++){
               if(total == 0) start = i;

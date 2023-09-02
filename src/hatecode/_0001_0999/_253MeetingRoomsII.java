@@ -80,7 +80,7 @@ this graph demonstrated how to solve this problem
      */
     public int minMeetingRooms2(Interval[] schedule) {
         Arrays.sort(schedule, (a, b) -> Integer.compare(a.start, b.start));
-        //PQ is sorted by end time which means the earliest schedule that a room is available 
+        //PQ is sorted by end time which means the earliest schedule that a room is available, also stands for meetings will be attended
         PriorityQueue<Interval> pq = new PriorityQueue<>(schedule.length, (a, b) -> Integer.compare(a.end, b.end));
         //we add smallest start time into queue
         pq.offer(schedule[0]);

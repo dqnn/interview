@@ -62,7 +62,7 @@ Output: 2
             A[i][1] += temp;
         }
         
-        Arrays.sort(A, (a ,b)->(a[0] == b[0] ? Integer.compare(a[1], b[1]) :Integer.compare(a[0], b[0]) ));
+        Arrays.sort(A, (a ,b)->(a[0] == b[0] ? Integer.compare(a[1], b[1]) :Integer.compare(a[0], b[0])));
         
         int res = 0;
         int i = 0;
