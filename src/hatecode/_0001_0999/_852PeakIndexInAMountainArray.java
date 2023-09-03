@@ -19,8 +19,33 @@ Example 2:
 Input: [0,2,1,0]
 Output: 1
 */
-    //one pass
-    public int peakIndexInMountainArray(int[] A) {
+    
+/*
+ * interview friendly: O(lgn)
+ * 
+ * use bianry search to find the index, because there is only one peak elements, so no matter mid is in left or right side, 
+ * we can move the mid to closer to peak index
+ */
+public int peakIndexInMountainArray(int[] A) {
+    if(A == null || A.length < 1) return -1;
+    
+    int l = 0, r = A.length - 1;
+    
+    while(l <=r) {
+        int m = l +(r-l)/2;
+        if(m > 0 && A[m-1] > A[m]) {
+            r = m -1;
+        } else l = m + 1;
+    }
+    
+    return r;
+}
+
+
+
+
+//one pass
+    public int peakIndexInMountainArray_BF(int[] A) {
         if (A == null || A.length < 3) {
             return -1;
         }
@@ -32,7 +57,7 @@ Output: 1
         return -1;
     }
     //two pinters, fastest one
-    public int peakIndexInMountainArray2(int[] A) {
+    public int peakIndexInMountainArray_TP(int[] A) {
         int i = 0,j=A.length-1 ;
         for (;i<j;){
             if (A[i+1]>A[i]) {

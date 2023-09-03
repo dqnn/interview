@@ -30,7 +30,10 @@ Output: [0,1]
  * compare to 162. Find Peak Element
  * 
  * here it changed to 2D, but the problem itself does not change, in 162, we use binary search to find the element, since any adjacent
- * elements are different, so
+ * elements are different, so we can compare A[m] and A[m-1], 
+ * if A[m-1] > A[m] we move r = m , else l = m, we should make sure the bigger value is in range{l ,r}
+ * 
+ * here the trick is 
  */
     public int[] findPeakGrid(int[][] A) {
         if (A == null || A.length < 1 || A[0].length < 1) return new int[]{-1,-1};
