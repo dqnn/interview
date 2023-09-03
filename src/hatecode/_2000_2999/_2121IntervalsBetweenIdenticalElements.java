@@ -1,6 +1,7 @@
 package hatecode._2000_2999;
 
 import java.util.*;
+import java.util.stream.*;
 
 public class _2121IntervalsBetweenIdenticalElements {
     /*
