@@ -117,6 +117,10 @@ I wouldn't worry too much about the accurate complexity analysis of this problem
         } else {  // extra ')' is detected and for substring 0->r, we greedy to get correct string
             r -= 1; // 'i-1' is the index of abnormal ')' which makes count<0
             // to_del is the character to be removed
+            /*
+             * )(( (ll = 0, r = 1) [')', '('] 
+               ()) (ll = 0. r = 1) ['(', ')']
+             */
             for (int l = last_l; l<= r; l++) {
                 //()()), for last 2 )), we only want to remove first ), and no dup in results
                 //Key is here, 

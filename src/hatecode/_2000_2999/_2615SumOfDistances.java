@@ -38,7 +38,7 @@ public class _2615SumOfDistances {
        A0.........Ai-1,Ai,Ai+1........An-1
        |------pre----|    |--post--------|
        |----------total------------------|
-       pre = A0 +A1 + ... +Ai-1
+       pre = A0 +A1 + ... +Ai-1 = i - 1 - I(0) + (i-1) - I(1)+ (i-1) - I(i-1) = (i-1) * (i-1) - (I(0)+...I(i-1))
        left = i * Ai - (A0 + .. +Ai-1)
        right = An-1 - Ai + ..Ai+1- Ai = Ai+1 + Ai+2... + An-1 - (n-1 - (i+1) + 1) * Ai 
        =  total -pre - Ai - Ai * (n-i-1)
