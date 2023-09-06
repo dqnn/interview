@@ -70,7 +70,11 @@ Output: 4
     //here is suppose to solve the problem that we removed K elements, return the max
     //sum of the sub array
     
-    //dp[i][j] means 
+    //dp[i][j] means for sub array, 0->i, if we remove k elements, the max sum of the array
+    /*
+     * we have 2 cases at position i;
+     * 1. we keep A[i],  
+     */
     public int maximumSum_K_Deletion(int[] A, int K) {
         if (A == null || A.length < 1) return 0;
 
