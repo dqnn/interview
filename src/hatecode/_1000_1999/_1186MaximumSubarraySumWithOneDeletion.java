@@ -74,6 +74,7 @@ Output: 4
     /*
      * we have 2 cases at position i;
      * 1. we keep A[i],  
+     * 2. we remove A[i], 
      */
     public int maximumSum_K_Deletion(int[] A, int K) {
         if (A == null || A.length < 1) return 0;
