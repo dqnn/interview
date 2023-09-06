@@ -31,6 +31,7 @@ Output: [[0,0,0,null,null,0,0,null,null,0,0],[0,0,0,null,null,0,0,0,0],[0,0,0,0,
     
 
     //O(2^N)/O(2^N), 
+    //similar problem: 96. Unique Binary Search Trees
 //   thinking process, since each node will only have 0 or 2 nodes
     //then N must be odd number if not, like n =2 it will be invalid
     // so we use map to mem n-> List
