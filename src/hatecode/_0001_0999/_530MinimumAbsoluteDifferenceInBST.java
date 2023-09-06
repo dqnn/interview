@@ -60,6 +60,38 @@ Output:
         }
         return diff;
     }
+
+
+    //another inorder visit of the tree
+    public int getMinimumDifference_Stack(TreeNode root) {
+        if (root == null) return 0;
+        
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode prev = null;
+        TreeNode cur = root;
+        while(cur != null) {
+            stack.push(cur);
+            cur= cur.left;
+        }
+        
+        int res = Integer.MAX_VALUE;
+        while(!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            if(prev !=null) {
+                res = Math.min(res, node.val - prev.val);
+            }
+            prev = node;
+            TreeNode r = node.right;
+            while(r != null) {
+                stack.push(r);
+                r = r.left;
+            }
+        }
+        
+        return res;
+    }
+
+
     
     int minDiff = Integer.MAX_VALUE;
     TreeNode prev;

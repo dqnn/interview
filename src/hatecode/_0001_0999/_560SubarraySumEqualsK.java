@@ -68,6 +68,9 @@ sum - k = pre_i. That's why we have sum - k and not k - sum
         HashMap<Integer, Integer> map = new HashMap<>();
         //this is to avoid whole array sum == k
         //[1,2,3] k = 6, we need to have this array
+        /*
+         * another example is [1] k = 1
+         */
         map.put(0, 1);
 
         for(int i = 0; i < A.length; i++) {
