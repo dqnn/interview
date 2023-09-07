@@ -75,9 +75,7 @@ to get the random number 0 among {0,1,2,3} in the loop where i = 4, so the proba
                 continue;
             }
          // this must be called found the value, 
-            //The nextInt(int n) is used to get a random number between 0(inclusive) and the number passed 
-            //in this argument(n),               
-            // exclusive.
+            //The nextInt(int n) is used to get a random number in range [0, n-1]
             
             // this is the key, this ways:
             /*
