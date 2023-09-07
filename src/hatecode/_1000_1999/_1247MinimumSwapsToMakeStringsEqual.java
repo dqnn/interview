@@ -48,9 +48,23 @@ Output: -1
      * we can apply 1st case, with countxy/2 +countyx/2, so we can minimize the swaps, 
      * 
      * "xyxyyx"
+     *     |
        "yxyxxy"
+     
+        yyyx
+        xxxy
 
-       
+        yyxx
+        xxyy
+        
+        xyxx
+        xyyy
+        
+        xyxy
+        xyxy        
+
+
+
      */
     public int minimumSwap(String s1, String s2) {
         if (s1 == null && s2 == null) return 0;
