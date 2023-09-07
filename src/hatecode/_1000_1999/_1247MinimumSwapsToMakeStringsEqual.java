@@ -67,10 +67,24 @@ Output: -1
          * xyy
          * yxx  we cannot make them equal
          */
-        if(countxy % 2 != countyx%2) return -1;
+        if(countxy % 2 != countyx % 2) return -1;
         
         /*
-         * here counxy and countyx have same odd/even things, so
+         * here counxy and countyx have same odd/even things, so 
+         * 1.if they are both even, like 
+         *     xxyy
+         *     yyxx   then 2 swaps can make it
+         * 
+         * 2. if they are both odd, then 
+         *    xyyy
+         *    yxxx 
+         * 
+         * then first use case 1
+         *   xyxy
+         *   yxxy
+         * then just change the first part, so essentially countyx will have 1 left to pair with counyx then we can use case 2 (+2) to form the final result
+         *    
+         *
          */
         int res = countxy/2+countyx/2;
         if(countxy % 2 == 1) res += 2;
