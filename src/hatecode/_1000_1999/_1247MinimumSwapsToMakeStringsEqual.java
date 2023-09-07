@@ -43,26 +43,12 @@ Output: -1
      * 
      * another case: s1 =xy, s2=yx we need 2 swaps 
      * 
-     * base on above facts, we use two counters counxy records how many x in s1 while y in s2 in same position, same as countyx 
+     * base on above 2 cases, we use two counters counxy records how many x in s1 while y in s2 in same position, same as countyx 
      * 
      * we can apply 1st case, with countxy/2 +countyx/2, so we can minimize the swaps, 
      * 
-     * "xyxyyx"
-     *     |
-       "yxyxxy"
-     
-        yyyx
-        xxxy
-
-        yyxx
-        xxyy
-        
-        xyxx
-        xyyy
-        
-        xyxy
-        xyxy        
-
+     * 
+   
      */
     public int minimumSwap(String s1, String s2) {
         if (s1 == null && s2 == null) return 0;
@@ -77,9 +63,15 @@ Output: -1
                 countxy++;
             } else countyx++;
         }
-        
+        /*
+         * xyy
+         * yxx  we cannot make them equal
+         */
         if(countxy % 2 != countyx%2) return -1;
         
+        /*
+         * here counxy and countyx have same odd/even things, so
+         */
         int res = countxy/2+countyx/2;
         if(countxy % 2 == 1) res += 2;
         
