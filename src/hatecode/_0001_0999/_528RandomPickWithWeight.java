@@ -66,4 +66,28 @@ so we can directly search for idx in sum array using templates 2
         }
         return l;
     }
+
+  /*
+   * this one is better version, 
+   * if next belong to range [A[i-1] + 1, sum[i]], becuase we need to return the index by weight 
+   * last we want to make sure left is bigger than next, because we have sum[l] and sum[r] two elements to check
+   * as a range, we would like to check from its left, we cannot check from right, because essentially we would like to 
+   * find a place to insert this element, if we compare from right, then l maybe mixed. 
+   */
+    public int pickIndex_v2() {
+        int next = new Random().nextInt(sum[sum.length-1]) + 1;
+        
+        int l = 0, r = sum.length -1;
+        while(l + 1< r) {
+            int m = l + (r-l)/2;
+            if(next ==sum[m]) {
+                return m;
+            } else if (next < sum[m]) {
+                r = m;
+            } else l = m;
+        }
+        
+        if(sum[l] >= next) return l;
+        else return r;
+    }
 }
