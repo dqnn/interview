@@ -39,6 +39,11 @@ public class _162FindPeakElement {
     /*
      * the problem is to  ask return any index of peak elements, Note: there will be multiple peaks there.
      * the reason why we can use BS is becz that A[i] != A[i+1], so there definitely peak when m placed.
+     * 
+     * the problem can only use l + 1 < r, because 
+     * 1. if we use l < r. then l = m + 1 will miss the A[m] elements, for example
+     * [2,3,1], m = 1 , A[m] > A[m-1], then l = m + 1 = 2, it missed the 
+     * correct answer. the real reason is that we need to use two pointers point to middle, so we won't miss any elements
      */
     public int findPeakElement(int[] A) {
         if (A == null || A.length < 1) return -1;
