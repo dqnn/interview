@@ -41,6 +41,7 @@ public class _236LowestCommonAncestorofaBinaryTree {
         //will be ancestor
         // returns real root which is LCA since 
         //it’s doesn’t matter where second (p or q) is – root is LCA anyway.
+        //one key here is that p q will be in BT, if not, 
         if (root == null || root == p || root == q) {
             return root;
         }

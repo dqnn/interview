@@ -49,8 +49,8 @@ Output: "lee(t(c)o)de"
     //we want to make sure whether each ( ) are matched, if they
     //are matched then we need it, if not, we just remove them.
 
-    /* l: at position i, count of '(' from 0 ->i.
-       r: at position i, how many ) are unmatched from i + 1 --> A.length - 1
+    /* l: at position i, count of unmatched '(' from 0 ->i.
+       r: at position i, how many ) are unmatched from i + 1 --> A.length - 1, waited to be matched
      * 
      * for '(' it is easy because we know how many ) totally, we just make sure r > 0 then we 
      * can append to stringBuilder
