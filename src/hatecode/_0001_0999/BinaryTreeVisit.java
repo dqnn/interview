@@ -69,7 +69,8 @@ public class BinaryTreeVisit {
         Stack<TreeNode> s = new Stack<TreeNode>();
         TreeNode curNode = root;
 
-        while (true) {
+       // while (true) {
+        while(s.isEmpty()) {
             if (curNode != null) {
                 if (curNode.right != null) {
                     s.push(curNode.right);
@@ -120,7 +121,7 @@ public class BinaryTreeVisit {
       /  \
      0   3
         / \
-       2  5
+       2   5
  */
  
         TreeNode rootNode =new TreeNode(6);
