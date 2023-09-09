@@ -63,14 +63,15 @@ public class BinaryTreeVisit {
             }
         }
     }
+
+    //post order have same code structure compared to inorder visit, but it will need to store current root then right child into the stack
     public static void postOrderTreeByStack(TreeNode root) {
         if (root == null) return;
 
         Stack<TreeNode> s = new Stack<TreeNode>();
         TreeNode curNode = root;
 
-       // while (true) {
-        while(s.isEmpty()) {
+        while(!s.isEmpty() || curNode != null) {
             if (curNode != null) {
                 if (curNode.right != null) {
                     s.push(curNode.right);
@@ -80,7 +81,6 @@ public class BinaryTreeVisit {
                 continue;
             }
 
-            if (s.isEmpty()) return;
             curNode = s.pop();
 
             if (curNode.right != null && !s.isEmpty() && curNode.right == s.peek()) {
@@ -117,7 +117,7 @@ public class BinaryTreeVisit {
 /*
           6
          / \
-        8  1
+        8   1
       /  \
      0   3
         / \
