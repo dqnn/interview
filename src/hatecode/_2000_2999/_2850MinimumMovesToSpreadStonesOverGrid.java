@@ -41,7 +41,13 @@ Output: 3
      * 
      * you will need to move 1 from A[2][1] to A[0][2], you will need at least 3 moves, so return 3
      * 
-     * the problem is essentially to say:
+     * the problem is essentially to say: multiple sources to multiple targets
+     * 
+     * here you will a list of cells which are bigger than 1 while there are some list of 0 
+     * you can substrate 1 from above list and move to any places with 0. 
+     * 
+     * each distance is the move you will spent from one source to one target, and return the min sum of distances
+     * 
      */
     public static int minimumMoves(int[][] A) {
         if(A == null || A.length < 1 || A[0].length < 1) return 0;
