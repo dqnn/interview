@@ -65,7 +65,7 @@ Output: 3
         //store the matrix, convert matrix to string, like "111111111"
         Set<String> visited = new HashSet<>();
         
-        
+        // queue store the matrix candidate 
         Queue<int[][]> q = new LinkedList<>();
         q.offer(A);
         visited.add(getKey(A));
@@ -79,11 +79,16 @@ Output: 3
                 if(getKey(cur).equals("111111111")) return move;
                 for(int i = 0; i<m; i++) {
                     for(int j = 0; j<n; j++) {
+                        //here we found one cell which needs to distribute stones to other cells,
+                        /*
+                         * deep clone the matrix then change the corresponding cells
+                         */
                         if(cur[i][j] > 1) {
                             for(int[] d: dirs) {
                                 int ni = i + d[0];
                                 int nj = j + d[1];
                                 if(ni >=0 && ni < m && nj >=0 && nj < n) {
+                                    //we deep clone the matrix,
                                     int[][] next = copy(cur);
                                     next[i][j]--;
                                     next[ni][nj]++;
