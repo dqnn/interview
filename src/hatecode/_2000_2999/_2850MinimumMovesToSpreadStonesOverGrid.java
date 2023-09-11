@@ -62,7 +62,10 @@ Output: 3
         
         int m = A.length, n = A[0].length;
         
+        //store the matrix, convert matrix to string, like "111111111"
         Set<String> visited = new HashSet<>();
+        
+        //
         Queue<int[][]> q = new LinkedList<>();
         q.offer(A);
         visited.add(getKey(A));
