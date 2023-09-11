@@ -49,6 +49,16 @@ public class _317ShortestDistancefromAllBuildings {
     
     //the problem is to say we want to know the shortest distance in a given 2D matrix, 
     //from 0 to all buildings 1, 0 is empty, 1 is building cannot pass and 2 is obstacle. 
+
+    /*
+     * the manhatan distance = BFS step 
+     * and here we cannot use manhatan distance because there is block on the way, see below example
+     * 0 0 0 1 1 1
+     * 0 1 1 0 0 0
+     * 0 0 0 0 0 1
+     * 
+     * A[0][4] -> A[0][0], you have to down to lowest row and climb
+     */
     
     //we start from each 1 building, we use nums to store when cell = 0, what's the building
     //number it could reach. dist is used to store the distance from 1 cell. 
