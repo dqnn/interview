@@ -55,7 +55,7 @@ Output: 3
      * 
      * so the status of the problem is the whole matrix, we cannot use BFS like 317 simply to visit all buildings, because 2850 one cell may have multiple paths to the cells
      * 
-     * 
+     * we convert the matrix to string, so if we already have this state, then we do not have to visit again
      */
     public static int minimumMoves(int[][] A) {
         if(A == null || A.length < 1 || A[0].length < 1) return 0;
