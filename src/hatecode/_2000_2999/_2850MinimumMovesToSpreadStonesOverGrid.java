@@ -49,6 +49,12 @@ Output: 3
      * each distance is the move you will spent from one source to one target, and return the min sum of distances
      * 
      * we cannot use solution of "LC 317, shortest path from all buildings"
+     * 
+     * 317 is multiple source --> target, but each source will enter all target nodes, now 2850 is more like allocation two parts, 
+     * they can local compute and get the min distance 
+     * 
+     * 
+     * 
      */
     public static int minimumMoves(int[][] A) {
         if(A == null || A.length < 1 || A[0].length < 1) return 0;
