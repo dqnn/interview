@@ -65,7 +65,7 @@ Output: 3
         //store the matrix, convert matrix to string, like "111111111"
         Set<String> visited = new HashSet<>();
         
-        //
+        
         Queue<int[][]> q = new LinkedList<>();
         q.offer(A);
         visited.add(getKey(A));
