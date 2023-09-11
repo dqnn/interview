@@ -53,6 +53,7 @@ Output: 3
      * 317 is multiple source --> target, but each source will enter all target nodes, now 2850 is more like allocation two parts, 
      * they can local compute and get the min distance 
      * 
+     * so the status of the problem is the whole matrix, we cannot use BFS like 317 simply to visit all buildings, because 2850 one cell may have multiple paths to the cells
      * 
      * 
      */
