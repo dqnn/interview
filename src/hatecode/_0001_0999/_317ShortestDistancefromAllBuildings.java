@@ -78,6 +78,17 @@ public class _317ShortestDistancefromAllBuildings {
     
     //this type of problem is good to use dist[][] array to store the all nearest distances,
     //num[][] array to store the accessibleBuildings
+
+    /*
+     * we cannot to calcuate distance from 0  to 1, because if we use dist to store distance from 0 to 1, 
+     * then the problem:
+     * 
+     * the int[][] num will record how many empty cells which can connect this building with minimal distance, but it is not easy to
+     * mark the startpoint in dist[][], we can try to add the source to Queue so we can mark the starting point in dist[][], it just make 
+     * the code harder
+     * 
+     * 
+     */
     public int shortestDistance(int[][] grid) {
         if (grid == null || grid.length == 0) return -1;
         int m = grid.length;

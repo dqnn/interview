@@ -21,7 +21,7 @@ return the pointer to the first element of the linked list.
 The figure below shows the transformed BST. The solid line indicates the successor relationship, while the 
 dashed line means the predecessor relationship.
  */
-    class Node {
+    static class Node {
         public int val;
         public Node left;
         public Node right;
@@ -69,6 +69,35 @@ dashed line means the predecessor relationship.
         
         helper(node.right);
     }
+
+
+    static Node first, last;
+    public static Node treeToDoublyList_v2(Node root) {
+        if (root == null ) return null;
+        helper2(root);
+        
+        first.right = last;
+        last.left = first;
+        
+        return first;
+    }
+    
+    private static void helper2(Node root) {
+        if(root == null) return;
+        
+        helper2(root.left);
+        if(first == null) {
+            first = root;
+        }
+        
+        if(last != null) {
+            root.left = last;
+            last.right = root;
+        }
+        last = root;
+        
+        helper2(root.right);
+    }
     
     public Node treeToDoublyList_Stack(Node root) {
         if (root == null) {
@@ -98,5 +127,14 @@ dashed line means the predecessor relationship.
         first.left = last;
         last.right = first;
         return first;
+    }
+
+
+    public static void main(String[] args) {
+        Node root = new Node(2, null, null );
+        root.left = new Node(1, null, null );
+        root.right = new Node(3, null, null );
+
+        System.out.println(treeToDoublyList_v2(root));
     }
 }

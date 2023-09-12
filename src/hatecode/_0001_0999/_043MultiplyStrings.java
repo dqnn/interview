@@ -45,8 +45,8 @@ public class _043MultiplyStrings {
                 int product = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
                 //this is the key,
  /*
-  *     1   2   3   A[i]
-  *         4   5   B[j]
+  *     1   2   3   B[j]
+  *         4   5   A[i]
   *  --------------------
   *         1  5
   *      1  0
@@ -68,7 +68,8 @@ public class _043MultiplyStrings {
                 int sum = product + digits[p2];
                 // incremental, we need to add previous value 
                 digits[p1] += sum / 10;
-                // real value in the smaller position, note we do not have +
+                // real value in the smaller position, note we do not have + because we only visite the smaller position once
+                //it already finalized
                 digits[p2] = sum % 10;
             }
         }
