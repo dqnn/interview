@@ -36,8 +36,8 @@ sum_i - sum_j = (m - n) *k
     
     //interview friendly: 
     //
-    public boolean checkSubarraySum(int[] nums, int k) {
-        if (nums == null || nums.length < 1) {
+    public boolean checkSubarraySum(int[] A, int k) {
+        if (A == null || A.length < 1) {
             return false;
         }
         Map<Integer, Integer> map = new HashMap<>();
@@ -46,13 +46,13 @@ sum_i - sum_j = (m - n) *k
         // keyNote
         map.put(0, -1);
         int sum = 0;
-        for(int i = 0; i< nums.length;i++) {
-            sum += nums[i];
+        for(int i = 0; i< A.length;i++) {
+            sum += A[i];
             // k can be 0, in that case, 0,-1 can help
             if (k!=0) sum %=k;
             if (map.containsKey(sum)){
                 //note [i, j] did not include i, it starts from 
-                //[i+1, j],so j - i -1 + 1>=2
+                //[i+1, j],so j - (i +1) + 1>=2
                 if (i - map.get(sum) > 1) return true;
             //keyNote: we need else here, we want to maxmize the length of the array
             } else map.put(sum, i);
