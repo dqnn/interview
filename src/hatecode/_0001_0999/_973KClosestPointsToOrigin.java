@@ -47,40 +47,50 @@ Since sqrt(8) < sqrt(10), (-2, 2) is closer to the origin.
      *          = n (1 + 1/2+ 1/4 + .... 1/lg2^n)
      *          = 2n
      */
-    public int[][] kClosest(int[][] points, int K) {
-        int len =  points.length, l = 0, r = len - 1;
-        while (l <= r) {
-            int mid = helper(points, l, r);
-            if (mid == K) break;
-            if (mid < K) {
-                l = mid + 1;
-            } else {
-                r = mid - 1;
-            }
+    public int[][] kClosest(int[][] p, int k) {
+        if( p == null || p.length < 1 || p[0].length < 1 || k < 1) return new int[0][0];
+        
+        
+        int l = 0, r = p.length - 1;
+        while(l <= r) {
+            int m = partition2(p, l ,r);
+            if(m == k) {
+                break;
+            } else if (m < k) l = m + 1;
+            else r = m -1;
         }
-        return Arrays.copyOfRange(points, 0, K);
+        
+        return Arrays.copyOfRange(p, 0, k);
     }
-    //we move the elements right or left arranged by A
-    private int helper(int[][] A, int l, int r) {
-        //mark start as pivot
-        int[] pivot = A[l];
-        //start swap
-        while (l < r) {
-           //r will stop when A[r] < pviot which means should be in left bucket
-            while (l < r && compare(A[r], pivot) >= 0) r--;
-            A[l] = A[r];
-            //l will stop when A[l] > pivot, so left should be in right bucket
-            while (l < r && compare(A[l], pivot) <= 0) l++;
-            A[r] = A[l];
+    
+    
+    private int partition2(int[][] A, int ll, int lr) {
+        int[] p = A[ll];
+        int l = ll + 1, r = lr;
+        
+        while(l <= r) {
+            if(compare(A[l], p) > 0 && compare(A[r], p) < 0) {
+                swap(A, l, r);
+                l++;
+                r--;
+                continue;
+            }
+            
+            if(compare(A[l], p) <= 0) l++;
+            if(compare(A[r], p) >= 0) r--;
         }
-        //move original pivot value to here and retun the value
-        A[l] = pivot;
-        return l;
+        
+        swap(A, ll, r);
+        return r;
+    }
+    
+    
+    private int compare(int[] A, int[] B) {
+        int distA = A[0]*A[0] +A[1] *A[1];
+        int distB = B[0]*B[0] + B[1]*B[1];
+        return distA - distB;
     }
 
-    private int compare(int[] p1, int[] p2) {
-        return p1[0] * p1[0] + p1[1] * p1[1] - p2[0] * p2[0] - p2[1] * p2[1];
-    }
     
     //O(N) solution, quick sort
     private Random random = new Random();

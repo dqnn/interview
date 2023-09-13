@@ -31,26 +31,26 @@ public class _015ThreeSum {
 
      time : O(n^2);
      space : O(n);
-     * @param nums
+     * @param A
      * @return
      */
-    public static List<List<Integer>> threeSum(int[] nums) {
+    public static List<List<Integer>> threeSum(int[] A) {
         List<List<Integer>> res = new ArrayList<>();
-        Arrays.sort(nums);
-        for (int i = 0; i < nums.length - 2; i++) {
-            if (i > 0 && nums[i] == nums[i - 1]) continue;
-            int low = i + 1, high = nums.length - 1, sum = 0 - nums[i];
-            while (low < high) {
-                if (nums[low] + nums[high] == sum) {
-                    res.add(Arrays.asList(nums[i], nums[low], nums[high]));
+        Arrays.sort(A);
+        for (int i = 0; i < A.length - 2; i++) {
+            if (i > 0 && A[i] == A[i - 1]) continue;
+            int l = i + 1, r = A.length - 1, sum = 0 - A[i];
+            while (l < r) {
+                if (A[l] + A[r] == sum) {
+                    res.add(Arrays.asList(A[i], A[l], A[r]));
                     //we move since we found many dup, like  {-1, 0, 1, 1, 2, -1, -4}
-                    while (low < high && nums[low] == nums[low + 1]) low++;
-                    while (low < high && nums[high] == nums[high - 1]) high--;
-                    low++;
-                    high--;
-                } else if (nums[low] + nums[high] < sum) {
-                    low++;
-                } else high--;
+                    while (l < r && A[l] == A[l + 1]) l++;
+                    while (l < r && A[r] == A[r - 1]) r--;
+                    l++;
+                    r--;
+                } else if (A[l] + A[r] < sum) {
+                    l++;
+                } else r--;
             }
         }
         return res;

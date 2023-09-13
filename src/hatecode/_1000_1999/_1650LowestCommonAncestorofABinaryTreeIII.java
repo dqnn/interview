@@ -32,6 +32,20 @@ According to the definition of LCA on Wikipedia: "The lowest common ancestor of 
     
     //if two runs in a circle with different speed, 
     //they will meet eventually, LC 160
+    /*
+     * here they have same speed not in circile, they will eventually meet the point of intersection why?
+     * because their distance are the same, speed is the same, so they will meet at the intersection which is the end
+     *     S1       S3
+     *  ---------|-----
+     *           |
+     *  ---------
+     *    S2
+     * 
+     * 
+     * S1 != S2 just no way to draw the line, a is on S1, b is on S2, a's total disance = s1+ s3 + s2 since it will back to b's 
+     * starting point
+     * same as b
+     */   
     
     //s = v * t, v are the same, time is also the same
     //S = (q->root + p->root), they have same distance finally

@@ -69,7 +69,7 @@ Output:[7, 1]
                 //last function childTime is 0; and we have duplicate one
                 //here is the key, need to update current object time, 
                 
-                //we have to += because one process can be start multiple times, like 
+                //we have to += because one process can call itself multiple times like 
                 //0:s:0, 0:e:2, 0:s:3, 0:e:5
                 res[curLog.id] += time - preStartLog.childTime;
             }

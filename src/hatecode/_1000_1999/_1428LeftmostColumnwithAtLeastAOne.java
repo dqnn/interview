@@ -49,15 +49,16 @@ Output: 0
    //binary search on each row.
     public int leftMostColumnWithOne(BinaryMatrix m) {
         List<Integer> d = m.dimensions();
-        int res = -1;
-        for(int i = 0; i<d.get(0); i++) {
-            int temp = helper(m, i, d.get(1));
-            if (temp >= 0 && (temp < res || res == -1)) {
+        int r = d.get(0), c = d.get(1);
+        int res = c;
+        for(int i = 0; i<r; i++) {
+            int temp = helper(m, i, c);
+            if (temp >= 0 && temp < res) {
                 res = temp;
             }
         }
         
-        return res;
+        return res == c ? -1: res;
     }
     
     private int helper(BinaryMatrix m, int r, int c) {
