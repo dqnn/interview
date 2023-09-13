@@ -68,8 +68,8 @@ public class _986IntervalListIntersectionslution {
             }
             
             //update the pointer with smaller end value...
-            if (a.end == endMin) { i++; }
-            if (b.end == endMin) { j++; }
+            if (a.end == endMin) i++; 
+            if (b.end == endMin) j++;
         }
         
         return res.toArray(new Interval[0]);
