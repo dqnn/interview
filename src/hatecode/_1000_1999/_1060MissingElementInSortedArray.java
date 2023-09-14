@@ -23,21 +23,29 @@ Output: 5
     //problem, then
     public int missingElement(int[] A, int k) {
         if(A == null || A.length < 1) return 0;
+
+        int n = A.length;
+
+        // [1] 1, it will return 3 instead of 2 if we do not return early
+        int cnt = A[n-1] - A[0] + 1 - n;
+        if( cnt < k) {
+            return A[n-1] + k - cnt;
+        }
         
         int l = 0, r = A.length - 1;
-        int m = 0;
         //binary search finally will return l/r which is closet what
         //we want
         while (l + 1 < r) {
-            m = l + (r - l) / 2;
+            int m = l + (r - l) / 2;
             //this means how many missed numbers between 
             //A[mid] and A[l]
             //A[m] - A[l] - 1 means how many numbers between (A[l], A[m]), exclusive
             // m-1 - (l+1)+1 means how many array elments between (A[l], A[m]), so it means how many elements missing
-            int cnt = A[m] - A[l] - 1  - (m -1 - (l +1) + 1);
+            cnt = A[m] - A[l] - 1  - (m -1 - (l +1) + 1);
             if (cnt >= k) r = m;
             else {
-                l = m;k -= cnt;
+                l = m;
+                k -= cnt;
             }
         }
         //this means we reached the end, so find something out of array
