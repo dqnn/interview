@@ -37,24 +37,37 @@ public class _050PowXN {
             return y * y * x;
         }
     }
-    //tricky to use x = x * x, so it will be come lgn times multiple
-    public static double myPow2(double x, int n) {
-        if (n == 0) return 1;
-        double res = 1;
-        // int : -6.. ~ +6..  -2^32 ~ 2 ^32-1 Integer.MIN_VALUE
-        long times = Math.abs((long)n);
-        while (times > 0) {
-            if (times % 2 != 0) {
+    /*
+     * interview friendly : O(lgn)/O(1)
+     * 
+     * the problem is to say: given double x and n, return x^n, note n might be negative numbers
+     * 
+     * so first we make sure n is positive, then we can focus on process n
+     * 
+     * obviously we would like to use logn way, suppose n = 3, then res =x, then next is 1 
+     */
+    public double myPow(double x, int n) {
+        if (n  == 0) return 1.0;
+    
+        //in case n = Integer.MIN_VALUE;
+        long m = n;
+        if(m < 0) {
+            x = 1/x;
+            m = -m;
+        }
+        
+        
+        double res = 1.0;
+        
+        while(m > 0) {
+            if (m % 2 == 1) {
                 res *= x;
             }
-
-            //here is the key, every time, we will square x 
-            x *= x;
-            times /= 2;
+            
+            x = x* x;
+            m = m/2;
         }
-        if (n < 0) {
-            return 1.0 / res;
-        }
+        
         return res;
     }
 }
