@@ -64,11 +64,9 @@ be accepted.
         Map<String, String> emailToName = new HashMap<>();
         //email mapping to ID, id is from 0, 
         Map<String, Integer> emailToID = new HashMap<>();
+        
+        
         int id = 0;
-        
-        
-        
-        
         for (List<String> account: accounts) {
             String name = "";
             //["John", "johnsmith@mail.com", "john00@mail.com"],
