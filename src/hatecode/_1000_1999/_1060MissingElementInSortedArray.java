@@ -42,6 +42,7 @@ Output: 5
             //A[m] - A[l] - 1 means how many numbers between (A[l], A[m]), exclusive
             // m-1 - (l+1)+1 means how many array elments between (A[l], A[m]), so it means how many elements missing
             cnt = A[m] - A[l] - 1  - (m -1 - (l +1) + 1);
+            //we cannot return when cnt == A[m] return A[m] -1, because cnt means the total left part missing count of integers.
             if (cnt >= k) r = m;
             else {
                 l = m;
