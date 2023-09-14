@@ -54,8 +54,13 @@ sum_i - sum_j = (m - n) *k
                 //note [i, j] did not include i, it starts from 
                 //[i+1, j],so j - (i +1) + 1>=2
                 if (i - map.get(sum) > 1) return true;
+            
+            } 
+            
             //keyNote: we need else here, we want to maxmize the length of the array
-            } else map.put(sum, i);
+            if(!map.containsKey(sum)) {
+                map.put(sum, i);
+            }
         }
         return false;
     }

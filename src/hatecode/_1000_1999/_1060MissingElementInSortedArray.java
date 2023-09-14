@@ -32,9 +32,9 @@ Output: 5
             m = l + (r - l) / 2;
             //this means how many missed numbers between 
             //A[mid] and A[l]
-            //A[mid] - A[l]，how many numbers 
-            //mid -l, how many numbers in A,
-            int cnt = A[m] - A[l] - (m - l);
+            //A[m] - A[l] - 1 means how many numbers between (A[l], A[m]), exclusive
+            // m-1 - (l+1)+1 means how many array elments between (A[l], A[m]), so it means how many elements missing
+            int cnt = A[m] - A[l] - 1  - (m -1 - (l +1) + 1);
             if (cnt >= k) r = m;
             else {
                 l = m;k -= cnt;
