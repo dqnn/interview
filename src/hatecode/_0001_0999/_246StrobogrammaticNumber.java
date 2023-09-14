@@ -55,13 +55,13 @@ Output: false
         int l = 0, r = A.length() - 1;
         //need to care when A.length = odd numbers
         while(l <= r) {
-            char left = A.charAt(l);
-            char right = A.charAt(r);
-            if (!map.containsKey(left) || !map.containsKey(right)) return false;
+            char lc = A.charAt(l);
+            char rc = A.charAt(r);
+            if (!map.containsKey(lc) || !map.containsKey(rc)) return false;
             
             //here is better, because like "6", "9", we require at least
             //A.length = 2, so we can avoid the long condition compute
-            if (map.get(left) != right) {
+            if (map.get(lc) != rc) {
               return false;
             }
             l++;
