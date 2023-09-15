@@ -39,7 +39,7 @@ public class _139WordBreak {
     //not space separated
     
     // typical DP, 0 <= j <i, 
-    // dp[j] means substring s[0, j] is in dic, so dp[i] = dp[j] && dic.conains(s[j,i)
+    // dp[j] means substring s[0, j) is in dic, so dp[i] = dp[j] && dic.conains(s[j,i)
     
     //key: 1. i = s.length() 
     //2 i < i cannot be =
