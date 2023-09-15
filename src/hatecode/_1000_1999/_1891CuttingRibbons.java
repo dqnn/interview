@@ -50,25 +50,36 @@ Output: 5
      *  3. in 1891, why last still have to call isCutPossible()
      */
     public int maxLength(int[] A, int k) {
-        int l = 1;
-        //int r = Arrays.stream(A).max().getAsInt();
-        int r = 100_000;
         
-        while(l < r) {
-            int m = l + (r-l)/2;
+        long sum = 0, max = 0;
+        for(int a : A) {
+            sum += a;
+            max = Math.max(max, a);
+        }
+        
+        if(sum < k) return 0;
+
+        long l = 1;
+        //int r = Arrays.stream(A).max().getAsInt();
+        long r = sum;
+        
+        while(l  + 1 < r) {
+            long m = l + (r-l)/2;
             if (isCutPossible(A, m, k)) {
                 l = m + 1;
             } else r = m ;
         }
         
-        //here is key, l = r, we did not try l actually,
+        //here is key, l = r, we did not try l actually, becaus we want amx one 
         //A =[9,7,5], k = 3, l=5, r =6, 
         //
-        return isCutPossible(A, l, k) ? l : l-1;
+
+        if(isCutPossible(A, r, k)) return (int)r;
+        else return (int)l;
     }
     
     
-    private boolean isCutPossible(int[] A, int len, int k) {
+    private boolean isCutPossible(int[] A, long len, int k) {
         int res = 0;
         for(int a : A) {
             res += a/len;
