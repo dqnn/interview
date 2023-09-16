@@ -1,6 +1,7 @@
 package hatecode._0001_0999;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -69,5 +70,34 @@ For example, given [0, 1, 3, 50, 75], return [“2”, “4->49”, “51->74”
         if (l == r) res.add("" + l);
         else if (l < r) res.add(l + "->" + r);
         return res;
+    }
+
+    /*
+     * 
+     */
+    public List<List<Integer>> findMissingRanges_latest(int[] A, int l, int h) {
+        
+        List<List<Integer>> res = new ArrayList<>();
+        if(A == null || A.length < 1) {
+            res.add(Arrays.asList(l,h));
+            return res;
+        }
+        
+        if(l  < A[0]) {
+            res.add(Arrays.asList(l, A[0] - 1));
+        }
+        int i  =0;
+        for(;i <A.length-1; i++) {
+            if(A[i]+1 == A[i+1]) continue;
+            res.add(Arrays.asList(A[i]+1, A[i+1] -1));
+        }
+        
+        if(A[i] < h) {
+            res.add(Arrays.asList(A[i] + 1, h));
+        }
+        
+        
+        return res;
+        
     }
 }
