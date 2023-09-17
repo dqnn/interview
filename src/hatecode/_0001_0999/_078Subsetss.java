@@ -62,7 +62,7 @@ public class _078Subsetss {
     		// we rely on next visit to add the list into the res, so index > index > nums.length, no =
         //note here pos > nums.length, because we want to make sure
         //because when i + 1 reach the end of array, we have to include the next list
-        if (nums == null || pos < 0 || pos > nums.length) {
+        if (pos > nums.length) {
             return;
         }
 
