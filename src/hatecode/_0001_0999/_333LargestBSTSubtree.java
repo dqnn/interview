@@ -54,6 +54,10 @@ Can you figure out ways to solve it with O(n) time complexity?
     //return the max size of sub BST. the size means the count of nodes in such BST
     
     /*
+    for tree problem, it is critical to think about how to visit the tree, if you need to gather children nodes 
+    first, then it is post order, here is on example
+
+     
      * tuple to transfer data between nodes: 
      * the following is the biggest trick in the problem, 
      * it can be used for null as any BST left or right, [MAX, MIN, 0]

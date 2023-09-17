@@ -39,7 +39,7 @@ public class _109ConvertSortedListToBinarySearchTree {
      * @return
      */
 
-    //thinking process: O()/O()
+    //thinking process: O(nlgn)/O(lgn)
     public TreeNode sortedListToBST(ListNode head) {
         if (head == null) return null;
         return toBST(head, null);
