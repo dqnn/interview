@@ -34,6 +34,8 @@ Output: 16
     // because both have 1 side become 0 now, so we need to - 2 each time
     //we only count down and right side neighbour
     public int islandPerimeter(int[][] grid) {
+        //island means the count of the cells of '1'
+        //neighbors means the count of cells which have shared side
         int islands = 0, neighbours = 0;
 
         for (int i = 0; i < grid.length; i++) {
@@ -81,4 +83,44 @@ Output: 16
         return count;
         
     }
+
+
+
+
+    //use global variable to solve the problem 
+    int res = 0;
+    public int islandPerimeter_global(int[][] A) {
+        if(A == null || A.length < 1 || A[0].length < 1) return 0;
+        
+        int m = A.length, n = A[0].length;
+        
+        boolean[][] visited = new boolean[m][n];
+        for(int i = 0; i<m; i++) {
+            for(int j = 0; j< n; j++) {
+                if (A[i][j] == 1 && !visited[i][j]){
+                    visited[i][j] = true;
+                    helper(A, i, j, visited);
+                }
+            }
+        }
+        
+        return res;
+    }
+    private void helper(int[][] A, int i ,int j, boolean[][] visited) {
+        int m = A.length, n = A[0].length;
+       int[][] dirs = {{-1, 0}, {1, 0}, {0, 1}, {0,-1}};
+       for(int[] d:dirs) {
+           int ni = i + d[0];
+           int nj = j + d[1];
+           if(ni >=0 && ni <m && nj >=0 && nj < n && !visited[ni][nj] && A[ni][nj] == 1) {
+               visited[ni][nj] = true;
+               helper(A, ni, nj, visited);
+           }
+           
+           if(ni < 0 || ni >= m || nj < 0 || nj >=n || A[ni][nj] == 0) {
+               res++;
+           }
+       }
+   }
+
 }
