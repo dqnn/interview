@@ -31,7 +31,12 @@ Output: 2
      * the problem is to say: given n metals, k machines, each machine can produce a product, while it need composition[i] to produce, its existing 
      * stock is stock[i] while cost is cost[i].
      * 
+     * so first calculate how to calculate the cost if we want to produce m products.
+     * see calc()
      * 
+     * then we can use binary search to find the max product we can get 
+     * 
+     * one tricky here is if needed == budget, then because we want as more as possible products, so l move to left
      * 
      */
     public int maxNumberOfAlloys(int n, int k, int budget, List<List<Integer>> composition, List<Integer> stock, List<Integer> cost) {
