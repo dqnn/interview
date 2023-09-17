@@ -41,12 +41,12 @@ Output: "ca"
     public String removeDuplicates_Stack(String s) {
         if (s == null || s.length() < 1) return "";
         
-        Stack<Character> stack = new Stack<>();
-        for(int i =0; i< s.length(); i++) {
-            if(!stack.isEmpty() && s.charAt(i) == stack.peek()) {
-                stack.pop();
+        Stack<Character> st = new Stack<>();
+        for(char c : s.toCharArray()) {
+            if(!st.isEmpty() && c == st.peek()) {
+                st.pop();
             // we will ignore the current c if they are the same, if not, push to stack
-            } else stack.push(s.charAt(i));
+            } else st.push(c);
         }
         /* this also works
          for(char ch : s.toCharArray()) {
@@ -56,8 +56,8 @@ Output: "ca"
         }
          */
         StringBuilder sb = new StringBuilder();
-        while(!stack.isEmpty()) sb.append(stack.pop());
-        return sb.reverse().toString();
+        while(!st.isEmpty()) sb.insert(0, st.pop());
+        return sb.toString();
         
     }
 }
