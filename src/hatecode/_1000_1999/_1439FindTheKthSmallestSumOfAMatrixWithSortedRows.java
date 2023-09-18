@@ -39,6 +39,12 @@ Output: 7
  * =m^n, the sum of all numbers in last column
  * 
  * 
+ * [[1,10,10],[1,4,5],[2,3,6]], k = 7
+ * 
+ * helper([1,10,10], [1,4,5], 7) ---> res[7] = [1,5,6,11,11,14,14]
+ * 
+ * helper([1,5,6,11,11,14,14], [2,3,6]) ---> res = [3,4,7,7,8,8,9] ---> 9
+ * 
  * 
  */
     public int kthSmallest(int[][] A, int k) {
@@ -52,7 +58,9 @@ Output: 7
         return row[k-1];
     }
     
-    
+    /*
+     *  return array which contains k, up to m*n sorted sum of A and B, each row pick one 
+     */
     private int[] helper(int[] A, int[] B, int k) {
         PriorityQueue<int[]> pq =new PriorityQueue<>((a, b)->Integer.compare(A[a[0]]+B[a[1]], A[b[0]] +B[b[1]]));
         int m = A.length, n = B.length;
