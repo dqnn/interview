@@ -48,14 +48,13 @@ Output: [1,2,3,4]
      return temp;
 }
     
-    //BS V2, O(lg(n-k) + k) Space: O(k), simplest one
+    //BS V2, O(lg(n-k) + k) Space: O(1), simplest one
     /*
    facts:
-     1. the result is a subarray in the list
-     2. 
- //BS result is to say lo == hi, 
- //so we want to know x = nums[i] > nums[i + k] - x means 
-// x > nums[i] since it is sorted, so 
+     1. the result is a subarray in the list, and x should be in the middle of the subarray ideally 
+     2. m is the subarray start point, so we want to find its location, and it should be balanced with x 
+
+     if not, we can find a balanced subarray which is more fit to the problem
 
      */
     //best solution, but need to understand: suppose array [1,2,3,4,5], k=4, x=3, each so we
@@ -67,29 +66,33 @@ Output: [1,2,3,4]
        --------------x--A[m]-------A[m+k]-----------
        ---------A[m]-----x-------A[m+k]-----------
 
-    //see above distance, if A[x] -A[m] > A[m + k] - A[m] which means
-    //left side has more numbers which they are more far away than right side
+      ---------A[m]-------A[m+k]---x-----------
+
+      closest == distance == x- A[m] 
+      when x- A[m] = A[m+k] - x then [m, m+k] is the subarry we need, but 
+      since we would like smaller index, so we need to find most left elements
 
     */
-    
-    //why this return l? l < r 
-    public List<Integer> findClosestElements1(int[] A, int k, int x) {
-        List<Integer> temp = Arrays.stream(A).boxed().collect(Collectors.toList());
-        //the end is len - k, 
-        int l = 0, r = temp.size() - k;
-        //we want to find the idx which is [x, x+k) closest to x, if each element minus x, 
-        //so here we want to find a subarray, 
-        while (l < r) {
-            int mid = l + ((r-l) >> 1);
-            //means A[mid + 1] ~ A[mid + k] is better than A[mid] ~ A[mid + k - 1],
-            //2x > arr[mid] + arr[mid + k] means most of elements are on x's left
-            if (x - temp.get(mid) > temp.get(mid+k) - x)
-                l = mid + 1;
-            else
-                r = mid;
+    public List<Integer> findClosestElements_BS(int[] A, int k, int x) {
+        if(A == null || A.length < 1) return new ArrayList<>();
+        
+        if(A.length == k) return Arrays.stream(A).boxed().collect(Collectors.toList());
+        
+        int l = 0, r = A.length - k;
+        
+        while(l < r) {
+            int m = l + (r-l)/2;
+            
+            if(x - A[m] <= A[m + k] - x) {
+                r = m;
+            } else {
+                l = m + 1;
+            }
         }
-        //lo + k is exclusive
-        return temp.subList(l, l + k);
+        
+      
+        int[] res = Arrays.copyOfRange(A, l, l+k);
+        return Arrays.stream(res).boxed().collect(Collectors.toList());
     }
 
 
