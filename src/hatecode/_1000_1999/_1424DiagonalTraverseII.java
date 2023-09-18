@@ -31,10 +31,14 @@ Output: [1,6,2,8,7,3,9,4,12,10,5,13,11,14,15,16]
         if(A == null || A.size() < 1 ) return new int[]{};
         
         /*
-         * dialg have one patter nthat i + j = fixed value
+         * dialg have one patter nthat i + j = fixed value so we use a map key as i + j, value as its member, 
+         * one key: we must visit last row, so the first element can be first column or last row.
+         * 
+         * 
          */
         Map<Integer, List<Integer>> map = new HashMap<>();
         
+        //map is not sorted, so need to know the max key, later we will need to visit the map from small to big values
         int max = 0;
         for(int i = A.size() - 1; i >= 0; i--) {
             for(int j = 0; j<A.get(i).size(); j++) {
