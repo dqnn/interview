@@ -33,7 +33,7 @@ public class _072EditDistance {
          delete: dp[i][j] = dp[i - 1][j] + 1;  这个就是把最后一个不等的去掉就和前面一个样了
 
            a  b  c  d
-        0  1  2  3  4    steps when aef  is empty
+        0  1  2  3  4    steps when πaef  is empty
      a  1  0  1  2  3
      e  2  1  1  2  3
      f  3  2  2  2  3
