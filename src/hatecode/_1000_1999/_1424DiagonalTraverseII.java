@@ -1,6 +1,7 @@
 package hatecode._1000_1999;
 
 import java.util.*;
+import java.util.stream.IntStream;
 public class _1424DiagonalTraverseII {
 /*
 1424. Diagonal Traverse II
@@ -27,26 +28,25 @@ Output: [1,6,2,8,7,3,9,4,12,10,5,13,11,14,15,16]
    * r +c = constant, so we can use this to visit the matrix
    */
     public int[] findDiagonalOrder(List<List<Integer>> A) {
+        if(A == null || A.size() < 1 ) return new int[]{};
+        
+        /*
+         * dialg have one patter nthat i + j = fixed value
+         */
         Map<Integer, List<Integer>> map = new HashMap<>();
         
-        int maxKey = 0, size = 0;
-        for(int r = A.size() - 1; r >=0; r--) {
-            for(int c = 0; c < A.get(r).size(); c++) {
-                map.computeIfAbsent(r +c, v->new ArrayList<>()).add(A.get(r).get(c));
-                maxKey = Math.max(maxKey, r +c);
-                size++;
+        int max = 0;
+        for(int i = A.size() - 1; i >= 0; i--) {
+            for(int j = 0; j<A.get(i).size(); j++) {
+                map.computeIfAbsent(i + j, v->new ArrayList<>()).add(A.get(i).get(j));
+                max = Math.max(max, i + j);
             }
         }
         
-        int[] res = new int[size];
-        int idx = 0;
-        for(int k = 0; k<=maxKey; k++) {
-            List<Integer> list = map.get(k);
-            if (list == null || list.size() ==0) continue;
-            
-            for(int v: list) res[idx++] = v;
-        }
         
-        return res;
+        List<Integer> res = new ArrayList<>();
+        IntStream.range(0, max+1).filter(key->map.get(key) != null).forEach(key->res.addAll(map.get(key)));
+        
+        return res.stream().mapToInt(x->x).toArray();
     }
 }
