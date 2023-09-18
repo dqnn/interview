@@ -57,28 +57,38 @@ prodNums = [6,6,6,6,6,6], which is compressed into the run-length encoded array 
         
         ----> [[2,3],[6,1],[9,2],[6,1]]
 
+
+        Two pointers
+
      */
-    public List<List<Integer>> findRLEArray(int[][] e1, int[][] e2) {
-        int p1 = 0, p2 =0;
+    
+
+    public List<List<Integer>> findRLEArray(int[][] A, int[][] B) {
+        if(A == null || B == null) return new ArrayList<>();
         
         List<List<Integer>> res = new ArrayList<>();
-        while(p1 < e1.length) {
-            int len = Math.min(e1[p1][1], e2[p2][1]);
-            int mul = e1[p1][0] * e2[p2][0];
+        int i = 0 , j = 0;
+        
+        while(i < A.length && j < B.length) {
+            int[] a = A[i];
+            int[] b = B[j];
             
+            int mul = a[0] * b[0];
+            int cnt = Math.min(a[1], b[1]);
             //handle cases like [[1,3],[2,3]] * [[6,3],[3,3]] --> [[6,6]]
-            if (res.size() > 0 && res.get(res.size()-1).get(0) == mul) {
-                int nLen = res.get(res.size()-1).get(1) + len;
-                res.set(res.size()-1, Arrays.asList(mul, nLen));
+            List<Integer> last = res.size() > 0 ? res.get(res.size() -1) : null;
+            if(last != null && last.get(0) == mul) {
+                last.set(1, last.get(1) + cnt);
             } else {
-                res.add(Arrays.asList(mul, len));
+                List<Integer> tmp = Arrays.asList(mul, cnt);
+                res.add(tmp);
             }
             
-            e1[p1][1] -= len;
-            e2[p2][1] -= len;
-            if (e1[p1][1] == 0) p1++;
-            if (e2[p2][1] == 0) p2++;
-            //System.out.println(p1+"===" + p2);
+            if(cnt == a[1]) i++;
+            else A[i][1] -= cnt;
+            
+            if(cnt == b[1]) j++;
+            else B[j][1] -=cnt;
         }
         
         return res;
