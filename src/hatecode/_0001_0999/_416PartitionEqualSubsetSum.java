@@ -53,18 +53,18 @@ dp[i][j] = dp[i-1][j] || dp[i-1][j-nums[i]]
 talking is cheap:
  */
 public class _416PartitionEqualSubsetSum {
-    public boolean canPartition(int[] nums) {
-        int sum = Arrays.stream(nums).sum();
+    public boolean canPartition(int[] A) {
+        int sum = Arrays.stream(A).sum();
         if (sum % 2 != 0) return false;
 
         sum /= 2;
         boolean[] dp = new boolean[sum+1];
         dp[0] = true;
         //for each number, we pick or not pick, we need to know whether these number can form sum
-        for (int num : nums) {
+        for (int a : A) {
             for (int i = sum; i > 0; i--) {
-                if (i >= num) {
-                    dp[i] = dp[i] || dp[i-num];
+                if (i >= a) {
+                    dp[i] = dp[i] || dp[i-a];
                 }
             }
         }

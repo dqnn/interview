@@ -61,25 +61,25 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
     //O(ln)/O(n), l is range of sum, n is nums length
     //the memo is a tricky solution, totally we have 2* sum + 1 state
     int sum = 0;
-    public int findTargetSumWays(int[] nums, int target) {
+    public int findTargetSumWays(int[] A, int target) {
         //memo[i][j] means for nums[0->i], sum = j combinations
         //sum <=1000, the real sum must be [-sum, sum], so we would have max =2000, so we use 2001
-        sum = Arrays.stream(nums).sum();
-        int[][] memo = new int[nums.length][2*sum + 1];
+        sum = Arrays.stream(A).sum();
+        int[][] memo = new int[A.length][2*sum + 1];
         for (int[] row: memo) Arrays.fill(row, Integer.MIN_VALUE);
         
-        return calculate(nums, 0, 0, target, memo);
+        return calculate(A, 0, 0, target, memo);
     }
     //top-down solution, 
     //so when we 
-    public int calculate(int[] nums, int i, int curSum, int target, int[][] memo) {
-        if (i == nums.length) return curSum == target ? 1 : 0;
+    public int calculate(int[] A, int i, int curSum, int target, int[][] memo) {
+        if (i == A.length) return curSum == target ? 1 : 0;
 
         if (memo[i][curSum + sum] != Integer.MIN_VALUE) {
             return memo[i][curSum + sum];
         }
-        int add = calculate(nums, i + 1, curSum + nums[i], target, memo);
-        int subtract = calculate(nums, i + 1, curSum - nums[i], target, memo);
+        int add = calculate(A, i + 1, curSum + A[i], target, memo);
+        int subtract = calculate(A, i + 1, curSum - A[i], target, memo);
         memo[i][curSum + sum] = add + subtract;
         return memo[i][curSum + sum];
     }
