@@ -58,24 +58,23 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
     
 
     //setup model in the position of operators, and using backtracking to solve it
-    //O(ln)/O(n), l is range of sum, n is nums length
+    //O(ln)/O(n), l is range of sum, n is A length
     //the memo is a tricky solution, totally we have 2* sum + 1 state
     int sum = 0;
     public int findTargetSumWays(int[] A, int target) {
-        //memo[i][j] means for nums[0->i], sum = j combinations
+        //memo[i][j] means for A[0->i], sum = j combinations
         //sum <=1000, the real sum must be [-sum, sum], so we would have max =2000, so we use 2001
         sum = Arrays.stream(A).sum();
-        int[][] memo = new int[A.length][2*sum + 1];
-        for (int[] row: memo) Arrays.fill(row, Integer.MIN_VALUE);
+        Integer[][] memo = new Integer[A.length][2*sum + 1];
         
         return calculate(A, 0, 0, target, memo);
     }
     //top-down solution, 
     //so when we 
-    public int calculate(int[] A, int i, int curSum, int target, int[][] memo) {
+    public int calculate(int[] A, int i, int curSum, int target, Integer[][] memo) {
         if (i == A.length) return curSum == target ? 1 : 0;
 
-        if (memo[i][curSum + sum] != Integer.MIN_VALUE) {
+        if (memo[i][curSum + sum] != null) {
             return memo[i][curSum + sum];
         }
         int add = calculate(A, i + 1, curSum + A[i], target, memo);
