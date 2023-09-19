@@ -39,7 +39,7 @@ public class _003LongestSubstringWithoutRepeatingCharacters {
     // the key of the problem is to understand how we move the left and right pointers
     public static int lengthOfLongestSubstring(String s) {
         if (s == null || s.length() == 0) return 0;
-        HashMap<Character, Integer> map = new HashMap<>();
+        Map<Character, Integer> map = new HashMap<>();
         int res = 0;
         //here is one way to initialize i and j when using TP
         for (int l = 0, r = 0; r < s.length(); r++) {
@@ -64,7 +64,7 @@ public class _003LongestSubstringWithoutRepeatingCharacters {
         if (s == null || s.length() < 1) return 0;
         
         int l = 0, r =0;
-        int res = Integer.MIN_VALUE;
+        int res = 1;
         Map<Character, Integer> map = new HashMap<>();
         while(r < s.length()) {
             char rc = s.charAt(r++);

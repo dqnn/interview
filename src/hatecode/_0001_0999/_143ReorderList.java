@@ -55,10 +55,15 @@ public class _143ReorderList {
     }
     //merge two list, l1 was first, then comes with l2 nodes
     private void merge(ListNode l1, ListNode l2) {
+        //while (l2 != null) { also works because l2 is usually longer than l1
         while (l1 != l2) {
             ListNode n1 = l1.next;
             ListNode n2 = l2.next;
             l1.next = l2;
+
+            /*
+             * usually if list length is odd, then l1 will have one less element 
+             */
             if (n1 == null) break;
             l2.next = n1;
             //pass to next
