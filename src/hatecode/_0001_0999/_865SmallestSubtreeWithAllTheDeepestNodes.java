@@ -62,9 +62,9 @@ deepest nodes in its subtree.
         Pair l = deep(root.left), r = deep(root.right);
 
         int d1 = l.dist, d2 = r.dist;
-        int newDist = Math.max(d1, d2) + 1;
+        int nd = Math.max(d1, d2) + 1;
         TreeNode commonNode = d1 == d2 ? root : d1 > d2 ? l.node : r.node;
-        return new Pair(newDist, commonNode);
+        return new Pair(nd, commonNode);
     }
 
 }

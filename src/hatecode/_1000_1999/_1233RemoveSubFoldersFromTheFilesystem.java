@@ -1,6 +1,7 @@
 package hatecode._1000_1999;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class _1233RemoveSubFoldersFromTheFilesystem {
 /*
@@ -76,6 +77,41 @@ Output: ["/a","/c/d","/c/f"]
     }
     
 
+    /*
+     * O(nm) one easy way to find the parent folder, we use set to record all folders 
+     * 
+     */
+    public List<String> removeSubfolders_Set(String[] A) {
+        if(A == null || A.length < 1) return new ArrayList<>();
+        
+        Set<String> set = new HashSet<>(Arrays.asList(A));
+        
+        Set<String> res = new HashSet<>();
+        for(String s: A) {
+            if(!helper(s, set)) {
+                res.add(s);
+            }
+        }
+        
+        return res.stream().collect(Collectors.toList());
+    }
+    
+    //decide whether s is sub-folder, return true if yes, 
+    private boolean helper(String s, Set<String> set) {
+        if(s.length() == 2) return false;
+        
+        set.remove(s);
+        String ss =s;
+        while(ss.length() >= 2) {
+            if(set.contains(ss)) {
+                return true;
+            }
+            
+            ss = ss.substring(0, ss.lastIndexOf('/'));
+        }
+        set.add(s);
+        return false;
+    }
     
     //this is tricky solution while it is not the purpose of the question
     public List<String> removeSubfolders2(String[] fs) {

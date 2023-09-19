@@ -1,6 +1,7 @@
 package hatecode._1000_1999;
 
 import java.util.*;
+import java.util.stream.Collectors;
 public class _1213IntersectionOfThreeSortedArrays {
 /*
 1213. Intersection of Three Sorted Arrays
@@ -49,5 +50,21 @@ Output: [1,5]
         }
         
         return res;
+    }
+
+   /*
+    * 
+    */
+    public List<Integer> arraysIntersection2(int[] A, int[] B, int[] C) {
+        if(A == null || B == null || C == null) return null;
+        
+        Set<Integer> set = Arrays.stream(A).boxed().collect(Collectors.toSet());
+        
+        Set<Integer> res = new HashSet<>();
+        
+        Arrays.stream(B).filter(b->set.contains(b)).forEach(b->res.add(b));
+        
+        return Arrays.stream(C).filter(c->res.contains(c)).boxed().collect(Collectors.toList());
+        
     }
 }
