@@ -41,19 +41,19 @@ so every time, we use each nums[i] to be added in these 11 bags, so it just mean
 for num[i], put it in each bag or not put in bag will make it heavier or not
  */
     //dp[i] = max{dp[i], dp[i - nums[j] + nums[j}, j = 0, ...nums.length - 1
-    public static int backPackI(int[] nums, int w) {
+    public static int backPackI(int[] A, int w) {
         int[] dp = new int[w+1];
-        int[][] m = new int[nums.length][w+1];
-        for (int i = 0; i < nums.length; i++) {
+        int[][] m = new int[A.length][w+1];
+        for (int i = 0; i < A.length; i++) {
             //reduce some iteration
-            for (int j = w; j >= nums[i]; j--) {
+            for (int j = w; j >= A[i]; j--) {
                 //if (j >= nums[i]) {
                    //if we do not print the path, just use this line is enough
                    //dp[j] = Math.max(dp[j], dp[j-nums[i]] + nums[i]);
                     
                    //this is to print all combinations
-                    if (dp[j - nums[i]] + nums[i] > dp[j]) {
-                        dp[j] = Math.max(dp[j], dp[j-nums[i]] + nums[i]);
+                    if (dp[j - A[i]] + A[i] > dp[j]) {
+                        dp[j] = Math.max(dp[j], dp[j-A[i]] + A[i]);
                         m[i][j] = 1;
                     }
                 //}
@@ -61,25 +61,25 @@ for num[i], put it in each bag or not put in bag will make it heavier or not
         }
         //here is to print the path, general way
         int j = w;
-        for(int i =nums.length - 1; i>=0; i--) {
+        for(int i =A.length - 1; i>=0; i--) {
                 if (m[i][j] == 1)  {
-                    System.out.println("picked: " + nums[i]);
-                    j -= nums[i];
+                    System.out.println("picked: " + A[i]);
+                    j -= A[i];
             }
         }
         return dp[w];
     }
     
-    public static int backPackI_2DDP(int[] nums, int w) {
-        int n = nums.length;
+    public static int backPackI_2DDP(int[] A, int w) {
+        int n = A.length;
         int[][] dp = new int[n+1][w+1];
         dp[0][0] = 0;
         //also we should initialize dp[i][0] = 0. dp[0][i] = 0
         //but they should be 0 and java initialized value is 0, so we skip
         for(int i = 1; i<=n; i++) {
             for(int j = 0; j<=w; j++) {
-                if (j >= nums[i-1]) {
-                    dp[i][j] = Math.max(dp[i-1][j - nums[i-1]] + nums[i-1], dp[i-1][j]);
+                if (j >= A[i-1]) {
+                    dp[i][j] = Math.max(dp[i-1][j - A[i-1]] + A[i-1], dp[i-1][j]);
                 } else{
                     dp[i][j] = dp[i-1][j];
                 }
@@ -100,20 +100,20 @@ O(n x m) memory is acceptable, can you do it in O(m) memory?
  */
 //BackPack I基本一致。依然是以背包空间为限制条件，所不同的是dp[j]取的是价值较大值，
     //而非体积较大值。所以只要把dp[j-A[i]]+A[i]换成dp[j-A[i]]+V[i]就可以了。
-    public static int backPackII(int[] nums, int V[], int w) {
+    public static int backPackII(int[] A, int V[], int w) {
         int[] dp = new int[w+1];
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < A.length; i++) {
             for (int j = w; j > 0; j--) {
-                if (j >= nums[i]) dp[j] = Math.max(dp[j], dp[j-nums[i]]+V[i]);
+                if (j >= A[i]) dp[j] = Math.max(dp[j], dp[j-A[i]]+V[i]);
             }
         }
         return dp[w];
     }
     //this is more space solution, but need to understand how we compress the space
-    public static int backPackII_2DDP(int[] nums, int[] V, int w) {
-        if (nums == null || nums.length < 1) return 0;
+    public static int backPackII_2DDP(int[] A, int[] V, int w) {
+        if (A == null || A.length < 1) return 0;
         
-        int n = nums.length;
+        int n = A.length;
         //dp[i][j] means  i items weight <=j , max weight the first item can reach
         //note we have m + 1 len, that's why i - 1
         //dp[i][j] = Math.max(dp[i-1][j], dp[i-1][j-nums[i-1]] + nums[i-1]);
@@ -122,11 +122,11 @@ O(n x m) memory is acceptable, can you do it in O(m) memory?
         
         for(int i = 1; i<=n;i++) {
             for(int j = 0; j <=w;j++) {
-                if (j < nums[i-1]) {
+                if (j < A[i-1]) {
                     dp[i][j] = dp[i-1][j];
                 } else {
                     //System.out.println(nums[i-1] + "--" + j);
-                    dp[i][j] = Math.max(dp[i-1][j], dp[i-1][j-nums[i-1]] + V[i-1]);
+                    dp[i][j] = Math.max(dp[i-1][j], dp[i-1][j-A[i-1]] + V[i-1]);
                 }
             }
         }
@@ -142,29 +142,29 @@ Example:
 nums = [2, 3, 5, 7] values =[1, 5, 2, 4], 
 m =  10. return 15
  */
-    public static int backPackIII(int[] nums, int[] V, int w) {
+    public static int backPackIII(int[] A, int[] V, int w) {
         int[] dp = new int[w+1];
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j <= w; j++) {
-                if (j >= nums[i]) dp[j] = Math.max(dp[j], dp[j-nums[i]]+V[i]);
+        for (int i = 0; i < A.length; i++) {
+            for (int j = A[i]; j <= w; j++) {
+                dp[j] = Math.max(dp[j], dp[j-A[i]]+V[i]);
             }
         }
         return dp[w];
     }
     
-    public static int backPackIII_2DDP(int[] nums, int[] V, int w) {
-        int n = nums.length;
+    public static int backPackIII_2DDP(int[] A, int[] V, int w) {
+        int n = A.length;
         int[][] dp = new int[n+1][w+1];
         dp[0][0] = 0;
         
         for(int i =1; i<=n; i++) {
             for(int j = 0; j <=w;j++) {
-                if (j < nums[i-1]) {
+                if (j < A[i-1]) {
                     dp[i][j] = dp[i-1][j];
                 } else {
                     //note here in max expressions, row index is i, not i-1 which means 
                     //it is aggregated sum
-                    dp[i][j] = Math.max(dp[i-1][j], dp[i][j- nums[i-1]] + V[i-1]);
+                    dp[i][j] = Math.max(dp[i-1][j], dp[i][j- A[i-1]] + V[i-1]);
                 }
             }
         }
@@ -185,27 +185,27 @@ return 2
 
 LC 518. coin change II is this type of question
  */
-    public static int backPackIV(int[] nums, int w) {
+    public static int backPackIV(int[] A, int w) {
         int[] dp = new int[w+1];
         dp[0] = 1;
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < A.length; i++) {
             for (int j = 0; j <= w; j++) {
-                if (nums[i] == j) dp[j]++;
-                else if (nums[i] < j) dp[j] += dp[j-nums[i]];
+                if (A[i] == j) dp[j]++;
+                else if (A[i] < j) dp[j] += dp[j-A[i]];
             }
         }
         return dp[w];
     }
     
-    public static int backPackIV_2DDP(int[] nums, int w) {
-        int n = nums.length;
+    public static int backPackIV_2DDP(int[] A, int w) {
+        int n = A.length;
         int[][] dp = new int[n+1][w+1];
         dp[0][0] = 1; 
         for (int i = 1; i <= n; i++) {
             dp[i][0] = 1;
             for (int j = 0; j <= w; j++) {
-                if (j < nums[i-1]) dp[i][j] = dp[i-1][j];
-                else dp[i][j] = dp[i-1][j] + dp[i][j-nums[i-1]];
+                if (j < A[i-1]) dp[i][j] = dp[i-1][j];
+                else dp[i][j] = dp[i-1][j] + dp[i][j-A[i-1]];
             }
         }
         return dp[n][w];
@@ -228,13 +228,13 @@ LC 518. coin change II is this type of question
     return 2
          */
         //space compresssion one
-        public static int backPackV(int[] nums, int target) {
-            if (nums == null || nums.length < 1 || target < 1) return 0;
+        public static int backPackV(int[] A, int target) {
+            if (A == null || A.length < 1 || target < 1) return 0;
             int[] dp = new int[target + 1];
             dp[0]  = 1;
-            for(int i = 1; i <= nums.length; i++) {
-                for(int j = target; j >= nums[i-1]; j--) {
-                    dp[j] += dp[j - nums[i-1]];
+            for(int i = 1; i <= A.length; i++) {
+                for(int j = target; j >= A[i-1]; j--) {
+                    dp[j] += dp[j - A[i-1]];
                 }
             }
             return dp[target];
@@ -295,12 +295,12 @@ for (int i = 0; i < nums.length; ++i){
 那么5次操作分别是f[5]+=f[5-5];f[6]+=f[6-5];f[7]+=f[7-5];f[8]+=f[8-5];f[9]+=f[9-5];f[10]+=f[10-5]
 在计算f[10]的时候，f[5]在之前已经计算过了，并且是由f[0]得到的，这个容量为10的背包包含了装了两个体积为5的物品，是不符合题意的
  */
-    public static int backPackVI(int[] nums, int target) {
-        if (nums == null || nums.length < 1 || target < 1) return 0;
+    public static int backPackVI(int[] A, int target) {
+        if (A == null || A.length < 1 || target < 1) return 0;
         int[] dp = new int[target + 1];
         dp[0]  = 1;
         for(int i = 1; i <= target; i++) {
-            for(int num : nums) {
+            for(int num : A) {
                 if (i >= num) dp[i] += dp[i - num];
             }
         }
