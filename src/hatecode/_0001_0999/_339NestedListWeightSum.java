@@ -1,8 +1,6 @@
 package hatecode._0001_0999;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * Project Name : Leetcode
@@ -98,4 +96,64 @@ public class _339NestedListWeightSum {
         }
         return res;
     }
+
+
+    /*
+     * interview question; 
+     * "3,4,[1,2,[7],8]" = 3 +4 + 2* (1+2+3*7) + 8
+     * 
+     * "1, [2]"
+     * 1,[[2],[1,2]]
+     * 
+     */
+
+     public static int calc(String A) {
+        if(A == null || A.length()< 1) return 0;
+
+        String[] ss = A.split(",");
+        
+        int level = 1;
+        Stack<Integer> st = new Stack<>();
+
+        for(String s: ss) {
+            for(int i = 0; i <s.length(); i++) {
+                char c = s.charAt(i);
+                if(Character.isDigit(c)) {
+                    int num = c - '0';
+                    int j = i + 1;
+                    while( j <s.length() && Character.isDigit(j)) {
+                        num = num * 10 + s.charAt(j) -'0';
+                        j++;
+                    }
+                    i=j-1;
+                    st.push(num*level);
+                } else if (c == '[') {
+                    level +=1;
+                    st.push(Integer.MIN_VALUE);
+                } else if (c ==']') {
+                    int temp = 0;
+                    while(st.peek() != Integer.MIN_VALUE) {
+                        temp += st.pop();
+                    }
+                    st.pop();
+                    st.push(temp);
+                    level -=1;
+                }
+            }
+        }
+
+
+        int res = 0;
+        while(!st.isEmpty()) {
+            res += st.pop();
+        }
+        return res;
+     }
+
+     public static void main(String[] args) {
+        //System.out.println(calc("1,2"));
+        System.out.println(calc("1,[[2],[1,2]]")); 
+        System.out.println(calc("[[[1,2]]]")); 
+        //                         1  + 3 * 2 + 3 *1 + 3 *2 = 
+     }
 }
