@@ -29,9 +29,14 @@ Output: 11
 /*
  * thinking process: O(max(days))/O(max(days))
  * 
- * the 
+ * the problem is to say: days[i] means the days[i] will start on vacation, say days=[1,2, 5] means you will be on vacation on 1th, 2th, 5th day of the year,
+ * then cost=[2,3,5] means you can buy pass for 1d, 7d 30d cost,,
+ * 
+ * return the minimal cost for all days
+ * 
+ * 
  */
-    public int mincostTickets(int[] days, int[] costs) {
+    public static int mincostTickets(int[] days, int[] costs) {
         if(days == null || days.length < 1) return 0;
         
         int n = 30 + 1 + Arrays.stream(days).max().getAsInt();
@@ -51,5 +56,9 @@ Output: 11
             dp[i] = Math.min(dp[i], dp[Math.max(0, i - 30)] + costs[2]);
         }
         return dp[n-1];
+    }
+
+    public static void main(String[] args) {
+        System.out.println(mincostTickets(new int[]{1,4,6,7,8,20}, new int[]{2,7,15}));
     }
 }
