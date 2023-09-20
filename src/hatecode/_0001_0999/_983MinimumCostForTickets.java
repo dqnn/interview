@@ -34,6 +34,18 @@ Output: 11
  * 
  * return the minimal cost for all days
  * 
+ * dp[i] means for day i, the minimal cost,
+ * 
+ * dp[i] = min(dp[i-1] + cost[0], dp[i-2]+cost[1], dp[i-7]+cost[2])
+ * 
+ * one thing need to note if days between two travelling dates, we need to maintain the cost, that's why 
+ * dp[i] = d[i-1], 
+ * 
+ * for example 
+ * dp[days[0]] = cost[0] 
+ * 
+ * dp[days[1]] = if two  days span within one week, , then min(2*cost[0], cost[1], cost) or 
+ * 
  * 
  */
     public static int mincostTickets(int[] days, int[] costs) {

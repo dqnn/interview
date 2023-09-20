@@ -54,11 +54,11 @@ are considered different island shapes, because we do not consider reflection / 
     System.out.println(set);
     return set.size();
 }
-private static void dfs(int[][] grid, int i, int j, StringBuilder sb, String dir) {
+private static void dfs(int[][] grid, int i, int j, StringBuilder sb, String d) {
     if(i < 0 || i == grid.length || j < 0 || j == grid[i].length 
        || grid[i][j] == 0) return;
     //every step will be added here
-    sb.append(dir);
+    sb.append(d);
     //we mark each point to 0, so we should not have any other call to here for only 1 connected 
     //islands
     grid[i][j] = 0;
