@@ -13,12 +13,12 @@ For each bit position 1-32 in a 32-bit integer, we count the number of integers 
     
     //for every number bits on position j, suppose m has 1, so n-m does not have, the distance will be 
     //m *(n-m). so we add 32 positions
-    public int totalHammingDistance(int[] nums) {
-        int total = 0, n = nums.length;
+    public int totalHammingDistance(int[] A) {
+        int total = 0, n = A.length;
         for (int j=0;j<32;j++) {
             int bitCount = 0;
             for (int i=0;i<n;i++) 
-                bitCount += (nums[i] >> j) & 1;
+                bitCount += (A[i] >> j) & 1;
             total += bitCount*(n - bitCount);
         }
         return total;

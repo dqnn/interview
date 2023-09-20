@@ -123,4 +123,52 @@ Output: 16
        }
    }
 
+
+  /*
+  
+零一组成的矩阵，意是陆地，领是水，找到最大的陆地，返回大小。注意，大小是最边缘的意，里边的不算，比如下边那个大小事8
+1 1 1 0 0
+1 1 1 0 0
+1 1 1 0 0
+
+   */
+   public static int getIslandPermierCount(int[][] A) {
+        int m = A.length, n = A[0].length;
+        int res = 0;
+
+        for(int i = 0; i< m; i++) {
+            for(int j = 0; j< n; j++) {
+                if(A[i][j] == 1 && helper(A, i, j)) {
+                    res++;
+                }
+            }
+        }
+
+        return res;
+   }
+
+
+   private static boolean helper(int[][] A, int i, int j) {
+    int m = A.length, n = A[0].length;
+    
+    if(i == 0 || i == m -1 || j == 0 || j == n -1) return true;
+
+    int[][] dirs = {{-1, 0}, {1, 0}, {0, 1}, {0,-1}};
+
+    for(int[] d:dirs) {
+        int ni = i + d[0];
+        int nj = j + d[1];
+
+        if(ni >=0 && ni <m && nj>=0 && nj < n && A[ni][nj] == 0) {
+            return true;
+        }
+    }
+    return false;
+   }
+
+
+   public static void main(String[] args) {
+       System.out.println(getIslandPermierCount(new int[][]{{1,1,1,0,0}, {1,1,1,0,0}, {1,1,1,0,0}}));
+   }
+
 }

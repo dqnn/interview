@@ -52,21 +52,21 @@ public class _290WordPattern {
     
     //this cannot pass
     public boolean wordPattern2(String pattern, String str) {
-       String[] arr = str.split(" ");
-       if (arr.length != pattern.length()) {
+       String[] A = str.split(" ");
+       if (A.length != pattern.length()) {
            return false;
        }
-       HashMap<Character, String> map = new HashMap<>();
-       for (int i = 0; i < arr.length; i++) {
+       Map<Character, String> map = new HashMap<>();
+       for (int i = 0; i < A.length; i++) {
            char c = pattern.charAt(i);
            if (map.containsKey(c)) {
-               if (!map.get(c).equals(arr[i])) {
+               if (!map.get(c).equals(A[i])) {
                    return false;
                } else {
-                   if (map.containsValue(arr[i])) {
+                   if (map.containsValue(A[i])) {
                        return false;
                    }
-                   map.put(c, arr[i]);
+                   map.put(c, A[i]);
                }
            }
        }

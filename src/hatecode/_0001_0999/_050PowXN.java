@@ -60,7 +60,7 @@ public class _050PowXN {
         double res = 1.0;
         
         while(m > 0) {
-            if (m % 2 == 1) {
+            if (m % 2 == 1) { //if (m & 1 == 1) {
                 res *= x;
             }
             

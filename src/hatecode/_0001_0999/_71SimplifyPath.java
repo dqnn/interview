@@ -57,4 +57,51 @@ Output: "/home"
         
         return sb.toString();
     }
+
+  /*
+directory    cmd                output
+/                  facebook            /facebook
+/s                  a/b                   /s/a/b
+/s/a/b/c          ../d/e             /s/a/b/d/e
+
+   */
+
+    public static String getPath(String d, String cmd) {
+        if (d == null || d.length() < 1 || cmd == null || cmd.length() < 1) return d;
+
+        Stack<String> st = new Stack<>();
+        String[] ds = d.split("/");
+
+        for(String s : ds) {
+            if(s.isEmpty()) continue;
+            st.push(s);
+        }
+
+        String[] ss = cmd.split("/");
+
+        for(String s : ss) {
+            if (s.isEmpty() || s.equals(".")) continue;
+            else if (s.equals("..")) {
+                if (!st.isEmpty()) st.pop();
+            } else {
+                st.push(s);
+            }
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        while(!st.isEmpty()) {
+            sb.insert(0, "/" + st.pop());
+        }
+
+        return sb.length() == 0 ? "/":sb.toString();
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(getPath("/s/ab", "a/b"));
+        System.out.println(getPath("/s/ab", "../b"));
+        System.out.println(getPath("/s/ab", ".././b"));
+        System.out.println(getPath("/s/ab", "../../b"));
+    }
 }
