@@ -76,6 +76,32 @@ Can you figure out ways to solve it with O(n) time complexity?
      *  
      *  then 7--> 10, [7, 7, 1]
      *  same for 12--> [12, 12, 1]
+     * 
+     * another example
+     * 
+     *    5
+        3.     7
+      1.  4
+   
+      1---> [1,1,1]
+      4-->  [4,4,1]
+
+      7--> [7,7,1]
+      
+      3->   [1, 4, 1+1+1]
+
+      5-->  [4, 7, 3+1+1]
+     *    5
+        3.     1
+      1.  4
+
+      right 1 --> [1,1,1]
+
+      5 --> [min, max, max(3, 1)]
+ 
+
+
+
      */
     public int largestBSTSubtree_IF(TreeNode root) {
         int[] res = helper_IF(root);
