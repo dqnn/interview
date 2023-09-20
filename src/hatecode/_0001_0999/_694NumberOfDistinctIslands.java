@@ -63,20 +63,23 @@ private static void dfs(int[][] grid, int i, int j, StringBuilder sb, String d) 
     //islands
     grid[i][j] = 0;
     
-    dfs(grid, i, j-1, sb, "l");
+    
     dfs(grid, i, j+1, sb, "r");
-    dfs(grid, i-1, j, sb, "u");
     dfs(grid, i+1, j, sb, "d");
+    dfs(grid, i, j-1, sb, "l");
+    dfs(grid, i-1, j, sb, "u");
+   
+    
     //this line of code could not be removed because some cases will have wered shapes to be same string
     sb.append("b"); // back
 }
 
 public static void main(String[] args) {
-    int[][] grid = {{1,1,0}, 
-                    {0,1,1},
-                    {0,0,0},
-                    {1,1,1},
-                    {0,1,0}};
+    int[][] grid = {{1,1,0,0,0}, 
+                    {1,0,0,0,0},
+                    {0,0,0,0,0},
+                    {1,1,0,0,0},
+                    {0,1,0,0,0}};
     System.out.println(numDistinctIslands(grid));
 }
 }
