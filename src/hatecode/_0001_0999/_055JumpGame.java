@@ -57,8 +57,12 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum
         //so we loop all elements and for each elements and store the max always
         // because A[i] is the maxium steps we can walk from that position
         //i <= max means i cannot reach more than max, because 
-        // [3,2,1,0,4], wehen i = 4, 4 + 4 =8 > len - 1= 4, but we cannot reach to the end
+        // [3,2,1,0,4], when i = 4, 4 + 4 =8 > len - 1= 4, but we cannot reach to the end
         // i <= max we can use it
+        /*
+         * another simple way to understand is that i will visit all elements in array A, so you have 
+         * to have i < max, if not, i will reach end value and it will always return true.
+         */
         for (int i = 0; i <= max && i < A.length; i++) {
             max = Math.max(A[i] + i, max);
         }
