@@ -21,7 +21,7 @@ Output: 4
      * then we can calulate first one and then 2nd one, then we sum together
      * 
      * l[i] means from 0->i, at position i, the max sum for previous 0->i.
-     * r[i] means from n-1-> i, scan from right to i, the max sum 
+     * r[i] means from i->n-1, scan from right to i, the max sum 
      * 
      * so we can try all cases by l[i-1] + r[i+1]
      */
@@ -35,12 +35,17 @@ Output: 4
             l[i] = Math.max(A[i], l[i - 1] + A[i]);
             //Key1: we need to know max element in this array, because later
             //when l[i-1] + r[i+1], we are trying to say at least 2 elements, but one element 
-            //could be the case
+            //could be the case, for example, [1, -2,-2,3], 
+                                        /*l = [1, -1,-2,3]
+                                          r = [1, -1, 1,3]
+                                            */
             max = Math.max(max, l[i]);
         }
         r[n - 1] = A[n - 1];
-        for (int i = n - 2; i >= 0; i--)
+        for (int i = n - 2; i >= 0; i--) {
             r[i] = Math.max(A[i], r[i + 1] + A[i]);
+        }
+            
         
         //start from index 1 and stop at n-2 because we suppose the element we removed is not 
         //start or end element of a subarray
@@ -52,15 +57,21 @@ Output: 4
 
     //O(n)/O(1)
     /*
+     * dp means the max subarray from 0->i
+     * dpExclude means 0-i-1, max subArray sum 
+     * 
+     * we always compare dpExclude and dp, 
+     * dpExclude[i] = max(dpExclude[i-1]+A[i], dp[i-1])
+     * dp[i] = max(dp[i-1] +A[i], A[i])
      * 
      */
-    public int maximumSum_DP(int[] arr) {
-        int res = arr[0];
-        int dp = arr[0];
+    public int maximumSum_DP(int[] A) {
+        int res = A[0];
+        int dp = A[0];
         int dpExclude = 0;
-        for (int i = 1; i < arr.length; i++) {
-            dpExclude = Math.max(dp, dpExclude + arr[i]);
-            dp = Math.max(dp + arr[i], arr[i]);
+        for (int i = 1; i < A.length; i++) {
+            dpExclude = Math.max(dp, dpExclude + A[i]);
+            dp = Math.max(dp + A[i], A[i]);
             res = Math.max(Math.max(dpExclude, dp), res);
         }
 

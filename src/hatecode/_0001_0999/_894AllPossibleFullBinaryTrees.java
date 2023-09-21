@@ -67,7 +67,7 @@ so for left nodes, N - 3, we can put it left or right, this can be applied for e
  for left from 1 to N-1
      for F(left)
         for F(N - left - 1)
- for each recursive, we put N->List() into the map
+ for each recursive, we put N->List() into the map, post order visit the tree
  */
     Map<Integer, List<TreeNode>> visited = new HashMap<>();
     public List<TreeNode> allPossibleFBT(int N) {
@@ -81,6 +81,7 @@ so for left nodes, N - 3, we can put it left or right, this can be applied for e
                 //we loop from 1->N-1, 0 can be ignored because we have no left l = 0
                 //why N - 1 because in inner loop, we want to create a new Node every time,
                 //so left means left tree, right is right tree
+                //l + 2 because it is complete tree, so it must increase 2 everytime
                 for (int l = 1; l < N; l += 2) {
                     int r = N - 1 - l;
                     //left is l
