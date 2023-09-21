@@ -31,35 +31,52 @@ public class _065ValidNumber {
     //only these types
     // so special case is point, e and number
     // 
-    public boolean isNumber(String s) {
+    public static boolean isNumber(String s) {
         s = s.trim();
         boolean numberSeen = false;
-        boolean pointSeen = false;
+        boolean dotSeen = false;
         boolean eSeen = false;
         boolean numberAfterE = true;
         for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) >= '0' && s.charAt(i) <= '9') {
+            char c = s.charAt(i);
+            // "223"
+            if (c >= '0' && c <= '9') {
                 numberSeen = true;
                 numberAfterE = true;
-            } else if (s.charAt(i) == '.') {
-                if (eSeen || pointSeen) {
+            //e.3 or ..2
+            } else if (c == '.') {
+                if (eSeen || dotSeen) {
                     return false;
                 }
-                pointSeen = true;
-            } else if (s.charAt(i) == 'e') {
+                dotSeen = true;
+            //ee  ae
+            } else if (c == 'e') {
                 if (eSeen || !numberSeen) {
                     return false;
                 }
                 eSeen = true;
                 numberAfterE = false;
-            } else if (s.charAt(i) == '+' || s.charAt(i) == '-') {
+            //+-2, 
+            } else if (c == '+' || c == '-') {
                 if (i != 0 && s.charAt(i - 1) != 'e') {
                     return false;
                 }
-            } else {
-                return false;
-            }
+            //all othe charcters
+            } else return false;
         }
         return numberSeen && numberAfterE;
+    }
+
+
+    public static void main(String[] args) {
+
+        //valid 
+
+        System.out.println(isNumber("1e3"));
+        System.out.println(isNumber("4."));
+        System.out.println(isNumber("+3.14"));
+
+         System.out.println(isNumber("a"));
+         
     }
 }
