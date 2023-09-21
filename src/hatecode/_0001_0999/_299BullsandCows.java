@@ -26,6 +26,20 @@ public class _299BullsandCows {
      */
 
     //thinking process: 
+    /*
+     * the probelm is to say: 
+     * given two string consists numbers, like following 
+     * secrets=1123
+     *   guess=0111
+     * 
+     * return bull count: same position with same number
+     *        cow count:  correct numbe but in incorrect positions, like last 11,
+     * so it will be 1A2B
+     * 
+     * bull is easy, for cow, we use int[10] to record its count 
+     *    count[c-'a']++ < 0 means secret was added by positions before this i  c from secrets
+     *    count[d - 'a']-- > 0 means d is from guess
+     */
     public String getHint(String secret, String guess) {
         int bulls = 0;
         int cows = 0;
@@ -34,7 +48,11 @@ public class _299BullsandCows {
             if (secret.charAt(i) == guess.charAt(i)) {
                 bulls++;
             } else {
-                // secret = "1123", guess = "0111",
+                // secret = "1123", 
+               //   guess = "0111",
+               /*
+                *            
+                */
                 // count[1] ++--> 1
                 // count[0] -- --> -1
                 // count[2] ++ --> 1
