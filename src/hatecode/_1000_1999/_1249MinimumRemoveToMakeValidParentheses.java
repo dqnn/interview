@@ -83,10 +83,11 @@ Output: "lee(t(c)o)de"
                     sb.append(c);
                 } 
             } else if (c ==')') {
+                //because previous already matched, so we don;t need r--;
                 if (l > 0) {
                     l--;
                     sb.append(c);
-                // here is the key, we have to skip this ) becz this is unmatched
+                // here is the key, we have to skip this ) becz this is unmatched, "))(("
                 } else r--;
             } else sb.append(c);
         }
