@@ -58,39 +58,37 @@ public class _133CloneGraph {
     }
 
 
-    public UndirectedGraphNode cloneGraph2(UndirectedGraphNode node) {
-        if (node == null) return node;
-        Map<UndirectedGraphNode, UndirectedGraphNode> nodeMap= new HashMap<>();
+
+    class Node{
+        public Node(int val2) {
+            val = val2;
+        }
+        int val;
+        List<Node> neighbors;
+    }
+    public Node cloneGraph(Node node) {
+        if (node == null) return null;
+        Map<Node, Node> map = new HashMap<>();
+        helper(node, map);
         
-        helper2(node, nodeMap);
-        
-        for(var entry: nodeMap.entrySet()) {
-            UndirectedGraphNode origin = entry.getKey();
-            for(UndirectedGraphNode temp: origin.neighbors) {
-                entry.getValue().neighbors.add(nodeMap.get(temp));
+        for(Node t : map.keySet()) {
+            Node copy = map.get(t);
+            for(Node next: t.neighbors) {
+                copy.neighbors.add(map.get(next));
             }
         }
         
-        return nodeMap.get(node);
+        return map.get(node);
     }
     
-    private void helper2(UndirectedGraphNode root,
-            Map<UndirectedGraphNode, UndirectedGraphNode> nodeMap) {
-        Queue<UndirectedGraphNode> q = new LinkedList<>();
-        q.offer(root);
-        nodeMap.put(root, new UndirectedGraphNode(root.val));
-        
-        while(!q.isEmpty()) {
-            UndirectedGraphNode e = q.poll();
-            
-            for(UndirectedGraphNode tem: e.neighbors) {
-                if (nodeMap.containsKey(tem)) continue;
-                nodeMap.put(tem, new UndirectedGraphNode(tem.val));
-                q.add(tem);
+    
+    private void helper(Node node, Map<Node, Node> map) {
+        map.put(node, new Node(node.val));
+        for(Node t: node.neighbors) {
+            if(!map.containsKey(t)) {
+                helper(t, map);
             }
-            
         }
-        //nodeMap.keySet().forEach(e->System.out.println(e.val));
-        //conns.keySet().forEach(e->System.out.println(e.val));
+        
     }
 }
