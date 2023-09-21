@@ -40,19 +40,19 @@ Iterate middle cuts and then find left cuts which divides the first half into tw
     //for K, since we must have 1 element, so k must be begin with k +2, then we will do the same
     //thing as j, since we have a set to know whether we have came across the same sum, so this 
     //complexity will only O(n^2)
-    public boolean splitArray(int[] nums) {
+    public boolean splitArray(int[] A) {
         //since we have at least 4 subarray and 3 elements
-        if (nums.length < 7)
+        if (A.length < 7)
             return false;
         //prefix sum
-        int[] sum = new int[nums.length];
-        sum[0] = nums[0];
-        for (int i = 1; i < nums.length; i++) {
-            sum[i] = sum[i - 1] + nums[i];
+        int[] sum = new int[A.length];
+        sum[0] = A[0];
+        for (int i = 1; i < A.length; i++) {
+            sum[i] = sum[i - 1] + A[i];
         }
         //i is left cut, j is middle, k for right cut
         //max(j) = len -4, so he 3 number on right,
-        for (int j = 3; j < nums.length - 3; j++) {
+        for (int j = 3; j < A.length - 3; j++) {
             Set<Integer> set = new HashSet<>();
             //i must begin with 1,so i left could have 1 subarray
             for (int i = 1; i < j - 1; i++) {
@@ -63,8 +63,8 @@ Iterate middle cuts and then find left cuts which divides the first half into tw
             }
             // k must begin with j + 2 since there must be at least 1 number 
             //j+1 for one subarray
-            for (int k = j + 2; k < nums.length - 1; k++) {
-                int skn = sum[nums.length - 1] - sum[k];
+            for (int k = j + 2; k < A.length - 1; k++) {
+                int skn = sum[A.length - 1] - sum[k];
                 int sjk = sum[k - 1] - sum[j];
                 if ( skn == sjk && set.contains(sjk))
                     return true;
