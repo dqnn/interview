@@ -93,7 +93,7 @@ Explanation: Intervals [1,4] and [4,5] are considerred overlapping.
      */
     public List<Interval> merge2(List<Interval> intervals) {
         List<Interval> ret = new ArrayList<>();
-          int max = 0, start = -1, total = 0;
+          int max = 0,  total = 0;
           for(Interval it : intervals){
               if(it.end > max) 
                   max = it.end;//遍历数组，获取所有interval里面最大值
@@ -115,6 +115,7 @@ Explanation: Intervals [1,4] and [4,5] are considerred overlapping.
            *    e  0  0  0  0  2
            */
           ///然后遍历其中一个memo数组
+          int start = -1;
           for(int i = 0; i < memo_start.length; i++){
               if(total == 0) start = i;
               
