@@ -61,7 +61,7 @@ you should return the original given node.
                     insertAfter(cur, x);
                     break;
                 }
-            // case 2: NO tipping point, all flat
+            // case 2: NO tipping point, all flat. we already visit one round
             } else {
                 if (cur.next == start) {  // insert x before we traverse all nodes back to start
                     insertAfter(cur, x);
