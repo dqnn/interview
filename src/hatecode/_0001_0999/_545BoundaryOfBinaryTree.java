@@ -27,29 +27,43 @@ node.right could also be left bound if node is left bound && node has no right c
 3 if node is left bound, add it before 2 child - pre order;
   if node is right bound, add it after 2 child - post order;
 4. A leaf node that is neither left or right bound belongs to the bottom line;
- */
+
   //interview friendly, 
     //so anti-clock to record  all nodes visited. 
     // we can see left branch + leaves + reverse of right branches
     
-    //
+      5
+    /    \
+   3      7
+  / \     /\
+ 1   2   4  6
+
+
+ helper(node, res, lb, rb)
+ 
+ lb means whether current node is left  boundary 
+ rb means whether current node is right boundary 
+ 
+
+
+     */
     public List<Integer> boundaryOfBinaryTree(TreeNode root) {
         List<Integer> res = new ArrayList<Integer>();
         if (root != null) {
             res.add(root.val);
-            getBounds(root.left, res, true, false);
-            getBounds(root.right, res, false, true);
+            helper(root.left, res, true, false);
+            helper(root.right, res, false, true);
         }
         return res;
     }
     //pretty trick and elegant code implementations
     //
-    private void getBounds(TreeNode node, List<Integer> res, boolean lb, boolean rb) {
+    private void helper(TreeNode node, List<Integer> res, boolean lb, boolean rb) {
         if (node == null) return;
         if (lb) res.add(node.val);
         if (!lb && !rb && node.left == null && node.right == null) res.add(node.val);
-        getBounds(node.left, res, lb, rb && node.right == null);
-        getBounds(node.right, res, lb && node.left == null, rb);
+        helper(node.left, res, lb, rb && node.right == null);
+        helper(node.right, res, lb && node.left == null, rb);
         if (rb) res.add(node.val);
     }
     
