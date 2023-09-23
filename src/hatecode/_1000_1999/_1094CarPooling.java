@@ -16,9 +16,16 @@ public class _1094CarPooling {
      * Return true if and only if it is possible to pick up and drop off all
      * passengers for all the given trips.
      */
-    //thinking process:
-    
-    //thinking a stop as a node, we just need to go through all nodes
+    /*
+     * thinking process: O(n)/O(1)
+     * 
+     * the problem is to say: given 2D array,  cap means car capacity, driver is excluded 
+     * a[0]: passenage count, a[1] start stop, a[2] off stop
+     * return whether the car can go through call trips with all passenages 
+     * [[2,1,5],[3,3,7]] 4 --- > true
+     * 
+     * 
+     */
     public boolean carPooling(int[][] trips, int capacity) {
         TreeMap<Integer, Integer> map = new TreeMap<>();
         for(int[] t : trips) {
