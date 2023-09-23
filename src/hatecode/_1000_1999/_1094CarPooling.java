@@ -25,6 +25,10 @@ public class _1094CarPooling {
      * [[2,1,5],[3,3,7]] 4 --- > true
      * 
      * 
+     * 
+     * we use treemap to store for each stop, how many passengaes on the car, when start stop, we put passenger delta to value of the map
+     * 
+     * then laster we can go through the stop one by one 
      */
     public boolean carPooling(int[][] trips, int capacity) {
         TreeMap<Integer, Integer> map = new TreeMap<>();
