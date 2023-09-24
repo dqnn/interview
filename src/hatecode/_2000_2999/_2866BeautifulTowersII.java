@@ -44,10 +44,13 @@ Output: 13
  * return the max sum of the possible array 
  * 
  * 
- * so 
+ *        [6,5,  3,9,  2,7]
+ * st  -1        2 9      
+ * left    6 10  9 18 10 17
+ * 
  * 
  */
-    public long maximumSumOfHeights(List<Integer> A) {
+    public static long maximumSumOfHeights(List<Integer> A) {
          if (A == null || A.size() < 1) return 0;
         
         int n = A.size();
@@ -82,6 +85,8 @@ Output: 13
         return res;
     }
     
-    
+    public static void main(String[] args) {
+        System.out.println(maximumSumOfHeights(Arrays.asList(6,5,3,9,2,7)));
+    }
     
 }
