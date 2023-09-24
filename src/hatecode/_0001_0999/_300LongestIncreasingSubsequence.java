@@ -80,9 +80,9 @@ public class _300LongestIncreasingSubsequence {
         for (int num : A) {
             //we search from l->r, r is last iteration result location
             int l = 0, r = res;
-            // binary search on tails here can help to find which position for num
+            // binary search ontails here can help to find which position for num
             // this templates is while(left < start), 2# template, we have one element left for 
-            //post processing
+            //post processin
             //binary search 2nd templates
             while (l < r) {
                 int m = l + (r - l) /2;
