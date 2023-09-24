@@ -78,7 +78,7 @@ public class _300LongestIncreasingSubsequence {
         int[] tails = new int[A.length];
         int res = 0;
         for (int num : A) {
-            //we search from l->r, r is last iteration result
+            //we search from l->r, r is last iteration result location
             int l = 0, r = res;
             // binary search on tails here can help to find which position for num
             // this templates is while(left < start), 2# template, we have one element left for 
