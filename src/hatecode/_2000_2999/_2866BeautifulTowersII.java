@@ -39,12 +39,12 @@ Output: 13
  * 
  * for example  [6,5,3,9,2,7] suppose A[1] is the max one, then 
  *              [5,5,3,3,2,2] ->20   here fo A[3] = 9, it cannot use 5 since it should be smaller than 3, so only can be 3 
- * suppse 9 is max
+ * suppose 9 is max
  *              [3,3,3,9,2,2]->22 correct answer
  * return the max sum of the possible array 
  * 
  * 
- * so  
+ * so 
  * 
  */
     public long maximumSumOfHeights(List<Integer> A) {
