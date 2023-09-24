@@ -39,7 +39,7 @@ public class _300LongestIncreasingSubsequence {
      time : O(nlogn)
      space : O(n)
 
-     * @param nums
+     * @param A
      * @return
      */
     
@@ -60,8 +60,8 @@ public class _300LongestIncreasingSubsequence {
     
     //
     //LIS length, O(nlgn)/O(n)
-    public static int lengthOfLIS(int[] nums) {
-        if (nums == null || nums.length < 1) {
+    public static int lengthOfLIS(int[] A) {
+        if (A == null || A.length < 1) {
             return 0;
         }
         /** we do not care about what elements are in each subsequence, 
@@ -75,9 +75,9 @@ public class _300LongestIncreasingSubsequence {
         //len = 4, tails = [1, 3, 4, 7]
        /**(1) if x is larger than all tails, append it, increase the size by 1
         * (2) if tails[i-1] < x <= tails[i], update tails[i] */
-        int[] tails = new int[nums.length];
+        int[] tails = new int[A.length];
         int res = 0;
-        for (int num : nums) {
+        for (int num : A) {
             //we search from l->r, r is last iteration result
             int l = 0, r = res;
             // binary search on tails here can help to find which position for num
@@ -85,11 +85,11 @@ public class _300LongestIncreasingSubsequence {
             //post processing
             //binary search 2nd templates
             while (l < r) {
-                int mid = l + (r - l) /2;
-                if (tails[mid] < num) {
-                    l = mid + 1;
+                int m = l + (r - l) /2;
+                if (tails[m] < num) {
+                    l = m + 1;
                 } else {// here is  >=
-                    r = mid;
+                    r = m;
                 }
             }
             
