@@ -44,7 +44,7 @@ Output: 13
  * return the max sum of the possible array 
  * 
  * 
- * so 
+ * so  
  * 
  */
     public long maximumSumOfHeights(List<Integer> A) {
