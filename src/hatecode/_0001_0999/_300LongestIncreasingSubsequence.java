@@ -43,7 +43,17 @@ public class _300LongestIncreasingSubsequence {
      * @return
      */
     
-    //// the idea  is to maintain a list, and for each element in n, we want to find a position in 
+    ////Patience sorting
+    /*
+     * like you plaing cards, every time, starting from left, you can only place smaller one above it, else creatinf a new pile 
+     * 7, 3, 4, 5, 1
+     * 
+     * 3    1
+     * 7 4  5
+     * 
+     * the length of the piles will be LIS, here we have 3 piles of cards  
+     */
+    // the idea  is to maintain a list, and for each element in n, we want to find a position in 
     // tail to insert, it is more like insert sort, 
     // the way to identify the element which should be longest increasing sequence is the position for 
     //res is the variable to maintain the insert position for each element
