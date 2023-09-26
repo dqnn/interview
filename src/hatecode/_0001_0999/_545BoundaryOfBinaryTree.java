@@ -51,7 +51,12 @@ so when we pass the flag to next level,
 
  the same logic applies to root.right
 
-  
+
+there 4 use cases:
+1. it is root
+2. it is left boundary, like 3,1 
+3. it is right boundary, like 7,6
+4. bottom level, like 2,4,6
 
 
      */
