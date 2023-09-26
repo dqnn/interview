@@ -1,4 +1,7 @@
 package hatecode._1000_1999;
+
+import java.util.Stack;
+
 public class _1209RemoveAllAdjacentDuplicatesInStringII {
 /*
 1209. Remove All Adjacent Duplicates in String II
@@ -70,6 +73,44 @@ Output: "abcd"
             count[last] = 1 + (last > 0 && sb.charAt(last) == sb.charAt(last-1) ? count[last-1] : 0);
             if(count[last] >= k) sb.delete(sb.length()-k, sb.length());
         }
+        return sb.toString();
+    }
+
+
+    class Node{
+        char c;
+        int count;
+        
+        public Node(char c, int count) {
+            this.c=c;
+            this.count=count;
+        }
+    }
+    
+    public String removeDuplicates_Stack(String s, int k) { 
+        if (s == null || s.length() < 1) return "";
+        
+        char[] A = s.toCharArray();
+        
+        Stack<Node> st = new Stack<>();
+        
+        for(char c: A) {
+            if (!st.isEmpty() && st.peek().c == c && st.peek().count == k-1) {
+                int t = k - 1;
+                while(t-- > 0) st.pop();
+                continue;
+            }
+            int count = st.isEmpty() ? 1 : (st.peek().c==c)? st.peek().count + 1 : 1;
+            
+            st.push(new Node(c, count));
+        }
+        
+        StringBuilder sb = new StringBuilder();
+        
+        while(!st.isEmpty()) {
+            sb.insert(0, st.pop().c);
+        }
+        
         return sb.toString();
     }
     
