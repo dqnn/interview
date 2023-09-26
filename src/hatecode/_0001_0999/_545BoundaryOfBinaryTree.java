@@ -59,6 +59,12 @@ there 4 use cases:
 4. bottom level, like 2,4,6
 
 
+      5
+    /    \
+   3      7
+  / \     /\
+ 1   2   4  6
+
      */
     public List<Integer> boundaryOfBinaryTree(TreeNode root) {
         List<Integer> res = new ArrayList<Integer>();
@@ -75,8 +81,17 @@ there 4 use cases:
     private void helper(TreeNode node, List<Integer> res, boolean lb, boolean rb) {
         if (node == null) return;
         if (lb) res.add(node.val);
+
+        /*
+         * if (node.left == null && node.right == null) {
+         *  res.add(node.val);
+         * return;
+         * }
+         */
         //leaf node, and not in left boundary and not in right boundary 
         if (!lb && !rb && node.left == null && node.right == null) res.add(node.val);
+
+
         // if a left node want to be right boundary, this node right branch must not exist
         helper(node.left, res, lb, rb && node.right == null);
         //if a right node want to be left boundary, its left node must not exist
