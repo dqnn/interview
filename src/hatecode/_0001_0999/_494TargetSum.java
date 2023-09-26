@@ -151,4 +151,44 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
         }
         return dp[S];
     }
+
+
+
+
+    /*
+     * the solution is to re-use t as sum, this is easier to talk with interviewer that 
+     * 
+     */
+    int sumTotal = 0;
+    public int findTargetSumWays_Recursive(int[] A, int t) {
+        if (A == null || A.length < 1) return 0;
+        
+        sumTotal = Arrays.stream(A).sum();
+        if(t  > sumTotal || t < -sumTotal) return 0;
+        
+        // here why have 5 * sumTotal?
+        /*
+         * 
+         */
+        Integer[][] memo = new Integer[A.length][5*sumTotal + 1];
+        
+        helper(A, 0, t, memo);
+        return memo[0][sumTotal + t];
+    }
+    
+    
+    private int helper(int[] A, int pos, int t, Integer[][] memo) {
+        if(pos == A.length) {
+            return t == 0? 1: 0;
+        }
+        
+        if(memo[pos][sumTotal + t] != null) return memo[pos][sumTotal+t];
+        
+        int res = helper(A, pos+1,  t - A[pos], memo) 
+                + helper(A, pos+1,  t + A[pos], memo);
+        
+        memo[pos][sumTotal+t] = res;
+        
+        return res;
+    }
 }
