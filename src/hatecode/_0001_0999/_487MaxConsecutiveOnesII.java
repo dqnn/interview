@@ -1,4 +1,8 @@
 package hatecode._0001_0999;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class _487MaxConsecutiveOnesII {
 /*
 487. Max Consecutive Ones II
@@ -56,6 +60,31 @@ public int findMaxConsecutiveOnes_interview_friendly(int[] A) {
     return res;
 
 }
+
+/*
+ * we use a queue to keep track of index of all 0 in A 
+ */
+public int findMaxConsecutiveOnes_Queue(int[] A) {
+        if (A == null || A.length < 1) return 0;
+        
+        Queue<Integer> q = new LinkedList<>();
+        int l = 0;
+        int res = 0;
+        for(int i = 0; i< A.length; i++) {
+            if (A[i] == 0) {
+                q.offer(i);
+            }
+            
+            while (q.size() > 1) {
+                l = q.poll() + 1;
+            }
+            
+            res = Math.max(res, i - l + 1);
+            
+        }
+        
+        return res;
+    }
 
 public int findMaxConsecutiveOnes_recursive(int[] A) {
     if (A == null || A.length < 1) return 0;
