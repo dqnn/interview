@@ -30,9 +30,13 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
     public int findTargetSumWays2(int[] A, int S) {
         int totalSum = Arrays.stream(A).sum();
         //this can be removed
+        /*
+         * 
         for (int num : A) {  //calculate the totalSum keeping all the elements in the array positive
             totalSum += num;  
         }
+         */
+        
         if (totalSum < S || -totalSum > S) { //If the target sum S is not reachable by the range
             return 0;
         }
