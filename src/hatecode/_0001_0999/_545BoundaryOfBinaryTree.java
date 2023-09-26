@@ -82,7 +82,7 @@ there 4 use cases:
         if (node == null) return;
 
          /*
-        this also works, but 
+        this also works, but it will pick up leaves first and return 
 
          * if (node.left == null && node.right == null) {
          *  res.add(node.val);
