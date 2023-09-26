@@ -64,10 +64,15 @@ public class _300LongestIncreasingSubsequence {
         if (A == null || A.length < 1) {
             return 0;
         }
-        /** we do not care about what elements are in each subsequence, 
-         * we only care about tails of them,
-         * because every time we only compare with their tails to decide which subsequence 
-         * could we add new item and update the entire structure */
+        /** 
+         * tails is an array storing the smallest tail of all increasing subsequences with length i+1 in tails[i].
+For example, say we have nums = [4,5,6,3], then all the available increasing subsequences are:
+
+len = 1   :      [4], [5], [6], [3]   => tails[0] = 3
+len = 2   :      [4, 5], [5, 6]       => tails[1] = 5
+len = 3   :      [4, 5, 6]            => tails[2] = 6
+         * another example as below:
+         *  */
         //[1,3,5,4,7]->[1, 3, 4, 7, 0]
         //len = 1, tails = [1];
         //len = 2, tails = [1, 3]
