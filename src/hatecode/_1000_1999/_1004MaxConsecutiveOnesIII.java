@@ -1,7 +1,10 @@
 package hatecode._1000_1999;
 public class _1004MaxConsecutiveOnesIII {
 /*
+485. Max Consecutive Ones I
+487. Max Consecutive Ones II
 1004. Max Consecutive Ones III
+
 Given an array A of 0s and 1s, we may change up to K values from 0 to 1.
 
 Return the length of the longest (contiguous) subarray that contains only 1s. 
@@ -18,7 +21,7 @@ Explanation:
     
     //thinking process: O(n)/O(1)
     //the problem is to say: given one integer array only conains 0 and 1 and integer k, find the longest 
-    //consective ones, you can remove up to k 0
+    //consective ones, you can remove 0 up to k
     //
     //two pointers templates
     //first we try best to move right, then get the max length,

@@ -39,16 +39,18 @@ public int findMaxConsecutiveOnes_interview_friendly(int[] A) {
     if (A == null || A.length < 1) return 0;
     int n = A.length;
     int res = 0;
-    int zero = 0, k = 1;
-    for(int l = 0, r = 0; r < n; r++) {
-        if (A[r] == 0) zero++;
-        while(zero > k) {
-            if (A[l++] == 0) {
-                zero--;
-            }
+    int count = 0, k = 1;
+    int l = 0, r = 0;
+    while(r < n) {
+        if (A[r] == 0) count++;
+        
+        while(count > k) {
+            if(A[l] == 0) count--;
+            l++;
         }
         
-        res = Math.max(res, r -l + 1);
+        res = Math.max(res, r - l+1);
+        r++;
     }
     
     return res;

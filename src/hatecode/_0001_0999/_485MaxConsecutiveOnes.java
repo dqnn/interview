@@ -21,15 +21,15 @@ public class _485MaxConsecutiveOnes {
      time : O(n)
      space : O(1)
 
-     * @param nums
+     * @param A
      * @return
      */
-    public int findMaxConsecutiveOnes(int[] nums) {
+    public int findMaxConsecutiveOnes(int[] A) {
         int res = 0;
         int count = 0;
         // just count when it is 1, and replace everytime
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == 1) {
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] == 1) {
                 count++;
                 // more frequently replace res
                 res = Math.max(res, count);
