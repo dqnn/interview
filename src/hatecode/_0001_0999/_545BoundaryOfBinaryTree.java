@@ -44,7 +44,14 @@ node.right could also be left bound if node is left bound && node has no right c
  lb means whether current node is left  boundary 
  rb means whether current node is right boundary 
 
+so when we pass the flag to next level, 
+ for root.left,  it will be (lb, rb&& root.right == null), which means the node is left boundary for its left child, 
+ for the root.left would like to right boundary, then from parent, this has to be right boundary and its right it should have no right child because 
+ it is root.left
 
+ the same logic applies to root.right
+
+  
 
 
      */
