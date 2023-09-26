@@ -157,6 +157,8 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
 
     /*
      * the solution is to re-use t as sum, this is easier to talk with interviewer that 
+     * when t ==0, then we find one way to form t
+     * 
      * 
      */
     int sumTotal = 0;
@@ -166,9 +168,9 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
         sumTotal = Arrays.stream(A).sum();
         if(t  > sumTotal || t < -sumTotal) return 0;
         
-        // here why have 5 * sumTotal?
+        // here why have 5 * sumTotal instead of 2*sumTotal?
         /*
-         * 
+         * because t + A[pos], suppose t = sum, it will easily throw ount of boundary exception
          */
         Integer[][] memo = new Integer[A.length][5*sumTotal + 1];
         
