@@ -80,14 +80,18 @@ there 4 use cases:
     //
     private void helper(TreeNode node, List<Integer> res, boolean lb, boolean rb) {
         if (node == null) return;
-        if (lb) res.add(node.val);
 
-        /*
+         /*
+        this also works, but 
+
          * if (node.left == null && node.right == null) {
          *  res.add(node.val);
-         * return;
+         *  return;
          * }
+         * if (lb) res.add(node.val);
          */
+
+        if (lb) res.add(node.val);
         //leaf node, and not in left boundary and not in right boundary 
         if (!lb && !rb && node.left == null && node.right == null) res.add(node.val);
 
