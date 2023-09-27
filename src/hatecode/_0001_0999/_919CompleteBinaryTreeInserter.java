@@ -22,7 +22,16 @@ Output: [null,1,[1,2]]
  */
 
  /*
-  * thinking process: O()
+  * thinking process: O(1)/O(1) for insert and getRoot
+
+  the problem is to say: given one complete binary tree, you need to implement two APIs
+  1. insert(int v) insert a new node(v), but keep the tree complete
+  2. getRoot(), return the complete binary tree root;
+
+
+  for 1: we have to always need to know which parent needs to add child, either left child or right child, there are 2 edge cases:
+  1) : a parent node is leaf node, then you need to add to left child first, then right child, but when you add the right child ,the node needs to be poll out
+  2): if left child is not null, you need to add its left child into queue in construction function
 
 
 
