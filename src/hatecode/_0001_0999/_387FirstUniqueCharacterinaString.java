@@ -28,7 +28,7 @@ public class _387FirstUniqueCharacterinaString {
      */
     //thinking process:
     //interview friendly: O(n)/O(1)
-    //use char count to whether this char is unique or not
+    //use char count to whether this char is unique or not, unique here means whether the character occurred multiple times
     public int firstUniqChar(String s) {
         int[] count = new int[26];
         for (int i = 0; i < s.length(); i++) {
