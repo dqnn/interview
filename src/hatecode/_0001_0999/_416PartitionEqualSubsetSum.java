@@ -51,6 +51,9 @@ of other previous numbers. Thus, the transition function is
 dp[i][j] = dp[i-1][j] || dp[i-1][j-nums[i]]
 
 talking is cheap:
+
+
+it is same as coin change II
  */
 public class _416PartitionEqualSubsetSum {
     public boolean canPartition(int[] A) {
