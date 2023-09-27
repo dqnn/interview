@@ -38,11 +38,20 @@ subarray after step 2: [[7,0], [6,1], [7,1]]
  */
 public class _406QueueReconstructionbyHeight {
     /*
-     * thinking process: O()
+     * thinking process: O(nlgn)/O(1)
+     * 
+     * the problem is to say: given 2D array A, A[i] = [h, k], h is height and k means how many poeple are taller or equals to this guy from 
+     * left. so reconstuct the array
+     * 
+     * we sort the array by height desc first , if height equals, we sort by the k, from small to big
+     * [[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]] --->
+     * [[7,0], [7,1], [6,1], [5,0], [5,2], [4,4]] sort by height desc, if same height, sort by k from small to big, since it means how many taller people left
+     * 
+     * then we start from left, add the element at cur[1], [6,1] will override [7,1], [7,1] will be on its right. which make sense
      * 
      * 
      */
-    public int[][] reconstructQueue(int[][] p) {
+    public static int[][] reconstructQueue(int[][] p) {
         if (p == null || p.length < 1 || p[0].length < 1) {
             return p;
         }
@@ -54,6 +63,11 @@ public class _406QueueReconstructionbyHeight {
             res.add(cur[1],cur);
         }
 
-        return res.toArray(new int[p.length][]);
+        return res.toArray(new int[p.length][2]);
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(reconstructQueue(new int[][]{{7,0}, {4,4}, {7,1}, {5,0}, {6,1}, {5,2}}));
     }
 }
