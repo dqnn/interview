@@ -27,7 +27,7 @@ public class _387FirstUniqueCharacterinaString {
      * @return
      */
     //thinking process:
-    //interview friendly: 
+    //interview friendly: O(n)/O(1)
     //use char count to whether this char is unique or not
     public int firstUniqChar(String s) {
         int[] count = new int[26];
