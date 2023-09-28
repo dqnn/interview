@@ -64,6 +64,7 @@ Output: 2
         
          visited[node] = -1;
          for(int next: map.get(node)) {
+            //avoid back to starting point
              if (visited[next] != null) continue;
              int steps = helper(next, map, visited);
              pq.offer(steps);
