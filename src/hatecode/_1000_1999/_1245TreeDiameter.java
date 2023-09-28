@@ -15,8 +15,6 @@ There is an undirected tree of n nodes labeled from 0 to n - 1. You are given a 
 
 Return the diameter of the tree.
 
- 
-
 Example 1:
 
 
