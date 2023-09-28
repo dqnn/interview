@@ -50,7 +50,7 @@ Return the minimum number of minutes that must elapse until no cell has a fresh 
                 }
             }
         }
-        //we have no orange to rottle or they all already are rotted
+        //we have no rotten orange to rottle or they all already are rotted
         if (total == 0 || total == q.size()) return 0;
         
         
@@ -83,9 +83,9 @@ Return the minimum number of minutes that must elapse until no cell has a fresh 
     }
     
     private int rot(int[][] g, int i, int j, int d) {
-  if (i < 0 || j < 0 || i >= g.length || j >= g[i].length || g[i][j] != 1) return 0;
-  g[i][j] = d + 3;
-  return 1;
+      if (i < 0 || j < 0 || i >= g.length || j >= g[i].length || g[i][j] != 1) return 0;
+      g[i][j] = d + 3;
+      return 1;
 }
 /*
 Complexity Analysis
