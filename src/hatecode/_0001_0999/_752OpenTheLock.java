@@ -94,25 +94,17 @@ because the wheels of the lock become stuck after the display becomes the dead e
                 
                 if(end.contains(key)) continue;
                 for(int i =0 ;i < 4; i++) {
-                    int[] temp = Arrays.copyOfRange(code, 0, code.length);
-                    temp[i] = (temp[i] + 1) % 10;
-                    String nKey = getKey(temp);
-                    
-                    if(!visited.contains(nKey)) {
-                        q.offer(temp);
-                        visited.add(nKey);
-                    }
-                    
-                    int[] temp2 = Arrays.copyOfRange(code, 0, code.length);
-                    temp2[i] = (temp2[i] - 1 + 10) % 10;
-                    String nKey2 = getKey(temp2);
-                    
-                    if(!visited.contains(nKey2)) {
-                        q.offer(temp2);
-                        visited.add(nKey2);
+                    for(int j = 1; j >=-1; j-=2) {
+                        int[] temp = Arrays.copyOfRange(code, 0, code.length);
+                        temp[i] = (temp[i] + j + 10) % 10;
+                        String nKey = getKey(temp);
+
+                        if(!visited.contains(nKey)) {
+                            q.offer(temp);
+                            visited.add(nKey);
+                        }
                     }
                  }
-                
             }
             
             step++;
