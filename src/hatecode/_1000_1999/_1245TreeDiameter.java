@@ -38,12 +38,14 @@ Output: 2
     public int treeDiameter(int[][] A) {
         if (A == null || A.length < 1 || A[0].length < 1) return 0;
         
+        //map store [s, e]--> s->{e}, e->{s}
         Map<Integer, Set<Integer>> map = new HashMap<>();
         for(int[] a : A) {
             map.computeIfAbsent(a[0], v->new HashSet<>()).add(a[1]);
             map.computeIfAbsent(a[1], v->new HashSet<>()).add(a[0]);
         }
         
+        //map.size() means all possible nodes
         Integer[] visited = new Integer[map.size()];
         helper(0, map, visited);
         
