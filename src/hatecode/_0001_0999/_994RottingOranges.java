@@ -28,7 +28,8 @@ Return the minimum number of minutes that must elapse until no cell has a fresh 
     /*
        2   2 
        1   1
-     if we add the two 1 1 after we poll, then 1 1 will be in visited, but when we pop from queue, first 1 will add second 1 into the queue which is incorrect,so we add these 2 1 into queue when visiting adjacent cells, but for first time, we add first time to visited by only adding if (!visited.contains) visited.add(), another way is to add before while loop, tried, both will work
+     if we add the two 1 1 after we poll, then 1 1 will be in visited, but when we pop from queue, first 1 will add second 1 into the queue which is incorrect,
+     so we add these 2 1 into queue when visiting adjacent cells, but for first time, we add first time to visited by only adding if (!visited.contains) visited.add(), another way is to add before while loop, tried, both will work
     */
     public int orangesRotting(int[][] g) {
         if (g == null || g.length < 1 || g[0].length < 1) return 0;
