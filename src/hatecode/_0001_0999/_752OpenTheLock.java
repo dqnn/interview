@@ -64,4 +64,68 @@ because the wheels of the lock become stuck after the display becomes the dead e
         }
         return -1;
     }
+
+
+    /*
+     * BFS version 
+     * 
+     */
+    public int openLock_BFS(String[] d, String t) {
+        if (t == null || t.length() < 1) return -1;
+        
+        Set<String> end = new HashSet<>(Arrays.asList(d));
+        
+        Queue<int[]> q = new LinkedList<>();
+        int[] s = new int[]{0,0,0,0};
+        q.offer(s);
+        
+        Set<String> visited = new HashSet<>();
+        visited.add(getKey(s));
+        
+        int step = 0;
+        
+        while(!q.isEmpty()) {
+            int size = q.size();
+            
+            while(size-- > 0) {
+                int[] code = q.poll();
+                String key = getKey(code);
+                if (key.equals(t)) return step;
+                
+                if(end.contains(key)) continue;
+                for(int i =0 ;i < 4; i++) {
+                    int[] temp = Arrays.copyOfRange(code, 0, code.length);
+                    temp[i] = (temp[i] + 1) % 10;
+                    String nKey = getKey(temp);
+                    
+                    if(!visited.contains(nKey)) {
+                        q.offer(temp);
+                        visited.add(nKey);
+                    }
+                    
+                    int[] temp2 = Arrays.copyOfRange(code, 0, code.length);
+                    temp2[i] = (temp2[i] - 1 + 10) % 10;
+                    String nKey2 = getKey(temp2);
+                    
+                    if(!visited.contains(nKey2)) {
+                        q.offer(temp2);
+                        visited.add(nKey2);
+                    }
+                 }
+                
+            }
+            
+            step++;
+        }
+        
+        
+        return -1;
+    }
+    
+    private String getKey(int[] A) {
+        StringBuilder sb = new StringBuilder();
+        
+        Arrays.stream(A).forEach(e->sb.append(e));
+        return sb.toString();
+    }
 }
