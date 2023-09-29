@@ -61,12 +61,14 @@ public class _207CourseSchedule {
      * numCourses = 3, prerequisites = [[1,0],[2,1]]
      * we have 2 courses, 0, 1 and 2, you need to take 0 to get 1, and to get 2 you 
      * need to take 1, so return true
+     * 
+     * it is hard to specify starting from each node because we do not know which node we should start, instead , we should start with indegree with 0,
      *  
      *  this problem is like alien dictionary to reduce indegree every time
      *  we need to find a path which start from 0 indegree to last element
      */
     //we are doing a little different compared to alien dictionary, for example, we here the indegree is 
-    //adding on the parent, not on the child itself, u mean dependency itself.
+    //adding on the parent, not on the child itself, u mean dependency itself.åååå
     public boolean canFinish_Improved(int courses, int[][] deps) {
         if(courses <= 1) return true;
 
