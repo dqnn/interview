@@ -48,25 +48,30 @@ Output: "adbc"
         return sb.toString();
     }
     
-    //stack solution, O(n)/O(n), 
+    // interview friendly stack solution, O(n)/O(n), 
+    /*
+     * 
+     */
     public String smallestSubsequence_Stack(String s) {
         int[] cnt = new int[26];
         int n = s.length();
         for (int i = 0; i < n; i++) cnt[s.charAt(i) - 'a']++;
-        boolean[] visited = new boolean[26];
+
+        //indicated whether we used this char or not
+        boolean[] used = new boolean[26];
         
-        Stack<Character> stack = new Stack<>();
+        Stack<Character> st = new Stack<>();
         for (char c : s.toCharArray()) {
-            --cnt[c - 'a'];
-            if (visited[c - 'a']) continue;
-            while (!stack.isEmpty() && c < stack.peek() && cnt[stack.peek() - 'a'] > 0) {
-                visited[stack.pop() - 'a'] = false;
+            cnt[c - 'a']--;
+            if (used[c - 'a']) continue;
+            while (!st.isEmpty() && c < st.peek() && cnt[st.peek() - 'a'] > 0) {
+                used[st.pop() - 'a'] = false;
             }
-            stack.push(c);
-            visited[c - 'a'] = true;
+            st.push(c);
+            used[c - 'a'] = true;
         }
         StringBuilder sb = new StringBuilder();
-        while (!stack.isEmpty()) sb.insert(0, stack.pop());
+        while (!st.isEmpty()) sb.insert(0, st.pop());
         return sb.toString();
     }
 }

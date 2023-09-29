@@ -70,11 +70,9 @@ the reverse link is 1/k. Query is to find a path between two nodes.
         //add a/b and b/a into the map, note, value is List<Node>
         for(int i = 0; i < values.length; i++) {
             String[] equation = equations[i];
-            map.computeIfAbsent(equation[0], v->new ArrayList<>());
-            map.get(equation[0]).add(new Node(equation[1], values[i]));
+            map.computeIfAbsent(equation[0], v->new ArrayList<>()).add(new Node(equation[1], values[i]));
             //for division
-            map.computeIfAbsent(equation[1], v->new ArrayList<>());
-            map.get(equation[1]).add(new Node(equation[0], 1/values[i]));
+            map.computeIfAbsent(equation[1], v->new ArrayList<>()).add(new Node(equation[0], 1/values[i]));
         }
         
          // calculate the queries
