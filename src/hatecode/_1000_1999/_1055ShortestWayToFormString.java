@@ -53,13 +53,44 @@ public class _1055ShortestWayToFormString {
     /*
      * interview friendly: O(m+n)
      * 
+     * two pointer
      * 
      * 
      */
-    public int shortestWay_best(String src, String dst) {
-        char[] cs = src.toCharArray(), ts = dst.toCharArray();
+    public int shortestWay_TP(String s, String t) {
+        if(s == null || s.length() < 1 || t== null || t.length() < 1) return -1;
         
-        int n = src.length();
+        Integer[] cnt = new Integer[26];
+        for(int i = 0; i< s.length(); i++) cnt[s.charAt(i)-'a'] = i;
+        
+        int res = 1, j = 0;
+        for(int i = 0; i<t.length(); i++, j++) {
+            char c = t.charAt(i);
+            if(cnt[c-'a'] == null) return -1;
+            while(j < s.length() && s.charAt(j) != c) {
+                j++;
+            }
+            
+            if (j == s.length()) {
+                res++;
+                j =-1;
+                i--;
+            }
+        }
+        
+        return res;
+    }
+
+    /*
+     * interview friendly O (m + n)
+     * 
+     * map[i][c-'a'] means for string s, position i, 
+     * 
+     */
+    public int shortestWay_best(String s, String t) {
+        char[] cs = s.toCharArray(), ct = t.toCharArray();
+        
+        int n = s.length();
         int[][] map = new int[n][26];
         map[n - 1][cs[n - 1] - 'a'] = n; 
         for (int i = n - 2; i >= 0; i--) {
@@ -68,13 +99,13 @@ public class _1055ShortestWayToFormString {
         }
         
         int j = 0, res = 1;
-        for (int i = 0; i < ts.length; i++) {
+        for (int i = 0; i < ct.length; i++) {
             if (j == n) {
                 j = 0;
                 res++;
             }
-            j = map[j][ts[i] - 'a'];
-            if (map[0][ts[i] - 'a'] == 0) return -1;
+            j = map[j][ct[i] - 'a'];
+            if (map[0][ct[i] - 'a'] == 0) return -1;
             if (j == 0) {
                 res++;
                 i--;
