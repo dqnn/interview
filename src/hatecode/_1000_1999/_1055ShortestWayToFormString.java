@@ -84,7 +84,19 @@ public class _1055ShortestWayToFormString {
     /*
      * interview friendly O (m + n)
      * 
-     * map[i][c-'a'] means for string s, position i, 
+     * map[i][c-'a'] means for string s, position i, the next closet index 
+     * for example "xyz" map[0][x-'a'] means for at position i in s, what is the next closest character index
+     * 
+     * s: "xyz"
+       t: "xzyxz"
+
+       map:
+     * [
+     * [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3],
+     * [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,3],
+     * [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3]
+     * ]
+     * 
      * 
      */
     public int shortestWay_best(String s, String t) {
