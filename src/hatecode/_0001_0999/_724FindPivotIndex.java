@@ -18,6 +18,15 @@ public class _724FindPivotIndex {
      * Input: nums = [1, 7, 3, 6, 5, 6] Output: 3
      */
     
+     /*
+      * interview friendly O(n)/O(1)
+
+      left -- A[i] --- right 
+
+      left sum == right sum, return i
+
+      
+      */
      public int pivotIndex(int[] A) {
          if(A == null || A.length < 1) return -1;
          
