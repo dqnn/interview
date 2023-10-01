@@ -50,26 +50,31 @@ public class _290WordPattern {
         return true;
     }
     
-    //this cannot pass
-    public boolean wordPattern2(String pattern, String str) {
-       String[] A = str.split(" ");
-       if (A.length != pattern.length()) {
-           return false;
-       }
-       Map<Character, String> map = new HashMap<>();
-       for (int i = 0; i < A.length; i++) {
-           char c = pattern.charAt(i);
-           if (map.containsKey(c)) {
-               if (!map.get(c).equals(A[i])) {
-                   return false;
-               } else {
-                   if (map.containsValue(A[i])) {
-                       return false;
-                   }
-                   map.put(c, A[i]);
-               }
-           }
-       }
-       return true;
+    //we use 2 maps to pass
+    /*
+     * 
+     */
+    public boolean wordPattern_2Map(String p, String s) {
+        String[] ss = s.split(" ");
+        if(ss.length != p.length()) return false;
+        
+        Map<String, String> map1 = new HashMap<>();
+        Map<String, String> map2 = new HashMap<>();
+        
+        for(int i = 0; i<ss.length; i++) {
+            String pc = p.charAt(i) + "";
+            if (map1.containsKey(pc)) {
+                if (!map1.get(pc).equals(ss[i])) return false;
+            } else {
+                if(map2.containsKey(ss[i])) {
+                    if (!map2.get(ss[i]).equals(pc)) return false;
+                }
+            }
+            
+            map1.put(pc, ss[i]);
+            map2.put(ss[i], pc);
+        }
+        
+        return true;
     }
 }
