@@ -3,6 +3,7 @@ package hatecode._0001_0999;
 /**
  * File Name : PopulatingNextRightPointersinEachNodeII
  * Date : Oct, 2017
+ * 116. Populating Next Right Pointers in Each Node
  * Description : 117. Populating Next Right Pointers in Each Node II
  */
 public class _117PopulatingNextRightPointersinEachNodeII {
