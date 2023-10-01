@@ -54,6 +54,31 @@ public class _117PopulatingNextRightPointersinEachNodeII {
             head = null;
         }
     }
+    /*
+     * interview friendly O (n)/O(1)
+     * 
+     * the problem is to say: given any tree, each tree node have a next node, you need to connect them with next pointer if they are on same level
+     * 
+     * we use level start as the travel pointer for each level while dummy.next maintain the next level head
+     * 
+     * dry run following tree 
+         1
+        /  \
+       2    3
+      /      \
+     4        7
+
+    
+first level.next = 2, then  level will point 2 
+then we found 1.right is not null, so level will point to 3 and move to 3
+
+this round is done, then cur will move to its next, here is empty since root 
+
+so outter loop, cur will point to 2, then new level will point 4, 
+
+then cur will move to its next here is 3, then we can mark 4.next = 7, then level point to 7
+     */
+    
     //with the help of two assist nodes, we connect all nodes on each level, 
     //
     public void connect2(TreeLinkNode root) {
