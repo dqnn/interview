@@ -32,31 +32,25 @@ Output: 3
         if(root.left == null && root.right == null) return root.val;
 
         // basic strategy: tree -> graph
-        Map<TreeNode, List<TreeNode>> graph = new HashMap<>();
+        Map<TreeNode, Set<TreeNode>> graph = new HashMap<>();
 
         // build graph
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
         TreeNode startNode = null;
-        while (!queue.isEmpty()) {
-            TreeNode node = queue.poll();
-
-            if (!graph.containsKey(node)) {
-                graph.put(node, new ArrayList<TreeNode>());
-            }
-            graph.computeIfAbsent(node, v->new ArrayList<>());
+        while (!q.isEmpty()) {
+            TreeNode node = q.poll();
 
             if (node.left != null) {
-                graph.computeIfAbsent(node, v->new ArrayList<>()).add(node.left);
-                graph.computeIfAbsent(node.left, v->new ArrayList<>()).add(node);
-    
-                queue.offer(node.left);
+                graph.computeIfAbsent(node, v->new HashSet<>()).add(node.left);
+                graph.computeIfAbsent(node.left, v->new HashSet<>()).add(node);
+                q.offer(node.left);
             }
 
             if (node.right != null) {
-                graph.computeIfAbsent(node, v->new ArrayList<>()).add(node.right);
-                graph.computeIfAbsent(node.right, v->new ArrayList<>()).add(node);
-                queue.offer(node.right);
+                graph.computeIfAbsent(node, v->new HashSet<>()).add(node.right);
+                graph.computeIfAbsent(node.right, v->new HashSet<>()).add(node);
+                q.offer(node.right);
             }
 
             if (node.val == k && startNode == null) {
@@ -65,20 +59,20 @@ Output: 3
         }
 
         // bfs to search shortest path
-        queue.clear();
-        queue.offer(startNode);
+        q.clear();
+        q.offer(startNode);
         Set<TreeNode> visited = new HashSet<>();
         visited.add(startNode);
-        while (!queue.isEmpty()) {
-            TreeNode node = queue.poll();
+        while (!q.isEmpty()) {
+            TreeNode node = q.poll();
             if (node.left == null && node.right == null) return node.val;
             
             for(TreeNode e: graph.get(node)) {
                 if (visited.contains(e)) continue;
-                queue.offer(e);
+                q.offer(e);
                 visited.add(e);
             }
         }
-        return root.val;
+        return -1;
     }
 }
