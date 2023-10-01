@@ -52,7 +52,7 @@ public class _290WordPattern {
     
     //we use 2 maps to pass
     /*
-     * 
+     * the problem is to say: 
      */
     public boolean wordPattern_2Map(String p, String s) {
         String[] ss = s.split(" ");
