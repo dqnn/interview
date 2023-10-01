@@ -89,25 +89,41 @@ public class _240Searcha2DMatrixII {
      * if target is on right side,(middle, bottom right), then we discard zone 1,
      * try to search in zone 2, 3 and zone 4
      * 
+     * T(n) = 3(T/2)
+     * 
+     * 
      */
 
-     private boolean search(int[][] A,int t,int x1,int y1,int x2,int y2) {
-        if (x1 > x2 || y1 > y2) return false;
-        int mx = x1 + (x2 - x1) / 2;
-        int my = y1 + (y2 - y1) / 2;
-        if (t > A[mx][my]) {
-            return search(A, t, x1, my + 1, mx, y2) // zone 2
-                    || search(A, t, mx + 1, my + 1, x2, y2) // zone 3
-                    || search(A, t, mx + 1, y1, x2, my); // zone 4
-        } else if (t < A[mx][my]) {
-            return search(A, t, x1, my, mx - 1, y2) // q1
-                    || search(A, t, mx, y1, x2, my - 1) // q3
-                    || search(A, t, x1, y1, mx - 1, my - 1); // q2
-        } else {
-            return true;
-        }
+     public boolean searchMatrix_BS(int[][] A, int t) {
+        if(A == null || A.length < 1 || A[0].length < 1) return false;
+        
+        int m = A.length,n = A[0].length;
+        
+        return helper(A, 0, 0, m-1,n-1, t);
     }
-
+    
+    
+    private boolean helper(int[][] A, int x1, int y1, int x2, int y2, int t) {
+        if(x1 > x2 || y1 > y2) return false;
+        
+        //if they are equals, so return
+        if(x1 == x2 && y1 == y2) return A[x1][y1] == t;
+        
+        int xm = x1 + (x2 - x1)/2;
+        int ym = y1 + (y2 - y1)/2;
+        if(t < A[xm][ym]) {
+            return helper(A, x1, y1, xm, ym, t)  // z 1
+                 ||helper(A, x1, ym + 1, xm, y2,t) // z 2
+                 ||helper(A, xm + 1, y1, x2, ym, t); //z 4
+        } else if (t > A[xm][ym]) {
+            return helper(A, x1, ym + 1, xm, y2, t) // z 2
+                 ||helper(A, xm + 1, y1, x2, ym, t)  //z 4
+                 || helper(A, xm+1, ym +1, x2, y2, t); //z3
+        } else return true;
+    }
+    
+    
+    
     int[][] m;
     int target;
 
