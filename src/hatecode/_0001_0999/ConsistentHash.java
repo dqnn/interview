@@ -111,7 +111,7 @@ public class ConsistentHash<T> {
         ConsistentHash<String> consistentHash = new ConsistentHash<String>(new HashFunction(), 160, nodes);
 
         //consistentHash.add("D");
-        System.out.println(consistentHash.getSize());  //640
+        System.out.println(consistentHash.getSize());  //480
 
         System.out.println(consistentHash.get("0"));
         System.out.println(consistentHash.get("1"));
