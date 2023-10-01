@@ -87,4 +87,68 @@ public class _394DecodeString {
         }
         return res;
     }
+
+  /*
+   * one Stack solution 
+   * 3[a2[c]]
+   * 
+   * we scan from left to right, 
+   * if it is number, put string format to stack, like here 3, 32 it will be 
+   * 
+   * meet 1st ]    process 1st []   2nd [] 
+   * 
+   * c   
+   * [
+   * 2   --->     cc  --->     
+   * a             a
+   * [             [
+   * 3             3          accaccacc
+   * 
+   * it will be like above, then when we meet ']', we will pop and 
+   * 
+   */
+    public String decodeString_OneStack(String s) {
+        if (s == null || s.length() < 1) return "";
+        
+        Stack<String> st = new Stack<>();
+        for(int i = 0; i< s.length(); i++) {
+            char c = s.charAt(i);
+            
+            if(c =='[' || c >='a' && c <= 'z') {
+                st.push(c+"");
+            } else if (c >='1' && c<='9') {
+                int j = i + 1;
+                while(j < s.length() && Character.isDigit(s.charAt(j))) {
+                    j++;
+                }
+                String num = s.substring(i, j);
+                st.push(num);
+                i = j -1;
+            //handle ]
+            } else {
+                StringBuilder sb = new StringBuilder();
+                while(!st.isEmpty() && !st.peek().equals("[")) {
+                    sb.insert(0, st.pop());
+                }
+                
+                st.pop();
+                String str = sb.toString();
+                sb.setLength(0);
+                int k = Integer.valueOf(st.pop());
+                for(int p = 0; p< k;p++){
+                    sb.append(str);
+                }
+                
+                st.push(sb.toString());
+            }
+        }
+        
+        
+        StringBuilder res = new StringBuilder();
+        while(!st.isEmpty()) {
+            res.insert(0, st.pop());
+        }
+        
+        return res.toString();
+    }
 }
