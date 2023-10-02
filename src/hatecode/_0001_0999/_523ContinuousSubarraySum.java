@@ -38,6 +38,9 @@ You may assume the sum of all the numbers is in the range of a signed 32-bit int
 
       sum %k + A[i] 
 
+      sum[j] - sum[i] = A[j] + A[j-1].... + A[i+1]
+                      = A
+
     */
     //
     //
