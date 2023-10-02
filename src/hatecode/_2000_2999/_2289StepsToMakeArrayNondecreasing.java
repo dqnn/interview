@@ -47,7 +47,6 @@ another good example: [1,5,4,1,2,3] -- > 3, note 5 eat 4 and 4 eat 1 at the same
  * if [1,5,4,1,2,3]
  * 
  * 
- * 
  */
     public static int totalSteps(int[] A) {
         if(A == null || A.length < 1) return 0;
