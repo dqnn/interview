@@ -36,7 +36,7 @@ You may assume the sum of all the numbers is in the range of a signed 32-bit int
      
      so it means that between two 5 there is subarray whose sum = n * 6
 
-    how it will
+      sum %k + A[i] 
 
     */
     //
