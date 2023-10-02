@@ -31,9 +31,12 @@ You may assume the sum of all the numbers is in the range of a signed 32-bit int
     
      (sum + nk) %k = a%k, let' use one example 
      [23, 2, 4, 6, 7]
+     [23, 25,29, 35, 42]
      [5,  1, 5, 5, 0]  ---- index array
+     
+     so it means that between two 5 there is subarray whose sum = n * 6
 
-     so it means that 
+    how it will
 
     */
     //
