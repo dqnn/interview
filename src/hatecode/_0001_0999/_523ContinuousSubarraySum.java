@@ -24,17 +24,19 @@ The length of the array won't exceed 10,000.
 You may assume the sum of all the numbers is in the range of a signed 32-bit integer.
  */
     /*
-    Suppose sum_i represents the running sum starting from index 0 and ending at i,
-once we find a mod that has been seen, say modk, we have:
-current one: sum_i = m*k + modk
-previous one: sum_j = n*k + modk
-Thus,
-sum_i - sum_j = (m - n) *k
-    */
-    //thinking process:
+    interview friendly: O(n)/O(n)
     //if say about sub array, always trying to think from prefix sum
+
+    the problem is to say: given one integer array, [23, 2, 4, 6, 7],  k=6, return whether it contains one subarray which its sum = n * k, n = 0, 1,2,3
     
-    //interview friendly: 
+     (sum + nk) %k = a%k, let' use one example 
+     [23, 2, 4, 6, 7]
+     [5,  1, 5, 5, 0]  ---- index array
+
+     so it means that 
+
+    */
+    //
     //
     public boolean checkSubarraySum(int[] A, int k) {
         if (A == null || A.length < 1) {
