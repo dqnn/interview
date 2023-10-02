@@ -36,11 +36,12 @@ You may assume the sum of all the numbers is in the range of a signed 32-bit int
      
      so it means that between two 5 there is subarray whose sum = n * 6
 
-      sum %k + A[i] 
+      
+    (sum[i-1] + A[i]) % k 
+    = (sum[i-1] % k + A[i]) % k
 
-      (sum[j] - sum[i]) % k = (A[j] + A[j-1].... + A[i+1]) % k
-                      = (a(j) + m * k + a(j-1) + n*k + ....) % k
-                    =   (a(j) + a(j-1) + a(0)) % k
+      
+       
 
     */
     //
