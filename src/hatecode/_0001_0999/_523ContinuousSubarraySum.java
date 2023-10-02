@@ -38,8 +38,9 @@ You may assume the sum of all the numbers is in the range of a signed 32-bit int
 
       sum %k + A[i] 
 
-      sum[j] - sum[i] = A[j] + A[j-1].... + A[i+1]
-                      = A
+      (sum[j] - sum[i]) % k = (A[j] + A[j-1].... + A[i+1]) % k
+                      = (a(j) + m * k + a(j-1) + n*k + ....) % k
+                    =   (a(j) + a(j-1) + a(0)) % k
 
     */
     //
