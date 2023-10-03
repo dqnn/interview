@@ -29,6 +29,8 @@ Output: 0
 
 "cuaieuouac"
 
+c uaieu ouac
+c uaieuo uac
 
 */
 
