@@ -52,7 +52,7 @@ public class _330PatchingArray {
      time : O(n)
      space : O(1)
 
-     * @param nums
+     * @param A
      * @param n
      * @return
      */
@@ -84,7 +84,7 @@ and it's best to add miss itself, to maximize the reach.
     //[1..2*num + 1].
     // the original array, it must be adding from smallest, so we can extend the sum array to 2* n + 1, 
     // the sum array was added n + 1 more elements
-    public int minPatches(int[] nums, int n) {
+    public int minPatches(int[] A, int n) {
         int i = 0, res = 0;
         //miss be the smallest sum in [0,n] that we might be missing
         //就是如果按照nums 的剧情发展，得不到的number， miss 按照
@@ -92,8 +92,8 @@ and it's best to add miss itself, to maximize the reach.
         long miss = 1; 
         while (miss <= n) {
             // 
-            if (i < nums.length && nums[i] <= miss) {
-                miss += nums[i++];
+            if (i < A.length && A[i] <= miss) {
+                miss += A[i++];
             // if we already bigger than nums.length || nums[i] > miss, so under condition <=n, which means
             // we add the number miss into the list
             } else {

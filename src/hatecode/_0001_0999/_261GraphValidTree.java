@@ -2,8 +2,13 @@ package hatecode._0001_0999;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
 
 /**
  * Project Name : Leetcode
@@ -97,6 +102,51 @@ public class _261GraphValidTree {
             boolean res = helper(graph, visited, v, node);
             if (res == false) return false;
         }
+        return true;
+    }
+
+
+
+    /*
+     * check whether the graph is valid tree
+     */
+    public boolean validTree_BFS(int n, int[][] A) {
+        if(n <= 1) return true;
+        if(A == null || A.length < 1 || A[0].length < 1) return false;
+        
+        Map<Integer, Set<Integer>> map = new HashMap<>();
+        for(int[] a :A) {
+            map.computeIfAbsent(a[0], v->new HashSet<>()).add(a[1]);
+            map.computeIfAbsent(a[1], v->new HashSet<>()).add(a[0]);
+        }
+        
+        
+        Queue<int[]> q = new LinkedList<>();
+        boolean[] visited = new boolean[n];
+        
+        q.offer(new int[]{0,-1});
+        visited[0] = true;
+        
+        while(!q.isEmpty()) {
+            int size = q.size();
+            while(size-- > 0) {
+                int[] e = q.poll();
+                int cur = e[0], parent = e[1];
+                if(!map.containsKey(cur)) return false;
+                for(int next: map.get(cur)) {
+                    if(next == parent) continue;
+                    if(visited[next]) return false;
+                    visited[next] = true;
+                    q.offer(new int[]{next, cur});
+                }
+            }
+        }
+        
+        //4 [[0,1],[2,3]], we cannot reach to 2 or 3,
+        for(int i = 0; i <n; i++) {
+            if(!visited[i]) return false;
+        }
+        
         return true;
     }
 }
