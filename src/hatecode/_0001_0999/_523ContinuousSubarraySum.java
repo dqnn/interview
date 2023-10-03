@@ -39,10 +39,6 @@ You may assume the sum of all the numbers is in the range of a signed 32-bit int
       
     (sum[i-1] + A[i]) % k 
     = (sum[i-1] % k + A[i]) % k
-
-      
-       
-
     */
     //
     //
