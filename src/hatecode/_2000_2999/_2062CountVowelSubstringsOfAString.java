@@ -25,6 +25,11 @@ Example 2:
 
 Input: word = "unicornarihan"
 Output: 0
+
+
+"cuaieuouac"
+
+
 */
 
 /*
