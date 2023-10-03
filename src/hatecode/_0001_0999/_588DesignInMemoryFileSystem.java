@@ -61,9 +61,9 @@ Output
         //System.out.println(path);
         String[] paths = path.split("/");
         File cur = root;
-        for(String name: paths) {
-            if (name.length() == 0) continue;
-            cur = cur.children.get(name);
+        for(String p: paths) {
+            if (p.isEmpty()) continue;
+            cur = cur.children.get(p);
         }
         
         if (cur.isD) {
@@ -94,9 +94,9 @@ Output
         String[] paths = filePath.split("/");
         File cur = root;
         for(int i = 0; i<paths.length - 1; i++) {
-            String name = paths[i];
-            if (name.length() == 0) continue;
-            cur = cur.children.get(name);
+            String p = paths[i];
+            if (p.isEmpty()) continue;
+            cur = cur.children.get(p);
         }
         
         String fileName = paths[paths.length-1];
@@ -115,9 +115,9 @@ Output
         String[] paths = filePath.split("/");
         File cur = root;
         for(int i = 0; i<paths.length; i++) {
-            String name = paths[i];
-            if (name.length() == 0) continue;
-            cur = cur.children.get(name);
+            String p = paths[i];
+            if (p.isEmpty()) continue;
+            cur = cur.children.get(p);
         }
         
         return cur.content;
