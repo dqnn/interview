@@ -30,7 +30,15 @@ Output: 0
 /*
  * thinking process: O(n)/O(1)
  * 
- * the problem is to say: given one string it contains vows and non-vows, 
+ * the problem is to say: given one string it contains vows and non-vows,  return how many substring it contains thr 5 vows only
+ * - "aeiouu"
+      aeiou
+      aeiouu
+
+      so there are 2 substrings satifsy requirements, so we return 2
+
+
+
  * 
  * this is easiest solution, 
  */
