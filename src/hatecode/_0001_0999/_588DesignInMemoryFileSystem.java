@@ -90,24 +90,27 @@ Output
         }
     }
     
-    public void addContentToFile(String filePath, String content) {
-        String[] paths = filePath.split("/");
-        File cur = root;
-        for(int i = 0; i<paths.length - 1; i++) {
-            String p = paths[i];
-            if (p.isEmpty()) continue;
-            cur = cur.children.get(p);
-        }
+    public void addContentToFile(String path, String content) {
+        String[] paths = path.split("/");
         
-        String fileName = paths[paths.length-1];
-        if (cur.children.containsKey(fileName)) {
-            cur = cur.children.get(fileName);
-            cur.content = cur.content + content;
-        } else {
-            File temp = new File(false, fileName);
-            temp.content = content;
-            cur.children.put(fileName, temp);
+        File cur = root;
+        for(int i = 0; i <paths.length; i++) {
+            String p = paths[i];
+            if(p.isEmpty()) continue;
+            if(cur.children.containsKey(p)){
+                cur = cur.children.get(p);
+            } else {
+                boolean isD = i == paths.length -1 ? false : true;
+                File temp = new File(isD, p);
+                cur.children.put(p, temp);
+                cur = cur.children.get(p);
+            }
         }
+
+
+        if(cur.content == null) {
+            cur.content = content;
+        } else cur.content += content;
         
     }
     
