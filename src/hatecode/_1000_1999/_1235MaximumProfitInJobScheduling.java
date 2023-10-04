@@ -50,7 +50,10 @@ Output: 120
  * we want to find from dp[1],dp[2],dp[3]...dp[i]
  * which job end time <= job[i][0] start time, then it will be dp[j] + job[i][2]
  * 
- * one key is in binary search: we want to find 
+ * one key is in binary search: we want to find the most close to job[i][0], which means the last element in array, so we would like to move left when equals to target
+ * ,target is job[i][0], think about find the last element in array, 
+ * 
+ * another key is we still have l and r two elements, 
  * 
  */
     public int jobScheduling(int[] s, int[] e, int[] p) {
