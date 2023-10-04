@@ -58,4 +58,49 @@ Output: [0,1,1,2,3,4]
             root=root.left;
         }
     }
+
+   /*
+    * this is pure iterative solution, inorder visit
+    */
+
+    public List<Integer> getAllElements_iterarive(TreeNode r1, TreeNode r2) {
+        List<Integer> res = new ArrayList<>();
+        
+        if(r1 == null && r2 == null) return res;
+        
+        Stack<TreeNode> st1 =new Stack<>(), st2 = new Stack<>();
+        while(!st1.isEmpty() || r1 != null || !st2.isEmpty() || r2 != null) {
+            while(r1 != null) {
+                st1.push(r1);
+                r1=r1.left;
+            }
+            
+            while(r2!= null) {
+                st2.push(r2);
+                r2=r2.left;
+            }
+            
+            
+            
+            if(!st1.isEmpty() && !st2.isEmpty()) {
+                if(st1.peek().val < st2.peek().val) {
+                    res.add(st1.peek().val);
+                    r1 = st1.pop().right;
+                } else {
+                    res.add(st2.peek().val);
+                    r2 = st2.pop().right;
+                }
+            } else if (!st1.isEmpty()) {
+                res.add(st1.peek().val);
+                r1 = st1.pop().right;
+            } else {
+                res.add(st2.peek().val);
+                r2 = st2.pop().right;
+            }
+        }
+        
+        
+        return res;
+        
+    }
 }
