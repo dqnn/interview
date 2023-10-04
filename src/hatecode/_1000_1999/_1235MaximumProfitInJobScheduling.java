@@ -33,6 +33,24 @@ Output: 120
  *    p   [50,10,40,70]
  * 
  * we sort the jobs array by end time, so they align on right side, then 
+ *       50
+ *   1-------3
+ *           10
+ *      2---------4
+ *               40
+ *           3---------5
+ *                    70
+ *           3-----------------6
+ * 
+ * we use dp[i] means for for ith task, the max profit, 
+ * then from dp[i] to dp[i+1]
+ * 
+ * option 1: = dp[i], we drop job[i]
+ * option 2: we do job[i] but we need to find how can we connect previous job, the critirial is to look for the end time <= current start time (binary search)
+ * we want to find from dp[1],dp[2],dp[3]...dp[i]
+ * which job end time <= job[i][0] start time, then it will be dp[j] + job[i][2]
+ * 
+ * one key is in binary search: we want to find 
  * 
  */
     public int jobScheduling(int[] s, int[] e, int[] p) {
