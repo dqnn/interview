@@ -53,7 +53,8 @@ Output: 120
  * one key is in binary search: we want to find the most close to job[i][0], which means the last element in array, so we would like to move left when equals to target
  * ,target is job[i][0], think about find the last element in array, 
  * 
- * another key is we still have l and r two elements, 
+ * another key is we still have l and r two elements, first check whether r is more fit because we want to check the last element, if not check the l, 
+ * but l also not qualified.
  * 
  */
     public int jobScheduling(int[] s, int[] e, int[] p) {
