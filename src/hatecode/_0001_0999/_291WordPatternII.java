@@ -29,7 +29,7 @@ public class _291WordPatternII {
      pattern = "abab", str = "redblueredblue" "redres
 
 
-     time : O(2^n) 不确定
+     time : O(n * C(n^m))  m = p.length(), n = s.length()
      space : O(n)
 
      * @param pattern
