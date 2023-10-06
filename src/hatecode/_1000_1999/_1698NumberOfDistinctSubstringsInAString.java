@@ -23,7 +23,13 @@ Explanation: The set of distinct strings is ["a","b","aa","bb","ab","ba","aab","
 /*
  * thinking process: O(nlgn)/O(n^2) n = s.length(), note we stored n^2 characters in suffix
  * 
- * the problem is to say: given one string s, you need to 
+ * the problem is to say: given one string s, you need to return how many distinct substring in this array. 
+ * 
+ * we can use brute force and it is working with O(n^2)/O(n^2) 
+ * 
+ * do we have a better solution?
+ * 
+ * 
  * 
  * 
  */
