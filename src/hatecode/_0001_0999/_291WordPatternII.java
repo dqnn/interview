@@ -32,7 +32,7 @@ public class _291WordPatternII {
      time : O(n * C(n^m))  m = p.length(), n = s.length()  
 
      you need to slice the string n into m pieces, how many ways, (n-1)*(n-2)*(n-3)*..(n-m)
-     space : O(n)
+     space : O(n*m) how deep we call isMatch
 
      * @param pattern
      * @param str
@@ -64,10 +64,10 @@ public class _291WordPatternII {
         Set<String> set = new HashSet<>();
         Map<Character, String> map = new HashMap<>();
         
-        return isMatch(str, 0, pattern, 0, map, set);
+        return helper(str, 0, pattern, 0, map, set);
     }
     
-    public boolean isMatch(String str, int i, String pat, int j, Map<Character, String> map, Set<String> set) {
+    public boolean helper(String str, int i, String pat, int j, Map<Character, String> map, Set<String> set) {
         if (i ==str.length() && j == pat.length()) return true;
         if (i == str.length() || j == pat.length()) return false;
         char ch = pat.charAt(j);
@@ -81,7 +81,7 @@ public class _291WordPatternII {
             //if match is done, then we come to next part of str and next char of pat, if 
             //we previous already visit the string, then means it is not qualified, just skip it. this is for 
             //improve the performance. 
-            return isMatch(str, i + temp.length(), pat, j + 1, map, set);
+            return helper(str, i + temp.length(), pat, j + 1, map, set);
         }
         //why we start from i, not i + 1? because str = d, pattern = e usecase
         //we start from i always to start from very first element in str
@@ -93,7 +93,7 @@ public class _291WordPatternII {
             map.put(ch, temp);
             set.add(temp);
             //we always start next
-            if (isMatch(str, k + 1, pat, j + 1, map, set)) {
+            if (helper(str, k + 1, pat, j + 1, map, set)) {
                 return true;
             }
             //this is retreat to previous status
