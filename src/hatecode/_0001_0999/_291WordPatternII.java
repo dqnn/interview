@@ -29,7 +29,9 @@ public class _291WordPatternII {
      pattern = "abab", str = "redblueredblue" "redres
 
 
-     time : O(n * C(n^m))  m = p.length(), n = s.length()
+     time : O(n * C(n^m))  m = p.length(), n = s.length()  
+
+     you need to slice the string n into m pieces, how many ways, (n-1)*(n-2)*(n-3)*..(n-m)
      space : O(n)
 
      * @param pattern
