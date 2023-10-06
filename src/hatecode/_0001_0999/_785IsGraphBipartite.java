@@ -56,6 +56,10 @@ We cannot find a way to divide the set of nodes into two independent subsets.
         }
         //we use 0 as not know, 1 as one box, 2 as another box
         int[] visited = new int[g.length];
+        /*
+         * for loop here can help if isolated node, but isolated node still mark into 2 sets,
+         * so here if already marked, then we skip, if not, means it is not reachable from previous nodes
+         */
         for(int i = 0; i< g.length; i++) {
             //g[i].length > 0 means this node is not isolated, it does not impact result
             if (g[i].length > 0 && visited[i] == 0) {
