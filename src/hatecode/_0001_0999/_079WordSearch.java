@@ -63,4 +63,48 @@ public class _079WordSearch {
         }
         return false;
     }
+
+
+    /*
+     * thinking process: O(m^2n^2)/O(mn)
+     * 
+     * one key is that why we have to flip visited[i][j] is that because this node can be used later when searching, 
+     * 
+     */
+
+    public boolean exist_Better(char[][] A, String s) {
+        if(A == null || A.length < 1|| A[0].length < 1 ) return false;
+        
+        int m = A.length, n = A[0].length;
+        
+        for(int i = 0; i< m; i++) {
+            for(int j = 0; j<n; j++) {
+                    if(helper(A, i, j, s, 0, new boolean[m][n])) return true;
+                }
+        }
+        
+        return false;
+    }
+    
+    
+    private boolean helper(char[][] A, int i, int j, String s, int pos, boolean[][] visited) {
+        if(pos == s.length()) return true;
+        
+        int m = A.length, n = A[0].length;
+        if(i < 0 || i >=m || j <0 || j >=n || s.charAt(pos) != A[i][j] || visited[i][j]) return false;
+        
+        
+        visited[i][j] = true;
+        int[][] dirs = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
+        
+        for(int[] d: dirs) {
+            int ni = i + d[0];
+            int nj = j + d[1];
+            
+            if(helper(A, ni, nj, s, pos+1, visited)) return true;
+        }
+        visited[i][j] = false;
+        
+        return false;
+    }
 }
