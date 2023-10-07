@@ -70,6 +70,14 @@ public class _079WordSearch {
      * 
      * one key is that why we have to flip visited[i][j] is that because this node can be used later when searching, 
      * 
+     * for example:
+     * 
+     * [["A","B","C","E"],
+     *  ["S","F","E","S"],
+     *  ["A","D","E","E"]]
+      
+     
+       "ABCESEEEFS"  when S (1,3) meet E(1,2), it will mark E as visited, but we actually need it when search for SEEE
      */
 
     public boolean exist_Better(char[][] A, String s) {
