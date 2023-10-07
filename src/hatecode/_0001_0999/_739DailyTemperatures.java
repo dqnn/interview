@@ -47,7 +47,7 @@ T = [73, 74, 75, 71, 69, 72, 76, 73], your output should be
         return res;
     }
     
-    //a little tricky scan from right to left on the array
+    // this is interview friendly actually 
     public int[] dailyTemperatures_Stack(int[] T) {
         if (T == null || T.length < 1) {
             return null;
