@@ -74,7 +74,7 @@ Output: 7
      4    -7    -3     [4,-3]
      5    3    7        [7]
     */
-    public int maxResult_best(int[] A, int k) {
+    public static int maxResult_best(int[] A, int k) {
         int n = A.length;
         
         Deque<Integer> dq = new LinkedList<>();
@@ -88,12 +88,16 @@ Output: 7
                 dq.pollLast();
             }
             
-            while(dq.peekFirst() < i- k) {
+            while(!dq.isEmpty() && dq.peekFirst() < i- k) {
                 dq.pollFirst();
             }
             
             dq.offerLast(i);
         }
         return dp[n-1];
+    }
+
+    public static void main(String[] args) {
+        System.out.println(maxResult_best(new int[]{1,-1,-2,4,-7,3}, 2));
     }
 }
