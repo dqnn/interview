@@ -78,6 +78,8 @@ public class _079WordSearch {
       
      
        "ABCESEEEFS"  when S (1,3) meet E(1,2), it will mark E as visited, but we actually need it when search for SEEE
+
+       the subproblem will be differnt, E we cannot use now, later we can use it, so the subproblem is different 
      */
 
     public boolean exist_Better(char[][] A, String s) {
