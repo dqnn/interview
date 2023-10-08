@@ -21,7 +21,10 @@ public class _152MaximumProductSubarray {
     /*
      * interview friendly O(n)/O(1)
      * 
-     * the problem is to say: given array A, 
+     * the problem is to say: given array A, return max product of a subarray, it may conains negaitive numbers 
+     * 
+     * compare to max sum of a subarry, this one change is it may become biggest number for two negative numbers 
+     * 
      */
     public int maxProduct(int[] A) {
         if (A == null || A.length < 1) return 0;
