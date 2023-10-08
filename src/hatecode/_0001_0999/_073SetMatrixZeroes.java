@@ -82,6 +82,9 @@ Could you devise a constant space solution?
         }
     }
     //this is interview friendly, because it is stright forward, but we can improve by above solution, 
+    /*
+     * 
+     */
     public void setZeroes2(int[][] matrix) {
         if (matrix == null || matrix.length == 0) return;
         int r = matrix.length;
