@@ -130,6 +130,9 @@ public class _323NumberofConnectedComponentsinanUndirectedGraph {
         
         
         visited[i] = true;
+        /*
+         * for example, n = 6 A= [[0,1],[1,2],[3,4]], node 5 is not in list, but exists
+         */
         if(!map.containsKey(i)) return 1;
         for(int next: map.get(i)) {
             helper(next, map, visited);
