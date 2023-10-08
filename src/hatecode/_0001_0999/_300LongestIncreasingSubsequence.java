@@ -45,7 +45,7 @@ public class _300LongestIncreasingSubsequence {
     
     ////Patience sorting
     /*
-     * like you plaing cards, every time, starting from left, you can only place smaller one above it, else creatinf a new pile 
+     * like you plaing cards, every time, starting from left, you can only place smaller one above it, else create a new pile 
      * 7, 3, 4, 5, 1
      * 
      * 3    1
@@ -76,7 +76,7 @@ public class _300LongestIncreasingSubsequence {
         }
         /** 
          * tails is an array storing the smallest tail of all increasing subsequences with length i+1 in tails[i].
-For example, say we have nums = [4,5,6,3], then all the available increasing subsequences are:
+For example, say we have A = [4,5,6,3], then all the available increasing subsequences are:
 
 len = 1   :      [4], [5], [6], [3]   => tails[0] = 3
 len = 2   :      [4, 5], [5, 6]       => tails[1] = 5
