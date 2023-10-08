@@ -89,7 +89,25 @@ len = 3   :      [4, 5, 6]            => tails[2] = 6
         //len = 3, tails = [1, 3, 4] 
         //len = 4, tails = [1, 3, 4, 7]
        /**(1) if x is larger than all tails, append it, increase the size by 1
-        * (2) if tails[i-1] < x <= tails[i], update tails[i] */
+        * (2) if tails[i-1] < x <= tails[i], update tails[i] 
+        
+        we want to find a position in dp[0] --- dp[i-1], which position is best for A[i],
+
+        suppose the position is j, we can find dp[0]...dp[j-1] < dp[j] < dp[j+1]...dp[i-1]
+
+
+        use example, 
+        
+        A [1,3,5,4,7]->[1, 3, 4, 7, 0] 
+       dp  1 3 5             
+              res
+
+        when we process A[i] =4, we are compare A[i] to dp[m], 
+
+        so  A[i] >dp[m], we want to move l = m + 1, becaus dp[m] is not quailified 
+        if  A[i] == dp[m], so since it is already LIS, we can just replace it  
+        
+        */
         int[] tails = new int[A.length];
         int res = 0;
         for (int num : A) {
@@ -103,6 +121,9 @@ len = 3   :      [4, 5, 6]            => tails[2] = 6
                 int m = l + (r - l) /2;
                 if (tails[m] < num) {
                     l = m + 1;
+                //the == have to be on this side because if they are equals, then we can replace it, for example 
+                // [1,4,5,4,7]->  when A[3] = 4,  we will replace the dp[1] in dp array, if we place = in above line, 
+                //then we will miss since l move to m + 1 
                 } else {// here is  >=
                     r = m;
                 }
@@ -118,6 +139,44 @@ len = 3   :      [4, 5, 6]            => tails[2] = 6
             System.out.println(num + "-->" + Arrays.toString(tails));
         }
         //System.out.println(Arrays.toString(tails));
+        return res;
+    }
+
+
+    /*
+     * the only difference is when we find A[i] == dp[m], we just use l = m then break, 
+     * 
+     * this is because dp is increase strictly, it should not have any two same numbers in array, we can just replace and return for A[i]
+     * 
+     * 
+     */
+
+    public int lengthOfLIS_Another_BS(int[] A) {
+        if (A == null || A.length < 1) return 0;
+        
+        int n = A.length;
+        int[] dp = new int[n];
+        
+        int res = 0;
+        for(int i= 0; i< n; i++) {
+            
+            int l = 0, r = res;
+            
+            while(l < r) {
+                int m = l + (r-l)/2;
+                if (A[i] == dp[m]) {
+                    l =m;
+                    break;
+                }
+                else if(A[i] < dp[m]) {
+                    r = m;
+                } else l = m + 1;
+            }
+            
+            dp[l] = A[i];
+            if(l == res) res++;
+        }
+        
         return res;
     }
     
