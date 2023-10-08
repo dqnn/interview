@@ -28,10 +28,10 @@ Explanation: Since 4 is not divisible by 3, do not pick any number.
 
    for example, [3,6,5,1,8] --> 3,6, 1, 8= 18 is the correct answer
 
-   
+    
+   so first understand the DP solution, then it will easier to understand the optimized solution 
 
-
-
+   we use dp[i][3] means 
 
     [3,6,5,1,8]
     
@@ -60,6 +60,16 @@ Explanation: Since 4 is not divisible by 3, do not pick any number.
         return res[0];
     }
     
+    /*
+     * dp :
+     * [[3,-2147483648,-2147483648],
+     *  [9,-2147483642,-2147483642],
+     *  [9,-2147483637,14],
+     *  [15,10,14],
+     *  [18,22,23]]
+     * 
+     * 
+     */
     public int maxSumDivThree_DP(int[] A) {
         if(A == null || A.length < 1) return 0;
         
@@ -70,14 +80,21 @@ Explanation: Since 4 is not divisible by 3, do not pick any number.
         dp[0][2] = A[0]%3 == 2 ? A[0]:0;
         
         for(int i = 1; i< n; i++) {
-            dp[i] = Arrays.copyOfRange(dp[i-1], 0, 3);
-            int temp0 = dp[i-1][0] + A[i];
-            int temp1 = dp[i-1][1] + A[i];
-            int temp2 = dp[i-1][2] + A[i];
-            
-            dp[i][temp0 %3] = Math.max(dp[i-1][temp0%3], temp0);
-            dp[i][temp1 %3] = Math.max(dp[i-1][temp1%3], temp1);
-            dp[i][temp2 %3] = Math.max(dp[i-1][temp2%3], temp2);
+            if(A[i] % 3 == 0) {
+                dp[i][0] = Math.max(dp[i-1][0], dp[i-1][0] + A[i]);
+                dp[i][1] = Math.max(dp[i-1][1], dp[i-1][1] + A[i]);
+                dp[i][2] = Math.max(dp[i-1][2], dp[i-1][1] + A[i]);
+
+            } else if(A[i]%3 ==1) {
+                dp[i][0] = Math.max(dp[i-1][0], dp[i-1][2] + A[i]);
+                dp[i][1] = Math.max(dp[i-1][1], dp[i-1][0] + A[i]);
+                dp[i][2] = Math.max(dp[i-1][2], dp[i-1][1] + A[i]);
+
+            } else {
+                dp[i][0] = Math.max(dp[i-1][0], dp[i-1][1] + A[i]);
+                dp[i][1] = Math.max(dp[i-1][1], dp[i-1][2] + A[i]);
+                dp[i][2] = Math.max(dp[i-1][2], dp[i-1][0] + A[i]);
+            }
             
         }
         
