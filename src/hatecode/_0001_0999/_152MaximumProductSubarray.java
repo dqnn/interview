@@ -25,6 +25,15 @@ public class _152MaximumProductSubarray {
      * 
      * compare to max sum of a subarry, this one change is it may become biggest number for two negative numbers 
      * 
+     * so you have max min, res means for position i, the max, min value, res is for return value 
+     * 
+     * so at each position, we have 3 possibilities, 
+     *  A[i], max * A[i], min* A[i]
+     * 
+     * max = max(max, max(max* A[i], min * A[i]))
+     * min = min(min, min(max* A[i], min * A[i]))
+     * 
+     * 
      */
     public int maxProduct(int[] A) {
         if (A == null || A.length < 1) return 0;
