@@ -24,7 +24,14 @@ Explanation: Since 4 is not divisible by 3, do not pick any number.
     
     thinking process: O(n)/O(1)
 
-    the problem is to say: given a integer array, 
+    the problem is to say: given a integer array, you need to return max sum of elements in array, which the sum is divisble by 3; 
+
+   for example, [3,6,5,1,8] --> 3,6, 1, 8= 18 is the correct answer
+
+   
+
+
+
 
     [3,6,5,1,8]
     
