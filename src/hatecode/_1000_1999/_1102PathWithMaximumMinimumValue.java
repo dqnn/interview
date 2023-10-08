@@ -35,27 +35,42 @@ Output: 4
      * 
      * you will have to find a greedy path with PQ.
      * 
+     * 
+     * we do not need to modify the original matrix value 
      */
     public int maximumMinimumPath(int[][] A) {
-        final int[][] dirs = {{0,1},{1,0},{0,-1},{-1,0}};
-        Queue<int[]> pq = new PriorityQueue<>((a, b) -> (b[0] - a[0]));
-        pq.add(new int[] {A[0][0], 0, 0});
-        int maxscore = A[0][0];
-        A[0][0] = -1; // visited
+        if(A == null || A.length < 1 || A[0].length < 1) return -1;
+        
+        int m = A.length, n = A[0].length;
+        
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b)->Integer.compare(b[0], a[0]));
+        
+        boolean[][] visited = new boolean[m][n];
+        
+        pq.offer(new int[]{A[0][0], 0, 0});
+        visited[0][0] = true;
+        
+        int res = Integer.MAX_VALUE;
+        
+        int[][] dirs = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
         while(!pq.isEmpty()) {
-            int[] top = pq.poll();
-            int i = top[1], j = top[2], r = A.length, c = A[0].length;
-            maxscore = Math.min(maxscore, top[0]);
-            if(i == r - 1 && j == c - 1) return maxscore;
-            for(int[] d : dirs) {
-                int x = d[0] + i;
-                int y = d[1] + j;
-                if(x >= 0 && x < r && y >= 0 && y < c && A[x][y]>=0){
-                    pq.add(new int[] {A[x][y], x, y});
-                    A[x][y] = -1;
+            int[] e = pq.poll();
+            int v = e[0], i = e[1], j = e[2];
+            
+            res = Math.min(res, v);
+            if(i == m -1 && j == n -1) return res;
+            
+            for(int[] d:dirs) {
+                int ni = i + d[0];
+                int nj = j + d[1];
+                if(ni >=0 && ni < m && nj >=0 && nj <n && !visited[ni][nj]) {
+                    visited[ni][nj] = true;
+                    pq.offer(new int[]{A[ni][nj], ni, nj});
                 }
             }
+            
         }
-        return -1; // shouldn't get here
+        
+        return -1;
     }
 }
