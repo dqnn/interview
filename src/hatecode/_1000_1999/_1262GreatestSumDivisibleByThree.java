@@ -1,5 +1,7 @@
 package hatecode._1000_1999;
 
+import java.util.Arrays;
+
 public class _1262GreatestSumDivisibleByThree {
     /*
     1262. Greatest Sum Divisible by Three
@@ -61,13 +63,25 @@ Explanation: Since 4 is not divisible by 3, do not pick any number.
     }
     
     /*
+       [3,6,5,1,8]
      * dp :
-     * [[3,-2147483648,-2147483648],
-     *  [9,-2147483642,-2147483642],
-     *  [9,-2147483637,14],
-     *  [15,10,14],
-     *  [18,22,23]]
+     * [
+     * 3:  [3,-2147483648,-2147483648],
+     * 6:  [9,-2147483642,-2147483642],
+     * 5:  [9,-2147483637,14],
+     * 1:  [15,10,14],
+     * 8:  [18,22,23]]
      * 
+     * if we all initialize dp[0] as 0, then it will be:
+     * dp: 
+     * [ 
+     * 3  [3,0,0],
+     * 6  [9,6,6],
+     * 5  [11,11,14],
+     * 1  [15,12,14],
+     * 8  [20,22,23]]
+     * 
+     * we can see dp[1][1] will become 6, 
      * 
      */
     public int maxSumDivThree_DP(int[] A) {
@@ -75,9 +89,13 @@ Explanation: Since 4 is not divisible by 3, do not pick any number.
         
         int n = A.length;
         int[][] dp = new int[n][3];
-        dp[0][0] = A[0]%3 == 0 ? A[0]:0;
-        dp[0][1] = A[0]%3 == 1 ? A[0]:0;
-        dp[0][2] = A[0]%3 == 2 ? A[0]:0;
+        for(int i = 0; i<n; i++) Arrays.fill(dp[i], Integer.MIN_VALUE);
+        if(A[0] % 3 == 0) {
+            dp[0][0] = A[0];
+        } else {
+            dp[0][A[0]%3] = A[0];
+            dp[0][0] = 0;
+        }
         
         for(int i = 1; i< n; i++) {
             if(A[i] % 3 == 0) {
