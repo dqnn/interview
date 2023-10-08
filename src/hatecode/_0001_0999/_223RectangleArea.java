@@ -29,6 +29,9 @@ point (A, B), (C, D), (E, F), (G, H)
      * @return
      */
 // just draw a map so we can get it
+  /*
+   * 
+   */
     public int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {
         int areaA = (C - A) * (D - B);
         int areaB = (G - E) * (H - F);

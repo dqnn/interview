@@ -1,6 +1,10 @@
 package hatecode._0001_0999;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Description : 323. Number of Connected Components in an Undirected Graph
@@ -95,6 +99,43 @@ public class _323NumberofConnectedComponentsinanUndirectedGraph {
             return true;
         }
         return false;
+    }
+
+    /*
+     * interview friendly O (E +V)/O(V+E)
+     * we use dfs , starting from each node, then helper() will return 1 or 0 if all visited 
+     * 
+     */
+
+    public int countComponents_interviewfriendly (int n, int[][] edges) {
+        if(n <= 1) return n;
+        
+        Map<Integer, Set<Integer>> map = new HashMap<>();
+        for(int[] e : edges) {
+            map.computeIfAbsent(e[0], v->new HashSet<>()).add(e[1]);
+            map.computeIfAbsent(e[1], v->new HashSet<>()).add(e[0]);
+        }
+        
+        boolean[] visited = new boolean[n];
+        int res = 0;
+        for(int i = 0; i<n; i++) res += helper(i, map, visited);
+        
+        return res;
+    
+    }
+    
+    
+    private int helper(int i, Map<Integer, Set<Integer>> map, boolean[] visited) {
+        if(visited[i]) return 0;
+        
+        
+        visited[i] = true;
+        if(!map.containsKey(i)) return 1;
+        for(int next: map.get(i)) {
+            helper(next, map, visited);
+        }
+        
+        return 1;
     }
     
     public static void main(String[] args) {
