@@ -36,6 +36,34 @@ public class _203RemoveLinkedListElements {
         return dummy.next;
     }
 
+
+
+    /*
+     * easier one to solve the problem 
+     */
+    public ListNode removeElements_easierUnderstand(ListNode head, int val) {
+        if(head == null) return head;
+        
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode slow = dummy, fast = head;
+        
+        while(fast != null) {
+            while(fast != null && fast.val != val) {
+                fast = fast.next;
+                slow = slow.next;
+            }
+
+            if(fast == null) return dummy.next;
+            
+            slow.next = slow.next.next;
+            fast.next = null;
+            fast = slow.next;
+        }
+        
+        return dummy.next;
+    }
+
     public static ListNode removeElements2(ListNode head, int val) {
         if (head == null) return head;
         ListNode p = head;
