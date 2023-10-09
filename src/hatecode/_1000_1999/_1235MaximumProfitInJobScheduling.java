@@ -79,7 +79,7 @@ Output: 120
             
             while(l + 1 < r) {
                 int m = l + (r-l)/2;
-                // we want to find last one which qualified,so l =m, dp[i] will non -decreasing
+                // we want to find last one which qualified,so l = m, dp[i] will non -decreasing
                 if(jobs[i][0] >= jobs[m][1]) {
                    l = m;
                 } else r = m;
