@@ -68,31 +68,34 @@ Output: 120
         
         Arrays.sort(jobs, (a, b)->Integer.compare(a[1], b[1]));
         
-        int[] dp = new int[n+1];
+        int[] dp = new int[n];
         
-        for(int i = 0; i<n; i++) {
-            dp[i+1] = Math.max(dp[i+1], dp[i]);
+        dp[0] = jobs[0][2];
+        
+        for(int i = 1; i<n; i++) {
+            dp[i] = dp[i-1];
             
             int l = 0, r = i;
             
             while(l + 1 < r) {
                 int m = l + (r-l)/2;
+                // we want to find last one which qualified,so l =m, dp[i] will non -decreasing
                 if(jobs[i][0] >= jobs[m][1]) {
-                    l = m;
+                   l = m;
                 } else r = m;
             }
             
             if(jobs[r][1] <= jobs[i][0]) {
-                dp[i+1] = Math.max(dp[r+1] + jobs[i][2], dp[i+1]);
+                dp[i] = Math.max(dp[r] + jobs[i][2], dp[i]);
             } else if(jobs[l][1] <= jobs[i][0]) {
-                dp[i+1] = Math.max(dp[l+1] + jobs[i][2], dp[i+1]);
+                dp[i] = Math.max(dp[l] + jobs[i][2], dp[i]);
             } else {
-                dp[i+1] = Math.max(jobs[i][2], dp[i+1]);
+                dp[i] = Math.max(jobs[i][2], dp[i]);
             }
             
         }
         
         
-        return dp[n];
+        return dp[n-1];
     }
 }

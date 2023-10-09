@@ -88,10 +88,6 @@ Could you devise a constant space solution?
      * row i and col j as 0, you need to work inplace 
      * 
      * so we mark first column and first row if there are any elements  in A[i][j]. then we process matrix (1,1)-->(m-1,n-1)
-     * 
-     * 
-     * 
-     * 
      */
     public void setZeroes2(int[][] A) {
         if (A == null || A.length == 0) return;
