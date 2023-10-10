@@ -31,21 +31,29 @@ the time complexity is O(n log n).
     //0 every time, so it is constant time, 
     
     //thinking process, the templates for two pointers
-    public int minSubArrayLen(int s, int[] A) {
-        // res is the length of subarray
+    /*
+     * sliding windows
+     * 
+     * we move to right everytime, but then we will shrink with moving left because we want to have a qualified window
+     */
+    public int minSubArrayLen(int t, int[] A) {
+        if(A == null || A.length < 1) return 0;
+        
+        int l =0,r = 0;
+        int sum  =0;
         int res = Integer.MAX_VALUE;
-        //left is sliding window left
-        int l = 0, sum = 0;
-        for (int i = 0; i < A.length; i++) {
-            sum += A[i];
-            // left is before i's position,
-            while (l <= i && sum >= s) {
-                // we move pointer left to i so res is the shortest length
-                res = Math.min(res, i -l + 1);
-                // remove from the sum
-                sum -= A[l++];
+        while(r < A.length) {
+            sum += A[r];
+            
+            while(sum >= t) {
+                res = Math.min(res, r -l + 1);
+                sum -= A[l];
+                l++;
             }
+            
+            r++;
         }
+        
         return res == Integer.MAX_VALUE ? 0 : res;
     }
 }
