@@ -36,7 +36,7 @@ Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 0
 Output: 3
 */
     /*
-     * thinking process: O(n)/O(n)
+     * thinking process: O(n)/O(n), typical tree problem
      * 
      * the problem is to look for distance for specific two nodes in the tree
      * 
