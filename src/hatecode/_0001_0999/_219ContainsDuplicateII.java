@@ -2,7 +2,7 @@ package hatecode._0001_0999;
 
 import java.util.HashMap;
 import java.util.Map;
-
+public class _219ContainsDuplicateII {
 /**
  * Project Name : Leetcode Package Name : leetcode File Name :
  * ContainsDuplicateII Creator : professorX Date : Aug, 2018 Description : 219.
@@ -20,8 +20,9 @@ import java.util.Map;
  * 
  * Input: nums = [1,2,3,1,2,3], k = 2 Output: false
  */
-public class _219ContainsDuplicateII {
-    //time : O(n) space : O(n)
+
+
+     //interview friendly : O(n) space : O(n)
     // so suppose we have duplicate number, first it was not in map,
     // latter we found it and since num[i] == num[j], so we can get previous index
     // easily
