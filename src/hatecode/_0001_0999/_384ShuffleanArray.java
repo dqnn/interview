@@ -24,27 +24,27 @@ public class _384ShuffleanArray {
      solution.shuffle();
 
      time : O(n)
-     * @param nums
+     * @param A
      */
 
-    private int[] nums;
+    private int[] A;
     private Random rmd;
 
     // 题中第构造函数时Solution
     public _384ShuffleanArray(int[] nums) {
-        this.nums = nums;
+        this.A = nums;
         rmd = new Random();
     }
 
     /** Resets the array to its original configuration and return it. */
     public int[] reset() {
-        return nums;
+        return A;
     }
 
     /** Returns a random shuffling of the array. */
     public int[] shuffle() {
-        if (nums == null) return null;
-        int[] clone = nums.clone();
+        if (A == null) return null;
+        int[] clone = A.clone();
         // so here is the key, how can we have same probability to 
         //generate the permutations
         //sampling algorithms here
