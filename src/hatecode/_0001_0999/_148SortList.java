@@ -19,6 +19,15 @@ public class _148SortList {
     //we recursively sort two parts and merge them together, so 
     //we need sort(ListNode head), merge(ListNode, ListNode) and 
     // findMiddle(ListNode)  these are all common ops for LinkedList
+
+    /*
+     * [4,2,1,3] 
+     * 
+     * middle = 2(slow), note fast (fast.next != null && fast.next.next != null), so it only forward once and pause at 2 
+     * then 
+     * 
+     * 
+     */
     
     //remembered all ops
     public ListNode sortList(ListNode head) {
