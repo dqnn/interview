@@ -48,6 +48,35 @@ public class _024SwapNodesinPairs {
         }
         return dummy.next;
     }
+
+    /*
+     * 
+     */
+    public ListNode swapPairs_anotherVersion(ListNode head) {
+        if(head == null || head.next == null) return head;
+        
+        ListNode dummy = new ListNode(-1);
+        ListNode slow = dummy, fast = dummy;
+        dummy.next = head;
+        
+        while(fast.next!= null && fast.next.next != null) {
+            fast =fast.next.next;
+                
+            ListNode next =fast.next;
+            
+            fast.next = slow.next;
+            fast.next.next = next;
+            slow.next = fast;
+        
+            
+            fast =fast.next;
+            slow =fast;
+           
+        }
+        
+        
+        return dummy.next;
+    }
     
     //thinking process: O(n)/O(1)
     /*
