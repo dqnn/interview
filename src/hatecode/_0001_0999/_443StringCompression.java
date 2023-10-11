@@ -58,7 +58,7 @@ public class _443StringCompression {
      time : O(n)
      space : O(1)
 
-     * @param chs
+     * @param A
      * @return
      */
     //thinking process:
@@ -67,23 +67,30 @@ public class _443StringCompression {
     
     //we use a two while to locate where we can stop, note, this way, 
     //index will point to next char
-    public int compress(char[] chs) {
-        int res = 0, idx = 0;
-        while (idx < chs.length) {
-            char cur = chs[idx];
+
+    /*
+     * we use two pointers, 
+     * 
+     * l point to position for next to replace the character, 
+     * r point to position for next character which is different compared to previous one
+     */
+    public int compress(char[] A) {
+        int l = 0, r = 0;
+        while (r < A.length) {
+            char cur = A[r];
             int count = 0;
-            while (idx < chs.length && chs[idx] == cur) {
-                idx++;
+            while (r < A.length && A[r] == cur) {
+                r++;
                 count++;
             }
-            chs[res++] = cur;
+            A[l++] = cur;
             //handle not 1 case, this is edge case
-            if (count != 1) {
+            if (count > 1) {
                 for (char c : String.valueOf(count).toCharArray()) {
-                    chs[res++] = c;
+                    A[l++] = c;
                 }
             }
         }
-        return res;
+        return l;
     }
 }
