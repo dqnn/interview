@@ -30,7 +30,7 @@ For the node with value 3: The sum of its descendants is 2+1 = 3.
     / \
    3   4
   /  \
- 2   1
+ 2    1
  
  3 = 1 + 2 --> 1
  10 = 6 + 4 --> 2 
