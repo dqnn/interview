@@ -66,7 +66,14 @@ Output
         return cur.isWord;
     }
     
-    //add a little more favor that find out all candiates and return 
+    //add a little more favor that find out all candiates and return,
+    /*
+     * note: you have to search every node, because some node after it still contains a word, for example
+     *   a-->p-->p-->l-->l-->e-->s
+     *                       w   w
+     * 
+     *  when we add e into results, but we still have to add s because apples is another word
+     */
     public boolean startsWith(String prefix) {
         TrieNode cur = root;
         
