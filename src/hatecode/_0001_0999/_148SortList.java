@@ -24,8 +24,18 @@ public class _148SortList {
      * [4,2,1,3] 
      * 
      * middle = 2(slow), note fast (fast.next != null && fast.next.next != null), so it only forward once and pause at 2 
-     * then 
+     * then we continue the same operation, cut each piece into 2 parts until we only have 1 or 2 node, then merge will start to work
      * 
+     * 
+     * 4 2 1 3  mid =2, 
+     * 
+     * then two list, [4,2]   [1, 3]   SortList + getMiddle break into 2 
+     *                / \       / \
+     *               [4] [2]   [1]  [3]  SortList + getMiddle break into 2 
+     *                \   /     \    /
+     *                [2, 4]     [1,3]  merge 
+     *                      \    /
+     *                      [1,2,3,4]   merge
      * 
      */
     
