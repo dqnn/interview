@@ -36,7 +36,6 @@ public class _148SortList {
      *                [2, 4]     [1,3]  merge 
      *                      \    /
      *                      [1,2,3,4]   merge
-     * 
      */
     
     //remembered all ops
