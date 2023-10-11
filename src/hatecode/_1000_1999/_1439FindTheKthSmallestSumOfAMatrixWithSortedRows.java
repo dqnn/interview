@@ -23,7 +23,7 @@ Output: 7
 /*
  * thinking process: O(m *k *lgk)/O(k)
  * 
- * the problem is to say: given a 2D positive matrix, each row is asc, and you can pick each element from each row to form a array,  
+ * the problem is to say: given a 2D positive matrix, each row is asc(non-decreasing), and you can pick each element from each row to form a array,  
  * return the Kth smallest sum of the whole. 
  * 
  * for example A = [
