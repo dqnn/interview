@@ -15,8 +15,20 @@ Output: 10
 */
     //thinking process: O(logN)/O(1)
     //if it is sorted, then BS is on the plate, 
-    //whole length must be odd number
-    //so if mid is even, 
+    /*
+     * interview friendly 
+     * 
+     * the problem is to say, in a sorted array, every elements have appeared twice except one element, return it
+     * 
+     * suppose we don't have that element, every element 1st index would be even number, 2nd will be odd number
+     * we can compare whether its mapping elements equals or not, if it equals, then its left are good 
+     * 
+     * [1,1,2,3,3,4,4,8,8]
+     *          m
+     * 
+     * m = 4, even number, then we compare to m + 1,if they are the same, the single number will be right half
+     * 
+     */
     public int singleNonDuplicate_Standard(int[] A) {
         if (A == null || A.length < 1)
             return 0;
