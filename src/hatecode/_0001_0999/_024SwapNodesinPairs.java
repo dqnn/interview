@@ -18,6 +18,7 @@ public class _024SwapNodesinPairs {
      * @return
      */
     
+    // interview friendly: 
     // thinking process；
     // so use paper we can easily draw the pointers change, but this problem
     //1 dummy node is always useful. 
