@@ -50,7 +50,28 @@ public class _024SwapNodesinPairs {
     }
 
     /*
+     * every step we move 2 steps, 
+     * for even numbers of list, 1->2->3->4,  it will always left one node last, fast  
+     * for odd number  of list, 1->2->3, fast will always point to last elements 
      * 
+     * 
+     * for this version, we will always fast +2 steps,  example as below:
+     * 
+     *  dummy->1 --> 2 -- >3--> 4
+     *    s          f     nextStart
+     * 
+     * then first f.next = slow.next;  dummy->1 <--2
+     * 
+     * slow.next.next = nextStart;       dummy-->1-->3
+     *                                      2--->
+     * slow.next = fast;              dummy->2-->1-->3
+     *                                 s     f
+     * 
+     * then f move to 1, f =f.next     dummy->2-->1-->3
+     * then s catch up with f,                    f
+     *                                            s
+
+     
      */
     public ListNode swapPairs_anotherVersion(ListNode head) {
         if(head == null || head.next == null) return head;
@@ -62,13 +83,13 @@ public class _024SwapNodesinPairs {
         while(fast.next!= null && fast.next.next != null) {
             fast =fast.next.next;
                 
-            ListNode next =fast.next;
+            ListNode nextStart =fast.next;
             
             fast.next = slow.next;
-            fast.next.next = next;
+            fast.next.next = nextStart;
             slow.next = fast;
         
-            
+            //fast here needs to point to 1 
             fast =fast.next;
             slow =fast;
            
