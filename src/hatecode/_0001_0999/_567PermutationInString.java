@@ -17,7 +17,8 @@ Note:
 The input strings only contain lower case letters.
 The length of both given strings is in range [1, 10,000].
 */
-    //interview friendly version, use a map to store the unqiue character, 
+    //Brute force O(mn)/O(m)
+    
     public boolean checkInclusion_Map(String s1, String s2) {
         if(s1 == null && s2 == null) return true;
         if(s1 == null || s2 ==null || s2.length() < s1.length()) return false;
