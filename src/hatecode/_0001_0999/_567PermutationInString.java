@@ -17,8 +17,8 @@ Note:
 The input strings only contain lower case letters.
 The length of both given strings is in range [1, 10,000].
 */
-    //Brute force O(mn)/O(m)
-    
+    //Brute force O(mn)/O(1) all lower english letters 
+
     public boolean checkInclusion_Map(String s1, String s2) {
         if(s1 == null && s2 == null) return true;
         if(s1 == null || s2 ==null || s2.length() < s1.length()) return false;
@@ -74,7 +74,14 @@ The length of both given strings is in range [1, 10,000].
         return false;
     }
     
-    //this is awesome solution, and O(n)
+    /*
+     * interview friendly O(n)/O(1)
+     * 
+     * this use sliding window to check whether all characters in s1 are in s2 within one window
+     * window size = s1.length
+     * 
+     * 
+     */
     public boolean checkInclusion(String s1, String s2) {
         int len1 = s1.length(), len2 = s2.length();
         if (len1 > len2) return false;
@@ -90,6 +97,7 @@ The length of both given strings is in range [1, 10,000].
         //are 0 or not.
         for (int i = len1; i < len2; i++) {
             count[s2.charAt(i) - 'a']--;
+            //window left add back, if all 0, then we got one instance 
             count[s2.charAt(i - len1) - 'a']++;
             if (allZero(count)) return true;
         }
