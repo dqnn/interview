@@ -36,6 +36,11 @@ public class _148SortList {
      *                [2, 4]     [1,3]  merge 
      *                      \    /
      *                      [1,2,3,4]   merge
+        there are several key aspects
+        1. when we get the middle, please note we use fast.next && fast.next.next != null, this means fast will NOT point to null, it will stop 
+        last node(odd) or the one before last node 
+        2. one edge case, only nodes, 1-->2, then it will break to [1] and [2] , if it is odd, [1,2,3]--> [1,2] and [3] 
+     
      */
     
     //remembered all ops
