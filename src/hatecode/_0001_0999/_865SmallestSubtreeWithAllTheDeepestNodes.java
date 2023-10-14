@@ -15,7 +15,7 @@ that node.
 Return the node with the largest depth such that it contains all the 
 deepest nodes in its subtree.
 
-
+it is same problem with 1123. Lowest Common Ancestor of Deepest Leaves
 */
     
     class Result {

@@ -13,13 +13,13 @@ class Node {
 
 public class _1650LowestCommonAncestorofABinaryTreeIII {
 /*
-235. Lowest Common Ancestor of a Binary Tree
+235. Lowest Common Ancestor of a Binary search Tree
 236. Lowest Common Ancestor of a Binary Tree
+865. Smallest Subtree with all the Deepest Nodes
+1123. Lowest Common Ancestor of Deepest Leaves
 1644. Lowest Common Ancestor of a Binary Tree II
 1650. Lowest Common Ancestor of a Binary Tree III
 1676. Lowest Common Ancestor of a Binary Tree IV
-1123. Lowest Common Ancestor of Deepest Leaves
-865. Smallest Subtree with all the Deepest Nodes
 
 
 Given two nodes of a binary tree p and q, return their lowest common ancestor (LCA).

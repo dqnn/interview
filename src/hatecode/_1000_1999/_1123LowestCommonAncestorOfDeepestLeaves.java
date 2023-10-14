@@ -5,7 +5,7 @@ import hatecode._0001_0999.TreeNode;
 public class _1123LowestCommonAncestorOfDeepestLeaves {
 /*
 1123. Lowest Common Ancestor of Deepest Leaves
-865. Smallest Subtree with all the Deepest Nodes
+same with 865. Smallest Subtree with all the Deepest Nodes
 Given a rooted binary tree, return the lowest common ancestor of its 
 deepest leaves.
 
@@ -65,9 +65,8 @@ The answer returned is a TreeNode object (not an array) with serialization "[1,2
          * null will be last level 
          */
         deepest = Math.max(deepest, depth);
-        if (node == null) {
-            return depth;
-        }
+        if (node == null) return depth;
+        
         int left = helper(node.left, depth + 1);
         int right = helper(node.right, depth + 1);
         if (left == deepest && right == deepest) {
