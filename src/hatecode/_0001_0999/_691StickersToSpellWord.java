@@ -29,7 +29,9 @@ dp[s] = min(1+dp[reduced_s]) for all stickers,
 here reduced_s is a new string after certain sticker applied
  */
    //thinking process: 
-   //
+   /*
+    * 
+    */
    public int minStickers_DP(String[] stickers, String target) {
         int m = stickers.length;
         int[][] mp = new int[m][26];
