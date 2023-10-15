@@ -30,7 +30,15 @@ here reduced_s is a new string after certain sticker applied
  */
    //thinking process: 
    /*
-    * the problem is to say:given list of strings, and one target string, you will need to 
+    * the problem is to say:given list of strings ss, and one target string, you  can cut each character from ss[i], arrange them to target string 
+    t, return the min stickers you need. for example
+    ss = ["with", "example", "science"], t = "thehat"
+
+    you can use 2 "with",  1 "example" to form "thehat"
+
+
+
+
     */
    public static int minStickers_DP(String[] stickers, String target) {
         int m = stickers.length;
@@ -50,7 +58,10 @@ here reduced_s is a new string after certain sticker applied
         for (char c:target.toCharArray()) tar[c-'a']++;
         // try every sticker
         for (int i = 0; i < n; i++) {
-            // optimization
+            // optimization and it will help to avoid overflow for charcters not exist in mp
+            /*
+             * another way to avoid is to use visited 
+             */
             if (mp[i][target.charAt(0)-'a'] == 0) continue;
             StringBuilder sb = new StringBuilder();
             // apply a sticker on every character a-z
@@ -69,7 +80,7 @@ here reduced_s is a new string after certain sticker applied
 
 
     public static void main(String[] args) {
-        System.out.println(minStickers_DP(new String[]{"with", "example", "science"}, "thehat"));
+        System.out.println(minStickers_DP(new String[]{"with", "example", "science"}, "thehatz"));
     }
     
     //best performance ones
