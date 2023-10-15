@@ -59,6 +59,22 @@ public class _617MergeTwoBinaryTrees {
         newNode.right = mergeTrees(t1.right, t2.right);
         return newNode;
     }
+
+
+    public TreeNode mergeTrees_WithHelper(TreeNode root1, TreeNode root2) {
+        return helper(root1, root2);
+    }
+    
+    
+    private TreeNode helper(TreeNode root1, TreeNode root2) {
+        if(root1 == null || root2 == null) return root1 == null ? root2 : root1;
+        
+        TreeNode res = new TreeNode(root1.val + root2.val);
+        res.left = helper(root1.left, root2.left);
+        res.right = helper(root1.right, root2.right);
+        
+        return res;
+    }
     
     public static void main(String[] args) {
         TreeNode root1 = new TreeNode(1);
