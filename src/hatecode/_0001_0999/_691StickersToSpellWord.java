@@ -90,6 +90,7 @@ here reduced_s is a new string after certain sticker applied
     /*
      * another DP solution, 
      * 
+     * 
      */
     public int minStickers_DP_variation(String[] ss, String t) {
         if (t == null || t.length() < 1) return 0;
