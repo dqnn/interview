@@ -57,26 +57,26 @@ public class _081SearchinRotatedSortedArrayII {
     // we mainly want to know whether we need to move left or right, so one quick
     //way is to detect target is in one trend, like start <= target <= mid, or 
     //mid <= target <= right
-    public boolean search2(int[] nums, int target) {
-        if (nums == null || nums.length < 1) {
+    public boolean search2(int[] A, int t) {
+        if (A == null || A.length < 1) {
             return false;
         }
-        int l = 0, r = nums.length - 1;
+        int l = 0, r = A.length - 1;
         while(l + 1 < r) {
             int mid = l + (r -l) / 2;
-            if (nums[l] == target) return true;
+            if (A[l] == t) return true;
             // handle previous same situation, 
-            if(nums[l] < nums[mid]) {
-                if (nums[l] <= target && target <= nums[mid]) r = mid;
+            if(A[l] < A[mid]) {
+                if (A[l] <= t && t <= A[mid]) r = mid;
                 else l = mid;
             // this handles the case 2, mid fall into second ascend list
-            } else if (nums[l] > nums[mid]) {
-                if (nums[r] >= target && target >= nums[mid]) l = mid;
+            } else if (A[l] > A[mid]) {
+                if (A[r] >= t && t >= A[mid]) l = mid;
                 else r = mid;
             //nums[left] == nums[mid], so we move left one step
             } else l++;
         }
-        if (nums[l] == target || nums[r] == target) return true;
+        if (A[l] == t || A[r] == t) return true;
         return false;
     }
 }
