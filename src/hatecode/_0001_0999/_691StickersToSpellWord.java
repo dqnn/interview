@@ -62,7 +62,7 @@ here reduced_s is a new string after certain sticker applied
 
     private static int helper(Map<String, Integer> dp, int[][] mp, String target) {
         if (dp.containsKey(target)) return dp.get(target);
-        int ans = Integer.MAX_VALUE, n = mp.length;
+        int res = Integer.MAX_VALUE, n = mp.length;
         int[] tar = new int[26];
         for (char c:target.toCharArray()) tar[c-'a']++;
         // try every sticker
@@ -81,10 +81,77 @@ here reduced_s is a new string after certain sticker applied
             }
             String s = sb.toString();
             int tmp = helper(dp, mp, s);
-            if (tmp != -1) ans = Math.min(ans, 1+tmp);
+            if (tmp != -1) res = Math.min(res, 1+tmp);
         }
-        dp.put(target, ans == Integer.MAX_VALUE? -1:ans);
+        dp.put(target, res == Integer.MAX_VALUE? -1:res);
         return dp.get(target);
+    }
+
+    /*
+     * another DP solution, 
+     * 
+     */
+    public int minStickers_DP_variation(String[] ss, String t) {
+        if (t == null || t.length() < 1) return 0;
+        if(ss == null || ss.length < 1) return -1;
+        
+        int[][] map = new int[ss.length][26];
+        
+        for(int i = 0; i< ss.length; i++) {
+            for(char c: ss[i].toCharArray()) {
+                map[i][c-'a']++;
+            }
+        }
+        
+        Map<String, Integer> memo = new HashMap<>();
+        memo.put("", 0);
+
+        helper(ss, t, map, memo);
+        
+        return memo.get(t)== Integer.MAX_VALUE? -1: memo.get(t);
+    }
+    
+    
+    private int helper(String[] ss, String t, int[][] mp, Map<String, Integer>memo) {
+        if(memo.containsKey(t)) return memo.get(t);
+        
+        int[] tar = new int[26];
+        for(char c: t.toCharArray()) tar[c-'a']++;
+        StringBuilder sb1 = new StringBuilder();
+        for(int i = 0; i< 26; i++) {
+            for(int j = 0; j< tar[i]; j++){
+                sb1.append((char)('a' + i));
+            }
+        }
+        memo.put(sb1.toString(), Integer.MAX_VALUE);
+        
+        
+        int res = Integer.MAX_VALUE;
+        for(int i = 0; i< ss.length; i++) {
+            
+            //if(tar[c-'a'] == 0) continue;
+           //if(mp[i][t.charAt(0) - 'a'] == 0) continue;
+            StringBuilder sb = new StringBuilder();
+            for(int j = 0; j<26;j++) {
+                if(tar[j]  > 0) 
+                for(int k = 0; k < Math.max(0, tar[j] - mp[i][j]); k++) {
+                    sb.append((char)('a' + j));
+                }
+            }
+            
+            
+            String nt = sb.toString();
+            if(nt.length() == t.length()) continue;
+            int tmp = helper(ss, nt, mp, memo);
+            
+            if(tmp != -1) res = Math.min(res, tmp + 1);
+        }
+        
+        res = res == Integer.MAX_VALUE? -1: res;
+        memo.put(t, res);
+        //System.out.println(memo);
+        
+        return memo.get(t);
     }
 
 
