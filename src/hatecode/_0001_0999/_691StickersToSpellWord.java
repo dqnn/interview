@@ -36,8 +36,17 @@ here reduced_s is a new string after certain sticker applied
 
     you can use 2 "with",  1 "example" to form "thehat"
 
+    how to solve the problem:
 
+    we can start with "thehat"-->{t:2, h:2, e:1, a:1}
+    let's use ss[0], then it will be {t:1 h:1 e:1 a:1},
+    here we can see this can be same subproblem compare to previous, we want to know how many stickers can form thea, suppose it needs m, then in previous 
+    round it will need 1 + m 
 
+    edge case: if target contains character not exist in ss, how we will handle:
+    two ways:
+    1. if we did not have it, then just skip it or return -1;
+    2. use visited array, if one target string we saw before which means we cannot form, then return -1
 
     */
    public static int minStickers_DP(String[] stickers, String target) {
