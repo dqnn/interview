@@ -32,7 +32,7 @@ here reduced_s is a new string after certain sticker applied
    /*
     * 
     */
-   public int minStickers_DP(String[] stickers, String target) {
+   public static int minStickers_DP(String[] stickers, String target) {
         int m = stickers.length;
         int[][] mp = new int[m][26];
         Map<String, Integer> dp = new HashMap<>();
@@ -41,7 +41,7 @@ here reduced_s is a new string after certain sticker applied
         dp.put("", 0);
         return helper(dp, mp, target);
     }
-    private int helper(Map<String, Integer> dp, int[][] mp, String target) {
+    private static int helper(Map<String, Integer> dp, int[][] mp, String target) {
         if (dp.containsKey(target)) return dp.get(target);
         int ans = Integer.MAX_VALUE, n = mp.length;
         int[] tar = new int[26];
@@ -63,6 +63,11 @@ here reduced_s is a new string after certain sticker applied
         }
         dp.put(target, ans == Integer.MAX_VALUE? -1:ans);
         return dp.get(target);
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(minStickers_DP(new String[]{"with", "example", "science"}, "thehat"));
     }
     
     //best performance ones
