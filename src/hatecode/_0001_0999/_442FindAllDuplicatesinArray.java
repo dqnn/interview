@@ -51,21 +51,15 @@ public class _442FindAllDuplicatesinArray {
     public List<Integer> findDuplicates(int[] A) {
         //edge case
         List<Integer> res = new ArrayList<>();
-        if (A == null || A.length < 2) {
-            return res;
-        }
+        if (A == null || A.length < 2) return res;
         
         int n = A.length;
         // try to use starting from 0 always and use the i+1. which is better than 1 since you
         // will ignore some elements
-        for(int i = 0; i <= n - 1; i++) {
+        for(int i = 0; i < n; i++) {
             int index = Math.abs(A[i]) - 1;
-            if (A[index] > 0) {
-                A[index] = 0 - A[index];
-            } else {
-                res.add(Math.abs(A[i]));
-            }
-            
+            if (A[index] > 0)  A[index] = 0 - A[index];
+            else res.add(Math.abs(A[i]));
         }
         
         return res;
