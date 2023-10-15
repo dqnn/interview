@@ -30,7 +30,7 @@ here reduced_s is a new string after certain sticker applied
  */
    //thinking process: 
    /*
-    * 
+    * the problem is to say:given list of strings, and one target string, you will need to 
     */
    public static int minStickers_DP(String[] stickers, String target) {
         int m = stickers.length;
@@ -41,6 +41,8 @@ here reduced_s is a new string after certain sticker applied
         dp.put("", 0);
         return helper(dp, mp, target);
     }
+
+
     private static int helper(Map<String, Integer> dp, int[][] mp, String target) {
         if (dp.containsKey(target)) return dp.get(target);
         int ans = Integer.MAX_VALUE, n = mp.length;
