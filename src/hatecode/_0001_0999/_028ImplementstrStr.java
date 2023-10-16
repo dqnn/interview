@@ -66,14 +66,16 @@ a，ab，aba，abab，ababa，ababac，ababaca的相同的最长前缀和最长�
         if (q.length() > s.length() || s.length() == 0) return -1;
         char[] ndl = q.toCharArray();
         char[] hay = s.toCharArray();
-        int[] pai = new int[q.length()];
-        pai[0] = -1;
+
+        //build partial match table
+        int[] pmt = new int[q.length()];
+        pmt[0] = -1;
         for (int i = 1, k = -1; i < ndl.length; i++) {
-            while (k > -1 && ndl[k + 1] != ndl[i]) k = pai[k];
-            pai[i] = ndl[k + 1] == ndl[i] ? ++k : k;
+            while (k > -1 && ndl[k + 1] != ndl[i]) k = pmt[k];
+            pmt[i] = ndl[k + 1] == ndl[i] ? ++k : k;
         }
         for (int i = 0, k = -1; i < hay.length; i++) {
-            while (k > -1 && ndl[k + 1] != hay[i]) k = pai[k];
+            while (k > -1 && ndl[k + 1] != hay[i]) k = pmt[k];
             if (ndl[k + 1] == hay[i] && ++k == ndl.length - 1) return i - k;
         }
         return -1;
