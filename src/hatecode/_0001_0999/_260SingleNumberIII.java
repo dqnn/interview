@@ -34,20 +34,20 @@ public class _260SingleNumberIII {
      space : O(1)
 
 
-     * @param nums
+     * @param A
      * @return
      */
     //thinking process: two numbers appear once while others appear twice, find the two numbers
     
     //
-    public int[] singleNumber(int[] nums) {
+    public int[] singleNumber(int[] A) {
         int diff = 0;
-        for (int num : nums) {
+        for (int num : A) {
             diff ^= num;
         }
         diff &= -diff;
         int[] res = new int[2];
-        for (int num : nums) {
+        for (int num : A) {
             if ((num & diff) == 0) {
                 res[0] ^= num;
             } else {
