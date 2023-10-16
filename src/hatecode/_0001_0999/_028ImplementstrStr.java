@@ -65,13 +65,23 @@ you can see i need to back to next stop where j should from q again, this result
 
 How can we avoid?
 
-in above step 2, i would never fallback, it just keep rolling, j return to some place which it has same prefix and suffix in query string itself
+In above step 2, i would never fallback, it just keep rolling, j return to some place which it has same prefix and suffix in query string itself
          i
 "cabcdeabrdabcdeabcd"
       "abcdeabcd"
          j
 
 
+we need to generate an array which could instruct how to move j if i and j does not match, it called LPS(longest prefix sufffix ) array,
+how to generate LPS?
+
+1. initialize i = 0, j = 1
+ij
+abcdeabcd
+
+2. if char(i) == char(j), which means we found one prefix and suffix match, then lps[j] = i+1, then i++, j++
+   else not match, then 
+   a. if 
 
 
   */
