@@ -49,7 +49,9 @@ public class _260SingleNumberIII {
         for (int a : A) {
             diff ^= a;
         }
+        // Get its last set bit， 6 & -6 => 0010 //this is used as a mask to separate 3 and 5 from the A[]
         diff &= -diff;
+
         int[] res = new int[2];
         for (int a : A) {
             if ((a & diff) == 0) {
