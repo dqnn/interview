@@ -47,11 +47,11 @@ public class _260SingleNumberIII {
         }
         diff &= -diff;
         int[] res = new int[2];
-        for (int num : A) {
-            if ((num & diff) == 0) {
-                res[0] ^= num;
+        for (int a : A) {
+            if ((a & diff) == 0) {
+                res[0] ^= a;
             } else {
-                res[1] ^= num;
+                res[1] ^= a;
             }
         }
         return res;
