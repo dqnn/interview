@@ -39,11 +39,15 @@ public class _260SingleNumberIII {
      */
     //thinking process: two numbers appear once while others appear twice, find the two numbers
     
-    //
+    /*
+     * O(n)/O(1)
+     * 
+     * 
+     */
     public int[] singleNumber(int[] A) {
         int diff = 0;
-        for (int num : A) {
-            diff ^= num;
+        for (int a : A) {
+            diff ^= a;
         }
         diff &= -diff;
         int[] res = new int[2];
