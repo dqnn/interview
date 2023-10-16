@@ -37,18 +37,30 @@ public class _241DifferentWaystoAddParentheses {
      (((2*3)-4)*5) = 10
      Output: [-34, -14, -10, -10, 10]
 
-     time : O(n^3) 不确定
-     space : O(n)
-
 
      * @param input
      * @return
      */
     /*
-     * thinking process: O(2^)/O(2^n) each position we have 2 options, add ( or not add
-     * but it has nothing to do with parenthese
+     * thinking process: http://people.math.sc.edu/howard/Classes/554b/catalan.pdf Catalan number 
      * 
-     * we break the string when we encounter the operator, it is like where we insert closed parenthesis
+     * the problem is to say: given a expression like 2-1-1, you can add parenthese to the expression at any position
+     * 2-(1-1) =2, 
+     * (2-1)-1 = 0
+     * 
+     * return [0,2] or [2,0]
+     * 
+     *  for every operator(+, -, *,/) we can break the string into two parts, left and right, for example 
+     *       2-1-1
+     *        /  \
+     *       2 -  1-1
+     *            /  \
+     *           1 -  1
+     * 
+     * for each leaf node, we can convert to integer easily, here we stop at each operator means where we start to add parenthese
+     * 
+     * 
+     * 
      * 
      * 
      */
