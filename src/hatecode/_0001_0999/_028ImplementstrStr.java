@@ -42,6 +42,37 @@ public class _028ImplementstrStr {
 
 return 10
 
+KMP, there are two questions around KMP, 
+1. why we need to use KMP
+2. How?
+
+1. if we do not use KMP, the complexity will be O(mn)
+ i
+"cabcdeabrdabcdeabcd"
+"abcdeabcd"
+ j
+         i
+"cabcdeabrdabcdeabcd"
+ "abcdeabcd"
+         j
+
+   i
+"cabcdeabrdabcdeabcd"
+  "abcdeabcd"
+   j
+
+you can see i need to back to next stop where j should from q again, this result in O(mn) complexity 
+
+How can we avoid?
+
+in above step 2, i would never fallback, it just keep rolling, j return to some place which it has same prefix and suffix in query string itself
+         i
+"cabcdeabrdabcdeabcd"
+      "abcdeabcd"
+         j
+
+
+
 
   */
  public int strStr_KMP(String s, String q) {
