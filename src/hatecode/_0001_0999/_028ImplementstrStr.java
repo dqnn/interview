@@ -61,12 +61,12 @@ a，ab，aba，abab，ababa，ababac，ababaca的相同的最长前缀和最长�
 这里-1表示不存在，0表示存在长度为1，2表示存在长度为3。这是为了和代码相对应。
      */
     //KMP
-    public int strStr(String haystack, String needle) {
-        if (needle.length() == 0) return 0;
-        if (needle.length() > haystack.length() || haystack.length() == 0) return -1;
-        char[] ndl = needle.toCharArray();
-        char[] hay = haystack.toCharArray();
-        int[] pai = new int[ndl.length];
+    public int strStr(String s, String q) {
+        if (q.length() == 0) return 0;
+        if (q.length() > s.length() || s.length() == 0) return -1;
+        char[] ndl = q.toCharArray();
+        char[] hay = s.toCharArray();
+        int[] pai = new int[q.length()];
         pai[0] = -1;
         for (int i = 1, k = -1; i < ndl.length; i++) {
             while (k > -1 && ndl[k + 1] != ndl[i]) k = pai[k];
