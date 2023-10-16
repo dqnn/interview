@@ -28,26 +28,70 @@ For the purpose of this problem, we will return 0 when needle is an empty string
 public class _028ImplementstrStr {
     /**
      * 28. Implement strStr()
+ */
 
-     time : O(n^2)
-     space : O(1)
-     * @param haystack
-     * @param needle
-     * @return
-     */
-    public int strStr2(String haystack, String needle) {
-      //edge case
-        if (haystack == null || needle == null) {
-            return -1;
+
+ /*
+  * interview friendly O(m + n)/O(n), m = s.length(), n = q.length();
+
+  the problem is to say: given two strings s and q, return the first match index,
+  
+  for example 
+  "cabcdeabrdabcdeabcd"
+            "abcdeabcd"
+
+return 10
+
+
+  */
+ public int strStr_KMP(String s, String q) {
+    if(s == null || q== null) return -1;
+    
+    int[] lps = helper(q);
+    
+    int i = 0, j = 0;
+    
+    while(i < s.length()) {
+        if (s.charAt(i) == q.charAt(j)) {
+            if (j == q.length() -1) {
+                return i - q.length() + 1;
+            } 
+            
+            i++;
+            j++;
+        } else {
+            if(j > 0) j = lps[j-1];
+            else i++;
         }
-        if (needle.length() == 0) return 0;
-        // note i <= becz i + needle.length() = haystack.length
-        for (int i = 0; i <= haystack.length() - needle.length(); i++) {
-            if (haystack.substring(i, i + needle.length()).equals(needle)) return i;
-        }
-        return -1;
     }
+    
+    
+    return -1;
+    
+}
+
+
+private int[] helper(String q) {
+    int i = 0, j = 1;
+    int n = q.length();
+    int[] lps = new int[n];
+    while(j < n) {
+        if(q.charAt(i) == q.charAt(j)) {
+            lps[j] = i + 1;
+            i++;
+            j++;
+        } else {
+            if(i == 0) {
+                j++;
+            } else i = lps[i-1];
+        }
+    }
+    
+    return lps;
+}
     /*
+
+    
 next数组的含义就是一个固定字符串的最长前缀和最长后缀相同的长度。
 
 比如：abcjkdabc，那么这个数组的最长前缀和最长后缀相同必然是abc。 
@@ -61,7 +105,7 @@ a，ab，aba，abab，ababa，ababac，ababaca的相同的最长前缀和最长�
 这里-1表示不存在，0表示存在长度为1，2表示存在长度为3。这是为了和代码相对应。
      */
     //KMP
-    public int strStr(String s, String q) {
+    public static int strStr(String s, String q) {
         if (q.length() == 0) return 0;
         if (q.length() > s.length() || s.length() == 0) return -1;
         char[] sc = q.toCharArray();
@@ -74,10 +118,17 @@ a，ab，aba，abab，ababa，ababac，ababaca的相同的最长前缀和最长�
             while (k > -1 && sc[k + 1] != sc[i]) k = pmt[k];
             pmt[i] = sc[k + 1] == sc[i] ? ++k : k;
         }
+
+
         for (int i = 0, k = -1; i < qc.length; i++) {
             while (k > -1 && sc[k + 1] != qc[i]) k = pmt[k];
             if (sc[k + 1] == qc[i] && ++k == sc.length - 1) return i - k;
         }
         return -1;
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(strStr("AABAABAAA", "BAA"));
     }
 }
