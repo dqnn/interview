@@ -42,22 +42,27 @@ Explanation: The minimum number of jumps to reach the last index is 2.
     //which is stated in the problem that we can. So therefore curMaxArea and maxNext will always be >= A.size() - 1 
     //in the end, and therefore res will give us our answer.
 
-    public int jump(int[] A) {
+    public static int jump(int[] A) {
         if (A == null || A.length < 2) return 0;
         int res = 0;
-        int curMaxArea = 0;
-        int maxNext = 0;
+        int max = 0;
+        int nextMax = 0;
         for (int i = 0; i < A.length - 1; i++) {
             // we don't have the i < max here because we assume we can reach the end
-            maxNext = Math.max(maxNext, i + A[i]);
+            nextMax = Math.max(nextMax, i + A[i]);
             // from the model in previous, i catches the curMaxArea after i - 0, and curMaxArea should 
             // catch the latest maxNext then.
-            if (i == curMaxArea) {
+            if (i == max) {
                 res++;
-                curMaxArea = maxNext;
+                max = nextMax;
             }
         }
         return res;
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(jump(new int[]{3,2,1,0,4}));
     }
 
     /**
