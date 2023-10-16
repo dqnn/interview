@@ -42,9 +42,35 @@ public class _260SingleNumberIII {
     /*
      * O(n)/O(1)
      * 
+     * this problem is tricky, 
+     * 
+     * A=[1,2,1,3,2,5]
+     * 
+     * first diff = 3^5, because others appear twice then XOR will be 0, so diff = 110
+     * then diff &=~diff, it will be 010
+     * 
+     * here 010 means number 3 and 5 are different at 2nd bit from right, so if one number & 010 == 0 then it will be 
+     * in 3 or 5 group, another group number will be 1
+     * 
+     * so we use this digit to group number, for example 
+     * 
+     *    
+     *     010
+     * 1   001
+     * 5   101
+     * 
+     * 1 and 5 will be one group
+     * 
+     * 2 and 3 in another group
+     * 2   010
+     * 3   011
+     * 
+     * 
+     * since 3 only appear once in [2,2,3], so 3 will be showup in res[1]
+     * since 5 only appear once in [1,1,5], so 5 will be showup in res[0]  
      * 
      */
-    public int[] singleNumber(int[] A) {
+    public static int[] singleNumber(int[] A) {
         int diff = 0;
         for (int a : A) {
             diff ^= a;
@@ -61,5 +87,10 @@ public class _260SingleNumberIII {
             }
         }
         return res;
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(singleNumber(new int[]{1,2,1,3,2,5}));
     }
 }
