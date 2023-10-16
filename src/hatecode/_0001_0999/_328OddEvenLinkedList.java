@@ -61,18 +61,25 @@ The first node is considered odd, the second node even and so on ...
      *   put the even list after the odd list
      */
     public ListNode oddEvenList(ListNode head) {
-        if (head == null || head.next == null) return head;
+        if(head == null) return head;
+        
         ListNode odd = head;
-        ListNode even = head.next;
-        ListNode evenHead = even;
-        while (even != null && even.next != null) {
-            odd.next = odd.next.next;
-            // even point to next next, so 
-            even.next = even.next.next;
+        ListNode even = head.next, evenHead = even;
+        
+        while(even != null && even.next != null) {
+            //prepare next nodes for odd and even
+            ListNode nextodd = even.next;
+            ListNode nexteven = even.next.next;
+            
+            //point to next nodes
+            odd.next = nextodd;
+            even.next = nexteven;
+            
+            //odd and even move to next node
             odd = odd.next;
             even = even.next;
         }
-        // we add odd.next point to evenHead. so they can be in single list now
+        
         odd.next = evenHead;
         return head;
     }
