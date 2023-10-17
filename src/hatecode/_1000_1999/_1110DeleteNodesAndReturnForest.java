@@ -56,10 +56,10 @@ Output: [[1,2,null,4],[6],[7]]
      * after we removed the node, some nodes will be become root, 
      */
     private TreeNode helper(TreeNode node, List<TreeNode> res, Set<Integer> rm,
-            boolean is_root) {
+            boolean is_parent_removed) {
         if(node == null) return null;
         boolean deleted = rm.contains(node.val);
-        if(is_root && !deleted) res.add(node);
+        if(is_parent_removed && !deleted) res.add(node);
         
         node.left = helper(node.left, res, rm, deleted);
         node.right =  helper(node.right, res, rm, deleted);
