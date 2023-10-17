@@ -58,14 +58,14 @@ Bellman visit a vertex more then once but Dijkstra Algo only once.
         Arrays.stream(times).forEach(e->graph.get(e[0]).add(new int[]{e[1],e[2]}));
         
         //distTo 
-        int[] distTo = new int[N+1];
-        Arrays.fill(distTo, Integer.MAX_VALUE);
+        int[] dist = new int[N+1];
+        Arrays.fill(dist, Integer.MAX_VALUE);
         
         Queue<Integer> q = new LinkedList<>();
         
         boolean[] inQueue = new boolean[N + 1];
         q.offer(K);
-        distTo[K] = 0;
+        dist[K] = 0;
         inQueue[K] = true;
         
         while(!q.isEmpty()) {
@@ -73,8 +73,8 @@ Bellman visit a vertex more then once but Dijkstra Algo only once.
             inQueue[u] =false;
             for(int[] e: graph.get(u)) {
                 int v =e[0], w=e[1];
-                if (distTo[u] != Integer.MAX_VALUE && distTo[u] + w < distTo[v]) {
-                    distTo[v] = distTo[u] + w;
+                if (dist[u] != Integer.MAX_VALUE && dist[u] + w < dist[v]) {
+                    dist[v] = dist[u] + w;
                     if (!inQueue[v]) {
                         q.offer(v);
                         inQueue[v] = true;
@@ -83,7 +83,7 @@ Bellman visit a vertex more then once but Dijkstra Algo only once.
             }
         }
         
-        int res = IntStream.range(1, N+1).map(i->distTo[i]).max().getAsInt();
+        int res = IntStream.range(1, N+1).map(i->dist[i]).max().getAsInt();
         return res == Integer.MAX_VALUE ? -1 : res;
     }
 
