@@ -30,6 +30,9 @@ Output: 2
  * so you want to cut into bricks by edges, return the least bricks which are cut off
  * 
  * 
+ * 
+ * 
+ * 
  */
     public int leastBricks(List<List<Integer>> A) {
         if( A == null || A.size() < 1) return 0;
