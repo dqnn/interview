@@ -35,6 +35,8 @@ Output: [8,5,10,1,7,null,12]
    so when we move to right with a pointer id, we need to pass a max to know when we should return null
 
 
+    
+
           8
         /   \
        5
@@ -43,15 +45,16 @@ Output: [8,5,10,1,7,null,12]
 
   */
 
-    int idx = 0;
+    int id = 0;
     public TreeNode bstFromPreorder(int[] A) {
         return helper(A, Integer.MAX_VALUE);
     }
     
     private TreeNode helper(int[] A, int max) {
-        if( idx == A.length || A[idx] > max) return null;
+        //the tricky code is A[id] > max
+        if( id == A.length || A[id] > max) return null;
         
-        TreeNode root = new TreeNode(A[idx++]);
+        TreeNode root = new TreeNode(A[id++]);
         root.left = helper(A, root.val);
         root.right = helper(A, max);
         return root;
