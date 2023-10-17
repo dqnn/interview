@@ -35,21 +35,22 @@ following height balanced BST:
 
      time : O(n);
      space : O(lgn), the tree height is lgn since it is balanced
-     * @param nums
+     * @param A
      * @return
      */
-    public TreeNode sortedArrayToBST(int[] nums) {
-        if (nums == null || nums.length == 0) return null;
-        return helper(nums, 0, nums.length - 1);
+    public TreeNode sortedArrayToBST(int[] A) {
+        if (A == null || A.length == 0) return null;
+        return helper(A, 0, A.length - 1);
     }
 
     // preOrder visit the tree
-    public TreeNode helper(int[] nums, int left, int right) {  // space : O(logn);
-        if (left > right) return null;
-        int mid = (right - left) / 2 + left;
-        TreeNode node = new TreeNode(nums[mid]);
-        node.left = helper(nums, left, mid - 1);
-        node.right = helper(nums, mid + 1, right);
+    public TreeNode helper(int[] A, int l, int r) {  // space : O(logn);
+        //here is the tricky part, we return null if left index bigger than right one
+        if (l > r) return null;
+        int m = (r - l) / 2 + l;
+        TreeNode node = new TreeNode(A[m]);
+        node.left = helper(A, l, m - 1);
+        node.right = helper(A, m + 1, r);
         return node;
     }
 }
