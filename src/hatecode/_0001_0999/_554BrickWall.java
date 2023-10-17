@@ -30,6 +30,10 @@ Output: 2
  * so you want to cut into bricks by edges, return the least bricks which are cut off
  * 
  * 
+ * we use map to record its right edges index, ignore last one...
+ * so actually we are looking for the index which has most bricks aligned on one index
+ * 
+ * Map<index, bricks count>
  * 
  * 
  * 
