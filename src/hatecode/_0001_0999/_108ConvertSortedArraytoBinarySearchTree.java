@@ -45,8 +45,8 @@ following height balanced BST:
 
       the problem is to say: given one sorted array A, you need to construct one BST from the tree and tree should be balanced 
 
-      we divide and conqure 
-      
+      we divide and conqure, cut the sorted array into 2 parts 
+
       */
     public TreeNode sortedArrayToBST(int[] A) {
         if (A == null || A.length == 0) return null;
