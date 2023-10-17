@@ -36,7 +36,13 @@ Output: [[4,5,3],[2],[1]]
      * 
      * we define height as distance to leaves, leaves as 0, null nodes as -1.
      * 
-     * use a map to store map<height, List of nodes>, we use post order to visit the tree
+     * there are 2 tricks in the problem:
+     * 
+     * 1, you need to understand the every leaf has 0 height from bottom, so if they are not in same level, still the same height from bottom
+     * 2. we use height as map key, but we use the higher to store the current root value, so even they are in different level, if only they have same height
+     * from bottom then they will be same group
+     * 
+     * 
      */
     
     public List<List<Integer>> findLeaves_interview(TreeNode root) {
