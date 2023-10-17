@@ -22,8 +22,20 @@ Output: [8,5,10,1,7,null,12]
     //O(n)/O(n)
   //thinking process: given a array with distinct value--preorder visit, return binary search tree
     
-  //so BST only has 1 rule, but this problem seems to have only 1 answer, so every tree problem can be solved 
-  //by recursive or iterative, 
+  /*
+
+  the ask here is given one preorder visite of a BST as array, you need re-construct a BST.
+   [8,5,1,7,10,12]
+
+   first element must be root, and according to BST, the elements who are bigger than root must be its right branch, so we can see 
+   [5,1,7] must be left branch of 8 while [10,12] is right branch,
+
+   when we enter [5,1,7] to build the BST, then 1 is its left and 7 is the right .
+
+   so when we move to right with a pointer id, we need to pass a max to know when we should return null
+
+  */
+
     int idx = 0;
     public TreeNode bstFromPreorder(int[] A) {
         return helper(A, Integer.MAX_VALUE);
