@@ -104,24 +104,30 @@ there 4 use cases:
     }
     
     
-    //just for reference
+    /*
+     * this one actually is easier to understand use in interview, because it is easy to explain 
+     * 
+     */
     List<Integer> res = new ArrayList<>();
     public List<Integer> boundaryOfBinaryTree_TopVoted(TreeNode root) {
         if (root == null) return res;
         
         res.add(root.val);
-        
+        //only get left side nodes
         left(root.left);
+        //only get leaves side nodes
         leaves(root.left);
         
-       
+       // right child leaf node
         leaves(root.right);
+        //right side node
         right(root.right);
         
         return res;
     }
     
     private void left(TreeNode node) {
+        // ignore leaf child 
         if (node == null || node.left == null && node.right == null) return;
         res.add(node.val);
         if (node.left == null) left(node.right);
@@ -129,10 +135,11 @@ there 4 use cases:
     }
     
     private void right(TreeNode node) {
+        // ignore leaf child 
         if (node == null || node.left == null && node.right == null) return;
         if (node.right == null) right(node.left);
         else right(node.right);
-        
+        //collect in the end becaus we want to collect from bottom to top
         res.add(node.val);
     }
     
