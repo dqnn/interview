@@ -21,10 +21,15 @@ Output: 58
         
         public String toString(){return v +"-" + f;}
     }
-    //thinking process: O(n)/O(max)
+    //thinking process: O(n)/O(max) interview friendly 
     
     //we use bucket sort to arrange all integers and to find k - a - 1 in the buckets, 
     //in the buckets, we store buckets[a] =a if a is from A, if not, we store previous smaller integer
+
+    /*
+     * we use bucket to sort the array, but still need to fill some slots which are empty 
+     * 
+     */
     public int twoSumLessThanK(int[] A, int k) {
         if(A == null || A.length < 1) return -1;
         
