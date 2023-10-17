@@ -24,7 +24,7 @@ h hours.
 
 Example 1:
 
-Input: piles = [3,6,7,11], h = 8
+Input: A = [3,6,7,11], h = 8
 Output: 4
 */
     
