@@ -48,15 +48,15 @@ Output: false
     }
     
     // another nice solution
-    //interview friendly, 
+    //interview friendly, O(n)/O(1)
     //thinking process: given an array, find out whether we can find a increasing sequence, at least 3 elements
     
     //assume a, b, x are increasing, first we mark as MAX, so it can be replaced by first element
     //then b!=a, then we can try to find the biggest one, if not found just means we cannot find
-    public boolean increasingTriplet2(int[] nums) {
-        if(nums.length<=2) return false;
+    public boolean increasingTriplet2(int[] A) {
+        if(A.length<=2) return false;
         int a = Integer.MAX_VALUE, b = a;
-        for(int x:nums){
+        for(int x:A){
           if(x<a) a=x;
           else if(x>a && x<b) b=x;
           else if(x>a && x>b) return true;
