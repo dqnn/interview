@@ -34,7 +34,9 @@ Output: 2
  * so actually we are looking for the index which has most bricks aligned on one index
  * 
  * Map<index, bricks count>
+ * [[1,2,2,1],[3,1,2],[1,3,2],[2,4],[3,1,2],[1,3,1,1]]
  * 
+ * we can pick which index has most bricks, then that means that index will cut least bricks 
  * 
  * 
  */
