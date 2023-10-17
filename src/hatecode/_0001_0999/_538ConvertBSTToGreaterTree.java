@@ -59,8 +59,9 @@ Output: [30,36,21,36,35,26,15,null,null,null,33,null,null,null,8]
  * 
  * so we can use visit right, root, left order to solve the problem, but the tricky part is you need to bring its right result into left branch 
  * 
+ * so we use helper(root, int v)
  * 
- * 
+ * first we go to most right branch, then return its right value, 
  * 
  */
     public TreeNode convertBST(TreeNode root) {
