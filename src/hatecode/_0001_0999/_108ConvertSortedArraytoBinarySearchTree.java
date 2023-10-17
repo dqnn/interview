@@ -38,6 +38,16 @@ following height balanced BST:
      * @param A
      * @return
      */
+
+
+     /*
+      * thinking process: O(n)/O(lgn)
+
+      the problem is to say: given one sorted array A, you need to construct one BST from the tree and tree should be balanced 
+
+      we divide and conqure 
+      
+      */
     public TreeNode sortedArrayToBST(int[] A) {
         if (A == null || A.length == 0) return null;
         return helper(A, 0, A.length - 1);
