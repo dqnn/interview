@@ -95,10 +95,7 @@ Once you figure out all these, it's easy to write out the code:
         dp[0] = 1;
         for (int coin : c) {
             //starts from coin, we do not need to i >= coin
-           // for (int i = coin; i <= a; i++) {
-             //   dp[i] = dp[i] + dp[i - coin];
-            //}
-            for (int i = a; i >=coin; i--) {
+            for (int i = coin; i <= a; i++) {
                 dp[i] = dp[i] + dp[i - coin];
             }
         }
