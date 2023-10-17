@@ -34,6 +34,13 @@ Output: [8,5,10,1,7,null,12]
 
    so when we move to right with a pointer id, we need to pass a max to know when we should return null
 
+
+          8
+        /   \
+       5
+     /  \
+    1    
+
   */
 
     int idx = 0;
