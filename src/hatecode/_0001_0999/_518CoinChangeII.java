@@ -47,7 +47,6 @@ Input: amount = 10, coins = [10]
 Output: 1
  */
 /*
-This is a classic knapsack problem. Honestly, I'm not good at knapsack problem, it's really tough for me.
 
 dp[i][j] : the number of combinations to make up amount j by using the first i types of coins
 State transition:
@@ -89,18 +88,26 @@ Once you figure out all these, it's easy to write out the code:
     //thinking about this way:
     
     //dp[i] += dp[i -coin], 
-    public int change2(int a, int[] c) {
+    public static int change2(int a, int[] c) {
         if (a <= 0) return 1;
         if (c == null || c.length < 1) return 0;
         int[] dp = new int[a + 1];
         dp[0] = 1;
         for (int coin : c) {
             //starts from coin, we do not need to i >= coin
-            for (int i = coin; i <= a; i++) {
+           // for (int i = coin; i <= a; i++) {
+             //   dp[i] = dp[i] + dp[i - coin];
+            //}
+            for (int i = a; i >=coin; i--) {
                 dp[i] = dp[i] + dp[i - coin];
             }
         }
         return dp[a];
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(change2(5, new int[]{1,2,5}));
     }
     
     public int change(int a, int[] c) {
