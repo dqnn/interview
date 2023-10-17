@@ -81,7 +81,11 @@ abcdeabcd
 
 2. if char(i) == char(j), which means we found one prefix and suffix match, then lps[j] = i+1, then i++, j++
    else not match, then 
-   a. if 
+   a. if i > 0. then i = lps[i-1]
+      else j++
+
+abcdeabcd
+000001234
 
 
   */
