@@ -61,7 +61,8 @@ Output: [30,36,21,36,35,26,15,null,null,null,33,null,null,null,8]
  * 
  * so we use helper(root, int v)
  * 
- * first we go to most right branch, then return its right value, 
+ * first we go to most right branch, then return its right value, then its root will need its right child sum as its new root val, then 
+ * we pass root.val to left child, left child  will add this value and return whole sub tree as a sum to its caller
  * 
  */
     public TreeNode convertBST(TreeNode root) {
