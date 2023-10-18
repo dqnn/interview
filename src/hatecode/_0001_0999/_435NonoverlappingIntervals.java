@@ -84,6 +84,7 @@ public class _435NonoverlappingIntervals {
         return intervals.length - count;
     }
 
+    //simple version
     public int eraseOverlapIntervals(int[][] in) {
         if(in == null || in.length < 1 || in[0].length < 1) return 0;
         
