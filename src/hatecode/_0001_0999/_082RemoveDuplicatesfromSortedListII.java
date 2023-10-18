@@ -19,7 +19,10 @@ public class _082RemoveDuplicatesfromSortedListII {
      * @param head
      * @return
      */
-    //interview friendly, 
+    //interview friendly, O(n)/O(1)
+    /*
+     * it is tricky, the only way to write correct solution in 10m is that to memo it
+     */
     public ListNode deleteDuplicates(ListNode head) {
         if(head == null || head.next == null) return head;
         
