@@ -63,6 +63,9 @@ public class _435NonoverlappingIntervals {
      * one variation of the problem is to see minimal meeting needs to be removed if we want to attend most of meetings.
      *  [ [1,2], [2,3], [3,4], [1,3] ], return 1, needs to remove [1,3]
      * 
+     * 
+     * this problem has another form of ask: the min meetings needs to be removed to make meeting no conflict
+     * 
 
      */
     public int eraseOverlapIntervals(Interval[] intervals) {
@@ -79,6 +82,26 @@ public class _435NonoverlappingIntervals {
             }
         }
         return intervals.length - count;
+    }
+
+    public int eraseOverlapIntervals(int[][] in) {
+        if(in == null || in.length < 1 || in[0].length < 1) return 0;
+        
+        Arrays.sort(in, (a, b)->Integer.compare(a[0], b[0]));
+
+        int prevEnd = in[0][1];
+        int count = 0;
+        for(int i = 1; i< in.length; i++) {
+            if(prevEnd > in[i][0]) {
+                count++;
+                prevEnd = Math.min(prevEnd, in[i][1]);
+            }  else {
+                prevEnd = in[i][1];
+            }
+            
+        }
+
+        return  count;
     }
 
     public int eraseOverlapIntervals2(Interval[] intervals) {
