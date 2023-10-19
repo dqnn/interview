@@ -103,6 +103,10 @@ public class _017LetterCombinationsofaPhoneNumber {
 
 
     //the 3rd vesion without removing elements in list
+    /*
+     * interview friendly.
+     * thinking process: O(m^n)/O(n) m = avg length of each charater mapping, n = s.length()
+     */
     public List<String> letterCombinations_v3(String s) {
         if(s == null || s.length() < 1) return new ArrayList<>();
         
