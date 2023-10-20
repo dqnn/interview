@@ -70,7 +70,7 @@ public class _227BasicCalculatorII {
     }
 
     // time : O(n)  space : O(1)
-    public int calculate2(String s) {
+    public static int calculate2(String s) {
         if (s == null || s.length() == 0) return 0;
         s = s.trim().replaceAll(" +", "");
         int res = 0;
@@ -101,5 +101,9 @@ public class _227BasicCalculatorII {
         }
         res += preVal;
         return res;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(calculate2("3/2 + 1"));
     }
 }
