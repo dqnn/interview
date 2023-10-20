@@ -46,6 +46,16 @@ Output: "cbad"
         return sb.toString();
     }
     
+
+    /*
+     * interview friendly O(n+m)/O(1)
+     * 
+     * the solution is we first count T character counts, 
+     * then we re-visit string s, because we visit from left to right, so the order is guarnteed, 
+     * we also are able to see how many characters in the T
+     * 
+     * then we scan the left bucket and append to stringBuilder
+     */
     public String customSortString(String S, String T) {
         int[] bucket = new int[26];
         for (char c : T.toCharArray()) {
