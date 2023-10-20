@@ -45,7 +45,10 @@ map.get(2); // 7
     }
 
 /*
- * the problem is to say: design one data structure, so 
+ * the problem is to say: design one data structure, so get, put and setAll are O(1) ops
+ * 
+ * versionmap is to maintain setAll versions 
+ * for every set, it will keep current version 
  */
 
 class CustomMap {
