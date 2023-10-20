@@ -32,39 +32,23 @@ Output: [1,5]
      * if we have K arrays, then we need to use a PQ.
      * 
      */
-    public List<Integer> arraysIntersection(int[] A1, int[] A2, int[] A3) {
+    public List<Integer> arraysIntersection(int[] A, int[] B, int[] C) {
         int p1 = 0, p2 = 0, p3 = 0;
         
         List<Integer> res = new ArrayList<>();
-        while(p1 < A1.length && p2 < A2.length && p3 < A3.length) {
-            if (A1[p1] == A2[p2] && A2[p2] ==A3[p3]) {
-                res.add(A1[p1]);
+        while(p1 < A.length && p2 < B.length && p3 < C.length) {
+            if (A[p1] == B[p2] && B[p2] ==C[p3]) {
+                res.add(A[p1]);
                 p1++;
                 p2++;
                 p3++;
-            } else if (A1[p1] < A2[p2]) {
+            } else if (A[p1] < B[p2]) {
                 p1++;
-            } else if (A2[p2] < A3[p3]) {
+            } else if (B[p2] < C[p3]) {
                 p2++;
             } else p3++;
         }
         
         return res;
-    }
-
-   /*
-    * 
-    */
-    public List<Integer> arraysIntersection2(int[] A, int[] B, int[] C) {
-        if(A == null || B == null || C == null) return null;
-        
-        Set<Integer> set = Arrays.stream(A).boxed().collect(Collectors.toSet());
-        
-        Set<Integer> res = new HashSet<>();
-        
-        Arrays.stream(B).filter(b->set.contains(b)).forEach(b->res.add(b));
-        
-        return Arrays.stream(C).filter(c->res.contains(c)).boxed().collect(Collectors.toList());
-        
     }
 }
