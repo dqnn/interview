@@ -119,4 +119,68 @@ row number.
         }
         return res;
     }
+
+
+    class SparseMatrix {
+        Map<Integer, Map<Integer, Integer>> map = new HashMap<>();
+        Map<Integer, Map<Integer, Integer>> tmap = new HashMap<>();
+        int m;
+        int n;
+
+        public SparseMatrix(int m, int n) {
+            this.m = m;
+            this.n= n;
+        }
+
+
+        public SparseMatrix transpose(){
+            SparseMatrix res = new SparseMatrix(n, m);
+
+            Map<Integer, Map<Integer, Integer>> remap = new HashMap<>();
+            for(int i: map.keySet()) {
+                for(int j: map.get(i).keySet()) {
+                    remap.computeIfAbsent(i, v->new HashMap<>()).put(j, map.get(i).get(j));
+                }
+            }
+
+            res.map = remap;
+            return res;
+        }
+
+
+        public SparseMatrix  Mul(SparseMatrix m1, SparseMatrix m2) {
+            Map<Integer, Map<Integer, Integer>> reMap = new HashMap<>();
+            
+            for(var entry: m1.map.entrySet()) {
+                var key = entry.getKey();
+                var val = entry.getValue();
+
+                if(!m2.tmap.containsKey(key)) continue;
+
+                helper(reMap, val, m2.tmap.get(key));
+            }
+
+
+            SparseMatrix res = new SparseMatrix(m1.m, m2.n);
+            res.map = reMap;
+            res.tmap = res.transpose();
+
+            return res;
+        }
+
+        private void helper(Map<Integer, Map<Integer, Integer>> map, Map<Integer, Integer> m1, Map<Integer, Integer> m2) {
+            for(int i: m1.keySet()) {
+                if(!m2.containsKey(i)) continue;
+                int j = m2.get(i);
+                int temp = m1.get(i) * m2.get(i);
+                map.computeIfAbsent(i, v->new HashMap<>()).put(j, map.get(i).getOrDefault(0, j) + temp);
+            }
+        }
+
+
+    }
+
 }
+
+
+
