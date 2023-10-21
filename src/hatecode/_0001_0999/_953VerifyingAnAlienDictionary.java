@@ -25,6 +25,10 @@ public class _953VerifyingAnAlienDictionary {
     //1 is we compare each chaacter as in dictionary, each of them should be = or < next one
     //2: this is the key, like "apple" vs "app", if they are all the same, then shorter 
     //should appear first
+    /*
+     * 3. understand the compare rules, if a < b, then we do not have compare the rest of them
+     * 
+     */
     
     //actually this is to verify the lexi order
     int[] mapping = new int[26];
