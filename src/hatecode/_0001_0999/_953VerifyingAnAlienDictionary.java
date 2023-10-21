@@ -31,14 +31,15 @@ public class _953VerifyingAnAlienDictionary {
     public boolean isAlienSorted(String[] words, String order) {
         for (int i = 0; i < order.length(); i++)
             mapping[order.charAt(i) - 'a'] = i;
-        for (int i = 1; i < words.length; i++)
-            if (compare_simple(words[i - 1], words[i]) > 0)
-                return false;
+        for (int i = 1; i < words.length; i++) {
+            if (cmp(words[i - 1], words[i]) > 0)return false;
+        }
+            
         return true;
     }
 
     //simple version of compare function
-    private int compare_simple(String s1, String s2) {
+    private int cmp(String s1, String s2) {
         int m = s1.length(), n = s2.length();
         for(int i =0, j= 0; i <m && j < n ;i++, j++) {
             char c1 = s1.charAt(i), c2 = s2.charAt(j);
