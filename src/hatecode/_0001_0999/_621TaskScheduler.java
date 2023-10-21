@@ -85,7 +85,16 @@ public class _621TaskScheduler {
                 res +=1;
             }
         }
-        //this is for AAABCDEFG case
+        //this is for AAABCDEFG or AAA,BBB,CCC, DD, E case
+        /*
+         * A_ _ A
+         * 
+         * original algorithms (n + 1) * (max -1) only applies to the use cases where the max Task will be show up in every 
+         * n+1 length of sequence A _ _
+         * 
+         * but AAABCDEFG is not the case, because every unit is occupied with task, we do not need to arrange them
+         * also ABCD, AB
+         */
         return Math.max(tasks.length, res);
     }
     

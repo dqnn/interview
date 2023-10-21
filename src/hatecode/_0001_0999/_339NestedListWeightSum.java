@@ -106,8 +106,52 @@ public class _339NestedListWeightSum {
      * 1,[[2],[1,2]]
      * 
      */
+   
+    public static int calc2(String A) {
+        if (A == null || A.length() < 1) return 0;
+        String[] ss = A.split(",");
 
-     public static int calc(String A) {
+        Stack<Integer> st = new Stack<>();
+        int level = 1;
+        for(String s : ss) {
+            for(int i = 0; i< s.length(); i++) {
+                char c = s.charAt(i);
+                if(Character.isDigit(c)) {
+                    int num = c- '0';
+                    int j = i + 1;
+                    while( j < s.length() && Character.isDigit(s.charAt(j))) {
+                        num = num * 10 + s.charAt(j) - '0';
+                        j++;
+                    }
+                    i = j -1;
+                    st.push(level * num);
+                } else if (c=='[') {
+                    level += 1;
+                    st.push(Integer.MIN_VALUE);
+                } else {
+                    int temp = 0;
+                    while(!st.isEmpty() && st.peek() != Integer.MIN_VALUE) {
+                        temp += st.pop();
+                    }
+
+                    st.pop();
+                    st.push(temp);
+                    level -=1;
+                }
+            }
+        }
+
+        int res = 0;
+        while(!st.isEmpty()) res += st.pop();
+
+        return res;
+    }
+
+
+
+
+    
+    public static int calc(String A) {
         if(A == null || A.length()< 1) return 0;
 
         String[] ss = A.split(",");
@@ -152,6 +196,9 @@ public class _339NestedListWeightSum {
 
      public static void main(String[] args) {
         //System.out.println(calc("1,2"));
+        System.out.println(calc2("1,[[2],[1,2]]")); 
+        System.out.println(calc2("[[[1,2]]]")); 
+
         System.out.println(calc("1,[[2],[1,2]]")); 
         System.out.println(calc("[[[1,2]]]")); 
         //                         1  + 3 * 2 + 3 *1 + 3 *2 = 
