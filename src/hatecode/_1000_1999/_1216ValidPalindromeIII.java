@@ -28,12 +28,12 @@ Explanation: Remove 'b' and 'e' characters.
     //then if n - max len of palindrom of s <= k, then we can return true
     //this problem is the same as #516 Longest Palindromic Subsequence
     public boolean isValidPalindrome(String s, int k) {
-        int len = s.length();
-        int[][] dp = new int[len][len];
-        for(int i =len - 1; i>= 0; i--) {
+        int n = s.length();
+        int[][] dp = new int[n][n];
+        for(int i =n - 1; i>= 0; i--) {
             dp[i][i] = 1;
             
-            for(int j = i + 1; j<len; j++) {
+            for(int j = i + 1; j<n; j++) {
                 if (s.charAt(i) == s.charAt(j)) {
                     dp[i][j] = dp[i+1][j-1] + 2;
                 } else {
@@ -42,7 +42,7 @@ Explanation: Remove 'b' and 'e' characters.
             }
         }
         
-        return len - dp[0][len-1] <= k;
+        return n - dp[0][n-1] <= k;
     
     }
     
