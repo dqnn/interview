@@ -63,11 +63,14 @@ you should return the original given node.
                     insertAfter(cur, x);
                     break;
                 }
-            // case 2: NO tipping point, all flat. we already visit one round
+            // case 2: NO tipping point, all flat. we already visit one round or only one element
             //example: [2,2,5] x=0 
             } else {
                 //so we can only insert x to the tail, because [3,3,4], x=5, if not gated, 
                 //then it will be inserted to after 3
+                /*
+                 * here [1], x =0, then it will come here 
+                 */
                 if (cur.next == start) {  // insert x before we traverse all nodes back to start
                     insertAfter(cur, x);
                     break;
