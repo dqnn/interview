@@ -33,6 +33,11 @@ public class _516LongestPalindromicSubsequence {
     here i, j represent left, right indexes in the string
     State transition:
         dp[i][j] = dp[i+1][j-1] + 2 if s.charAt(i) == s.charAt(j)
+        -----i-------------j---
+        ------i+1----------j---
+        -----i----------j-1----
+
+        
         otherwise, dp[i][j] = Math.max(dp[i+1][j], dp[i][j-1])
         Initialization: dp[i][i] = 1
         */
