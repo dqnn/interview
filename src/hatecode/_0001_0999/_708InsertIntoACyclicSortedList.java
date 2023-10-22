@@ -66,6 +66,8 @@ you should return the original given node.
             // case 2: NO tipping point, all flat. we already visit one round
             //example: [2,2,5] x=0 
             } else {
+                //so we can only insert x to the tail, because [3,3,4], x=5, if not gated, 
+                //then it will be inserted to after 3
                 if (cur.next == start) {  // insert x before we traverse all nodes back to start
                     insertAfter(cur, x);
                     break;
