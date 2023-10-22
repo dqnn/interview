@@ -50,18 +50,21 @@ you should return the original given node.
         Node cur = start;
         while (true) {
             // case 1A: has a tipping point, still climbing
+            //example: [1,3,4] x =2
             if (cur.val < cur.next.val) { 
                 if (cur.val <= x && x <= cur.next.val) { // x in between cur and next
                     insertAfter(cur, x);
                     break;
                 }
             // case 1B: cur is the max node, the value is smallest or biggest
+            //example [1,3,4] x= 0 or 5
             } else if (cur.val > cur.next.val) { 
                 if (cur.val <= x || x <= cur.next.val) { // cur is the tipping point, x is max or min val
                     insertAfter(cur, x);
                     break;
                 }
             // case 2: NO tipping point, all flat. we already visit one round
+            //example: [2,2,5] x=0 
             } else {
                 if (cur.next == start) {  // insert x before we traverse all nodes back to start
                     insertAfter(cur, x);
