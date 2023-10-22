@@ -52,11 +52,11 @@ here reduced_s is a new string after certain sticker applied
    public static int minStickers_DP(String[] stickers, String target) {
         int m = stickers.length;
         int[][] mp = new int[m][26];
-        Map<String, Integer> dp = new HashMap<>();
+        Map<String, Integer> memo = new HashMap<>();
         for (int i = 0; i < m; i++) 
             for (char c:stickers[i].toCharArray()) mp[i][c-'a']++;
-        dp.put("", 0);
-        return helper(dp, mp, target);
+        memo.put("", 0);
+        return helper(memo, mp, target);
     }
 
 
