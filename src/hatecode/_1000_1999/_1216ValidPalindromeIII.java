@@ -30,6 +30,9 @@ Explanation: Remove 'b' and 'e' characters.
     public boolean isValidPalindrome(String s, int k) {
         int n = s.length();
         int[][] dp = new int[n][n];
+
+        //we have to iterater from n-1 to 0 because dp[i][j] depends on dp[i+1][j-1] etc
+        //if we start from left, then it won't correct
         for(int i =n - 1; i>= 0; i--) {
             dp[i][i] = 1;
             
