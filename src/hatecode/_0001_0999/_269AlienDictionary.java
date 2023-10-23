@@ -176,4 +176,66 @@ public class _269AlienDictionary {
         if (res.length() != count) return "";
         return res.toString();
     }
+
+
+    /*
+     * another solution
+     */
+    public String alienOrder_Another(String[] A) {
+        if(A == null ||A.length < 1) return "";
+
+        Map<Character, Set<Character>> map = new HashMap<>();
+        Set<Character> all = new HashSet<>();
+
+        for(String s : A) {
+            for(char c: s.toCharArray()) {
+                all.add(c);
+            }
+        }
+        int[] indegree = new int[26];
+
+        for(int i = 1; i< A.length; i++) {
+            String prev = A[i-1];
+            String cur = A[i];
+
+            if(prev.length() > cur.length() && prev.startsWith(cur)) return "";
+
+            for(int j = 0; j< Math.min(prev.length(), cur.length()); j++) {
+                char a = prev.charAt(j);
+                char b = cur.charAt(j);
+                if(a == b) continue;
+
+                map.computeIfAbsent(a, v->new HashSet<>());
+                if(map.get(a).add(b)) {
+                    indegree[b-'a']++;
+                }
+                
+                break;
+            }
+        }
+
+        Queue<Character> q = new LinkedList<>();
+        for(char c: all) {
+            if(indegree[c-'a'] == 0) {
+                q.offer(c);
+            }
+        }
+
+
+        StringBuilder sb = new StringBuilder();
+
+        while(!q.isEmpty()) {
+            char c = q.poll();
+            sb.append(c);
+            if(!map.containsKey(c)) continue;
+            for(char next: map.get(c)) {
+                indegree[next-'a']--;
+                if(indegree[next-'a'] == 0) {
+                    q.offer(next);
+                }
+            }
+        }
+
+        return sb.length() != all.size() ? "" : sb.toString();
+    }
 }
