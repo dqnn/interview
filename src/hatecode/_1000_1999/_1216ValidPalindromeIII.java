@@ -16,6 +16,17 @@ Input: s = "abcdeca", k = 2
 Output: true
 Explanation: Remove 'b' and 'e' characters.
     */
+
+    /*
+     *    dp matrix
+  [[1, 1, 1, 1, 1, 3, 5], 
+   [0, 1, 1, 1, 1, 3, 3], 
+   [0, 0, 1, 1, 1, 3, 3], 
+   [0, 0, 0, 1, 1, 1, 1], 
+   [0, 0, 0, 0, 1, 1, 1], 
+   [0, 0, 0, 0, 0, 1, 1], 
+   [0, 0, 0, 0, 0, 0, 1]]
+     */
     
     //thinking process: O(n^2)/O(n^2)
     
