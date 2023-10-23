@@ -124,6 +124,17 @@ public class _269AlienDictionary {
                     //if we can add to the set, degree ++,
                     //here is one tricky ppoint that we only degree++ when you can find a new path, if it exist path, then 
                     //just drop it 
+                    /*
+                     * ["ac","ab","zc","zb"]
+                     * 
+                     * [ac, ab] ---> c-->b
+                     * "ab","zc" ---> a--->z
+                     * "zc","zb" ---> c--> b
+                     * 
+                     * we cannot add indgree for b again for ["zc","zb"] because it it same link, 
+                     * 
+                     * 
+                     */
                     if (map.get(cur[j]).add(next[j])) {
                         degree[next[j] - 'a']++;
                     }
