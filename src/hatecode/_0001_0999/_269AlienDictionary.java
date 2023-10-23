@@ -111,6 +111,10 @@ public class _269AlienDictionary {
         //the order of the words showed the character order,we extract all possible info into the maps
         //and degree, the map only will save from previous character to next different ones. it will only
         //contains part of all characters
+
+        /*
+         * 3. ["z","x","a","zb","zx"]
+         */
         for (int i = 0; i < A.length - 1; i++) {
             //["abc","ab"] ==> "", need to have such case
             if (A[i].length() > A[i+1].length() && A[i].startsWith(A[i+1])) {
