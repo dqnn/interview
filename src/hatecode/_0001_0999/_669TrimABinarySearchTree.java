@@ -21,7 +21,7 @@ Output: [3,2,null,1]
      * the problem is to say: given one BST, low and high, remove the nodes which are 
      * not in [low, high], but for some children should still in the tree, see
      * fillowing example 
-     *            3
+     *            3    [1,3]
      *          /   \ 
      *         0     4
      *          \    
