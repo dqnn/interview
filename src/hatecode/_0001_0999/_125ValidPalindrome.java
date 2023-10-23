@@ -54,6 +54,27 @@ public class _125ValidPalindrome {
         }
         return true;
     }
+
+    //this type of solution is introduced from 3SUM
+    public boolean isPalindrome_AnotherSimplifed(String s) {
+        if(s == null || s.length() < 1) return true;
+
+        int l = 0, r = s.length() -1;
+
+        while(l < r) {
+            while(l < r && !Character.isLetterOrDigit(s.charAt(l))) l++;
+            while(l < r && !Character.isLetterOrDigit(s.charAt(r))) r--;
+
+            char lc = Character.toLowerCase(s.charAt(l));
+            char rc = Character.toLowerCase(s.charAt(r));
+            if(lc != rc) return false;
+
+            l++;
+            r--;
+        }
+
+        return true;
+    }
     
     
     public static boolean isPalindrome(String s) {
