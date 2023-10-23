@@ -78,6 +78,9 @@ Output: 4
         return res;
     }
     
+    /*
+     * thinking process: O(nk)/O(nk)
+     */
     //here is suppose to solve the problem that we removed K elements, return the max
     //sum of the sub array
     
