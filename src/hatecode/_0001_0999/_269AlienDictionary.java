@@ -90,6 +90,9 @@ public class _269AlienDictionary {
         int count = 0;
         //save all possible roots, here if it already showed up then continue;
         //every node has at least 1 degree, let's say
+        /*
+         * //["abwc"], you need all here to make sure queue can pickup all 0 input edges
+         */
         for (String s : A) {
             for (char c : s.toCharArray()) {
                 //we only +1 for each char, initialized as 1 for all words
@@ -180,6 +183,10 @@ public class _269AlienDictionary {
 
     /*
      * another solution
+     edge cases:
+     * 1. ["abc", "ab"] you
+2.  ["abwc"]
+3. ["z","x","a","zb","zx"]
      */
     public String alienOrder_Another(String[] A) {
         if(A == null ||A.length < 1) return "";
@@ -187,6 +194,7 @@ public class _269AlienDictionary {
         Map<Character, Set<Character>> map = new HashMap<>();
         Set<Character> all = new HashSet<>();
 
+        //["abwc"], you need all here to make sure queue can pickup all 0 input edges
         for(String s : A) {
             for(char c: s.toCharArray()) {
                 all.add(c);
@@ -197,7 +205,7 @@ public class _269AlienDictionary {
         for(int i = 1; i< A.length; i++) {
             String prev = A[i-1];
             String cur = A[i];
-
+            //1. ["abc", "ab"] , here you need to return ""
             if(prev.length() > cur.length() && prev.startsWith(cur)) return "";
 
             for(int j = 0; j< Math.min(prev.length(), cur.length()); j++) {
