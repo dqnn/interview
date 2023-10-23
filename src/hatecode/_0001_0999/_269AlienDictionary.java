@@ -64,7 +64,7 @@ public class _269AlienDictionary {
      time : (V + E) -> O(n * words(max))
      space : O(n) -> O(26) -> O(1)
 
-     * @param words
+     * @param A
      * @return
      */
     //thinking process:
@@ -81,8 +81,8 @@ public class _269AlienDictionary {
     //1. how to build graph using map
     //2. how to use indegree to indicate there are roots node
     //3. toplogic sort by PQ
-    public static String alienOrder(String[] words) {
-        if (words == null || words.length == 0) return "";
+    public static String alienOrder(String[] A) {
+        if (A == null || A.length == 0) return "";
         //store each character next characters, we use set to avoid dup
         HashMap<Character, Set<Character>> map = new HashMap<>();
         //record each character indegree, char - 'a' as index
@@ -90,8 +90,8 @@ public class _269AlienDictionary {
         int count = 0;
         //save all possible roots, here if it already showed up then continue;
         //every node has at least 1 degree, let's say
-        for (String word : words) {
-            for (char c : word.toCharArray()) {
+        for (String s : A) {
+            for (char c : s.toCharArray()) {
                 //we only +1 for each char, initialized as 1 for all words
                 if (degree[c - 'a'] == 0) {
                     count++;
@@ -108,20 +108,22 @@ public class _269AlienDictionary {
         //the order of the words showed the character order,we extract all possible info into the maps
         //and degree, the map only will save from previous character to next different ones. it will only
         //contains part of all characters
-        for (int i = 0; i < words.length - 1; i++) {
+        for (int i = 0; i < A.length - 1; i++) {
             //["abc","ab"] ==> "", need to have such case
-            if (words[i].length() > words[i+1].length() && words[i].startsWith(words[i+1])) {
+            if (A[i].length() > A[i+1].length() && A[i].startsWith(A[i+1])) {
                 return "";
             }
-            char[] cur = words[i].toCharArray();
-            char[] next = words[i + 1].toCharArray();
+            char[] cur = A[i].toCharArray();
+            char[] next = A[i + 1].toCharArray();
             int len = Math.min(cur.length, next.length);
             for (int j = 0; j < len; j++) {
                 if (cur[j] != next[j]) {
                     if (!map.containsKey(cur[j])) {
                         map.put(cur[j], new HashSet<>());
                     }
-                    //if we can add to the set, degree ++, 
+                    //if we can add to the set, degree ++,
+                    //here is one tricky ppoint that we only degree++ when you can find a new path, if it exist path, then 
+                    //just drop it 
                     if (map.get(cur[j]).add(next[j])) {
                         degree[next[j] - 'a']++;
                     }
