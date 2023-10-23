@@ -75,6 +75,9 @@ Output: true
     }
     
     //BFS, the key is use while to implement rolling 
+    /*
+     * interview friendly 
+     */
     public boolean hasPath2(int[][] A, int[] s, int[] e) {
         boolean[][] visited = new boolean[A.length][A[0].length];
         int[][] dirs={{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
