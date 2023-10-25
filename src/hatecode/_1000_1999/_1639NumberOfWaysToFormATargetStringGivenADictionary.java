@@ -56,7 +56,7 @@ Explanation: There are 6 ways to form target.
      so it is easy that we want to have frequency of each character, cnt[i][26], i is the column index, it represents the count of one character frequency 
      for that column, the better part of this view is to help we won;t choose character before i
 
-     dp[i][j] means for word list matrix as above, the number of ways to form 0-j substring of target with 0-i columns from original word matrix
+     dp[i][j] means for word list matrix as above, the number of ways to form 0-j substring of target with 0-i rows from original word matrix
 
      we have 2 cases:
      1. if we do not use column j character, then it will be dp[i-1][j] ways, because we always formed the 0-j string
