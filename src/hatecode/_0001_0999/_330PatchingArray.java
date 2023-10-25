@@ -84,6 +84,23 @@ and it's best to add miss itself, to maximize the reach.
     //[1..2*num + 1].
     // the original array, it must be adding from smallest, so we can extend the sum array to 2* n + 1, 
     // the sum array was added n + 1 more elements
+
+    /*
+     * how to understand the solution, 
+     * 
+     * [1,2] n = 10, 
+     * 
+     * [1,2] could reprent [1,2,3], we do not want add 3, because we already have 3 in result, so we would like 4
+     * 
+     * [1,3] + [4] --> [1,7]
+     * 
+     * [1,2,4] -> [1,7] + [8] = [1,15]
+     * 
+     * so we use i means the index for array A, res means how many min numbers needed to add
+     * 
+     * miss means the current sum when we visit array A at position i
+     * 
+     */
     public int minPatches(int[] A, int n) {
         int i = 0, res = 0;
         //miss be the smallest sum in [0,n] that we might be missing
