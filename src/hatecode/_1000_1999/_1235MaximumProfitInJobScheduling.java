@@ -45,10 +45,12 @@ Output: 120
  * we use dp[i] means for for ith task, the max profit, 
  * then from dp[i] to dp[i+1]
  * 
- * option 1: = dp[i], we drop job[i]
+ * option 1: = dp[i], we drop job[i],it will be dp[i-1]
  * option 2: we do job[i] but we need to find how can we connect previous job, the critirial is to look for the end time <= current start time (binary search)
  * we want to find from dp[1],dp[2],dp[3]...dp[i]
  * which job end time <= job[i][0] start time, then it will be dp[j] + job[i][2]
+ * 
+ * option 3: we drop previous, we only need dp[i]
  * 
  * one key is in binary search: we want to find the most close to job[i][0], which means the last element in array, so we would like to move left when equals to target
  * ,target is job[i][0], think about find the last element in array, 
