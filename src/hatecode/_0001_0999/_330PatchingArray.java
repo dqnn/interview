@@ -98,7 +98,15 @@ and it's best to add miss itself, to maximize the reach.
      * 
      * so we use i means the index for array A, res means how many min numbers needed to add
      * 
-     * miss means the current sum when we visit array A at position i
+     * miss means the current sum when we visit array A at position i, we always add 
+     * 
+     * lets see another example, if A = [2]
+     * 
+     * then we should add 1 first, it will be come [1,2], then fall back to previous case 
+     * 
+     * if A=[3], then we have to add 1 and 2, becuase we have to fill [1,2] in [1, n]
+     * 
+     * so we can use a while loop with current sum 
      * 
      */
     public int minPatches(int[] A, int n) {
@@ -106,15 +114,15 @@ and it's best to add miss itself, to maximize the reach.
         //miss be the smallest sum in [0,n] that we might be missing
         //就是如果按照nums 的剧情发展，得不到的number， miss 按照
         // nums is the same as 1,2,3,4,... 如果[1,2,4,11,30] 那么miss=[1,2,4, 8, 16, 
-        long miss = 1; 
-        while (miss <= n) {
+        long sum = 1; 
+        while (sum <= n) {
             // 
-            if (i < A.length && A[i] <= miss) {
-                miss += A[i++];
+            if (i < A.length && A[i] <= sum) {
+                sum += A[i++];
             // if we already bigger than nums.length || nums[i] > miss, so under condition <=n, which means
             // we add the number miss into the list
             } else {
-                miss += miss;
+                sum += sum;
                 res++;
             }
         }
