@@ -30,6 +30,8 @@ Explanation: The set of distinct strings is ["a","b","aa","bb","ab","ba","aab","
  * do we have a better solution?
  * 
  * 
+ * we sort the suffix string, suppose n = s.length(), then max we can have n * (n +1)/2 substring 
+ * 
  * 
  * 
  */
