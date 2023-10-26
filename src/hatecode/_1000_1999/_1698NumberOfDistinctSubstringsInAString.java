@@ -36,11 +36,10 @@ Explanation: The set of distinct strings is ["a","b","aa","bb","ab","ba","aab","
 
      public int countDistinct(String s) {
         if (s == null || s.length() < 1) return 0;
-         
         
         List<String> suffix = new ArrayList<>();
          
-         for(int i = 0; i < s.length(); i++) {
+        for(int i = 0; i < s.length(); i++) {
             /*
              * for substring, after java 7, it is O(n), before it is O(1) since all substring share the char[], and it has its own index, after 7
              * , each string have its own copy string so it become o(n)

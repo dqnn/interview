@@ -37,7 +37,8 @@ c uaieuo uac
 /*
  * thinking process: O(n)/O(1)
  * 
- * the problem is to say: given one string it contains vows and non-vows,  return how many substring it contains thr 5 vows only
+ * the problem is to say: given one string it contains vows and non-vows,  
+ * return how many substring it contains thr 5 vows only
  * - "aeiouu"
       aeiou
       aeiouu
