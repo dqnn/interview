@@ -105,6 +105,7 @@ Output: false
      */
 
 
+     int res = 0;
      public int wayOfColor(int n, int k, int[][] A) {
         if(n <= 1) return 1;
 
@@ -116,10 +117,11 @@ Output: false
 
 
         int res = 0;
-        int[][] memo = new int[n+1][k+1];
+        
         for(int i = 1; i<=n; i++) {
-            for(int j = 1; j <=k; j++) {
-                res += helper(i, j, map, memo);
+            for(int c = 1; c<=k; c++) {
+                int[] color = new int[n+1];
+                helper(i, color, map, k, c);
             }
         }
 
@@ -127,12 +129,34 @@ Output: false
      }
 
 
-     private int helper(int v, int color, Map<Integer, Set<Integer>> map, int[][] memo) {
-        if(color[v][color] != 0) return color[v][color];
-        
+     private void helper(int node, int[] color, Map<Integer, Set<Integer>> map, int k, int c) {
+        if(isFilled(color)) {
+            res+=1;
+            return;
+        }
+        if(!map.containsKey(node)) return;
+        if(c >k) return;
+
+        color[node] = c;
+        for(int next: map.get(node)) {
+            if(color[next] > 0 && color[next] == c) return;
+            for(int i = 1; i<=k; i++) {
+                if(c == i) continue;
+                helper(next, color, map, k, i);
+            }
+
+        }
+        color[node] = 0;
+
+     }
 
 
+     private boolean isFilled(int[] A) {
+        for(int a : A) {
+            if (a == 0) return false;
+        }
 
+        return true;
      }
 
 
