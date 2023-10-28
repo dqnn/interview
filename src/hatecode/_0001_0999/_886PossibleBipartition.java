@@ -89,4 +89,7 @@ Output: false
         }
         return true; 
     }
+
+    //followup, if we want to divide the map with 3 colors 
+    
 }
