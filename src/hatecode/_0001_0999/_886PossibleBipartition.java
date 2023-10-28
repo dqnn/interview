@@ -92,8 +92,39 @@ Output: false
 
     //followup, if we want to divide the map with K colors 
     /*
-     * n nodes in graph, k colors
+     * n nodes in graph, k colors, will assume we can use k to color n nodes here, minimal color = k colorable 
      * 
      */
+
+
+     public int wayOfColor(int n, int k, int[][] A) {
+        if(n <= 1) return 1;
+
+        Map<Integer, Set<Integer>> map = new HashMap<>();
+        for(int[] a :A) {
+            map.computeIfAbsent(a[0], v->new HashSet<>()).add(a[1]);
+            map.computeIfAbsent(a[1], v->new HashSet<>()).add(a[0]);
+        }
+
+
+        int res = 0;
+        int[][] memo = new int[n+1][k+1];
+        for(int i = 1; i<=n; i++) {
+            for(int j = 1; j <=k; j++) {
+                res += helper(i, j, map, memo);
+            }
+        }
+
+        return res;
+     }
+
+
+     private int helper(int v, int color, Map<Integer, Set<Integer>> map, int[][] memo) {
+        if(color[v][color] != 0) return color[v][color];
+
+        
+
+
+     }
 
 }
