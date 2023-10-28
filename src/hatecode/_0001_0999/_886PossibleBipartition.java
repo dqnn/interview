@@ -90,6 +90,14 @@ Output: false
         return true; 
     }
 
+
+    /*
+     * followup, 
+     * 1. if we want to divide the map with K colors, how many ways, 
+     * 2. if the graph is tree, child and parent cannot share the same color, how many are they? or return true if we can color them
+     * 3. return true or if we can color n nodes with k colors
+     * 
+     */
     //followup, if we want to divide the map with K colors 
     /*
      * n nodes in graph, k colors, will assume we can use k to color n nodes here, minimal color = k colorable 
@@ -122,7 +130,7 @@ Output: false
      private int helper(int v, int color, Map<Integer, Set<Integer>> map, int[][] memo) {
         if(color[v][color] != 0) return color[v][color];
         
-        
+
 
 
      }
