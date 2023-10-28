@@ -90,6 +90,10 @@ Output: false
         return true; 
     }
 
-    //followup, if we want to divide the map with 3 colors 
-    
+    //followup, if we want to divide the map with K colors 
+    /*
+     * n nodes in graph, k colors
+     * 
+     */
+
 }
