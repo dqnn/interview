@@ -119,9 +119,10 @@ Output: false
       * solution for 1 or 2
        n nodes, m color, A describe the edges
       */
-
-      public boolean solve(int n, int m, int[][] A) {
-        if(n == m || n <= 1) return true;
+    
+      static int count = 0;
+      public static int solve(int n, int m, int[][] A) {
+        if(n == m || n <= 1) return 1;
 
         Map<Integer, Set<Integer>> map = new HashMap<>();
         for(int[] a :A) {
@@ -130,12 +131,17 @@ Output: false
         }
 
         int[] memo = new int[n+1];
-        if(solve(0, n, m, memo, map)) return true;
-        else return false;
+        //if(solve(0, n, m, memo, map)) return true;
+        //else return false;
+        solve(0, n, m, memo, map);
+        return count;
       }
 
-      private boolean solve(int node, int n, int m, int[] memo,  Map<Integer, Set<Integer>> map) {
-        if(node == n ) return true;
+      private static boolean solve(int node, int n, int m, int[] memo,  Map<Integer, Set<Integer>> map) {
+        if(node == n ) {
+            count++;
+            return true;
+        }
 
         for(int i = 1; i<=m; i++) {
             if(isSafe(node, i, n, memo, map)) {
@@ -150,12 +156,17 @@ Output: false
       }
 
 
-      private boolean isSafe(int node, int color, int n, int[] memo, Map<Integer, Set<Integer>> map) {
+      private static boolean isSafe(int node, int color, int n, int[] memo, Map<Integer, Set<Integer>> map) {
         for(int i = 0; i <= n; i++) {
             if(node != i && map.get(node).contains(i) && memo[i] != color) return false;
         }
 
         return true;
+      }
+
+
+      public static void main(String[] args) {
+            //solve(int )
       }
      
      
