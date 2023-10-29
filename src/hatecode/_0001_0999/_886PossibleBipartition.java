@@ -92,10 +92,21 @@ Output: false
 
 
     /*
-     * followup, 
-     * 1. if we want to divide the map with K colors, how many ways, 
-     * 2. if the graph is tree, child and parent cannot share the same color, how many are they? or return true if we can color them
-     * 3. return true or if we can color n nodes with k colors
+     * followup questions:
+     * 
+     * there are 2 type of follow up questions:
+     * 1. could we assign n nodes with k colors in graph, return true if we can otherwise return false
+     * 2. could we assign n nodes with k colors in tree, each node have to assign different color if distance is 1 or 2, 
+     * return true if we can otherwise return false, 
+     * 3. return how many ways of 1
+     * 4. return how many ways of 2
+     * 
+     * 
+     * 5. for 1 or 2, it can be more simpler for example, assign 2 colors to a tree
+     * 
+     * 
+     * for 1, 2 and 5, we do not have to go through all possible solution, we can just start from node 1(0), mark one color, then 
+     * 
      * 
      */
     //followup, if we want to divide the map with K colors 
@@ -104,7 +115,57 @@ Output: false
      * 
      */
 
+     /*
+      * solution for 1 or 2
+       n nodes, m color, A describe the edges
+      */
 
+      public boolean solve(int n, int m, int[][] A) {
+        if(n == m || n <= 1) return true;
+
+        Map<Integer, Set<Integer>> map = new HashMap<>();
+        for(int[] a :A) {
+            map.computeIfAbsent(a[0], v->new HashSet<>()).add(a[1]);
+            map.computeIfAbsent(a[1], v->new HashSet<>()).add(a[0]);
+        }
+
+        int[] memo = new int[n+1];
+        if(solve(0, n, m, memo, map)) return true;
+        else return false;
+      }
+
+      private boolean solve(int node, int n, int m, int[] memo,  Map<Integer, Set<Integer>> map) {
+        if(node == n ) return true;
+
+        for(int i = 1; i<=m; i++) {
+            if(isSafe(node, i, n, memo, map)) {
+                memo[node] = i;
+                if(solve(node+1, n, m, memo, map)) return true;
+                memo[node] = 0;
+            }
+        }
+
+        return false;
+
+      }
+
+
+      private boolean isSafe(int node, int color, int n, int[] memo, Map<Integer, Set<Integer>> map) {
+        for(int i = 0; i <= n; i++) {
+            if(node != i && map.get(node).contains(i) && memo[i] != color) return false;
+        }
+
+        return true;
+      }
+
+
+     
+     
+     
+     
+     
+     
+     //3
      int res = 0;
      public int wayOfColor(int n, int k, int[][] A) {
         if(n <= 1) return 1;
