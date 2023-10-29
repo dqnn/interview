@@ -133,7 +133,11 @@ Output: false
         int[] memo = new int[n+1];
         //if(solve(0, n, m, memo, map)) return true;
         //else return false;
-        solve(0, n, m, memo, map);
+        for(int i = 1; i<=m; i++) {
+            solve(0, n, m, memo, map);
+            Arrays.fill(memo, 0);
+        }
+        
         return count;
       }
 
@@ -157,8 +161,8 @@ Output: false
 
 
       private static boolean isSafe(int node, int color, int n, int[] memo, Map<Integer, Set<Integer>> map) {
-        for(int i = 0; i <= n; i++) {
-            if(node != i && map.get(node).contains(i) && memo[i] != color) return false;
+        for(int i = 0; i < n; i++) {
+            if(node != i && map.get(node).contains(i) && memo[i] == color) return false;
         }
 
         return true;
@@ -166,7 +170,11 @@ Output: false
 
 
       public static void main(String[] args) {
-            //solve(int )
+        int n = 3;
+        int m = 2;
+        
+        solve(n, m, new int[][]{{0,1}, {0,2}});
+        System.out.println(count);
       }
      
      
