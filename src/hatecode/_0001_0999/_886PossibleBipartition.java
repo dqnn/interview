@@ -135,7 +135,6 @@ Output: false
             return;
         }
         if(!map.containsKey(node)) return;
-        if(c >k) return;
 
         color[node] = c;
         for(int next: map.get(node)) {
