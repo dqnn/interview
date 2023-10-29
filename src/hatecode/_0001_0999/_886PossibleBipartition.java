@@ -159,9 +159,6 @@ Output: false
       }
      
      
-     
-     
-     
      //3
      int res = 0;
      public int wayOfColor(int n, int k, int[][] A) {
