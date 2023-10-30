@@ -131,6 +131,8 @@ Output: false
         }
 
         int[] memo = new int[n+1];
+        //if we only need to know whether we can assign k colors to n nodes, we just use following code, 
+        //but if we want to know how many, then we need to 
         //if(solve(0, n, m, memo, map)) return true;
         //else return false;
         for(int i = 1; i<=m; i++) {
