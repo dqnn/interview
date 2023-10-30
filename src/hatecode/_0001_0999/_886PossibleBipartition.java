@@ -135,12 +135,12 @@ Output: false
         //but if we want to know how many, then we need to 
         //if(solve(0, n, m, memo, map)) return true;
         //else return false;
-        for(int i = 1; i<=m; i++) {
+        //for(int i = 1; i<=m; i++) {
             solve(0, n, m, memo, map);
-            Arrays.fill(memo, 0);
-        }
+          //  Arrays.fill(memo, 0);
+        //}
         
-        return count;
+        return count * m;
       }
 
       private static boolean solve(int node, int n, int m, int[] memo,  Map<Integer, Set<Integer>> map) {
