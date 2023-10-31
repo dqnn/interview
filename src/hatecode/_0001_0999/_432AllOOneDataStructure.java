@@ -128,3 +128,147 @@ Mainly to use double linked list, each node is bucket, it contains count-> strin
         preBucket.next = newBucket;
     }
 }
+
+class AllOne {
+
+
+    class Node {
+        int v;
+        Node prev, next;
+        Set<String> keys;
+        public Node(int v) {
+            this.v = v;
+            this.keys = new HashSet<>();
+        }
+
+        public String toString(){
+            return ""+ v + "--" + keys + "--prev:" + prev + "--next: " + next;
+        }
+    }
+
+    Map<String, Integer> k2vMap;
+    Map<Integer, Node> vMap;
+    Node head, tail;
+    public AllOne() {
+        head = new Node(-1);
+        tail = new Node(-1);
+        head.next = tail;
+        tail.prev = head;
+
+        k2vMap = new HashMap<>();
+        vMap = new HashMap<>();
+    }
+
+    private void insertAfter(Node tmp, Node head) {
+        Node next = head.next;
+
+        head.next = tmp;
+        tmp.prev = head;
+
+        tmp.next = next;
+        next.prev = tmp;
+    }
+    /*
+    1. if not in k2vMap
+      a. 
+    */
+
+    private void remove(Node tmp) {
+        Node prev = tmp.prev;
+        Node next = tmp.next;
+
+        prev.next = next;
+        next.prev = prev;
+
+        tmp.prev = null;
+        tmp.next = null;
+    }
+
+    public void inc(String k) {
+        if(!k2vMap.containsKey(k)) {
+            Node tmp = new Node(1);
+            tmp.keys.add(k);
+            k2vMap.put(k, 1);
+            
+            if(!vMap.containsKey(1)) {
+                vMap.put(1, tmp);
+                insertAfter(tmp, head);
+            } else {
+                Node exist = vMap.get(1);
+                exist.keys.add(k);
+            }
+        } else {
+            int prevCount = k2vMap.get(k);
+            //k2vMap
+            k2vMap.remove(k);
+            k2vMap.put(k, prevCount+1);
+            //vMap
+            Node cur = vMap.get(prevCount);
+            //double linked list
+            if(vMap.containsKey(prevCount+1)) {
+                vMap.get(prevCount+1).keys.add(k);
+            } else {
+                Node tmp = new Node(prevCount+1);
+                tmp.keys.add(k);
+                insertAfter(tmp, cur);
+            }
+
+            //process vMap
+            if(cur.keys.size() == 1) {
+                remove(cur);
+                vMap.remove(1);
+            } else {
+                cur.keys.remove(k);
+            }
+        }
+    }
+    
+    public void dec(String k) {
+        int prevCount = k2vMap.get(k);
+        if(prevCount == 1) {
+            k2vMap.remove(k);
+        } else {
+            k2vMap.put(k, prevCount-1);
+        }
+
+        Node cur = vMap.get(prevCount);
+        if(vMap.containsKey(prevCount -1)) {
+            vMap.get(prevCount -1).keys.add(k);
+        } else {
+            Node tmp = new Node(prevCount - 1);
+            insertAfter(tmp, cur.prev);
+        }
+
+        if(cur.keys.size() == 1) {
+            remove(cur);
+        } else {
+            cur.keys.remove(k);
+        }
+    }
+    
+    public String getMaxKey() {
+        Node maxNode = tail.prev;
+        return maxNode.keys.size() == 0 ? "" : maxNode.keys.iterator().next();
+    }
+    
+    public String getMinKey() {
+        Node minNode = head.next;
+        return minNode.keys.size() == 0 ? "" : minNode.keys.iterator().next();
+    }
+
+    public static void main(String[] args) {
+        AllOne test = new AllOne();
+        test.inc("hello");
+        test.inc("goodbye");
+        test.inc("hello");
+        test.inc("hello");
+        test.inc("hello");
+        System.out.println(test.getMaxKey());
+        test.inc("leet");
+         test.inc("code");
+         test.dec("leet");
+         test.inc("leet");
+         test.inc("hello");
+         test.inc("leet");
+    }
+}
