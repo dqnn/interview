@@ -56,8 +56,8 @@ public class _330PatchingArray {
      * @param n
      * @return
      */
-    // the question is: the array is sorted, we want to  find the minum patche to this array, insert 
-    //numbers, so the array could sum to form any num in [1,20], inclusive.  so there is no replace or remove
+    // the question is: the array is sorted, we want to  find the minum patch to this array, insert 
+    //numbers, so the array could sum to form any num in [1,n], inclusive.  so there is no replace or remove
     //ops
     
     // min ops, so we can try to add number as small from beginning, and as we scan the arrays, we know what kind
